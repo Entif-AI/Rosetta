@@ -549,6 +549,18 @@ bridges:
     validation_references:
       - public_schema_and_fixture_contract
 
+
+  - public_issue: 1625
+    public_contract: correction_amendment_profile
+    protected_authorities: [IPR-0039]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - implementation_behavior_changes
+      - trust_weighting_or_admission_policy_changes
+    validation_references:
+      - public_correction_amendment_schema_and_adversarial_fixtures
+
+
 notes:
   - >-
     This initial bridge is intentionally incomplete. New edges MUST be added as
