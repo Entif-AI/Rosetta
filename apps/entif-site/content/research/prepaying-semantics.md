@@ -131,12 +131,12 @@ The delivered reference tests the coupled symmetric statement through two AdamW 
 
 **Scratch-training** is defined here as the absence of inherited task-capable pretrained neural weights: no pretrained task-capable model weights, no teacher hidden states, and no frontier-model or SBERT-style embedding vectors transferred into the student. It does **not** mean mandatory random initialization. The integrated treatment's initialization contract is:
 
-~~~text
+```text
 semantic object s
   -> deterministic semantic feature map phi(s)
   -> width-matched initialization transform
   -> initial embedding/state vector e(s)
-~~~
+```
 
 The initializer is compiled from project-owned, versioned semantic artifacts: the semantic ABI/canonical AST, grammar-derived factor map, cognitive algebra, token ABI, and, when selected for the experimental epoch, the accepted bounded semantic graph. Any width-matching transform, scale policy, reserved-token treatment, numerical dtype, and later quantization must be declared and auditable. In particular, treatment and control arms must not differ accidentally in active-row energy or another simple scale statistic, and a low-precision path must record geometry distortion rather than silently erasing the intended initialization.
 
@@ -154,12 +154,12 @@ A stronger Bithkuil hypothesis is almost the opposite. Superposition can be usef
 
 This motivates a mechanistic chain to instrument rather than assume:
 
-~~~text
+```text
 input factor accessibility
   -> learned representational geometry
   -> interference under finite width
   -> competence and learning cost
-~~~
+```
 
 The chain is schematic. A positive Bithkuil result need not move every link, and a geometry result does not by itself establish causation. It does, however, turn "representation matters" into a richer set of measurements capable of proving the proposed mechanism wrong.
 
@@ -753,9 +753,9 @@ P4 should therefore contain two complementary scaling families. The **width-isol
 
 For loss-like endpoints, fit representation-specific curves of the form
 
-~~~text
+```text
 L_R(m) = L_inf,R + C_R / m^(alpha_R)
-~~~
+```
 
 alongside capability, sample-efficiency, and compute curves. Estimate the asymptote, coefficient, and exponent rather than testing only whether slopes differ. Liu et al. report an approximately inverse-width representation-limited regime and explicitly note that architectural improvements may change scaling coefficients without changing exponents [51]. Consequently, a Bithkuil condition that retains an approximately 1/m exponent but has a materially lower C_R than a controlled-language comparator is a first-class positive signature for a packing/interference mechanism, not a consolation prize. Conversely, a different competence curve with unchanged measured geometry would weaken that mechanism while leaving other representation or curriculum explanations available.
 
