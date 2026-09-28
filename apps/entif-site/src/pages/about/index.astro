@@ -1,6 +1,8 @@
 ---
 import { getEntry, render } from 'astro:content';
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import '../../styles/about.css';
+
 const entry = await getEntry('pages', 'about');
 if (!entry) throw new Error('Missing page copy');
 const { Content } = await render(entry);
@@ -12,6 +14,7 @@ const { Content } = await render(entry);
   eyebrow={entry.data.eyebrow}
   heading={entry.data.title}
   lede={entry.data.description}
+  pageClass="about-page"
 >
-  <div class="prose"><Content /></div>
+  <div class="prose about-prose"><Content /></div>
 </ContentPageLayout>

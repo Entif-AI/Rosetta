@@ -7,13 +7,17 @@ interface Props {
   eyebrow: string;
   heading: string;
   lede?: string;
+  pageClass?: string;
 }
 
-const { title, description, eyebrow, heading, lede } = Astro.props;
+const { title, description, eyebrow, heading, lede, pageClass } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="section shell topic-page" data-test-id="content-page-shell">
+  <section
+    class:list={['section', 'shell', 'topic-page', pageClass]}
+    data-test-id="content-page-shell"
+  >
     <p class="eyebrow" data-test-id="content-page-eyebrow">{eyebrow}</p>
     <h1 data-test-id="content-page-heading">{heading}</h1>
     {

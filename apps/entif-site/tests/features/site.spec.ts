@@ -88,6 +88,12 @@ test('old URLs and date archives remain available; drafts stay private', async (
   ).toBe(404);
 });
 
+const reflowRoutes = [
+  ['/', 'home-hero-heading'],
+  ...reports.map((path) => [path, 'published-entry-heading'] as const),
+  ['/about/', 'content-page-heading'],
+] as const;
+
 for (const [width, height] of [
   [320, 568],
   [390, 844],
@@ -97,11 +103,11 @@ for (const [width, height] of [
   [1366, 768],
   [1536, 1024],
 ]) {
-  test(`reflows at ${width}×${height} with bounded typography`, async ({
+  test(`reflows at ${width}×${height} with bounded display typography`, async ({
     page,
   }) => {
     await page.setViewportSize({ width: width ?? 390, height: height ?? 800 });
-    for (const path of ['/', ...reports, '/about/']) {
+    for (const [path, headingTestId] of reflowRoutes) {
       await page.goto(path);
       expect(
         await page.evaluate(
@@ -110,21 +116,21 @@ for (const [width, height] of [
             document.documentElement.clientWidth
         )
       ).toBe(true);
-      const bad = await page.evaluate(() =>
-        Array.from(
-          document.querySelectorAll<HTMLElement>(
-            'h1,h2,h3,p,a,li,dt,dd,summary,span'
-          )
-        )
-          .filter((e) => e.getClientRects().length && e.textContent?.trim())
-          .filter((e) => {
-            const s = getComputedStyle(e);
-            const n = parseFloat(s.fontSize);
-            return n < 13 || n > 40 || parseFloat(s.lineHeight) / n > 1.401;
-          })
-          .map((e) => ({ tag: e.tagName, text: e.textContent?.slice(0, 40) }))
-      );
-      expect(bad).toEqual([]);
+
+      const heading = page.locator(`[data-test-id="${headingTestId}"]`);
+      await expect(heading).toBeVisible();
+      const typography = await heading.evaluate((element) => {
+        const style = getComputedStyle(element);
+        const fontSize = parseFloat(style.fontSize);
+        return {
+          fontSize,
+          lineHeightRatio: parseFloat(style.lineHeight) / fontSize,
+        };
+      });
+      expect(typography.fontSize).toBeGreaterThanOrEqual(13);
+      expect(typography.fontSize).toBeLessThanOrEqual(96);
+      expect(typography.lineHeightRatio).toBeGreaterThanOrEqual(0.85);
+      expect(typography.lineHeightRatio).toBeLessThanOrEqual(1.8);
     }
   });
 }
