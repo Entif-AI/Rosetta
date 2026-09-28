@@ -1,73 +1,69 @@
 ---
 {
   'slug': 'about',
-  'title': 'About Entif AI',
+  'title': 'Architecting Advanced, Accountable, Auditable, Accessible, Aspirational Aligned AI',
   'eyebrow': 'About Entif AI',
-  'description': 'Entif AI connects provenance-first AI research, semantic infrastructure, governed agentic systems, and experienced human engineering practice.',
+  'description': 'Entif AI connects open research, semantic infrastructure, and accountable engineering for institutions navigating the development of advanced intelligence.',
   'status': 'published',
 }
 ---
 
-## Research with a human being attached to it
+## Engineering experience behind Entif AI
 
-Entif AI studies a practical problem beneath a great deal of modern AI: how do we make increasingly capable systems more inspectable, semantically precise, governable, interoperable, and accountable as they move from demonstrations into institutions?
+Entif AI develops open research, architecture, and experimental systems for making advanced AI more inspectable, semantically precise, governable, interoperable, and accountable. Its work spans provenance, semantic representation, agentic memory, context compilation, model architecture, AI governance, accessibility, and the institutional consequences of increasingly capable intelligence.
 
-The work spans provenance, semantic representation, agentic memory, context compilation, model architecture, AI governance, accessibility, and the institutional consequences of deploying increasingly capable intelligence. Rosetta is the open semantic and provenance substrate at the center of that program. Bithkuil is an experimental research line asking whether more explicit semantic structure can reduce some of the learning and reasoning burden currently paid in natural-language reconstruction.
-
-Those are technical claims and research questions. They should stand or fall on evidence, implementation, experiments, review, and reproducibility.
-
-There is also a human being responsible for choosing the questions, building much of the machinery, writing much of the work, and signing his name to it.
+That work is led by Crates McDade, whose background spans nearly three decades of software engineering, more than two decades of technical leadership, enterprise architecture, security, accessibility, product engineering, distributed systems, and applied AI.
 
 <figure>
   <img src="https://avatars.githubusercontent.com/u/1042730?v=4" alt="Crates McDade" width="240" loading="lazy" />
-  <figcaption>Crates McDade, Director of AI Engineering at Entif AI Research.</figcaption>
+  <figcaption>Crates McDade, Director of AI Engineering at Entif AI Research</figcaption>
 </figure>
 
 ## Crates McDade
 
-Crates McDade is Entif AI Research's Director of AI Engineering and the creator and architect of the Rosetta Protocol. His background is less "career academic" than "engineer who has spent decades finding out what happens when ambitious ideas meet production systems, budgets, security boundaries, accessibility requirements, legacy constraints, real users, and organizations with conflicting incentives."
+I started coding in 1996 and doing it professionally in 1999, which means I have now spent enough time in software to watch several generations of "the last framework you'll ever need" acquire their own sedimentary layer.
 
-He has been coding, hacking, and learning since 1996. His work has crossed full-stack software architecture, cloud and distributed systems, application security, accessibility, data platforms, product engineering, developer infrastructure, AI systems, and technical leadership.
+Over that time, I have worked across full-stack application architecture, cloud and distributed systems, application security, accessibility, data platforms, developer infrastructure, user experience, product engineering, AI systems, and technical leadership. I have directed engineering teams across the United States, Europe, India, and China, and worked in financial services, research and advisory, consulting, media, retail, healthcare, and enterprise software.
 
-In 2025, as Interim Lead Architect for Thomson Reuters' enterprise UI library, he led architecture, engineering standards, and integration strategy for a shared component platform foundational to more than 200 products, directing specifications and engineering for a 12-person team.
+In 2025, I served as Interim Lead Architect for Thomson Reuters' enterprise UI library, leading architecture, engineering standards, and integration strategy for a shared component platform foundational to more than 200 Thomson Reuters products and directing specifications and engineering for a 12-person team.
 
-From 2018 through 2024, he served at PwC as a Senior Director / Principal Solutions Architect. He directed engineering teams across the United States, Poland, Shanghai, the United Kingdom, India, and other global locations; built an AI/ML interest group of more than 150 colleagues; delivered recurring internal AI talks; deployed GPT-based systems beginning in 2019; and was appointed an AI Change Champion. A decision-engine prototype he coded in roughly five weeks won an internal hackathon and received a $2 million first-year budget. His work also included reusable platform capabilities, accessibility and engineering standards, micro-frontend architecture, AI enablement, and department-wide developer tooling.
+From 2018 through 2024, I served at PwC as a Senior Director / Principal Solutions Architect. I built an AI and machine-learning interest group of more than 150 colleagues, gave recurring AI talks from 2022 through 2024, deployed GPT models beginning in 2019, and was appointed an AI Change Champion supporting firm adoption and training. A decision-engine prototype I coded in roughly five weeks won an internal hackathon and received a $2 million first-year budget.
 
-Earlier architecture work included OppenheimerFunds, where he worked on an investment platform supporting decisions across roughly $260 billion in assets under management; Morgan Stanley Commercial Real Estate, where he built for a portfolio-management environment exceeding $100 billion in AUM; Subway Global; Gartner; McKinsey & Company; and Par Pharmaceutical. At Gartner he led front-end and mobile engineering work across client-facing research products and helped grow and mentor engineering teams through several generations of the web platform.
+My PwC work also included reusable platform capabilities, micro-frontend architecture, accessibility and engineering standards, AI enablement, and department-wide developer tooling for authentication, authorization, feature flags, internationalization, content management, analytics, and API and LLM integrations.
 
-That history matters to Entif because the research is deliberately concerned with the boundary between elegant theory and operational reality. Provenance is different when a decision has legal or financial consequences. Accessibility is different when the audience numbers in the millions. Governance is different when an AI system can actually invoke tools, write state, or change what another system sees. Interoperability is different when multiple teams, vendors, data stores, and generations of software have to survive one another.
+Earlier architecture work included OppenheimerFunds, where I worked on an investment platform supporting decisions across roughly $260 billion in assets under management; Morgan Stanley Commercial Real Estate, where I built for a portfolio-management environment exceeding $100 billion in AUM; Subway Global; Gartner; McKinsey & Company; and Par Pharmaceutical. At Gartner, I led front-end and mobile engineering across client-facing research products and helped grow, train, and mentor engineering teams through multiple generations of the company's web and mobile platforms.
 
-## From enterprise architecture to an AI research program
+That breadth is useful here. Rosetta's problems do not stay politely inside one discipline. Identity runs into authorization. Semantics runs into storage. Provenance runs into governance. Accessibility runs into product architecture. Eventually somebody has to make the elegant diagram survive contact with a production system, which is where many elegant diagrams discover an urgent interest in another line of work.
 
-Entif's current research program grew directly out of those concerns.
+## Research and architecture
 
-McDade's recent authored work includes _The Cost of Learning Too Late_, on moral uncertainty, hidden machine communication, recursive AI development, and auditable intelligence; _After the Inflection_, on recursive innovation and institutional disruption; _Meaning That Survives Change_, on Rosetta's semantic-continuity and provenance thesis; and _Prepaying Semantics_, a falsifiable research program testing whether a Bithkuil-derived semantic substrate can reduce the data, parameter, or compute cost of relational and compositional learning.
+At Entif, I am interested in the parts of AI architecture that get slippery the moment a model stops being a chat box and starts participating in durable systems.
 
-The surrounding Entif program extends those questions into governed persistent memory, semantic latticing and context compilation, Ontological Mixture of Concepts (OMoC), rights-aware evidence, receipts-first agentic execution, and local cognitive operators over semantically typed state. Recent essays also examine how to move uncertainty upstream in human-AI research workflows, whether semantically typed operands can make cognition more local, and how AI interacts with institutional incentives in the long-form _Accelerating the Dystopia_ series.
+Where did a claim come from? What transformed it? Which interpretation survived? What authority permitted an action? What happens when persistent memory is wrong three months later? How do two systems exchange meaning without quietly sanding off the distinctions that mattered?
 
-You can inspect the work rather than taking this page's word for it: [browse Entif research](/research/), [browse essays and technical articles](/articles/), or [inspect the Rosetta repository](https://github.com/entif-ai/rosetta).
+Those questions sit underneath the [Rosetta Protocol](https://github.com/entif-ai/rosetta), which I created and architect as an open semantic and provenance substrate for inspectable AI receipts, transformation continuity, interoperability, attestation, and rights-aware evidence. The surrounding research program extends into governed persistent memory, semantic latticing and context compilation, Ontological Mixture of Concepts (OMoC), receipts-first agentic execution, and local cognitive operators over semantically typed state.
 
-## Experience is context, not a substitute for evidence
+My recent authored research includes [_The Cost of Learning Too Late_](/tags/research/2026/09/06/the-cost-of-learning-too-late/), on moral uncertainty, hidden machine communication, recursive AI development, and auditable intelligence; [_After the Inflection_](/tags/research/2026/09/07/after-the-inflection/), on recursive innovation and institutional disruption; [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), on semantic continuity, provenance, and compositional assurance; and [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), a falsifiable research program testing whether a Bithkuil-derived semantic substrate can reduce the learning burden of relational and compositional structure.
 
-A professional biography can establish that someone has encountered difficult systems. It cannot make a research claim true.
+Recent technical essays extend that work into governed research workflows, semantically typed local cognition, institutional AI deployment, and the long-form [_Accelerating the Dystopia_](/tags/ai/) series on how increasingly capable intelligence interacts with existing economic and institutional incentives.
 
-Entif therefore publishes evidence cutoffs, review status, limitations, source relationships, specifications, fixtures, code, and, where available, executable reference models. Working papers are identified as working papers. Proposed capabilities are distinguished from implemented foundations. Architecture arguments are separated from empirical results. Claims intended to survive scrutiny are expected to leave receipts.
+## A record of building and leading
 
-The professional record is also not entirely self-described. McDade has collected 32 written recommendations and performance reviews from colleagues, managers, product leaders, designers, engineers, and clients. Across them, recurring themes include technical depth, unusually broad systems knowledge, rapid prototyping, collaborative leadership, mentorship, the ability to translate complicated technology for broader audiences, and a tendency to turn exploratory ideas into working products. That is useful evidence about how he has operated in teams. It is not presented as scientific validation of Entif's research.
+Thirty-two written recommendations and performance reviews are a little much to dump onto an About page without turning it into a hostage situation. The useful part is the pattern.
 
-That distinction is deliberate.
+Across different companies, roles, managers, product leaders, designers, engineers, colleagues, and clients, the same themes recur: technical depth, broad systems knowledge, rapid prototyping, collaborative leadership, mentorship, clear explanation of difficult technical subjects, and a habit of turning exploratory ideas into things people can actually use.
 
-## The human side of Entif
+That experience includes building and scaling engineering teams, setting architecture and engineering standards used across multiple products, mentoring developers and technical leads, shipping systems for large financial and enterprise environments, and translating emerging technologies into working prototypes and reusable platforms.
 
-Entif is interested in systems that remember where their claims came from. The same principle applies here.
+Entif carries the same engineering instinct forward: make the assumptions explicit, build the smallest useful proof, test the parts that can fail, preserve the provenance, and keep the path from idea to implementation visible. Fancy architecture that cannot survive contact with reality is just an expensive diagram.
 
-Crates' public professional and project surfaces are:
+## Connect
+
+My public professional and project profiles:
 
 - [GitHub](https://github.com/crates)
 - [X](https://x.com/cr8s)
 - [LinkedIn](https://www.linkedin.com/in/crates/)
-- [VieDay app demo](https://app.vieday.com) (development/local-access surface)
+- [VieDay app demo](https://app.vieday.com) (local-only demo)
 
-The public Rosetta repository contains the specifications, governance material, prototypes, fixtures, issues, and publication sources behind much of Entif's current work. The aim is not to ask readers to trust a résumé, a title, or a confident paragraph on an About page.
-
-It is to make the person, the claims, and the receipts inspectable.
+[Browse Entif research](/research/), [read technical articles and essays](/articles/), or [inspect the public Rosetta repository](https://github.com/entif-ai/rosetta).
