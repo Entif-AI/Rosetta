@@ -30,7 +30,7 @@ sourceRefs:
 report: ETR-2026-06
 version: 0.5.0
 review: 'Author-review technical proposition · synthetic/reference validation passed with named limits; external review, live standards-runtime study, vendor interoperability, and neural receiver evaluation pending'
-evidenceCutoff: 2026-09-28
+evidenceCutoff: '2026-09-28'
 featured: true
 noindex: false
 ---
