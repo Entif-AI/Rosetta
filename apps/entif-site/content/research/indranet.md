@@ -653,7 +653,7 @@ This is an appropriate use of Conjecture semantics. An incident candidate can re
 
 ## 13.2 Minimize before sharing
 
-Privacy is strongest when unnecessary information never reaches a downstream consumer. The supplied corpus's Guardian Mode direction emphasized minimal situational features and bounded incident evidence. Contemporary volumetric research reinforces a related point: sensitive visual content can leak through geometry or another camera view if filtering occurs only after fusion. InViStream, described in *Cloak of Invisibility*, investigates depth-aware, multi-view filtering before cloud-side reconstruction. Its relevance is architectural; it does not establish perfect redaction. [L07, S33]
+Privacy is strongest when unnecessary information never reaches a downstream consumer. The supplied corpus's Guardian Mode direction emphasized minimal situational features and bounded incident evidence. Contemporary volumetric research reinforces a related point: sensitive visual content can leak through geometry or another camera view if filtering occurs only after fusion. InViStream, described in _Cloak of Invisibility_, investigates depth-aware, multi-view filtering before cloud-side reconstruction. Its relevance is architectural; it does not establish perfect redaction. [L07, S33]
 
 An IndraNet deployment could therefore separate a local sensing plane, a minimal shared-state plane, and a restricted evidence-review plane. The shared plane might contain zone occupancy intervals, confidence or quality status, and operational events. Access to richer evidence would require a specific purpose and authority. Retention would be explicit. The public dashboard would not automatically inherit access to raw images or linkable trajectories.
 
