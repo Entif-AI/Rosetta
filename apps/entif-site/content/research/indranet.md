@@ -109,7 +109,9 @@ Consider a simple sequence. A performer selects a scene called “storm.” The 
 
 A conventional integration can certainly implement these mappings. The proposal is not that context-dependent control is unprecedented. The question is whether the context and its relationships can become reusable, inspectable artifacts instead of remaining scattered through custom scripts, console presets, application variables, and human memory. If a camera operator asks why a request was generated, the answer should identify the gesture interpretation, the active scene, the actor's control role, the mapping version, and the source evidence. That explanation should not require the original integrator to remember which script contained the rule.
 
-{{FIG:F01}}
+![One gesture, different meaning. The same physical input can produce a different proposed effect when its context changes. Architecture proposal; no live control was performed. Sources: L01, L06, E02.](/research-assets/indranet/graphics/F01.svg)
+
+**Figure F01. One gesture, different meaning.** The same physical input can produce a different proposed effect when its context changes. Architecture proposal; no live control was performed. Sources: L01, L06, E02.
 
 ## 1.1 The mode is part of the event
 
@@ -145,7 +147,9 @@ This is not an empty market awaiting a single universal platform. KINEXON descri
 
 IndraNet's proposed contribution is a cross-domain architecture for relationships that remain important when these systems meet: which evidence a state depends on, which interpretation is active, which alternatives remain possible, what process produced a result, what changed, and which consumers may use which projection. Some of that can already be represented with existing standards. The architectural work is to make the combination usable through agreed profiles, executable mappings, and concrete demonstrations.
 
-{{FIG:F02}}
+![Connect specialist systems. Conceptual ecosystem map. Existing standards and products remain authoritative for their native meanings; arrows imply proposed exchange, not vendor integration. Sources: S01, S02, S04, S05, S06, S07, S09, S52.](/research-assets/indranet/graphics/F02.svg)
+
+**Figure F02. Connect specialist systems.** Conceptual ecosystem map. Existing standards and products remain authoritative for their native meanings; arrows imply proposed exchange, not vendor integration. Sources: S01, S02, S04, S05, S06, S07, S09, S52.
 
 ## 2.1 The same noun can conceal different objects
 
@@ -189,7 +193,9 @@ For example, two applications may parse the same pose. One interprets the frame 
 
 An IndraNet profile should make these agreements explicit without absorbing the native standards. It can bind a pose to its source schema, a frame revision, an observation interval, an association record, and a permitted-use context. It can record which interpretation created a semantic event. It can declare whether a projection preserves, approximates, or omits a source distinction. The objective is not to put more metadata on every packet. It is to attach the right context at a stable, retrievable boundary.
 
-{{FIG:F03}}
+![Compose standards, preserve their meanings. Selected-profile composition retains source meanings and explicit sidecars. The locating adapter is an independent reference, not tested omlox vendor interoperability. Both strong NGSI and composed profiles preserve the selected fields in the local round-trip exercise. Sources: S01, S02, S04, S05, E01.](/research-assets/indranet/graphics/F03.svg)
+
+**Figure F03. Compose standards, preserve their meanings.** Selected-profile composition retains source meanings and explicit sidecars. The locating adapter is an independent reference, not tested omlox vendor interoperability. Both strong NGSI and composed profiles preserve the selected fields in the local round-trip exercise. Sources: S01, S02, S04, S05, E01.
 
 ## 3.2 Profiles are more than field lists
 
@@ -231,7 +237,9 @@ The Rosetta companion applies that philosophy to physical context. The independe
 
 The distinction is valuable even when all steps run in one computer. When they run across vendors, models, and organizations, it becomes a collaboration contract. The producing system does not have to disclose its entire internal algorithm to state what it produced, which evidence it used, and what the output claims. The consuming system does not have to treat the output as unquestionable truth to make use of it.
 
-{{FIG:F04}}
+![Independent Core, optional companion. The top path executes independently. The lower path is an optional Rosetta projection with preserved native identity and epistemic role. Both are local reference implementations. Sources: L12, E01.](/research-assets/indranet/graphics/F04.svg)
+
+**Figure F04. Independent Core, optional companion.** The top path executes independently. The lower path is an optional Rosetta projection with preserved native identity and epistemic role. Both are local reference implementations. Sources: L12, E01.
 
 ## 4.1 Three identities that must not collapse
 
@@ -289,7 +297,9 @@ The proposed architecture has a simple organizing principle: preserve evidence, 
 
 At the edge, producers emit native observations or source artifacts. A provider adapter preserves the message and records the source protocol, provider identity, time basis, frame reference, and acquisition status. A mapping stage produces domain interpretations with explicit source links. A context service maintains associations, relationships, scene or task modes, and applicable revisions. Consumers request projections under a purpose and rights scope. Processes may use those projections, but external effects pass through a separate authorization and controller boundary.
 
-{{FIG:F05}}
+![Physical context, separated by responsibility. Proposed architectural responsibilities. Only bounded local reference subsets execute in this package; the external controller is not connected. Sources: L04, L12, E01.](/research-assets/indranet/graphics/F05.svg)
+
+**Figure F05. Physical context, separated by responsibility.** Proposed architectural responsibilities. Only bounded local reference subsets execute in this package; the external controller is not connected. Sources: L04, L12, E01.
 
 ## 5.1 Evidence plane and interpretation plane
 
@@ -349,7 +359,9 @@ A location value is incomplete without its frame, units, and convention. ROS tf2
 
 Suppose a venue's tracking coordinate system is aligned to a reconstructed scene. A calibration procedure produces a transform. Later, an anchor moves or the scene origin is corrected. The new transform should not retroactively rewrite the earlier evidence. A projection made under the old alignment can be reproduced, while a new view can use the corrected transform. The relationship between them is a revision, not a mysterious jump in object motion.
 
-{{FIG:F06}}
+![A pose needs a frame history. Conceptual coordinate and association contract. A frame change or tag reassignment must not silently rewrite historical evidence. Sources: S04, S08, S05.](/research-assets/indranet/graphics/F06.svg)
+
+**Figure F06. A pose needs a frame history.** Conceptual coordinate and association contract. A frame change or tag reassignment must not silently rewrite historical evidence. Sources: S04, S08, S05.
 
 A transform graph also needs failure behavior. Missing edges, cycles, incompatible units, expired calibration, and unavailable uncertainty must be visible. A consumer that cannot map an object into its own frame should receive a frame-resolution failure or a qualified view. It should not receive numerically plausible coordinates in an unspecified frame. The reference prototype implements a bounded transform resolver to make this failure behavior inspectable; a production implementation would adopt the appropriate specialist geometry and uncertainty machinery.
 
@@ -387,7 +399,9 @@ PROV-O supplies a mature vocabulary for entities, activities, agents, and deriva
 
 A richer chain can include the exact evidence span, calibration record, model version, operator correction, and policy under which a projection was admitted. The amount of detail should follow the task. A rehearsal preview and an incident review have different evidence needs. Both benefit from explicit source identity, but neither benefits from indiscriminately copying every available byte into every consumer.
 
-{{FIG:F07}}
+![A correction changes the view, not the past. Illustrative bitemporal revision. Labels t1/k1/k2 are symbolic, not measurements. The native and companion examples retain superseded evidence. Sources: E01, S01, L12.](/research-assets/indranet/graphics/F07.svg)
+
+**Figure F07. A correction changes the view, not the past.** Illustrative bitemporal revision. Labels t1/k1/k2 are symbolic, not measurements. The native and companion examples retain superseded evidence. Sources: E01, S01, L12.
 
 ## 7.2 Four relationships often called “because”
 
@@ -427,7 +441,9 @@ For the responsive room, the event might be “armed wrist rotation by the perfo
 
 The candidate profile defines the common linkage and leaves domain vocabulary in separate profiles. A production profile owns its scene and cue terms. A warehouse profile owns its task and zone terms. Rosetta provides the shared artifact, interpretation, and process relationships. That is the narrow waist: enough common meaning to connect the processes, not a requirement that every process become the same.
 
-{{FIG:F08}}
+![From context to a bounded action request. Conceptual process trace. The local performance fixture stops at serialized previews and refuses an obsolete context; no command is sent. Sources: E02, L12.](/research-assets/indranet/graphics/F08.svg)
+
+**Figure F08. From context to a bounded action request.** Conceptual process trace. The local performance fixture stops at serialized previews and refuses an obsolete context; no command is sent. Sources: E02, L12.
 
 ## 8.2 Plan against a snapshot, execute against current authority
 
@@ -467,7 +483,9 @@ Industrial systems offer another set of interfaces. Pozyx participates in the om
 
 The collaboration question is therefore not “will this vendor adopt our whole stack?” It is “what stable artifact or interface could this vendor contribute, and what useful consumer could we connect to it?” A first demonstration may need only position, identity, timestamps, frame metadata, quality information, and a recorded trace. Richer integrations can follow when the initial boundary proves useful.
 
-{{FIG:F09}}
+![Partner-first sensing. Proposed modality-neutral participation. Existing product capability is attributed to its source; no commercial partnership or hardware test is implied. Sources: S05, S08, S43, S44, S52.](/research-assets/indranet/graphics/F09.svg)
+
+**Figure F09. Partner-first sensing.** Proposed modality-neutral participation. Existing product capability is attributed to its source; no commercial partnership or hardware test is implied. Sources: S05, S08, S43, S44, S52.
 
 ## 9.2 A producer capability declaration
 
@@ -511,7 +529,9 @@ The tracking adapter records native pose messages and their frame/time metadata.
 
 The shared model contains physical entities, scene entities, and process entities. A performer is distinct from a wearable tag. A light fixture is distinct from its control address. A camera is distinct from its current target association. A scene is distinct from the set of packets used to activate it. Keeping these identities separate allows equipment replacement and configuration changes without rewriting the meaning of the performance.
 
-{{FIG:F10}}
+![The responsive-room fixture. Executed synthetic performance example: /indranet/demo/light/level = 80 and /indranet/demo/sound/send = 35. Both record sent:false and actuationAuthority:false. Sources: E02.](/research-assets/indranet/graphics/F10.svg)
+
+**Figure F10. The responsive-room fixture.** Executed synthetic performance example: /indranet/demo/light/level = 80 and /indranet/demo/sound/send = 35. Both record sent:false and actuationAuthority:false. Sources: E02.
 
 ## 10.2 A concrete sequence
 
@@ -557,7 +577,9 @@ Imagine a mobile equipment case in a venue. A radio tag tracks its approximate p
 
 The shared context begins with an association graph. The tag, visual instance, inventory record, and scene node remain distinct identifiers. A record explains which are associated with the case and under what scope. The assistant's response is grounded in the relevant association and inventory evidence. The robot's projection includes occupancy and uncertainty. The attendee's projection includes permitted appearance or geometry. The same physical referent participates in different views.
 
-{{FIG:F11}}
+![One object, several legitimate views. Proposed consumer views over shared evidence. The reference exercises purpose filtering; accessibility and full XR runtime behavior remain design work. Sources: S07, E01, E02.](/research-assets/indranet/graphics/F11.svg)
+
+**Figure F11. One object, several legitimate views.** Proposed consumer views over shared evidence. The reference exercises purpose filtering; accessibility and full XR runtime behavior remain design work. Sources: S07, E01, E02.
 
 This is where Rosetta's external-anchor discipline is useful. A runtime-specific spatial anchor does not become a universal identity simply because it is persistent inside one application. A Concept can reference the external identifiers that matter to a task, while a Frame binds the relation being asserted. A later reassociation can be represented without silently altering every participant's history. [L04]
 
@@ -603,7 +625,9 @@ Consider an aisle containing two mobile robots, a pallet, a human worker, a main
 
 The shared context should preserve those differences. The robot pose is an estimate in a map frame. The cart's tag association identifies which asset is being tracked. The restricted zone is an authorized operational declaration, not a sensor measurement. The machine mode is a source-system state with its own update semantics. The worker's location may be represented only as a coarse occupancy region, depending on the task and privacy policy.
 
-{{FIG:F12}}
+![Keep warehouse disagreement visible. Values are from the synthetic warehouse story. The example preserves competing positions and a stale battery report; it does not control an AMR or certify safety. Sources: E02, S09, S52.](/research-assets/indranet/graphics/F12.svg)
+
+**Figure F12. Keep warehouse disagreement visible.** Values are from the synthetic warehouse story. The example preserves competing positions and a stale battery report; it does not control an AMR or certify safety. Sources: E02, S09, S52.
 
 A fleet advisory view can combine the relevant context without becoming the robot safety controller. It can tell a fleet manager that a temporary zone exists, which authority created it, and which observations indicate occupancy nearby. The fleet and robot retain their appropriate local control responsibilities. A maintenance view can attach the zone to a work order. An XR view can show the technician the region and procedure. An audit view can preserve the full history.
 
@@ -649,7 +673,9 @@ A useful public-space model describes conditions that an operator can investigat
 
 This is an appropriate use of Conjecture semantics. An incident candidate can reference aggregate observations and retain several interpretations. An operator can add context or close the candidate. The resulting record explains what evidence existed and how the interpretation changed. The application can become more useful through better context without claiming access to hidden motives.
 
-{{FIG:F13}}
+![Situational utility without default identity. Proposed privacy-minimized situational workflow. No anomaly-detection efficacy, anonymity or legal compliance is established by this diagram. Sources: L02, E02.](/research-assets/indranet/graphics/F13.svg)
+
+**Figure F13. Situational utility without default identity.** Proposed privacy-minimized situational workflow. No anomaly-detection efficacy, anonymity or legal compliance is established by this diagram. Sources: L02, E02.
 
 ## 13.2 Minimize before sharing
 
@@ -745,7 +771,9 @@ Code-as-World and PhysMind are relevant because they make physical explanations 
 
 Rosetta can represent an executable model as a candidate explanation tied to evidence. A Frame identifies the modeled subjects and assumptions. A Conjecture identifies alternatives. A process trace records the simulation invocation. Predicted observations remain separate from received sensor observations. An Evaluation records a comparison under a named procedure. A refinement creates a new candidate rather than mutating the old one. [L04, L08]
 
-{{FIG:F14}}
+![Executable worlds are participants. Research-facing exchange proposal. The code uses labeled reference envelopes, not the cited upstream world-model runtimes. Sources: S14, S16, S36, L12.](/research-assets/indranet/graphics/F14.svg)
+
+**Figure F14. Executable worlds are participants.** Research-facing exchange proposal. The code uses labeled reference envelopes, not the cited upstream world-model runtimes. Sources: S14, S16, S36, L12.
 
 This structure gives a powerful model a bounded place in the system. It can propose mechanisms, generate predictions, and support reasoning without becoming the source of truth for the entire place. A renderer can use a candidate trajectory for a preview while a robot continues to use its own current observations for local control. An operator can inspect the model's assumptions before relying on its output.
 
@@ -757,7 +785,9 @@ IndraNet should preserve these candidates and their relationships. It can record
 
 A production designer could use one candidate for an effect preview. A research team could compare model behavior. An educational application could let a learner change an assumption and see the predicted consequence. An audit view could show the original observations and all candidate branches. These are different uses of the same executable hypothesis graph.
 
-{{FIG:F15}}
+![Several futures, one preserved history. Conceptual epistemic branch graph. Prediction, simulation, counterfactual and measured history remain separate. Sources: S14, S38, S53, E02.](/research-assets/indranet/graphics/F15.svg)
+
+**Figure F15. Several futures, one preserved history.** Conceptual epistemic branch graph. Prediction, simulation, counterfactual and measured history remain separate. Sources: S14, S38, S53, E02.
 
 ## 15.4 Prediction, simulation, and counterfactuals
 
@@ -797,7 +827,9 @@ Generative Reality is the most ambitious branch of the IndraNet proposition. Ins
 
 This architecture has three distinct objects. The **prior** is a versioned package of scene assets, geometry, materials, appearance models, rules, and decoder requirements. The **state** is a stream of selected changes and relationships. The **witness** is fresh evidence for details that the prior and state cannot faithfully determine. A receiver combines them under a declared rendering contract.
 
-{{FIG:F16}}
+![Generative Reality: prior, state, witness. Conceptual Generative Reality architecture. No neural decoder or communication-saving benchmark was executed. All three input strata contribute to total cost. Sources: S34, S35, S36, S39, S40, S41.](/research-assets/indranet/graphics/F16.svg)
+
+**Figure F16. Generative Reality: prior, state, witness.** Conceptual Generative Reality architecture. No neural decoder or communication-saving benchmark was executed. All three input strata contribute to total cost. Sources: S34, S35, S36, S39, S40, S41.
 
 ## 16.1 Why this is more than conventional video compression
 
@@ -839,7 +871,9 @@ A witness supplies fresh evidence that the shared prior does not contain. An unf
 
 Witnesses can take several forms: a bounded image region, a short video segment, a texture residual, a depth patch, a point-cloud update, or a native capture artifact. The interface should identify the source, capture interval, spatial or object coverage, rights, and relation to the state it supports. A witness is not useful merely because its bytes arrive; the receiver must know which part of the reconstruction it can justify.
 
-{{FIG:F17}}
+![A prior cannot know an unexpected sign. Illustrative information boundary. A plausible generated sign is not evidence of the sign that occurred. Rendering modes must preserve that distinction. Sources: S39, S40, E03.](/research-assets/indranet/graphics/F17.svg)
+
+**Figure F17. A prior cannot know an unexpected sign.** Illustrative information boundary. A plausible generated sign is not evidence of the sign that occurred. Rendering modes must preserve that distinction. Sources: S39, S40, E03.
 
 Consider the unexpected shirt graphic. A prepared performer asset can reproduce general appearance, but it cannot know the new graphic. In an evidence-faithful mode, the receiver should use a current witness or mark the detail unresolved. In a perceptually reconstructed mode, it may use a plausible approximation if the contract permits and labels it. In a creative mode, it may intentionally replace the costume. The same system can support all three, provided it does not confuse their outputs.
 
@@ -889,7 +923,9 @@ A derivation rule identifies its inputs, output, applicability, version, and evi
 
 If the rule changes, dependent state becomes stale. If an object detaches, the child should not continue to follow the parent merely because no new position arrived. If a calibration changes, derived coordinates should be recomputed under the new revision. If the source of a rule is retracted, the receiver should be able to identify the affected views.
 
-{{FIG:F18}}
+![Derive only under a declared dependency. Conceptual derivability and transport contract. The package supplies a prospective accounting harness, not measured bitrate or compute savings. Sources: S39, S40, S41, E03.](/research-assets/indranet/graphics/F18.svg)
+
+**Figure F18. Derive only under a declared dependency.** Conceptual derivability and transport contract. The package supplies a prospective accounting harness, not measured bitrate or compute savings. Sources: S39, S40, S41, E03.
 
 This is a graph problem as much as a codec problem. The system needs to track dependencies and invalidation. Rosetta's content-addressed artifacts and lineage provide a way to identify the rule and its inputs. IndraNet's domain profile can specify the physical interpretation and projection behavior. The reference prototype implements a bounded derivation graph to demonstrate how a changed dependency invalidates a previously acceptable view.
 
@@ -1039,7 +1075,9 @@ The accompanying Collaboration Surface Map is designed for that conversation. It
 
 The first successful collaboration may be modest: a partner recognizes its own data in a new consumer and can trace how it got there. That is enough to begin a technical relationship. The broader vision should make the small exchange meaningful, not make it impossible to start.
 
-{{FIG:F19}}
+![A collaboration starts with one boundary. Proposed collaboration workflow. No partner, reviewer or standards organization was contacted or represented as endorsing this candidate. Sources: E03, L12.](/research-assets/indranet/graphics/F19.svg)
+
+**Figure F19. A collaboration starts with one boundary.** Proposed collaboration workflow. No partner, reviewer or standards organization was contacted or represented as endorsing this candidate. Sources: E03, L12.
 
 # 20. A development program that keeps the whole proposition alive
 
@@ -1099,7 +1137,9 @@ Deployment adds other gates: operational reliability, security, privacy, maintai
 
 The roadmap therefore records dependencies and evidence requirements rather than fictional dates or staffing. A branch advances when its prerequisite artifact exists and its owner can inspect the result. A promising idea remains visible even when it is not the next implementation task. That is how a broad research program avoids both premature collapse and uncontrolled expansion.
 
-{{FIG:F20}}
+![Advance by evidence, not by labels. Development gates. A strong standards composition may remove the need for new encoding while leaving a reusable profile and integration program. All external release gates remain human-controlled. Sources: E01, E03, L12.](/research-assets/indranet/graphics/F20.svg)
+
+**Figure F20. Advance by evidence, not by labels.** Development gates. A strong standards composition may remove the need for new encoding while leaving a reusable profile and integration program. All external release gates remain human-controlled. Sources: E01, E03, L12.
 
 # 21. The proposition
 
