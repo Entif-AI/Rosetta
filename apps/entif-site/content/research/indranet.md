@@ -35,8 +35,6 @@ featured: true
 noindex: false
 ---
 
-# IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance
-
 ## Narrow-Waist for Physical Context, IRL Threat Detection, Embodied AI, XR Avatars and Hi-Fi Broadcasting
 
 Crates McDade | Entif.AI  
