@@ -1,6 +1,6 @@
 ---
 id: entif.research.indranet
-slug: indranet
+slug: indranet-research
 title: 'IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance'
 kind: research
 status: published

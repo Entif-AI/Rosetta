@@ -57,6 +57,6 @@ The current package specifies and simulates the contract around that idea. It do
 
 ## Evaluate the work
 
-Read [ETR-2026-06](/research/indranet) for the full proposition, architecture, use cases, source registry, and research agenda.
+Read [ETR-2026-06](/tags/research/2026/09/28/indranet-research/) for the full proposition, architecture, use cases, source registry, and research agenda.
 
 [Inspect IndraNet on GitHub](https://github.com/entif-ai/indranet) for the reference implementation, candidate Pack, deterministic fixtures, provenance notes, and open-work ledger.
