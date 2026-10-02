@@ -71,6 +71,16 @@ What internal topology, deployment detail, tuning, private dataset, customer-spe
 
 This layer is presumptively private unless deliberate publication creates greater strategic value.
 
+### 3.4 Rosetta ownership of data-bearing contracts and adapters
+
+Rosetta owns every official schema, data structure, semantic contract, serialization, storage-facing contract, integration mapping, exchange envelope, and adapter used to store, integrate, transform, or exchange governed data.
+
+This rule applies even when only a private Entif implementation currently consumes the contract. Private operation MAY own the algorithm, policy, threshold, ranking, routing, orchestration, optimization, or deployment method that uses Rosetta-shaped data. It MUST NOT become the hidden owner of the data shape or adapter boundary.
+
+If private work discovers that it needs a new field, record, relation, state, persistence shape, integration adapter, or exchange contract, that representational requirement MUST be created or assigned in Rosetta before it becomes an official implementation dependency.
+
+Research or demonstration repositories MAY prototype candidate shapes. Those prototypes have no official authority until Rosetta adopts or maps them.
+
 ## 4. Public Commons presumption
 
 The following categories SHOULD normally be public when they are sufficiently mature, lawful to disclose, and semantically aligned with Rosetta authority.
