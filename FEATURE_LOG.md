@@ -44,6 +44,13 @@ needed for the initial fixture lane.
 
 ## Operating state
 
+#1693 complete for review: integer keys now serialize directly in UTF-16 lexical
+order; RFC sorting/escaping/numeric vectors and invalid-Unicode rejection pass.
+Red integer-order regression captured before repair. Focused suite: 16 tests;
+owner typecheck passes. Existing core/CID/source/refinery/cache consumer cases
+passed after building their workspace dependencies. Corrected integer-key bytes
+change their historical hashes; invalid Unicode now fails before hashing.
+
 Initial authority preflight complete for #1693 and #1665. Clean isolated worktree;
 unrelated editorial changes remain in their original checkouts. Dependencies use
 the repository's Node 24.14.1 and frozen pnpm lockfile.
@@ -53,8 +60,22 @@ from this repository. No automated lease acquisition/validation is claimed.
 Recovery uses this bounded log, ordinary commits, remote-head verification and
 retained validation logs. Private session material stays outside the public tree.
 
+Additional public frontier: #1694 salience Profile is independent and underway
+after #1670/#1558/#1567/#807 and its protected boundary were resolved. Preserve
+existing Core Evaluation verdict semantics; public assessments never grant truth
+or execution authority. #1695 is the next independent Profile candidate.
+
+Known baseline limitation: the workspace bootstrap test references
+`docs/governance/DONOR_FIT_MAP.md` and `docs/backlog/BOOTSTRAP_EXECUTION_TRACK.md`,
+both absent at base `48bbd83`. Its failure predates this change. Initial direct
+consumer tests also needed workspace dependency builds before package exports
+could resolve; the targeted build completed successfully.
+
+Donor boundary: the located extension declares 2.0.9, not the required verified
+CoS 2.1.22 source snapshot. #1688 and dependent donor work are not claimed complete.
+
 ## Next safe step
 
-Commit/push this checkpoint. Add failing #1693 vectors and #1665 fixture checks
-before implementation. Open one PR after the first issue passes, then push and
-append a review delta after each subsequent completed issue.
+Commit/push #1693 and open the single PR. Complete the source-fixture gate, then
+implement normalization. Keep independent #1694 Profile work moving in parallel;
+append only completed review deltas to the PR.

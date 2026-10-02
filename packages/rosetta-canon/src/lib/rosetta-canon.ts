@@ -17,25 +17,54 @@ export interface CanonicalJsonVector {
   sha256: string;
 }
 
-function sortValue(value: JsonValue): JsonValue {
+function assertWellFormedUnicode(value: string): void {
+  for (let index = 0; index < value.length; index += 1) {
+    const codeUnit = value.charCodeAt(index);
+    if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
+      const nextCodeUnit = value.charCodeAt(index + 1);
+      if (index + 1 === value.length || nextCodeUnit < 0xdc00 || nextCodeUnit > 0xdfff) {
+        throw new Error('JCS canonicalization does not accept lone surrogate code units.');
+      }
+      index += 1;
+    } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
+      throw new Error('JCS canonicalization does not accept lone surrogate code units.');
+    }
+  }
+}
+
+function serializeCanonicalJson(value: JsonValue | undefined, arrayMember = false): string | undefined {
+  if (value === undefined) {
+    return arrayMember ? 'null' : undefined;
+  }
+
   if (Array.isArray(value)) {
-    return value.map((entry) => sortValue(entry));
+    return `[${Array.from({ length: value.length }, (_, index) => serializeCanonicalJson(value[index], true)).join(',')}]`;
   }
 
   if (value && typeof value === 'object') {
-    const entries = Object.entries(value).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0));
-    return Object.fromEntries(entries.map(([key, entry]) => [key, sortValue(entry)]));
+    const entries = Object.entries(value)
+      .sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0))
+      .flatMap(([key, entry]) => {
+        assertWellFormedUnicode(key);
+        const serialized = serializeCanonicalJson(entry);
+        return serialized === undefined ? [] : `${JSON.stringify(key)}:${serialized}`;
+      });
+    return `{${entries.join(',')}}`;
   }
 
   if (typeof value === 'number' && !Number.isFinite(value)) {
     throw new Error('JCS canonicalization only accepts finite JSON numbers.');
   }
 
-  return value;
+  if (typeof value === 'string') {
+    assertWellFormedUnicode(value);
+  }
+
+  return JSON.stringify(value);
 }
 
 export function canonicalizeJson<T extends JsonValue>(value: T): string {
-  return JSON.stringify(sortValue(value));
+  return serializeCanonicalJson(value) as string;
 }
 
 export function normalizePlainText(input: string): string {
