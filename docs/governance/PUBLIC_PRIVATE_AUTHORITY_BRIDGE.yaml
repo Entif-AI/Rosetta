@@ -573,6 +573,18 @@ bridges:
       - public_salience_schema_and_interoperability_fixtures
 
 
+  - public_issue: 1692
+    public_contract: counterfactual_mechanism_evaluation_profile
+    protected_authorities: [IPR-0219]
+    relationship: implements
+    protected_review_required_for:
+      - candidate_selection_policy_changes
+      - comparator_or_threshold_policy_changes
+      - adaptive_substitution_or_promotion_recommendation_changes
+    validation_references:
+      - public_counterfactual_evaluation_schema_and_fixtures
+
+
 notes:
   - >-
     This initial bridge is intentionally incomplete. New edges MUST be added as
