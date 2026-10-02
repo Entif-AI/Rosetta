@@ -36,6 +36,28 @@ That is what I mean by the best-case dystopia. The engineering works. The models
 
 But the world we already built was not waiting for AI in a state of moral equilibrium.
 
+<figure class="story-scene scroll-story bargain-ledger-scene" data-scroll-story data-test-id="editorial-scene">
+  <div class="scene-overline"><span>14 / A conditional comparison</span><span>Conceptual ledger, not a forecast</span></div>
+  <h2>When the system succeeds, what has the bargain changed?</h2>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual bargain-ledger-visual" data-test-id="scroll-visual" aria-label="A parallel ledger comparing technical success with questions about the human bargain">
+      <div class="bargain-ledger-spine"><b>Lens</b><span>Technical success</span><span>Human bargain</span></div>
+      <div class="bargain-ledger-row scroll-story-node" data-scroll-layer="0" data-test-id="scroll-layer"><b>Work</b><span><em>Technical success</em>Faster completion</span><span><em>Human bargain</em>Who receives the saved time?</span></div>
+      <div class="bargain-ledger-row scroll-story-node" data-scroll-layer="1" data-test-id="scroll-layer"><b>Choice</b><span><em>Technical success</em>More tailored options</span><span><em>Human bargain</em>Can a person refuse or compare?</span></div>
+      <div class="bargain-ledger-row scroll-story-node" data-scroll-layer="2" data-test-id="scroll-layer"><b>Authority</b><span><em>Technical success</em>Clear instruction and owner</span><span><em>Human bargain</em>Whose interest is absent from it?</span></div>
+      <div class="bargain-ledger-row scroll-story-node" data-scroll-layer="3" data-test-id="scroll-layer"><b>Recourse</b><span><em>Technical success</em>Accurate explanation</span><span><em>Human bargain</em>Can an error actually be changed?</span></div>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><span>01</span><h3>Work</h3><p>A tool can complete an authorized task faster. The human question is whether the gain becomes time, income, security, or a higher baseline. The same capability can support a shorter day, a higher target, or a staffing reduction; the model does not allocate the gain.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><span>02</span><h3>Choice</h3><p>Personalization can be precise and still narrow a person’s practical ability to compare, refuse, or reach another option. A recommendation can fit a response closely while serving a seller’s objective more than a person’s longer-term interest.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><span>03</span><h3>Authority</h3><p>Authorization can be technically clear while the people most exposed to a tradeoff do not get to set the objective. A contractual customer is not necessarily the only person whose interests are implicated by a deployment.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><span>04</span><h3>Recourse</h3><p>An assistant can explain a decision perfectly. That does not establish a route to correct the record or change the result. Conversation can become faster while correction remains outside the workflow.</p></section>
+    </div>
+  </div>
+  <details class="bargain-ledger-notes" data-test-id="ledger-notes"><summary>Read the comparison as a conditional, not a score</summary><p>Neither column measures welfare or predicts an outcome. The ledger keeps separate the question of whether a system followed its instruction and the question of what that instruction made possible for affected people.</p></details>
+  <figcaption>The scene is an explanatory addition to the chapter. Technical reliability can matter greatly without settling the distribution, authority, or recourse built around a deployment.</figcaption>
+</figure>
+
 We were already accelerating socioeconomic stratification. We were already commercializing people's digital footprints, personalizing prices and offers, masking inflation through product changes, and optimizing advertising against increasingly intimate behavioral data. We were already watching social media turn attention into inventory, doomscrolling turn anxiety into engagement, and loneliness create a market for increasingly parasocial relationships with software. AI did not invent those incentive structures. It can make them vastly more adaptive, cheaper to operate, and harder to escape.
 
 That is the failure mode I care about most because it does not require anything to "go wrong" in the narrow technical sense. It requires the machine to become very good at the world we hand it.

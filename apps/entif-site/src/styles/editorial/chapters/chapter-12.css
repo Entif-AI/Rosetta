@@ -1,0 +1,17 @@
+/* Chapter 12: conceptual translation layers and partial visibility. */
+.jspace-scene { background:var(--scene-paper); }
+.jspace-scene svg,.relay-scene svg { width:100%; height:auto; fill:none; stroke:var(--ink); stroke-width:2; }
+.jspace-scene svg text,.relay-scene svg text { fill:currentColor; stroke:none; font:600 15px system-ui,sans-serif; }
+.jspace-scene .jspace-mesh { stroke:var(--accent); stroke-width:3; }
+.jspace-scene svg text:last-child,.relay-scene svg text:last-child { font-size:12px; font-weight:400; }
+.story-scene.relay-scene { background:var(--scene-paper); color:var(--ink); }
+.story-scene.relay-scene svg { stroke:var(--ink); }
+.story-scene.relay-scene svg text { fill:currentColor; }
+.story-scene.relay-scene figcaption { color:var(--ink); }
+.story-scene.relay-scene a { color:var(--accent); }
+.relay-scopes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+.relay-scopes details { border-top:1px solid var(--scene-rule); padding-top:.75rem; }
+.relay-scopes summary { cursor:pointer; min-height:2.75rem; font:650 .875rem system-ui,sans-serif; }
+.relay-scopes p { font-size:1rem; }
+.relay-scopes summary:focus-visible { outline:3px solid var(--scene-signal); outline-offset:4px; }
+@media(max-width:48rem){.relay-scopes{grid-template-columns:1fr;}.relay-visual svg text{font-size:25px;}.relay-visual svg text:last-child{font-size:14px;}}

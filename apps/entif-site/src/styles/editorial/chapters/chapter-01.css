@@ -433,3 +433,20 @@
     break-inside: avoid;
   }
 }
+
+/* The opening machine accompanies the manuscript instead of interrupting it. */
+.optimizer-story .optimizer-heading { padding-top: 0; }
+.optimizer-story .optimizer-drawing { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0 0; }
+.optimizer-story .optimizer-machine { grid-column: auto; grid-row: auto; width: 100%; max-height: 31svh; color: var(--accent); }
+.optimizer-story .optimizer-input ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: .5rem 0 0; padding: 0; }
+.optimizer-story .optimizer-input li { border: 0; padding: .25rem 0; font-size: 1rem; }
+.optimizer-story .optimizer-output strong { font-size: 1.5rem; margin-top: .5rem; }
+.optimizer-story .optimizer-output p { margin: .5rem 0 0; font-size: 1rem; }
+.optimizer-story .scene-kicker { color: var(--accent); }
+.optimizer-story .scroll-story-step { min-height: 30rem; }
+.optimizer-story .scroll-story-step p { font-size: clamp(1.125rem, 1.5vw, 1.44rem); }
+.optimizer-story .machine-rotor { animation: none; }
+@media (max-width: 60rem), (max-height: 42rem) {
+  .optimizer-story .optimizer-machine { max-height: none; }
+  .optimizer-story .scroll-story-step { min-height: 0; }
+}

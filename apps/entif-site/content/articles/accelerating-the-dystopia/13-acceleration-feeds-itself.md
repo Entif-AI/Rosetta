@@ -32,6 +32,13 @@ Models increasingly help build the systems that will become the next generation 
 
 Both can compound errors. Both can compound capability. Neither requires consciousness, selfhood, or a machine announcing that it intends to improve itself.
 
+<figure class="story-scene recursion-scene scroll-story" data-scroll-story data-test-id="editorial-scene">
+<div class="scene-overline"><span>Explanatory addition</span><span>Conceptual, not predictive</span></div>
+<h2>Two loops can meet at deployment without becoming one loop.</h2>
+<div class="scroll-story-layout"><div class="scroll-story-visual" data-test-id="scroll-visual" recursion-visual" aria-label="Two conceptual loops: epistemic and economic, joined through deployment"><svg viewBox="0 0 680 410" role="img" aria-labelledby="recursion-title recursion-desc"><title id="recursion-title">Two conceptual forms of recursion</title><desc id="recursion-desc">An epistemic loop concerns research and evaluation. An economic loop concerns adoption, returns, and investment. Deployment links them without showing a growth forecast.</desc><g data-scroll-layer="0" data-test-id="scroll-layer"><path d="M100 135C100 38 300 38 300 135S100 232 100 135Z"/><text x="154" y="111">research</text><text x="152" y="137">and evaluation</text><text x="151" y="163">improve tools</text><text x="143" y="269">epistemic recursion</text></g><g data-scroll-layer="1" data-test-id="scroll-layer"><path d="M381 135C381 38 581 38 581 135S381 232 381 135Z"/><text x="440" y="111">adoption</text><text x="432" y="137">and returns</text><text x="428" y="163">fund capacity</text><text x="419" y="269">economic recursion</text></g><g data-scroll-layer="2" data-test-id="scroll-layer"><path d="M300 136H381"/><rect x="292" y="310" width="98" height="47"/><text x="307" y="340">deployment</text></g><g data-scroll-layer="3" data-test-id="scroll-layer"><path d="M340 183V309"/><text x="83" y="389">Conceptual loops show possible reinforcing mechanisms, not a forecast or machine intention.</text></g></svg></div><div class="scroll-story-steps"><section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><h3>01 · Epistemic recursion</h3><p>Research, generated material, evaluation, and improved tools can feed later research while still requiring external references.</p></section><section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><h3>02 · Economic recursion</h3><p>Useful deployment can attract adoption and investment, which can fund more capability and deployment.</p></section><section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><h3>03 · Deployment connects them</h3><p>Organizations decide whether to use an available capability. That decision can link technical progress and economic pressure.</p></section><section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><h3>04 · Coordination is not intention</h3><p>Aggregate acceleration can emerge from locally understandable choices without a system desiring its own expansion.</p></section></div></div>
+<figcaption>The diagram distinguishes mechanisms discussed in this chapter. It is conceptual and does not depict growth rates, time horizons, or a machine's intention. <a href="etr-source:S174">Recursive training conditions · S174</a> · <a href="etr-source:S176">Task-horizon limits · S176</a></figcaption>
+</figure>
+
 Start with the data loop.
 
 The internet was once predominantly a record of human activity. That is changing. Search results, marketing copy, code, documentation, student assignments, customer support, product descriptions, political messaging, images, comments, summaries, and synthetic datasets increasingly contain model-generated material.
@@ -119,6 +126,15 @@ That is another recursion: competition accelerates adoption; adoption increases 
 The machine does not need to decide to accelerate itself.
 
 We can do it for the machine.
+
+<figure class="story-scene interruption-scene" data-test-id="editorial-scene">
+<div class="scene-overline"><span>Explanatory addition</span><span>Inspect an interruption point</span></div>
+<h2>A pause in one link does not settle the whole system.</h2>
+<div class="interruption-path"><span>research assistance</span><b>→</b><span>deployment choice</span><b>→</b><span>adoption and returns</span><b>→</b><span>capacity for the next round</span></div>
+<details><summary data-test-id="interruption-deployment">At deployment: require evidence, authorization, and a way to revise.</summary><p>This can slow or redirect one deployment decision and preserve a record of why it was made. It cannot by itself create shared incentives, make consequences immediately observable, or decide every contested objective.</p></details>
+<details><summary data-test-id="interruption-reference">At evaluation: retain an external reference.</summary><p>Independent tests, held-out tasks, and observation can reveal some feedback failures. Their scope is local to the claim and conditions tested; they do not certify every later use.</p></details>
+<figcaption>These are conceptual interruption points, not a prediction that any one control halts acceleration. The chapter's argument keeps technical, institutional, and distributional questions distinct.</figcaption>
+</figure>
 
 ## There is more than one way to accelerate research
 

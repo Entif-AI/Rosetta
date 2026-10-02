@@ -1,0 +1,16 @@
+/* Chapter 14: technical success and the human bargain are separate ledgers. */
+.story-scene.bargain-ledger-scene { background: var(--scene-paper); }
+.bargain-ledger-visual { display: grid; gap: .75rem; }
+.bargain-ledger-spine { display: grid; grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; align-items: center; padding: 1rem 0 1.25rem; border-bottom: 2px solid var(--ink); font-family: system-ui, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.bargain-ledger-spine b { color: var(--accent); }
+.bargain-ledger-row { display: grid; grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--scene-rule); align-items: start; }
+.bargain-ledger-row b { color: var(--accent); font-family: system-ui, sans-serif; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+.bargain-ledger-row span { font-size: 1.05rem; line-height: 1.45; }
+.bargain-ledger-row span:last-child { font-weight: 650; }
+.bargain-ledger-row em { display: none; font-family: system-ui, sans-serif; font-size: .72rem; font-style: normal; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.bargain-ledger-row.scroll-story-node[data-scroll-state='active'] { background: color-mix(in srgb, var(--accent-soft) 55%, transparent); box-shadow: inset 3px 0 0 var(--accent); }
+.bargain-ledger-notes { margin-top: 2rem; border-block: 1px solid var(--scene-rule); padding: 1rem 0; }
+.bargain-ledger-notes summary { cursor: pointer; font-weight: 700; }
+.bargain-ledger-notes p { margin: .75rem 0 0; }
+@media (max-width: 48rem) { .bargain-ledger-spine { display: none; } .bargain-ledger-row { grid-template-columns: 1fr; gap: .4rem; padding: 1.1rem 0; } .bargain-ledger-row em { display: block; margin-bottom: .18rem; color: var(--muted); } }
+@media print { .bargain-ledger-scene { break-inside: avoid; } }

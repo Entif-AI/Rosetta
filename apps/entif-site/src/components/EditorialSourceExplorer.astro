@@ -1,0 +1,73 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import sourceRegistry from '../../content/editorial/accelerating-the-dystopia/sources.json';
+
+type EditorialSource = (typeof sourceRegistry)[number];
+type EditorialMetadata = CollectionEntry<'editorial'>['data'];
+
+interface Props {
+  sources: readonly EditorialSource[];
+  metadata: EditorialMetadata;
+}
+
+const { sources, metadata } = Astro.props;
+const isWebUrl = (url: string) => /^https?:\/\//.test(url);
+---
+
+<div class="editorial-references" data-test-id="editorial-references" data-source-explorer>
+  <p class="editorial-reference-intro">{metadata.referenceIntro}</p>
+  <form class="editorial-source-search" data-test-id="editorial-source-search" hidden>
+    <label for="editorial-source-search-input">Search the source ledger</label>
+    <div class="editorial-source-search-controls">
+      <input id="editorial-source-search-input" name="source-search" type="search" autocomplete="off" data-test-id="editorial-source-search-input" />
+      <button type="reset" data-test-id="editorial-source-search-reset">Clear</button>
+    </div>
+    <p class="editorial-source-search-count" data-test-id="editorial-source-search-count" aria-live="polite"></p>
+  </form>
+  <p class="editorial-source-no-matches" data-test-id="editorial-source-no-matches" hidden>No sources match this search. Clear the search to view the full ledger.</p>
+  <ol>
+    {sources.map((source) => (
+      <li
+        id={`source-${source.Source_ID}`}
+        tabindex="-1"
+        data-test-id="editorial-source"
+        data-source={source.Source_ID}
+      >
+        <span class="editorial-source-id">{source.Source_ID}</span>
+        <div>
+          <h2>{source.Title}</h2>
+          <dl>
+            {[
+              [metadata.author, source.Author_or_Institution],
+              [metadata.year, source.Year],
+              [metadata.type, source.Source_Type],
+              [metadata.role, source.Authority_Role],
+              [metadata.families, source.Primary_Families],
+            ].map(([label, value]) => (
+              <div>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p>{source.Notes}</p>
+          {isWebUrl(source.URL) && (
+            <a href={source.URL} data-test-id="editorial-source-url">
+              {metadata.sourceLink}: {source.Title} ↗
+            </a>
+          )}
+          {source.URL && !isWebUrl(source.URL) && (
+            <p>
+              {metadata.sourceLocation}: {source.URL}
+            </p>
+          )}
+        </div>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script>
+  import { enhanceEditorialSources } from '../scripts/editorial-sources';
+  enhanceEditorialSources();
+</script>

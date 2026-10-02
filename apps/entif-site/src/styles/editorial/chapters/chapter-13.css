@@ -1,0 +1,18 @@
+/* Chapter 13: distinct reinforcing mechanisms and interruption limits. */
+.recursion-scene { background:var(--scene-night); color:var(--scene-paper); }
+.recursion-scene svg { width:100%; height:auto; fill:none; stroke:var(--scene-signal); stroke-width:2; }
+.story-scene.recursion-scene svg :is(path,circle,rect) { fill:none; stroke:var(--scene-signal); }
+.recursion-scene svg text { fill:currentColor; stroke:none; font:600 15px system-ui,sans-serif; }
+.recursion-scene svg text:last-child { font-size:12px; font-weight:400; }
+.recursion-scene figcaption { color:var(--scene-paper); }
+.recursion-scene a { color:var(--scene-signal); }
+.interruption-scene { background:var(--scene-paper); }
+.interruption-path { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:.75rem; align-items:center; margin:3rem 0 2rem; }
+.interruption-path span { min-height:7rem; display:grid; place-items:center; border-top:3px solid var(--ink); text-align:center; padding:1rem; font:650 1rem system-ui,sans-serif; }
+.interruption-path b { color:var(--accent); font-size:2rem; font-weight:400; }
+.interruption-scene details { border-top:1px solid var(--scene-rule); padding:1rem 0; }
+.interruption-scene summary { cursor:pointer; min-height:2.75rem; font:650 1rem system-ui,sans-serif; }
+.interruption-scene details p { max-width:50rem; font-size:1rem; }
+.interruption-scene summary:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+@media(max-width:48rem){.interruption-path{grid-template-columns:1fr;gap:.25rem;}.interruption-path b{transform:rotate(90deg);text-align:center;}.interruption-path span{min-height:4rem;}}
+@media(max-width:30rem){.recursion-visual svg text{font-size:22px;}.recursion-visual svg text:last-child{font-size:14px;}}

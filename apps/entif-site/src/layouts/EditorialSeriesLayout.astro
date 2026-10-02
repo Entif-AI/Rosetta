@@ -2,12 +2,14 @@
 import { render } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import EditorialChapterNav from '../components/EditorialChapterNav.astro';
+import EditorialSourceExplorer from '../components/EditorialSourceExplorer.astro';
 import { getContentPath, joinBasePath } from '../lib/content';
 import { toSummary, type SiteEntry } from '../lib/site-data';
 import sources from '../../content/editorial/accelerating-the-dystopia/sources.json';
 import '../styles/editorial/series.css';
 import '../styles/editorial/citations.css';
 import '../styles/editorial/scenes.css';
+import '../styles/editorial/scroll.css';
 const chapterStyles = import.meta.glob<string>(
   '../styles/editorial/chapters/chapter-*.css',
   {
@@ -34,7 +36,6 @@ const { Content } = await render(entry);
 const isReferences = current === metadata.chapters;
 const next = chapters[current];
 const previous = chapters[current - 2];
-const isWebUrl = (url: string) => /^https?:\/\//.test(url);
 const href = (item: SiteEntry) =>
   joinBasePath(import.meta.env.BASE_URL, getContentPath(toSummary(item)));
 ---
@@ -73,49 +74,7 @@ const href = (item: SiteEntry) =>
     </header>
     {
       isReferences ? (
-        <div class="editorial-references" data-test-id="editorial-references">
-          <p class="editorial-reference-intro">{metadata.referenceIntro}</p>
-          <ol>
-            {sources.map((source) => (
-              <li
-                id={`source-${source.Source_ID}`}
-                tabindex="-1"
-                data-test-id="editorial-source"
-                data-source={source.Source_ID}
-              >
-                <span class="editorial-source-id">{source.Source_ID}</span>
-                <div>
-                  <h2>{source.Title}</h2>
-                  <dl>
-                    {[
-                      [metadata.author, source.Author_or_Institution],
-                      [metadata.year, source.Year],
-                      [metadata.type, source.Source_Type],
-                      [metadata.role, source.Authority_Role],
-                      [metadata.families, source.Primary_Families],
-                    ].map(([label, value]) => (
-                      <div>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <p>{source.Notes}</p>
-                  {isWebUrl(source.URL) && (
-                    <a href={source.URL} data-test-id="editorial-source-url">
-                      {metadata.sourceLink}: {source.Title} ↗
-                    </a>
-                  )}
-                  {source.URL && !isWebUrl(source.URL) && (
-                    <p>
-                      {metadata.sourceLocation}: {source.URL}
-                    </p>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <EditorialSourceExplorer sources={sources} metadata={metadata} />
       ) : (
         <div class="editorial-body" data-test-id="editorial-body">
           <Content />
@@ -147,5 +106,7 @@ const href = (item: SiteEntry) =>
 </BaseLayout>
 <script>
   import { enhanceCitations } from '../scripts/editorial-citations';
+  import { enhanceScrollStories } from '../scripts/editorial-scroll';
   enhanceCitations();
+  enhanceScrollStories();
 </script>

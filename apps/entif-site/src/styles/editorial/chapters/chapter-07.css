@@ -13,3 +13,13 @@
 .fiscal-table>div>strong{font-size:clamp(1.5rem,3.5vw,3.5rem);font-weight:500;letter-spacing:-.04em;}
 .fiscal-table .fiscal-years>strong{font-size:1.25rem;letter-spacing:0;}.fiscal-years{font-family:system-ui,sans-serif;font-size:.875rem;}.fiscal-table small{font-family:system-ui,sans-serif;font-size:.75rem;}
 @media(max-width:50rem){.balance-lanes{grid-template-columns:1fr;gap:3rem;}.fiscal-table>div{grid-template-columns:1.2fr 1fr 1fr;gap:.5rem;}.fiscal-table>div>span{font-size:.875rem;}.fiscal-table>div>strong{font-size:1.5rem;}}
+
+/* Chapter 7: parallel balance sheets retain their distinct settlement paths. */
+.story-scene.balance-sheet-scene { background:var(--scene-paper); color:var(--ink); }
+.story-scene.balance-sheet-scene figcaption { color:var(--ink); }
+.balance-sheet-visual svg { width:100%; height:auto; fill:none; stroke:var(--ink); stroke-width:2; }
+.balance-sheet-visual svg :is(path,circle,rect) { fill:none; stroke:currentColor; }
+.balance-sheet-visual svg text { fill:currentColor; stroke:none; font:600 15px system-ui,sans-serif; }
+.balance-sheet-visual svg text:nth-of-type(1),.balance-sheet-visual svg text:nth-of-type(2) { fill:var(--accent); font-size:16px; }
+.balance-sheet-visual svg text:last-child { font-size:12px; font-weight:400; }
+@media(max-width:30rem){.balance-sheet-visual svg text{font-size:22px;}.balance-sheet-visual svg text:nth-of-type(1),.balance-sheet-visual svg text:nth-of-type(2){font-size:22px;}.balance-sheet-visual svg text:last-child{font-size:14px;}}

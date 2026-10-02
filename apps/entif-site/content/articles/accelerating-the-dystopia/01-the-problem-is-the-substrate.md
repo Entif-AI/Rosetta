@@ -30,33 +30,43 @@ What if we build increasingly capable intelligence, solve enough of the technica
 
 What if it works?
 
-<figure class="story-scene optimizer-scene" data-test-id="editorial-scene">
-  <div class="scene-overline"><span>01 / The objective comes first</span><span>Conceptual illustration</span></div>
-  <div class="optimizer-heading"><p class="scene-kicker">No rebellion required.</p><h2>A machine can do exactly what we ask.</h2></div>
-  <div class="optimizer-drawing">
-    <div class="optimizer-input"><span class="machine-label">The instruction</span><ul><li>Increase engagement</li><li>Reduce labor costs</li><li>Maximize conversion</li></ul><span class="machine-footnote">Chosen by institutions</span></div>
-    <svg class="optimizer-machine" viewBox="0 0 600 360" role="img" aria-labelledby="optimizer-image-title optimizer-image-desc">
+<figure class="story-scene scroll-story optimizer-story" data-scroll-story data-test-id="editorial-scene">
+<div class="scene-overline"><span>01 / The objective comes first</span><span>Conceptual illustration</span></div>
+<div class="optimizer-heading"><p class="scene-kicker">No rebellion required.</p><h2>A machine can do exactly what we ask.</h2></div>
+<div class="scroll-story-layout">
+<div class="scroll-story-visual optimizer-drawing">
+<div class="optimizer-input scroll-story-node" data-scroll-layer="0" data-test-id="scroll-layer"><span class="machine-label">Chosen by institutions</span><ul><li>Increase engagement</li><li>Reduce labor costs</li><li>Maximize conversion</li></ul></div>
+<svg class="optimizer-machine" viewBox="0 0 600 360" role="img" aria-labelledby="optimizer-image-title optimizer-image-desc">
       <title id="optimizer-image-title">An optimizer follows its institutional objective</title>
       <desc id="optimizer-image-desc">Three input paths enter a concentric machine and converge into one output. The machine processes the objective; it does not determine whether the objective is worthy.</desc>
       <defs><pattern id="optimizer-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="currentColor" stroke-opacity=".12"/></pattern></defs>
-      <rect width="600" height="360" fill="url(#optimizer-grid)"/>
-      <g fill="none" stroke="currentColor"><path class="machine-wires" d="M0 90H115L175 150M0 180H156M0 270H115L175 210M425 180H600" stroke-width="2"/>
+      <rect data-parallax="back" width="600" height="360" fill="url(#optimizer-grid)"/>
+      <g data-scroll-layer="1" data-test-id="scroll-layer" fill="none" stroke="currentColor"><path class="machine-wires" d="M0 90H115L175 150M0 180H156M0 270H115L175 210M425 180H600" stroke-width="2"/>
       <circle cx="300" cy="180" r="137" stroke-opacity=".25"/>
       <circle cx="300" cy="180" r="116" stroke-dasharray="2 12" stroke-width="5"/>
       <circle cx="300" cy="180" r="88" stroke-width="2"/>
       <path d="M300 29V55M300 305V331M149 180H175M425 180H451" stroke-width="3"/>
-      <path class="machine-rotor" d="M300 108L362 144V216L300 252L238 216V144Z M238 144L300 180L362 144M300 180V252" stroke-width="3"/>
+      <path class="machine-rotor" data-parallax="front" d="M300 108L362 144V216L300 252L238 216V144Z M238 144L300 180L362 144M300 180V252" stroke-width="3"/>
       <circle cx="300" cy="180" r="9" fill="currentColor"/>
       <path d="M565 170L580 180L565 190" stroke-width="2"/></g>
     </svg>
-    <div class="optimizer-output"><span class="machine-label">The result</span><strong>More capable. More obedient.</strong><span class="machine-footnote">The purpose remains a human choice.</span></div>
-  </div>
-  <figcaption><span class="scene-question">Who chose what “better” means?</span><span>The diagram illustrates the chapter’s argument about institutional objectives. It is not a model of any named AI system.</span></figcaption>
-</figure>
+<div class="optimizer-output scroll-story-node" data-scroll-layer="2" data-test-id="scroll-layer"><span class="machine-label">The result</span><strong>More capable. More obedient.</strong><p>The purpose remains a human choice.</p></div>
+</div>
+<div class="scroll-story-steps">
+<section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step">
+<h3>Choose the objective</h3>
 
 What if it becomes an extraordinarily competent advertising optimizer in a system that already monetizes attention and behavioral exhaust? What if it becomes an extraordinarily competent pricing engine in markets already learning to infer willingness to pay from location, browsing history, shopping behavior, mouse movements, and abandoned carts? That machinery is not science-fiction set dressing. The Federal Trade Commission has already documented commercial intermediaries offering retailers exactly that class of individualized pricing and product-exposure machinery. [S124]
 
+</section>
+<section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step">
+<h3>Make the institution more capable</h3>
+
 What if it becomes an extraordinarily competent management consultant inside firms whose incentive systems already reward headcount reduction, margin expansion, labor substitution, short-cycle financial performance, and strategic abstraction of human consequences? Better lobbyist. Better political advertiser. Better financial engineer. Better bureaucratic optimizer. Better persuasion engine. Better union-avoidance strategist. Better dark-pattern designer. Better litigation-risk minimizer. Better debt-market operator. Better attention harvester. Better producer of the 11-point Calibri memo explaining why all of this was simply the responsible thing to do.
+
+</section>
+<section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step">
+<h3>Ask what the success means</h3>
 
 That is not misalignment in the usual engineering sense.
 
@@ -67,6 +77,12 @@ The system did what somebody asked.
 Which is precisely the problem. Nobody had to hate us. Nobody had to become conscious. Nobody even had to be wrong. We handed the machine an objective and it came back with a gold star.
 
 The question is whether the thing somebody asked deserves to be done faster.
+
+</section>
+</div>
+</div>
+<figcaption>The diagram follows the chapter’s argument about institutional objectives. It is not a model of any named AI system. The moving machinery cannot answer the political question: who chose what “better” means?</figcaption>
+</figure>
 
 This essay begins from a proposition that technical AI discourse often treats as secondary: **the alignment target is a political, economic, moral, and institutional choice before it is an optimization problem.** Researchers working on social choice and pluralistic alignment have already formalized part of this problem. Human preferences are diverse and often incompatible. You do not solve that by collecting enough thumbs-up signals until governance tumbles out of the pile like a toy from a cereal box. Aggregating preferences into a model objective requires rules about whose preferences count, how conflicts are resolved, which values are non-negotiable, and who gets authority over the aggregation procedure. [S183][S185] A 2026 audit of public frontier-lab materials argues that there is still no clear public evidence that pluralism itself has become an explicit training and evaluation objective in the public materials it examined. The audit does not establish what every lab does internally. [S184]
 

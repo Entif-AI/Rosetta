@@ -118,6 +118,28 @@ The opposite loop is possible. Better tools can preserve an unusual case, expose
 
 That is a testable distinction in particular workflows. It is also a reason not to confuse a more coherent archive with a more complete account of human life.
 
+<figure class="story-scene scroll-story destination-scene" data-scroll-story data-test-id="editorial-scene">
+  <div class="scene-overline"><span>16 / A day with capable tools</span><span>Conceptual composition</span></div>
+  <h2>Capability enters a day. Decisions shape its destination.</h2>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual destination-visual" data-test-id="scroll-visual" aria-label="A day of capable AI tools alongside decisions about ownership, bargaining, recourse, and governance">
+      <div class="destination-clock" aria-hidden="true"><span>Morning</span><i></i><span>Lunch</span><i></i><span>Evening</span></div>
+      <div class="destination-day-card scroll-story-node" data-scroll-layer="0" data-test-id="scroll-layer"><span>Organize work</span><strong>Context appears; a task takes less time.</strong><b>Ownership</b></div>
+      <div class="destination-day-card scroll-story-node" data-scroll-layer="1" data-test-id="scroll-layer"><span>Resolve an account</span><strong>Terms become legible; correction still needs a path.</strong><b>Recourse</b></div>
+      <div class="destination-day-card scroll-story-node" data-scroll-layer="2" data-test-id="scroll-layer"><span>Adapt a schedule</span><strong>Coordination improves; the person still bears the change.</strong><b>Bargaining</b></div>
+      <div class="destination-day-card scroll-story-node" data-scroll-layer="3" data-test-id="scroll-layer"><span>Understand a public issue</span><strong>Evidence is easier to inspect; authority still governs action.</strong><b>Governance</b></div>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><span>01</span><h3>Time is not self-distributing</h3><p>When a tool saves effort, ownership and workplace terms help determine whether that time returns to a person or becomes the next target.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><span>02</span><h3>Explanation is not correction</h3><p>A capable assistant can find a record and explain a rule. Recourse determines whether the person can revise a consequential error.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><span>03</span><h3>Coordination carries a bargain</h3><p>Better scheduling can reduce friction at the same moment it makes a demand easier to sustain. Bargaining affects whose constraints count.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><span>04</span><h3>Information does not choose the end</h3><p>Tools can clarify evidence and uncertainty. Governance determines how an institution is authorized to act on what it learns.</p></section>
+    </div>
+  </div>
+  <details class="destination-notes" data-test-id="destination-notes"><summary>Why the same day can lead somewhere else</summary><p>These scenes are illustrative compositions of the chapter’s later day-in-the-life scenario. They do not claim that one tool causes every outcome. They show where surrounding decisions can change what increasing capability is asked to accelerate.</p></details>
+  <figcaption>The composition is a conceptual synthesis. It does not supply a system score, a causal forecast, or a political program; it keeps the chapter’s questions about ownership, bargaining, recourse, and governance in view.</figcaption>
+</figure>
+
 ## A day in which all the tools work
 
 Consider a day in which capable AI remains under authorized control and almost every tool does exactly what its owner wanted.

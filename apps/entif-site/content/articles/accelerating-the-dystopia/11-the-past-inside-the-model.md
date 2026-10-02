@@ -54,6 +54,23 @@ Which people appeared mainly in records created by institutions that controlled 
 
 Caliskan, Bryson, and Narayanan demonstrated that distributional representations learned from ordinary web language reproduce human-like historical associations. [S157] Buolamwini and Gebru's Gender Shades audit showed large intersectional accuracy disparities in commercial gender-classification systems, with particularly high errors for darker-skinned women and skewed benchmark representation. [S156] NIST's bias framework accordingly treats AI bias as socio-technical, dividing it into systemic, statistical/computational, and human categories rather than pretending bias begins with an explicitly hateful programmer. [S158]
 
+<figure class="story-scene provenance-scene scroll-story" data-scroll-story data-test-id="editorial-scene">
+<div class="scene-overline"><span>Explanatory addition</span><span>Conceptual pathway</span></div>
+<h2>The past enters through more than one door.</h2>
+<div class="scroll-story-layout">
+<div class="scroll-story-visual" data-test-id="scroll-visual" provenance-visual" aria-label="A conceptual pathway from historical conditions through records, labels, objectives, and outputs">
+<svg viewBox="0 0 680 400" role="img" aria-labelledby="provenance-title provenance-desc"><title id="provenance-title">A conceptual pathway into a model</title><desc id="provenance-desc">Historical conditions become partial records. Records inform labels and proxies. Objectives and evaluations direct what the system produces.</desc><g data-scroll-layer="0" data-test-id="scroll-layer"><path d="M75 55V322"/><circle cx="75" cy="55" r="25"/><text x="75" y="60">past</text><text x="118" y="48">historical conditions</text><text x="118" y="72">and unequal access</text></g><g data-scroll-layer="1" data-test-id="scroll-layer"><path d="M101 190H250"/><path d="M250 130V250H101"/><text x="148" y="180">records</text><text x="148" y="204">and absences</text></g><g data-scroll-layer="2" data-test-id="scroll-layer"><path d="M252 190H420"/><rect x="315" y="132" width="105" height="116"/><text x="367" y="176">labels</text><text x="367" y="201">proxies</text><text x="367" y="226">benchmarks</text></g><g data-scroll-layer="3" data-test-id="scroll-layer"><path d="M422 190H595"/><path d="M505 125V255"/><circle cx="595" cy="190" r="37"/><text x="505" y="112">objective</text><text x="595" y="195">output</text><text x="452" y="294">evaluation directs the path</text></g></svg>
+</div>
+<div class="scroll-story-steps">
+<section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><h3>01 · History is unevenly recorded</h3><p>Conditions shape who can appear in an archive, whose experience is named, and what never reaches the system.</p></section>
+<section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><h3>02 · A record is not the whole world</h3><p>Collection and access determine both the entries available for learning and the absences that look like silence.</p></section>
+<section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><h3>03 · Labels make a choice operational</h3><p>Categories, proxies, and benchmarks can make a task tractable while narrowing what counts as evidence of success.</p></section>
+<section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><h3>04 · An objective selects the output</h3><p>Training and evaluation can improve performance against a chosen target without establishing that the target is the intended human purpose.</p></section>
+</div>
+</div>
+<figcaption>This conceptual pathway separates channels that can interact without implying one measured causal decomposition. <a href="etr-source:S158">NIST bias framework · S158</a></figcaption>
+</figure>
+
 This distinction matters politically and morally because intention is an unreliable gatekeeper for harm.
 
 A mortgage model does not need racism in its source code to reproduce disparities if the proxies and historical outcomes in its data encode segregated opportunity.
@@ -119,6 +136,15 @@ One of the clearest examples of this distinction comes from health care. Obermey
 That example deserves more attention than a generic instruction to remove bias from the data. Spending is an observable event. Need is a harder concept. Replacing one with the other makes the problem easier to calculate while changing what success means. Better prediction of spending can then improve the wrong answer to the original question.
 
 The lesson is not that cost information has no legitimate use. It is that a variable appropriate for one purpose can be an inadequate substitute for another. Forecasting a budget and identifying people who need care are related tasks, not identical tasks. A system can be accurate at the first and inequitable at the second without a numerical malfunction.
+
+<figure class="story-scene proxy-scope-scene" data-test-id="editorial-scene">
+<div class="scene-overline"><span>Explanatory addition</span><span>Mitigation has a scope</span></div>
+<h2>Cost can be observable while need remains the target.</h2>
+<fieldset class="scene-choice" data-test-id="proxy-scope-controls"><legend>Inspect one intervention point</legend><label><input type="radio" name="proxy-scope" value="record" checked data-test-id="proxy-scope-record" />Improve the record</label><label><input type="radio" name="proxy-scope" value="label" data-test-id="proxy-scope-label" />Change the proxy</label><label><input type="radio" name="proxy-scope" value="objective" data-test-id="proxy-scope-objective" />Review the objective</label></fieldset>
+<div class="proxy-route"><div class="proxy-card proxy-record"><span>Observed event</span><strong>Health-care spending</strong><p>Useful for some budgeting questions.</p></div><span aria-hidden="true">→</span><div class="proxy-card proxy-label"><span>Chosen proxy</span><strong>Cost stands in for need</strong><p>The substitution changes what success means.</p></div><span aria-hidden="true">→</span><div class="proxy-card proxy-objective"><span>Intended purpose</span><strong>Identify people needing additional care</strong><p>The target deserves its own scrutiny.</p></div></div>
+<div class="proxy-scope-notes"><p class="scope-record"><strong>Record intervention:</strong> better collection can change what is available, but it does not by itself decide whether spending should stand in for need.</p><p class="scope-label"><strong>Proxy intervention:</strong> changing the label can address the substitution, while leaving institutional history and the objective still open to inspection.</p><p class="scope-objective"><strong>Objective intervention:</strong> reviewing the purpose asks what the system ought to serve; it does not repair every limitation in the record.</p></div>
+<figcaption>The health-care example distinguishes a cost proxy from health need; it does not say cost data are useless. <a href="etr-source:S204">Obermeyer et al. · S204</a></figcaption>
+</figure>
 
 This is why I resist treating social harm as a residue left over after the engineering is complete. The decision about what to predict is part of the engineering. So is the decision about whose outcomes are recorded, when the record ends, and what counts as success. A model learns inside those choices.
 

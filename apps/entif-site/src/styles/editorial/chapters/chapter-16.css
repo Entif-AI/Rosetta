@@ -1,0 +1,17 @@
+/* Chapter 16: capability enters a day; institutional decisions direct its destination. */
+.story-scene.destination-scene { background: var(--surface); border-block: 1px solid var(--ink); }
+.destination-visual { display: grid; gap: .75rem; }
+.destination-clock { display: flex; align-items: center; gap: .75rem; padding: .5rem 0 1rem; color: var(--accent); font-family: system-ui, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.destination-clock i { flex: 1; height: 1px; background: var(--scene-rule); position: relative; }
+.destination-clock i::after { content: '◦'; position: absolute; right: -.15rem; top: -.75rem; font-style: normal; font-size: 1rem; }
+.destination-day-card { display: grid; grid-template-columns: minmax(7rem, .75fr) minmax(0, 2fr) auto; gap: 1rem; align-items: center; padding: 1.25rem; border: 1px solid var(--scene-rule); background: var(--canvas); }
+.destination-day-card span, .destination-day-card b { font-family: system-ui, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.destination-day-card span { color: var(--accent); }
+.destination-day-card strong { font-size: 1.05rem; line-height: 1.4; font-weight: 550; }
+.destination-day-card b { padding: .3rem .45rem; border: 1px solid var(--ink); }
+.destination-day-card.scroll-story-node[data-scroll-state='active'] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.destination-notes { margin-top: 2rem; padding: 1rem 0; border-block: 1px solid var(--scene-rule); }
+.destination-notes summary { cursor: pointer; font-weight: 700; }
+.destination-notes p { margin: .75rem 0 0; }
+@media (max-width: 48rem) { .destination-clock { gap: .4rem; } .destination-day-card { grid-template-columns: 1fr auto; } .destination-day-card strong { grid-column: 1 / -1; } }
+@media print { .destination-scene { break-inside: avoid; } }

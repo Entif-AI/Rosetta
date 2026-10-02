@@ -1,0 +1,22 @@
+/* Chapter 15: failure mechanisms and severe-risk requirements are not a leaderboard. */
+.story-scene.risk-mechanism-scene { background: var(--scene-night); color: var(--scene-paper); }
+.risk-mechanism-rail { display: flex; align-items: center; gap: .5rem; padding: .75rem 0 1.25rem; color: var(--scene-signal); font-family: system-ui, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.risk-mechanism-rail i { font-style: normal; font-size: 1.25rem; }
+.risk-mechanism-visual { display: grid; gap: .75rem; }
+.story-scene.risk-mechanism-scene .risk-mechanism-card { display: grid; grid-template-columns: 10rem minmax(0, 1fr) auto; gap: 1rem; align-items: center; padding: 1.25rem; border: 1px solid var(--scene-rule); background: var(--scene-paper); color: var(--ink); }
+.story-scene.risk-mechanism-scene .risk-mechanism-card span { color: var(--muted); font-family: system-ui, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.story-scene.risk-mechanism-scene .risk-mechanism-card strong { color: var(--ink); font-size: 1.05rem; line-height: 1.4; font-weight: 550; }
+.story-scene.risk-mechanism-scene .risk-mechanism-card > i { color: var(--accent); font-size: 1.75rem; font-style: normal; }
+.story-scene.risk-mechanism-scene .risk-mechanism-card.scroll-story-node[data-scroll-state='active'] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.story-scene.risk-mechanism-scene .risk-lens-card { background: var(--surface); border-color: var(--ink); }
+.risk-lens { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; padding: 1.25rem 0 0; border: 0; border-top: 1px solid var(--scene-rule); }
+.risk-lens legend { width: 100%; margin-bottom: .25rem; font-weight: 700; }
+.risk-lens label { border: 1px solid var(--scene-rule); padding: .5rem .75rem; cursor: pointer; font-family: system-ui, sans-serif; font-size: .875rem; }
+.risk-lens input { accent-color: var(--scene-signal); }
+.risk-lens-copy { width: 100%; padding: 1rem 1.25rem; border-left: 3px solid var(--scene-signal); background: color-mix(in srgb, var(--scene-paper) 10%, transparent); }
+.risk-lens-copy p { display: none; margin: 0; }
+.risk-lens:has([value='capability']:checked) .risk-capability, .risk-lens:has([value='propensity']:checked) .risk-propensity, .risk-lens:has([value='opportunity']:checked) .risk-opportunity { display: block; }
+.risk-mechanism-scene figcaption, .risk-mechanism-scene a { color: var(--scene-paper); }
+.risk-mechanism-scene a { text-decoration-color: var(--scene-signal); }
+@media (max-width: 48rem) { .risk-mechanism-card { grid-template-columns: 1fr auto; } .risk-mechanism-card strong { grid-column: 1 / -1; } .risk-mechanism-rail { flex-wrap: wrap; } }
+@media print { .risk-mechanism-scene { --scene-signal: var(--ink); color: var(--ink); } .risk-lens-copy p { display: block !important; margin-block: .5rem; } }

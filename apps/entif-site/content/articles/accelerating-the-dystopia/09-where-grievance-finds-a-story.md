@@ -54,6 +54,29 @@ A 2025 preregistered replication and meta-analysis combined 27 studies and about
 
 Those are different stages. A message can be shown, noticed, clicked, shared, believed, remembered, or acted on. An engagement metric usually sees only part of that chain.
 
+<figure class="story-scene scroll-story story-compression-scene" data-scroll-story data-test-id="editorial-scene">
+  <header class="scene-heading"><span class="scene-kicker">Explanatory addition</span><h2>One burden can travel through several stages</h2></header>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual story-compression-visual" aria-label="A causal map that moves from experienced burden through several possible explanations to a shareable story">
+      <svg viewBox="0 0 700 470" role="img" aria-labelledby="compression-title compression-description">
+        <title id="compression-title">Experience, explanation, and story</title><desc id="compression-description">An experienced burden connects to several possible causal pathways. A compressed story is shown as a later, separate stage rather than a conclusion.</desc>
+        <g data-scroll-layer="0" data-test-id="scroll-layer"><circle cx="115" cy="235" r="72"/><text x="76" y="228">EXPERIENCED</text><text x="91" y="254">BURDEN</text></g>
+        <g data-scroll-layer="1" data-test-id="scroll-layer" class="causal-threads"><path d="M187 215C265 120 320 115 385 105"/><path d="M187 235C280 235 315 235 385 235"/><path d="M187 255C265 350 320 355 385 365"/><rect x="395" y="67" width="160" height="76" rx="4"/><rect x="395" y="197" width="160" height="76" rx="4"/><rect x="395" y="327" width="160" height="76" rx="4"/><text x="418" y="111">POLICY / MARKET</text><text x="420" y="241">WORK / FINANCE</text><text x="420" y="371">LOCAL CONDITIONS</text></g>
+        <g data-scroll-layer="2" data-test-id="scroll-layer"><path d="M555 105C595 135 605 175 622 215M555 235H622M555 365C595 335 605 295 622 255" class="causal-threads"/><rect x="565" y="190" width="110" height="90" rx="45"/><text x="587" y="228">SHARABLE</text><text x="598" y="253">STORY</text></g>
+        <g data-scroll-layer="3" data-test-id="scroll-layer"><text x="232" y="440" class="compression-note">A story can select a pathway. Selection is not proof.</text></g>
+      </svg>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><h3>Experience comes first</h3><p>A higher bill, insecure work, or worsening service can be accurately felt before its complete cause is known. That gap is where a person may encounter explanations from friends, institutions, media, or platforms.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><h3>Explanation needs a map</h3><p>Several conditions can contribute at once, including market arrangements, public rules, local conditions, and prior decisions. The diagram offers possible categories, not a diagnosis of one person’s situation.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><h3>Sharing is a distinct event</h3><p>A message may be noticed or shared without being believed, remembered, or acted on. An engagement metric sees only a portion of that sequence, which is why diffusion cannot stand in for persuasion.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><h3>Compression removes distinctions</h3><p>A memorable explanation can be useful or misleading. The question is whether it drops a causal distinction that changes the account, especially when a vivid target replaces distributed mechanisms.</p></section>
+    </div>
+  </div>
+  <figcaption>Conceptual causal map. It distinguishes lived experience, possible explanation, and a story’s circulation; it does not assign blame.</figcaption>
+  <fieldset class="sharing-lens" data-test-id="sharing-lens"><legend>What travels, and what is proved?</legend><label><input type="radio" name="sharing-lens" value="travels" checked data-test-id="sharing-lens-travels" /> What travels: sharing</label><label><input type="radio" name="sharing-lens" value="proves" data-test-id="sharing-lens-proves" /> What is proved: causal persuasion</label><p class="lens-travels">The supplied replication and meta-analysis combined 27 studies and about 4.8 million observations; each additional moral-emotional word was associated with roughly 13% greater expected sharing, with substantial heterogeneity. <a href="etr-source:S150">[S150]</a></p><p class="lens-proves">That heterogeneous association concerns expected sharing. It does not establish causal persuasion, polarization, anxiety, belief, or action. <a href="etr-source:S150">[S150]</a></p></fieldset>
+</figure>
+
 The commercial problem begins when the observed stage becomes the target. A system rewarded for sharing can get extremely good at producing more sharing without learning whether the message is useful, representative, calming, truthful in proportion, or remotely good for the person consuming it.
 
 This mechanism is broader than any ideology or platform. People bring their own commitments and conflicts. The ranking system decides which parts of that human material receive repeated distribution. It does not create every grievance. It can decide which grievances become ambient.

@@ -1,0 +1,173 @@
+/* A diagram travels with its explanation. Motion is an optional reading aid. */
+.story-scene.scroll-story {
+  background: transparent;
+  color: var(--ink);
+  padding: 2rem 0;
+  overflow: visible;
+  view-timeline: --editorial-story block;
+}
+.scroll-story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.scroll-story-visual {
+  position: sticky;
+  top: 5.5rem;
+  min-width: 0;
+  align-self: start;
+}
+.scroll-story-visual > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62svh;
+}
+.scroll-story-step {
+  min-height: 15rem;
+  padding: 1.5rem 0 2rem 1.5rem;
+  border-inline-start: 2px solid var(--line);
+  scroll-margin-top: 6rem;
+}
+.scroll-story-step + .scroll-story-step {
+  padding-top: 2rem;
+}
+.scroll-story-step h3 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1.2;
+}
+.scroll-story-step p {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.65;
+}
+.scroll-story-step[data-scroll-state='active'] {
+  border-inline-start-color: var(--accent);
+}
+.scroll-story [data-scroll-layer] {
+  color: var(--ink);
+}
+.scroll-story [data-scroll-layer][data-scroll-state='active'] {
+  color: var(--accent);
+  --layer-ink: var(--accent);
+}
+.scroll-story svg [data-scroll-layer] {
+  stroke: currentColor;
+}
+.scroll-story svg [data-scroll-layer] > rect {
+  fill: var(--surface);
+}
+.scroll-story svg [data-scroll-layer][data-scroll-state='active'] > rect {
+  fill: var(--accent-soft);
+  stroke-width: 3px;
+}
+.scroll-story svg text {
+  stroke: none;
+}
+.scroll-story-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-block: 0.5rem;
+  border-block: 1px solid var(--line);
+  font: 0.875rem system-ui, sans-serif;
+}
+.scroll-story-controls button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.scroll-story-controls button:disabled {
+  color: var(--muted);
+  border-color: var(--line);
+  cursor: default;
+}
+.scroll-story-controls button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.scroll-story-node {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.scroll-story-node[data-scroll-state='active'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.scroll-story-node strong {
+  display: block;
+  font-size: 1.25rem;
+}
+.scroll-story-node p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.scroll-story details {
+  margin-top: 1rem;
+  border-block-start: 1px solid var(--line);
+}
+.scroll-story summary {
+  cursor: pointer;
+  padding-block: 0.75rem;
+  min-height: 2.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.scroll-story summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.story-scene.scroll-story figcaption {
+  color: var(--muted);
+  max-width: none;
+  margin-top: 1rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-story [data-scroll-layer] {
+    transition: color 350ms, background-color 350ms, border-color 350ms;
+  }
+  @supports (animation-timeline: view()) {
+    .scroll-story [data-parallax] {
+      animation: editorial-depth-back linear both;
+      animation-timeline: --editorial-story;
+      animation-range: contain 0% contain 100%;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .scroll-story [data-parallax='front'] {
+      animation-name: editorial-depth-front;
+    }
+  }
+}
+@keyframes editorial-depth-back {
+  from { transform: translateY(-12px); }
+  to { transform: translateY(12px); }
+}
+@keyframes editorial-depth-front {
+  from { transform: translateY(16px); }
+  to { transform: translateY(-16px); }
+}
+@media (max-width: 60rem), (max-height: 42rem) {
+  .scroll-story-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .scroll-story-visual { position: relative; top: auto; }
+  .scroll-story-visual > svg { max-height: none; }
+  .scroll-story-step { min-height: 0; padding-block: 1.5rem; }
+  .scroll-story-step + .scroll-story-step { padding-top: 1.5rem; }
+}
+@media print {
+  .scroll-story-controls { display: none; }
+  .scroll-story-layout { display: block; }
+  .scroll-story-visual { position: static; }
+  .scroll-story-step { min-height: 0; padding-block: 1rem; }
+  .scroll-story [data-parallax] { animation: none; transform: none; }
+  .story-scene.scroll-story { break-inside: auto; }
+}

@@ -64,6 +64,30 @@ If a company funds a technical study and submits it in a public consultation, th
 
 AI could make this radically easier to inspect by linking filings, identifying amendments, matching entities, and separating direct records from later summaries. It could also make the opposite mistake at industrial speed: merge two similar names, treat a missing record as proof of absence, or turn an incomplete graph into a confident story.
 
+<figure class="story-scene scroll-story evidence-trail-scene" data-scroll-story data-test-id="editorial-scene">
+  <header class="scene-heading"><span class="scene-kicker">Explanatory addition</span><h2>What an evidence trail can—and cannot—carry</h2></header>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual evidence-trail-visual" aria-label="A conceptual trail from public records to a decision outcome, with evidentiary gaps marked explicitly">
+      <svg viewBox="0 0 700 470" role="img" aria-labelledby="trail-title trail-description">
+        <title id="trail-title">From records to an outcome</title><desc id="trail-description">A conceptual evidence chain: a filing may document a transaction; contact may document access; neither alone proves why a decision occurred.</desc>
+        <g class="trail-grid" aria-hidden="true"><path d="M40 90H660M40 190H660M40 290H660M40 390H660" /></g>
+        <g data-scroll-layer="0" data-test-id="scroll-layer"><rect x="48" y="52" width="200" height="82" rx="4"/><text x="66" y="82">PUBLIC RECORD</text><text x="66" y="106">filing</text><text x="66" y="122">amendment</text><path d="M248 92H272" class="trail-line"/></g>
+        <g data-scroll-layer="1" data-test-id="scroll-layer"><rect x="280" y="152" width="190" height="82" rx="4"/><text x="298" y="182">RELATIONSHIP</text><text x="298" y="206">payment</text><text x="298" y="222">service</text><path d="M375 134V152" class="trail-line"/><path d="M470 193H496" class="trail-line"/></g>
+        <g data-scroll-layer="2" data-test-id="scroll-layer"><rect x="504" y="252" width="150" height="82" rx="4"/><text x="522" y="282">CONTACT</text><text x="522" y="306">meeting</text><text x="522" y="322">comment</text><path d="M579 234V252" class="trail-line"/><path d="M579 334V362" class="trail-gap"/></g>
+        <g data-scroll-layer="3" data-test-id="scroll-layer"><text x="320" y="350" class="trail-gap-label">causal link requires additional evidence</text><rect x="404" y="368" width="244" height="78" rx="4"/><text x="422" y="398">DECISION /</text><text x="422" y="414">OUTCOME</text><text x="522" y="414">separate evidence</text><text x="522" y="430">needed</text></g>
+      </svg>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><h3>Start with the record</h3><p>A filing can document an entity, date, transaction, or amendment. Reconstructing a source still means reconciling entity types, dates, pass-through organizations, and different disclosure regimes.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><h3>Keep mechanisms separate</h3><p>Payment, research, lobbying, technical consultation, and hospitality can each establish different facts. A client may pay for process knowledge, expertise, or a relationship; their coexistence is not one claim.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><h3>Contact is evidence of access</h3><p>A meeting or submission can show an opportunity to be heard, and a technical study can document a position. Neither establishes which alternatives a decision-maker considered or what changed because of it.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><h3>Prove the outcome separately</h3><p>Causal influence needs its own dated chain. Keeping the gap visible makes room for further records without turning an incomplete graph into a confident story.</p></section>
+    </div>
+  </div>
+  <figcaption>Conceptual provenance trail. It separates public records, relationships, access, and causal evidence; it does not depict a particular actor or outcome.</figcaption>
+  <details class="evidence-notes" data-test-id="missing-evidence-notes"><summary>Open the missing-evidence notes</summary><p>Missing records can result from different disclosure rules, incomplete reconstruction, unavailable records, or an unresolved question. A gap is a prompt for further evidence, not proof of absence or causation.</p></details>
+</figure>
+
 ## What the lobbying evidence actually measures
 
 Bertrand, Bombardini, and Trebbi studied federal lobbying using data from 1999 through 2008. Their analysis distinguishes issue expertise from connections to politicians. They find that connected lobbyists can follow politicians into new issue areas when committee assignments change, and that connections carry a substantial premium in their data. The result concerns a historical market for lobbying services. It does not establish that a particular law was purchased or that the same magnitude applies to every later period. [S141]

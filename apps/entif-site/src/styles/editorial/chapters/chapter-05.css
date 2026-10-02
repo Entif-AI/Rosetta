@@ -39,3 +39,15 @@
     gap: 2rem;
   }
 }
+/* Chapter 5: a bounded workplace finding and unquantified distribution paths. */
+.productivity-evidence-scene { background:var(--scene-paper); }
+.productivity-evidence-scene figcaption { color:var(--ink); }
+.productivity-evidence-scene svg { width:100%; height:auto; fill:none; stroke:var(--ink); stroke-width:2; }
+.productivity-evidence-scene svg :is(path,circle,rect) { fill:none; stroke:currentColor; }
+.productivity-evidence-scene svg text { fill:currentColor; stroke:none; font:600 15px system-ui,sans-serif; }
+.productivity-evidence-scene svg text:last-child { font-size:12px; font-weight:400; }
+.productivity-scope { margin-top:2rem; padding-top:1rem; border-top:1px solid var(--scene-rule); }
+.productivity-scope summary { cursor:pointer; min-height:2.75rem; font:650 .95rem system-ui,sans-serif; }
+.productivity-scope p { max-width:50rem; font-size:1rem; }
+.productivity-scope summary:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+@media(max-width:30rem){.productivity-visual svg text{font-size:22px;}.productivity-visual svg text:last-child{font-size:14px;}}

@@ -13,6 +13,21 @@
 .adviser-window{max-width:55rem;margin:3rem auto 1rem;border:1px solid var(--scene-rule);background:var(--surface);color:var(--ink);border-radius:.75rem;overflow:hidden;}
 .adviser-window-top{display:flex;justify-content:space-between;gap:1rem;padding:1rem;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.6875rem;letter-spacing:.1em;}
 .adviser-window .adviser-request{padding:1rem 1.5rem;margin:2rem 2rem 1rem 20%;background:var(--scene-paper);border-radius:.75rem .75rem 0 .75rem;}
+
+/* Chapter 6: the switching journey makes customer transition work inspectable. */
+.switching-scene { background:var(--scene-paper); }
+.switching-scene figcaption { color:var(--ink); }
+.switching-scene svg { width:100%; height:auto; fill:none; stroke:var(--ink); stroke-width:2; }
+.switching-scene svg :is(path,circle,rect) { fill:none; stroke:currentColor; }
+.switching-scene svg text { fill:currentColor; stroke:none; font:600 15px system-ui,sans-serif; }
+.switching-scene svg text:last-child { font-size:12px; font-weight:400; }
+.switching-tasks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+.switching-tasks details { border-top:1px solid var(--scene-rule); padding-top:.75rem; }
+.switching-tasks summary { cursor:pointer; min-height:2.75rem; font:650 .875rem system-ui,sans-serif; }
+.switching-tasks p { font-size:1rem; }
+.switching-tasks summary:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+@media(max-width:48rem){.switching-tasks{grid-template-columns:1fr;}}
+@media(max-width:30rem){.switching-visual svg text{font-size:22px;}.switching-visual svg text:last-child{font-size:14px;}}
 .adviser-reply{padding:2rem;margin:1rem 15% 2rem 0;}.adviser-reply h3{margin-block:1.25rem;}
 .adviser-scene .convert-reply{display:none;}.adviser-scene:has([value='convert']:checked) .compare-reply{display:none;}.adviser-scene:has([value='convert']:checked) .convert-reply{display:block;}
 @media(max-width:55rem){.switching-route{grid-template-columns:1fr;gap:2rem;}.switching-bill{max-width:20rem;}.adviser-window .adviser-request{margin-left:1rem;margin-right:1rem;}.adviser-reply{margin-right:0;padding:1.5rem;}}

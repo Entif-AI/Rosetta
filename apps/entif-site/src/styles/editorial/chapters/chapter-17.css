@@ -1,0 +1,16 @@
+/* Chapter 17: a complete ledger first; search is a progressive convenience. */
+.editorial-references [data-source][hidden] { display: none; }
+.editorial-references { --source-search-rule: var(--muted); }
+.editorial-source-search { margin: 1.5rem 0 2rem; padding: 1rem 0; border-block: 1px solid var(--source-search-rule); }
+.editorial-source-search label { display: block; margin-bottom: .65rem; font-family: system-ui, sans-serif; font-size: .875rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.editorial-source-search-controls { display: flex; gap: .5rem; }
+.editorial-source-search input { min-width: 0; flex: 1; border: 1px solid var(--ink); border-radius: 0; padding: .65rem .75rem; color: var(--ink); background: var(--canvas); font: inherit; }
+.editorial-source-search button { border: 1px solid var(--ink); border-radius: 0; padding: .65rem 1rem; color: var(--canvas); background: var(--ink); font: inherit; cursor: pointer; }
+.editorial-source-search :is(input, button):focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.editorial-source-search-count { margin: .65rem 0 0; color: var(--muted); font-size: .9rem; }
+.editorial-source-no-matches { margin: 1.5rem 0; padding: 1rem; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.editorial-references [id^='source-'] { scroll-margin-top: calc(var(--editorial-nav-height, 4rem) + 1rem); }
+.editorial-references [id^='source-']:target { outline: 2px solid var(--accent); outline-offset: .35rem; }
+@media (max-width: 34rem) { .editorial-source-search-controls { align-items: stretch; flex-direction: column; } }
+@media (prefers-reduced-motion: reduce) { .editorial-references [id^='source-'] { scroll-behavior: auto; } }
+@media print { .editorial-source-search, .editorial-source-no-matches { display: none !important; } .editorial-references [data-test-id='editorial-source'][hidden] { display: list-item !important; } }

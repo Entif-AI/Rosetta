@@ -86,6 +86,32 @@ The FTC partnership report illustrates why concentration multiplies the stakes. 
 
 The same integration that makes AI useful makes exit harder.
 
+<figure class="story-scene scroll-story mediation-stack-scene" data-scroll-story data-test-id="editorial-scene">
+  <header class="scene-heading"><span class="scene-kicker">Explanatory addition</span><h2>When mediation reaches the work</h2></header>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual mediation-stack-visual" aria-label="Five conceptual layers: retrieval, attention, discovery, interpretation, and delegated action">
+      <svg viewBox="0 0 700 500" role="img" aria-labelledby="stack-title stack-description">
+        <title id="stack-title">A stack of mediated choices</title><desc id="stack-description">Five layers progress from retrieval to delegated action. Each layer changes what the system mediates; the diagram makes no claim that every system performs every layer.</desc>
+        <g data-scroll-layer="0" data-test-id="scroll-layer"><rect x="95" y="390" width="510" height="58" rx="4"/><text x="122" y="426">RETRIEVAL · documents and records made available</text></g>
+        <g data-scroll-layer="1" data-test-id="scroll-layer"><rect x="130" y="310" width="440" height="58" rx="4"/><text x="157" y="346">ATTENTION · some available material is foregrounded</text></g>
+        <g data-scroll-layer="2" data-test-id="scroll-layer"><rect x="165" y="230" width="370" height="58" rx="4"/><text x="192" y="266">DISCOVERY · options enter the consideration set</text></g>
+        <g data-scroll-layer="3" data-test-id="scroll-layer"><rect x="200" y="150" width="300" height="58" rx="4"/><text x="227" y="186">INTERPRETATION · evidence is organized</text></g>
+        <g data-scroll-layer="4" data-test-id="scroll-layer"><rect x="235" y="70" width="230" height="58" rx="4"/><text x="262" y="106">DELEGATED ACTION · a task is executed</text></g>
+        <path d="M350 455V470" class="stack-axis"/><text x="365" y="480" class="stack-note">More mediation can make omitted distinctions harder to notice.</text>
+      </svg>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><h3>Retrieval makes material available</h3><p>Search has long mediated which documents can be reached. Availability is not yet an account of relevance, representativeness, or the meaning a reader makes from the record.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><h3>Attention and discovery narrow the field</h3><p>Feeds foreground material; recommendations can add options to the field of view. Both influence what receives consideration before an answer is ever written.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><h3>Interpretation organizes the material</h3><p>An assistant can summarize, compare, or frame evidence. A correct statement can still leave an important option outside the frame or make an unresolved distinction less visible.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><h3>Delegated action changes the stakes</h3><p>When a system can act, authorization, records, and appeal become part of the work—not a cosmetic approval after it. Permission to read is different from permission to act.</p></section>
+      <section class="scroll-story-step" data-scroll-step="4" data-test-id="scroll-step"><h3>An analogy about coordination</h3><p>The “nervous system” language names mediation across perception, interpretation, coordination, and action. It does not claim a conscious organism or that every system operates at every layer.</p></section>
+    </div>
+  </div>
+  <figcaption>Conceptual infrastructure cross-section. The layers describe different forms of mediation; a given product may operate at only some of them.</figcaption>
+  <details class="portability-inventory" data-test-id="portability-inventory"><summary>Portability inventory: what must move with a working relationship?</summary><dl><div><dt>Exportable data</dt><dd>Conversation text, files, and records can leave a service.</dd></div><div><dt>Relationships and workflows</dt><dd>Context, drafting conventions, integrations, and team practice may need rebuilding.</dd></div><div><dt>Authority and traceability</dt><dd>Permissions, source provenance, uncertainty, and delegated-action records may not travel with text.</dd></div></dl><p>Exporting data is useful. It is not by itself proof that a relationship, workflow, or authority trail has been made portable.</p></details>
+</figure>
+
 This is how infrastructure becomes institution.
 
 Once a model is embedded in document workflows, code repositories, customer-support operations, analytics, HR systems, procurement, compliance, and executive decision support, replacing it is not like uninstalling a novelty app. Organizations adapt processes and employee skills around it. Historical data accumulates. Prompts become workflows. Agents become operational dependencies.

@@ -1,0 +1,23 @@
+/* Chapter 11: records, proxies, objectives, and bounded interventions. */
+.provenance-scene { background:var(--scene-night); color:var(--scene-paper); }
+.provenance-scene svg { width:100%; height:auto; fill:none; stroke:var(--scene-signal); stroke-width:2; }
+.story-scene.provenance-scene svg :is(path,circle,rect) { fill:none; stroke:var(--scene-signal); }
+.provenance-scene svg text { fill:currentColor; stroke:none; font:600 16px system-ui,sans-serif; }
+.provenance-scene svg text:last-child { font-size:13px; font-weight:400; }
+.provenance-scene figcaption { color:var(--scene-paper); }
+.provenance-scene a { color:var(--scene-signal); }
+.proxy-scope-scene { background:var(--scene-paper); }
+.proxy-route { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:1rem; align-items:stretch; margin:3rem 0 1.5rem; }
+.proxy-route>span { display:grid; place-items:center; color:var(--accent); font-size:2rem; }
+.proxy-card { border-top:3px solid var(--ink); padding:1rem 0; }
+.proxy-card span { display:block; font:650 .75rem system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.proxy-card strong { display:block; margin:.75rem 0; font-size:clamp(1.4rem,2.5vw,2.25rem); line-height:1.1; }
+.proxy-card p,.proxy-scope-notes p { font-size:1rem; }
+.proxy-scope-notes { border-block:1px solid var(--scene-rule); padding:1rem 0; }
+.proxy-scope-notes p { display:none; margin:0; }
+.proxy-scope-notes .scope-record { display:block; }
+.proxy-scope-scene:has([value='label']:checked) .scope-record,.proxy-scope-scene:has([value='objective']:checked) .scope-record { display:none; }
+.proxy-scope-scene:has([value='label']:checked) .scope-label,.proxy-scope-scene:has([value='objective']:checked) .scope-objective { display:block; }
+.proxy-scope-scene:has([value='record']:checked) .proxy-record,.proxy-scope-scene:has([value='label']:checked) .proxy-label,.proxy-scope-scene:has([value='objective']:checked) .proxy-objective { border-color:var(--accent); color:var(--accent); }
+@media(max-width:48rem){.proxy-route{grid-template-columns:1fr;gap:.35rem;}.proxy-route>span{transform:rotate(90deg);min-height:2rem;}.proxy-card{padding-block:1rem;}}
+@media(max-width:30rem){.provenance-visual svg text{font-size:22px;}.provenance-visual svg text:last-child{font-size:14px;}}

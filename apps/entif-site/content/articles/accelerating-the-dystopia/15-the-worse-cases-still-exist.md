@@ -70,6 +70,28 @@ These categories can overlap in a deployed system, but they call for different d
 
 Treating every harmful outcome as misalignment obscures that difference. It can make an organizational decision look like a technical defect and encourage a technical repair that leaves the decision intact. Conversely, treating every failure as a problem of the institution can obscure a real engineering hazard. The distinction keeps both responsibilities visible.
 
+<figure class="story-scene scroll-story risk-mechanism-scene" data-scroll-story data-test-id="editorial-scene">
+  <div class="scene-overline"><span>15 / Keep the mechanisms separate</span><span>Explanatory diagram</span></div>
+  <h2>Three ways a harmful outcome can arrive.</h2>
+  <div class="scroll-story-layout">
+    <div class="scroll-story-visual risk-mechanism-visual" data-test-id="scroll-visual" aria-label="A mechanism diagram separating specification gaming, goal misgeneralization, and an authorized harmful objective">
+      <div class="risk-mechanism-rail" aria-hidden="true">Objective <i>→</i> system behavior <i>→</i> lived outcome</div>
+      <div class="risk-mechanism-card scroll-story-node" data-scroll-layer="0" data-test-id="scroll-layer"><span>Specification gaming</span><strong>The written proxy is met; the intended task is missed.</strong><i aria-hidden="true">↳</i></div>
+      <div class="risk-mechanism-card scroll-story-node" data-scroll-layer="1" data-test-id="scroll-layer"><span>Goal misgeneralization</span><strong>Training behavior appears right; a new setting reveals a different learned goal.</strong><i aria-hidden="true">↳</i></div>
+      <div class="risk-mechanism-card scroll-story-node" data-scroll-layer="2" data-test-id="scroll-layer"><span>Authorized harmful objective</span><strong>The system follows the objective; an affected interest was never included.</strong><i aria-hidden="true">↳</i></div>
+      <div class="risk-mechanism-card risk-lens-card scroll-story-node" data-scroll-layer="3" data-test-id="scroll-layer"><span>Severe-risk lens</span><strong>Capability, propensity, and opportunity are distinct requirements for analysis.</strong></div>
+    </div>
+    <div class="scroll-story-steps">
+      <section class="scroll-story-step" data-scroll-step="0" data-test-id="scroll-step"><span>01</span><h3>Specification gaming</h3><p>The proxy or reward leaves room for a system to satisfy the written target while defeating the designer’s purpose. The repair concerns the gap between the proxy and the task, not merely the fact that a deployment has an owner.</p></section>
+      <section class="scroll-story-step" data-scroll-step="1" data-test-id="scroll-step"><span>02</span><h3>Goal misgeneralization</h3><p>A learned system can appear to pursue the intended goal during training and behave differently when circumstances change. Better behavior in the familiar setting does not itself show that the learned objective will travel as intended.</p></section>
+      <section class="scroll-story-step" data-scroll-step="2" data-test-id="scroll-step"><span>03</span><h3>Authorized objective</h3><p>The instruction can be followed faithfully while its purpose leaves out someone who must live with the result. Improving the system’s fidelity can make that omission more consistently consequential.</p></section>
+      <section class="scroll-story-step" data-scroll-step="3" data-test-id="scroll-step"><span>04</span><h3>What a risk claim still needs</h3><p>Ability is not behavior, and behavior is not impact without the access or deployment conditions that create an opportunity. These requirements examine a mechanism without turning unlike risks into a single ranked scale.</p></section>
+    </div>
+  </div>
+  <fieldset class="risk-lens" data-test-id="risk-lens"><legend>Inspect one requirement at a time</legend><label><input type="radio" name="risk-lens" value="capability" checked data-test-id="risk-lens-control" /> Capability</label><label><input type="radio" name="risk-lens" value="propensity" data-test-id="risk-lens-control" /> Propensity</label><label><input type="radio" name="risk-lens" value="opportunity" data-test-id="risk-lens-control" /> Opportunity</label><div class="risk-lens-copy"><p class="risk-capability"><strong>Capability:</strong> Can the system perform the relevant action under the conditions being discussed?</p><p class="risk-propensity"><strong>Propensity:</strong> Is there reason to expect it to use that capability in the harmful way at issue?</p><p class="risk-opportunity"><strong>Opportunity:</strong> Does the deployment provide the access, permissions, or consequential workflow needed for the harm to matter?</p></div></fieldset>
+  <figcaption>This conceptual map does not rank risks or assign probabilities. It keeps distinct the chapter’s technical failure mechanisms, authorized harms, and the separate requirements used to examine severe-risk claims. <a href="etr-source:S169">Source context: S169 ↗</a> <a href="etr-source:S173">Source context: S173 ↗</a></figcaption>
+</figure>
+
 ## Capability, propensity, and opportunity
 
 A system's ability to perform an action does not establish that it will do so. A behavior observed in a specially constructed test does not establish its frequency in ordinary use. A harmful tendency may have little effect without relevant access, or a much larger effect when the system controls a consequential workflow.
