@@ -22,13 +22,17 @@ This document complements `PUBLIC_COMMONS_AND_PRIVATE_OPERATION_BOUNDARY.md`. Th
 
 ## 2. Core invariants
 
-### 2.1 Public meaning is authoritative for interoperability
+### 2.1 Rosetta owns data-bearing interoperability
 
-Private implementation MAY implement, optimize, specialize, or outperform a public Rosetta contract.
+Rosetta owns official schemas, structures, semantics, serializations, storage contracts, integration mappings, exchange envelopes, and adapters used to store, integrate, transform, or exchange governed data.
 
-Private implementation MUST NOT silently redefine the meaning of a public Rosetta contract.
+Protected implementation MAY implement, optimize, specialize, or outperform Rosetta-shaped operation. It MAY own decision procedures, orchestration, ranking, routing, thresholds, learning policy, deployment behavior, and other non-interoperability machinery. It MUST NOT become the hidden owner of a data-bearing contract or adapter boundary.
 
-If private requirements and public Rosetta semantics conflict, the conflict MUST be surfaced explicitly and resolved through the applicable authority process. An implementation MUST NOT conceal the conflict by changing behavior only in private code.
+If protected work needs a new field, record, relation, state, persistence shape, integration adapter, or exchange contract, that requirement MUST receive a Rosetta owner before it becomes an official implementation dependency.
+
+Research and demonstration repositories MAY supply prototypes, fixtures, or candidate shapes. Those artifacts have no official semantic authority until Rosetta adopts or maps them.
+
+If protected requirements and Rosetta semantics conflict, the conflict MUST be surfaced explicitly and resolved through the applicable authority process. An implementation MUST NOT conceal the conflict by changing behavior only in protected code.
 
 ### 2.2 Protected requirements remain discoverable without being disclosed
 
