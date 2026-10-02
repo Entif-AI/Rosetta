@@ -44,6 +44,17 @@ needed for the initial fixture lane.
 
 ## Operating state
 
+#1665 complete for review: nine authored synthetic events and four full object
+snapshots retain exact source bytes separately from capture/episode metadata.
+The manifest pins 5,779 bytes and SHA-256
+`60e556bb5144659a6f2453e67a68a7d52193d6da41c3f18c010dc672e41c86f1`.
+Five existing source artifact kinds are linked by deterministic CIDs. Unknown
+client/parser/model metadata remains explicit. Source/capture/observed/recorded
+time roles remain separate; envelopes use the declared fixture recorded time.
+Byte corruption, metadata drift and artifact-identity drift fail verification.
+Owner suite: 7 tests pass; source-substrate build passes. No normalization,
+semantic interpretation or live capture occurs in this source implementation.
+
 #1693 complete for review: integer keys now serialize directly in UTF-16 lexical
 order; RFC sorting/escaping/numeric vectors and invalid-Unicode rejection pass.
 Red integer-order regression captured before repair. Focused suite: 16 tests;
@@ -76,6 +87,7 @@ CoS 2.1.22 source snapshot. #1688 and dependent donor work are not claimed compl
 
 ## Next safe step
 
-Commit/push #1693 and open the single PR. Complete the source-fixture gate, then
-implement normalization. Keep independent #1694 Profile work moving in parallel;
-append only completed review deltas to the PR.
+PR #1697 is open. Push #1665 and append its review delta. Implement #1666 against
+the now-verified source bytes and repaired canonicalizer. Keep independent #1694
+Profile work moving in parallel. Neo4j proof is next after normalization passes;
+an isolated development image is being prepared, with no production graph claim.

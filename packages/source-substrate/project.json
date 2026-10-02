@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run packages/source-substrate/src/lib/source-substrate.spec.ts"
+        "command": "vitest run packages/source-substrate/src/lib"
       },
       "cache": true,
       "inputs": [
