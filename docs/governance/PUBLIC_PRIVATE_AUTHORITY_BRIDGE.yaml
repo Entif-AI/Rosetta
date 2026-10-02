@@ -561,6 +561,18 @@ bridges:
       - public_correction_amendment_schema_and_adversarial_fixtures
 
 
+  - public_issue: 1670
+    public_contract: salience_evidence_profile
+    protected_authorities: [IPR-0218]
+    relationship: implements
+    protected_review_required_for:
+      - private_salience_estimation_policy_changes
+      - recursive_scale_aggregation_policy_changes
+      - attention_or_assimilation_policy_changes
+    validation_references:
+      - public_salience_schema_and_interoperability_fixtures
+
+
 notes:
   - >-
     This initial bridge is intentionally incomplete. New edges MUST be added as
