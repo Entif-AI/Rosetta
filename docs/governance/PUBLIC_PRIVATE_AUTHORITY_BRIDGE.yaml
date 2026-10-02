@@ -585,6 +585,27 @@ bridges:
       - public_counterfactual_evaluation_schema_and_fixtures
 
 
+  - public_issue: 1694
+    public_contract: salience_evidence_profile_schema_implementation
+    protected_authorities: [IPR-0218]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - private_salience_behavior_assumptions
+      - implementation_changes_that_depend_on_private_estimation_or_gating_policy
+    validation_references:
+      - public_salience_schema_and_interoperability_fixtures
+
+  - public_issue: 1695
+    public_contract: counterfactual_mechanism_evaluation_schema_implementation
+    protected_authorities: [IPR-0219]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - private_candidate_selection_or_threshold_assumptions
+      - implementation_changes_that_depend_on_private_substitution_policy
+    validation_references:
+      - public_counterfactual_evaluation_schema_and_fixtures
+
+
 notes:
   - >-
     This initial bridge is intentionally incomplete. New edges MUST be added as
