@@ -1,0 +1,61 @@
+{
+  "$schema": "../_schemas/pack-manifest.schema.json",
+  "id": "schema-pack-evaluation-profiles",
+  "pack_id": "cidv1-sha256-e019a4bda466f8f526611bc231b7178478ac88e77b654d91dac540db939be3ca",
+  "kind": "schema-pack",
+  "category": "SchemaPack",
+  "namespace": "salience",
+  "doc_id": "ROCK-3010-SALIENCE-EVALUATION",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Evaluation Profiles Schema Pack",
+  "name": "Evaluation Profiles Schema Pack",
+  "summary": "Public, representational Profiles over rosetta.evaluation. This first export records salience evidence without formulas, policy, or authority grants.",
+  "compatible_core": {
+    "min": "3.0.0",
+    "max_exclusive": "4.0.0"
+  },
+  "entrypoints": {
+    "schema": [
+      "schema/salience-evaluation.schema.json"
+    ],
+    "tests": [
+      "tests/README.md",
+      "test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+      "test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+      "test-vectors/salience/03-aggregate-pattern.json",
+      "test-vectors/salience/04-expected-absence.json",
+      "test-vectors/salience/05-contradiction.json",
+      "test-vectors/salience/06-historical-reassessment.json",
+      "test-vectors/salience/07-unknown-insufficient-evidence.json",
+      "test-vectors/salience/08-invalid-no-grant.json",
+      "test-vectors/salience/09-interoperable-private-procedures.json"
+    ]
+  },
+  "depends_on": [],
+  "owners": [
+    {
+      "name": "Entif/Rosetta maintainers",
+      "role": "editor"
+    }
+  ],
+  "exports": [
+    {
+      "kind": "json-schema",
+      "id": "salience.evaluation.v1",
+      "path": "schema/salience-evaluation.schema.json",
+      "version": "1.0.0",
+      "profile": "salience.evaluation.v1"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "salience.evaluation.v1",
+      "path": "schema/salience-evaluation.schema.json"
+    }
+  ],
+  "source_of_truth": {
+    "doctrine": "Rosetta v3.0.0 Core Spine; public salience Profile #1694",
+    "traceability_required": true
+  }
+}

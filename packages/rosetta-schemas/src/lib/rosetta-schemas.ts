@@ -2,6 +2,8 @@ import { makeContentId } from '@entif-ai/rosetta-cid';
 import { splitSentences } from '@entif-ai/rosetta-canon';
 import type { TileEnvelope } from '@entif-ai/rosetta-core';
 
+import { isSalienceEvaluationProfile, validateSalienceEvaluation } from './salience-profile.js';
+
 export interface ValidationResult {
   errors: string[];
   ok: boolean;
@@ -1319,7 +1321,9 @@ export function validatePayload(kind: string, payload: object): ValidationResult
     .filter((field) => !(field in payload))
     .map((field) => `Missing required field: ${field}`);
 
-  if (kind === 'rosetta.receipt') {
+  if (kind === 'rosetta.evaluation' && isSalienceEvaluationProfile(payload)) {
+    errors.push(...validateSalienceEvaluation(payload).errors);
+  } else if (kind === 'rosetta.receipt') {
     validateReceiptPayload(payload, errors);
   } else if (kind === 'adapter.capability_manifest') {
     validateAdapterCapabilityManifestPayload(payload, errors);

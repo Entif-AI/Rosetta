@@ -55,6 +55,8 @@ const AGENTIC_MESSAGING_RFC = 'docs/RFCs/20260228 - Entif v0 - Spec Proposal - A
 const ROSETTA_CORE_SPEC = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md';
 const ENTIF_ROSETTA_PRD = 'docs/PRDs/20260426 - Entif and Rosetta PRD.md';
 const ROSETTA_GUARD_README = 'packages/rosetta-guard/README.md';
+const SALIENCE_PACK_SCHEMA = 'packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json';
+const SALIENCE_PACK_TESTS = 'packs/schema-pack-evaluation-profiles/test-vectors/salience';
 const SKILL_LIBRARY_DESIGN = 'docs/chats/20260323 - Chat GPT - Entif Skill Library Design.md';
 const PROGRESSIVE_DISCLOSURE_SKILLS = 'docs/chats/20260323 - Chat GPT - Progressive-Disclosure Skill System.md';
 
@@ -219,6 +221,22 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 );
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  {
+    authorityTier: 'core-spine',
+    boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-schemas', '@entif-ai/rosetta-core'],
+    docs: [SCHEMA_README, AUTHORITY_MAP, SALIENCE_PACK_SCHEMA],
+    exposureStatus: 'downstream-contract',
+    family: 'evaluation-profile',
+    knownGaps: ['Represents inspectable salience assessments only; formulas, weighting, gating, selection, activation, and execution policy remain outside this Profile.'],
+    ownerPackage: '@entif-ai/rosetta-schemas',
+    rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId: 'salience.evaluation.v1',
+    sourceIssues: ['#1694'],
+    sourcePrs: [],
+    tests: [SCHEMA_SPEC, SALIENCE_PACK_TESTS],
+    validator: 'validateSalienceEvaluation'
+  },
   {
     authorityTier: 'governance-admission',
     boundaryKind: 'owned-schema',
