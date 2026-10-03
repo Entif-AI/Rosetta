@@ -1,3 +1,4 @@
+import console from 'node:console';
 // #1572 removed protected working authorities. Public checks must not require their return.
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';

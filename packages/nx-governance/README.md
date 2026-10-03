@@ -59,3 +59,23 @@ Primary tooling references: [Nx sync generators](https://nx.dev/docs/kb/create-s
 [Nx CLI](https://nx.dev/docs/reference/nx-commands),
 [Spec Kit extension hooks](https://github.com/github/spec-kit/blob/main/docs/reference/extensions.md),
 [Spec Kit workflows](https://github.com/github/spec-kit/blob/main/docs/reference/workflows.md).
+
+## Specification catalog
+
+The same global sync generator calls the explicitly configured source-owned catalog
+producer. Output paths are declared and validated before writing. Rosetta joins the
+existing DocID suite, schema catalog/Core descent, and checked-in Pack manifests;
+`tools/spec-catalog/catalog.schema.json` versions the projection contract. JSON records
+retain source digests, availability, declared exports/assets, Profiles, issue references,
+compatibility and semantic dependencies. No source issue or supersession is guessed.
+
+`docs/governance/ROSETTA_SPEC_CATALOG.json` is the generated inspection surface;
+`ROSETTA_PACK_MAP.csv` supplies generated operator columns. Human planning annotations
+join by identity in a separate overlay and are never read or overwritten. Direct Sheet
+transport and Neo4j are outside this slice. Tests use the same sources as examples.
+
+Pack discovery uses explicit `packs/*/pack.json` manifests. Inferred per-Pack shell targets
+would duplicate the existing cross-Pack graph validator without providing independent
+execution; retain its existing RRP target and run catalog/Pack validators as shared tasks.
+Declared Pack semantic dependencies create no Nx dependencies. `spec-catalog:check/test`
+and admission evidence have explicit source inputs and cacheable pure execution.

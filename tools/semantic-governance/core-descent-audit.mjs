@@ -1,12 +1,11 @@
-import { createJiti } from 'jiti';
+import { loadSchemas } from './load-schemas.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 import process from 'node:process';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
-const jiti = createJiti(import.meta.url);
 export const riskRegister = [
   { ids: ['rosetta.translation_evidence', 'rosetta.composition_provenance'], risk: 'Reserved namespace suggests Core authority.', disposition: 'retain-local', remediation: 'Keep package-internal legacy IDs; require a namespaced Pack/migration before public exchange.', owner: '#1179' },
   { ids: ['rosetta.conformance_bundle', 'rosetta.shacl_shapes'], risk: 'Generated validation output may appear normative.', disposition: 'projection', remediation: 'Treat bundles and emitted shapes as derived inspection data, not conformance execution or schema authority.', owner: '#240' },
@@ -35,7 +34,7 @@ export async function buildAudit(catalog, base = root) {
 }
 
 export async function checkAudit({ write = false } = {}) {
-  const schemas = await jiti.import(path.join(root, 'packages/rosetta-schemas/src/index.ts'));
+  const schemas = await loadSchemas(root);
   const errors = schemas.validateSchemaCatalogCoverage();
   if (errors.length) throw new Error(errors.join('\n'));
   const report = await buildAudit(schemas.ROSETTA_SCHEMA_CATALOG);

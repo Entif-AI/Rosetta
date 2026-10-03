@@ -11,7 +11,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.json"
+    "src/**/*.json",
+    "src/**/*.cts"
   ],
   "exclude": [
     "dist",

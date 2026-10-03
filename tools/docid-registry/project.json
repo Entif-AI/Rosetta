@@ -6,11 +6,21 @@
   "targets": {
     "test": {
       "executor": "nx:run-commands",
-      "options": { "cwd": ".", "command": "node --test tools/docid-registry/registry.test.mjs && node tools/docid-registry/registry.mjs" },
+      "options": {
+        "cwd": ".",
+        "command": "node --test tools/docid-registry/registry.test.mjs && node tools/docid-registry/registry.mjs"
+      },
       "cache": true,
-      "inputs": ["{projectRoot}/**/*", "{workspaceRoot}/docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md", "{workspaceRoot}/docs/intake/doc-ledger.json", "{workspaceRoot}/docs/governance/ROSETTA_DOCID_REGISTRY.json"],
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "{workspaceRoot}/docs/governance/ROSETTA_DOCID_REGISTRY.json"
+      ],
       "outputs": []
     }
   },
-  "tags": ["tooling", "governance"]
+  "tags": [
+    "tooling",
+    "governance"
+  ]
 }

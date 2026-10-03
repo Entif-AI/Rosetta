@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "rosetta.specification-catalog.v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["formatVersion", "role", "authorityRule", "provenance", "documents", "packs", "schemas", "packMap"],
+  "properties": {
+    "formatVersion": {"const": 1}, "role": {"const": "derived-specification-projection"}, "authorityRule": {"type": "string"},
+    "provenance": {"type": "array", "items": {"$ref": "#/definitions/source"}},
+    "documents": {"type": "array", "items": {"type": "object", "required": ["docId", "availability", "provenance"]}},
+    "packs": {"type": "array", "items": {"type": "object", "required": ["id", "packId", "docId", "source", "profiles", "exports", "assets", "dependsOn", "compatibleCore"], "properties": {
+      "id": {"type": "string"}, "packId": {"type": "string"}, "docId": {"type": "string"}, "source": {"$ref": "#/definitions/source"},
+      "dependsOn": {"type": "array", "items": {"type": "object", "required": ["doc_id"], "properties": {"doc_id": {"type": "string"}}}},
+      "profiles": {"type": "array", "items": {"type": "object", "required": ["id", "schemaId", "coreKind", "coreDescent", "provenance", "conformanceRefs"], "properties": {"id": {"type": "string"}, "schemaId": {"type": "string"}, "coreKind": {"type": ["string", "null"]}, "provenance": {"type": "array", "items": {"$ref": "#/definitions/source"}}}}},
+      "exports": {"type": "array", "items": {"type": "object", "required": ["id", "kind", "path", "source"]}}, "assets": {"type": "object"}
+    }}},
+    "schemas": {"type": "array", "items": {"type": "object", "required": ["schemaId", "coreDescent", "relatedCoreKinds", "descentAuthority", "provenance", "exposureStatus", "knownGaps", "sourceIssues"], "properties": {"schemaId": {"type": "string"}, "coreDescent": {"type": "string"}, "relatedCoreKinds": {"type": "array", "items": {"type": "string"}}, "provenance": {"type": "array", "items": {"$ref": "#/definitions/source"}}}}},
+    "packMap": {"type": "object", "required": ["rows", "generatedFields", "overlay"], "properties": {"rows": {"type": "array"}, "generatedFields": {"type": "array", "items": {"type": "string"}}, "overlay": {"type": "object", "required": ["joinKey", "fields", "ownership"]}}}
+  },
+  "definitions": {"source": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}, "availability": {"enum": ["checked-in", "not-checked-in"]}}}}
+}

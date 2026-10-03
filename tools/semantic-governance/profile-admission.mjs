@@ -1,13 +1,13 @@
-import { createJiti } from 'jiti';
+import { loadSchemas } from './load-schemas.mjs';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 import { validateWorkspacePacks } from '../pack-conformance/validate-packs.mjs';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
 export async function inspectPromotionCandidate(candidate) {
-  const schemas = await createJiti(import.meta.url).import(path.join(root, 'packages/rosetta-schemas/src/index.ts'));
+  const schemas = await loadSchemas(root);
   const errors = schemas.validatePromotionStatePayload(candidate.payload);
   if (candidate.kind !== 'rosetta.observation' || candidate.pack !== 'rrp') errors.push('Promotion must specialize Core Observation under RRP.');
   const manifest = JSON.parse(await readFile(path.join(root, 'packs/rrp/pack.json'), 'utf8'));

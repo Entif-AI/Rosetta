@@ -101,6 +101,30 @@
         "{workspaceRoot}/**/*"
       ],
       "coordinator": true
+    },
+    "catalog": {
+      "command": "node tools/spec-catalog/catalog.mjs",
+      "owner": "tools/spec-catalog/catalog.schema.json",
+      "inputs": [
+        "{workspaceRoot}/tools/spec-catalog/**/*",
+        "{workspaceRoot}/tools/docid-registry/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/.prettierrc"
+      ]
     }
+  },
+  "catalog": {
+    "generator": "tools/spec-catalog/catalog.mjs",
+    "outputs": [
+      "docs/governance/ROSETTA_SPEC_CATALOG.json",
+      "docs/governance/ROSETTA_SPEC_CATALOG.md",
+      "docs/governance/ROSETTA_PACK_MAP.csv"
+    ]
   }
 }

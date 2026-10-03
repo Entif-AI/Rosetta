@@ -8,6 +8,7 @@ import init from './generators/init/init';
 import sync from './generators/sync/sync';
 import specSurface from './generators/spec-surface/spec-surface';
 import { checkExecutor, admissionExecutor } from './executors/evidence';
+import { createNodesV2 } from './plugin';
 
 const config = { schemaVersion: 1, projectName: 'fixture-governance', branchPolicy: 'existing-authorized', authoritySources: ['AUTHORITY.md'],
   projectionPath: '.specify/memory/authority.json', checks: { local: { command: 'node -e "process.exit(0)"', owner: 'AUTHORITY.md', inputs: ['{workspaceRoot}/AUTHORITY.md'] } } };
@@ -18,18 +19,29 @@ function fixture() {
   return tree;
 }
 describe('portable governance #1699', () => {
-  it('preserves local configuration and synchronizes only projections idempotently', () => {
+  it('infers governance execution targets without inventing semantic project dependencies', async () => {
+    const root = mkdtempSync(path.join(tmpdir(), 'governance-graph-'));
+    try {
+      writeFileSync(path.join(root, 'governance.config.json'), JSON.stringify(config));
+      const nodes = await createNodesV2[1](['governance.config.json'], undefined, { workspaceRoot: root, nxJsonConfiguration: {} });
+      const project = nodes[0][1].projects?.['.'];
+      expect(project?.implicitDependencies).toBeUndefined();
+      expect(project?.targets?.['merge-admission'].dependsOn).toEqual(['evidence-local']);
+      expect(project?.targets?.['evidence-local'].cache).toBe(true);
+    } finally { rmSync(root, { recursive: true, force: true }); }
+  });
+  it('preserves local configuration and synchronizes only projections idempotently', async () => {
     const tree = fixture();
     const before = readJson(tree, 'nx.json');
-    init(tree); sync(tree);
+    init(tree); await sync(tree);
     const first = tree.listChanges();
-    init(tree); sync(tree);
+    init(tree); await sync(tree);
     expect(tree.listChanges()).toEqual(first);
     expect(readJson(tree, 'nx.json').analytics).toEqual(before.analytics);
     expect(tree.exists('.specify/memory/authority.json')).toBe(true);
     expect(tree.exists('.git/HEAD')).toBe(false);
     tree.write('AUTHORITY.md', 'Changed local authority');
-    sync(tree);
+    await sync(tree);
     expect(tree.listChanges()).not.toEqual(first);
   });
   it('rejects branch-per-spec configuration before writing', () => {

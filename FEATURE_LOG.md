@@ -151,3 +151,5 @@ Validation (2026-09-18):
 
 PR #1621's pre-fix Entif site CI failure was reproduced locally and matched the two
 short-route SC 2.5.8 failures above. No merge or PR closeout performed.
+
+#1700 complete: generated specification catalog / Pack Map, versioned schema, source digests and graph integrity; same Nx sync plugin and admission. Focused tests/lint/typecheck/build and real sync drift rejection pass. Live Sheet/Neo4j transport deferred as optional projections.
