@@ -76,3 +76,14 @@ adds progressive disclosure and hints; no Codex quota savings is inferred. A PAT
 to the known quota checkpoint comment ID was replayed twice and its same ID/body
 verified against native truth. Unknown create acknowledgements still require the
 existing coordinator ledger/recovery; never blindly repeat a comment/issue create.
+
+## Registry research (#1715)
+
+Pinned `pnpm exec npm-axi search/view/versions` is a read-only research adapter.
+`view --full` escalates README content when supplied by the registry. It exposes
+latest-version detail and dependency counts; use native `pnpm view <name>@<version>
+version dependencies peerDependencies --json` for exact dependency/peer mappings.
+Search zero/error states were proved live. Research never installs/upgrades a
+workspace dependency: manifests/lock and Nx remain the owning mechanics. Evidence
+compares 1,289 bytes to a 216,173-byte raw quota-axi packument; optimally selected
+native JSON is a different baseline. No token or quota claim follows from bytes.

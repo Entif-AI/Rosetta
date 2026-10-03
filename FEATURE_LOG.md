@@ -23,8 +23,8 @@ Proof: red/green focused behavior fixtures, retained identity/baseline/convergen
 
 ## Current focus
 
-Completed #1712: pinned source setup, doctrine/dispositions, on-demand reference and Nx marker. Red/green setup fixture and live repeatable install passed. Frozen workspace install passed. Completed #1713: fresh Codex five-hour/weekly observation and red/green projection/privacy/unavailable fixtures. Completed #1714: live reads/native identity comparison, known-comment PATCH replay, 17 identity/ledger regressions. Selected native JSON was smaller in this benchmark; no universal savings claim. Current focus: #1715 npm-axi.
+Completed #1712: pinned source setup, doctrine/dispositions, on-demand reference and Nx marker. Red/green setup fixture and live repeatable install passed. Frozen workspace install passed. Completed #1713: fresh Codex five-hour/weekly observation and red/green projection/privacy/unavailable fixtures. Completed #1714: live reads/native identity comparison, known-comment PATCH replay, 17 identity/ledger regressions. Selected native JSON was smaller in this benchmark; no universal savings claim. Completed #1715: live search/latest/versions/README preview-full/zero/error; exact dependency/peer native fallback. Current focus: #1717 migration inventory.
 
 ## Handoff
 
-Continue #1715; do not execute #1711 or merge/publish. No acceptance criterion marked complete yet.
+Continue #1717; do not execute #1711 or merge/publish. No acceptance criterion marked complete yet.

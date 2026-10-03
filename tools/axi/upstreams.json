@@ -25,9 +25,12 @@
   },
   "npm-axi": {
     "repository": "https://github.com/SSBrouhard/npm-axi.git",
-    "commit": "f2118ebfaa65a7f344a7625f30c79c69b7e1667e",
+    "commit": "c77a9affa23c773c3eaeb467de2ed67185a89555",
     "observedAt": "2026-10-03",
-    "role": "source-reference"
+    "role": "adopted-registry",
+    "inspectedCommit": "f2118ebfaa65a7f344a7625f30c79c69b7e1667e",
+    "version": "0.1.1",
+    "integrity": "sha512-Z11rtzROaRGqXNpb9h2Qev1wjligcskf4fEWlFTQk9NzjXhVAuDvZFhdIbkYF4fCLLly/RPS/u6iQBtsfPh3FQ=="
   },
   "specops": {
     "repository": "https://github.com/JarvusInnovations/specops.git",
