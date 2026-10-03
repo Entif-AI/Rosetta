@@ -1,7 +1,7 @@
 ---
 id: entif:specops-context
 task: T1720
-status: planned
+status: in-progress
 depends:
   - specops-drift
 awaits: []

@@ -7,7 +7,9 @@
     "docs/governance/genesis/SEMANTIC_ALIGNMENT.md",
     "docs/governance/PUBLIC_COMMONS_AND_PRIVATE_OPERATION_BOUNDARY.md",
     "docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
-    "docs/spec/PROMOTION_TRANSITION_CONTRACT.md"
+    "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
+    "specs/architecture.md",
+    "specs/principles.md"
   ],
   "projectionPath": ".specify/memory/constitution.json",
   "checks": {
@@ -144,6 +146,50 @@
       ],
       "stage": "merge",
       "coordinator": true
+    },
+    "desired-state": {
+      "command": "node packages/nx-governance/specops/check.mjs",
+      "owner": "specs/architecture.md",
+      "inputs": [
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*",
+        "{workspaceRoot}/packages/nx-governance/specops/**/*",
+        "{workspaceRoot}/packages/nx-governance/src/**/*",
+        "{workspaceRoot}/tools/specops/evidence/**/*",
+        "{workspaceRoot}/tools/specops/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/tools/semantic-governance/governance.config.json"
+      ]
+    },
+    "plan-history": {
+      "command": "node packages/nx-governance/specops/check.mjs --base origin/main",
+      "owner": "specs/architecture.md",
+      "inputs": [
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*",
+        "{workspaceRoot}/packages/nx-governance/specops/**/*",
+        "{workspaceRoot}/packages/nx-governance/src/**/*",
+        "{workspaceRoot}/tools/specops/evidence/**/*",
+        "{workspaceRoot}/tools/specops/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/tools/semantic-governance/governance.config.json"
+      ],
+      "stage": "merge",
+      "coordinator": true
+    },
+    "specops-tests": {
+      "command": "node --test packages/nx-governance/specops/*.spec.mjs",
+      "owner": "specs/architecture.md",
+      "inputs": [
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*",
+        "{workspaceRoot}/packages/nx-governance/specops/**/*",
+        "{workspaceRoot}/packages/nx-governance/src/**/*",
+        "{workspaceRoot}/tools/specops/evidence/**/*",
+        "{workspaceRoot}/tools/specops/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/tools/semantic-governance/governance.config.json"
+      ]
     }
   },
   "catalog": {
@@ -152,6 +198,22 @@
       "docs/governance/ROSETTA_SPEC_CATALOG.json",
       "docs/governance/ROSETTA_SPEC_CATALOG.md",
       "docs/governance/ROSETTA_PACK_MAP.csv"
+    ]
+  },
+  "convergence": {
+    "artifactPath": "tools/specops/evidence/substrate.convergence.json",
+    "sourcePaths": [
+      "packages/nx-governance/specops/check.mjs",
+      "packages/nx-governance/specops/cli.mjs",
+      "packages/nx-governance/specops/drift.mjs",
+      "packages/nx-governance/specops/drift.spec.mjs",
+      "packages/nx-governance/specops/plans.mjs",
+      "packages/nx-governance/specops/plans.spec.mjs",
+      "packages/nx-governance/src/baseline.spec.ts",
+      "packages/nx-governance/src/convergence.spec.ts",
+      "packages/nx-governance/src/specops-migration.spec.ts",
+      "specs/architecture.md",
+      "specs/principles.md"
     ]
   }
 }

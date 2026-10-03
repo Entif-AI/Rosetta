@@ -1,0 +1,73 @@
+{
+  "formatVersion": 1,
+  "featureId": "roadmap-s2",
+  "runId": "substrate-drift",
+  "inventory": [
+    {
+      "key": "authority-and-desired-state",
+      "authorityRef": {
+        "path": "specs/principles.md",
+        "start": 1,
+        "end": 27
+      },
+      "verificationRefs": [
+        {
+          "path": "packages/nx-governance/specops/drift.spec.mjs",
+          "start": 1,
+          "end": 87
+        },
+        {
+          "path": "packages/nx-governance/specops/drift.mjs",
+          "start": 1,
+          "end": 153
+        },
+        {
+          "path": "packages/nx-governance/specops/check.mjs",
+          "start": 1,
+          "end": 32
+        },
+        {
+          "path": "packages/nx-governance/src/baseline.spec.ts",
+          "start": 1,
+          "end": 57
+        },
+        {
+          "path": "packages/nx-governance/src/convergence.spec.ts",
+          "start": 1,
+          "end": 67
+        }
+      ]
+    },
+    {
+      "key": "plan-ownership-and-preservation",
+      "authorityRef": {
+        "path": "specs/architecture.md",
+        "start": 1,
+        "end": 39
+      },
+      "verificationRefs": [
+        {
+          "path": "packages/nx-governance/specops/plans.spec.mjs",
+          "start": 1,
+          "end": 82
+        },
+        {
+          "path": "packages/nx-governance/specops/plans.mjs",
+          "start": 1,
+          "end": 175
+        },
+        {
+          "path": "packages/nx-governance/specops/cli.mjs",
+          "start": 1,
+          "end": 69
+        },
+        {
+          "path": "packages/nx-governance/src/specops-migration.spec.ts",
+          "start": 1,
+          "end": 46
+        }
+      ]
+    }
+  ],
+  "findings": []
+}

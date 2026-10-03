@@ -11,13 +11,33 @@ test('pinned source install is repeatable and refuses local edits or wrong revis
   execFileSync('git', ['init', '-q', source]);
   writeFileSync(path.join(source, 'README.md'), 'immutable reference');
   execFileSync('git', ['-C', source, 'add', '.']);
-  execFileSync('git', ['-C', source, '-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'fixture']);
-  const commit = execFileSync('git', ['-C', source, 'rev-parse', 'HEAD'], {encoding:'utf8'}).trim();
+  execFileSync('git', [
+    '-C',
+    source,
+    '-c',
+    'user.name=Fixture',
+    '-c',
+    'user.email=fixture@example.invalid',
+    'commit',
+    '-qm',
+    'fixture',
+  ]);
+  const commit = execFileSync('git', ['-C', source, 'rev-parse', 'HEAD'], {
+    encoding: 'utf8',
+  }).trim();
   const pin = { repository: source, commit };
   const target = path.join(root, 'installed');
-  installSource(pin, target); installSource(pin, target);
-  assert.equal(execFileSync('git', ['-C', target, 'rev-parse', 'HEAD'], {encoding:'utf8'}).trim(), commit);
+  installSource(pin, target);
+  installSource(pin, target);
+  assert.equal(
+    execFileSync('git', ['-C', target, 'rev-parse', 'HEAD'], {
+      encoding: 'utf8',
+    }).trim(),
+    commit
+  );
   writeFileSync(path.join(target, 'README.md'), 'local edit');
   assert.throws(() => installSource(pin, target), /local changes/);
-  assert.throws(() => installSource({...pin, commit: '0'.repeat(40)}, path.join(root,'bad')));
+  assert.throws(() =>
+    installSource({ ...pin, commit: '0'.repeat(40) }, path.join(root, 'bad'))
+  );
 });

@@ -22,6 +22,14 @@
     {
       "path": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
       "sha256": "df1dc272a70921dcfe62ba44a4c07a9f7081dadee4be8a64133592f59a79493d"
+    },
+    {
+      "path": "specs/architecture.md",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+    },
+    {
+      "path": "specs/principles.md",
+      "sha256": "cad4ce7f4f9c492b1c8276d2f940a868536206dbaa06372a93d400ded299a89e"
     }
   ]
 }

@@ -1,0 +1,147 @@
+{
+  "formatVersion": 1,
+  "role": "convergence-evidence-not-authority",
+  "revision": "10b30d2ec520cca6e31c20f70441ee362caf9517",
+  "sourceState": "captured-working-tree",
+  "request": {
+    "formatVersion": 1,
+    "featureId": "roadmap-s2",
+    "runId": "substrate-drift",
+    "inventory": [
+      {
+        "key": "authority-and-desired-state",
+        "authorityRef": {
+          "path": "specs/principles.md",
+          "start": 1,
+          "end": 27
+        },
+        "verificationRefs": [
+          {
+            "path": "packages/nx-governance/specops/drift.spec.mjs",
+            "start": 1,
+            "end": 87
+          },
+          {
+            "path": "packages/nx-governance/specops/drift.mjs",
+            "start": 1,
+            "end": 153
+          },
+          {
+            "path": "packages/nx-governance/specops/check.mjs",
+            "start": 1,
+            "end": 32
+          },
+          {
+            "path": "packages/nx-governance/src/baseline.spec.ts",
+            "start": 1,
+            "end": 57
+          },
+          {
+            "path": "packages/nx-governance/src/convergence.spec.ts",
+            "start": 1,
+            "end": 67
+          }
+        ]
+      },
+      {
+        "key": "plan-ownership-and-preservation",
+        "authorityRef": {
+          "path": "specs/architecture.md",
+          "start": 1,
+          "end": 39
+        },
+        "verificationRefs": [
+          {
+            "path": "packages/nx-governance/specops/plans.spec.mjs",
+            "start": 1,
+            "end": 82
+          },
+          {
+            "path": "packages/nx-governance/specops/plans.mjs",
+            "start": 1,
+            "end": 175
+          },
+          {
+            "path": "packages/nx-governance/specops/cli.mjs",
+            "start": 1,
+            "end": 69
+          },
+          {
+            "path": "packages/nx-governance/src/specops-migration.spec.ts",
+            "start": 1,
+            "end": 46
+          }
+        ]
+      }
+    ],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "packages/nx-governance/specops/check.mjs",
+      "role": "observed-evidence",
+      "sha256": "66b9c942c83089a174755a325fa85ecadb29d4bafe425cc4bb2c1eddc2830eb9"
+    },
+    {
+      "path": "packages/nx-governance/specops/cli.mjs",
+      "role": "observed-evidence",
+      "sha256": "36e1befaa1a8e8a0fc8c628fe3bbe12672e90617b9f9be8e48fe0e48480cd75b"
+    },
+    {
+      "path": "packages/nx-governance/specops/drift.mjs",
+      "role": "observed-evidence",
+      "sha256": "e1f83788eb494e6fe753d2b62fd0c40cf26eb214a84aa5e6dfb0ad6c04736752"
+    },
+    {
+      "path": "packages/nx-governance/specops/drift.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "f7afe4dbd0cde95fd348d5ff1a132483a716cfc5cfa7217610dbbb4c4e2f3748"
+    },
+    {
+      "path": "packages/nx-governance/specops/plans.mjs",
+      "role": "observed-evidence",
+      "sha256": "66776cc173f8236b95cfd3444b5c095050d0cd0327ad27db442fe0b4ef70fdb4"
+    },
+    {
+      "path": "packages/nx-governance/specops/plans.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "5b2493b1210b717da5221ac765309595b152f5017b94fe478a104f884b9d961b"
+    },
+    {
+      "path": "packages/nx-governance/src/baseline.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "263edb2635eb44670c2082a535a9220d462f079f88e2f5de0bd39bbf0d9c6909"
+    },
+    {
+      "path": "packages/nx-governance/src/convergence.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "f3dcf1f8d1ca8be46360541e2e90480a408375935c066e04dd5e13bc521eb3a8"
+    },
+    {
+      "path": "packages/nx-governance/src/specops-migration.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "3dc2756ef2c2c9ffb16dbc69fbeb4ff2fdaffd2598cd5f5ac4fbec3b54afab3e"
+    },
+    {
+      "path": "specs/architecture.md",
+      "role": "governing-authority",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+    },
+    {
+      "path": "specs/principles.md",
+      "role": "governing-authority",
+      "sha256": "cad4ce7f4f9c492b1c8276d2f940a868536206dbaa06372a93d400ded299a89e"
+    }
+  ],
+  "findings": [],
+  "summary": {
+    "runId": "substrate-drift",
+    "checked": 2,
+    "actionable": 0,
+    "byType": {},
+    "bySeverity": {},
+    "blockerRefs": [],
+    "remediationTaskRefs": [],
+    "disposition": "pass"
+  }
+}
