@@ -4,8 +4,7 @@ task: T1711
 status: planned
 depends:
   - specops-integrated
-awaits:
-  - "#1712–#1721 integrated acceptance and review-ready substrate; out of this migration run"
+awaits: []
 specs:
   - specs/architecture.md
 issues:
@@ -26,7 +25,7 @@ Inspect exact current source, Git state and controlling issue before execution. 
 - [ ] Controlling issue acceptance is verified with commit-bound evidence.
 
 ## Notes
-Implementation evidence will be recorded before closeout.
+Migration prerequisites passed; next separate efficiency experiment. Explicitly excluded from the #1712–#1721 migration run; readiness is not execution authorization.
 
 ## Follow-ups
 None.

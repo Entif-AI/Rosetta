@@ -21,16 +21,14 @@ Rollback: retain S1 payloads and Git history through successor proof; revert rev
 Compatibility: existing Spec Kit consumers remain supported during expansion; new SpecOps consumers own local semantic authority.
 Proof: red/green focused behavior fixtures, retained identity/baseline/convergence tests, external-consumer upgrade E2E, Nx sync/release/admission/affected/full gates and hosted CI.
 
-## Current focus
+## Completion
 
-Completed #1712: pinned source setup, doctrine/dispositions, on-demand reference and Nx marker. Red/green setup fixture and live repeatable install passed. Frozen workspace install passed. Completed #1713: fresh Codex five-hour/weekly observation and red/green projection/privacy/unavailable fixtures. Completed #1714: live reads/native identity comparison, known-comment PATCH replay, 17 identity/ledger regressions. Selected native JSON was smaller in this benchmark; no universal savings claim. Completed #1715: live search/latest/versions/README preview-full/zero/error; exact dependency/peer native fallback. Completed #1717: 134 source-digested S1 assets, explicit dispositions/ownership/rollback, pinned donor seam and 17 retained/migration tests plus live next fixture. Completed #1718: canonical YAML plan protocol, donor readiness/awaits dashboard, stable coordinator task/issue preview and freeze/resume fixtures. JSON-compatible YAML was rejected by donor parser; normalized to canonical unquoted YAML keys and added rejection. Completed #1719: explicit desired-state owner/state/principles rules, code-as-authority rejection, spec amendment/active/frozen reconciliation, retained stale/open-convergence blockers integrated in Nx; spec admission passes. Initial evidence placed under Profile-only spec-surfaces failed closed; moved to tools/specops/evidence. Completed #1720: compatible source-digested spec/plan catalog, TOON context/section/full escalation, lineage and byte benchmark. Real tiny corpus packet 3692 vs 3263 bytes; 24-spec synthetic fixture packet 3550 vs 40027 bytes. No quota/routing claim. Stale Nx daemon output-count snapshot resolved with NX_DAEMON=false, preserving caches. Current focus: #1721 distribution proved; integrated checks next.
+#1712–#1721 implementation and integrated acceptance are complete at the distribution source checkpoint 47e4c28f7dcd0383c5b5d5592db38473cc590902. Final closeout metadata is being checkpointed; current-head hosted verification precedes issue closure/ready state.
+
+Proof: 16 AXI/SpecOps Node fixtures; 35 Nx behavior, 4 catalog and 15 semantic fixtures; full verification (27 test projects, 19 build projects), frozen install, sync/check, release plan, affected implementation admission and 10-group packed consumer E2E. Hosted admission and site verify passed on the source checkpoint. Run/distribution/convergence/byte evidence is in tools/specops/evidence.
+
+Bounded read-only efficient_reviewer (gpt-5.6-sol/high) found staged-acquisition and dead-lock recovery gaps; red/green repairs and re-review passed. No mutable delegation. Integration also repaired pnpm symlink CLI execution, no-origin context, explicit preservation of legacy prose and source-loader test portability. Prior premature #1720 comment was corrected, not left as false evidence.
 
 ## Handoff
 
-Distribution: packaged SpecOps/pins/source acquisition, consumer-owned metadata expansion, Codex/Claude/generic managed runtime veneers. 16 Node and 35 Nx behavior fixtures; external-consumer E2E passed all 10 proofs. Symlinked pnpm CLI identity, no-origin context and legacy prose archive repaired through real E2E failures. Hosted Core-descent failure reproduced, fixed by reusing existing source loader, 15 semantic fixtures pass.
-
-Bounded read-only distribution safety review passed after repair re-review; delegated to efficient_reviewer (gpt-5.6-sol/high); no mutable delegation. Main writer unchanged.
-
-Reviewer findings repaired: source acquisition stages before activation; explicit dead-local-owner lock recovery is serialized and rejects live/ambiguous owners. Focused fixtures and packed E2E including actual pnpm bin pass. Frozen install/sync/release-plan/full repository verification passed; final admission and hosted checks pending.
-
-Next: checkpoint #1721 and finish integrated acceptance. Do not execute #1711 or merge/publish.
+Next separate experiment is #1711; migration prerequisites are cleared and it was not executed. Wait for final closeout-head hosted checks, then close completed children/epic and mark PR ready. Human owns merge/release/publication. No ledger or legacy payload deletion. Original editorial merge checkout remains preserved.

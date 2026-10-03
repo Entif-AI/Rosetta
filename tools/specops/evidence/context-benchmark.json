@@ -2,15 +2,15 @@
   "issue": 1720,
   "role": "context-byte-benchmark-not-quota-claim",
   "repository": {
-    "naiveCorpusAndPlanBytes": 3263,
-    "compactToonBytes": 3692,
-    "ratio": 1.1314741035856575
+    "naiveCorpusAndPlanBytes": 3256,
+    "compactToonBytes": 3664,
+    "ratio": 1.1253071253071254
   },
   "fixture": {
     "description": "24-spec corpus: current repository architecture/principles plus 22 independent fixture surfaces derived from public architecture text; one controlling plan",
-    "naiveCorpusAndPlanBytes": 40027,
-    "compactToonBytes": 3550,
-    "ratio": 0.08869013415944238
+    "naiveCorpusAndPlanBytes": 40020,
+    "compactToonBytes": 3522,
+    "ratio": 0.08800599700149925
   },
   "fidelity": {
     "planIdentity": true,

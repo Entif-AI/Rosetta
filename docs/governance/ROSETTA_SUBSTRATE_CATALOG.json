@@ -87,7 +87,7 @@
       "pr": null,
       "source": {
         "path": "plans/badger-experiment.md",
-        "sha256": "5ff52ad1f3da5ee87ef81251e5346027065f2ced77ca06de45bf3774bbe02746"
+        "sha256": "0ab74071d92422fafdd68dabf45f021d52991a87e4bad63c9de7b72bed96c947"
       }
     },
     {
@@ -133,13 +133,13 @@
       "id": "entif:specops-integrated",
       "kind": "plan",
       "title": "specops-integrated",
-      "status": "in-progress",
+      "status": "done",
       "task": "T1716",
       "issues": [1716],
-      "pr": null,
+      "pr": 1723,
       "source": {
         "path": "plans/specops-integrated.md",
-        "sha256": "97d22239361e365e4255e149a88df0bd617885faf844c96eb35fadbdc8f83c49"
+        "sha256": "6a4645114492f01f008a17f0d561b1f2a78188aa5758aac87f4c484ac7eef2bb"
       }
     },
     {

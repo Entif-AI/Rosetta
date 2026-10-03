@@ -21,6 +21,6 @@ finding refs and retained closed-owner disposition use that existing contract.
 Unknown acknowledgements never authorize blind creation; no transport may replace
 GitHub's durable identity. This bridge emits requests, never sends by itself.
 
-#1711 is represented only to preserve sequencing; its awaits prevents accidental
-execution during this run. The Control Sheet remains useful to humans but is not
+#1711 is represented only to preserve sequencing. Its migration hold was cleared
+after integrated acceptance; readiness never authorizes execution in this run. The Control Sheet remains useful to humans but is not
 required execution context when next/dag plus controlling source refs suffice.
