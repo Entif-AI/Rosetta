@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { normalizeAgentStreamSource } from '@entif-ai/ingress-refinery';
 import { type AgentStreamFixtureManifest } from '@entif-ai/source-substrate';
+import { analyzeAgentTraceKinematics, agentTraceTransitionQuery } from './agent-trace-kinematics.js';
 import { agentTraceNeighborhoodQuery, executeFixtureCypher, importAgentTraceProjection, planAgentTraceProjection, resetAgentTraceProjection } from './agent-trace-neo4j.js';
 
 async function fixture() {
@@ -100,6 +101,13 @@ describe.runIf(endpoint)('real Neo4j fixture proof', () => {
     const provenance = await query('MATCH (e:AkashaTrace {projectionId:$projectionId,kind:"event"})-[:TRACE_EDGE {kind:"DERIVED_FROM"}]->(v)-[:TRACE_EDGE {kind:"NORMALIZED_FROM"}]->(s) RETURN count(DISTINCT e), collect(DISTINCT s.sourceId)');
     expect(provenance.results[0].data[0].row[0]).toBe(9);
     expect(provenance.results[0].data[0].row[1]).toContain(normalized.source.manifestationCid);
+    const sourceBytes = await readFile(new URL('../../../source-substrate/src/fixtures/agent-stream-synthetic.ndjson', import.meta.url));
+    const kinematics = analyzeAgentTraceKinematics(normalized, sourceBytes);
+    const shrink = kinematics.snapshots.find((item) => item.compactionCandidate)!;
+    const transition = await executeFixtureCypher(endpoint!, [agentTraceTransitionQuery(pid, shrink.recordLine, 20)]);
+    expect(transition.results[0].data.map(({ row }) => row.slice(0,3))).toContainEqual(['snapshot.synthetic.003', 'REMOVED', 'object.synthetic.tool.001']);
+    expect(transition.results[0].data.map(({ row }) => row[0])).toContain('snapshot.synthetic.002');
+    expect(transition.results[0].data.length).toBeLessThanOrEqual(20);
     const bounded = await executeFixtureCypher(endpoint!, [agentTraceNeighborhoodQuery(pid, 'evt.synthetic.006', 5)]);
     expect(bounded.results[0].data.length).toBeGreaterThan(0); expect(bounded.results[0].data.length).toBeLessThanOrEqual(5);
     await query('MATCH (n:AkashaTrace {projectionId:$projectionId,id:$id}) CREATE (f:AkashaForeign {proof:$projectionId})-[:FOREIGN_PROOF]->(n)', { id: plan.nodes[0].id });

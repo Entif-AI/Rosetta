@@ -1,7 +1,7 @@
 import type { NormalizationReceiptPayload } from './ingress-refinery.js';
 import { canonicalizeJson, type JsonValue } from '@entif-ai/rosetta-canon';
 import { sha256Hex } from '@entif-ai/rosetta-cid';
-import { buildTile, type TileEnvelope } from '@entif-ai/rosetta-core';
+import { buildTile, verifyTileIntegrity, type TileEnvelope } from '@entif-ai/rosetta-core';
 import { buildAgentStreamSourceArtifacts, type AgentStreamFixtureManifest, type AgentStreamSourceArtifacts } from '@entif-ai/source-substrate';
 
 export const AGENT_STREAM_NORMALIZATION_PROFILE = {
@@ -240,4 +240,17 @@ export function reconstructAgentStreamRecords(result: AgentStreamStructuralNorma
       }) };
     return record;
   });
+}
+
+/** Checks bound view bytes/receipt and reconstructs verified blobs; source admission remains upstream. */
+export function verifyAgentStreamNormalizationContent(result: AgentStreamNormalizationResult): JsonObject[] {
+  const { blobs, envelope, lossReport, profile, records, snapshots, source } = result;
+  const body = canonicalizeJson({ blobs, envelope, lossReport, profile, records, snapshots, source } as unknown as JsonValue);
+  if (body !== result.canonicalJson || sha256Hex(body) !== result.sha256 || result.normalizationReceipt.payload.canonicalTextHash !== result.sha256) throw new Error('Normalized content integrity check failed.');
+  const artifacts = result.sourceArtifacts;
+  if (![...Object.values(artifacts), result.normalizationReceipt].every((tile) => verifyTileIntegrity<unknown>(tile).ok) ||
+      source.recordCid !== artifacts.record.cid || source.manifestationCid !== artifacts.manifestation.cid ||
+      source.packageCid !== artifacts.sourcePackage.cid || source.episodeCid !== artifacts.episode.cid ||
+      result.normalizationReceipt.payload.sourceManifestationCid !== source.manifestationCid || result.normalizationReceipt.payload.sourcePackageCid !== source.packageCid) throw new Error('Normalized source/receipt artifact integrity check failed.');
+  return reconstructAgentStreamRecords(result);
 }

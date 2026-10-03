@@ -61,3 +61,8 @@ Materialization reports actual source/output byte counts and net byte delta.
 This small fixture may grow after provenance and delta metadata; structural
 redundancy removal is not a claim of net compression. This path calls no model,
 infers no semantic state, performs no live capture, and replaces no source artifact.
+
+Downstream projections use `verifyAgentStreamNormalizationContent` to check the
+bound canonical view, normalization receipt, source tile integrity/identity links
+and referenced blob bytes before reuse. This verifies preserved view content;
+source admission remains with source-substrate and the pinned source bytes.

@@ -1,4 +1,334 @@
 {
+  "kinematics": {
+    "profile": "agent-trace-kinematics@1.0.0",
+    "normalizerProfile": "agent-stream-structural@1.0.0",
+    "projectionId": "agent-trace-neo4j@1.0.0:28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19",
+    "sourceSha256": "60e556bb5144659a6f2453e67a68a7d52193d6da41c3f18c010dc672e41c86f1",
+    "sourceManifestationCid": "cidv1-sha256-a5e463dbd96b9804a0b4a6d312381cf758d682de52eeceb61716adfa2ef5351e",
+    "normalizedSha256": "28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19",
+    "receiptRefs": [
+      "cidv1-sha256-71c6091ad8cdbab225c9ed51176c3455f2381dea66293419ef0f06900b32adef"
+    ],
+    "sourceBytes": 5779,
+    "normalizedBytes": 10742,
+    "sharedBlobDictionaryBytes": 1173,
+    "byteAccounting": "Snapshot sizes count source record spans without delimiters and separate JCS record/snapshot structures; shared blobs/envelope/lineage are reported separately from local structure. Object value bytes count unique referenced canonical values, not additional evidence.",
+    "compactionCandidateCriterion": "Unique observable object count decreased and at least one observable object ID was removed within the same uninterrupted run/window snapshot chain.",
+    "epistemicBoundary": "Measures client-visible representation dynamics; does not establish provider/model internal state, memory deletion, recall, or causal effects.",
+    "objects": [
+      {
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "objectId": "object.synthetic.context.001",
+        "presentAt": [
+          "snapshot.synthetic.001",
+          "snapshot.synthetic.002",
+          "snapshot.synthetic.003",
+          "snapshot.synthetic.004"
+        ],
+        "disappearedAt": [],
+        "reappearedAt": [],
+        "survivedTransitions": 3
+      },
+      {
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "objectId": "object.synthetic.tool.001",
+        "presentAt": [
+          "snapshot.synthetic.001",
+          "snapshot.synthetic.002",
+          "snapshot.synthetic.004"
+        ],
+        "disappearedAt": [
+          "snapshot.synthetic.003"
+        ],
+        "reappearedAt": [
+          "snapshot.synthetic.004"
+        ],
+        "survivedTransitions": 1
+      },
+      {
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "objectId": "object.synthetic.result.001",
+        "presentAt": [
+          "snapshot.synthetic.002"
+        ],
+        "disappearedAt": [
+          "snapshot.synthetic.003"
+        ],
+        "reappearedAt": [],
+        "survivedTransitions": 0
+      }
+    ],
+    "signatures": [
+      {
+        "kind": "request",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "request.synthetic.001",
+        "sourceName": null,
+        "signatureSha256": "9431b763a563a500d2c17197f8995fedd645696ac49393e8494e2c9cf50b7ddd",
+        "occurrenceCount": 8,
+        "recordLines": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "kind": "payload",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "899eb4fa5b176bddc1ad57e330415cd25b90898555fdd4e666e5109e0b2e106f",
+        "sourceName": null,
+        "signatureSha256": "a3414357c237fb0491b9d6c6acb7146c97563de8bc3fa34430210ed5351554c7",
+        "occurrenceCount": 2,
+        "recordLines": [
+          2,
+          5
+        ]
+      },
+      {
+        "kind": "result",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "result.synthetic.001",
+        "sourceName": null,
+        "signatureSha256": "1312d5db80666d7773e899b64ef34b385e5fd8233265eb8fae9725b72cdcacec",
+        "occurrenceCount": 5,
+        "recordLines": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "kind": "object-value",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "object.synthetic.context.001",
+        "sourceName": null,
+        "signatureSha256": "2b890535d2109c06556e385ae1ce4e9e1c2681577e764e3b46ab68e651cf7c11",
+        "occurrenceCount": 3,
+        "recordLines": [
+          3,
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "named-object-value",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "object.synthetic.tool.001",
+        "sourceName": "synthetic-tool",
+        "signatureSha256": "9c9036eb2dbc336bad11653b3de3d6ff044bed14ca170db67aefb092639487f0",
+        "occurrenceCount": 3,
+        "recordLines": [
+          3,
+          6,
+          8
+        ]
+      },
+      {
+        "kind": "object-value",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "sourceRef": "object.synthetic.result.001",
+        "sourceName": null,
+        "signatureSha256": "7f0317f9b0c401e13d2151b176803bdd39f33b88add5c8c840587ea98bce83e3",
+        "occurrenceCount": 2,
+        "recordLines": [
+          6,
+          6
+        ]
+      }
+    ],
+    "snapshots": [
+      {
+        "snapshotId": "snapshot.synthetic.001",
+        "previousSnapshotId": null,
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "recordLine": 3,
+        "recordCount": 3,
+        "sourceRecordBytes": 681,
+        "normalizedRecordAndSnapshotBytes": 1156,
+        "objectValueCanonicalBytes": 77,
+        "occurrenceCount": 2,
+        "uniqueObjectCount": 2,
+        "duplicateCount": 0,
+        "addedCount": 2,
+        "changedCount": 0,
+        "removedCount": 0,
+        "unchangedCount": 0,
+        "representationGrowth": false,
+        "representationShrink": false,
+        "compactionCandidate": false
+      },
+      {
+        "snapshotId": "snapshot.synthetic.002",
+        "previousSnapshotId": "snapshot.synthetic.001",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "recordLine": 6,
+        "recordCount": 6,
+        "sourceRecordBytes": 1008,
+        "normalizedRecordAndSnapshotBytes": 1611,
+        "objectValueCanonicalBytes": 145,
+        "occurrenceCount": 4,
+        "uniqueObjectCount": 3,
+        "duplicateCount": 1,
+        "addedCount": 1,
+        "changedCount": 1,
+        "removedCount": 0,
+        "unchangedCount": 1,
+        "representationGrowth": true,
+        "representationShrink": false,
+        "compactionCandidate": false
+      },
+      {
+        "snapshotId": "snapshot.synthetic.003",
+        "previousSnapshotId": "snapshot.synthetic.002",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "recordLine": 7,
+        "recordCount": 7,
+        "sourceRecordBytes": 616,
+        "normalizedRecordAndSnapshotBytes": 1078,
+        "objectValueCanonicalBytes": 38,
+        "occurrenceCount": 1,
+        "uniqueObjectCount": 1,
+        "duplicateCount": 0,
+        "addedCount": 0,
+        "changedCount": 1,
+        "removedCount": 2,
+        "unchangedCount": 0,
+        "representationGrowth": false,
+        "representationShrink": true,
+        "compactionCandidate": true
+      },
+      {
+        "snapshotId": "snapshot.synthetic.004",
+        "previousSnapshotId": "snapshot.synthetic.003",
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "recordLine": 8,
+        "recordCount": 8,
+        "sourceRecordBytes": 699,
+        "normalizedRecordAndSnapshotBytes": 1193,
+        "objectValueCanonicalBytes": 77,
+        "occurrenceCount": 2,
+        "uniqueObjectCount": 2,
+        "duplicateCount": 0,
+        "addedCount": 1,
+        "changedCount": 0,
+        "removedCount": 0,
+        "unchangedCount": 1,
+        "representationGrowth": true,
+        "representationShrink": false,
+        "compactionCandidate": false
+      }
+    ],
+    "windows": [
+      {
+        "runId": "run.synthetic.001",
+        "windowId": "window.synthetic.001",
+        "recordCount": 9,
+        "snapshotCount": 4,
+        "sourceRecordBytes": 5770
+      }
+    ],
+    "sha256": "183d1baee405156dd28683475d3cc41e7f16321c05e02932d405a95db5843331"
+  },
+  "transition": [
+    [
+      "snapshot.synthetic.002",
+      "ADDED",
+      "object.synthetic.result.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.002",
+      "CHANGED",
+      "object.synthetic.context.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.002",
+      "CONTAINS_VERSION",
+      "object.synthetic.context.001",
+      "22216f2be1f525d915d427e5564d83520de50a694f608ed4ed78e854e8a5389b"
+    ],
+    [
+      "snapshot.synthetic.002",
+      "CONTAINS_VERSION",
+      "object.synthetic.result.001",
+      "9960d112f3b4e6493190b2f9bf5d8a729924b971d1d23f95d069db7b1886925f"
+    ],
+    [
+      "snapshot.synthetic.002",
+      "CONTAINS_VERSION",
+      "object.synthetic.result.001",
+      "9960d112f3b4e6493190b2f9bf5d8a729924b971d1d23f95d069db7b1886925f"
+    ],
+    [
+      "snapshot.synthetic.002",
+      "CONTAINS_VERSION",
+      "object.synthetic.tool.001",
+      "0ed2e6cc3ae0a089c96582a92161adbb273abfffe54998df5557bf7c54d9433f"
+    ],
+    [
+      "snapshot.synthetic.002",
+      "PREVIOUS_SNAPSHOT",
+      "snapshot.synthetic.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.002",
+      "UNCHANGED",
+      "object.synthetic.tool.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.003",
+      "CHANGED",
+      "object.synthetic.context.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.003",
+      "CONTAINS_VERSION",
+      "object.synthetic.context.001",
+      "02c63643deba8b66eb4afa95b8de2b09849baaca1207f3250cb63e267467611c"
+    ],
+    [
+      "snapshot.synthetic.003",
+      "PREVIOUS_SNAPSHOT",
+      "snapshot.synthetic.002",
+      null
+    ],
+    [
+      "snapshot.synthetic.003",
+      "REMOVED",
+      "object.synthetic.result.001",
+      null
+    ],
+    [
+      "snapshot.synthetic.003",
+      "REMOVED",
+      "object.synthetic.tool.001",
+      null
+    ]
+  ],
   "profile": "agent-trace-neo4j@1.0.0",
   "projectionId": "agent-trace-neo4j@1.0.0:28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19",
   "planSha256": "4bf5195427005169a73ff713c17864deae542f83dc399d9785bd9b90fe2a35a1",
@@ -271,8 +601,8 @@
           "snapshot.synthetic.003",
           "REMOVED",
           [
-            "object.synthetic.tool.001",
-            "object.synthetic.result.001"
+            "object.synthetic.result.001",
+            "object.synthetic.tool.001"
           ]
         ],
         [

@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { canonicalizeJson, type JsonValue } from '@entif-ai/rosetta-canon';
-import { reconstructAgentStreamRecords, type AgentStreamNormalizationResult } from '@entif-ai/ingress-refinery';
+import { verifyAgentStreamNormalizationContent, type AgentStreamNormalizationResult } from '@entif-ai/ingress-refinery';
 
 export const AGENT_TRACE_PROJECTION_PROFILE = 'agent-trace-neo4j@1.0.0';
 type Properties = Record<string, string | number | boolean | null>;
@@ -19,12 +19,16 @@ export interface FixtureCypherResponse { results: Array<{ columns: string[]; dat
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 const canonical = (value: unknown) => canonicalizeJson(value as JsonValue);
 
+export function agentTraceProjectionIdentity(normalizedSha256: string): string {
+  if (!/^[a-f0-9]{64}$/u.test(normalizedSha256)) throw new Error('Normalized digest must be SHA-256.');
+  return `${AGENT_TRACE_PROJECTION_PROFILE}:${normalizedSha256}`;
+}
+
 /** Derived development projection. Source artifacts and rosetta-store retain canonical authority. */
 export function planAgentTraceProjection(normalized: AgentStreamNormalizationResult): AgentTraceProjection {
-  const { blobs, envelope, lossReport, profile, records, snapshots, source } = normalized;
-  if (canonical({ blobs, envelope, lossReport, profile, records, snapshots, source }) !== normalized.canonicalJson || hash(normalized.canonicalJson) !== normalized.sha256 || normalized.normalizationReceipt.payload.canonicalTextHash !== normalized.sha256) throw new Error('Normalized content integrity check failed.');
-  const parsed = reconstructAgentStreamRecords(normalized);
-  const projectionId = `${AGENT_TRACE_PROJECTION_PROFILE}:${normalized.sha256}`;
+  const { blobs, profile, records, snapshots, source } = normalized;
+  const parsed = verifyAgentStreamNormalizationContent(normalized);
+  const projectionId = agentTraceProjectionIdentity(normalized.sha256);
   const common: Properties = { projectionId, projectionProfile: AGENT_TRACE_PROJECTION_PROFILE, sourceSha256: source.sourceSha256, normalizedSha256: normalized.sha256, sourceManifestationCid: source.manifestationCid, normalizationReceiptCid: normalized.normalizationReceipt.cid };
   const nodes = new Map<string, AgentTraceNode>();
   const edges = new Map<string, AgentTraceEdge>();

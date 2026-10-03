@@ -104,9 +104,11 @@ descent/router integration and nine synthetic conformance vectors.
 
 ## Next safe step
 
-#1694 pushed in ba497ec with review comment. Checkpoint/push #1695; focused suite 62 passed, package build, Pack conformance
-and authority checks pass. Then implement #1667 in projection-adapters with
-real isolated Neo4j import/reimport/rebuild and direct Cypher proof. Graph proof follows verified
+#1694 pushed in ba497ec with review comment. #1695 pushed in 51a1571 with review comment; focused suite 62 passed, package
+build, Pack conformance and authority checks pass. #1667 pushed in 212484a with
+review comment. Checkpoint/push #1669 and its review comment. Remaining early gates: #1668
+requires a pinned Graphiti/provider fixture path; #1688 still requires exact
+CoS 2.1.22 source before donor-derived headless extraction. Graph proof follows verified
 normalization; Neo4j development image is available, no production graph claim.
 
 Semantic-governance limitation confirmed on 2026-10-03: four historical PRD/RFC
@@ -115,10 +117,28 @@ retained locally; authority-closure and Pack checks pass. No authority replaceme
 were synthesized. #1695 red tests confirmed missing implementation, then stub
 behavior failure; implementation now passes final focused tests/build.
 
-#1667 implementation ready for final review checkpoint: fixture-only native HTTP
+#1667 committed/pushed in 212484a: fixture-only native HTTP
 Neo4j projection, scoped stable node/edge identities, source/normalizer provenance,
 explicit source relations and derived snapshot lifecycle. Real database tests passed
 import/reimport/rebuild, full identity/property closure equality, bounded neighborhood
 and foreign-edge rollback. Graph contains 37 nodes; exact counts/version/queries in
 tools/trace-graph/golden-proof.json. Owner build and affected normalization tests
 passed after typing the existing normalization receipt payload explicitly.
+
+#1669 ready for review: deterministic client-visible morphology report with exact
+byte accounting, snapshot/window counts, scoped object motion and repeated canonical
+signatures. One shrink candidate: snapshot 2 -> 3, occurrences 4 -> 1 and unique IDs
+3 -> 1. Tool-shaped value disappears then returns; context survives three transitions.
+Real bounded Cypher proves pre/post neighborhoods. Affected slice: 22 tests passed,
+including real Neo4j; owner build passes. Golden report digest pinned in tests.
+Canonical view/source-tile verification now lives in ingress-refinery and is reused
+by graph and analytics; a red source-payload-drift test caught the missing guard.
+No model-internal or causal claim is made by the report.
+
+Remaining gate audit, 2026-10-03: graphiti_core is absent from the host Python,
+no configured model credential variable is present in this process, and the local
+Ollama service reports zero installed models. #1668 is not implemented or passed;
+it needs upstream pinning plus a bounded extraction/provider compatibility proof.
+The deterministic source/normalization/graph/kinematics lane remains model-free.
+The exact CoS 2.1.22 source gate remains unproven (located donor declares 2.0.9).
+No browser/live/voice/control proving or parent-program completion is claimed.

@@ -74,3 +74,33 @@ node/edge counts, snapshot counts, source lineage and object lifecycle. The defa
 unit suite skips the database test unless `AKASHA_NEO4J_ENDPOINT` is set; a skipped
 database test is not graph-backed acceptance evidence. Use the explicit environment
 above and an isolated disposable development database.
+
+## Observable trace kinematics (#1669)
+
+`analyzeAgentTraceKinematics(normalized, sourceBytes)` verifies source bytes and
+normalization/receipt/source-tile integrity, then emits a deterministic report bound
+to source, normalizer, projection and kinematics versions/digests. Per-snapshot
+metrics include source and normalized structural bytes, cumulative scoped record
+count, occurrence/unique-object/duplicate counts and add/change/remove/unchanged
+counts. Window totals, shared blob dictionary bytes and total materialization bytes
+have explicit accounting; local record/snapshot sizes exclude shared dictionaries
+and delimiter bytes. These measures do not claim net compression.
+
+Object motion tracks uninterrupted survival, disappearance and reappearance within
+each run/window. Signature reports count exact repeated canonical payloads,
+request/result references and object values (including named tool-shaped values).
+Repeated references/deliveries do not prove repeated requests or tool executions.
+They do not create additional independent witnesses.
+
+`representationShrink` means occurrence count decreased across a supported snapshot
+transition. `compactionCandidate` requires fewer unique visible objects and at least
+one removed ID within that uninterrupted scope. This is a conservative observation
+of client-visible morphology, not provider/model internal memory, deletion, recall
+or causal behavior. Malformed snapshot gaps never create continuity evidence.
+
+The golden fixture shrinks at snapshot 3: occurrences 4 -> 1, unique IDs 3 -> 1,
+with tool/result IDs removed. The tool-shaped object returns at snapshot 4; the
+context object survives all three transitions. Two events share the same canonical
+payload. `agentTraceTransitionQuery` inspects the pre/post graph neighborhood with
+at most 100 rows. The proof script includes metrics and direct transition rows in
+`tools/trace-graph/golden-proof.json`; no model is invoked.

@@ -2,7 +2,7 @@
 /* global console, process */
 import { readFile } from 'node:fs/promises';
 import { normalizeAgentStreamSource } from '../../packages/ingress-refinery/dist/index.js';
-import { executeFixtureCypher, importAgentTraceProjection, planAgentTraceProjection, resetAgentTraceProjection } from '../../packages/projection-adapters/dist/index.js';
+import { agentTraceTransitionQuery, analyzeAgentTraceKinematics, executeFixtureCypher, importAgentTraceProjection, planAgentTraceProjection, resetAgentTraceProjection } from '../../packages/projection-adapters/dist/index.js';
 
 const root = new URL('../../packages/source-substrate/src/fixtures/', import.meta.url);
 const bytes = await readFile(new URL('agent-stream-synthetic.ndjson', root));
@@ -25,5 +25,8 @@ if (process.argv.includes('--reset')) {
     lifecycle: 'MATCH (s:AkashaTrace {projectionId:$projectionId,kind:"snapshot"})-[r:TRACE_EDGE]->(o) WHERE r.kind IN ["ADDED","CHANGED","REMOVED","UNCHANGED"] RETURN s.sourceId,r.kind,collect(o.sourceId) ORDER BY s.sourceId,r.kind'
   };
   const results = await executeFixtureCypher(endpoint, Object.values(queries).map((statement) => ({ statement, parameters })));
-  console.log(JSON.stringify({ profile: plan.profile, projectionId: plan.projectionId, planSha256: plan.sha256, sourceSha256: normalized.source.sourceSha256, normalizedSha256: normalized.sha256, queries: Object.fromEntries(Object.keys(queries).map((name, index) => [name, { statement: queries[name], columns: results.results[index].columns, rows: results.results[index].data.map(({ row }) => row) }])) }, null, 2));
+  const kinematics = analyzeAgentTraceKinematics(normalized, bytes);
+  const shrink = kinematics.snapshots.find((item) => item.compactionCandidate);
+  const transition = shrink ? (await executeFixtureCypher(endpoint, [agentTraceTransitionQuery(plan.projectionId, shrink.recordLine, 20)])).results[0].data.map(({ row }) => row) : [];
+  console.log(JSON.stringify({ kinematics: { ...kinematics, canonicalJson: undefined }, transition, profile: plan.profile, projectionId: plan.projectionId, planSha256: plan.sha256, sourceSha256: normalized.source.sourceSha256, normalizedSha256: normalized.sha256, queries: Object.fromEntries(Object.keys(queries).map((name, index) => [name, { statement: queries[name], columns: results.results[index].columns, rows: results.results[index].data.map(({ row }) => row) }])) }, null, 2));
 }

@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { AgentStreamFixtureManifest } from '@entif-ai/source-substrate';
 
-import { normalizeAgentStreamRecords, normalizeAgentStreamSource, reconstructAgentStreamRecords } from './agent-stream-normalization.js';
+import { normalizeAgentStreamRecords, normalizeAgentStreamSource, reconstructAgentStreamRecords, verifyAgentStreamNormalizationContent } from './agent-stream-normalization.js';
 
 const fixtureUrl = new URL('../../../source-substrate/src/fixtures/agent-stream-synthetic.ndjson', import.meta.url);
 const manifestUrl = new URL('../../../source-substrate/src/fixtures/agent-stream-synthetic.manifest.json', import.meta.url);
@@ -21,6 +21,7 @@ describe('agent-stream normalization', () => {
     const second = normalizeAgentStreamSource(manifest, bytes);
 
     expect(first.sha256).toBe('28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19');
+    expect(verifyAgentStreamNormalizationContent(first)).toEqual(reconstructAgentStreamRecords(first));
     expect(second).toMatchObject({ canonicalJson: first.canonicalJson, sha256: first.sha256 });
     expect(first.envelope).toEqual({ recordedAt: '2026-10-01T09:00:00.000Z', runId: 'run.synthetic.001', windowId: 'window.synthetic.001' });
     expect(first.snapshots.map((snapshot) => snapshot.objects.length)).toEqual([2, 3, 1, 2]);
@@ -84,6 +85,13 @@ describe('agent-stream normalization', () => {
     expect(result.snapshots).toEqual([]);
     expect(result.lossReport.unresolved).toContainEqual(expect.objectContaining({ path: 'snapshot' }));
     expect(reconstructAgentStreamRecords(result)).toEqual(records);
+  });
+
+  it('rejects drift in source artifact payloads before a downstream projection', async () => {
+    const { bytes, manifest } = await loadFixture();
+    const result = normalizeAgentStreamSource(manifest, bytes);
+    result.sourceArtifacts.record.payload.recordLocalId = 'tampered';
+    expect(() => verifyAgentStreamNormalizationContent(result)).toThrow('integrity');
   });
 
   it('verifies referenced blob bytes during reconstruction', async () => {
