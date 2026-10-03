@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/PVRLabs/aibadger",
+  "release": "v0.7.1",
+  "commit": "26360e4cb4f123f6488cb690307caa72aacbfd95",
+  "inspectedMain": "eabb04333b87be58838c350f042a3a51aac21421",
+  "license": "MIT",
+  "observedAt": "2026-10-03",
+  "assets": {
+    "darwin_x64": {
+      "url": "https://github.com/PVRLabs/aibadger/releases/download/v0.7.1/badger_0.7.1_darwin_amd64.tar.gz",
+      "sha256": "d80e9248b656f2af0d477ea126a0b45d170f2377b47076e3cc7b2ac4ef58569d"
+    },
+    "darwin_arm64": {
+      "url": "https://github.com/PVRLabs/aibadger/releases/download/v0.7.1/badger_0.7.1_darwin_arm64.tar.gz",
+      "sha256": "b770b339849a25919a777322ca02be90dd78df7c8d20c3b5eae9fdd532c00342"
+    },
+    "linux_x64": {
+      "url": "https://github.com/PVRLabs/aibadger/releases/download/v0.7.1/badger_0.7.1_linux_amd64.tar.gz",
+      "sha256": "d95b4dab66e0491f84f31a8906a868d1d66a606815fba3ca0a808372010f7278"
+    },
+    "linux_arm64": {
+      "url": "https://github.com/PVRLabs/aibadger/releases/download/v0.7.1/badger_0.7.1_linux_arm64.tar.gz",
+      "sha256": "1f9471cf3b1ad3fff62030495fb8ec6fdea89917888bebb760353d0a689388c4"
+    }
+  }
+}

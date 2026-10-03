@@ -81,13 +81,13 @@
       "id": "entif:badger-experiment",
       "kind": "plan",
       "title": "badger-experiment",
-      "status": "planned",
+      "status": "in-progress",
       "task": "T1711",
       "issues": [1711],
       "pr": null,
       "source": {
         "path": "plans/badger-experiment.md",
-        "sha256": "0ab74071d92422fafdd68dabf45f021d52991a87e4bad63c9de7b72bed96c947"
+        "sha256": "7921b7398d3a1a2ddbc12dcb8a86c8527a10205db2ecbb88741a995b433405a3"
       }
     },
     {

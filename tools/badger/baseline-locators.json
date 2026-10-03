@@ -1,0 +1,27 @@
+{
+  "role": "ecological-baseline-not-controlled-A",
+  "base": "88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+  "pr": "https://github.com/Entif-AI/Rosetta/pull/1723",
+  "finalHead": "7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+  "implementationRevision": "47e4c28f7dcd0383c5b5d5592db38473cc590902",
+  "locators": {
+    "run": "tools/specops/evidence/run-evidence.json",
+    "quota": "tools/specops/evidence/run-evidence.json#/quota",
+    "quotaFirstProof": "tools/axi/evidence/quota-proof.json",
+    "repairs": "tools/specops/evidence/run-evidence.json#/repairLoops",
+    "validation": "tools/specops/evidence/run-evidence.json#/validation",
+    "distribution": "tools/specops/evidence/distribution-proof.json",
+    "contextBytes": "tools/specops/evidence/context-benchmark.json"
+  },
+  "limitations": [
+    "No pre-run quota captured",
+    "Exact primary model/reasoning unavailable",
+    "No controlled A label",
+    "Raw account evidence stays ignored/local"
+  ],
+  "concurrentMediumBaseline": {
+    "status": "awaiting receipt and explicit completion",
+    "receipt": null,
+    "blocksPreparationMerge": true
+  }
+}

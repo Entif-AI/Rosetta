@@ -1,0 +1,14 @@
+{
+  "name": "badger-preflight",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["{projectRoot}/**/*"],
+      "options": {
+        "command": "node --test tools/badger/*.spec.mjs"
+      }
+    }
+  }
+}
