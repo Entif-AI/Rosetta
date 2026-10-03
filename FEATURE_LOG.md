@@ -155,9 +155,11 @@ Pack conformance and ingress-refinery owner suite (27 tests) pass.
 Review checkpoints are pushed for #1693, #1665, #1666, #1694, #1695, #1667 and #1669.
 No issue or parent program was closed. Latest main fetch/merge reports already up
 to date at base 48bbd83. PR #1697 carries the cumulative implementation and per-issue
-review comments. Hosted verify passed at 83fe5b7; the final precision-fix commit
-needs its own hosted result. Source/normalization/graph/kinematics proof remains
-model-free; the ephemeral development database may be removed without source loss.
+review comments. Hosted verify passed for the final implementation commit ed015c9:
+https://github.com/Entif-AI/Rosetta/actions/runs/37099031213/job/111134742700.
+This recovery-log checkpoint changes no implementation bytes. Source/normalization/graph/kinematics proof remains
+model-free; the owned ephemeral development database was removed after proof, without
+source loss. Its image and reproducible setup remain available.
 Next safe implementation: pin #1668 Graphiti and establish a bounded provider/model
 fixture path, or resolve the exact donor-source gate for #1688. Existing baseline
 historical-document failures remain separate from focused acceptance evidence.
