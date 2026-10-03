@@ -1,40 +1,101 @@
-import { NX_VERSION, readJson, updateJson, writeJson, type Tree } from '@nx/devkit';
+import {
+  NX_VERSION,
+  readJson,
+  updateJson,
+  writeJson,
+  type Tree,
+} from '@nx/devkit';
+import { installationPaths, readInstallation } from '../../installation';
 import { parseConfig } from '../../config';
 import { parse } from 'yaml';
 import { satisfies, intersects, validRange } from 'semver';
-export interface InitOptions { configPath?: string; pluginPath?: string }
+export interface InitOptions {
+  configPath?: string;
+  pluginPath?: string;
+  substrate?: 'specops' | 'spec-kit';
+}
 const plugin = '@entif-ai/nx-governance';
 export function initGenerator(tree: Tree, options: InitOptions = {}) {
+  if (options.substrate && !['specops', 'spec-kit'].includes(options.substrate))
+    throw new Error('Unsupported substrate.');
   const file = options.configPath ?? 'governance/governance.config.json';
   const registration = options.pluginPath ?? plugin;
-  if (options.pluginPath && (!options.pluginPath.startsWith('./') || options.pluginPath.includes('..') || !tree.exists(options.pluginPath))) throw new Error('Local pluginPath must identify an existing workspace source file.');
-  if (!tree.exists('nx.json')) throw new Error('An existing Nx workspace is required.');
+  if (
+    options.pluginPath &&
+    (!options.pluginPath.startsWith('./') ||
+      options.pluginPath.includes('..') ||
+      !tree.exists(options.pluginPath))
+  )
+    throw new Error(
+      'Local pluginPath must identify an existing workspace source file.'
+    );
+  if (!tree.exists('nx.json'))
+    throw new Error('An existing Nx workspace is required.');
   const supported = '>=22.6.5 <23';
-  if (!satisfies(NX_VERSION, supported)) throw new Error(`Unsupported Nx ${NX_VERSION}; supported ${supported}.`);
+  if (!satisfies(NX_VERSION, supported))
+    throw new Error(`Unsupported Nx ${NX_VERSION}; supported ${supported}.`);
   if (tree.exists('package.json')) {
-    const pkg = readJson<{ dependencies?: Record<string, string>; devDependencies?: Record<string, string> }>(tree, 'package.json');
+    const pkg = readJson<{
+      dependencies?: Record<string, string>;
+      devDependencies?: Record<string, string>;
+    }>(tree, 'package.json');
     const declared = pkg.devDependencies?.nx ?? pkg.dependencies?.nx;
-    if (declared && (!validRange(declared) || !intersects(declared, supported))) throw new Error(`Incompatible Nx declaration: ${declared}. Supported ${supported}.`);
+    if (declared && (!validRange(declared) || !intersects(declared, supported)))
+      throw new Error(
+        `Incompatible Nx declaration: ${declared}. Supported ${supported}.`
+      );
   }
-  if (!tree.exists(file)) throw new Error(`Provide project-local authority and checks in ${file}. See config.schema.json.`);
+  if (!tree.exists(file))
+    throw new Error(
+      `Provide project-local authority and checks in ${file}. See config.schema.json.`
+    );
   const config = parseConfig(readJson<object>(tree, file));
   if (tree.exists('.specify/extensions.yml')) {
-    const extensions: unknown = parse(tree.read('.specify/extensions.yml', 'utf8') ?? '');
-    if (extensions && typeof extensions === 'object' && 'hooks' in extensions && extensions.hooks && typeof extensions.hooks === 'object' && 'before_specify' in extensions.hooks && Array.isArray(extensions.hooks.before_specify)) {
+    const extensions: unknown = parse(
+      tree.read('.specify/extensions.yml', 'utf8') ?? ''
+    );
+    if (
+      extensions &&
+      typeof extensions === 'object' &&
+      'hooks' in extensions &&
+      extensions.hooks &&
+      typeof extensions.hooks === 'object' &&
+      'before_specify' in extensions.hooks &&
+      Array.isArray(extensions.hooks.before_specify)
+    ) {
       for (const hook of extensions.hooks.before_specify) {
-        if (hook?.enabled !== false && (hook?.extension === 'git' || hook?.command === 'speckit.git.feature')) throw new Error('Conflicting branch-creation hook. Preserve existing branch policy explicitly before init.');
+        if (
+          hook?.enabled !== false &&
+          (hook?.extension === 'git' || hook?.command === 'speckit.git.feature')
+        )
+          throw new Error(
+            'Conflicting branch-creation hook. Preserve existing branch policy explicitly before init.'
+          );
       }
     }
   }
-  const local = '.specify/entif-governance.json';
-  if (tree.exists(local)) {
-    const existing = readJson<{ branchPolicy?: string; configPath?: string }>(tree, local);
-    if (existing.branchPolicy !== 'existing-authorized' || existing.configPath !== file) throw new Error('Conflicting Spec Kit branch policy/configuration. Resolve explicitly before init.');
+  const local =
+    options.substrate === 'specops'
+      ? installationPaths[0]
+      : installationPaths[1];
+  if (installationPaths.some((file) => tree.exists(file))) {
+    const existing = readInstallation(tree);
+    if (existing.configPath !== file)
+      throw new Error(
+        'Conflicting substrate configuration. Resolve explicitly before init.'
+      );
   }
-  const nx = readJson<{ plugins?: Array<string | { plugin: string }>; sync?: { globalGenerators?: string[] } }>(tree, 'nx.json');
+  const nx = readJson<{
+    plugins?: Array<string | { plugin: string }>;
+    sync?: { globalGenerators?: string[] };
+  }>(tree, 'nx.json');
   const registrations = nx.plugins ?? [];
-  const matches = (entry: string | { plugin: string }) => [plugin, registration].includes(typeof entry === 'string' ? entry : entry.plugin);
-  if (registrations.filter(matches).length > 1) throw new Error('Duplicate governance plugin registration.');
+  const matches = (entry: string | { plugin: string }) =>
+    [plugin, registration].includes(
+      typeof entry === 'string' ? entry : entry.plugin
+    );
+  if (registrations.filter(matches).length > 1)
+    throw new Error('Duplicate governance plugin registration.');
   updateJson(tree, 'nx.json', (value) => {
     value.plugins ??= [];
     const index = registrations.findIndex(matches);
@@ -42,10 +103,24 @@ export function initGenerator(tree: Tree, options: InitOptions = {}) {
     else if (options.pluginPath) value.plugins[index] = registration;
     value.sync ??= {};
     value.sync.globalGenerators ??= [];
-    if (!value.sync.globalGenerators.includes(`${plugin}:sync`)) value.sync.globalGenerators.push(`${plugin}:sync`);
+    if (!value.sync.globalGenerators.includes(`${plugin}:sync`))
+      value.sync.globalGenerators.push(`${plugin}:sync`);
     return value;
   });
-  if (!tree.exists(local)) writeJson(tree, local, { schemaVersion: 1, configPath: file, branchPolicy: config.branchPolicy, writerCount: 1,
-    components: { preset: 'entif-rosetta', extension: 'rosetta-governance', workflow: 'entif-roadmap' } });
+  if (!tree.exists(local))
+    writeJson(tree, local, {
+      schemaVersion: 1,
+      configPath: file,
+      branchPolicy: config.branchPolicy,
+      writerCount: 1,
+      components:
+        options.substrate === 'specops'
+          ? { substrate: 'specops' }
+          : {
+              preset: 'entif-rosetta',
+              extension: 'rosetta-governance',
+              workflow: 'entif-roadmap',
+            },
+    });
 }
 export default initGenerator;

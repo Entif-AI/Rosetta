@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { createJiti } from 'jiti';
+import { loadSchemas } from './load-schemas.mjs';
 import { buildAudit } from './core-descent-audit.mjs';
-const schemas = await createJiti(import.meta.url).import('../../packages/rosetta-schemas/src/index.ts');
+const schemas = await loadSchemas();
 
 describe('first-wave Core-descent audit #1179', () => {
   it('classifies emitted shapes as a projection and append-only jobs as lifecycle state', () => {

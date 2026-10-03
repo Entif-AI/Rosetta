@@ -1,0 +1,149 @@
+{
+  "issue": 1715,
+  "adapterVersion": "0.1.1",
+  "adoptedCommit": "c77a9affa23c773c3eaeb467de2ed67185a89555",
+  "inspectedHead": "f2118ebfaa65a7f344a7625f30c79c69b7e1667e",
+  "operations": [
+    {
+      "args": [
+        "search",
+        "quota-axi",
+        "--limit",
+        "3"
+      ],
+      "exit": 0,
+      "bytes": 530,
+      "wallSeconds": 0.146
+    },
+    {
+      "args": [
+        "view",
+        "quota-axi"
+      ],
+      "exit": 0,
+      "bytes": 1289,
+      "wallSeconds": 0.246
+    },
+    {
+      "args": [
+        "versions",
+        "quota-axi",
+        "--limit",
+        "3"
+      ],
+      "exit": 0,
+      "bytes": 128,
+      "wallSeconds": 0.159
+    },
+    {
+      "args": [
+        "view",
+        "quota-axi"
+      ],
+      "exit": 0,
+      "bytes": 1289,
+      "wallSeconds": 0.204
+    },
+    {
+      "args": [
+        "view",
+        "quota-axi",
+        "--full"
+      ],
+      "exit": 0,
+      "bytes": 67451,
+      "wallSeconds": 0.219
+    },
+    {
+      "args": [
+        "search",
+        "rosetta-s2-nonexistent-9c40b55f-zero",
+        "--limit",
+        "1"
+      ],
+      "exit": 0,
+      "bytes": 243,
+      "wallSeconds": 0.167
+    },
+    {
+      "args": [
+        "view",
+        "@rosetta-s2-nonexistent-fixture/missing-9c40b55f"
+      ],
+      "exit": 1,
+      "bytes": 226,
+      "wallSeconds": 0.129
+    }
+  ],
+  "comparison": {
+    "operation": "quota-axi latest package research",
+    "axiBytes": 1289,
+    "rawPackumentBytes": 216173,
+    "versionVerified": "0.1.56",
+    "source": "https://registry.npmjs.org/quota-axi"
+  },
+  "nativeFallback": [
+    {
+      "package": "quota-axi@0.1.56",
+      "result": {
+        "version": "0.1.56",
+        "dependencies": {
+          "undici": "6.28.0",
+          "axi-sdk-js": "^0.1.10",
+          "proxy-from-env": "2.1.0",
+          "@toon-format/toon": "2.1.0"
+        }
+      },
+      "reason": "npm-axi view provides latest/count, not exact-version dependency/peer mappings"
+    },
+    {
+      "package": "vitest@4.1.4",
+      "result": {
+        "version": "4.1.4",
+        "dependencies": {
+          "obug": "^2.1.1",
+          "vite": "^6.0.0 || ^7.0.0 || ^8.0.0",
+          "pathe": "^2.0.3",
+          "std-env": "^4.0.0-rc.1",
+          "tinyexec": "^1.0.2",
+          "picomatch": "^4.0.3",
+          "tinybench": "^2.9.0",
+          "tinyglobby": "^0.2.15",
+          "@vitest/spy": "4.1.4",
+          "expect-type": "^1.3.0",
+          "tinyrainbow": "^3.1.0",
+          "magic-string": "^0.30.21",
+          "@vitest/utils": "4.1.4",
+          "@vitest/expect": "4.1.4",
+          "@vitest/mocker": "4.1.4",
+          "@vitest/runner": "4.1.4",
+          "es-module-lexer": "^2.0.0",
+          "@vitest/snapshot": "4.1.4",
+          "why-is-node-running": "^2.3.0",
+          "@vitest/pretty-format": "4.1.4"
+        },
+        "peerDependencies": {
+          "vite": "^6.0.0 || ^7.0.0 || ^8.0.0",
+          "jsdom": "*",
+          "happy-dom": "*",
+          "@vitest/ui": "4.1.4",
+          "@types/node": "^20.0.0 || ^22.0.0 || >=24.0.0",
+          "@edge-runtime/vm": "*",
+          "@opentelemetry/api": "^1.9.0",
+          "@vitest/coverage-v8": "4.1.4",
+          "@vitest/browser-preview": "4.1.4",
+          "@vitest/coverage-istanbul": "4.1.4",
+          "@vitest/browser-playwright": "4.1.4",
+          "@vitest/browser-webdriverio": "4.1.4"
+        }
+      },
+      "reason": "npm-axi view provides latest/count, not exact-version dependency/peer mappings"
+    }
+  ],
+  "limitations": [
+    "No installs or dependency decisions performed by research commands",
+    "README absence follows registry truth",
+    "Raw-packument comparison is not a comparison to optimally selected native JSON",
+    "No token/quota savings inferred"
+  ]
+}

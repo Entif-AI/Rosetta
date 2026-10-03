@@ -57,10 +57,11 @@
   },
   "dependencies": {
     "@nx/devkit": "22.6.5",
+    "@toon-format/toon": "2.1.0",
     "ajv": "8.17.1",
+    "semver": "^7.7.2",
     "tslib": "^2.3.0",
-    "yaml": "2.8.1",
-    "semver": "^7.7.2"
+    "yaml": "2.8.1"
   },
   "generators": "./generators.json",
   "files": [
@@ -74,7 +75,9 @@
     "src",
     "!src/**/*.spec.ts",
     "!**/__pycache__/**",
-    "!**/*.pyc"
+    "!**/*.pyc",
+    "specops",
+    "!specops/*.spec.mjs"
   ],
   "executors": "./executors.json",
   "nx-migrations": "./migrations.json",
@@ -82,5 +85,8 @@
   "description": "Source-owned governance checks, admission evidence and specification projections for Nx workspaces.",
   "peerDependencies": {
     "nx": ">=22.6.5 <23"
+  },
+  "bin": {
+    "entif-substrate": "./specops/install.mjs"
   }
 }

@@ -80,3 +80,6 @@ Code
 !/.specify/memory/
 !/.specify/memory/constitution.json
 !/.specify/memory/constitution.md
+
+# Pinned local tool sources and private run telemetry
+/.axi/

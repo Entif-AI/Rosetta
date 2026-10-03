@@ -1,0 +1,30 @@
+{
+  "issue": 1713,
+  "observedAt": "2026-10-03T20:35:43.486Z",
+  "event": "installed-mid-run",
+  "provider": "codex",
+  "source": "oauth",
+  "status": "fresh",
+  "uncertainty": "known",
+  "adapterVersion": "0.1.56",
+  "windows": [
+    {
+      "kind": "five_hour",
+      "usedPercent": 23,
+      "remainingPercent": 77,
+      "resetAt": "2026-10-04T00:24:56.000Z"
+    },
+    {
+      "kind": "weekly",
+      "usedPercent": 14,
+      "remainingPercent": 86,
+      "resetAt": "2026-10-10T09:17:53.000Z"
+    }
+  ],
+  "rawEvidence": "locally retained under ignored .axi/evidence (0600), not published",
+  "limitations": [
+    "No pre-run observation exists",
+    "Provider observations may change; percentages are not billing/quota contracts",
+    "No token or model-turn savings inferred"
+  ]
+}
