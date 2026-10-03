@@ -66,6 +66,16 @@ including recurrent failure
 across two runs, clean verified inventory and real admission composition/source drift.
 Shared baseline/convergence source validation consolidated. Next: #1709 durable issue
 identity and coordinator-owned ambiguous-delivery reconciliation.
+Checkpoint #1709: coordinator-owned explicit task request, durable identity/projection
+ledger, pending-before-send and marker recovery; prose never creates another owner.
+Independent review exposed forged markers, incomplete graph validation, per-worktree
+locking, deferred conflicts, split retries and closed origins; corrected with focused
+red/green regressions. Ledger/lock now lives in Git common-dir, shared across worktrees.
+Separate retry refs are consumed once without replacing split/merge lineage; cycles,
+owner collisions and closed originals block dependent sends. Independent clones require
+one designated coordinator and preservation of its ledger; no global GitHub uniqueness
+claim. Existing Rosetta #1698 read-only preview, focused plugin gates and packed e2e pass.
+Next: #1710 generated provenance, local-edit safety and bounded parent routing.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

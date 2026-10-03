@@ -8,13 +8,18 @@
     "name": "Rosetta governance",
     "description": "Required Nx authority, semantic and merge admission hooks",
     "category": "process",
-    "effect": "read-only"
+    "effect": "read-write"
   },
   "requires": {
     "speckit_version": ">=1.1.1.dev0,<1.2"
   },
   "provides": {
     "commands": [
+      {
+        "name": "speckit.rosetta-governance.issue-sync",
+        "file": "commands/issue-sync.md",
+        "description": "Reconcile stable task and GitHub issue identity without blind duplicate sends"
+      },
       {
         "name": "speckit.rosetta-governance.convergence",
         "file": "commands/convergence.md",

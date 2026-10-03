@@ -8,6 +8,8 @@ export const createNodesV2: CreateNodesV2 = ['**/governance.config.json', async 
   const config = parseConfig(JSON.parse(readFileSync(path.join(context.workspaceRoot, file), 'utf8')));
   const root = path.posix.dirname(file);
   const targets: Record<string, TargetConfiguration> = {};
+  targets['issue-sync'] = { executor: '@entif-ai/nx-governance:issue-sync', cache: false, parallelism: false,
+    outputs: [], options: {} };
   for (const [id, check] of Object.entries(config.checks)) {
     targets[`evidence-${id}`] = {
       executor: '@entif-ai/nx-governance:check', options: { configPath: file, checkId: id },

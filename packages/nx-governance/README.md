@@ -25,6 +25,19 @@ remediated findings require verification and accepted exceptions require approve
 authority refs. Stable finding IDs retain baseline/task lineage across runs for W4A
 inspection. These are tooling evidence projections, not Core nouns or new authority.
 
+`nx run <projectName>:issue-sync --request=<task-request.json>` previews durable work
+identity reconciliation; `--apply` is coordinator-owned GitHub mutation. Requests use
+`src/issue-sync.schema.json` and must match GitHub origin. Preserve the canonical
+`<git-common-dir>/entif-issue-bindings/<repository-digest>/<featureId>.json` ledger: exclusive local locking, fsynced atomic
+writes and pending-before-send state protect retries. Prose changes update the task
+projection/digest without changing or editing the human-owned issue. Exact markers
+recover unknown acknowledgements; absent search results never authorize an automatic
+retry. A confirmed non-delivery ref permits one explicitly consumed retry. Split/merge
+decisions and finding refs stay traceable. Closed owners are surfaced and removed tasks
+never close issues. One coordinator/retained ledger is required; stale locks need owner
+verification before removal. These tasks are uncached and do not distribute to Nx Agents.
+`spec-surfaces/promotion/task-binding.request.json` safely previews binding to #1698.
+
 ```sh
 pnpm nx g @entif-ai/nx-governance:init --configPath=tools/semantic-governance/governance.config.json --pluginPath=./packages/nx-governance/src/index.ts
 pnpm nx sync
@@ -169,3 +182,11 @@ owned. This run builds local npm/ZIP artifacts; it does not publish or tag a rel
 Primary release reference: [Nx Version Plans](https://nx.dev/docs/guides/nx-release/file-based-versioning-version-plans).
 
 Rosetta registers the local source entrypoint explicitly while developing the plugin, so stale compiled plugin output cannot control project discovery. Packed consumers register the npm entrypoint. Rebuild the local plugin before exercising compiled generators after editing their configuration schema.
+
+Issue synchronization is owned by one coordinator across clones/machines. Git-common
+ledger/locks serialize worktrees of that clone; GitHub offers no atomic marker uniqueness
+across independent clones. Preserve/back up that ledger when transferring the coordinator.
+A worktree-local legacy ledger requires explicit reconciliation, never silent import.
+Marker recovery requires recorded pending-send evidence; reserved marker content is rejected.
+Merge participants share one decision ref and declare original T IDs; split dependencies
+are validated before any send. Decision refs must be non-whitespace durable human records.
