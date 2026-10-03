@@ -58,3 +58,21 @@ seat/source/time/windows/reset/conflict/version fields, drops identifying accoun
 fields and donor selection advice, and treats unavailable readings as unknown.
 Provider observations are not immutable contracts. This run's first reading is
 `installed-mid-run`; no pre-run value or overall quota delta is invented.
+
+## GitHub transport (#1714)
+
+`pnpm exec gh-axi` is pinned at 0.1.35 (published source differs from inspected
+HEAD; both are recorded). Use `search issues ... --repo ...`, `issue view ...
+--full`, `pr view ... --comments --reviews`, `run list/view`, repo/release/label
+reads and `api ... --full` where proven fidelity fits. Keep Chat's native connector.
+The installed release's check summary lacks newer state fidelity: use native
+`gh pr view --json statusCheckRollup` for exact admission decisions. Project scopes
+are not expanded without an owning need. Durable issue identity and pending-before-
+send ledger remain in the generic Nx coordinator; transport never owns identity.
+
+The live benchmark found selected native JSON smaller for all four compared reads;
+prefer that path when it already contains the required information. AXI detail
+adds progressive disclosure and hints; no Codex quota savings is inferred. A PATCH
+to the known quota checkpoint comment ID was replayed twice and its same ID/body
+verified against native truth. Unknown create acknowledgements still require the
+existing coordinator ledger/recovery; never blindly repeat a comment/issue create.

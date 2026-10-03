@@ -120,6 +120,9 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@8.57.1)
+      gh-axi:
+        specifier: 0.1.35
+        version: 0.1.35
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -5292,6 +5295,11 @@ packages:
   get-tsconfig@5.0.0-beta.4:
     resolution: {integrity: sha512-7nF7C9fIPFEMHgEMEfgIlO9wDdZ8CyHw27rWciFZfHvHDReIiPhsYuzPRXsfvBCqFy1l8RRyyWV7QLM+ZhUJsQ==}
     engines: {node: '>=20.20.0'}
+
+  gh-axi@0.1.35:
+    resolution: {integrity: sha512-xxe7ui0548FJ9KF0LTQZWdfm8UYuLRsfSidSEx3Ztu1Eqrn4GMg+oJW7UReG33Wt0+2Vppwl7P6Qcll0KpymTQ==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   git-raw-commits@5.0.1:
     resolution: {integrity: sha512-Y+csSm2GD/PCSh6Isd/WiMjNAydu0VBiG9J7EdQsNA5P9uXvLayqjmTsNlK5Gs9IhblFZqOU0yid5Il5JPoLiQ==}
@@ -13868,6 +13876,11 @@ snapshots:
   get-tsconfig@5.0.0-beta.4:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  gh-axi@0.1.35:
+    dependencies:
+      '@toon-format/toon': 2.1.0
+      axi-sdk-js: 0.1.13
 
   git-raw-commits@5.0.1(conventional-commits-parser@6.4.0):
     dependencies:

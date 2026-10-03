@@ -16,9 +16,12 @@
   },
   "gh-axi": {
     "repository": "https://github.com/kunchenguid/gh-axi.git",
-    "commit": "d221ffabfe106e2c7a5998bde30bf58528678d22",
+    "commit": "13e81833fae5d844812d2e04b01272aed1df386c",
     "observedAt": "2026-10-03",
-    "role": "source-reference"
+    "role": "adopted-registry",
+    "inspectedCommit": "d221ffabfe106e2c7a5998bde30bf58528678d22",
+    "version": "0.1.35",
+    "integrity": "sha512-xxe7ui0548FJ9KF0LTQZWdfm8UYuLRsfSidSEx3Ztu1Eqrn4GMg+oJW7UReG33Wt0+2Vppwl7P6Qcll0KpymTQ=="
   },
   "npm-axi": {
     "repository": "https://github.com/SSBrouhard/npm-axi.git",
