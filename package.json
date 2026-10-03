@@ -33,7 +33,10 @@
     "governance:semantic:test": "pnpm exec vitest run tools/semantic-governance/check-genesis-semantics.spec.mjs",
     "docs:registry:generate": "node tools/docid-registry/registry.mjs --write",
     "docs:registry:check": "node tools/docid-registry/registry.mjs",
-    "docs:registry:test": "node --test tools/docid-registry/registry.test.mjs"
+    "docs:registry:test": "node --test tools/docid-registry/registry.test.mjs",
+    "governance:descent": "node tools/semantic-governance/core-descent-audit.mjs",
+    "governance:descent:generate": "node tools/semantic-governance/core-descent-audit.mjs --write",
+    "governance:descent:test": "vitest run tools/semantic-governance/core-descent-audit.spec.mjs"
   },
   "private": true,
   "devDependencies": {

@@ -13,10 +13,16 @@ complete descent audit; real Nx sync/task graph/cache and Spec Kit install/migra
 fixtures; generated catalog drift/regeneration; affected and full repository gates.
 Checkpoint #1698: Profile, exact predecessor, receipt evidence closure, frozen red/green
 fixtures implemented. Focused Nx build/typecheck/lint/test passed for receipts, schemas,
-CLI and Pack tooling; DocID, Pack and authority checks pass. Eight new tests failed
+CLI and Pack tooling; Pack and authority checks pass. DocID check discovers its
+intake-ledger input was removed by #1572. Eight new tests failed
 before implementation; nine now pass. Semantic checker still references four
 documents removed by #1572; repair in #1179 audit, without restoring protected prose.
-Next safe step: audit all catalog classifications/known gaps and repair stale public checks.
+Checkpoint #1179: all 49 catalog entries and first-wave Pack/vocabulary assets
+reviewed. Generated risk register records local namespace debt, non-substitutable
+source domain records, lifecycle state and projections; no irreducible Core gap.
+Public semantic and DocID gates repaired after #1572. Three audit tests, four DocID
+tests and ten semantic tests pass, plus focused schema/receipt Nx gates.
+Next safe step: cohesive Nx plugin and verified upstream Spec Kit lifecycle components.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

@@ -1,5 +1,5 @@
 /** Classification follows SEMANTIC_AUDIT.md; it is not a conformance verdict. */
-export type CoreDescent = 'core-primitive' | 'core-tile-profile' | 'pack-defined-schema' | 'governed-extension' | 'implementation-local' | 'derived-projection' | 'external-contract-ref';
+export type CoreDescent = 'core-primitive' | 'core-tile-profile' | 'pack-defined-schema' | 'lifecycle-state' | 'governed-extension' | 'implementation-local' | 'derived-projection' | 'external-contract-ref';
 
 export interface CoreDescentMetadata {
   coreDescent: CoreDescent;
@@ -42,8 +42,8 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
   'source.correction_event': metadata('governed-extension', SOURCE, ['rosetta.observation']),
   'source.episode': metadata('governed-extension', SOURCE, ['rosetta.observation']),
   'source.identity_resolution_receipt': metadata('governed-extension', SOURCE, ['rosetta.receipt']),
-  'source.ingress_job': metadata('governed-extension', SOURCE, ['rosetta.action']),
-  'source.package': metadata('governed-extension', SOURCE),
+  'source.ingress_job': metadata('lifecycle-state', SOURCE, ['rosetta.action']),
+  'source.package': metadata('governed-extension', SOURCE, ['rosetta.frame']),
   'source.registry_entry': metadata('governed-extension', SOURCE)
 };
 
@@ -57,7 +57,7 @@ const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
   'entif.guard.decision-request.ref': metadata('external-contract-ref', AUDIT),
   'entif.mailroom.consumer-boundary.ref': metadata('external-contract-ref', AUDIT),
   'rosetta.conformance_bundle': metadata('derived-projection', AUDIT, ['rosetta.evaluation']),
-  'rosetta.shacl_shapes': metadata('implementation-local', AUDIT)
+  'rosetta.shacl_shapes': metadata('derived-projection', AUDIT)
 };
 
 export function getCoreDescent(schemaId: string, registeredMessageProfileIds: readonly string[]): CoreDescentMetadata | undefined {

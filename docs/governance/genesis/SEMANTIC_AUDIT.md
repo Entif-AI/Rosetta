@@ -200,3 +200,30 @@ A proposed term is not accepted because it sounds precise, appears in generated 
 Acceptance requires a clear authority, a recorded relationship to existing semantics, and a reason the new name improves rather than fragments shared understanding.
 
 > **One fact, one authority; one meaning, one canonical name; every extension, an explicit lineage.**
+
+## First-wave audit closure, #1179
+
+The machine-consumable ambiguity/remediation register is
+[`CORE_DESCENT_AUDIT.json`](../CORE_DESCENT_AUDIT.json), generated from the existing
+schema catalog and reviewed decisions in `tools/semantic-governance/core-descent-audit.mjs`.
+It covers all supported tile kinds, Agentic Messaging and boundary contracts, every
+`knownGaps` entry, Pack schema and vocabulary assets. No irreducible Core gap was found.
+
+`source.*` receipt-like records are domain evidence records, not canonical signed
+Receipts. They compose with `rosetta.receipt` via subject/evidence references. Trust
+axes are Pack data related to Matrix semantics, without structural equivalence.
+`source.package` groups source members; it is neither a Rosetta Pack manifest nor a
+PACKID. `source.ingress_job` is append-only lifecycle state related to Action.
+Generated SHACL text and conformance reports are projections. `skill.card` and
+adapter/Guard contracts remain implementation-local admission data. Transport
+TASK_RECEIPT/INCIDENT_ENVELOPE labels remain application contracts.
+
+The internal legacy `rosetta.translation_evidence` and `rosetta.composition_provenance`
+IDs remain compatibility debt: no public Core claim is permitted. A public exchange
+would require a namespaced Pack and explicit migration before exposure. Current
+package-internal use is bounded and needs no breaking rename in this audit.
+
+`rrp.promotion-state.v1` supplies the concrete corrected Profile example from #1698,
+with declared Observation descent and exact predecessor closure. General Profile
+negotiation remains #907. Source trust, lifecycle, and conformance execution remain
+with #803, #1211 and #240; the audit does not reopen those owners.

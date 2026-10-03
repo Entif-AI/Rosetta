@@ -129,7 +129,7 @@ describe('historical and application alignment notes', () => {
     ).toBe(true);
     expect(
       findings.some((finding) =>
-        finding.path.includes('Agentic Memory and Graph Design Doctrine')
+        finding.path.includes('personhood_provenance')
       )
     ).toBe(true);
   });

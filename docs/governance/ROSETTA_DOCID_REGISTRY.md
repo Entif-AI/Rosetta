@@ -10,19 +10,14 @@ The flow is one-way:
 
 1. Core Spine's normative suite table owns titles, document types and identities.
    Its authoritative adjacency list owns direct suite prerequisite edges.
-2. `docs/intake/doc-ledger.json` supplies the existing source-path identity join.
-   Its broad classification, timestamps, extracted titles and historical
-   fingerprints remain informative intake metadata. In particular, its
-   `planning` classification does not downgrade normative sections of Core Spine.
-3. `tools/docid-registry/registry.mjs` generates the strict Rosetta projection.
-   It refuses table/adjacency disagreement and hashes the current source bytes.
-   Do not hand-edit the generated registry or maintain a second curated ledger.
+2. The checked-in Core Spine source path supplies source identity. The former intake
+   ledger was removed in #1572; it is neither needed nor reconstructed by public checks.
+   The generator still accepts an explicit legacy ledger for bounded fixtures and checks
+   its join if supplied. Public generation records `ledgerPath: null`.
+3. `tools/docid-registry/registry.mjs` generates the projection, refuses table/adjacency
+   disagreement, and hashes source bytes. Do not hand-edit it.
 
-The intake ledger does not currently assign separate ROCK identities and verified
-standalone paths to all declared companion documents. Deriving normative titles
-or publication claims solely from its filenames would invent authority. This
-projection therefore joins the existing intake identity with the authoritative
-suite declaration, rather than promoting the broader intake ledger into law.
+Companion availability remains declared-only unless separately verified by authority.
 
 ## Fields and validation
 
@@ -56,7 +51,7 @@ dependency or DocID is inferred from the old diagram.
 - `pnpm run docs:registry:test`: positive and negative structural fixtures.
 
 Both `verify` and `verify:full` run the checks. The Nx test target fingerprints
-the source, ledger, generator and output so a source change cannot reuse a stale
+the source, generator and output so a source change cannot reuse a stale
 cached registry result. Generation is deterministic and uses no timestamps,
 network calls or models.
 

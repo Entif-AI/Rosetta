@@ -146,3 +146,11 @@ Do not place a schema in the `rosetta.*` namespace merely because the package ow
 ## Roadmap
 
 - replace or augment the current required-field validator with real SHACL/RDF tooling when the MVP needs it
+
+The completed #1179 ambiguity register is generated at
+`docs/governance/CORE_DESCENT_AUDIT.json`. `governance:descent` detects drift.
+`coreDescent` describes semantic descent; `authorityTier` describes operational ownership.
+`rrp.promotion-state.v1` is an Observation Profile, not another supported Core kind.
+Source receipt/matrix/package nouns are qualified domain records or compositions,
+not automatically structurally substitutable for Core artifacts. See the register
+for bounded remediation decisions and the Genesis audit for exposure constraints.
