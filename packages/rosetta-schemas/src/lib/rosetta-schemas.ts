@@ -2,6 +2,7 @@ import { makeContentId } from '@entif-ai/rosetta-cid';
 import { splitSentences } from '@entif-ai/rosetta-canon';
 import type { TileEnvelope } from '@entif-ai/rosetta-core';
 
+import { isCounterfactualEvaluationProfile, validateCounterfactualEvaluation } from './counterfactual-profile.js';
 import { isSalienceEvaluationProfile, validateSalienceEvaluation } from './salience-profile.js';
 
 export interface ValidationResult {
@@ -1323,6 +1324,8 @@ export function validatePayload(kind: string, payload: object): ValidationResult
 
   if (kind === 'rosetta.evaluation' && isSalienceEvaluationProfile(payload)) {
     errors.push(...validateSalienceEvaluation(payload).errors);
+  } else if (kind === 'rosetta.evaluation' && isCounterfactualEvaluationProfile(payload)) {
+    errors.push(...validateCounterfactualEvaluation(payload).errors);
   } else if (kind === 'rosetta.receipt') {
     validateReceiptPayload(payload, errors);
   } else if (kind === 'adapter.capability_manifest') {

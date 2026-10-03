@@ -1,3 +1,10 @@
+import { readFile, readdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { Ajv2020 } from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
+import { validatePayload } from './rosetta-schemas.js';
+import { getSchemaCatalogEntry } from './schema-catalog.js';
+
 import { describe, expect, it } from 'vitest';
 
 import { COUNTERFACTUAL_PROFILE, validateCounterfactualEvaluation } from './counterfactual-profile.js';
@@ -7,7 +14,7 @@ export function counterfactualFixture(): Record<string, unknown> {
     evaluationId: 'fixture.counterfactual.equivalent.1',
     summary: 'Synthetic deterministic candidate matches a historical decision.',
     verdict: 'pass',
-    profile: COUNTERFACTUAL_PROFILE,
+    profile: { ...COUNTERFACTUAL_PROFILE },
     historical: {
       subjectRefs: ['fixture.strategy-episode.1'],
       decisionRef: 'fixture.routing-judgment.1',
@@ -41,6 +48,48 @@ export function counterfactualFixture(): Record<string, unknown> {
 }
 
 describe('counterfactual mechanism evaluation Profile', () => {
+  it('rejects undeclared nested authority, missing sandbox and invalid cutoff dates', () => {
+    for (const path of ['profile', 'historical', 'historical.evidenceCutoff', 'historical.context', 'candidate', 'replay', 'comparison', 'validityScope']) {
+      const fixture = counterfactualFixture();
+      let nested = fixture;
+      for (const field of path.split('.')) nested = nested[field] as Record<string, unknown>;
+      nested.executionGrant = true;
+      expect(validateCounterfactualEvaluation(fixture).ok, path).toBe(false);
+    }
+    const fixture = counterfactualFixture();
+    ((fixture.historical as Record<string, unknown>).evidenceCutoff as Record<string, unknown>).availableAt = '2026-02-30T00:00:00Z';
+    expect(validateCounterfactualEvaluation(fixture).ok).toBe(false);
+    const replay = counterfactualFixture().replay as object;
+    expect(validateCounterfactualEvaluation({ ...counterfactualFixture(), replay: { ...replay, mode: 'sandbox' } }).ok).toBe(false);
+    expect(validateCounterfactualEvaluation({ ...counterfactualFixture(), replay: { ...replay, mode: 'sandbox', sandboxRef: 'fixture.sandbox.1' } }).ok).toBe(true);
+    expect(validateCounterfactualEvaluation({ ...counterfactualFixture(), verdict: 'activate' }).ok).toBe(false);
+    expect(validateCounterfactualEvaluation({ ...counterfactualFixture(), supersedesRefs: ['fixture.counterfactual.equivalent.1'] }).ok).toBe(false);
+  });
+
+  it('routes the Profile through the existing Evaluation kind and schema catalog', () => {
+    expect(validatePayload('rosetta.evaluation', counterfactualFixture()).ok).toBe(true);
+    expect(validatePayload('rosetta.evaluation', { ...counterfactualFixture(), productionActivation: true }).ok).toBe(false);
+    expect(getSchemaCatalogEntry(COUNTERFACTUAL_PROFILE.id)).toMatchObject({ coreDescent: 'pack-defined-schema', relatedCoreKinds: ['rosetta.evaluation'], validator: 'validateCounterfactualEvaluation' });
+  });
+
+  it('validates nine independently readable public fixture cases and their portable schema', async () => {
+    const root = resolve(process.cwd(), 'packs/schema-pack-evaluation-profiles');
+    const ajv = new Ajv2020({ strict: false }); addFormats(ajv);
+    const validate = ajv.compile(JSON.parse(await readFile(resolve(root, 'schema/counterfactual-evaluation.schema.json'), 'utf8')));
+    const names = (await readdir(resolve(root, 'test-vectors/counterfactual'))).filter((name) => name.endsWith('.json'));
+    expect(names).toHaveLength(9);
+    for (const name of names) {
+      const vector = JSON.parse(await readFile(resolve(root, 'test-vectors/counterfactual', name), 'utf8'));
+      for (const payload of vector.payloads ?? [vector.payload]) {
+        const before = structuredClone(payload);
+        expect(validateCounterfactualEvaluation(payload).ok, name).toBe(vector.expectOk);
+        expect(validate(payload), name).toBe(vector.expectOk);
+        expect(payload).toEqual(before);
+      }
+    }
+    expect(validate({ ...counterfactualFixture(), receiptRefs: [] })).toBe(false);
+  });
+
   it('validates the nine declared public fixture cases without changing their data', () => {
     const equivalent = counterfactualFixture();
     const exception = { ...counterfactualFixture(), evaluationId: 'fixture.exception.1', disposition: 'inconclusive',

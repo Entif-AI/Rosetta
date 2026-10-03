@@ -58,6 +58,7 @@ const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
   'entif.mailroom.consumer-boundary.ref': metadata('external-contract-ref', AUDIT),
   'rosetta.conformance_bundle': metadata('derived-projection', AUDIT, ['rosetta.evaluation']),
   'rosetta.shacl_shapes': metadata('implementation-local', AUDIT),
+  'counterfactual.evaluation.v1': metadata('pack-defined-schema', 'packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json', ['rosetta.evaluation']),
   'salience.evaluation.v1': metadata('pack-defined-schema', SALIENCE_SCHEMA, ['rosetta.evaluation'])
 };
 

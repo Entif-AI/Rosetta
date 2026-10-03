@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "schema-pack-evaluation-profiles",
-  "pack_id": "cidv1-sha256-f94fec651e756197aeef7de0e0c75b3e4d11aa40bce628c023f13c36307b2595",
+  "pack_id": "cidv1-sha256-68c1ce4405839b5d0c4174ce35a41b85feac86a19cda3a5b335dd18499374111",
   "kind": "schema-pack",
   "category": "SchemaPack",
   "namespace": "salience",
@@ -10,14 +10,15 @@
   "status": "draft",
   "title": "Evaluation Profiles Schema Pack",
   "name": "Evaluation Profiles Schema Pack",
-  "summary": "Public, representational Profiles over rosetta.evaluation. This first export records salience evidence without formulas, policy, or authority grants.",
+  "summary": "Public representational Profiles over Core Evaluation: salience assessments and bounded historical counterfactual comparisons.",
   "compatible_core": {
     "min": "3.0.0",
     "max_exclusive": "4.0.0"
   },
   "entrypoints": {
     "schema": [
-      "schema/salience-evaluation.schema.json"
+      "schema/salience-evaluation.schema.json",
+      "schema/counterfactual-evaluation.schema.json"
     ],
     "tests": [
       "tests/README.md",
@@ -29,7 +30,16 @@
       "test-vectors/salience/06-historical-reassessment.json",
       "test-vectors/salience/07-unknown-insufficient-evidence.json",
       "test-vectors/salience/08-invalid-no-grant.json",
-      "test-vectors/salience/09-interoperable-private-procedures.json"
+      "test-vectors/salience/09-interoperable-private-procedures.json",
+      "test-vectors/counterfactual/01-equivalent.json",
+      "test-vectors/counterfactual/02-missed-exception.json",
+      "test-vectors/counterfactual/03-worse.json",
+      "test-vectors/counterfactual/04-partial-replay.json",
+      "test-vectors/counterfactual/05-later-evidence-excluded.json",
+      "test-vectors/counterfactual/06-effect-rejected.json",
+      "test-vectors/counterfactual/07-inconclusive.json",
+      "test-vectors/counterfactual/08-preserved-reassessment.json",
+      "test-vectors/counterfactual/09-invalid-activation.json"
     ]
   },
   "depends_on": [],
@@ -46,16 +56,27 @@
       "path": "schema/salience-evaluation.schema.json",
       "version": "1.0.0",
       "profile": "salience.evaluation.v1"
+    },
+    {
+      "kind": "json-schema",
+      "id": "counterfactual.evaluation.v1",
+      "path": "schema/counterfactual-evaluation.schema.json",
+      "version": "1.0.0",
+      "profile": "counterfactual.evaluation.v1"
     }
   ],
   "profiles": [
     {
       "name": "salience.evaluation.v1",
       "path": "schema/salience-evaluation.schema.json"
+    },
+    {
+      "name": "counterfactual.evaluation.v1",
+      "path": "schema/counterfactual-evaluation.schema.json"
     }
   ],
   "source_of_truth": {
-    "doctrine": "Rosetta v3.0.0 Core Spine; public salience Profile #1694",
+    "doctrine": "Rosetta v3.0.0 Core Spine; public evaluation Profiles #1694 and #1695",
     "traceability_required": true
   }
 }

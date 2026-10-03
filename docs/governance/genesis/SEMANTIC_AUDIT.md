@@ -72,6 +72,13 @@ The word `profile` in `source.system_profile` is a qualified source-domain noun.
 
 `salience.evaluation.v1` is a draft Pack-defined Profile that composes the existing `rosetta.evaluation` primitive. It represents separate Impact, Exigency, and Novelty assessments with declared scope, valid time, evidence, uncertainty, receipts, provenance, and attributable supersession. It is not a Core kind and does not establish truth, authorization, activation, execution, scoring, weighting, gating, selection, or private operational policy.
 
+`counterfactual.evaluation.v1` is a draft Pack-defined Profile over the same Core
+Evaluation primitive. It records a declared historical evidence frontier and
+bounded authority context, candidate identity, replayability, sandbox/no-live-effect
+posture, separate comparison evidence, validity scope, and supersession. Comparison
+disposition is separate from the unchanged Core verdict vocabulary. It grants no
+production routing, installation, promotion, activation, or write authority.
+
 ### 3.3 Entif and project application contracts
 
 The following families are application contracts unless a later accepted authority explicitly elevates them:

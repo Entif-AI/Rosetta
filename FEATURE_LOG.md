@@ -99,10 +99,18 @@ Core verdicts and explicit Novelty baselines are checked. Nine public vectors
 include preserved low leaves/aggregate, prior/reassessment, and interoperable
 outputs. Rich values reference their declared schema. Cross-field level membership,
 ordered intervals and self-supersession checks are documented separately from
-portable JSON Schema structural validation. #1695 currently contains tests only.
+portable JSON Schema structural validation. #1695 implemented: public Counterfactual Evaluation Profile, schema, catalog/
+descent/router integration and nine synthetic conformance vectors.
 
 ## Next safe step
 
-Push #1694 review checkpoint, then implement #1695 with the shared structural
-checks and portable schema fixtures. Graph proof follows verified
+#1694 pushed in ba497ec with review comment. Checkpoint/push #1695; focused suite 62 passed, package build, Pack conformance
+and authority checks pass. Then implement #1667 in projection-adapters with
+real isolated Neo4j import/reimport/rebuild and direct Cypher proof. Graph proof follows verified
 normalization; Neo4j development image is available, no production graph claim.
+
+Semantic-governance limitation confirmed on 2026-10-03: four historical PRD/RFC
+paths referenced by the check are absent at base 48bbd83. The full failure log is
+retained locally; authority-closure and Pack checks pass. No authority replacements
+were synthesized. #1695 red tests confirmed missing implementation, then stub
+behavior failure; implementation now passes final focused tests/build.
