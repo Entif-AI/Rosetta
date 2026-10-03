@@ -9,6 +9,7 @@ import sync from './generators/sync/sync';
 import specSurface from './generators/spec-surface/spec-surface';
 import { checkExecutor, admissionExecutor } from './executors/evidence';
 import { createNodesV2 } from './plugin';
+import migrate from './migrations/config-v1';
 
 const config = { schemaVersion: 1, projectName: 'fixture-governance', branchPolicy: 'existing-authorized', authoritySources: ['AUTHORITY.md'],
   projectionPath: '.specify/memory/authority.json', checks: { local: { command: 'node -e "process.exit(0)"', owner: 'AUTHORITY.md', inputs: ['{workspaceRoot}/AUTHORITY.md'] } } };
@@ -19,6 +20,21 @@ function fixture() {
   return tree;
 }
 describe('portable governance #1699', () => {
+  it('migrates only prototype configuration while preserving local authority and overrides', async () => {
+    const tree = fixture();
+    tree.write('governance/governance.config.json', JSON.stringify({ ...config, schemaVersion: 0 }));
+    migrate(tree); init(tree); await sync(tree);
+    expect(readJson(tree, 'governance/governance.config.json')).toEqual(config);
+    const before = tree.listChanges();
+    migrate(tree); init(tree); await sync(tree);
+    expect(tree.listChanges()).toEqual(before);
+  });
+  it('rejects unsupported declared Nx versions without changing local files', () => {
+    const tree = fixture(); tree.write('package.json', JSON.stringify({ devDependencies: { nx: '23.0.0' } }));
+    const before = tree.listChanges();
+    expect(() => init(tree)).toThrow(/Incompatible Nx/);
+    expect(tree.listChanges()).toEqual(before);
+  });
   it('infers governance execution targets without inventing semantic project dependencies', async () => {
     const root = mkdtempSync(path.join(tmpdir(), 'governance-graph-'));
     try {
@@ -63,6 +79,8 @@ describe('portable governance #1699', () => {
       writeFileSync(path.join(root, 'governance.config.json'), JSON.stringify({ ...config, checks: { local: { ...config.checks.local, command: 'node -e "process.exit(1)"' } } }));
       const context: ExecutorContext = { root, cwd: root, isVerbose: false, projectsConfigurations: { version: 2, projects: {} }, nxJsonConfiguration: {}, projectGraph: { nodes: {}, dependencies: {} } };
       await checkExecutor({ configPath: 'governance.config.json', checkId: 'local' }, context);
+      await expect(admissionExecutor({ configPath: 'governance.config.json', checkIds: [] }, context)).rejects.toThrow(/empty/i);
+      await expect(admissionExecutor({ configPath: 'governance.config.json', checkIds: ['unknown'] }, context)).rejects.toThrow(/Unknown/i);
       expect(await admissionExecutor({ configPath: 'governance.config.json' }, context)).toEqual({ success: false });
       expect(JSON.parse(readFileSync(path.join(root, 'dist/governance/fixture-governance/merge-admission.json'), 'utf8')).disposition).toBe('blocked');
       writeFileSync(path.join(root, 'AUTHORITY.md'), 'Changed authority');

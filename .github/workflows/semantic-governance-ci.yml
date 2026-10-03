@@ -22,6 +22,10 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'git+https://github.com/github/spec-kit.git@de0cbd762e2d0b30f90d3ffcbe2ee9d7167f4eda'
       - run: pnpm exec nx sync:check
       - run: pnpm exec nx affected -t spec-admission,test,lint,typecheck,build --base=origin/main --exclude=@entif-ai/source --parallel=3
       - run: pnpm run governance:admission

@@ -63,3 +63,15 @@ vitest.config.*.timestamp*
 .claude/worktrees
 .claude/settings.local.json
 Code
+
+# Installed Spec Kit payloads are materialized from the pinned development bundle.
+/.agents/skills/speckit-*
+/.specify/extensions/
+/.specify/presets/
+/.specify/workflows/
+/.specify/integrations/
+/.specify/scripts/
+/.specify/templates/
+/.specify/bundle-records.json
+/.specify/.workflow-install.lock
+/.specify/init-options.json

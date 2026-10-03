@@ -37,9 +37,11 @@ export async function checkExecutor(options: { configPath: string; checkId: stri
 
 export async function admissionExecutor(options: { configPath: string; checkIds?: string[]; reportName?: string }, context: ExecutorContext) {
   const { config, sources, directory, configDigest } = state(options, context);
-  const checks = (options.checkIds ?? Object.keys(config.checks)).sort().map((id) => {
+  const ids = options.checkIds ?? Object.keys(config.checks);
+  if (!ids.length || new Set(ids).size !== ids.length || ids.some((id) => !Object.hasOwn(config.checks, id))) throw new Error('Unknown, duplicate or empty admission check selection.');
+  const checks = [...ids].sort().map((id) => {
     const report: unknown = JSON.parse(readFileSync(path.join(directory, `${id}.json`), 'utf8'));
-    if (!report || typeof report !== 'object' || !('status' in report) || !('configDigest' in report) || !('authority' in report) || report.configDigest !== configDigest || JSON.stringify(report.authority) !== JSON.stringify(sources)) throw new Error(`Stale or malformed check evidence: ${id}`);
+    if (!report || typeof report !== 'object' || !('status' in report) || !('id' in report) || report.id !== id || !('command' in report) || report.command !== config.checks[id].command || !('owner' in report) || report.owner !== config.checks[id].owner || !('configDigest' in report) || !('authority' in report) || report.configDigest !== configDigest || JSON.stringify(report.authority) !== JSON.stringify(sources)) throw new Error(`Stale or malformed check evidence: ${id}`);
     return report;
   });
   const pass = checks.every((check) => check.status === 'pass');

@@ -22,7 +22,7 @@
     },
     "project": {
       "type": "string",
-      "default": "rosetta-governance"
+      "required": true
     }
   },
   "steps": [
@@ -75,6 +75,19 @@
     },
     {
       "id": "implement-admission",
+      "type": "shell",
+      "run": "pnpm exec nx run {{ inputs.project }}:merge-admission"
+    },
+    {
+      "id": "converge",
+      "command": "speckit.converge",
+      "integration": "{{ inputs.integration }}",
+      "input": {
+        "args": "{{ inputs.spec }}"
+      }
+    },
+    {
+      "id": "converge-admission",
       "type": "shell",
       "run": "pnpm exec nx run {{ inputs.project }}:merge-admission"
     }

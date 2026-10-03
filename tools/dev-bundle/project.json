@@ -1,0 +1,9 @@
+{
+  "name": "dev-bundle",
+  "projectType": "library",
+  "targets": {
+    "test": {"executor": "nx:run-commands", "cache": true, "inputs": ["{projectRoot}/**/*", "{workspaceRoot}/packages/nx-governance/**/*", "{workspaceRoot}/pnpm-lock.yaml"], "outputs": [], "options": {"command": "vitest run tools/dev-bundle/bundle.spec.mjs"}},
+    "e2e": {"executor": "nx:run-commands", "cache": false, "parallelism": false, "dependsOn": [{"target": "build", "projects": ["@entif-ai/nx-governance"]}], "outputs": ["{workspaceRoot}/dist/dev-bundle/conformance.json"], "options": {"command": "node tools/dev-bundle/e2e.mjs"}}
+  },
+  "tags": ["tooling", "distribution", "coordinator"]
+}

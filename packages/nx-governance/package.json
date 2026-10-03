@@ -1,7 +1,7 @@
 {
   "name": "@entif-ai/nx-governance",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.1.0",
+  "private": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -59,14 +59,26 @@
     "@nx/devkit": "22.6.5",
     "ajv": "8.17.1",
     "tslib": "^2.3.0",
-    "yaml": "2.8.1"
+    "yaml": "2.8.1",
+    "semver": "^7.7.2"
   },
   "generators": "./generators.json",
   "files": [
     "dist",
     "!**/*.tsbuildinfo",
-    "generators.json"
+    "generators.json",
+    "executors.json",
+    "migrations.json",
+    "spec-kit",
+    "README.md",
+    "src",
+    "!src/**/*.spec.ts"
   ],
   "executors": "./executors.json",
-  "nx-migrations": "./migrations.json"
+  "nx-migrations": "./migrations.json",
+  "license": "MIT",
+  "description": "Source-owned governance checks, admission evidence and specification projections for Nx workspaces.",
+  "peerDependencies": {
+    "nx": ">=22.6.5 <23"
+  }
 }

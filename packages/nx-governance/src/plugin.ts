@@ -23,9 +23,9 @@ export const createNodesV2: CreateNodesV2 = ['**/governance.config.json', async 
     inputs: [fileInput(file), ...config.authoritySources.map(fileInput), ...Object.values(config.checks).flatMap((check) => check.inputs)],
     outputs: [`{workspaceRoot}/dist/governance/${config.projectName}/merge-admission.json`, `{workspaceRoot}/dist/governance/${config.projectName}/merge-admission.md`]
   };
-  const specChecks = Object.keys(config.checks).filter((id) => id !== 'implementation');
+  const specChecks = Object.keys(config.checks).filter((id) => config.checks[id].stage !== 'merge');
   targets['spec-admission'] = {
-    ...targets['merge-admission'], cache: true,
+    ...targets['merge-admission'], cache: !specChecks.some((id) => config.checks[id].coordinator),
     options: { configPath: file, checkIds: specChecks, reportName: 'spec-admission' },
     dependsOn: specChecks.map((id) => `evidence-${id}`),
     outputs: [`{workspaceRoot}/dist/governance/${config.projectName}/spec-admission.json`, `{workspaceRoot}/dist/governance/${config.projectName}/spec-admission.md`]

@@ -1,11 +1,21 @@
-import { readJson, updateJson, writeJson, type Tree } from '@nx/devkit';
+import { NX_VERSION, readJson, updateJson, writeJson, type Tree } from '@nx/devkit';
 import { parseConfig } from '../../config';
 import { parse } from 'yaml';
-export interface InitOptions { configPath?: string }
+import { satisfies, intersects, validRange } from 'semver';
+export interface InitOptions { configPath?: string; pluginPath?: string }
 const plugin = '@entif-ai/nx-governance';
 export function initGenerator(tree: Tree, options: InitOptions = {}) {
   const file = options.configPath ?? 'governance/governance.config.json';
+  const registration = options.pluginPath ?? plugin;
+  if (options.pluginPath && (!options.pluginPath.startsWith('./') || options.pluginPath.includes('..') || !tree.exists(options.pluginPath))) throw new Error('Local pluginPath must identify an existing workspace source file.');
   if (!tree.exists('nx.json')) throw new Error('An existing Nx workspace is required.');
+  const supported = '>=22.6.5 <23';
+  if (!satisfies(NX_VERSION, supported)) throw new Error(`Unsupported Nx ${NX_VERSION}; supported ${supported}.`);
+  if (tree.exists('package.json')) {
+    const pkg = readJson<{ dependencies?: Record<string, string>; devDependencies?: Record<string, string> }>(tree, 'package.json');
+    const declared = pkg.devDependencies?.nx ?? pkg.dependencies?.nx;
+    if (declared && (!validRange(declared) || !intersects(declared, supported))) throw new Error(`Incompatible Nx declaration: ${declared}. Supported ${supported}.`);
+  }
   if (!tree.exists(file)) throw new Error(`Provide project-local authority and checks in ${file}. See config.schema.json.`);
   const config = parseConfig(readJson<object>(tree, file));
   if (tree.exists('.specify/extensions.yml')) {
@@ -23,10 +33,13 @@ export function initGenerator(tree: Tree, options: InitOptions = {}) {
   }
   const nx = readJson<{ plugins?: Array<string | { plugin: string }>; sync?: { globalGenerators?: string[] } }>(tree, 'nx.json');
   const registrations = nx.plugins ?? [];
-  if (registrations.filter((entry) => (typeof entry === 'string' ? entry : entry.plugin) === plugin).length > 1) throw new Error('Duplicate governance plugin registration.');
+  const matches = (entry: string | { plugin: string }) => [plugin, registration].includes(typeof entry === 'string' ? entry : entry.plugin);
+  if (registrations.filter(matches).length > 1) throw new Error('Duplicate governance plugin registration.');
   updateJson(tree, 'nx.json', (value) => {
     value.plugins ??= [];
-    if (!registrations.some((entry) => (typeof entry === 'string' ? entry : entry.plugin) === plugin)) value.plugins.push(plugin);
+    const index = registrations.findIndex(matches);
+    if (index < 0) value.plugins.push(registration);
+    else if (options.pluginPath) value.plugins[index] = registration;
     value.sync ??= {};
     value.sync.globalGenerators ??= [];
     if (!value.sync.globalGenerators.includes(`${plugin}:sync`)) value.sync.globalGenerators.push(`${plugin}:sync`);

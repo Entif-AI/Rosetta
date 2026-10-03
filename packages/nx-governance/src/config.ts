@@ -8,6 +8,7 @@ export interface GovernanceCheck {
   owner: string;
   inputs: string[];
   coordinator?: boolean;
+  stage?: 'spec' | 'merge';
 }
 export interface GovernanceConfig {
   schemaVersion: 1;

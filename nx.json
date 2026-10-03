@@ -66,7 +66,7 @@
         "targetName": "lint"
       }
     },
-    "@entif-ai/nx-governance"
+    "./packages/nx-governance/src/index.ts"
   ],
   "targetDefaults": {
     "@nx/esbuild:esbuild": {
@@ -117,5 +117,40 @@
     "globalGenerators": [
       "@entif-ai/nx-governance:sync"
     ]
+  },
+  "release": {
+    "groups": {
+      "entif-development-platform": {
+        "projects": [
+          "@entif-ai/nx-governance"
+        ],
+        "projectsRelationship": "fixed",
+        "versionPlans": {
+          "ignorePatternsForPlanCheck": [
+            "**/*.spec.ts",
+            "**/*.spec.mjs",
+            "**/*.md"
+          ]
+        },
+        "releaseTag": {
+          "pattern": "entif-development-v{version}"
+        }
+      }
+    },
+    "version": {
+      "currentVersionResolver": "disk",
+      "git": {
+        "commit": false,
+        "tag": false
+      }
+    },
+    "changelog": {
+      "workspaceChangelog": false,
+      "projectChangelogs": true,
+      "git": {
+        "commit": false,
+        "tag": false
+      }
+    }
   }
 }

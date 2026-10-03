@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "bundle": {
+    "id": "entif-development",
+    "name": "Entif development",
+    "version": "0.1.0",
+    "role": "developer",
+    "description": "Local authority, deterministic Nx checks and resumable specification workflow on the existing authorized branch.",
+    "author": "Entif/Rosetta maintainers",
+    "license": "MIT"
+  },
+  "requires": {
+    "speckit_version": ">=1.1.1.dev0,<1.2",
+    "tools": [
+      "node",
+      "pnpm",
+      "nx"
+    ],
+    "mcp": []
+  },
+  "provides": {
+    "extensions": [
+      {
+        "id": "rosetta-governance",
+        "version": "0.1.0",
+        "source": "extension"
+      }
+    ],
+    "presets": [
+      {
+        "id": "entif-rosetta",
+        "version": "0.1.0",
+        "source": "preset",
+        "priority": 10,
+        "strategy": "append"
+      }
+    ],
+    "workflows": [
+      {
+        "id": "entif-roadmap",
+        "version": "0.1.0",
+        "source": "workflow"
+      }
+    ]
+  },
+  "tags": [
+    "entif",
+    "nx",
+    "governance"
+  ]
+}

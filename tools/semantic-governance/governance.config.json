@@ -9,7 +9,7 @@
     "docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
     "docs/spec/PROMOTION_TRANSITION_CONTRACT.md"
   ],
-  "projectionPath": ".specify/memory/rosetta-authority.json",
+  "projectionPath": ".specify/memory/constitution.json",
   "checks": {
     "authority": {
       "command": "node tools/semantic-governance/check-authority-closure.mjs",
@@ -87,7 +87,10 @@
         "{workspaceRoot}/packs/**/*",
         "{workspaceRoot}/packages/**/*",
         "{workspaceRoot}/spec-surfaces/**/*",
-        "{workspaceRoot}/tools/semantic-governance/**/*"
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/**/project.json",
+        "{workspaceRoot}/**/package.json",
+        "{workspaceRoot}/tsconfig*.json"
       ]
     },
     "implementation": {
@@ -100,7 +103,8 @@
         "{workspaceRoot}/nx.json",
         "{workspaceRoot}/**/*"
       ],
-      "coordinator": true
+      "coordinator": true,
+      "stage": "merge"
     },
     "catalog": {
       "command": "node tools/spec-catalog/catalog.mjs",
@@ -117,6 +121,29 @@
         "{workspaceRoot}/nx.json",
         "{workspaceRoot}/.prettierrc"
       ]
+    },
+    "release-plan": {
+      "command": "pnpm exec nx release plan:check --base=origin/main",
+      "owner": "nx.json",
+      "inputs": [
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/.nx/version-plans/**/*",
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml"
+      ],
+      "stage": "merge",
+      "coordinator": true
+    },
+    "distribution": {
+      "command": "pnpm exec nx run dev-bundle:e2e",
+      "owner": "packages/nx-governance/spec-kit/compatibility.json",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/tools/dev-bundle/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml"
+      ],
+      "stage": "merge",
+      "coordinator": true
     }
   },
   "catalog": {

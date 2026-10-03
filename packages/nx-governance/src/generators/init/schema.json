@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "pluginPath": {"type": "string", "description": "Explicit local source plugin entrypoint for plugin development workspaces"},
     "configPath": {
       "type": "string",
       "description": "Existing project-local governance.config.json"
