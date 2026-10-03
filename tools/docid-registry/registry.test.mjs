@@ -14,6 +14,13 @@ const source = `| DocID | Title | Scope & Description | Dependencies | Type | Al
 \`\`\``;
 const ledger = { documents: [{ path: 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md', title: 'Intake title is not normative' }] };
 
+test('derives public suite identity directly when the protected intake ledger is absent', () => {
+  const registry = buildRegistry(source);
+  assert.equal(registry.source.ledgerPath, null);
+  assert.deepEqual(validateRegistry(registry), []);
+  assert.deepEqual(registry.documents, buildRegistry(source, ledger).documents);
+});
+
 test('projects exact suite titles, dependencies and authority without inventing companion files', () => {
   const registry = buildRegistry(source, ledger);
   assert.equal(registry.documents[0].title, 'Core');

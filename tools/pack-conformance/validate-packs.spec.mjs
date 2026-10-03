@@ -56,6 +56,16 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
+  it('rejects a Profile that drops its formal Core descent', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'profile-descent-'));
+    try {
+      await writePack(root, baseManifest({ id: 'rrp', profiles: [{ name: 'rrp.promotion-state.v1', path: 'schema/profile.json' }] }), {
+        'examples/example.md': 'fixture', 'schema/profile.json': JSON.stringify({ $id: 'rrp.promotion-state.v1' })
+      });
+      const result = await validatePackRoot(root);
+      expect(result.errors.some((error) => error.code === 'profile-descent-missing')).toBe(true);
+    } finally { await rm(root, { recursive: true, force: true }); }
+  });
   it('computes a deterministic pack_id from manifest metadata and sorted file hashes', async () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-id-'));
     const first = path.join(tempDir, 'first');

@@ -1,3 +1,4 @@
+import { validatePromotionStatePayload } from './promotion-state.js';
 import { makeContentId } from '@entif-ai/rosetta-cid';
 import { splitSentences } from '@entif-ai/rosetta-canon';
 import type { TileEnvelope } from '@entif-ai/rosetta-core';
@@ -1319,7 +1320,9 @@ export function validatePayload(kind: string, payload: object): ValidationResult
     .filter((field) => !(field in payload))
     .map((field) => `Missing required field: ${field}`);
 
-  if (kind === 'rosetta.receipt') {
+  if (kind === 'rosetta.observation' && 'profile' in payload) {
+    errors.push(...validatePromotionStatePayload(payload));
+  } else if (kind === 'rosetta.receipt') {
     validateReceiptPayload(payload, errors);
   } else if (kind === 'adapter.capability_manifest') {
     validateAdapterCapabilityManifestPayload(payload, errors);

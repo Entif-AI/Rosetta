@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "authority",
+    "issue"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "issue": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

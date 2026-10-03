@@ -1,0 +1,19 @@
+{
+  "executors": {
+    "issue-sync": {
+      "implementation": "./dist/executors/issue-sync",
+      "schema": "./dist/executors/issue-sync.schema.json",
+      "description": "Coordinator-owned task binding reconciliation; proposes by default"
+    },
+    "check": {
+      "implementation": "./dist/executors/check",
+      "schema": "./dist/executors/schema.json",
+      "description": "Record one upstream check result, including failure"
+    },
+    "admission": {
+      "implementation": "./dist/executors/admission",
+      "schema": "./dist/executors/schema.json",
+      "description": "Compose recorded upstream verdicts into a merge gate"
+    }
+  }
+}

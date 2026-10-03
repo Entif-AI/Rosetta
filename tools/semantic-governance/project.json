@@ -1,0 +1,20 @@
+{
+  "name": "rosetta-governance",
+  "targets": {
+    "authority-test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["{projectRoot}/**/*", "{workspaceRoot}/docs/**/*", "{workspaceRoot}/AGENTS.md"],
+      "outputs": [],
+      "options": { "cwd": ".", "command": "node --test tools/semantic-governance/check-authority-closure.spec.mjs" }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["authority-test", { "projects": ["docid-registry"], "target": "test" }],
+      "cache": true,
+      "inputs": ["{projectRoot}/**/*", "{workspaceRoot}/packages/**/*", "{workspaceRoot}/docs/**/*", "{workspaceRoot}/packs/**/*", "{workspaceRoot}/spec-surfaces/**/*", "{workspaceRoot}/pnpm-lock.yaml"],
+      "outputs": [],
+      "options": { "cwd": ".", "command": "vitest run tools/semantic-governance/check-genesis-semantics.spec.mjs tools/semantic-governance/core-descent-audit.spec.mjs tools/semantic-governance/profile-admission.spec.mjs" }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "status": "admitted",
+  "authority": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
+  "sourceIssue": "#1698",
+  "coreDescent": "core-tile-profile",
+  "coreKinds": [
+    "rosetta.observation"
+  ],
+  "pack": "rrp",
+  "schema": "packs/rrp/schema/promotion-state.schema.json",
+  "acceptance": [
+    {
+      "id": "profile-and-lineage",
+      "task": "rosetta-receipts:test",
+      "evidence": [
+        "packages/rosetta-receipts/src/lib/promotion-profile.spec.ts"
+      ]
+    },
+    {
+      "id": "transition-law",
+      "task": "rosetta-receipts:test",
+      "evidence": [
+        "packages/rosetta-receipts/src/lib/rosetta-receipts.spec.ts"
+      ]
+    }
+  ],
+  "nonGoals": [
+    "Core expansion",
+    "Profile negotiation",
+    "storage authorization"
+  ]
+}

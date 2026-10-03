@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "outDir": "tmp/spec-types",
+    "tsBuildInfoFile": "tmp/tsconfig.spec.tsbuildinfo",
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json",
+    "src/**/*.cts"
+  ],
+  "exclude": [
+    "dist",
+    "tmp"
+  ]
+}

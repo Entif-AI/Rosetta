@@ -1,0 +1,14 @@
+{
+  "kind": "rosetta.observation",
+  "pack": "rrp",
+  "payload": {
+    "observationId": "promotion.promote.fixture",
+    "signal": "Promotion transition 'promote' applied: active -> promoted.",
+    "source": "rosetta.promotion",
+    "profile": "rrp.promotion-state.v1",
+    "subjectCid": "cidv1-sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "state": "promoted",
+    "transitionKind": "promote",
+    "previousStateCid": "cidv1-sha256-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  }
+}

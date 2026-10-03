@@ -4,7 +4,7 @@
   "source": {
     "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
     "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
-    "ledgerPath": "docs/intake/doc-ledger.json"
+    "ledgerPath": null
   },
   "documents": [
     {

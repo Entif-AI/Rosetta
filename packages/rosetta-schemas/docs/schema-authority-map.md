@@ -83,3 +83,9 @@ Current non-core `rosetta.*` IDs remain explicitly listed as semantic debt in th
 When adding a schema family or validator, update `schema-catalog.ts` with source issue, tests, docs, RFC/PRD anchors, consumers, exposure status, and known gaps. The catalog tests intentionally fail when supported tile kinds or registered Agentic Messaging profiles are invisible.
 
 Also update `SEMANTIC_AUDIT.md` when the schema adds a new family, uses the `rosetta.*` namespace outside the v3 core list, or changes the mapping between an application contract and a canonical Rosetta artifact.
+
+The #1179 audit classifies generated SHACL as `derived-projection` and ingress jobs
+as `lifecycle-state`. Source packages compose membership related to Frame semantics;
+source receipt records and trust axes reference Core meaning without claiming
+structural equivalence. The named RRP promotion Profile is `core-tile-profile` of
+Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation record.

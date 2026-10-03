@@ -161,6 +161,21 @@ export async function validatePackRoot(packRoot) {
     }
   }
 
+  const profileNames = new Set();
+  for (const profile of manifest.profiles ?? []) {
+    if (profileNames.has(profile.name)) errors.push(validationError('profile-duplicate', packRoot, profile.name));
+    profileNames.add(profile.name);
+    if (!profile.path || !(await fileExists(path.join(packRoot, profile.path)))) {
+      errors.push(validationError('profile-path-missing', packRoot, profile.name));
+      continue;
+    }
+    const schema = await readJson(path.join(packRoot, profile.path));
+    const descent = schema['x-rosetta'];
+    if (schema.$id !== profile.name || descent?.coreDescent !== 'core-tile-profile' || !descent?.coreKind?.startsWith('rosetta.') || descent?.pack !== manifest.id || !descent?.authority) {
+      errors.push(validationError('profile-descent-missing', packRoot, profile.name));
+    }
+  }
+
   return {
     computedPackId,
     errors,

@@ -1,6 +1,6 @@
 import { buildBootstrapDemoSnapshot, buildBootstrapGateSnapshot, createIngressJob } from '@entif-ai/ingress-refinery';
 import { projectToMissionControl, projectToOb1Sidecar, projectToPrismShadow } from '@entif-ai/projection-adapters';
-import { buildLifecycleDemo, verifyReceiptBundle, verifySignedReceipt } from '@entif-ai/rosetta-receipts';
+import { buildLifecycleDemo, buildPromotionTransitionDemo, verifyReceiptBundle, verifySignedReceipt } from '@entif-ai/rosetta-receipts';
 import { listSchemaCatalogEntries } from '@entif-ai/rosetta-schemas';
 import { InMemoryTileStore } from '@entif-ai/rosetta-store';
 
@@ -25,6 +25,7 @@ export function buildRosettaCliOutput() {
 
   return {
     lifecycleDemo: buildLifecycleDemo(),
+    promotionTransitionDemo: buildPromotionTransitionDemo(),
     action: snapshot.action,
     canonicalArtifact: snapshot.canonicalArtifact,
     conformanceBundle: snapshot.conformanceBundle,

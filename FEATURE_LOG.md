@@ -1,3 +1,97 @@
+# Semantic governance integration, PR #1600
+
+Active branch: `codex/roadmap-s1-promotion-transition`. One writer; no branch per issue.
+Execution order: #1698, #1179, #1699, #1700, #1701, #1705–#1710, #10 closeout.
+Current main reconciled by ordinary merge on 2026-10-03. Original TC-005 work retained.
+Public authority: Core Spine v3, Genesis semantic alignment/audit, promotion and
+receipt contracts, source-substrate Pack, schema catalog, DocID registry, Pack manifests.
+Bridge review: this run changes public representation and deterministic tooling, not
+protected scoring, routing, recurrence, thresholds, or operational selection policies.
+No applicable protected behavior change is proposed. Publication posture: public.
+Validation: executable pre-fix Profile fixture, predecessor/receipt replay adversaries;
+complete descent audit; real Nx sync/task graph/cache and Spec Kit install/migration
+fixtures; generated catalog drift/regeneration; affected and full repository gates.
+Checkpoint #1698: Profile, exact predecessor, receipt evidence closure, frozen red/green
+fixtures implemented. Focused Nx build/typecheck/lint/test passed for receipts, schemas,
+CLI and Pack tooling; Pack and authority checks pass. DocID check discovers its
+intake-ledger input was removed by #1572. Eight new tests failed
+before implementation; nine now pass. Semantic checker still references four
+documents removed by #1572; repair in #1179 audit, without restoring protected prose.
+Checkpoint #1179: all 49 catalog entries and first-wave Pack/vocabulary assets
+reviewed. Generated risk register records local namespace debt, non-substitutable
+source domain records, lifecycle state and projections; no irreducible Core gap.
+Public semantic and DocID gates repaired after #1572. Three audit tests, four DocID
+tests and ten semantic tests pass, plus focused schema/receipt Nx gates.
+Checkpoint #1699: official Nx plugin with idempotent init, draft spec scaffolding,
+sync projection, separate evidence collectors and fail-closed merge composition.
+Spec Kit preset, mandatory hooks and resumable workflow validated and installed
+with pinned upstream 1.1.1.dev0/Codex in a temporary workspace. Actual Nx graph,
+sync:check, plugin lint/typecheck/test/build, supported tsc batch and 23-project
+affected implementation verification pass. Merge report is merge-admissible.
+Checkpoint #1701 recovery (2026-10-03): reproduced fresh-checkout sync failure and
+packed upgrade failure. Retain Nx-generated constitution JSON/Markdown through narrow
+ignore exceptions; refresh the temporary consumer lockfile after nx migrate, including
+CI mode. No hand-edited projections or Astro composite/reference changes.
+Node 24.14.1: sync:check, dev-bundle:e2e, release plan:check --base=origin/main,
+affected spec-admission/test/lint/typecheck/build (26 projects, 97 tasks), and
+governance:admission pass. Packed Codex install/refresh, prototype config migration,
+real Nx 22.6.4 -> 22.6.5 upgrade, reproducible ZIP and conflict rejection proved.
+Next safe step: #1705 provenance/disposition, then ordered #1706–#1710 follow-ups.
+Do not merge or publish. Hosted CI must confirm the checkpoint after push.
+Checkpoint #1705: pinned donor/license verified, MIT upstream pin and current-main
+delta resolved; research dispositions in packages/nx-governance/spec-kit/reconciliation.json.
+No donor code imported. Explicitly reject inferred normative requirements and automatic
+branch creation. Existing delivered owners retained; five child problem spaces remain
+independent. Next: #1706 bounded observed-behavior evidence and authority reconciliation.
+Checkpoint #1706: bounded candidate schema and Nx baseline generator bind source digests
+and exact revision; direct/inferred claims, authority refs and conflicts remain separate.
+Only configured normative sources are accepted. Missing authority/conflicts cannot become
+alignment. Five red/green tests prove negative Rosetta specimen, no-doc authority-missing,
+conflict preservation, scope/line/authority validation, replay and stable identity.
+Focused plugin test/lint/typecheck/build, real baseline generation on current branch,
+spec admission and packed bundle e2e pass. Generated baseline is evidence under dist,
+not a checked-in moving-revision authority. Next: #1707 upstream workflow proving fixture.
+Checkpoint #1707: inventoried all 12 requested workflow mechanisms in reconciliation.json.
+Keep the existing upstream workflow + Entif hooks + Nx shell composition. Four executable
+pinned-engine fixtures pass: shell gates independent of agent compliance, both paths
+under hook-compliant agent emulation, failed-gate exact resume, native human pause/resume.
+No workflow churn or typed Nx wrapper. Proof is integrated into packed bundle e2e.
+Next: #1708 structured convergence evidence, without moving semantic authority.
+Checkpoint #1708: structured finding/inventory candidate, exact source provenance and
+stable baseline/task/verification lineage. Existing merge admission optionally consumes
+the exact artifact and digest; sourcePaths enforce cache completeness, stale sources
+and open findings block. Spec admission does not require future convergence evidence.
+The new suite failed to load the absent implementation; four behavior tests now pass,
+including recurrent failure
+across two runs, clean verified inventory and real admission composition/source drift.
+Shared baseline/convergence source validation consolidated. Next: #1709 durable issue
+identity and coordinator-owned ambiguous-delivery reconciliation.
+Checkpoint #1709: coordinator-owned explicit task request, durable identity/projection
+ledger, pending-before-send and marker recovery; prose never creates another owner.
+Independent review exposed forged markers, incomplete graph validation, per-worktree
+locking, deferred conflicts, split retries and closed origins; corrected with focused
+red/green regressions. Ledger/lock now lives in Git common-dir, shared across worktrees.
+Separate retry refs are consumed once without replacing split/merge lineage; cycles,
+owner collisions and closed originals block dependent sends. Independent clones require
+one designated coordinator and preservation of its ledger; no global GitHub uniqueness
+claim. Existing Rosetta #1698 read-only preview, focused plugin gates and packed e2e pass.
+Next: #1710 generated provenance, local-edit safety and bounded parent routing.
+Checkpoint #1710: upstream core manifests and component registration retained;
+managed-veneers.json supplements exact per-file owner/source/digest, installed component
+identity and PEP 610-verified CLI Git pin, distinct from compatibility ranges.
+Preflight blocks local edits/deletions, symlinks, unmanaged output collisions, missing
+legacy baselines and independently changed identities before force-refresh.
+Codex, Claude and upstream generic fixtures pass; byte-identical regeneration and payload/
+runtime edit protection proved from the packed package. Generic commands stay outside
+native Skill discovery; one Entif parent routes only the selected canonical file.
+This proves artifact routing, not native lazy child discovery or model compliance.
+No AGPL donor code copied; no bespoke long-tail runtime adapter. Final local sync:check,
+release plan:check, verify:full (all lint/typecheck/test/build lanes), packed bundle e2e
+and aggregate merge admission pass under Node 24.14.1. Next: hosted CI at this checkpoint
+and PR/issue closeout. No merge or release publication.
+Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
+no lease is claimed. Preserve the inherited editorial log below as unrelated history.
+
 # ETR-2026-07 editorial series — #1603
 
 ## User-review correction: experience incomplete
@@ -117,3 +211,5 @@ Validation (2026-09-18):
 
 PR #1621's pre-fix Entif site CI failure was reproduced locally and matched the two
 short-route SC 2.5.8 failures above. No merge or PR closeout performed.
+
+#1700 complete: generated specification catalog / Pack Map, versioned schema, source digests and graph integrity; same Nx sync plugin and admission. Focused tests/lint/typecheck/build and real sync drift rejection pass. Live Sheet/Neo4j transport deferred as optional projections.

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "projectName": "rosetta-governance",
+  "branchPolicy": "existing-authorized",
+  "authoritySources": [
+    "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+    "docs/governance/genesis/SEMANTIC_ALIGNMENT.md",
+    "docs/governance/PUBLIC_COMMONS_AND_PRIVATE_OPERATION_BOUNDARY.md",
+    "docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
+    "docs/spec/PROMOTION_TRANSITION_CONTRACT.md"
+  ],
+  "projectionPath": ".specify/memory/constitution.json",
+  "checks": {
+    "authority": {
+      "command": "node tools/semantic-governance/check-authority-closure.mjs",
+      "owner": "docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/**/*"
+      ]
+    },
+    "semantic": {
+      "command": "node tools/semantic-governance/check-genesis-semantics.mjs",
+      "owner": "docs/governance/genesis/SEMANTIC_ALIGNMENT.md",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/README.md",
+        "{workspaceRoot}/apps/*/README.md",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*"
+      ]
+    },
+    "core-descent": {
+      "command": "node tools/semantic-governance/core-descent-audit.mjs",
+      "owner": "packages/rosetta-schemas/src/lib/core-descent.ts",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*"
+      ]
+    },
+    "docid": {
+      "command": "node tools/docid-registry/registry.mjs",
+      "owner": "docs/governance/ROSETTA_DOCID_REGISTRY.md",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "{workspaceRoot}/docs/governance/ROSETTA_DOCID_REGISTRY.json",
+        "{workspaceRoot}/tools/docid-registry/**/*"
+      ]
+    },
+    "packs": {
+      "command": "node tools/pack-conformance/validate-packs.mjs",
+      "owner": "packs/_schemas/pack-manifest.schema.json",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/tools/pack-conformance/**/*"
+      ]
+    },
+    "profile": {
+      "command": "node tools/semantic-governance/profile-admission.mjs",
+      "owner": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/spec-surfaces/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/**/project.json",
+        "{workspaceRoot}/**/package.json",
+        "{workspaceRoot}/tsconfig*.json"
+      ]
+    },
+    "implementation": {
+      "command": "pnpm exec nx affected -t lint,typecheck,test,build --base=origin/main --exclude=rosetta-governance,@entif-ai/source --parallel=3",
+      "owner": "nx.json",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/**/*"
+      ],
+      "coordinator": true,
+      "stage": "merge"
+    },
+    "catalog": {
+      "command": "node tools/spec-catalog/catalog.mjs",
+      "owner": "tools/spec-catalog/catalog.schema.json",
+      "inputs": [
+        "{workspaceRoot}/tools/spec-catalog/**/*",
+        "{workspaceRoot}/tools/docid-registry/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/.prettierrc"
+      ]
+    },
+    "release-plan": {
+      "command": "pnpm exec nx release plan:check --base=origin/main",
+      "owner": "nx.json",
+      "inputs": [
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/.nx/version-plans/**/*",
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml"
+      ],
+      "stage": "merge",
+      "coordinator": true
+    },
+    "distribution": {
+      "command": "pnpm exec nx run dev-bundle:e2e",
+      "owner": "packages/nx-governance/spec-kit/compatibility.json",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/tools/dev-bundle/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml"
+      ],
+      "stage": "merge",
+      "coordinator": true
+    }
+  },
+  "catalog": {
+    "generator": "tools/spec-catalog/catalog.mjs",
+    "outputs": [
+      "docs/governance/ROSETTA_SPEC_CATALOG.json",
+      "docs/governance/ROSETTA_SPEC_CATALOG.md",
+      "docs/governance/ROSETTA_PACK_MAP.csv"
+    ]
+  }
+}

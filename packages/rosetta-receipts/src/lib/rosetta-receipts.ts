@@ -2,7 +2,8 @@ import { createPrivateKey, createPublicKey, generateKeyPairSync, sign as cryptoS
 
 import { sha256Hex } from '@entif-ai/rosetta-cid';
 import { buildTile, verifyTileIntegrity, type TileEnvelope } from '@entif-ai/rosetta-core';
-import { validatePayload } from '@entif-ai/rosetta-schemas';
+import { validatePayload, isPromotionStatePayload, PROMOTION_PROFILE, PROMOTION_TRANSITIONS, PROMOTION_RESULTS, type PromotionState, type PromotionTransitionKind, type PromotionStateObservationPayload } from '@entif-ai/rosetta-schemas';
+export { PROMOTION_TRANSITIONS, type PromotionState, type PromotionTransitionKind } from '@entif-ai/rosetta-schemas';
 import type { InMemoryTileStore } from '@entif-ai/rosetta-store';
 
 export type ReceiptVerdict = 'deny' | 'fail' | 'partial' | 'pass' | 'unknown';
@@ -316,4 +317,214 @@ export function verifyReceiptBundle(bundle: ReceiptBundle, store: InMemoryTileSt
     errors,
     ok: errors.length === 0
   };
+}
+
+/**
+ * Blocked-precondition is mapped onto the existing verdict union (#158).
+ * - 'soft' closes onto 'unknown' (may resolve through evidence closure)
+ * - 'hard' closes onto 'deny' (rights/policy backing missing)
+ */
+export type PromotionBlockKind = 'soft' | 'hard';
+
+export interface PromotionTransitionBlocked {
+  block: PromotionBlockKind;
+  kind: PromotionTransitionKind;
+  reason: string;
+}
+
+export interface PromotionTransitionApplied {
+  fromState: PromotionState;
+  kind: PromotionTransitionKind;
+  nextState: PromotionState;
+  nextStateTile: TileEnvelope<PromotionStateObservationPayload>;
+  receipt: TileEnvelope<ReceiptPayload>;
+}
+
+export type PromotionTransitionResult = PromotionTransitionApplied | PromotionTransitionBlocked;
+
+export interface CreatePromotionTransitionInput {
+  /** Subject being transitioned (the derived artifact or the source artifact it points at). */
+  subject: TileEnvelope;
+  /** Exact predecessor Observation, validated before transition law. */
+  priorStateTile: TileEnvelope;
+  /** Optional legacy assertion, checked against the predecessor. */
+  priorState?: PromotionState;
+  /** Transition kind requested. */
+  kind: PromotionTransitionKind;
+  /** Evidence closure: the source observation, canonical artifact, trust matrix, evaluation tiles. */
+  evidenceRefs: TileEnvelope[];
+  /** Policy tiles backing the transition. */
+  policies: TileEnvelope[];
+  /** Lane-local evaluation vectors; preserved as evidence, never collapsed into a scalar. */
+  evaluationVectors?: TileEnvelope[];
+  /** Optional reason the transition is being applied. */
+  reason?: string;
+}
+
+/**
+ * Apply a promotion transition. Emits a typed receipt over the existing receipt family.
+ * Does NOT mutate the subject, the evidence, or any artifact on the closure.
+ */
+export function createPromotionTransition(input: CreatePromotionTransitionInput): PromotionTransitionResult {
+  if (!verifyTileIntegrity(input.subject).ok) {
+    throw new Error('Promotion subject integrity failed.');
+  }
+  const prior = verifiedPromotionPredecessor(input);
+  const priorState = prior.payload.state;
+  if (priorState === 'superseded') {
+    return {
+      block: 'hard',
+      kind: input.kind,
+      reason: 'Superseded is a terminal promotion state.'
+    };
+  }
+  const allowedFromStates: readonly PromotionState[] = Object.hasOwn(PROMOTION_TRANSITIONS, input.kind) ? PROMOTION_TRANSITIONS[input.kind] : [];
+  if (!allowedFromStates.includes(priorState)) {
+    return {
+      block: 'hard',
+      kind: input.kind,
+      reason: `Transition '${input.kind}' is not allowed from state '${priorState}'.`
+    };
+  }
+  if (input.evidenceRefs.length === 0) {
+    return {
+      block: 'soft',
+      kind: input.kind,
+      reason: 'Evidence closure is missing; promotion transition cannot be applied.'
+    };
+  }
+  if (input.policies.length === 0) {
+    return {
+      block: 'hard',
+      kind: input.kind,
+      reason: 'Policy backing is missing; promotion transition cannot be applied.'
+    };
+  }
+  const closure = [prior, input.subject, ...input.evidenceRefs, ...input.policies, ...(input.evaluationVectors ?? [])];
+  for (const tile of closure) {
+    if (typeof tile.payload !== 'object' || tile.payload === null || Array.isArray(tile.payload)) {
+      throw new Error(`Promotion closure member payload must be an object: ${tile.cid}`);
+    }
+    if (!verifyTileIntegrity(tile).ok) {
+      throw new Error(`Promotion closure member failed integrity: ${tile.cid}`);
+    }
+    const validation = validatePayload(tile.kind, tile.payload);
+    if (!validation.ok) {
+      throw new Error(`Promotion closure member failed payload validation: ${validation.errors.join('; ')}`);
+    }
+  }
+  const nextState = PROMOTION_RESULTS[input.kind];
+  if (!nextState) {
+    return {
+      block: 'hard',
+      kind: input.kind,
+      reason: `Transition '${input.kind}' produced no next state from '${priorState}'.`
+    };
+  }
+  const newStateTile = buildTile<PromotionStateObservationPayload>('rosetta.observation', {
+    observationId: `promotion.${input.kind}.${input.subject.cid.slice(-12)}`,
+    signal: `Promotion transition '${input.kind}' applied: ${priorState} -> ${nextState}.`,
+    source: 'rrp.promotion',
+    profile: PROMOTION_PROFILE, subjectCid: input.subject.cid, state: nextState,
+    transitionKind: input.kind, previousStateCid: prior.cid
+  }, { pack: 'rrp', parents: [input.subject.cid, prior.cid] });
+  const statement = input.reason?.trim() || `Promotion transition '${input.kind}' applied from '${priorState}' to '${nextState}'.`;
+  const receipt = createReceipt({
+    claims: [{
+      claimType: `rrp:promotion.transition.${input.kind}`,
+      evidence: [prior, ...input.evidenceRefs, ...(input.evaluationVectors ?? [])].map((tile) => ({ cid: tile.cid })),
+      statement,
+      verdict: 'pass'
+    }],
+    digests: [
+      digestTile(input.subject, 'rrp:promotion.subject'),
+      digestTile(newStateTile, 'rrp:promotion.next_state'),
+      digestTile(prior, 'rrp:promotion.previous_state'),
+      ...input.policies.map((tile) => digestTile(tile, 'rrp:promotion.policy')),
+      ...(input.evaluationVectors ?? []).map((tile) => digestTile(tile, 'rrp:promotion.evaluation')),
+      ...input.evidenceRefs.map((tile) => digestTile(tile, 'rrp:promotion.evidence'))
+    ],
+    policyRefs: input.policies.map((tile) => tile.cid),
+    receiptType: 'rrp:promotion.transition.v1',
+    subjects: [
+      { cid: input.subject.cid, role: 'rrp:promotion.subject' },
+      { cid: newStateTile.cid, role: 'rrp:promotion.next_state' }
+    ]
+  });
+  return {
+    fromState: priorState,
+    kind: input.kind,
+    nextState,
+    nextStateTile: newStateTile,
+    receipt
+  };
+}
+
+/**
+ * Emit a typed refusal/denial receipt for a blocked promotion transition.
+ * Maps the block kind onto the existing verdict union (#158).
+ */
+export function createPromotionTransitionRefusal(
+  input: CreatePromotionTransitionInput,
+  block: PromotionBlockKind,
+  reason: string
+): TileEnvelope<ReceiptPayload> {
+  if (input.evidenceRefs.length === 0 && input.policies.length === 0) {
+    throw new Error('Refusal requires at least the attempted transition inputs.');
+  }
+  const prior = verifiedPromotionPredecessor(input);
+  const verdict: ReceiptVerdict = block === 'hard' ? 'deny' : 'unknown';
+  const suffix = block === 'hard' ? '.denied' : '.blocked';
+  const closure = [prior, input.subject, ...input.evidenceRefs, ...input.policies, ...(input.evaluationVectors ?? [])];
+  for (const tile of closure) {
+    if (typeof tile.payload !== 'object' || tile.payload === null || Array.isArray(tile.payload)) {
+      throw new Error(`Promotion refusal closure member payload must be an object: ${tile.cid}`);
+    }
+    if (!verifyTileIntegrity(tile).ok) {
+      throw new Error(`Promotion refusal closure member failed integrity: ${tile.cid}`);
+    }
+    const validation = validatePayload(tile.kind, tile.payload);
+    if (!validation.ok) {
+      throw new Error(`Promotion refusal closure member failed payload validation: ${validation.errors.join('; ')}`);
+    }
+  }
+  return createReceipt({
+    claims: [{
+      claimType: `rrp:promotion.transition.${input.kind}${suffix}`,
+      evidence: [prior, ...input.evidenceRefs, ...input.policies, ...(input.evaluationVectors ?? [])].map((tile) => ({ cid: tile.cid })),
+      statement: reason,
+      verdict
+    }],
+    digests: [
+      digestTile(input.subject, 'rrp:promotion.subject'),
+      ...input.evidenceRefs.map((tile) => digestTile(tile, 'rrp:promotion.evidence')),
+      ...input.policies.map((tile) => digestTile(tile, 'rrp:promotion.policy'))
+    ],
+    policyRefs: input.policies.map((tile) => tile.cid),
+    receiptType: 'rrp:promotion.transition.v1',
+    subjects: [{ cid: input.subject.cid, role: 'rrp:promotion.subject' }]
+  });
+}
+
+/** Record an observed starting state; this does not authorize promotion or storage. */
+export function createPromotionGenesis(subject: TileEnvelope, state: PromotionState = 'pending-confirmation'): TileEnvelope<PromotionStateObservationPayload> {
+  if (!verifyTileIntegrity(subject).ok) throw new Error('Promotion subject integrity failed.');
+  const payload: PromotionStateObservationPayload = {
+    observationId: `promotion.genesis.${subject.cid}`, signal: `Recorded starting state: ${state}.`,
+    source: 'rrp.promotion', profile: PROMOTION_PROFILE, subjectCid: subject.cid,
+    state, transitionKind: 'genesis', previousStateCid: null
+  };
+  if (!isPromotionStatePayload(payload)) throw new Error('Invalid promotion genesis Profile.');
+  return buildTile('rosetta.observation', payload, { pack: 'rrp', parents: [subject.cid] });
+}
+
+function verifiedPromotionPredecessor(input: CreatePromotionTransitionInput): TileEnvelope<PromotionStateObservationPayload> {
+  const tile = input.priorStateTile;
+  if (!tile) throw new Error('Exact prior state predecessor is required.');
+  if (!verifyTileIntegrity(tile).ok) throw new Error('Predecessor integrity failed.');
+  if (tile.kind !== 'rosetta.observation' || tile.pack !== 'rrp' || !isPromotionStatePayload(tile.payload)) throw new Error('Invalid predecessor promotion Profile.');
+  if (tile.payload.subjectCid !== input.subject.cid) throw new Error('Predecessor subject continuity failed.');
+  if (input.priorState !== undefined && input.priorState !== tile.payload.state) throw new Error('Caller state contradicts predecessor.');
+  if (tile.payload.previousStateCid !== null && !tile.parents.includes(tile.payload.previousStateCid)) throw new Error('Predecessor lineage is missing.');
+  return { ...tile, payload: tile.payload };
 }

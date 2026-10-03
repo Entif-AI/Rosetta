@@ -33,17 +33,24 @@
     "governance:semantic:test": "pnpm exec vitest run tools/semantic-governance/check-genesis-semantics.spec.mjs",
     "docs:registry:generate": "node tools/docid-registry/registry.mjs --write",
     "docs:registry:check": "node tools/docid-registry/registry.mjs",
-    "docs:registry:test": "node --test tools/docid-registry/registry.test.mjs"
+    "docs:registry:test": "node --test tools/docid-registry/registry.test.mjs",
+    "governance:descent": "node tools/semantic-governance/core-descent-audit.mjs",
+    "governance:descent:generate": "node tools/semantic-governance/core-descent-audit.mjs --write",
+    "governance:descent:test": "vitest run tools/semantic-governance/core-descent-audit.spec.mjs",
+    "governance:admission": "NX_DAEMON=false pnpm exec nx run rosetta-governance:merge-admission",
+    "governance:spec": "NX_DAEMON=false pnpm exec nx run rosetta-governance:spec-admission"
   },
   "private": true,
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
     "@eslint/js": "^8.57.0",
+    "@nx/devkit": "22.6.5",
     "@nx/esbuild": "22.6.5",
     "@nx/eslint": "22.6.5",
     "@nx/js": "22.6.5",
     "@nx/node": "22.6.5",
+    "@nx/plugin": "22.6.5",
     "@nx/react": "22.6.5",
     "@nx/vite": "22.6.5",
     "@nx/vitest": "22.6.5",
@@ -75,7 +82,8 @@
     "typescript": "5.9.3",
     "typescript-eslint": "^8.33.1",
     "vite": "7.3.2",
-    "vitest": "4.1.4"
+    "vitest": "4.1.4",
+    "@types/semver": "^7.7.0"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",
