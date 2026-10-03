@@ -134,7 +134,7 @@ Do not place a schema in the `rosetta.*` namespace merely because the package ow
 
 ## Evaluation Profiles
 
-`salience.evaluation.v1` is a Pack-defined Profile over existing `rosetta.evaluation`; it does not add a Core kind. It keeps Impact, Exigency, and Novelty distinct, attaches scope, time, evidence, receipt, provenance, and supersession references, and permits declared value representations. Profile validation rejects truth, execution, activation, and authorization fields. Its shared evaluation scope, valid time, receipt references, and provenance apply to each assessment unless an assessment repeats a narrower reference. See `packs/schema-pack-evaluation-profiles/`.
+`salience.evaluation.v1` is a Pack-defined Profile over existing `rosetta.evaluation`; it does not add a Core kind. It keeps Impact, Exigency, and Novelty distinct, attaches scope, time, evidence, receipt, provenance, and supersession references, and permits inline scalar/ordinal values or references to richer schema-declared values (including intervals, vectors, distributions, and categories). Profile validation rejects truth, execution, activation, and authorization fields. Its shared evaluation scope, valid time, receipt references, and provenance apply to each assessment while dimension-specific evidence/provenance references supplement them. See `packs/schema-pack-evaluation-profiles/`.
 
 ## Fixture Status
 

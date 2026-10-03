@@ -1,1 +1,177 @@
-{"expectOk":true,"payloads":[{"evaluationId":"salience-09-a","summary":"Compatible salience representation from one implementation.","verdict":"pass","profile":{"id":"salience.evaluation.v1","version":"1.0.0"},"scope":{"scale":"system","subjectRefs":["cidv1-system-09"]},"assessedAt":"2026-10-02T12:00:00.000Z","validTime":{"validAt":"2026-10-02T12:00:00.000Z"},"receiptRefs":[],"provenanceRefs":["cidv1-provenance-implementation-a"],"assessment":{"impact":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[]},"exigency":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[]},"novelty":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[],"baselineRefs":[],"phenomenonRefs":[]}}},{"evaluationId":"salience-09-b","summary":"Compatible salience representation from another implementation.","verdict":"pass","profile":{"id":"salience.evaluation.v1","version":"1.0.0"},"scope":{"scale":"system","subjectRefs":["cidv1-system-09"]},"assessedAt":"2026-10-02T12:00:00.000Z","validTime":{"validAt":"2026-10-02T12:00:00.000Z"},"receiptRefs":[],"provenanceRefs":["cidv1-provenance-implementation-b"],"assessment":{"impact":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[]},"exigency":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[]},"novelty":{"status":"unknown","uncertainty":{"status":"unknown"},"evidenceRefs":[],"provenanceRefs":[],"baselineRefs":[],"phenomenonRefs":[]}}}]}
+{
+  "expectOk": true,
+  "payloads": [
+    {
+      "evaluationId": "salience-09-a",
+      "summary": "Compatible salience representation from one implementation.",
+      "verdict": "pass",
+      "profile": {
+        "id": "salience.evaluation.v1",
+        "version": "1.0.0"
+      },
+      "scope": {
+        "scale": "system",
+        "subjectRefs": [
+          "cidv1-system-09"
+        ]
+      },
+      "assessedAt": "2026-10-02T12:00:00.000Z",
+      "validTime": {
+        "validAt": "2026-10-02T12:00:00.000Z"
+      },
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "cidv1-provenance-implementation-a"
+      ],
+      "assessment": {
+        "impact": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "high"
+          }
+        },
+        "exigency": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          }
+        },
+        "novelty": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "baselineRefs": [
+            "cidv1-shared-baseline-09"
+          ],
+          "phenomenonRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          }
+        }
+      }
+    },
+    {
+      "evaluationId": "salience-09-b",
+      "summary": "Compatible salience representation from another implementation.",
+      "verdict": "pass",
+      "profile": {
+        "id": "salience.evaluation.v1",
+        "version": "1.0.0"
+      },
+      "scope": {
+        "scale": "system",
+        "subjectRefs": [
+          "cidv1-system-09"
+        ]
+      },
+      "assessedAt": "2026-10-02T12:00:00.000Z",
+      "validTime": {
+        "validAt": "2026-10-02T12:00:00.000Z"
+      },
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "cidv1-provenance-implementation-b"
+      ],
+      "assessment": {
+        "impact": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "high"
+          }
+        },
+        "exigency": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          }
+        },
+        "novelty": {
+          "status": "estimated",
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-shared-evidence-09"
+          ],
+          "provenanceRefs": [],
+          "baselineRefs": [
+            "cidv1-shared-baseline-09"
+          ],
+          "phenomenonRefs": [],
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          }
+        }
+      }
+    }
+  ]
+}

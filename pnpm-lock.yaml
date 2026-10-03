@@ -96,6 +96,12 @@ importers:
       '@vitest/ui':
         specifier: 4.1.4
         version: 4.1.4(vitest@4.1.4)
+      ajv:
+        specifier: 8.18.0
+        version: 8.18.0
+      ajv-formats:
+        specifier: 2.1.1
+        version: 2.1.1(ajv@8.18.0)
       esbuild:
         specifier: ^0.19.2
         version: 0.19.12

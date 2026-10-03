@@ -92,12 +92,17 @@ Fetched origin/main on 2026-10-03; no new commits beyond base 48bbd83.
 transitions, keeps malformed snapshots opaque, checks blob bytes on reconstruction,
 and bounds source/line/record sizes. Golden canonical digest pinned in owner tests.
 Owner tests: 26 passed; owner build passed (dependencies cached where valid).
-Ready for checkpoint push and review comment.
-#1694 draft requires nested-boundary/value validation hardening. #1695 currently
-contains tests only; implementation remains pending. No completion claim for either.
+Committed/pushed in f501701; PR review comment posted.
+#1694 ready for review: 55 focused schema/Profile tests, package build, Pack
+conformance and authority checks pass. Nested fields, finite values, time formats,
+Core verdicts and explicit Novelty baselines are checked. Nine public vectors
+include preserved low leaves/aggregate, prior/reassessment, and interoperable
+outputs. Rich values reference their declared schema. Cross-field level membership,
+ordered intervals and self-supersession checks are documented separately from
+portable JSON Schema structural validation. #1695 currently contains tests only.
 
 ## Next safe step
 
-Finish #1666 checks and push review checkpoint. Harden #1694 with red/green Profile
-and JSON Schema parity tests, then implement #1695. Graph proof follows verified
+Push #1694 review checkpoint, then implement #1695 with the shared structural
+checks and portable schema fixtures. Graph proof follows verified
 normalization; Neo4j development image is available, no production graph claim.

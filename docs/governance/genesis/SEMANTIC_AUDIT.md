@@ -70,7 +70,7 @@ The word `profile` in `source.system_profile` is a qualified source-domain noun.
 
 ### 3.2.1 Pack-defined evaluation Profiles
 
-`salience.evaluation.v1` is an accepted Pack-defined Profile that composes the existing `rosetta.evaluation` primitive. It represents separate Impact, Exigency, and Novelty assessments with declared scope, valid time, evidence, uncertainty, receipts, provenance, and attributable supersession. It is not a Core kind and does not establish truth, authorization, activation, execution, scoring, weighting, gating, selection, or private operational policy.
+`salience.evaluation.v1` is a draft Pack-defined Profile that composes the existing `rosetta.evaluation` primitive. It represents separate Impact, Exigency, and Novelty assessments with declared scope, valid time, evidence, uncertainty, receipts, provenance, and attributable supersession. It is not a Core kind and does not establish truth, authorization, activation, execution, scoring, weighting, gating, selection, or private operational policy.
 
 ### 3.3 Entif and project application contracts
 

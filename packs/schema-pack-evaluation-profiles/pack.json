@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "schema-pack-evaluation-profiles",
-  "pack_id": "cidv1-sha256-e019a4bda466f8f526611bc231b7178478ac88e77b654d91dac540db939be3ca",
+  "pack_id": "cidv1-sha256-f94fec651e756197aeef7de0e0c75b3e4d11aa40bce628c023f13c36307b2595",
   "kind": "schema-pack",
   "category": "SchemaPack",
   "namespace": "salience",

@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
+import { Ajv2020 } from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
+import { validateSalienceEvaluation } from './salience-profile.js';
+
 import { validatePayload } from './rosetta-schemas.js';
 import { getSchemaCatalogEntry } from './schema-catalog.js';
 
@@ -32,6 +36,61 @@ function salienceEvaluation() {
 }
 
 describe('salience evaluation Profile', () => {
+  it('rejects escalation at every owned nested boundary and invalid Core verdicts', () => {
+    for (const path of ['profile', 'scope', 'validTime', 'assessment.impact.uncertainty']) {
+      const payload = salienceEvaluation() as unknown as Record<string, unknown>;
+      let target = payload;
+      for (const key of path.split('.')) target = target[key] as Record<string, unknown>;
+      target.executionGrant = true;
+      expect(validateSalienceEvaluation(payload).ok, path).toBe(false);
+    }
+    expect(validateSalienceEvaluation({ ...salienceEvaluation(), verdict: 'activate' }).ok).toBe(false);
+    expect(validateSalienceEvaluation(null).ok).toBe(false);
+  });
+
+  it('checks value encodings, finite numbers, references, baseline and valid time', () => {
+    const invalidValues = [
+      { representation: 'scalar', schemaRef: 's', value: NaN },
+      { representation: 'scalar', schemaRef: 's', value: Infinity },
+      { representation: 'scalar', schemaRef: 's', value: 1, level: 'high' },
+      { representation: 'ordinal', schemaRef: 's', level: 'high', allowedLevels: [] },
+      { representation: 'opaque', schemaRef: 's', value: {} }
+    ];
+    for (const value of invalidValues) {
+      const payload = salienceEvaluation();
+      expect(validateSalienceEvaluation({ ...payload, assessment: { ...payload.assessment, impact: { ...payload.assessment.impact, value } } }).ok).toBe(false);
+    }
+    expect(validateSalienceEvaluation({ ...salienceEvaluation(), assessedAt: '2026-02-30T12:00:00Z' }).ok).toBe(false);
+    expect(validateSalienceEvaluation({ ...salienceEvaluation(), validTime: { validFrom: '2026-10-03T00:00:00Z', validTo: '2026-10-02T00:00:00Z' } }).ok).toBe(false);
+    expect(validateSalienceEvaluation({ ...salienceEvaluation(), receiptRefs: [''] }).ok).toBe(false);
+    const payload = salienceEvaluation();
+    expect(validateSalienceEvaluation({ ...payload, assessment: { ...payload.assessment, novelty: { ...payload.assessment.novelty, baselineRefs: [] } } }).ok).toBe(false);
+    expect(validateSalienceEvaluation({ ...payload, assessment: { ...payload.assessment, impact: { ...payload.assessment.impact, value: { representation: 'reference', schemaRef: 'fixture.vector.schema', valueRef: 'fixture.vector.1' } } } }).ok).toBe(true);
+  });
+
+  it('validates public vectors and boundary failures with the portable JSON Schema', async () => {
+    const ajv = new Ajv2020({ strict: false });
+    addFormats(ajv);
+    const schema = JSON.parse(await readFile(resolve(process.cwd(), 'packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json'), 'utf8'));
+    const validate = ajv.compile(schema);
+    const fixtures = resolve(process.cwd(), 'packs/schema-pack-evaluation-profiles/test-vectors/salience');
+    for (const name of await readdir(fixtures)) {
+      const vector = JSON.parse(await readFile(resolve(fixtures, name), 'utf8'));
+      for (const payload of vector.payloads ?? [vector.payload]) expect(validate(payload), name).toBe(vector.expectOk);
+    }
+    for (const path of ['profile', 'scope', 'validTime', 'assessment.impact.uncertainty']) {
+      const payload = salienceEvaluation() as unknown as Record<string, unknown>;
+      let target = payload;
+      for (const key of path.split('.')) target = target[key] as Record<string, unknown>;
+      target.truth = true;
+      expect(validate(payload), path).toBe(false);
+    }
+    const payload = salienceEvaluation();
+    const invalid = { ...payload, assessment: { ...payload.assessment, impact: { ...payload.assessment.impact, value: { representation: 'scalar', schemaRef: 's', value: 'large' } } } };
+    expect(validate(invalid)).toBe(false);
+    expect(validate({ ...payload, verdict: 'activate' })).toBe(false);
+  });
+
   it('validates separate impact, exigency, and novelty assessments', () => {
     expect(validatePayload('rosetta.evaluation', salienceEvaluation()).ok).toBe(true);
   });
