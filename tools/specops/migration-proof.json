@@ -1,0 +1,10 @@
+{
+  "issue": 1717,
+  "inventoryAssets": 134,
+  "upstreamCommit": "03c332620c207ade153a25c8c49805a64228961d",
+  "liveDonorNextExit": 0,
+  "nextOutput": "summary: 1 ready \u00b7 0 in-progress \u00b7 0 awaiting \u00b7 0 blocked-by-deps \u00b7 0 blocked \u00b7 0 done \u00b7 0 cancelled\nready[1]{slug,unblocks}:\n  forward,0\nhelp[2]:\n  Read the top ready plan's file, then mark it in-progress to start\n  Run `/private/var/folders/v2/cszzgcm911x44vzp2pkdpnk40000gn/T/specops-s1-forward-9s5bd9yp/.axi/upstreams/specops/skills/specops/scripts/specops dag --fence` to visualize the dependency graph\n",
+  "retainedFixtures": "17 tests: governance/specops-migration/baseline/convergence",
+  "preservation": "Legacy projection/local authority/checks retained; forward projection repeated idempotently",
+  "deletion": "none"
+}
