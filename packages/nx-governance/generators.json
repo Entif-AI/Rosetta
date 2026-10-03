@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./dist/generators/init/init",
+      "schema": "./dist/generators/init/schema.json",
+      "description": "Install compatible governance mechanics in an existing Nx workspace"
+    },
+    "sync": {
+      "factory": "./dist/generators/sync/sync",
+      "schema": "./dist/generators/sync/schema.json",
+      "description": "Synchronize derived authority projections"
+    },
+    "spec-surface": {
+      "factory": "./dist/generators/spec-surface/spec-surface",
+      "schema": "./dist/generators/spec-surface/schema.json",
+      "description": "Scaffold an unresolved specification surface with authority refs"
+    }
+  }
+}

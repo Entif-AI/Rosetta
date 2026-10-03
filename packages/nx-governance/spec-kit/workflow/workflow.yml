@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "workflow": {
+    "author": "Entif/Rosetta maintainers",
+    "license": "MIT",
+    "version": "0.1.0",
+    "id": "entif-roadmap",
+    "name": "Entif serialized roadmap",
+    "description": "Resumable existing-branch specification and deterministic convergence"
+  },
+  "requires": {
+    "speckit_version": ">=1.1.1.dev0,<1.2"
+  },
+  "inputs": {
+    "spec": {
+      "type": "string",
+      "required": true
+    },
+    "integration": {
+      "type": "string",
+      "default": "auto"
+    },
+    "project": {
+      "type": "string",
+      "default": "rosetta-governance"
+    }
+  },
+  "steps": [
+    {
+      "id": "specify",
+      "command": "speckit.specify",
+      "integration": "{{ inputs.integration }}",
+      "input": {
+        "args": "{{ inputs.spec }}"
+      }
+    },
+    {
+      "id": "specify-admission",
+      "type": "shell",
+      "run": "pnpm exec nx run {{ inputs.project }}:spec-admission"
+    },
+    {
+      "id": "plan",
+      "command": "speckit.plan",
+      "integration": "{{ inputs.integration }}",
+      "input": {
+        "args": "{{ inputs.spec }}"
+      }
+    },
+    {
+      "id": "plan-admission",
+      "type": "shell",
+      "run": "pnpm exec nx run {{ inputs.project }}:spec-admission"
+    },
+    {
+      "id": "tasks",
+      "command": "speckit.tasks",
+      "integration": "{{ inputs.integration }}",
+      "input": {
+        "args": "{{ inputs.spec }}"
+      }
+    },
+    {
+      "id": "tasks-admission",
+      "type": "shell",
+      "run": "pnpm exec nx run {{ inputs.project }}:spec-admission"
+    },
+    {
+      "id": "implement",
+      "command": "speckit.implement",
+      "integration": "{{ inputs.integration }}",
+      "input": {
+        "args": "{{ inputs.spec }}"
+      }
+    },
+    {
+      "id": "implement-admission",
+      "type": "shell",
+      "run": "pnpm exec nx run {{ inputs.project }}:merge-admission"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "config-v1": {
+      "version": "0.1.0",
+      "factory": "./dist/migrations/config-v1",
+      "description": "Migrate prototype configuration to the validated v1 contract"
+    }
+  }
+}

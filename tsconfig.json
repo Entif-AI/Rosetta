@@ -53,6 +53,9 @@
     },
     {
       "path": "./packages/source-substrate"
+    },
+    {
+      "path": "./packages/nx-governance"
     }
   ]
 }

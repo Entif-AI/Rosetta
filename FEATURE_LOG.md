@@ -22,7 +22,13 @@ reviewed. Generated risk register records local namespace debt, non-substitutabl
 source domain records, lifecycle state and projections; no irreducible Core gap.
 Public semantic and DocID gates repaired after #1572. Three audit tests, four DocID
 tests and ten semantic tests pass, plus focused schema/receipt Nx gates.
-Next safe step: cohesive Nx plugin and verified upstream Spec Kit lifecycle components.
+Checkpoint #1699: official Nx plugin with idempotent init, draft spec scaffolding,
+sync projection, separate evidence collectors and fail-closed merge composition.
+Spec Kit preset, mandatory hooks and resumable workflow validated and installed
+with pinned upstream 1.1.1.dev0/Codex in a temporary workspace. Actual Nx graph,
+sync:check, plugin lint/typecheck/test/build, supported tsc batch and 23-project
+affected implementation verification pass. Merge report is merge-admissible.
+Next safe step: generated specification catalog/Pack Map through the same sync plugin.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

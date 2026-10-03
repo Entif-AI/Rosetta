@@ -1,0 +1,14 @@
+{
+  "executors": {
+    "check": {
+      "implementation": "./dist/executors/check",
+      "schema": "./dist/executors/schema.json",
+      "description": "Record one upstream check result, including failure"
+    },
+    "admission": {
+      "implementation": "./dist/executors/admission",
+      "schema": "./dist/executors/schema.json",
+      "description": "Compose recorded upstream verdicts into a merge gate"
+    }
+  }
+}

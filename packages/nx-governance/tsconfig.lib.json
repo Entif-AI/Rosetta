@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
+    "emitDeclarationOnly": false,
+    "types": [
+      "node"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json"
+  ],
+  "references": [],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
