@@ -75,3 +75,8 @@ Code
 /.specify/bundle-records.json
 /.specify/.workflow-install.lock
 /.specify/init-options.json
+
+# Checked-in derived constitution: nx sync:check must work in a fresh checkout.
+!/.specify/memory/
+!/.specify/memory/constitution.json
+!/.specify/memory/constitution.md

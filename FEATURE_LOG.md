@@ -1,7 +1,7 @@
 # Semantic governance integration, PR #1600
 
 Active branch: `codex/roadmap-s1-promotion-transition`. One writer; no branch per issue.
-Execution order: #1698, #1179, #1699, #1700, #1701, #10 closeout.
+Execution order: #1698, #1179, #1699, #1700, #1701, #1705–#1710, #10 closeout.
 Current main reconciled by ordinary merge on 2026-10-03. Original TC-005 work retained.
 Public authority: Core Spine v3, Genesis semantic alignment/audit, promotion and
 receipt contracts, source-substrate Pack, schema catalog, DocID registry, Pack manifests.
@@ -28,7 +28,16 @@ Spec Kit preset, mandatory hooks and resumable workflow validated and installed
 with pinned upstream 1.1.1.dev0/Codex in a temporary workspace. Actual Nx graph,
 sync:check, plugin lint/typecheck/test/build, supported tsc batch and 23-project
 affected implementation verification pass. Merge report is merge-admissible.
-Next safe step: generated specification catalog/Pack Map through the same sync plugin.
+Checkpoint #1701 recovery (2026-10-03): reproduced fresh-checkout sync failure and
+packed upgrade failure. Retain Nx-generated constitution JSON/Markdown through narrow
+ignore exceptions; refresh the temporary consumer lockfile after nx migrate, including
+CI mode. No hand-edited projections or Astro composite/reference changes.
+Node 24.14.1: sync:check, dev-bundle:e2e, release plan:check --base=origin/main,
+affected spec-admission/test/lint/typecheck/build (26 projects, 97 tasks), and
+governance:admission pass. Packed Codex install/refresh, prototype config migration,
+real Nx 22.6.4 -> 22.6.5 upgrade, reproducible ZIP and conflict rejection proved.
+Next safe step: #1705 provenance/disposition, then ordered #1706–#1710 follow-ups.
+Do not merge or publish. Hosted CI must confirm the checkpoint after push.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

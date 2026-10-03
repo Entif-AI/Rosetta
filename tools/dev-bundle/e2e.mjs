@@ -94,7 +94,8 @@ try {
   report.proofs.push('prior prototype package install and standard nx migrate runner; bundle refresh preserves current branch');
   run('pnpm', ['add', '-D', 'nx@22.6.4', '--ignore-scripts'], consumer);
   nx(['migrate', 'nx@22.6.5', '--interactive=false'], consumer);
-  run('pnpm', ['install', '--ignore-scripts'], consumer);
+  // nx migrate updates package.json; the upgrade install must refresh its lockfile in CI too.
+  run('pnpm', ['install', '--ignore-scripts', '--no-frozen-lockfile'], consumer);
   if (readdirSync(consumer).includes('migrations.json')) nx(['migrate', '--run-migrations=migrations.json'], consumer);
   nx(['g', '@entif-ai/nx-governance:init'], consumer); nx(['sync:check'], consumer); nx(['run', 'consumer-governance:merge-admission'], consumer);
   report.proofs.push('real Nx 22.6.4 -> 22.6.5 package migration workflow and gates');
