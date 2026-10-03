@@ -16,6 +16,7 @@ from specify_cli.bundles.project import active_integration
 from specify_cli.bundles.resolver import resolve_install_plan
 from specify_cli.extensions import ExtensionManager
 from specify_cli.presets import PresetManager
+from veneers import ManagedVeneers
 
 
 class LocalPayloadInstaller(DefaultPrimitiveInstaller):
@@ -55,6 +56,9 @@ class LocalPayloadInstaller(DefaultPrimitiveInstaller):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--refresh", action="store_true")
+    parser.add_argument('--meta-skill', action='store_true', help='One parent routing to generic flat commands outside Skill discovery.')
+    parser.add_argument('--check', action='store_true', help='Report local modifications without changing files.')
+    parser.add_argument('--route', help='Load only one recorded capability veneer.')
     args = parser.parse_args()
     project = Path.cwd().resolve()
     local = json.loads((project / ".specify/entif-governance.json").read_text())
@@ -68,8 +72,20 @@ def main():
     base = Path(__file__).resolve().parent
     manifest = BundleManifest.from_file(base / "bundle.yml")
     installer = LocalPayloadInstaller(base, manifest)
+    managed = ManagedVeneers(project, base, integration, manifest, installer)
+    if args.route:
+        print(managed.route(args.route), end='')
+        return
+    if args.check:
+        status = managed.check()
+        print(json.dumps(status, indent=2, sort_keys=True))
+        if any(value['modificationStatus'] != 'unchanged' for value in status.values()):
+            raise ValueError('Local managed changes require reconciliation.')
+        return
+    managed.preflight(args.refresh, args.meta_skill)
     plan = resolve_install_plan(manifest, speckit_version=get_speckit_version(), active_integration=integration)
     result = install_bundle(project, plan, installer, manifest=manifest, refresh=args.refresh)
+    managed.record(args.meta_skill)
     print(f"{result.bundle_id}: {len(result.installed)} installed, {len(result.skipped)} preserved, {len(result.refreshed)} refreshed")
 
 

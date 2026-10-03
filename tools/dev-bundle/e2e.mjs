@@ -60,6 +60,8 @@ try {
   const bundle = path.join(consumer, 'node_modules/@entif-ai/nx-governance/spec-kit');
   run(specify, ['init', '--here', '--integration', 'codex', '--ignore-agent-tools', '--non-interactive', '--force'], consumer);
   run(python, [path.join(bundle, 'install.py')], consumer);
+  run(python, [path.join(root, 'tools/dev-bundle/veneer-proof.py'), bundle]);
+  report.proofs.push('Codex/Claude/generic per-file provenance, exact Git pin, edit/identity protection, reproducible refresh and selected-file Meta-Skill routing');
   nx(['sync'], consumer); nx(['sync:check'], consumer);
   const components = load(path.join(consumer, '.specify/bundle-records.json'));
   run(python, [path.join(bundle, 'install.py')], consumer);

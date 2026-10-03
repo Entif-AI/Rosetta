@@ -142,8 +142,8 @@ pnpm exec nx run <local-project>:merge-admission
 
 Choose another supported Spec Kit integration at init if desired. The bundle itself
 pins no integration. To upgrade, install the new compatible package, run its standard
-Nx migrations, then run `install.py --refresh` and sync/admission. The installer preserves
-independently owned components and priority overrides through upstream managers; pin
+Nx migrations, then run `install.py --refresh` and sync/admission. The installer checks per-file managed provenance and local edits before refresh; see
+[the veneer contract](spec-kit/README.md). It preserves independently owned components and priority overrides through upstream managers; pin
 conflicts stop installation. The current upstream CLI does not resolve bundle-local
 payload sources; the small adapter supplies that source selection only. Its API lane
 is pinned to Spec Kit 1.1.1.dev0 at the recorded commit; broader range declarations in

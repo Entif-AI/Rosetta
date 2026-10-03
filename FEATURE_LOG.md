@@ -76,6 +76,19 @@ owner collisions and closed originals block dependent sends. Independent clones 
 one designated coordinator and preservation of its ledger; no global GitHub uniqueness
 claim. Existing Rosetta #1698 read-only preview, focused plugin gates and packed e2e pass.
 Next: #1710 generated provenance, local-edit safety and bounded parent routing.
+Checkpoint #1710: upstream core manifests and component registration retained;
+managed-veneers.json supplements exact per-file owner/source/digest, installed component
+identity and PEP 610-verified CLI Git pin, distinct from compatibility ranges.
+Preflight blocks local edits/deletions, symlinks, unmanaged output collisions, missing
+legacy baselines and independently changed identities before force-refresh.
+Codex, Claude and upstream generic fixtures pass; byte-identical regeneration and payload/
+runtime edit protection proved from the packed package. Generic commands stay outside
+native Skill discovery; one Entif parent routes only the selected canonical file.
+This proves artifact routing, not native lazy child discovery or model compliance.
+No AGPL donor code copied; no bespoke long-tail runtime adapter. Final local sync:check,
+release plan:check, verify:full (all lint/typecheck/test/build lanes), packed bundle e2e
+and aggregate merge admission pass under Node 24.14.1. Next: hosted CI at this checkpoint
+and PR/issue closeout. No merge or release publication.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 
