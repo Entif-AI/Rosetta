@@ -18,6 +18,7 @@ export interface GovernanceConfig {
   checks: Record<string, GovernanceCheck>;
   projectionPath: string;
   catalog?: { generator: string; outputs: string[] };
+  convergence?: { artifactPath: string; sourcePaths: string[] };
 }
 const validate = new Ajv({ allErrors: true }).compile<GovernanceConfig>(schema);
 export function parseConfig(value: unknown): GovernanceConfig {

@@ -1,5 +1,10 @@
 {
   "generators": {
+    "convergence": {
+      "factory": "./dist/generators/convergence/convergence",
+      "schema": "./dist/generators/convergence/schema.json",
+      "description": "Capture structured convergence evidence for existing intent and verified inventory"
+    },
     "baseline": {
       "factory": "./dist/generators/baseline/baseline",
       "schema": "./dist/generators/baseline/schema.json",

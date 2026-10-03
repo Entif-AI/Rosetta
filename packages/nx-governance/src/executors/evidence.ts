@@ -1,11 +1,12 @@
 import { spawnSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import * as path from 'node:path';
 import type { ExecutorContext } from '@nx/devkit';
 import { readConfig, type GovernanceConfig } from '../config';
+import { digest } from '../source-evidence';
+import { verifyConvergence } from '../convergence';
 
-export const digest = (bytes: string | Buffer) => createHash('sha256').update(bytes).digest('hex');
+export { digest } from '../source-evidence';
 export function authorityProjection(config: GovernanceConfig, read: (file: string) => string | Buffer) {
   return { formatVersion: 1, role: 'derived-working-authority-projection', branchPolicy: config.branchPolicy,
     sources: config.authoritySources.map((file) => ({ path: file, sha256: digest(read(file)) })) };
@@ -44,8 +45,16 @@ export async function admissionExecutor(options: { configPath: string; checkIds?
     if (!report || typeof report !== 'object' || !('status' in report) || !('id' in report) || report.id !== id || !('command' in report) || report.command !== config.checks[id].command || !('owner' in report) || report.owner !== config.checks[id].owner || !('configDigest' in report) || !('authority' in report) || report.configDigest !== configDigest || JSON.stringify(report.authority) !== JSON.stringify(sources)) throw new Error(`Stale or malformed check evidence: ${id}`);
     return report;
   });
-  const pass = checks.every((check) => check.status === 'pass');
-  const report = { formatVersion: 1, role: 'composition-of-upstream-checks', disposition: pass ? 'merge-admissible' : 'blocked', checks };
+  let convergence;
+  if (config.convergence && options.reportName !== 'spec-admission') {
+    const bytes = readFileSync(path.join(context.root, config.convergence.artifactPath));
+    const evidence = verifyConvergence(JSON.parse(bytes.toString('utf8')), (file) => readFileSync(path.join(context.root, file)),
+      config.authoritySources, config.convergence.sourcePaths);
+    convergence = { artifactRef: config.convergence.artifactPath, sha256: digest(bytes), summary: evidence.summary, findings: evidence.findings };
+  }
+  const pass = checks.every((check) => check.status === 'pass') && (!convergence || convergence.summary.actionable === 0);
+  const report = { formatVersion: 1, role: 'composition-of-upstream-checks', disposition: pass ? 'merge-admissible' : 'blocked', checks,
+    ...(convergence ? { convergence } : {}) };
   writeFileSync(path.join(directory, `${options.reportName ?? 'merge-admission'}.json`), `${JSON.stringify(report, null, 2)}\n`);
   writeFileSync(path.join(directory, `${options.reportName ?? 'merge-admission'}.md`), `# Merge admission\n\n${report.disposition}\n\n${Object.entries(config.checks).map(([id, check]) => `- ${id}: ${check.owner}, evidence at ${id}.json`).join('\n')}\n`);
   return { success: pass };

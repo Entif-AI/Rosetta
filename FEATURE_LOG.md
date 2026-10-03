@@ -57,6 +57,15 @@ pinned-engine fixtures pass: shell gates independent of agent compliance, both p
 under hook-compliant agent emulation, failed-gate exact resume, native human pause/resume.
 No workflow churn or typed Nx wrapper. Proof is integrated into packed bundle e2e.
 Next: #1708 structured convergence evidence, without moving semantic authority.
+Checkpoint #1708: structured finding/inventory candidate, exact source provenance and
+stable baseline/task/verification lineage. Existing merge admission optionally consumes
+the exact artifact and digest; sourcePaths enforce cache completeness, stale sources
+and open findings block. Spec admission does not require future convergence evidence.
+The new suite failed to load the absent implementation; four behavior tests now pass,
+including recurrent failure
+across two runs, clean verified inventory and real admission composition/source drift.
+Shared baseline/convergence source validation consolidated. Next: #1709 durable issue
+identity and coordinator-owned ambiguous-delivery reconciliation.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

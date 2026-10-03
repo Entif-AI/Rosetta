@@ -15,6 +15,16 @@ cannot silently become alignment. The projection and its proposed work have no
 normative force. `spec-surfaces/promotion/observed-baseline.request.json` is the
 historical negative-vector example; no branch creation or source rewrite occurs.
 
+`convergence` preserves upstream assessment using `src/convergence.schema.json` and
+`nx g @entif-ai/nx-governance:convergence`. Configuring
+`convergence: {artifactPath, sourcePaths}` opts merge admission into exact artifact and
+source-digest verification; every captured source must be a declared cache input.
+Planning admission remains independent of a future implementation assessment.
+Verified inventory is required even for zero findings. Open findings block admission;
+remediated findings require verification and accepted exceptions require approved
+authority refs. Stable finding IDs retain baseline/task lineage across runs for W4A
+inspection. These are tooling evidence projections, not Core nouns or new authority.
+
 ```sh
 pnpm nx g @entif-ai/nx-governance:init --configPath=tools/semantic-governance/governance.config.json --pluginPath=./packages/nx-governance/src/index.ts
 pnpm nx sync

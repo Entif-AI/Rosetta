@@ -20,12 +20,14 @@ export const createNodesV2: CreateNodesV2 = ['**/governance.config.json', async 
   targets['merge-admission'] = {
     executor: '@entif-ai/nx-governance:admission', options: { configPath: file },
     dependsOn: prerequisites, cache: !Object.values(config.checks).some((check) => check.coordinator),
-    inputs: [fileInput(file), ...config.authoritySources.map(fileInput), ...Object.values(config.checks).flatMap((check) => check.inputs)],
+    inputs: [fileInput(file), ...config.authoritySources.map(fileInput), ...Object.values(config.checks).flatMap((check) => check.inputs),
+      ...(config.convergence ? [config.convergence.artifactPath, ...config.convergence.sourcePaths].map(fileInput) : [])],
     outputs: [`{workspaceRoot}/dist/governance/${config.projectName}/merge-admission.json`, `{workspaceRoot}/dist/governance/${config.projectName}/merge-admission.md`]
   };
   const specChecks = Object.keys(config.checks).filter((id) => config.checks[id].stage !== 'merge');
   targets['spec-admission'] = {
     ...targets['merge-admission'], cache: !specChecks.some((id) => config.checks[id].coordinator),
+    inputs: [fileInput(file), ...config.authoritySources.map(fileInput), ...specChecks.flatMap((id) => config.checks[id].inputs)],
     options: { configPath: file, checkIds: specChecks, reportName: 'spec-admission' },
     dependsOn: specChecks.map((id) => `evidence-${id}`),
     outputs: [`{workspaceRoot}/dist/governance/${config.projectName}/spec-admission.json`, `{workspaceRoot}/dist/governance/${config.projectName}/spec-admission.md`]
