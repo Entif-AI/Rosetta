@@ -47,3 +47,14 @@ Deterministic Nx tasks may invoke AXI when reproducible and scoped. AXI alone ne
 makes work cacheable. Credentialed/mutating operations stay coordinator-owned and
 uncached. Semantic edges belong outside the execution graph unless they impose a
 real execution order. Catalogs, reports and transport remain projections.
+
+## Quota evidence (#1713)
+
+Frozen pnpm install provides quota-axi 0.1.56 at its recorded registry/source pin.
+`node tools/axi/quota.mjs before|after|checkpoint|failure|installed-mid-run` performs
+one bounded Codex read with no credential refresh, prompts or inference. Full donor
+evidence stays in ignored `.axi/evidence` with mode 0600. The projection keeps opaque
+seat/source/time/windows/reset/conflict/version fields, drops identifying account
+fields and donor selection advice, and treats unavailable readings as unknown.
+Provider observations are not immutable contracts. This run's first reading is
+`installed-mid-run`; no pre-run value or overall quota delta is invented.

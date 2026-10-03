@@ -9,7 +9,10 @@
     "repository": "https://github.com/kunchenguid/quota-axi.git",
     "commit": "1f5875c3f3ebf09b0fa04e124e9f395fcec68b25",
     "observedAt": "2026-10-03",
-    "role": "source-reference"
+    "role": "adopted-registry",
+    "version": "0.1.56",
+    "registryGitHead": "1f5875c3f3ebf09b0fa04e124e9f395fcec68b25",
+    "integrity": "sha512-B3XNtSrcJffPxBHYD4bU3YBmj0Lvu8HiU6jBgRmzSwEfKjR8n3+iGWC22hUf9ytvvUEekM5nGkNx2qU6QNvq3g=="
   },
   "gh-axi": {
     "repository": "https://github.com/kunchenguid/gh-axi.git",
