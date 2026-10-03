@@ -43,6 +43,14 @@ delta resolved; research dispositions in packages/nx-governance/spec-kit/reconci
 No donor code imported. Explicitly reject inferred normative requirements and automatic
 branch creation. Existing delivered owners retained; five child problem spaces remain
 independent. Next: #1706 bounded observed-behavior evidence and authority reconciliation.
+Checkpoint #1706: bounded candidate schema and Nx baseline generator bind source digests
+and exact revision; direct/inferred claims, authority refs and conflicts remain separate.
+Only configured normative sources are accepted. Missing authority/conflicts cannot become
+alignment. Five red/green tests prove negative Rosetta specimen, no-doc authority-missing,
+conflict preservation, scope/line/authority validation, replay and stable identity.
+Focused plugin test/lint/typecheck/build, real baseline generation on current branch,
+spec admission and packed bundle e2e pass. Generated baseline is evidence under dist,
+not a checked-in moving-revision authority. Next: #1707 upstream workflow proving fixture.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

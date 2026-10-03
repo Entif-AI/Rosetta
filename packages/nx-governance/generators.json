@@ -1,5 +1,10 @@
 {
   "generators": {
+    "baseline": {
+      "factory": "./dist/generators/baseline/baseline",
+      "schema": "./dist/generators/baseline/schema.json",
+      "description": "Capture a bounded observed-behavior candidate with source and authority reconciliation"
+    },
     "init": {
       "factory": "./dist/generators/init/init",
       "schema": "./dist/generators/init/schema.json",

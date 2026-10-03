@@ -6,6 +6,15 @@ owns deterministic repository mechanics. Spec Kit orchestrates source-owned chec
 Post-delivery research provenance and retained/rejected mechanisms are recorded in
 [`spec-kit/reconciliation.json`](spec-kit/reconciliation.json) for #1705–#1710.
 
+For brownfield work, the extension's `baseline` command gathers a bounded candidate
+using `src/baseline.schema.json`. `nx g @entif-ai/nx-governance:baseline --request=...
+--output=...baseline.json` captures exact revision/file digests and stable observation
+IDs. Only pre-approved `authoritySources` may supply normative refs. Direct evidence,
+inference, conflict refs and governing authority remain distinct; missing authority
+cannot silently become alignment. The projection and its proposed work have no
+normative force. `spec-surfaces/promotion/observed-baseline.request.json` is the
+historical negative-vector example; no branch creation or source rewrite occurs.
+
 ```sh
 pnpm nx g @entif-ai/nx-governance:init --configPath=tools/semantic-governance/governance.config.json --pluginPath=./packages/nx-governance/src/index.ts
 pnpm nx sync
