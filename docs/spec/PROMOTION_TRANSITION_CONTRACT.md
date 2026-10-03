@@ -42,7 +42,7 @@ Default-deny. A transition is legal only if it appears in the table below.
 | `quarantined` | `revisit` | `pending-revisit` |
 | `promoted` | `supersede` | `superseded` |
 
-Any transition not in this table throws `PromotionTransitionNotAllowed`. This includes self-transitions and any move out of `superseded` (terminal state).
+Any transition not in this table returns an explicit hard-block outcome. This includes self-transitions and any move out of `superseded` (terminal state).
 
 ## Blocked-Precondition
 
@@ -63,7 +63,7 @@ This keeps the verdict vocabulary intact (#158 boundary) and lets downstream cod
 
 A structured extract is a `source.derived_artifact` (the existing `summary` or `extract` variant) carrying:
 
-- an `evidenceSpans` array referencing the source observation and canonical artifact it was derived from
+- a `sourceSpans` array referencing the source observation and canonical artifact it was derived from
 - a `promotionCid` only after the machine clears it; never before
 - the original artifact's CID preserved on the receipt subject list
 
@@ -77,7 +77,7 @@ This contract does not redefine staged source trust semantics; it only consumes 
 
 ## Replay and Idempotency
 
-Given identical `(subjectCid, priorState, transitionKind, evidenceRefs, transitionCid)`, a second call produces an identical receipt CID and an identical next state. The receipt's CID is the canonical transition identifier; downstream replay can recompute the receipt from those inputs and verify CID equality.
+Given identical closed inputs `(subject, priorStateTile, kind, evidenceRefs, policies, evaluationVectors, reason)`, a second call produces an identical receipt CID and an identical next state. The receipt's CID is the canonical transition identifier; downstream replay can recompute the receipt from those inputs and verify CID equality.
 
 A replay after the artifact has advanced past `priorState` is **not** a replay — it is a new transition attempt and will be denied if the prior state no longer matches.
 
@@ -112,3 +112,26 @@ Downstream code that needs a promotion-state decision consumes `createPromotionT
 ## Exit Gate
 
 A positive transition and its replay yield the declared stable result. Invalid lineage, missing authority, or malformed evidence produce typed non-pass outcomes (mapped onto the existing verdict union). Use offline fixtures; live acquisition is not needed to prove promotion.
+
+## Observation Profile and exact predecessor, #1698
+
+RRP declares `rrp.promotion-state.v1` in its manifest and
+`packs/rrp/schema/promotion-state.schema.json`. It specializes `rosetta.observation`.
+Its structured fields are `profile`, `subjectCid`, `state`, `transitionKind`, and
+`previousStateCid`. Core-only consumers retain Observation fields. Profile consumers
+validate the specialization without reading `signal`.
+
+`createPromotionGenesis` records a starting state, defaulting to pending-confirmation.
+A supplied starting state is an observed baseline, not permission to activate storage
+or bypass policy. Genesis has `transitionKind: genesis` and a null predecessor.
+Every subsequent transition takes `priorStateTile`, verifies its content identity,
+Profile, subject, and lineage, and derives the prior state from its payload. An optional
+legacy state assertion must agree. Missing or contradictory lineage fails closed.
+The resulting Observation names the exact predecessor in payload and parents;
+the canonical receipt binds that predecessor, subject, evaluations and policies.
+The receipt still attests the transition rather than granting runtime authorization.
+
+Replay takes the same exact predecessor and closed inputs and produces identical
+state and receipt CIDs. Detecting a stale predecessor against a durable current-state
+pointer remains the storage owner's job. The pre-fix prose-only regression and corrected
+Profile examples are checked in under `packs/rrp/test-vectors/promotion-*.json`.

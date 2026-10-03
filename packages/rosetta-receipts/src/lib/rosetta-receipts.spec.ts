@@ -7,6 +7,7 @@ import {
   buildReceiptBundle,
   createFinalizeAnswerEvent,
   createPartialResultTile,
+  createPromotionGenesis,
   createPromotionTransition,
   createPromotionTransitionRefusal,
   createReceipt,
@@ -250,7 +251,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind,
       policies: [policy],
-      priorState: prior,
+      priorStateTile: createPromotionGenesis(subject, prior),
       subject,
       evaluationVectors: [trustMatrix]
     };
@@ -271,7 +272,7 @@ describe('promotion transition contract', () => {
     ]);
     expect(result.receipt.payload.policyRefs).toEqual([policy.cid]);
     const store = new InMemoryTileStore();
-    for (const tile of [subject, evidence, trustMatrix, policy, result.nextStateTile, result.receipt]) store.put<unknown>(tile);
+    for (const tile of [subject, evidence, trustMatrix, policy, input.priorStateTile, result.nextStateTile, result.receipt]) store.put<unknown>(tile);
     expect(verifyReceiptBundle(buildReceiptBundle(result.receipt), store).ok).toBe(true);
   });
 
@@ -281,7 +282,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'promote',
       policies: [policy],
-      priorState: 'cooled',
+      priorStateTile: createPromotionGenesis(subject, 'cooled'),
       subject
     });
     expect('block' in result).toBe(true);
@@ -297,14 +298,14 @@ describe('promotion transition contract', () => {
       evidenceRefs: [],
       kind: 'promote',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     });
     expect('block' in result).toBe(true);
     if (!('block' in result)) throw new Error('unreachable');
     expect(result.block).toBe('soft');
     const refusal = createPromotionTransitionRefusal(
-      { evidenceRefs: [], kind: 'promote', policies: [policy], priorState: 'active', subject },
+      { evidenceRefs: [], kind: 'promote', policies: [policy], priorStateTile: createPromotionGenesis(subject, 'active'), subject },
       'soft',
       'Evidence closure pending.'
     );
@@ -321,14 +322,14 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'promote',
       policies: [],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     });
     expect('block' in result).toBe(true);
     if (!('block' in result)) throw new Error('unreachable');
     expect(result.block).toBe('hard');
     const refusal = createPromotionTransitionRefusal(
-      { evidenceRefs: [evidence, trustMatrix], kind: 'promote', policies: [], priorState: 'active', subject },
+      { evidenceRefs: [evidence, trustMatrix], kind: 'promote', policies: [], priorStateTile: createPromotionGenesis(subject, 'active'), subject },
       'hard',
       'Policy backing denied.'
     );
@@ -344,7 +345,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'activate',
       policies: [policy],
-      priorState: 'superseded',
+      priorStateTile: createPromotionGenesis(subject, 'superseded'),
       subject
     });
     expect('block' in result).toBe(true);
@@ -360,7 +361,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [tampered, trustMatrix],
       kind: 'promote',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     })).toThrow(/integrity/i);
   });
@@ -371,7 +372,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'cool',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject,
       reason: 'Synthetic cooling'
     });
@@ -381,7 +382,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'activate',
       policies: [policy],
-      priorState: 'cooled',
+      priorStateTile: original.nextStateTile,
       subject,
       reason: 'Synthetic reactivation'
     });
@@ -392,7 +393,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'cool',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject,
       reason: 'Synthetic cooling'
     }).kind !== 'cool' ? '' : original.receipt.cid);
@@ -407,7 +408,7 @@ describe('promotion transition contract', () => {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'promote',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     });
     expect(JSON.stringify(subject)).toBe(beforeSubject);

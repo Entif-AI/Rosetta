@@ -3,6 +3,7 @@ import { InMemoryTileStore } from '@entif-ai/rosetta-store';
 
 import {
   buildReceiptBundle,
+  createPromotionGenesis,
   createPromotionTransition,
   createPromotionTransitionRefusal,
   verifyReceiptBundle,
@@ -44,14 +45,14 @@ export function buildPromotionTransitionDemo() {
       evidenceRefs: [evidence, trustMatrix],
       kind,
       policies: [policy],
-      priorState,
+      priorStateTile: createPromotionGenesis(subject, priorState),
       subject,
       evaluationVectors: [trustMatrix]
     };
     const result = createPromotionTransition(input);
     if ('block' in result) throw new Error(`Happy-path transition unexpectedly blocked: ${result.reason}`);
     const store = new InMemoryTileStore();
-    const closure = [subject, evidence, trustMatrix, policy, result.nextStateTile, result.receipt];
+    const closure = [subject, evidence, trustMatrix, policy, input.priorStateTile, result.nextStateTile, result.receipt];
     for (const tile of closure) store.put<unknown>(tile);
     const bundle = buildReceiptBundle(result.receipt);
     return {
@@ -74,7 +75,7 @@ export function buildPromotionTransitionDemo() {
     evidenceRefs: [evidence, trustMatrix],
     kind: 'confirm',
     policies: [policy],
-    priorState: 'pending-confirmation',
+    priorStateTile: createPromotionGenesis(pendingConfirmationSubject, 'pending-confirmation'),
     subject: pendingConfirmationSubject,
     evaluationVectors: [trustMatrix]
   };
@@ -85,7 +86,7 @@ export function buildPromotionTransitionDemo() {
     evidenceRefs: [evidence, trustMatrix],
     kind: 'promote',
     policies: [policy],
-    priorState: 'cooled',
+    priorStateTile: createPromotionGenesis(subject, 'cooled'),
     subject,
     evaluationVectors: [trustMatrix]
   });
@@ -97,7 +98,7 @@ export function buildPromotionTransitionDemo() {
     evidenceRefs: [],
     kind: 'promote',
     policies: [policy],
-    priorState: 'active',
+    priorStateTile: createPromotionGenesis(subject, 'active'),
     subject,
     evaluationVectors: []
   });
@@ -109,7 +110,7 @@ export function buildPromotionTransitionDemo() {
     evidenceRefs: [evidence, trustMatrix],
     kind: 'promote',
     policies: [],
-    priorState: 'active',
+    priorStateTile: createPromotionGenesis(subject, 'active'),
     subject,
     evaluationVectors: []
   });
@@ -122,7 +123,7 @@ export function buildPromotionTransitionDemo() {
       evidenceRefs: [],
       kind: 'promote',
       policies: [policy],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     },
     'soft',
@@ -133,7 +134,7 @@ export function buildPromotionTransitionDemo() {
       evidenceRefs: [evidence, trustMatrix],
       kind: 'promote',
       policies: [],
-      priorState: 'active',
+      priorStateTile: createPromotionGenesis(subject, 'active'),
       subject
     },
     'hard',

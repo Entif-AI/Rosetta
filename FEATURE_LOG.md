@@ -11,7 +11,12 @@ No applicable protected behavior change is proposed. Publication posture: public
 Validation: executable pre-fix Profile fixture, predecessor/receipt replay adversaries;
 complete descent audit; real Nx sync/task graph/cache and Spec Kit install/migration
 fixtures; generated catalog drift/regeneration; affected and full repository gates.
-Next safe step: #1698 red/green Profile and exact predecessor binding.
+Checkpoint #1698: Profile, exact predecessor, receipt evidence closure, frozen red/green
+fixtures implemented. Focused Nx build/typecheck/lint/test passed for receipts, schemas,
+CLI and Pack tooling; DocID, Pack and authority checks pass. Eight new tests failed
+before implementation; nine now pass. Semantic checker still references four
+documents removed by #1572; repair in #1179 audit, without restoring protected prose.
+Next safe step: audit all catalog classifications/known gaps and repair stale public checks.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 

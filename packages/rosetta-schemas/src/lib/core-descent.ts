@@ -1,5 +1,5 @@
 /** Classification follows SEMANTIC_AUDIT.md; it is not a conformance verdict. */
-export type CoreDescent = 'core-primitive' | 'pack-defined-schema' | 'governed-extension' | 'implementation-local' | 'derived-projection' | 'external-contract-ref';
+export type CoreDescent = 'core-primitive' | 'core-tile-profile' | 'pack-defined-schema' | 'governed-extension' | 'implementation-local' | 'derived-projection' | 'external-contract-ref';
 
 export interface CoreDescentMetadata {
   coreDescent: CoreDescent;
@@ -48,6 +48,7 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'rrp.promotion-state.v1': metadata('core-tile-profile', 'packs/rrp/schema/promotion-state.schema.json', ['rosetta.observation']),
   'entif.agentic-messaging.envelope.v1': metadata('implementation-local', AUDIT),
   'entif.agentic-messaging.execution-admission.v1': metadata('implementation-local', AUDIT),
   'entif.agentic-messaging.size-policy.v1': metadata('implementation-local', AUDIT),

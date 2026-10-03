@@ -213,6 +213,14 @@ function agenticMessageCatalogEntry(msgType: string, profile: AgenticMessageSche
 }
 
 const TILE_CATALOG_ENTRIES = Object.keys(SUPPORTED_TILE_KIND_REQUIRED_FIELDS).map(tileCatalogEntry);
+TILE_CATALOG_ENTRIES.push({
+  ...tileCatalogEntry('rosetta.observation'), schemaId: 'rrp.promotion-state.v1',
+  authorityTier: 'governance-admission', family: 'promotion-state',
+  ownerPackage: '@entif-ai/rosetta-receipts', consumerPackages: ['@entif-ai/rosetta-receipts'],
+  docs: ['docs/spec/PROMOTION_TRANSITION_CONTRACT.md', 'packs/rrp/schema/promotion-state.schema.json'],
+  sourceIssues: ['#10', '#1698'], knownGaps: ['Profile validation does not authorize execution or select a current state in storage.'],
+  tests: ['packages/rosetta-receipts/src/lib/promotion-profile.spec.ts'], validator: 'validatePromotionStatePayload'
+});
 
 const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROFILES).map(([msgType, profile]) =>
   agenticMessageCatalogEntry(msgType, profile)

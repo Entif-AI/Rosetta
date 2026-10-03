@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rrp.promotion-state.v1",
+  "title": "Promotion state Observation Profile",
+  "type": "object",
+  "x-rosetta": {
+    "coreDescent": "core-tile-profile",
+    "coreKind": "rosetta.observation",
+    "pack": "rrp",
+    "version": "1.0.0",
+    "authority": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
+    "sourceIssues": [
+      "#10",
+      "#1698"
+    ],
+    "scope": "Observed promotion state, not execution authorization",
+    "supersedes": []
+  },
+  "required": [
+    "observationId",
+    "signal",
+    "source",
+    "profile",
+    "subjectCid",
+    "state",
+    "transitionKind",
+    "previousStateCid"
+  ],
+  "properties": {
+    "observationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "const": "rrp.promotion-state.v1"
+    },
+    "subjectCid": {
+      "type": "string",
+      "pattern": "^cidv1-sha256-[a-f0-9]{64}$"
+    },
+    "state": {
+      "enum": [
+        "pending-confirmation",
+        "active",
+        "promoted",
+        "cooled",
+        "quarantined",
+        "pending-revisit",
+        "superseded"
+      ]
+    },
+    "transitionKind": {
+      "enum": [
+        "genesis",
+        "confirm",
+        "promote",
+        "cool",
+        "quarantine",
+        "revisit",
+        "activate",
+        "supersede"
+      ]
+    },
+    "previousStateCid": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^cidv1-sha256-[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "genesis"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "previousStateCid": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "previousStateCid": {
+            "type": "string",
+            "pattern": "^cidv1-sha256-[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "confirm"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "active"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "promote"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "promoted"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "cool"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "cooled"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "quarantine"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "quarantined"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "revisit"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "pending-revisit"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "activate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "active"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "transitionKind": {
+            "const": "supersede"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "const": "superseded"
+          }
+        }
+      }
+    }
+  ]
+}
