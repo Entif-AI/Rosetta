@@ -54,18 +54,25 @@ const strings = (v, label) => {
     throw new Error(`invalid ${label}`);
   return v;
 };
-export function loadPlans(root) {
+export function loadPlans(root, options = {}) {
   const plans = new Map();
   const ids = new Set();
   const tasks = new Set();
-  for (const file of readdirSync(path.join(root, 'plans'))
-    .filter((f) => f.endsWith('.md') && f !== 'README.md' && !f.startsWith('_'))
-    .sort()) {
-    const relative = 'plans/' + file;
-    const doc = parseDocument(
-      readFileSync(localFile(root, relative), 'utf8'),
-      relative
-    );
+  const documents =
+    options.documents ??
+    readdirSync(path.join(root, 'plans'))
+      .filter(
+        (f) => f.endsWith('.md') && f !== 'README.md' && !f.startsWith('_')
+      )
+      .sort()
+      .map((file) =>
+        parseDocument(
+          readFileSync(localFile(root, 'plans/' + file), 'utf8'),
+          'plans/' + file
+        )
+      );
+  for (const doc of documents) {
+    const file = path.basename(doc.path);
     const m = doc.meta;
     const slug = file.slice(0, -3);
     if (!/^status:\s*[^\n]+$/m.test(doc.text))

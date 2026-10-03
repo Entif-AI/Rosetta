@@ -121,7 +121,9 @@
         "{workspaceRoot}/pnpm-lock.yaml",
         "{workspaceRoot}/package.json",
         "{workspaceRoot}/nx.json",
-        "{workspaceRoot}/.prettierrc"
+        "{workspaceRoot}/.prettierrc",
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*"
       ]
     },
     "release-plan": {
@@ -197,7 +199,8 @@
     "outputs": [
       "docs/governance/ROSETTA_SPEC_CATALOG.json",
       "docs/governance/ROSETTA_SPEC_CATALOG.md",
-      "docs/governance/ROSETTA_PACK_MAP.csv"
+      "docs/governance/ROSETTA_PACK_MAP.csv",
+      "docs/governance/ROSETTA_SUBSTRATE_CATALOG.json"
     ]
   },
   "convergence": {

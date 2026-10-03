@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "role": "convergence-evidence-not-authority",
-  "revision": "10b30d2ec520cca6e31c20f70441ee362caf9517",
+  "revision": "f042e0bbec6bb2848445afea4fcff29f1e3596e6",
   "sourceState": "captured-working-tree",
   "request": {
     "formatVersion": 1,
@@ -100,7 +100,7 @@
     {
       "path": "packages/nx-governance/specops/plans.mjs",
       "role": "observed-evidence",
-      "sha256": "66776cc173f8236b95cfd3444b5c095050d0cd0327ad27db442fe0b4ef70fdb4"
+      "sha256": "c7d68cd240f9b63b19a9f9aa4eac1a4a87acb5ee524d92de0c6e1331ab7de257"
     },
     {
       "path": "packages/nx-governance/specops/plans.spec.mjs",

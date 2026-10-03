@@ -1,0 +1,284 @@
+{
+  "formatVersion": 1,
+  "role": "derived-specops-catalog-projection",
+  "authorityRule": "Owning sources control meaning; this index does not grant semantic authority.",
+  "nodes": [
+    {
+      "id": "entif:development-substrate",
+      "kind": "architecture",
+      "title": "Development substrate",
+      "status": "in-development",
+      "owner": "Entif maintainers",
+      "source": {
+        "path": "specs/architecture.md",
+        "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+      }
+    },
+    {
+      "id": "entif:substrate-principles",
+      "kind": "principles",
+      "title": "Substrate principles",
+      "status": "in-development",
+      "owner": "Entif maintainers",
+      "source": {
+        "path": "specs/principles.md",
+        "sha256": "cad4ce7f4f9c492b1c8276d2f940a868536206dbaa06372a93d400ded299a89e"
+      }
+    },
+    {
+      "id": "entif:axi-base",
+      "kind": "plan",
+      "title": "axi-base",
+      "status": "done",
+      "task": "T1712",
+      "issues": [1712],
+      "pr": 1723,
+      "source": {
+        "path": "plans/axi-base.md",
+        "sha256": "dd4a2918c7b2d8b58bd0905b74db10533fa6d89c2dd10a4da794b2ce3828b1a7"
+      }
+    },
+    {
+      "id": "entif:axi-github",
+      "kind": "plan",
+      "title": "axi-github",
+      "status": "done",
+      "task": "T1714",
+      "issues": [1714],
+      "pr": 1723,
+      "source": {
+        "path": "plans/axi-github.md",
+        "sha256": "18ae078890d6bd12cfc7280c9f29f2c361dc456efcc5936f85027fa76cfdd037"
+      }
+    },
+    {
+      "id": "entif:axi-npm",
+      "kind": "plan",
+      "title": "axi-npm",
+      "status": "done",
+      "task": "T1715",
+      "issues": [1715],
+      "pr": 1723,
+      "source": {
+        "path": "plans/axi-npm.md",
+        "sha256": "bbc65a2516e9bc35aba224bc58ed8ff84b9ad90d549dc4ca22663e40295af3f8"
+      }
+    },
+    {
+      "id": "entif:axi-quota",
+      "kind": "plan",
+      "title": "axi-quota",
+      "status": "done",
+      "task": "T1713",
+      "issues": [1713],
+      "pr": 1723,
+      "source": {
+        "path": "plans/axi-quota.md",
+        "sha256": "f8cdf9de55208416771a2a34cfa9deb2e058731213851c439881eec0885c6285"
+      }
+    },
+    {
+      "id": "entif:badger-experiment",
+      "kind": "plan",
+      "title": "badger-experiment",
+      "status": "planned",
+      "task": "T1711",
+      "issues": [1711],
+      "pr": null,
+      "source": {
+        "path": "plans/badger-experiment.md",
+        "sha256": "5ff52ad1f3da5ee87ef81251e5346027065f2ced77ca06de45bf3774bbe02746"
+      }
+    },
+    {
+      "id": "entif:specops-context",
+      "kind": "plan",
+      "title": "specops-context",
+      "status": "done",
+      "task": "T1720",
+      "issues": [1720],
+      "pr": 1723,
+      "source": {
+        "path": "plans/specops-context.md",
+        "sha256": "ca86945457f7e098a177a856884d1351148a4a9b5fe51b38c371fe5936897b50"
+      }
+    },
+    {
+      "id": "entif:specops-dist",
+      "kind": "plan",
+      "title": "specops-dist",
+      "status": "in-progress",
+      "task": "T1721",
+      "issues": [1721],
+      "pr": null,
+      "source": {
+        "path": "plans/specops-dist.md",
+        "sha256": "34a96adc4ccae17b078b16009938a124b232bebe5735dc63c324c2e4ed97a6a7"
+      }
+    },
+    {
+      "id": "entif:specops-drift",
+      "kind": "plan",
+      "title": "specops-drift",
+      "status": "done",
+      "task": "T1719",
+      "issues": [1719],
+      "pr": 1723,
+      "source": {
+        "path": "plans/specops-drift.md",
+        "sha256": "23d60d18f8c4283a340514bec2aaa7b21f608233bb623789cf4271dfab8ce3be"
+      }
+    },
+    {
+      "id": "entif:specops-integrated",
+      "kind": "plan",
+      "title": "specops-integrated",
+      "status": "planned",
+      "task": "T1716",
+      "issues": [1716],
+      "pr": null,
+      "source": {
+        "path": "plans/specops-integrated.md",
+        "sha256": "8b064b6df7ceb0da9f95fc0cf02d4df3c1546dac80be8c7b41015ba1226502bf"
+      }
+    },
+    {
+      "id": "entif:specops-migrate",
+      "kind": "plan",
+      "title": "specops-migrate",
+      "status": "done",
+      "task": "T1717",
+      "issues": [1717],
+      "pr": 1723,
+      "source": {
+        "path": "plans/specops-migrate.md",
+        "sha256": "440c38cb4671129a856a10672d349cc9e557adc71f3ed7006b3bcd2a29d3b8f3"
+      }
+    },
+    {
+      "id": "entif:specops-plans",
+      "kind": "plan",
+      "title": "specops-plans",
+      "status": "done",
+      "task": "T1718",
+      "issues": [1718],
+      "pr": 1723,
+      "source": {
+        "path": "plans/specops-plans.md",
+        "sha256": "71a3ac5aab8fa4cc69da0d68d9fe4a17cfb415bdcbc4bc89644fb55cddb4101c"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from": "entif:axi-base",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:axi-github",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:axi-github",
+      "kind": "depends-on",
+      "to": "entif:axi-quota"
+    },
+    {
+      "from": "entif:axi-npm",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:axi-npm",
+      "kind": "depends-on",
+      "to": "entif:axi-github"
+    },
+    {
+      "from": "entif:axi-quota",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:axi-quota",
+      "kind": "depends-on",
+      "to": "entif:axi-base"
+    },
+    {
+      "from": "entif:badger-experiment",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:badger-experiment",
+      "kind": "depends-on",
+      "to": "entif:specops-integrated"
+    },
+    {
+      "from": "entif:specops-context",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-context",
+      "kind": "depends-on",
+      "to": "entif:specops-drift"
+    },
+    {
+      "from": "entif:specops-dist",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-dist",
+      "kind": "depends-on",
+      "to": "entif:specops-context"
+    },
+    {
+      "from": "entif:specops-drift",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-drift",
+      "kind": "depends-on",
+      "to": "entif:specops-plans"
+    },
+    {
+      "from": "entif:specops-integrated",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-integrated",
+      "kind": "depends-on",
+      "to": "entif:specops-dist"
+    },
+    {
+      "from": "entif:specops-migrate",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-migrate",
+      "kind": "depends-on",
+      "to": "entif:axi-npm"
+    },
+    {
+      "from": "entif:specops-plans",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:specops-plans",
+      "kind": "depends-on",
+      "to": "entif:specops-migrate"
+    },
+    {
+      "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    }
+  ]
+}

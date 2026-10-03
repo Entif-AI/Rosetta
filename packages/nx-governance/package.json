@@ -57,10 +57,11 @@
   },
   "dependencies": {
     "@nx/devkit": "22.6.5",
+    "@toon-format/toon": "2.1.0",
     "ajv": "8.17.1",
+    "semver": "^7.7.2",
     "tslib": "^2.3.0",
-    "yaml": "2.8.1",
-    "semver": "^7.7.2"
+    "yaml": "2.8.1"
   },
   "generators": "./generators.json",
   "files": [

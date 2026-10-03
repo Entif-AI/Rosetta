@@ -198,3 +198,14 @@ adapter dispositions. Deterministic Nx checks may invoke reproducible AXI action
 cacheability follows purity, not transport. Credentialed/mutating actions stay
 coordinator-owned, uncached. Semantic relations create no execution dependency
 without real ordering, and all generated outputs remain projections.
+
+## SpecOps context and lineage
+
+The compatible `ROSETTA_SUBSTRATE_CATALOG.json` projection extends the existing
+catalog sync with stable spec/plan identity, exact source digests and declared
+relationships. It creates no semantic execution dependencies or new authority.
+`node packages/nx-governance/specops/context.mjs context <plan> --base origin/main`
+returns compact TOON with readiness, controlling sources, governing principles,
+Git change base/head and issue/PR/commit locators. `expand <id> --section <heading>`
+addresses a requirement section; `--full` preserves exact source. Internal catalogs
+remain JSON. Git/GitHub retain chronology; no timeline database is copied here.
