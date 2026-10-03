@@ -25,6 +25,8 @@ const save = (file, value) => writeFileSync(file, `${JSON.stringify(value, null,
 const nx = (args, cwd, fail = false) => run('pnpm', ['exec', 'nx', ...args], cwd, fail);
 try {
   report.specifyVersion = run(specify, ['version']);
+  run(python, [path.join(root, 'tools/dev-bundle/workflow-proof.py')]);
+  report.proofs.push('pinned upstream workflow hook/step overlap, failure recovery and human-gate resume (agent dispatch emulated)');
   const artifacts = path.join(temporary, 'artifacts'); mkdirSync(artifacts);
   run('pnpm', ['--filter', '@entif-ai/nx-governance', 'pack', '--pack-destination', artifacts]);
   const tar = path.join(artifacts, readdirSync(artifacts).find((file) => file.endsWith('.tgz')));

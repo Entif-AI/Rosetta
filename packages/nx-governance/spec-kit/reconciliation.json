@@ -72,5 +72,85 @@
     "Generated artifacts as semantic authority",
     "Flat eager exposure of every generated Skill",
     "Fuzzy task deduplication as work identity"
-  ]
+  ],
+  "workflowComposition": {
+    "issue": 1707,
+    "posture": "KEEP_ENTIF shell gates composed with upstream engine; no wrapper or workflow rewrite",
+    "proof": "tools/dev-bundle/workflow-proof.py",
+    "scope": "Real pinned engine/command/shell/gate/resume with external agent dispatch emulated; not a live model-compliance claim",
+    "hookOverlap": {
+      "engineInvokesHooks": false,
+      "uncompliantAgent": {
+        "hookCalls": 0,
+        "shellCalls": 5
+      },
+      "compliantAgentEmulation": {
+        "hookCalls": 8,
+        "shellCalls": 5
+      },
+      "decision": "KEEP_ENTIF: deterministic shell gates enforce engine failure even if model-mediated hooks are skipped. Pure Nx checks retain caching."
+    },
+    "mechanisms": [
+      {
+        "mechanism": "run state / pause / resume",
+        "disposition": "COMPOSE_UPSTREAM",
+        "reason": "Upstream engine and persisted run copy; no Entif state machine."
+      },
+      {
+        "mechanism": "human gates",
+        "disposition": "COMPOSE_UPSTREAM",
+        "reason": "Native gate pauses non-interactively; explicit verdict input resumes."
+      },
+      {
+        "mechanism": "failure recovery",
+        "disposition": "COMPOSE_UPSTREAM",
+        "reason": "Failed admission resumes at its current step without repeating prior command."
+      },
+      {
+        "mechanism": "conditional steps",
+        "disposition": "COMPOSE_UPSTREAM",
+        "reason": "Native if/switch remain available; current serial workflow needs none."
+      },
+      {
+        "mechanism": "overlays",
+        "disposition": "DEFER",
+        "reason": "No organization overlay currently reduces this five-stage workflow."
+      },
+      {
+        "mechanism": "slots",
+        "disposition": "DEFER",
+        "reason": "No demonstrated customization slot required for current stages."
+      },
+      {
+        "mechanism": "custom step types",
+        "disposition": "DEFER",
+        "reason": "A typed Nx wrapper would duplicate shell process exit and output recording."
+      },
+      {
+        "mechanism": "Nx shell steps",
+        "disposition": "KEEP_ENTIF",
+        "reason": "Existing Nx targets own validators and evidence; shell owns process boundary only."
+      },
+      {
+        "mechanism": "JSON status/results",
+        "disposition": "COMPOSE_UPSTREAM",
+        "reason": "Native persisted state plus source-owned Nx JSON reports."
+      },
+      {
+        "mechanism": "extension hooks vs steps",
+        "disposition": "KEEP_ENTIF",
+        "reason": "Hooks serve direct invocation; shell gates enforce workflow dispatch independently."
+      },
+      {
+        "mechanism": "single roadmap branch",
+        "disposition": "KEEP_ENTIF",
+        "reason": "Existing-authorized policy and governed preset prohibit default branch creation."
+      },
+      {
+        "mechanism": "one writer",
+        "disposition": "KEEP_ENTIF",
+        "reason": "Serial workflow stages; credentialed mutation stays coordinator-owned."
+      }
+    ]
+  }
 }

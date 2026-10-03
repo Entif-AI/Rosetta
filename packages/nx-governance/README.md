@@ -50,6 +50,13 @@ the deterministic enforcement boundary. Workflow stages are individually resumab
 with `specify workflow resume <run-id>`. Branch ownership remains external, one writer
 uses the current authorized branch, and the git branch-creation extension is excluded.
 
+Workflow shell admission is deliberately retained beside extension hooks. Upstream
+command steps dispatch the agent; hook invocation is agent-mediated. The pinned-engine
+fixture `tools/dev-bundle/workflow-proof.py` proves independent shell enforcement,
+hook-compliant emulation overlap, exact failure resumption and human-gate pause/resume.
+It does not claim live model compliance. Native state/gates/status are reused; custom
+Nx step types, overlays and slots add no demonstrated benefit to the current serial flow.
+
 ## Tooling compatibility and upgrades
 
 The installed Nx lane is 22.6.5; Spec Kit components were validated and installed with

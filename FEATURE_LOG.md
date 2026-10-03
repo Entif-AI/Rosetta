@@ -51,6 +51,12 @@ conflict preservation, scope/line/authority validation, replay and stable identi
 Focused plugin test/lint/typecheck/build, real baseline generation on current branch,
 spec admission and packed bundle e2e pass. Generated baseline is evidence under dist,
 not a checked-in moving-revision authority. Next: #1707 upstream workflow proving fixture.
+Checkpoint #1707: inventoried all 12 requested workflow mechanisms in reconciliation.json.
+Keep the existing upstream workflow + Entif hooks + Nx shell composition. Four executable
+pinned-engine fixtures pass: shell gates independent of agent compliance, both paths
+under hook-compliant agent emulation, failed-gate exact resume, native human pause/resume.
+No workflow churn or typed Nx wrapper. Proof is integrated into packed bundle e2e.
+Next: #1708 structured convergence evidence, without moving semantic authority.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 
