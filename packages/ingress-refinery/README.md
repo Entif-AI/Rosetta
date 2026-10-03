@@ -30,3 +30,34 @@ Turns source-aware inputs into canonical artifacts plus linked provenance receip
 ## Roadmap
 
 - replace bootstrap inputs with real source adapters while preserving the existing contract surface
+
+## Agent-stream structural normalization (#1666)
+
+`normalizeAgentStreamSource(manifest, bytes)` verifies the synthetic source fixture
+through source-substrate and emits an attributable structural view plus an existing
+`source.normalization_receipt`. `normalizeAgentStreamRecords(bytes)` provides the
+same bounded transformation without a source-identity or admission claim.
+
+Profile `agent-stream-structural@1.0.0` uses the shared RFC 8785 canonicalizer.
+Input limits are 1,000,000 bytes, 100,000 bytes per NDJSON line, and 10,000 records.
+Only identical run/window/recorded metadata is hoisted. Payloads of at least 64
+canonical bytes and snapshot object values are content-addressed. Snapshot deltas
+are computed separately per run/window; duplicate occurrences retain exact order
+and extra fields. Malformed or conflicting snapshots remain opaque and break the
+state-delta chain. Repeated event identities are reported; reconstruction binds
+snapshots to source line occurrences rather than ambiguous event identifiers.
+
+Source-provided parent/request/result identifiers and time roles stay in the
+record data. Sequence and timestamps confer no causality. Unknown event types and
+opaque fields remain available and are named in the loss report. No transport
+fields are omitted. JSON whitespace/property order and duplicate-property parsing
+are declared canonicalization losses; original bytes remain authoritative.
+`reconstructAgentStreamRecords` verifies referenced blob digests and reconstructs
+parsed source objects, including duplicate snapshot occurrence order.
+
+The pinned fixture's normalized SHA-256 is
+`28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19`.
+Materialization reports actual source/output byte counts and net byte delta.
+This small fixture may grow after provenance and delta metadata; structural
+redundancy removal is not a claim of net compression. This path calls no model,
+infers no semantic state, performs no live capture, and replaces no source artifact.

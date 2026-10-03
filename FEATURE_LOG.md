@@ -85,9 +85,19 @@ could resolve; the targeted build completed successfully.
 Donor boundary: the located extension declares 2.0.9, not the required verified
 CoS 2.1.22 source snapshot. #1688 and dependent donor work are not claimed complete.
 
+## Current recovery state
+
+Fetched origin/main on 2026-10-03; no new commits beyond base 48bbd83.
+#1666 normalization now preserves duplicate occurrence order, isolates scope
+transitions, keeps malformed snapshots opaque, checks blob bytes on reconstruction,
+and bounds source/line/record sizes. Golden canonical digest pinned in owner tests.
+Owner tests: 26 passed; owner build passed (dependencies cached where valid).
+Ready for checkpoint push and review comment.
+#1694 draft requires nested-boundary/value validation hardening. #1695 currently
+contains tests only; implementation remains pending. No completion claim for either.
+
 ## Next safe step
 
-PR #1697 is open. Push #1665 and append its review delta. Implement #1666 against
-the now-verified source bytes and repaired canonicalizer. Keep independent #1694
-Profile work moving in parallel. Neo4j proof is next after normalization passes;
-an isolated development image is being prepared, with no production graph claim.
+Finish #1666 checks and push review checkpoint. Harden #1694 with red/green Profile
+and JSON Schema parity tests, then implement #1695. Graph proof follows verified
+normalization; Neo4j development image is available, no production graph claim.
