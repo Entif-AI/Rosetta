@@ -1,3 +1,4 @@
+import type { NormalizationReceiptPayload } from './ingress-refinery.js';
 import { canonicalizeJson, type JsonValue } from '@entif-ai/rosetta-canon';
 import { sha256Hex } from '@entif-ai/rosetta-cid';
 import { buildTile, type TileEnvelope } from '@entif-ai/rosetta-core';
@@ -55,7 +56,7 @@ export interface AgentStreamStructuralNormalization {
 export interface AgentStreamNormalizationResult extends AgentStreamStructuralNormalization {
   canonicalJson: string;
   materialization: { canonicalByteLength: number; netByteDelta: number; sourceByteLength: number };
-  normalizationReceipt: TileEnvelope;
+  normalizationReceipt: TileEnvelope<NormalizationReceiptPayload>;
   sha256: string;
   source: { episodeCid: string; manifestationCid: string; packageCid: string; recordCid: string; sourceSha256: string };
   sourceArtifacts: AgentStreamSourceArtifacts;

@@ -114,3 +114,11 @@ paths referenced by the check are absent at base 48bbd83. The full failure log i
 retained locally; authority-closure and Pack checks pass. No authority replacements
 were synthesized. #1695 red tests confirmed missing implementation, then stub
 behavior failure; implementation now passes final focused tests/build.
+
+#1667 implementation ready for final review checkpoint: fixture-only native HTTP
+Neo4j projection, scoped stable node/edge identities, source/normalizer provenance,
+explicit source relations and derived snapshot lifecycle. Real database tests passed
+import/reimport/rebuild, full identity/property closure equality, bounded neighborhood
+and foreign-edge rollback. Graph contains 37 nodes; exact counts/version/queries in
+tools/trace-graph/golden-proof.json. Owner build and affected normalization tests
+passed after typing the existing normalization receipt payload explicitly.

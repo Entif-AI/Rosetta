@@ -329,6 +329,9 @@ importers:
       '@entif-ai/ingress-refinery':
         specifier: workspace:*
         version: link:../ingress-refinery
+      '@entif-ai/rosetta-canon':
+        specifier: workspace:*
+        version: link:../rosetta-canon
       '@entif-ai/rosetta-core':
         specifier: workspace:*
         version: link:../rosetta-core

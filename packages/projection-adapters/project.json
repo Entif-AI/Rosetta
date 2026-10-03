@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run packages/projection-adapters/src/lib/projection-adapters.spec.ts"
+        "command": "vitest run packages/projection-adapters/src/lib/projection-adapters.spec.ts packages/projection-adapters/src/lib/agent-trace-neo4j.spec.ts"
       },
       "cache": true,
       "inputs": [

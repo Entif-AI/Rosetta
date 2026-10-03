@@ -1,0 +1,295 @@
+{
+  "profile": "agent-trace-neo4j@1.0.0",
+  "projectionId": "agent-trace-neo4j@1.0.0:28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19",
+  "planSha256": "4bf5195427005169a73ff713c17864deae542f83dc399d9785bd9b90fe2a35a1",
+  "sourceSha256": "60e556bb5144659a6f2453e67a68a7d52193d6da41c3f18c010dc672e41c86f1",
+  "normalizedSha256": "28b7ba996ac875dcf6b6128064aab93de21375cf9dae5a755a024c7160606f19",
+  "queries": {
+    "version": {
+      "statement": "CALL dbms.components() YIELD versions,edition RETURN versions,edition",
+      "columns": [
+        "versions",
+        "edition"
+      ],
+      "rows": [
+        [
+          [
+            "5.26.31"
+          ],
+          "community"
+        ]
+      ]
+    },
+    "nodes": {
+      "statement": "MATCH (n:AkashaTrace {projectionId:$projectionId}) RETURN n.kind,count(n) ORDER BY n.kind",
+      "columns": [
+        "n.kind",
+        "count(n)"
+      ],
+      "rows": [
+        [
+          "blob",
+          5
+        ],
+        [
+          "event",
+          9
+        ],
+        [
+          "normalized_view",
+          1
+        ],
+        [
+          "object",
+          3
+        ],
+        [
+          "object_version",
+          4
+        ],
+        [
+          "request",
+          1
+        ],
+        [
+          "result",
+          1
+        ],
+        [
+          "run",
+          1
+        ],
+        [
+          "snapshot",
+          4
+        ],
+        [
+          "source_artifact",
+          6
+        ],
+        [
+          "turn",
+          1
+        ],
+        [
+          "window",
+          1
+        ]
+      ]
+    },
+    "edges": {
+      "statement": "MATCH ()-[r:TRACE_EDGE {projectionId:$projectionId}]->() RETURN r.kind,count(r) ORDER BY r.kind",
+      "columns": [
+        "r.kind",
+        "count(r)"
+      ],
+      "rows": [
+        [
+          "ADDED",
+          4
+        ],
+        [
+          "ARTIFACT_PARENT",
+          6
+        ],
+        [
+          "CHANGED",
+          2
+        ],
+        [
+          "CONTAINS_VERSION",
+          9
+        ],
+        [
+          "DERIVED_FROM",
+          9
+        ],
+        [
+          "EXTERNALIZED_VALUE",
+          2
+        ],
+        [
+          "HAS_RECEIPT",
+          1
+        ],
+        [
+          "HAS_RUN",
+          1
+        ],
+        [
+          "HAS_SNAPSHOT",
+          4
+        ],
+        [
+          "HAS_VALUE",
+          4
+        ],
+        [
+          "HAS_VERSION",
+          4
+        ],
+        [
+          "HAS_WINDOW",
+          1
+        ],
+        [
+          "MEMBER_RUN",
+          9
+        ],
+        [
+          "MEMBER_TURN",
+          8
+        ],
+        [
+          "MEMBER_WINDOW",
+          9
+        ],
+        [
+          "NORMALIZED_FROM",
+          1
+        ],
+        [
+          "PREVIOUS_SNAPSHOT",
+          3
+        ],
+        [
+          "REFERENCES_REQUEST",
+          8
+        ],
+        [
+          "REFERENCES_RESULT",
+          5
+        ],
+        [
+          "REMOVED",
+          2
+        ],
+        [
+          "REQUEST_RESULT",
+          1
+        ],
+        [
+          "SOURCE_PARENT",
+          8
+        ],
+        [
+          "UNCHANGED",
+          2
+        ]
+      ]
+    },
+    "snapshots": {
+      "statement": "MATCH (s:AkashaTrace {projectionId:$projectionId,kind:\"snapshot\"}) RETURN s.sourceId,s.occurrenceCount,s.uniqueObjectCount ORDER BY s.recordLine",
+      "columns": [
+        "s.sourceId",
+        "s.occurrenceCount",
+        "s.uniqueObjectCount"
+      ],
+      "rows": [
+        [
+          "snapshot.synthetic.001",
+          2,
+          2
+        ],
+        [
+          "snapshot.synthetic.002",
+          4,
+          3
+        ],
+        [
+          "snapshot.synthetic.003",
+          1,
+          1
+        ],
+        [
+          "snapshot.synthetic.004",
+          2,
+          2
+        ]
+      ]
+    },
+    "lineage": {
+      "statement": "MATCH (e:AkashaTrace {projectionId:$projectionId,kind:\"event\"})-[:TRACE_EDGE {kind:\"DERIVED_FROM\"}]->(v)-[:TRACE_EDGE {kind:\"NORMALIZED_FROM\"}]->(s) RETURN count(DISTINCT e),collect(DISTINCT s.sourceId)",
+      "columns": [
+        "count(DISTINCT e)",
+        "collect(DISTINCT s.sourceId)"
+      ],
+      "rows": [
+        [
+          9,
+          [
+            "cidv1-sha256-a5e463dbd96b9804a0b4a6d312381cf758d682de52eeceb61716adfa2ef5351e"
+          ]
+        ]
+      ]
+    },
+    "lifecycle": {
+      "statement": "MATCH (s:AkashaTrace {projectionId:$projectionId,kind:\"snapshot\"})-[r:TRACE_EDGE]->(o) WHERE r.kind IN [\"ADDED\",\"CHANGED\",\"REMOVED\",\"UNCHANGED\"] RETURN s.sourceId,r.kind,collect(o.sourceId) ORDER BY s.sourceId,r.kind",
+      "columns": [
+        "s.sourceId",
+        "r.kind",
+        "collect(o.sourceId)"
+      ],
+      "rows": [
+        [
+          "snapshot.synthetic.001",
+          "ADDED",
+          [
+            "object.synthetic.context.001",
+            "object.synthetic.tool.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.002",
+          "ADDED",
+          [
+            "object.synthetic.result.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.002",
+          "CHANGED",
+          [
+            "object.synthetic.context.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.002",
+          "UNCHANGED",
+          [
+            "object.synthetic.tool.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.003",
+          "CHANGED",
+          [
+            "object.synthetic.context.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.003",
+          "REMOVED",
+          [
+            "object.synthetic.tool.001",
+            "object.synthetic.result.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.004",
+          "ADDED",
+          [
+            "object.synthetic.tool.001"
+          ]
+        ],
+        [
+          "snapshot.synthetic.004",
+          "UNCHANGED",
+          [
+            "object.synthetic.context.001"
+          ]
+        ]
+      ]
+    }
+  }
+}
