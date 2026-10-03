@@ -190,3 +190,11 @@ A worktree-local legacy ledger requires explicit reconciliation, never silent im
 Marker recovery requires recorded pending-send evidence; reserved marker content is rejected.
 Merge participants share one decision ref and declare original T IDs; split dependencies
 are validated before any send. Decision refs must be non-whitespace durable human records.
+
+## AXI boundary
+
+See [local AXI doctrine](../../tools/axi/README.md) for progressive disclosure and
+adapter dispositions. Deterministic Nx checks may invoke reproducible AXI actions;
+cacheability follows purity, not transport. Credentialed/mutating actions stay
+coordinator-owned, uncached. Semantic relations create no execution dependency
+without real ordering, and all generated outputs remain projections.

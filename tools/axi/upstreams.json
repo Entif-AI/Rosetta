@@ -1,0 +1,32 @@
+{
+  "axi": {
+    "repository": "https://github.com/kunchenguid/axi.git",
+    "commit": "9fb95abba8546697512ea70befd3c73c445a4cb2",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  },
+  "quota-axi": {
+    "repository": "https://github.com/kunchenguid/quota-axi.git",
+    "commit": "1f5875c3f3ebf09b0fa04e124e9f395fcec68b25",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  },
+  "gh-axi": {
+    "repository": "https://github.com/kunchenguid/gh-axi.git",
+    "commit": "d221ffabfe106e2c7a5998bde30bf58528678d22",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  },
+  "npm-axi": {
+    "repository": "https://github.com/SSBrouhard/npm-axi.git",
+    "commit": "f2118ebfaa65a7f344a7625f30c79c69b7e1667e",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  },
+  "specops": {
+    "repository": "https://github.com/JarvusInnovations/specops.git",
+    "commit": "03c332620c207ade153a25c8c49805a64228961d",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  }
+}

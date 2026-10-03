@@ -23,8 +23,8 @@ Proof: red/green focused behavior fixtures, retained identity/baseline/convergen
 
 ## Current focus
 
-Phase 1 / #1712. Upstream source inspected locally; exact pins will be committed with reproducible setup.
+Completed #1712: pinned source setup, doctrine/dispositions, on-demand reference and Nx marker. Red/green setup fixture and live repeatable install passed. Frozen workspace install passed. Current focus: #1713 quota adapter.
 
 ## Handoff
 
-Continue #1712; do not execute #1711 or merge/publish. No acceptance criterion marked complete yet.
+Continue #1713; do not execute #1711 or merge/publish. No acceptance criterion marked complete yet.
