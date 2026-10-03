@@ -63,6 +63,7 @@ describe('salience evaluation Profile', () => {
     expect(validateSalienceEvaluation({ ...salienceEvaluation(), assessedAt: '2026-02-30T12:00:00Z' }).ok).toBe(false);
     expect(validateSalienceEvaluation({ ...salienceEvaluation(), validTime: { validFrom: '2026-10-03T00:00:00Z', validTo: '2026-10-02T00:00:00Z' } }).ok).toBe(false);
     expect(validateSalienceEvaluation({ ...salienceEvaluation(), receiptRefs: [''] }).ok).toBe(false);
+    expect(validateSalienceEvaluation({ ...salienceEvaluation(), validTime: { validFrom: '2026-10-02T00:00:00.000000002Z', validTo: '2026-10-02T00:00:00.000000001Z' } }).ok).toBe(false);
     const payload = salienceEvaluation();
     expect(validateSalienceEvaluation({ ...payload, assessment: { ...payload.assessment, novelty: { ...payload.assessment.novelty, baselineRefs: [] } } }).ok).toBe(false);
     expect(validateSalienceEvaluation({ ...payload, assessment: { ...payload.assessment, impact: { ...payload.assessment.impact, value: { representation: 'reference', schemaRef: 'fixture.vector.schema', valueRef: 'fixture.vector.1' } } } }).ok).toBe(true);
@@ -89,6 +90,7 @@ describe('salience evaluation Profile', () => {
     const invalid = { ...payload, assessment: { ...payload.assessment, impact: { ...payload.assessment.impact, value: { representation: 'scalar', schemaRef: 's', value: 'large' } } } };
     expect(validate(invalid)).toBe(false);
     expect(validate({ ...payload, verdict: 'activate' })).toBe(false);
+    expect(validate({ ...payload, assessedAt: '2016-12-31T23:59:60Z' })).toBe(false);
   });
 
   it('validates separate impact, exigency, and novelty assessments', () => {

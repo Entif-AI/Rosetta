@@ -106,7 +106,7 @@ descent/router integration and nine synthetic conformance vectors.
 
 #1694 pushed in ba497ec with review comment. #1695 pushed in 51a1571 with review comment; focused suite 62 passed, package
 build, Pack conformance and authority checks pass. #1667 pushed in 212484a with
-review comment. Checkpoint/push #1669 and its review comment. Remaining early gates: #1668
+review comment. #1669 pushed in 83fe5b7 and review comment posted. Remaining early gates: #1668
 requires a pinned Graphiti/provider fixture path; #1688 still requires exact
 CoS 2.1.22 source before donor-derived headless extraction. Graph proof follows verified
 normalization; Neo4j development image is available, no production graph claim.
@@ -142,3 +142,22 @@ it needs upstream pinning plus a bounded extraction/provider compatibility proof
 The deterministic source/normalization/graph/kinematics lane remains model-free.
 The exact CoS 2.1.22 source gate remains unproven (located donor declares 2.0.9).
 No browser/live/voice/control proving or parent-program completion is claimed.
+
+#1669 pushed in 83fe5b7 with review comment. Final Profile review caught a reversed
+nanosecond-precision interval accepted after JavaScript millisecond rounding. Red
+regression captured; comparison now preserves full fraction precision. Both v1
+Profiles explicitly exclude leap-second instants, consistently in schema and TS,
+without changing preserved source trace timestamps. Red regressions now pass; 62 focused Profile/schema tests, both owner builds,
+Pack conformance and ingress-refinery owner suite (27 tests) pass.
+
+## Branch-stable handoff
+
+Review checkpoints are pushed for #1693, #1665, #1666, #1694, #1695, #1667 and #1669.
+No issue or parent program was closed. Latest main fetch/merge reports already up
+to date at base 48bbd83. PR #1697 carries the cumulative implementation and per-issue
+review comments. Hosted verify passed at 83fe5b7; the final precision-fix commit
+needs its own hosted result. Source/normalization/graph/kinematics proof remains
+model-free; the ephemeral development database may be removed without source loss.
+Next safe implementation: pin #1668 Graphiti and establish a bounded provider/model
+fixture path, or resolve the exact donor-source gate for #1688. Existing baseline
+historical-document failures remain separate from focused acceptance evidence.

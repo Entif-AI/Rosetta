@@ -1,4 +1,4 @@
-import { checkProfileFields, checkProfileRefs, checkProfileStrings, CORE_EVALUATION_VERDICTS, isProfileRecord, isProfileRefs, isProfileTimestamp } from './evaluation-profile-validation.js';
+import { checkProfileFields, checkProfileRefs, checkProfileStrings, compareProfileTimestamps, CORE_EVALUATION_VERDICTS, isProfileRecord, isProfileRefs, isProfileTimestamp } from './evaluation-profile-validation.js';
 
 export const SALIENCE_EVALUATION_PROFILE_ID = 'salience.evaluation.v1';
 export const SALIENCE_EVALUATION_PROFILE_VERSION = '1.0.0';
@@ -77,7 +77,7 @@ export function validateSalienceEvaluation(payload: unknown): SalienceProfileVal
   else {
     checkProfileFields(payload.validTime, ['validAt', 'validFrom', 'validTo'], errors, 'salience.evaluation.validTime');
     for (const value of Object.values(payload.validTime)) if (!isProfileTimestamp(value)) errors.push('salience.evaluation validTime values must be RFC 3339 timestamps.');
-    if (isProfileTimestamp(payload.validTime.validFrom) && isProfileTimestamp(payload.validTime.validTo) && Date.parse(payload.validTime.validFrom) > Date.parse(payload.validTime.validTo)) errors.push('salience.evaluation validFrom must not follow validTo.');
+    if (isProfileTimestamp(payload.validTime.validFrom) && isProfileTimestamp(payload.validTime.validTo) && compareProfileTimestamps(payload.validTime.validFrom, payload.validTime.validTo) > 0) errors.push('salience.evaluation validFrom must not follow validTo.');
   }
   checkProfileRefs(payload, ['receiptRefs', 'provenanceRefs'], errors, 'salience.evaluation');
   if ('supersedesRefs' in payload) checkProfileRefs(payload, ['supersedesRefs'], errors, 'salience.evaluation');

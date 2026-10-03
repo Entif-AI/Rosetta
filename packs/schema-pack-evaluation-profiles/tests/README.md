@@ -46,3 +46,9 @@ Later evidence may appear in present-day counter-evidence without entering histo
 inputs. Reassessment is a new record referencing preserved prior state. Counterfactual
 success grants no production activation, execution, promotion or write authority.
 Public conformance uses no private candidate-selection or threshold policy.
+
+Both v1 Profiles represent ordinary RFC 3339 seconds (00..59) with an explicit
+UTC/offset basis. Leap-second instants are outside this first version and fail
+visibly in both JSON Schema and TypeScript; source trace timestamps remain untouched.
+Validity interval ordering compares the full declared fractional precision and
+normalized offset, rather than rounding to JavaScript milliseconds.
