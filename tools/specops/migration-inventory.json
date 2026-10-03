@@ -1,0 +1,949 @@
+{
+  "formatVersion": 1,
+  "sourceRevision": "b02ae4675e6f1d703d565e962356fe81b9d2ebb4",
+  "s1Tip": "064c67015ad0f77ec9e06eb4b38f4f5b2a19fbca",
+  "specopsRevision": "03c332620c207ade153a25c8c49805a64228961d",
+  "inventoryRole": "source-backed migration disposition, not semantic authority",
+  "assets": [
+    {
+      "path": ".github/workflows/semantic-governance-ci.yml",
+      "s1Sha256": "f537d25e453f9779a3cf104577885914546eeeee4bfdc747815d0e4e276b3608",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": ".nx/version-plans/entif-development.md",
+      "s1Sha256": "0dda0159a137bebc3d15369d04380ff4fbf5a0ad0d01b4fbd1ab9b45ab53a15d",
+      "disposition": "ADAPT",
+      "owner": "pnpm / Nx version mechanics",
+      "successor": "#1721 package/source pins and reviewed minor version plan"
+    },
+    {
+      "path": ".specify/.gitignore",
+      "s1Sha256": "8c908410d177a1ef3d0dee16d7ad55f2ac3333df3104c4d4adee1c9b82f1dbc1",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": ".specify/entif-governance.json",
+      "s1Sha256": "f3907d45106c33d95d27dfc8b886f578842a22a9040107f8bd3b11b2e11515e8",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": ".specify/extensions.yml",
+      "s1Sha256": "339bebf7a59c687778f760aa1447374a09fd885d307c7d5c7be0401d04b5a948",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": ".specify/integration.json",
+      "s1Sha256": "c9711525aa1f82b4707e72b073fcd5633e23015882a0b218455ca6b242c8003e",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": ".specify/memory/constitution.json",
+      "s1Sha256": "2a32c30ee86d3636660e88d5d45bd6f1ce653fb3a279f4b60460d80b391f14f0",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": ".specify/memory/constitution.md",
+      "s1Sha256": "8285e5e5171cb59a60c2e330a44e8163a9f44dfc2dd9dbef36ed694dbbbdc76e",
+      "disposition": "ADAPT",
+      "owner": "legacy workspace state",
+      "successor": "preserve historical state; new projection/install metadata under .specops; #1721"
+    },
+    {
+      "path": "docs/governance/20260410 - Entif.AI - Rosetta - Normative Staging Doctrine (v0.2).md",
+      "s1Sha256": "4446ed6522fbbb0356c32bf4c5677a0f6f8c69d7106f2b403616371699b665e5",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/20260412 - Entif Source Substrate and Repository Provenance Addendum.md",
+      "s1Sha256": "2032238a2d2b0f09354eff86eb651fc899ba98c8b082853625302d584020b715",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/20260412 - Source Registry and Repository Profile Annex.md",
+      "s1Sha256": "c46da83e0f00169f78fb0707e744095e2775476f05aee16eb3e114c6fc12e9a8",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
+      "s1Sha256": "807b96d18b7b53aaacae290486a163fe92791906eef67f7ff2daec3c44ef5cc3",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/AUTHORITY_STACK.md",
+      "s1Sha256": "14c0a1ce20538516c2b83c343027c9deff04ed124c96bcce1d2bc501c10dae60",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/CORE_DESCENT_AUDIT.json",
+      "s1Sha256": "8ee134ca8ec0b1d2714bae1fe643d4bd5e2302a159d75fa0b68793f28c73d896",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/DONOR_FIT_MAP.md",
+      "s1Sha256": "57d54ef8d00ed4a6f8ba51da18758cbdb63637507b8e89548701f17ed6a2af9e",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/GENESIS_SOURCE_SYNTHESIS.md",
+      "s1Sha256": "d5cbf8cb178afd383ef121c37b41eb45383e0c74ce74476e03d965ce3b52ac13",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/Genesis.md",
+      "s1Sha256": "eddbf9a5a54c1fab0fc15bf98584a1007f6a4cf0ca53120574d0c03a6f0e05d8",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/PUBLIC_COMMONS_AND_PRIVATE_OPERATION_BOUNDARY.md",
+      "s1Sha256": "af2eb8bd7f44cf0e72b4bcaf7160b1b4d022ede7cdceb5aae8499237070c6cdf",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/PUBLIC_PRIVATE_AUTHORITY_BRIDGE.yaml",
+      "s1Sha256": "30caab8630082bf0e9ec9a3136a62342d3715a1c3d0e4ae73d90525a0ff9d22c",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/REPO_SHAPE_AND_CONSTRAINTS.md",
+      "s1Sha256": "4a9bbc9d4edfcb68d3d7e70b592ed85fa4d862b131b4c24c5badc500ed0f68e2",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROADMAP_TRANCHE_AND_EXECUTION_PLANNING_DOCTRINE.md",
+      "s1Sha256": "23d5f9faa3e7c7da6c0eec8b835135672c421cf6b3164faa4dd75d1677f72007",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROCK-31XX - Rosetta Pasigraphy Protocol - Provenance, Receipts, TruthLint - 20260224.md",
+      "s1Sha256": "3da901e4a1e03ad141be5834839f73ee4da4d3f05c58bf0de6e3a1f28015fcba",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROSETTA_DOCID_REGISTRY.json",
+      "s1Sha256": "2df8cbc91447fd1b7e5d933e60632afd86616167fd96beb778b3a3742b014d64",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROSETTA_DOCID_REGISTRY.md",
+      "s1Sha256": "93f5d24a4dcbd91636da2e93a555625c635c6930834333b4f310a679727b86e7",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROSETTA_PACK_MAP.csv",
+      "s1Sha256": "7bb694a9d6b990b83216a9f903aadc744b71cf7d8897e90daa3079d960a036a0",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROSETTA_SPEC_CATALOG.json",
+      "s1Sha256": "e6a64c5ba0bd5a8bdbdd74425eb32878b5b6f5e9eac355966433acaed2e89c66",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/ROSETTA_SPEC_CATALOG.md",
+      "s1Sha256": "47c6fc06880cdd88adb390f555929c4991eb70848182c5de5b3b0e0abdf1602d",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/SERVICE_INVENTORY.md",
+      "s1Sha256": "c3e0f7adbc14e207f6e46dcf8f0f54c4f4d066f71646d6378f48d56dd5cdd7dc",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/STRATEGIC_OPPORTUNITY_ACCELERATION_OVERLAY.md",
+      "s1Sha256": "401c978a75f0e8a7c619d1b2262c727c7a41e26e98e6d5829a893e9d669014e3",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/UPSTREAM_AND_BACKUP_PLAN.md",
+      "s1Sha256": "6e2d977ad47d33ecc8bd3c38c81ac6922da42e29d26c3f6dfa4d91db9a3f1c2a",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/ASSURANCE_AND_OPERATIONS.md",
+      "s1Sha256": "9dbabbd4422dfb1ee202280e06f103cdbf7c5187dc0dc712882d0423ce5bac58",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/DELIVERY_AND_COLLABORATION.md",
+      "s1Sha256": "b000c3168e2cac6e373720d6a96bb04a36c9ae8d3b9bfc7b59eaa79f02018840",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/DOCUMENTATION_AND_PUBLICATION.md",
+      "s1Sha256": "d74b3dd38dfa53a5649bf2673b34e9909362c5b541ca6b05a88e44f8e5cfc399",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/ENGINEERING_AND_ARCHITECTURE.md",
+      "s1Sha256": "f9c7a74eadf8cb50bbc847c83510260b7811edfdfae18cdab1da6f75a36d8701",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/INTERFACE_AND_ACCESSIBILITY.md",
+      "s1Sha256": "0ced912f50108a0219b6f4a1f302f6fbd64da3b97160fe5c807e404e8b0aeee8",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/README.md",
+      "s1Sha256": "395c1cf29feff6b96d0a2879f580b56eaf85b3073f5fd6814ef1b15085d16d12",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/RESEARCH_AND_INTEROPERABILITY.md",
+      "s1Sha256": "23e33a62782729e83b486f14fd8bc1786a9cc25a3049a21353439cd643e13cb7",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/SECURITY_RIGHTS_AND_AGENTIC_CONTROL.md",
+      "s1Sha256": "6eb2bd051aa43b6031bb21213a38d1f3dccfd6c64ceb62f19a15b9f22a25888b",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/SEMANTIC_ALIGNMENT.md",
+      "s1Sha256": "4c528cbf648ffd746d09e72c068a3b8b23c931d9f068b0fe004818d2abf3caef",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+      "s1Sha256": "0901b3958b6063d39deeefe954e96ca8abc33aa369af0165cf7b290852a844c5",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/SESSION_DECISION_COVERAGE.md",
+      "s1Sha256": "334de97c68da541abb06777800e0a8ead0e1d931d8173ea6c78afc0753bb762b",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/genesis/V0_4_RECONCILIATION.md",
+      "s1Sha256": "6367eaa5933651a724025f6f9f0e977766e6b2cf929e63017f66415ffea5008d",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "docs/governance/rosetta_governance_addendum_personhood_provenance_and_cognitive_twin_risk.md",
+      "s1Sha256": "d4ec63fc996892630e0c78bc1b9f1ea3cbb27e49de5244998896a2c73830062a",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "nx.json",
+      "s1Sha256": "967804f26182422a8d0cc4f3f26e3455ec8c70c07d3154feecabaf0b3c356bf7",
+      "disposition": "ADAPT",
+      "owner": "pnpm / Nx version mechanics",
+      "successor": "#1721 package/source pins and reviewed minor version plan"
+    },
+    {
+      "path": "package.json",
+      "s1Sha256": "31cf6e0a40d12ebb88f859c67417ee9356a93e9722cdd348542fafc9bc96d28f",
+      "disposition": "ADAPT",
+      "owner": "pnpm / Nx version mechanics",
+      "successor": "#1721 package/source pins and reviewed minor version plan"
+    },
+    {
+      "path": "packages/nx-governance/README.md",
+      "s1Sha256": "9c50305da37f2af43a8e19ecba9a28f5ac6db6d2f916bab4edfce6b9a00c8838",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/eslint.config.mjs",
+      "s1Sha256": "182c11d0d05cdb48c7e49992dd6b70893f06d64060d50bb8d9fd8e55672cb23c",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/executors.json",
+      "s1Sha256": "81b4bd5745e7cecc7ca18e097a018c01a3e86709f11f33449b1a9dff919ad1c2",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/generators.json",
+      "s1Sha256": "29ee4823adc73e887de3a88729b90746ec7fab47ed16c31e5ca548a4e3607fb8",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/migrations.json",
+      "s1Sha256": "1daad51d69b2a985b003d3ef04de1c43f70dfe074199c46c423545cf3d644210",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/package.json",
+      "s1Sha256": "ca0e06b828a443fd243a47d14fe86d55c28272462f8ad100c8459be57b6a0c0f",
+      "disposition": "ADAPT",
+      "owner": "pnpm / Nx version mechanics",
+      "successor": "#1721 package/source pins and reviewed minor version plan"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/README.md",
+      "s1Sha256": "6fa315ed2900da2fbf681d28a32ff5618b4571ab6aafcdab690542aa37a5f7c2",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/bundle.yml",
+      "s1Sha256": "9c4647298785e91f150019a04fd396111cd4b0bf45c15c11f91a439731278ca8",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/compatibility.json",
+      "s1Sha256": "74d99c4f4f63cd90d828b07221d6086a1b82ef4039cc43e812a1098b27b2ea23",
+      "disposition": "ADAPT",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/commands/admit.md",
+      "s1Sha256": "49a0e521d4febf098d8e61a5ccb90f4af752d70d11a33e0e53691b19e47cc138",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/commands/baseline.md",
+      "s1Sha256": "ea444ddf97b55659e62fb95b6179edbb9fda6b613aa2de31dac872ff48e207d9",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/commands/convergence.md",
+      "s1Sha256": "9b8de8ced29e2d8646d5abcc73a150ecc5f3ba0bb5090a067094865d37200a09",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/commands/issue-sync.md",
+      "s1Sha256": "299fdf5023880aaacd109e436a671dc8b2113cd0e7b47ced1fde0052380cebe9",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/commands/verify.md",
+      "s1Sha256": "ccfb75da423f7b5ad178c5d8ede6ffe0a4977e7cf3a6701b160c0b9d1ec7bb92",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/extension/extension.yml",
+      "s1Sha256": "fb42a69b7f6ea488a46fdab65e39b1b825aa7fa54d828e6aea88dd50700153c9",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/install.py",
+      "s1Sha256": "18e919ce1806fdeba9624ca8bcbe907700410c59b1678c20ef82957c770c5a8b",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/meta-skill/SKILL.md",
+      "s1Sha256": "e5c545f4257f039d3bdaaae37a6c4e8a72dbffd25860527e9b4b601cf37aad8d",
+      "disposition": "ADAPT",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/preset/commands/specify.md",
+      "s1Sha256": "3c983ca444ea9da8d5d11427f3cb8e52d41fce1cefde777a6a4710ef3c1bc20b",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/preset/preset.yml",
+      "s1Sha256": "29294a1d5f10c47beb0ba5de52d0afaa7e35514720a781268bceb04606775c14",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/preset/templates/plan-addendum.md",
+      "s1Sha256": "85c4e6061f95451c36f0b4c1974277f209ee9382a53da0ecd128e3b3849b9ee3",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/preset/templates/spec-addendum.md",
+      "s1Sha256": "85c4e6061f95451c36f0b4c1974277f209ee9382a53da0ecd128e3b3849b9ee3",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/preset/templates/tasks-addendum.md",
+      "s1Sha256": "85c4e6061f95451c36f0b4c1974277f209ee9382a53da0ecd128e3b3849b9ee3",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/reconciliation.json",
+      "s1Sha256": "8c526547fc0660d93074e0712b8a97c08a4382590859339d9f67efaa99b6b432",
+      "disposition": "ADAPT",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/veneers.py",
+      "s1Sha256": "ef7cd1f5af8efde048f76bd7d2f9dc5a2ea3b20f3a58371a41e389b4485edb78",
+      "disposition": "ADAPT",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/spec-kit/workflow/workflow.yml",
+      "s1Sha256": "64369ac60961dacf2265413e2ef3587ea93cd733dcf3d572c3df723ab10999e0",
+      "disposition": "RETIRE",
+      "owner": "legacy Spec Kit wrapper",
+      "successor": "#1721 managed SpecOps substrate; retire only after equivalent successor proof"
+    },
+    {
+      "path": "packages/nx-governance/src/baseline.schema.json",
+      "s1Sha256": "7fc85632a0fc85e27699ec904e35f172410cc62909f29adbf13a40c925dc0a4f",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/baseline.spec.ts",
+      "s1Sha256": "263edb2635eb44670c2082a535a9220d462f079f88e2f5de0bd39bbf0d9c6909",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/baseline.ts",
+      "s1Sha256": "ffdb4a2257aecc81b99f70e89c084f133024eaaa0f5d76d4c1fd5154ff7a89a5",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/config.schema.json",
+      "s1Sha256": "c94c49db92fd908acc989d75b0c0b46f61d2f6bd69c677f34f6f3b1fc0c3c2e0",
+      "disposition": "GENERALIZE",
+      "owner": "Nx plugin/config",
+      "successor": "#1721 optional substrate mode; preserve existing consumers"
+    },
+    {
+      "path": "packages/nx-governance/src/config.ts",
+      "s1Sha256": "a1735186c40325fddf421ba74e6e8b53423695f9eb90e20c7489cd05953d0451",
+      "disposition": "GENERALIZE",
+      "owner": "Nx plugin/config",
+      "successor": "#1721 optional substrate mode; preserve existing consumers"
+    },
+    {
+      "path": "packages/nx-governance/src/convergence.schema.json",
+      "s1Sha256": "cbf1419cb907e33a55af4e3011c0393a0edef5893427267e9db2ff2429c894ff",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/convergence.spec.ts",
+      "s1Sha256": "f3dcf1f8d1ca8be46360541e2e90480a408375935c066e04dd5e13bc521eb3a8",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/convergence.ts",
+      "s1Sha256": "875b7d2c0570469244cf43fb53b0252ad6e30470f737f4258995c102a3f74792",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/admission.ts",
+      "s1Sha256": "06bbbeda45d6028663ed258f11ed48a6c7a4ae7090353efdfcb6d0a34d9d3e4d",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/check.ts",
+      "s1Sha256": "09c3083b715f04ec2219a25cbb5f2f25e3f8daef2f811867fa1d40a97199ff8f",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/evidence.ts",
+      "s1Sha256": "0a44f4356db05591c68200282b4bf0ea1b1bc3df2c5898a725df644f47d84e92",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/issue-sync.schema.json",
+      "s1Sha256": "935966c876bd0c6986f26669a5c9fb52e249686648ce310e4f842ff31814cd5a",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/issue-sync.ts",
+      "s1Sha256": "f84408d562db9b2b1bd0c2c136842fe0fc8cd3cd2276fdea9043b57240392af4",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/executors/schema.json",
+      "s1Sha256": "aeae564b623d048610c3bcbe12128d0ca2121243831e448f0fd2b4dcf2fea15d",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/baseline/baseline.ts",
+      "s1Sha256": "b464efba5fbda12d9c7c94a5a86a11cd95f964dab52f800d61074cb4024c88d2",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/baseline/schema.json",
+      "s1Sha256": "ba318003af5e51294a92bf7210a7bdc3f17852e02a78bfc245e9761d715d2355",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/convergence/convergence.ts",
+      "s1Sha256": "4075f6b9ce0f51ad1b2f513519b1b0add0ad5444f7166e381e25a5260b5efb1e",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/convergence/schema.json",
+      "s1Sha256": "ba318003af5e51294a92bf7210a7bdc3f17852e02a78bfc245e9761d715d2355",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/init/init.ts",
+      "s1Sha256": "f6058ec093dab896984e9e2253b6cdc46acf88af4dd65f2b11c2f71024816684",
+      "disposition": "GENERALIZE",
+      "owner": "Nx plugin/config",
+      "successor": "#1721 optional substrate mode; preserve existing consumers"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/init/schema.json",
+      "s1Sha256": "c00f51ec9ef2be87d87a02119557cac4794828465df251ea5c1ac1bfec9c92f0",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/spec-surface/schema.json",
+      "s1Sha256": "5c84f1474238614e5f4e8298608293873f1142dfb40d4b839a9b818fcf17e839",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/spec-surface/spec-surface.ts",
+      "s1Sha256": "6a506fbfc3fd47d2f3b9f0cef0de4c429105df63bb94416fe1fb398e452c0273",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/sync/native-import.cjs",
+      "s1Sha256": "7a8423016c80be4b11ef5deba1243710dd62ea9ade1d066fdbd681ad9a41bd49",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/sync/native-import.d.cts",
+      "s1Sha256": "82fdd6d9928b1a8465cca5b085a525ef2e5bcfc4473a44fec622b8571d7c4d6f",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/sync/schema.json",
+      "s1Sha256": "c093573268e7625fd39ae389bab16ff0eba3eaf95c91b87b3e919cb6f3612b5d",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/generators/sync/sync.ts",
+      "s1Sha256": "06588e6db82b54b6882b5b7037a72909ddef20aa263200f2dbaa8a7b1f50f7ff",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/governance.spec.ts",
+      "s1Sha256": "8877f5fa6e65e63ef0a3a0157b519bdd899f86c6a92c4b84b16b0f0b3bd9f9d7",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/index.ts",
+      "s1Sha256": "2bdd5ac2a5b5c113d72b09f5e7017372e735dbeeda28ddf0ce6aac56cda96913",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/issue-ledger.spec.ts",
+      "s1Sha256": "13547c1e5ece3d5d6022d0b6703a01246e70e451ef1226f7150ddc480721f63f",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/issue-ledger.ts",
+      "s1Sha256": "c5e7e79855f4fcb9896fcbe8a1a8b38ca8f388e53af3a082e9b6b3b3a1b08761",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/issue-sync.schema.json",
+      "s1Sha256": "ec0983029a9011718ca8bf62919cf9f3d46a60c71da968c38ecefb2f9889f1c2",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/issue-sync.spec.ts",
+      "s1Sha256": "19d8fd7771ec6e2a65b5bc33a7902e9bfb2abe183a90a74478f18bf464247833",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/issue-sync.ts",
+      "s1Sha256": "f026b6354da5e2688cc6ea1d3b96be0bf2a39c6a8a2e0d555536a73ed9ce1eb4",
+      "disposition": "PORT",
+      "owner": "single coordinator durable identity ledger",
+      "successor": "#1718 stable plan/issue binding using retained ledger"
+    },
+    {
+      "path": "packages/nx-governance/src/migrations/config-v1.ts",
+      "s1Sha256": "3c773a5bb51815e1f07cbaad9f3d4e2c68fb22caaf5bef2b4573ea8ae2845c12",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/plugin.ts",
+      "s1Sha256": "b7d8c7a12646425a70496472a043377ff911953f5d6c8038a4ef9e4db8468a81",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/src/source-evidence.ts",
+      "s1Sha256": "a41cf0ac1bf08feb26400e06fb46efb20f378b9b202583fa436b22f0d4972453",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/tsconfig.json",
+      "s1Sha256": "edaa6080829e6c133300aba9d42cdf5ff488cccf8399c461e6828c4458c76083",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/tsconfig.lib.json",
+      "s1Sha256": "86c61b032d0a975e910c29a41aec7f47205f630af2f7b6150bd74c099ba2f3c5",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "packages/nx-governance/tsconfig.spec.json",
+      "s1Sha256": "5afff92738c5ca10ae320f1cb1723fc898060b115e13d6eabc5dc47987acba5b",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "s1Sha256": "f28ec71175cfe5320eef6cefbda05fdc21db6839b1d0b8372da2d7a8696aa710",
+      "disposition": "ADAPT",
+      "owner": "pnpm / Nx version mechanics",
+      "successor": "#1721 package/source pins and reviewed minor version plan"
+    },
+    {
+      "path": "spec-surfaces/promotion/admission.json",
+      "s1Sha256": "3169448e35c18307fdb53e2b59c7c301363b9e4a205c61aee59deb524ebb81be",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "spec-surfaces/promotion/observed-baseline.request.json",
+      "s1Sha256": "2a18aefd05597a3c7d78b875b393b50e40becd17814c99a62b84fb1747dd2264",
+      "disposition": "PORT",
+      "owner": "generic source/evidence contract",
+      "successor": "#1719 adapt desired-state refs; retain adversarial baseline/convergence behavior"
+    },
+    {
+      "path": "spec-surfaces/promotion/task-binding.request.json",
+      "s1Sha256": "8069146206b182706fb35890d8e8776de922db9671c15abe2d61fa078e41e321",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/dev-bundle/bundle.spec.mjs",
+      "s1Sha256": "4750f1965d001074c59c615b78e858c1cc11a0a28f52a9d46a9d85654fa68329",
+      "disposition": "GENERALIZE",
+      "owner": "distribution conformance",
+      "successor": "#1721 same external-consumer harness, successor install/upgrade proof"
+    },
+    {
+      "path": "tools/dev-bundle/e2e.mjs",
+      "s1Sha256": "979186aeb52c746289df517ab51ce8a0f7e21ca2a8d592d4d88539406aca570d",
+      "disposition": "GENERALIZE",
+      "owner": "distribution conformance",
+      "successor": "#1721 same external-consumer harness, successor install/upgrade proof"
+    },
+    {
+      "path": "tools/dev-bundle/project.json",
+      "s1Sha256": "d292c2059764283848ec5b2b9a3b4a2580d44589fe83082deb04cddc57cf68b5",
+      "disposition": "GENERALIZE",
+      "owner": "distribution conformance",
+      "successor": "#1721 same external-consumer harness, successor install/upgrade proof"
+    },
+    {
+      "path": "tools/dev-bundle/veneer-proof.py",
+      "s1Sha256": "7a1b0bd8ae7fcaebc6b5cc1c68233bb5d7574efa1a3f0dbdde5e3046c9c3a384",
+      "disposition": "GENERALIZE",
+      "owner": "distribution conformance",
+      "successor": "#1721 same external-consumer harness, successor install/upgrade proof"
+    },
+    {
+      "path": "tools/dev-bundle/workflow-proof.py",
+      "s1Sha256": "9a3a25aa127fbadbe87f809072c2dbf0dd42ccc4ee8520c01340e5cb1776b27e",
+      "disposition": "GENERALIZE",
+      "owner": "distribution conformance",
+      "successor": "#1721 same external-consumer harness, successor install/upgrade proof"
+    },
+    {
+      "path": "tools/semantic-governance/AUTHORITY_CLOSURE_RULES.md",
+      "s1Sha256": "10b1ab73ba2832576166ed02f8d8e0d9f510de93a55af9b6df29b34bb501aedd",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/check-authority-closure.mjs",
+      "s1Sha256": "96570ec8aebf9b65a69db70a264a165e3fe1dbc359d097768a4a7f3588760f4c",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/check-authority-closure.spec.mjs",
+      "s1Sha256": "eca3c688b04fc7303f605d1c26833f088077dfd8eb67b177c2555ba0164db278",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/check-genesis-semantics.mjs",
+      "s1Sha256": "41f2fb1216ae44091c599a638923c407515cdd81e55d06bcd2ec9f58cdc2066e",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/check-genesis-semantics.spec.mjs",
+      "s1Sha256": "6202e204539be479d80672a65a8ee7d16892f63d8e89f90706698cf121f04984",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/core-descent-audit.mjs",
+      "s1Sha256": "8742251bbb012149dffc0c4cc9728efd90f74ee9b2d0cac7c926780cbaf7b624",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/core-descent-audit.spec.mjs",
+      "s1Sha256": "d268ae71b2a96bc4c65f18e717043dcdc27634c21f9a17eef40ac1c1a0b6438b",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/governance.config.json",
+      "s1Sha256": "32a4b4d542eb26cccadf80f8fb37cdac7f55c830ba563a5b0f514e3005913018",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/load-schemas.mjs",
+      "s1Sha256": "ae78f47f2f13926165f9bedf14836ce14fd6fe2fa21db3f3a7be2cb8052a0481",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/profile-admission.mjs",
+      "s1Sha256": "6ff167fd743679af09576c707c39e199137172e9c23beb993fab23e3ddd980d7",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/profile-admission.spec.mjs",
+      "s1Sha256": "55aa726b7170b56defdb04ea77dbed2231de9aa63d6c997e424c6e4b2240eb23",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/semantic-governance/project.json",
+      "s1Sha256": "ce2f3a0f54014ede35a7208b92292f87e1fa67d22ef0f57e6f6eea9a7062d555",
+      "disposition": "RETAIN_AS_GENERIC",
+      "owner": "source-owned Rosetta governance / Nx mechanics",
+      "successor": "unchanged generic contract"
+    },
+    {
+      "path": "tools/spec-catalog/catalog.mjs",
+      "s1Sha256": "3563945c7c75a0246c59df053450df693a94f7d110efcc628f1f33d5b6db3201",
+      "disposition": "GENERALIZE",
+      "owner": "Rosetta source catalog",
+      "successor": "#1720 add compatible spec/plan projection; no authority transfer"
+    },
+    {
+      "path": "tools/spec-catalog/catalog.schema.json",
+      "s1Sha256": "8b3f07d0a7e5a515a8fda58d5b7c450186b29df1462dbe6c88d2c226b16b3e4e",
+      "disposition": "GENERALIZE",
+      "owner": "Rosetta source catalog",
+      "successor": "#1720 add compatible spec/plan projection; no authority transfer"
+    },
+    {
+      "path": "tools/spec-catalog/catalog.spec.mjs",
+      "s1Sha256": "e3b4419c3a76ca2152c343b5082f5a2cdf86ae757c1ef07a79e0cb3716f102bb",
+      "disposition": "GENERALIZE",
+      "owner": "Rosetta source catalog",
+      "successor": "#1720 add compatible spec/plan projection; no authority transfer"
+    },
+    {
+      "path": "tools/spec-catalog/project.json",
+      "s1Sha256": "a25163145f513dcdae41da1c88952a97127923c8694e379a2c3ea23883d83bd4",
+      "disposition": "GENERALIZE",
+      "owner": "Rosetta source catalog",
+      "successor": "#1720 add compatible spec/plan projection; no authority transfer"
+    }
+  ],
+  "retirementGate": "No deletion until successor equivalent tests pass; preserve historical plans/state and issue ledger",
+  "rollback": "Revert reviewed migration commits; preserve S1 files and local ledger; no destructive data migration"
+}

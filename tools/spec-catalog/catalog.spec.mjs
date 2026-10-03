@@ -47,3 +47,14 @@ describe('specification catalog #1700', () => {
     expect(catalog.documents.find((entry) => entry.docId === 'ROCK-3002').availability).toBe('declared-only');
   });
 });
+
+describe('SpecOps compatible successor catalog #1720', () => {
+  it('projects spec/plan identity and explicit relationships with exact source digests', async () => {
+    const outputs = await generateProjections();
+    const substrate = JSON.parse(outputs['docs/governance/ROSETTA_SUBSTRATE_CATALOG.json']);
+    expect(substrate.role).toBe('derived-specops-catalog-projection');
+    expect(substrate.nodes.find(n => n.id === 'entif:specops-context')).toMatchObject({kind: 'plan', task: 'T1720', issues: [1720]});
+    expect(substrate.relationships).toContainEqual({from: 'entif:development-substrate', kind: 'governed-by', to: 'entif:substrate-principles'});
+    for (const node of substrate.nodes) expect(node.source.sha256).toMatch(/^[a-f0-9]{64}$/);
+  });
+});

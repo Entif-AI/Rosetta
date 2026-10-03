@@ -1,0 +1,140 @@
+{
+  "formatVersion": 1,
+  "repository": "entif-ai/rosetta",
+  "featureId": "roadmap-s2",
+  "publicationPosture": "public",
+  "tasks": [
+    {
+      "id": "T1712",
+      "title": "axi-base",
+      "body": "# axi-base\n\n## Scope\nExecute the controlling GitHub #1712 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nCompleted delivery checkpoint is recorded on PR #1723; no semantic authority is inferred from completion.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1712,
+      "sourceRef": "plans/axi-base.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    },
+    {
+      "id": "T1714",
+      "title": "axi-github",
+      "body": "# axi-github\n\n## Scope\nExecute the controlling GitHub #1714 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nCompleted delivery checkpoint is recorded on PR #1723; no semantic authority is inferred from completion.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1714,
+      "sourceRef": "plans/axi-github.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    },
+    {
+      "id": "T1715",
+      "title": "axi-npm",
+      "body": "# axi-npm\n\n## Scope\nExecute the controlling GitHub #1715 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nCompleted delivery checkpoint is recorded on PR #1723; no semantic authority is inferred from completion.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1715,
+      "sourceRef": "plans/axi-npm.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    },
+    {
+      "id": "T1713",
+      "title": "axi-quota",
+      "body": "# axi-quota\n\n## Scope\nExecute the controlling GitHub #1713 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nCompleted delivery checkpoint is recorded on PR #1723; no semantic authority is inferred from completion.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1713,
+      "sourceRef": "plans/axi-quota.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    },
+    {
+      "id": "T1711",
+      "title": "badger-experiment",
+      "body": "# badger-experiment\n\n## Scope\nExecute the controlling GitHub #1711 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [ ] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1711,
+      "sourceRef": "plans/badger-experiment.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": null,
+      "disposition": "active"
+    },
+    {
+      "id": "T1720",
+      "title": "specops-context",
+      "body": "# specops-context\n\n## Scope\nExecute the controlling GitHub #1720 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [ ] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1720,
+      "sourceRef": "plans/specops-context.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": null,
+      "disposition": "active"
+    },
+    {
+      "id": "T1721",
+      "title": "specops-dist",
+      "body": "# specops-dist\n\n## Scope\nExecute the controlling GitHub #1721 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [ ] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1721,
+      "sourceRef": "plans/specops-dist.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": null,
+      "disposition": "active"
+    },
+    {
+      "id": "T1719",
+      "title": "specops-drift",
+      "body": "# specops-drift\n\n## Scope\nExecute the controlling GitHub #1719 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [ ] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1719,
+      "sourceRef": "plans/specops-drift.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": null,
+      "disposition": "active"
+    },
+    {
+      "id": "T1716",
+      "title": "specops-integrated",
+      "body": "# specops-integrated\n\n## Scope\nExecute the controlling GitHub #1716 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [ ] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nTracked as: #1711 remains a separate efficiency experiment.\n",
+      "issueNumber": 1716,
+      "sourceRef": "plans/specops-integrated.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": null,
+      "disposition": "active"
+    },
+    {
+      "id": "T1717",
+      "title": "specops-migrate",
+      "body": "# specops-migrate\n\n## Scope\nExecute the controlling GitHub #1717 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nCompleted delivery checkpoint is recorded on PR #1723; no semantic authority is inferred from completion.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1717,
+      "sourceRef": "plans/specops-migrate.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    },
+    {
+      "id": "T1718",
+      "title": "specops-plans",
+      "body": "# specops-plans\n\n## Scope\nExecute the controlling GitHub #1718 contract; issue remains durable discussion identity.\n\n## Implements\n- specs/architecture.md: the owned substrate boundary for this issue.\n\n## Approach\nInspect exact current source, Git state and controlling issue before execution. One mutable writer; no branch-per-plan requirement.\n\n## Validation\n- [x] Controlling issue acceptance is verified with commit-bound evidence.\n\n## Notes\nImplementation evidence will be recorded before closeout.\n\n## Follow-ups\nNone.\n",
+      "issueNumber": 1718,
+      "sourceRef": "plans/specops-plans.md",
+      "findingRefs": [],
+      "originTaskIds": [],
+      "decision": null,
+      "closedDisposition": "retain",
+      "disposition": "active"
+    }
+  ]
+}

@@ -1,215 +1,34 @@
-# Semantic governance integration, PR #1600
+# S2 AXI / SpecOps migration
 
-Active branch: `codex/roadmap-s1-promotion-transition`. One writer; no branch per issue.
-Execution order: #1698, #1179, #1699, #1700, #1701, #1705–#1710, #10 closeout.
-Current main reconciled by ordinary merge on 2026-10-03. Original TC-005 work retained.
-Public authority: Core Spine v3, Genesis semantic alignment/audit, promotion and
-receipt contracts, source-substrate Pack, schema catalog, DocID registry, Pack manifests.
-Bridge review: this run changes public representation and deterministic tooling, not
-protected scoring, routing, recurrence, thresholds, or operational selection policies.
-No applicable protected behavior change is proposed. Publication posture: public.
-Validation: executable pre-fix Profile fixture, predecessor/receipt replay adversaries;
-complete descent audit; real Nx sync/task graph/cache and Spec Kit install/migration
-fixtures; generated catalog drift/regeneration; affected and full repository gates.
-Checkpoint #1698: Profile, exact predecessor, receipt evidence closure, frozen red/green
-fixtures implemented. Focused Nx build/typecheck/lint/test passed for receipts, schemas,
-CLI and Pack tooling; Pack and authority checks pass. DocID check discovers its
-intake-ledger input was removed by #1572. Eight new tests failed
-before implementation; nine now pass. Semantic checker still references four
-documents removed by #1572; repair in #1179 audit, without restoring protected prose.
-Checkpoint #1179: all 49 catalog entries and first-wave Pack/vocabulary assets
-reviewed. Generated risk register records local namespace debt, non-substitutable
-source domain records, lifecycle state and projections; no irreducible Core gap.
-Public semantic and DocID gates repaired after #1572. Three audit tests, four DocID
-tests and ten semantic tests pass, plus focused schema/receipt Nx gates.
-Checkpoint #1699: official Nx plugin with idempotent init, draft spec scaffolding,
-sync projection, separate evidence collectors and fail-closed merge composition.
-Spec Kit preset, mandatory hooks and resumable workflow validated and installed
-with pinned upstream 1.1.1.dev0/Codex in a temporary workspace. Actual Nx graph,
-sync:check, plugin lint/typecheck/test/build, supported tsc batch and 23-project
-affected implementation verification pass. Merge report is merge-admissible.
-Checkpoint #1701 recovery (2026-10-03): reproduced fresh-checkout sync failure and
-packed upgrade failure. Retain Nx-generated constitution JSON/Markdown through narrow
-ignore exceptions; refresh the temporary consumer lockfile after nx migrate, including
-CI mode. No hand-edited projections or Astro composite/reference changes.
-Node 24.14.1: sync:check, dev-bundle:e2e, release plan:check --base=origin/main,
-affected spec-admission/test/lint/typecheck/build (26 projects, 97 tasks), and
-governance:admission pass. Packed Codex install/refresh, prototype config migration,
-real Nx 22.6.4 -> 22.6.5 upgrade, reproducible ZIP and conflict rejection proved.
-Next safe step: #1705 provenance/disposition, then ordered #1706–#1710 follow-ups.
-Do not merge or publish. Hosted CI must confirm the checkpoint after push.
-Checkpoint #1705: pinned donor/license verified, MIT upstream pin and current-main
-delta resolved; research dispositions in packages/nx-governance/spec-kit/reconciliation.json.
-No donor code imported. Explicitly reject inferred normative requirements and automatic
-branch creation. Existing delivered owners retained; five child problem spaces remain
-independent. Next: #1706 bounded observed-behavior evidence and authority reconciliation.
-Checkpoint #1706: bounded candidate schema and Nx baseline generator bind source digests
-and exact revision; direct/inferred claims, authority refs and conflicts remain separate.
-Only configured normative sources are accepted. Missing authority/conflicts cannot become
-alignment. Five red/green tests prove negative Rosetta specimen, no-doc authority-missing,
-conflict preservation, scope/line/authority validation, replay and stable identity.
-Focused plugin test/lint/typecheck/build, real baseline generation on current branch,
-spec admission and packed bundle e2e pass. Generated baseline is evidence under dist,
-not a checked-in moving-revision authority. Next: #1707 upstream workflow proving fixture.
-Checkpoint #1707: inventoried all 12 requested workflow mechanisms in reconciliation.json.
-Keep the existing upstream workflow + Entif hooks + Nx shell composition. Four executable
-pinned-engine fixtures pass: shell gates independent of agent compliance, both paths
-under hook-compliant agent emulation, failed-gate exact resume, native human pause/resume.
-No workflow churn or typed Nx wrapper. Proof is integrated into packed bundle e2e.
-Next: #1708 structured convergence evidence, without moving semantic authority.
-Checkpoint #1708: structured finding/inventory candidate, exact source provenance and
-stable baseline/task/verification lineage. Existing merge admission optionally consumes
-the exact artifact and digest; sourcePaths enforce cache completeness, stale sources
-and open findings block. Spec admission does not require future convergence evidence.
-The new suite failed to load the absent implementation; four behavior tests now pass,
-including recurrent failure
-across two runs, clean verified inventory and real admission composition/source drift.
-Shared baseline/convergence source validation consolidated. Next: #1709 durable issue
-identity and coordinator-owned ambiguous-delivery reconciliation.
-Checkpoint #1709: coordinator-owned explicit task request, durable identity/projection
-ledger, pending-before-send and marker recovery; prose never creates another owner.
-Independent review exposed forged markers, incomplete graph validation, per-worktree
-locking, deferred conflicts, split retries and closed origins; corrected with focused
-red/green regressions. Ledger/lock now lives in Git common-dir, shared across worktrees.
-Separate retry refs are consumed once without replacing split/merge lineage; cycles,
-owner collisions and closed originals block dependent sends. Independent clones require
-one designated coordinator and preservation of its ledger; no global GitHub uniqueness
-claim. Existing Rosetta #1698 read-only preview, focused plugin gates and packed e2e pass.
-Next: #1710 generated provenance, local-edit safety and bounded parent routing.
-Checkpoint #1710: upstream core manifests and component registration retained;
-managed-veneers.json supplements exact per-file owner/source/digest, installed component
-identity and PEP 610-verified CLI Git pin, distinct from compatibility ranges.
-Preflight blocks local edits/deletions, symlinks, unmanaged output collisions, missing
-legacy baselines and independently changed identities before force-refresh.
-Codex, Claude and upstream generic fixtures pass; byte-identical regeneration and payload/
-runtime edit protection proved from the packed package. Generic commands stay outside
-native Skill discovery; one Entif parent routes only the selected canonical file.
-This proves artifact routing, not native lazy child discovery or model compliance.
-No AGPL donor code copied; no bespoke long-tail runtime adapter. Final local sync:check,
-release plan:check, verify:full (all lint/typecheck/test/build lanes), packed bundle e2e
-and aggregate merge admission pass under Node 24.14.1. Next: hosted CI at this checkpoint
-and PR/issue closeout. No merge or release publication.
-Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
-no lease is claimed. Preserve the inherited editorial log below as unrelated history.
+Publication posture: public development-substrate contracts and evidence only.
+Owner: one mutable writer in `codex/roadmap-s2-axi-specops`. No delegated work.
 
-# ETR-2026-07 editorial series — #1603
+## Preflight
 
-## User-review correction: experience incomplete
+- 2026-10-03: fetched origin/main at b02ae4675e6f1d703d565e962356fe81b9d2ebb4.
+- PR #1600 merged at 2026-10-03T20:24:32Z by squash. Its tree is identical to S1 tip 064c67015ad0f77ec9e06eb4b38f4f5b2a19fbca (empty git diff).
+- Current #1711–#1721 bodies/comments inspected; all open, no comments. #1711 is downstream and excluded.
+- Public boundary/authority-closure doctrines and bridge inspected. Public issue contracts govern this tooling migration; no semantic/Core/schema change is intended. Protected routing/optimization policy is excluded.
+- Original editorial checkout has an unrelated unresolved merge; preserved via an isolated managed worktree.
+- Installed feature-workflow Skill references lease tooling/docs absent from merged main. No invented lease receipt; single-writer Git checkpoints are used.
 
-The user rejected this result as ordinary articles rather than the requested immersive
-editorial experience. Migration, routing, citations, and the shared layout are foundations
-only. The earlier completion/review-ready assessment was wrong. Chapter-specific visual
-storytelling, composition, and meaningful interactive treatments remain unfinished.
+## Migration intent / validation
 
-Do not run further broad browser suites, W3C/WCAG audits, or performance measurements
-until the actual experience is implemented across all issues. Results below are historical
-foundation checks, not completion evidence. Do not repeat them during implementation.
-Add only necessary novel-logic tests under the user's original constraints.
+Readers: Nx plugin/config, source catalogs, Spec Kit runtime veneers, coordinator issue ledger.
+Writers: deterministic sync generators, explicit coordinator mutation, local managed installers.
+Forward: pin AXI; prove quota/GitHub/npm; inventory S1; add SpecOps seam; prove plans/drift/context/distribution; integrated admission.
+Rollback: retain S1 payloads and Git history through successor proof; revert reviewed commits to restore S1. No ledger/data deletion or release.
+Compatibility: existing Spec Kit consumers remain supported during expansion; new SpecOps consumers own local semantic authority.
+Proof: red/green focused behavior fixtures, retained identity/baseline/convergence tests, external-consumer upgrade E2E, Nx sync/release/admission/affected/full gates and hosted CI.
 
-Next: develop concrete chapter treatments from the already retrieved sources, implement
-a representative immersive chapter, then carry the approach through the other chapters.
-Preserve authored prose and qualifications. Keep the goal open; no review-ready claim.
+## Completion
 
-Branch: `codex/1603_ETR-2026-07`. Children: #1604–#1620.
+#1712–#1721 implementation and integrated acceptance are complete at the distribution source checkpoint 47e4c28f7dcd0383c5b5d5592db38473cc590902. Final closeout metadata is being checkpointed; current-head hosted verification precedes issue closure/ready state.
 
-## Contract and authority
+Proof: 16 AXI/SpecOps Node fixtures; 35 Nx behavior, 4 catalog and 15 semantic fixtures; full verification (27 test projects, 19 build projects), frozen install, sync/check, release plan, affected implementation admission and 10-group packed consumer E2E. Hosted admission and site verify passed on the source checkpoint. Run/distribution/convergence/byte evidence is in tools/specops/evidence.
 
-Implement the public website experience specified by these issues in `apps/entif-site`.
-User instructions narrow tests to necessary novel logic, using semantic data-test-id
-selectors; defer W3C/WCAG/performance validation until all implementation is complete.
-Experience CSS stays in its own directory. Public website design/README and repository
-publication-boundary/authority-closure rules apply. No protected bridge edge applies
-to website presentation. No protocol semantics change.
+Bounded read-only efficient_reviewer (gpt-5.6-sol/high) found staged-acquisition and dead-lock recovery gaps; red/green repairs and re-review passed. No mutable delegation. Integration also repaired pnpm symlink CLI execution, no-origin context, explicit preservation of legacy prose and source-loader test portability. Prior premature #1720 comment was corrected, not left as false evidence.
 
-Repository has no `docs/workflows/agentic-development`, lease tool, or existing feature
-log on this branch or current main. No lease is claimed. Remote feature branch was
-absent at start. Current main merged without discarding the prior branch commit.
+## Handoff
 
-## Design and invariants
-
-- Extend existing publication metadata with explicit series ID/order; derive navigation
-  and paths from validated entries. Preserve unrelated publication routes/rendering.
-- Dedicated full-width editorial shell retains shared header/footer and comfortable
-  prose measure. Numbered sticky desktop navigation; previous/next mobile links.
-- Build-time citation transformation consumes one CSV registry. Source IDs remain
-  stable; unknown IDs stop the build. Native links work without JavaScript; progressively
-  enhanced popovers support pointer, keyboard, touch, Escape and outside dismissal.
-- All chapter prose retained. All 12 retained additions already occur verbatim in their
-  section files: include once. No canonical manuscript, package crawl, or packaged graphics.
-- Use authored prose/section breaks for typographic editorial beats; no invented data.
-- Static content remains complete in reduced motion and print. No SPA or new runtime.
-- Budget: series-specific client JS <= 8 KiB gzip; no new media or web fonts.
-
-## Work and proof
-
-Source acquisition: 16 sections, 12 additions, one registry retrieved by exact issue URLs.
-Source snapshots currently in local `/tmp/etr-1603`; migrate selected content with
-hashes and addition-inclusion evidence into website-owned content.
-
-Implementation: all 17 routes, dedicated shell/styles, shared citation transformation,
-native no-JS reference links, enhanced popovers, reference appendix, and index routing.
-Migration provenance is in `content/editorial/accelerating-the-dystopia/migration.json`.
-All 95 registry rows retain every field. Formatting only normalizes whitespace and
-equivalent emphasis delimiters (chapter 5); no prose changes.
-
-Checkpoint proof (2026-09-17):
-- Four novel unit tests: red on missing implementation, then green.
-- Two citation browser tests: red on absent enhancement, then green; caught and fixed
-  focus-transfer dismissal before reference-link navigation.
-- Site build/typecheck/lint/format and 21 unit tests passed.
-- Full browser suite: 214 passed, including all generated page axe audits.
-- HTML/local-link/fragment gate: passed across 194 generated pages after fixing the
-  validator's repeated JSDOM allocation (cache fragment IDs, close DOM windows).
-- All 17 series pages at 320/390/768/1024/1366/1536px: no horizontal overflow.
-- Enlarged text with WCAG spacing exposed 1–4px overflow in two-digit mobile navigation;
-  changed its minimum inline target to 44 CSS px. Final recheck pending.
-- Print hides chapter navigation and retains source links; reduced motion has no animations.
-- Lighthouse opening/references, mobile/desktop: 100 in all four categories.
-- Series-specific inline client module: 1,870 bytes, 818 bytes gzip (8 KiB budget).
-
-Source files were retrieved by exact URLs only; no source folders were enumerated.
-The inherited unrelated planner-skill commit remains on its original branch; an ordinary
-revert excludes that diff from this feature branch without rewriting history.
-
-The former validation/PR closeout step is superseded by the correction above.
-Lease tooling remains unavailable.
-
-## Chapter 1 experience checkpoint
-
-Five authored narrative scenes added: original optimizer schematic; separate economic
-measures; native customer-service objective switch; native productivity-bargain switch;
-personal time ledger. Prose is unchanged; explicit scene comments set placement.
-CSS is split into scene primitives and a chapter-only stylesheet. Direct browser visual
-inspection and the role-consolidation interaction were checked. One new loader-path
-boundary test ran red/green. No broad browser, a11y, HTML or performance suites run.
-Next: differentiated treatments for chapters 2–16 and reference exploration.
-
-## Accessibility closeout checkpoint
-
-User-authorized branch-wide WCAG validation superseded the earlier instruction in this
-log to defer broad accessibility/browser checks. The final implementation pass found a
-route-layout regression on the short `/articles/<slug>/` aliases for editorial-series
-chapters: those URLs rendered through the generic `PublishedEntry` layout instead of the
-series layout, dropping chapter-specific visual CSS. Axe exposed the mismatch as WCAG
-2.2 SC 2.5.8 target-size failures in chapters 02 and 04. Short series routes now render
-through the same `EditorialSeriesLayout` as canonical series URLs; non-series essays keep
-their existing `PublishedEntry` path. A browser regression test verifies the short routes
-retain the editorial treatment. Playwright is also configured not to reuse an unrelated
-preview server on its fixed test port after a stale preview from another worktree produced
-false local failures.
-
-Validation (2026-09-18):
-- `entif-site:verify`: pass; 21 unit tests pass; generated HTML, duplicate IDs, local links,
-  assets, and fragments pass across 217 HTML pages.
-- Playwright: 237/237 pass, including all generated-page axe WCAG 2.0/2.1/2.2 A/AA plus
-  best-practice audits, reflow, 200% text plus WCAG spacing, keyboard/native disclosure,
-  reduced motion, touch behavior, and the short-route editorial regression.
-- `test-results/.last-run.json`: `passed`, no failed tests.
-- Lighthouse configured page/device runs: accessibility, best practices, and SEO all 100;
-  report performance 99–100, homepage desktop 100, homepage mobile 91 in this lab run.
-- `git diff --check`: pass.
-
-PR #1621's pre-fix Entif site CI failure was reproduced locally and matched the two
-short-route SC 2.5.8 failures above. No merge or PR closeout performed.
-
-#1700 complete: generated specification catalog / Pack Map, versioned schema, source digests and graph integrity; same Nx sync plugin and admission. Focused tests/lint/typecheck/build and real sync drift rejection pass. Live Sheet/Neo4j transport deferred as optional projections.
+Next separate experiment is #1711; migration prerequisites are cleared and it was not executed. Wait for final closeout-head hosted checks, then close completed children/epic and mark PR ready. Human owns merge/release/publication. No ledger or legacy payload deletion. Original editorial merge checkout remains preserved.

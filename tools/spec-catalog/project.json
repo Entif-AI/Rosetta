@@ -15,7 +15,9 @@
         "{workspaceRoot}/pnpm-lock.yaml",
         "{workspaceRoot}/package.json",
         "{workspaceRoot}/nx.json",
-        "{workspaceRoot}/.prettierrc"
+        "{workspaceRoot}/.prettierrc",
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*"
       ],
       "outputs": [],
       "options": {
@@ -36,7 +38,9 @@
         "{workspaceRoot}/package.json",
         "{workspaceRoot}/nx.json",
         "{workspaceRoot}/vitest.config.ts",
-        "{workspaceRoot}/.prettierrc"
+        "{workspaceRoot}/.prettierrc",
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*"
       ],
       "outputs": [],
       "options": {

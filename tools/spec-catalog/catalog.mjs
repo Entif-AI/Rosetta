@@ -6,6 +6,7 @@ import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import prettier from 'prettier';
 import { buildRegistry, validateRegistry, sourcePath } from '../docid-registry/registry.mjs';
+import { buildSubstrateCatalog } from '../../packages/nx-governance/specops/catalog.mjs';
 import { loadSchemas } from '../semantic-governance/load-schemas.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
@@ -15,7 +16,7 @@ const schema = JSON.parse(await readFile(new URL('./catalog.schema.json', import
 const validate = new Ajv({ allErrors: true }).compile(schema);
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
-export const outputPaths = ['docs/governance/ROSETTA_SPEC_CATALOG.json', 'docs/governance/ROSETTA_SPEC_CATALOG.md', 'docs/governance/ROSETTA_PACK_MAP.csv'];
+export const outputPaths = ['docs/governance/ROSETTA_SPEC_CATALOG.json', 'docs/governance/ROSETTA_SPEC_CATALOG.md', 'docs/governance/ROSETTA_PACK_MAP.csv', 'docs/governance/ROSETTA_SUBSTRATE_CATALOG.json'];
 
 export async function buildCatalog(options = {}) {
   const base = options.root ?? root;
@@ -119,6 +120,7 @@ export async function generateProjections(options = {}) {
   const outputs = { [outputPaths[0]]: json(catalog),
     [outputPaths[1]]: `# Generated Rosetta specification catalog\n\nProjection only. Regenerate with \`pnpm exec nx sync\`; validate with \`pnpm exec nx sync:check\`.\n\n${catalog.documents.length} suite documents, ${catalog.packs.length} checked-in Packs, ${catalog.schemas.length} schema contracts.\n\n${catalog.packMap.rows.map((row) => `- ${row.identity}: [${row.family}](../../${row.sourceRef.replaceAll(' ', '%20')}) (${row.maturity})`).join('\n')}\n\n[Machine catalog](ROSETTA_SPEC_CATALOG.json) · [Pack Map CSV](ROSETTA_PACK_MAP.csv). Human planning fields join by identity in a separate overlay. Missing companion documents remain declared-only. Issue owners are projected only where sources declare them. Semantic relationships stay outside the Nx execution graph.\n`,
     [outputPaths[2]]: `${fields.join(',')}\n${catalog.packMap.rows.map((row) => fields.map((field) => quote(row[field])).join(',')).join('\n')}\n` };
+  outputs[outputPaths[3]] = json(await buildSubstrateCatalog(options.root ?? root, options));
   // Nx formats synchronized JSON/Markdown. Produce the same bytes in direct checks.
   const format = await prettier.resolveConfig(options.root ?? root);
   return Object.fromEntries(await Promise.all(Object.entries(outputs).map(async ([file, bytes]) => [file, file.endsWith('.csv') ? bytes : await prettier.format(bytes, { ...format, filepath: file })])));
