@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://entif.ai/packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+  "title": "Salience Evaluation Profile v1",
+  "description": "A Profile over rosetta.evaluation. It represents distinct impact, exigency, and novelty assessments; it does not establish truth, authorization, activation, or execution policy.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assessment",
+    "assessedAt",
+    "evaluationId",
+    "profile",
+    "provenanceRefs",
+    "receiptRefs",
+    "scope",
+    "summary",
+    "validTime",
+    "verdict"
+  ],
+  "properties": {
+    "evaluationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verdict": {
+      "enum": [
+        "deny",
+        "fail",
+        "partial",
+        "pass",
+        "unknown"
+      ]
+    },
+    "assessedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-5][0-9](?:\\.[0-9]+)?(?:[Zz]|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "salience.evaluation.v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scale",
+        "subjectRefs"
+      ],
+      "properties": {
+        "scale": {
+          "enum": [
+            "event",
+            "cluster",
+            "pattern",
+            "trend",
+            "system"
+          ]
+        },
+        "subjectRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "validTime": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "validAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-5][0-9](?:\\.[0-9]+)?(?:[Zz]|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-5][0-9](?:\\.[0-9]+)?(?:[Zz]|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "validTo": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-5][0-9](?:\\.[0-9]+)?(?:[Zz]|[+-][0-9]{2}:[0-9]{2})$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "receiptRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "provenanceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "supersedesRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "impact",
+        "exigency",
+        "novelty"
+      ],
+      "properties": {
+        "impact": {
+          "$ref": "#/$defs/assessment"
+        },
+        "exigency": {
+          "$ref": "#/$defs/assessment"
+        },
+        "novelty": {
+          "$ref": "#/$defs/noveltyAssessment"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representation",
+            "schemaRef",
+            "value"
+          ],
+          "properties": {
+            "representation": {
+              "const": "scalar"
+            },
+            "schemaRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "value": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representation",
+            "schemaRef",
+            "allowedLevels",
+            "level"
+          ],
+          "properties": {
+            "representation": {
+              "const": "ordinal"
+            },
+            "schemaRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "allowedLevels": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "level": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representation",
+            "schemaRef",
+            "valueRef"
+          ],
+          "properties": {
+            "representation": {
+              "const": "reference"
+            },
+            "schemaRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "valueRef": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceRefs",
+        "provenanceRefs",
+        "status",
+        "uncertainty"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "observed",
+            "estimated",
+            "unknown",
+            "unavailable"
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/value"
+        },
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "known",
+                "bounded",
+                "unknown",
+                "unavailable"
+              ]
+            },
+            "assessmentRef": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "evidenceRefs": {
+          "$ref": "#/$defs/refs"
+        },
+        "provenanceRefs": {
+          "$ref": "#/$defs/refs"
+        },
+        "baselineRefs": {
+          "$ref": "#/$defs/refs"
+        },
+        "phenomenonRefs": {
+          "$ref": "#/$defs/refs"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "unknown",
+                  "unavailable"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "noveltyAssessment": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/assessment"
+        },
+        {
+          "required": [
+            "baselineRefs",
+            "phenomenonRefs"
+          ],
+          "properties": {
+            "baselineRefs": {
+              "$ref": "#/$defs/refs"
+            },
+            "phenomenonRefs": {
+              "$ref": "#/$defs/refs"
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "observed",
+                  "estimated"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "baselineRefs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

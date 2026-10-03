@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@entif-ai/ingress-refinery": "workspace:*",
+    "@entif-ai/rosetta-canon": "workspace:*",
     "@entif-ai/rosetta-core": "workspace:*",
     "@entif-ai/rosetta-receipts": "workspace:*",
     "@entif-ai/source-substrate": "workspace:*",

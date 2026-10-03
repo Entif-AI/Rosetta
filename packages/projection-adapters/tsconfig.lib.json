@@ -7,10 +7,17 @@
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "emitDeclarationOnly": false,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ],
   "references": [
     {
       "path": "../source-substrate/tsconfig.lib.json"
@@ -23,6 +30,9 @@
     },
     {
       "path": "../ingress-refinery/tsconfig.lib.json"
+    },
+    {
+      "path": "../rosetta-canon/tsconfig.lib.json"
     }
   ]
 }

@@ -1,119 +1,165 @@
-# ETR-2026-07 editorial series — #1603
+# Akasha early-wave implementation
 
-## User-review correction: experience incomplete
+Branch: `codex/akasha-early-wave`. Base: `origin/main` at `48bbd83`.
 
-The user rejected this result as ordinary articles rather than the requested immersive
-editorial experience. Migration, routing, citations, and the shared layout are foundations
-only. The earlier completion/review-ready assessment was wrong. Chapter-specific visual
-storytelling, composition, and meaningful interactive treatments remain unfinished.
+## Mission and authority
 
-Do not run further broad browser suites, W3C/WCAG audits, or performance measurements
-until the actual experience is implemented across all issues. Results below are historical
-foundation checks, not completion evidence. Do not repeat them during implementation.
-Add only necessary novel-logic tests under the user's original constraints.
+Implement ready public Rosetta leaves from the Akasha roadmap on one review branch.
+The live GitHub issues are the acceptance contracts. The supplied roadmap is
+sequencing evidence, not authority to change Core semantics or publish private
+operational material. Publication posture: public contracts, synthetic fixtures,
+reference transformations and conformance evidence only.
 
-Next: develop concrete chapter treatments from the already retrieved sources, implement
-a representative immersive chapter, then carry the approach through the other chapters.
-Preserve authored prose and qualifications. Keep the goal open; no review-ready claim.
+Read the public/private boundary and authority-closure doctrines, Core Spine,
+applicable package contracts and live issues before implementation. Protected
+authority was resolved separately; no protected mechanisms belong in this log.
+No new Core kind, live/private capture, model call, or execution permission is
+needed for the initial fixture lane.
 
-Branch: `codex/1603_ETR-2026-07`. Children: #1604–#1620.
+## Ordered scope and proof
 
-## Contract and authority
+1. #1693 / #528: repair shared JCS serialization. Red integer-key regression,
+   then RFC 8785 ordering, Unicode, numeric and escaping vectors; repeatable
+   canonical bytes and existing consumers remain green.
+2. #1665: rights-safe synthetic source bytes, immutable manifest, existing
+   `source.*` artifact identities, explicit capture/source/recording times and
+   unknown metadata. Offline digest and tamper checks before normalization.
+3. #1666, after #1665 and #1693: bounded model-free structural normalization
+   in ingress-refinery. Hoisted invariants, exact payload references, explicit
+   snapshot deltas, supplied relationships, source lineage and loss report.
+   Golden bytes, repeated-run equality, reconstruction and malformed-input proof.
+4. Evaluate the next ready leaf after these gates. #1688 donor audit must pass
+   before donor-derived browser/control implementation. Graph work requires the
+   source and normalization gates plus an actual graph-backed acceptance proof.
 
-Implement the public website experience specified by these issues in `apps/entif-site`.
-User instructions narrow tests to necessary novel logic, using semantic data-test-id
-selectors; defer W3C/WCAG/performance validation until all implementation is complete.
-Experience CSS stays in its own directory. Public website design/README and repository
-publication-boundary/authority-closure rules apply. No protected bridge edge applies
-to website presentation. No protocol semantics change.
+## Invariants
 
-Repository has no `docs/workflows/agentic-development`, lease tool, or existing feature
-log on this branch or current main. No lease is claimed. Remote feature branch was
-absent at start. Current main merged without discarding the prior branch commit.
+- Source bytes remain independently available and authoritative as evidence.
+- Derived interpretation never replaces source evidence or creates witnesses.
+- Source sequence and separate time roles never imply causal relations.
+- Public fixtures contain authored synthetic data, no private captured payload.
+- Reuse rosetta-canon, source-substrate and ingress-refinery ownership.
+- Existing text normalization stays separate from JSON canonicalization.
+- No force push; preserve both histories if remote state changes.
 
-## Design and invariants
+## Operating state
 
-- Extend existing publication metadata with explicit series ID/order; derive navigation
-  and paths from validated entries. Preserve unrelated publication routes/rendering.
-- Dedicated full-width editorial shell retains shared header/footer and comfortable
-  prose measure. Numbered sticky desktop navigation; previous/next mobile links.
-- Build-time citation transformation consumes one CSV registry. Source IDs remain
-  stable; unknown IDs stop the build. Native links work without JavaScript; progressively
-  enhanced popovers support pointer, keyboard, touch, Escape and outside dismissal.
-- All chapter prose retained. All 12 retained additions already occur verbatim in their
-  section files: include once. No canonical manuscript, package crawl, or packaged graphics.
-- Use authored prose/section breaks for typographic editorial beats; no invented data.
-- Static content remains complete in reduced motion and print. No SPA or new runtime.
-- Budget: series-specific client JS <= 8 KiB gzip; no new media or web fonts.
+#1665 complete for review: nine authored synthetic events and four full object
+snapshots retain exact source bytes separately from capture/episode metadata.
+The manifest pins 5,779 bytes and SHA-256
+`60e556bb5144659a6f2453e67a68a7d52193d6da41c3f18c010dc672e41c86f1`.
+Five existing source artifact kinds are linked by deterministic CIDs. Unknown
+client/parser/model metadata remains explicit. Source/capture/observed/recorded
+time roles remain separate; envelopes use the declared fixture recorded time.
+Byte corruption, metadata drift and artifact-identity drift fail verification.
+Owner suite: 7 tests pass; source-substrate build passes. No normalization,
+semantic interpretation or live capture occurs in this source implementation.
 
-## Work and proof
+#1693 complete for review: integer keys now serialize directly in UTF-16 lexical
+order; RFC sorting/escaping/numeric vectors and invalid-Unicode rejection pass.
+Red integer-order regression captured before repair. Focused suite: 16 tests;
+owner typecheck passes. Existing core/CID/source/refinery/cache consumer cases
+passed after building their workspace dependencies. Corrected integer-key bytes
+change their historical hashes; invalid Unicode now fails before hashing.
 
-Source acquisition: 16 sections, 12 additions, one registry retrieved by exact issue URLs.
-Source snapshots currently in local `/tmp/etr-1603`; migrate selected content with
-hashes and addition-inclusion evidence into website-owned content.
+Initial authority preflight complete for #1693 and #1665. Clean isolated worktree;
+unrelated editorial changes remain in their original checkouts. Dependencies use
+the repository's Node 24.14.1 and frozen pnpm lockfile.
 
-Implementation: all 17 routes, dedicated shell/styles, shared citation transformation,
-native no-JS reference links, enhanced popovers, reference appendix, and index routing.
-Migration provenance is in `content/editorial/accelerating-the-dystopia/migration.json`.
-All 95 registry rows retain every field. Formatting only normalizes whitespace and
-equivalent emphasis delimiters (chapter 5); no prose changes.
+The installed workflow skill references feature-lease tooling that is absent
+from this repository. No automated lease acquisition/validation is claimed.
+Recovery uses this bounded log, ordinary commits, remote-head verification and
+retained validation logs. Private session material stays outside the public tree.
 
-Checkpoint proof (2026-09-17):
-- Four novel unit tests: red on missing implementation, then green.
-- Two citation browser tests: red on absent enhancement, then green; caught and fixed
-  focus-transfer dismissal before reference-link navigation.
-- Site build/typecheck/lint/format and 21 unit tests passed.
-- Full browser suite: 214 passed, including all generated page axe audits.
-- HTML/local-link/fragment gate: passed across 194 generated pages after fixing the
-  validator's repeated JSDOM allocation (cache fragment IDs, close DOM windows).
-- All 17 series pages at 320/390/768/1024/1366/1536px: no horizontal overflow.
-- Enlarged text with WCAG spacing exposed 1–4px overflow in two-digit mobile navigation;
-  changed its minimum inline target to 44 CSS px. Final recheck pending.
-- Print hides chapter navigation and retains source links; reduced motion has no animations.
-- Lighthouse opening/references, mobile/desktop: 100 in all four categories.
-- Series-specific inline client module: 1,870 bytes, 818 bytes gzip (8 KiB budget).
+Additional public frontier: #1694 salience Profile is independent and underway
+after #1670/#1558/#1567/#807 and its protected boundary were resolved. Preserve
+existing Core Evaluation verdict semantics; public assessments never grant truth
+or execution authority. #1695 is the next independent Profile candidate.
 
-Source files were retrieved by exact URLs only; no source folders were enumerated.
-The inherited unrelated planner-skill commit remains on its original branch; an ordinary
-revert excludes that diff from this feature branch without rewriting history.
+Known baseline limitation: the workspace bootstrap test references
+`docs/governance/DONOR_FIT_MAP.md` and `docs/backlog/BOOTSTRAP_EXECUTION_TRACK.md`,
+both absent at base `48bbd83`. Its failure predates this change. Initial direct
+consumer tests also needed workspace dependency builds before package exports
+could resolve; the targeted build completed successfully.
 
-The former validation/PR closeout step is superseded by the correction above.
-Lease tooling remains unavailable.
+Donor boundary: the located extension declares 2.0.9, not the required verified
+CoS 2.1.22 source snapshot. #1688 and dependent donor work are not claimed complete.
 
-## Chapter 1 experience checkpoint
+## Current recovery state
 
-Five authored narrative scenes added: original optimizer schematic; separate economic
-measures; native customer-service objective switch; native productivity-bargain switch;
-personal time ledger. Prose is unchanged; explicit scene comments set placement.
-CSS is split into scene primitives and a chapter-only stylesheet. Direct browser visual
-inspection and the role-consolidation interaction were checked. One new loader-path
-boundary test ran red/green. No broad browser, a11y, HTML or performance suites run.
-Next: differentiated treatments for chapters 2–16 and reference exploration.
+Fetched origin/main on 2026-10-03; no new commits beyond base 48bbd83.
+#1666 normalization now preserves duplicate occurrence order, isolates scope
+transitions, keeps malformed snapshots opaque, checks blob bytes on reconstruction,
+and bounds source/line/record sizes. Golden canonical digest pinned in owner tests.
+Owner tests: 26 passed; owner build passed (dependencies cached where valid).
+Committed/pushed in f501701; PR review comment posted.
+#1694 ready for review: 55 focused schema/Profile tests, package build, Pack
+conformance and authority checks pass. Nested fields, finite values, time formats,
+Core verdicts and explicit Novelty baselines are checked. Nine public vectors
+include preserved low leaves/aggregate, prior/reassessment, and interoperable
+outputs. Rich values reference their declared schema. Cross-field level membership,
+ordered intervals and self-supersession checks are documented separately from
+portable JSON Schema structural validation. #1695 implemented: public Counterfactual Evaluation Profile, schema, catalog/
+descent/router integration and nine synthetic conformance vectors.
 
-## Accessibility closeout checkpoint
+## Next safe step
 
-User-authorized branch-wide WCAG validation superseded the earlier instruction in this
-log to defer broad accessibility/browser checks. The final implementation pass found a
-route-layout regression on the short `/articles/<slug>/` aliases for editorial-series
-chapters: those URLs rendered through the generic `PublishedEntry` layout instead of the
-series layout, dropping chapter-specific visual CSS. Axe exposed the mismatch as WCAG
-2.2 SC 2.5.8 target-size failures in chapters 02 and 04. Short series routes now render
-through the same `EditorialSeriesLayout` as canonical series URLs; non-series essays keep
-their existing `PublishedEntry` path. A browser regression test verifies the short routes
-retain the editorial treatment. Playwright is also configured not to reuse an unrelated
-preview server on its fixed test port after a stale preview from another worktree produced
-false local failures.
+#1694 pushed in ba497ec with review comment. #1695 pushed in 51a1571 with review comment; focused suite 62 passed, package
+build, Pack conformance and authority checks pass. #1667 pushed in 212484a with
+review comment. #1669 pushed in 83fe5b7 and review comment posted. Remaining early gates: #1668
+requires a pinned Graphiti/provider fixture path; #1688 still requires exact
+CoS 2.1.22 source before donor-derived headless extraction. Graph proof follows verified
+normalization; Neo4j development image is available, no production graph claim.
 
-Validation (2026-09-18):
-- `entif-site:verify`: pass; 21 unit tests pass; generated HTML, duplicate IDs, local links,
-  assets, and fragments pass across 217 HTML pages.
-- Playwright: 237/237 pass, including all generated-page axe WCAG 2.0/2.1/2.2 A/AA plus
-  best-practice audits, reflow, 200% text plus WCAG spacing, keyboard/native disclosure,
-  reduced motion, touch behavior, and the short-route editorial regression.
-- `test-results/.last-run.json`: `passed`, no failed tests.
-- Lighthouse configured page/device runs: accessibility, best practices, and SEO all 100;
-  report performance 99–100, homepage desktop 100, homepage mobile 91 in this lab run.
-- `git diff --check`: pass.
+Semantic-governance limitation confirmed on 2026-10-03: four historical PRD/RFC
+paths referenced by the check are absent at base 48bbd83. The full failure log is
+retained locally; authority-closure and Pack checks pass. No authority replacements
+were synthesized. #1695 red tests confirmed missing implementation, then stub
+behavior failure; implementation now passes final focused tests/build.
 
-PR #1621's pre-fix Entif site CI failure was reproduced locally and matched the two
-short-route SC 2.5.8 failures above. No merge or PR closeout performed.
+#1667 committed/pushed in 212484a: fixture-only native HTTP
+Neo4j projection, scoped stable node/edge identities, source/normalizer provenance,
+explicit source relations and derived snapshot lifecycle. Real database tests passed
+import/reimport/rebuild, full identity/property closure equality, bounded neighborhood
+and foreign-edge rollback. Graph contains 37 nodes; exact counts/version/queries in
+tools/trace-graph/golden-proof.json. Owner build and affected normalization tests
+passed after typing the existing normalization receipt payload explicitly.
+
+#1669 ready for review: deterministic client-visible morphology report with exact
+byte accounting, snapshot/window counts, scoped object motion and repeated canonical
+signatures. One shrink candidate: snapshot 2 -> 3, occurrences 4 -> 1 and unique IDs
+3 -> 1. Tool-shaped value disappears then returns; context survives three transitions.
+Real bounded Cypher proves pre/post neighborhoods. Affected slice: 22 tests passed,
+including real Neo4j; owner build passes. Golden report digest pinned in tests.
+Canonical view/source-tile verification now lives in ingress-refinery and is reused
+by graph and analytics; a red source-payload-drift test caught the missing guard.
+No model-internal or causal claim is made by the report.
+
+Remaining gate audit, 2026-10-03: graphiti_core is absent from the host Python,
+no configured model credential variable is present in this process, and the local
+Ollama service reports zero installed models. #1668 is not implemented or passed;
+it needs upstream pinning plus a bounded extraction/provider compatibility proof.
+The deterministic source/normalization/graph/kinematics lane remains model-free.
+The exact CoS 2.1.22 source gate remains unproven (located donor declares 2.0.9).
+No browser/live/voice/control proving or parent-program completion is claimed.
+
+#1669 pushed in 83fe5b7 with review comment. Final Profile review caught a reversed
+nanosecond-precision interval accepted after JavaScript millisecond rounding. Red
+regression captured; comparison now preserves full fraction precision. Both v1
+Profiles explicitly exclude leap-second instants, consistently in schema and TS,
+without changing preserved source trace timestamps. Red regressions now pass; 62 focused Profile/schema tests, both owner builds,
+Pack conformance and ingress-refinery owner suite (27 tests) pass.
+
+## Branch-stable handoff
+
+Review checkpoints are pushed for #1693, #1665, #1666, #1694, #1695, #1667 and #1669.
+No issue or parent program was closed. Latest main fetch/merge reports already up
+to date at base 48bbd83. PR #1697 carries the cumulative implementation and per-issue
+review comments. Hosted verify passed for the final implementation commit ed015c9:
+https://github.com/Entif-AI/Rosetta/actions/runs/37099031213/job/111134742700.
+This recovery-log checkpoint changes no implementation bytes. Source/normalization/graph/kinematics proof remains
+model-free; the owned ephemeral development database was removed after proof, without
+source loss. Its image and reproducible setup remain available.
+Next safe implementation: pin #1668 Graphiti and establish a bounded provider/model
+fixture path, or resolve the exact donor-source gate for #1688. Existing baseline
+historical-document failures remain separate from focused acceptance evidence.

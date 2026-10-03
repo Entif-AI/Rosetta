@@ -132,6 +132,22 @@ Before adding a schema family:
 
 Do not place a schema in the `rosetta.*` namespace merely because the package owns its validator.
 
+## Evaluation Profiles
+
+`salience.evaluation.v1` is a Pack-defined Profile over existing `rosetta.evaluation`; it does not add a Core kind. It keeps Impact, Exigency, and Novelty distinct, attaches scope, time, evidence, receipt, provenance, and supersession references, and permits inline scalar/ordinal values or references to richer schema-declared values (including intervals, vectors, distributions, and categories). Profile validation rejects truth, execution, activation, and authorization fields. Its shared evaluation scope, valid time, receipt references, and provenance apply to each assessment while dimension-specific evidence/provenance references supplement them. See `packs/schema-pack-evaluation-profiles/`.
+
+`counterfactual.evaluation.v1` composes historical decision/StrategyEpisode,
+experiment, replay/run/tape, budget, comparator/verifier, observation and receipt
+references. It preserves the declared historical input frontier and distinguishes
+comparison disposition from Core verdicts. Quality, exception and each resource
+measurement remain separately referenceable; empty measurement arrays mean absent
+measurements, never zero cost or proved equivalence. Comparable dispositions need
+replay, comparator, verifier and quality evidence. Unknown/non-replayable history
+remains expressible. Sandbox mode requires a sandbox reference; performed live
+effects and production-activation fields fail conformance. Actual isolation,
+evidence resolution/authentication and historical frontier completeness remain
+runtime/authority responsibilities. See the public Pack conformance notes.
+
 ## Fixture Status
 
 - executable

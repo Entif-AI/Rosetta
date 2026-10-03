@@ -12,6 +12,7 @@ const CORE = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md';
 const AUDIT = 'docs/governance/genesis/SEMANTIC_AUDIT.md';
 const SOURCE = 'packages/source-substrate/README.md';
 const SOURCE_SCHEMA = 'packs/stdpack-source-substrate/schema/source-substrate.schema.json';
+const SALIENCE_SCHEMA = 'packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json';
 
 export const IMPLEMENTED_CORE_PRIMITIVES = ['rosetta.run', 'rosetta.action', 'rosetta.toolcall', 'rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt', 'rosetta.tapestry'] as const;
 
@@ -56,7 +57,9 @@ const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
   'entif.guard.decision-request.ref': metadata('external-contract-ref', AUDIT),
   'entif.mailroom.consumer-boundary.ref': metadata('external-contract-ref', AUDIT),
   'rosetta.conformance_bundle': metadata('derived-projection', AUDIT, ['rosetta.evaluation']),
-  'rosetta.shacl_shapes': metadata('implementation-local', AUDIT)
+  'rosetta.shacl_shapes': metadata('implementation-local', AUDIT),
+  'counterfactual.evaluation.v1': metadata('pack-defined-schema', 'packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json', ['rosetta.evaluation']),
+  'salience.evaluation.v1': metadata('pack-defined-schema', SALIENCE_SCHEMA, ['rosetta.evaluation'])
 };
 
 export function getCoreDescent(schemaId: string, registeredMessageProfileIds: readonly string[]): CoreDescentMetadata | undefined {
