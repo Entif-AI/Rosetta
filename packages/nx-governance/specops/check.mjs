@@ -1,8 +1,7 @@
+import { isMain } from './entrypoint.mjs';
+import { loadGovernance } from './configuration.mjs';
 import process from 'node:process';
 import console from 'node:console';
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { checkDesiredState, verifyPlanHistory } from './drift.mjs';
 export function check(root, config, base) {
   return {
@@ -10,7 +9,7 @@ export function check(root, config, base) {
     history: base ? verifyPlanHistory(root, base) : null,
   };
 }
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? '')) {
+if (isMain(import.meta.url)) {
   try {
     const args = process.argv.slice(2);
     let base;
@@ -20,9 +19,7 @@ if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? '')) {
       base = args[1];
     }
     const root = process.cwd();
-    const config = JSON.parse(
-      readFileSync('tools/semantic-governance/governance.config.json')
-    );
+    const config = loadGovernance(root);
     console.log(JSON.stringify(check(root, config, base)));
   } catch (error) {
     console.log(`error: ${JSON.stringify(error.message)}`);

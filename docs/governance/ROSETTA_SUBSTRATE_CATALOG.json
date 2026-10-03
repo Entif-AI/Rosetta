@@ -107,13 +107,13 @@
       "id": "entif:specops-dist",
       "kind": "plan",
       "title": "specops-dist",
-      "status": "in-progress",
+      "status": "done",
       "task": "T1721",
       "issues": [1721],
-      "pr": null,
+      "pr": 1723,
       "source": {
         "path": "plans/specops-dist.md",
-        "sha256": "34a96adc4ccae17b078b16009938a124b232bebe5735dc63c324c2e4ed97a6a7"
+        "sha256": "221ffd0f993f96a3a8f6b4cb78fe867afea2a6fbcc8ad836413995b373f1395e"
       }
     },
     {
@@ -133,13 +133,13 @@
       "id": "entif:specops-integrated",
       "kind": "plan",
       "title": "specops-integrated",
-      "status": "planned",
+      "status": "in-progress",
       "task": "T1716",
       "issues": [1716],
       "pr": null,
       "source": {
         "path": "plans/specops-integrated.md",
-        "sha256": "8b064b6df7ceb0da9f95fc0cf02d4df3c1546dac80be8c7b41015ba1226502bf"
+        "sha256": "97d22239361e365e4255e149a88df0bd617885faf844c96eb35fadbdc8f83c49"
       }
     },
     {

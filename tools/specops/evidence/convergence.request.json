@@ -8,33 +8,33 @@
       "authorityRef": {
         "path": "specs/principles.md",
         "start": 1,
-        "end": 27
+        "end": 26
       },
       "verificationRefs": [
         {
           "path": "packages/nx-governance/specops/drift.spec.mjs",
           "start": 1,
-          "end": 87
+          "end": 86
         },
         {
           "path": "packages/nx-governance/specops/drift.mjs",
           "start": 1,
-          "end": 153
+          "end": 152
         },
         {
           "path": "packages/nx-governance/specops/check.mjs",
           "start": 1,
-          "end": 32
+          "end": 28
         },
         {
           "path": "packages/nx-governance/src/baseline.spec.ts",
           "start": 1,
-          "end": 57
+          "end": 56
         },
         {
           "path": "packages/nx-governance/src/convergence.spec.ts",
           "start": 1,
-          "end": 67
+          "end": 66
         }
       ]
     },
@@ -43,28 +43,88 @@
       "authorityRef": {
         "path": "specs/architecture.md",
         "start": 1,
-        "end": 39
+        "end": 38
       },
       "verificationRefs": [
         {
           "path": "packages/nx-governance/specops/plans.spec.mjs",
           "start": 1,
-          "end": 82
+          "end": 81
         },
         {
           "path": "packages/nx-governance/specops/plans.mjs",
           "start": 1,
-          "end": 175
+          "end": 181
         },
         {
           "path": "packages/nx-governance/specops/cli.mjs",
           "start": 1,
-          "end": 69
+          "end": 71
         },
         {
           "path": "packages/nx-governance/src/specops-migration.spec.ts",
           "start": 1,
-          "end": 46
+          "end": 45
+        }
+      ]
+    },
+    {
+      "key": "context-and-safe-consumer-distribution",
+      "authorityRef": {
+        "path": "specs/architecture.md",
+        "start": 1,
+        "end": 38
+      },
+      "verificationRefs": [
+        {
+          "path": "packages/nx-governance/specops/context.mjs",
+          "start": 1,
+          "end": 264
+        },
+        {
+          "path": "packages/nx-governance/specops/context.spec.mjs",
+          "start": 1,
+          "end": 43
+        },
+        {
+          "path": "packages/nx-governance/specops/install.mjs",
+          "start": 1,
+          "end": 345
+        },
+        {
+          "path": "packages/nx-governance/specops/install.spec.mjs",
+          "start": 1,
+          "end": 155
+        },
+        {
+          "path": "packages/nx-governance/specops/configuration.mjs",
+          "start": 1,
+          "end": 21
+        },
+        {
+          "path": "packages/nx-governance/specops/source.mjs",
+          "start": 1,
+          "end": 47
+        },
+        {
+          "path": "packages/nx-governance/specops/entrypoint.mjs",
+          "start": 1,
+          "end": 9
+        },
+        {
+          "path": "packages/nx-governance/src/installation.ts",
+          "start": 1,
+          "end": 38
+        },
+        {
+          "path": "packages/nx-governance/src/installation.spec.ts",
+          "start": 1,
+          "end": 49
+        },
+        {
+          "path": "tools/dev-bundle/e2e.mjs",
+          "start": 1,
+          "end": 440
         }
       ]
     }

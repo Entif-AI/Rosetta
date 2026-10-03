@@ -26,3 +26,15 @@ Skill is eagerly installed. The bundled upstream CLI is used directly for next/d
 admission; it adds no new semantic authority or executor framework. SpecOps upstream
 has no conventional license declaration at this pin: source is separately acquired,
 not vendored into the public package, and legal cleanup remains explicit (#1716).
+
+## Successor distribution and retirement window
+
+`@entif-ai/nx-governance` now ships the generic plugin/migrations, SpecOps adapter,
+source acquisition, pin/discovery metadata and managed Codex/Claude/generic routes.
+Rosetta's future authority projection and install metadata use `.specops`.
+The existing external-consumer harness proves S1 installation -> SpecOps expansion,
+consumer-owned authority, local edit refusal and separate runtime/repo portability.
+Spec Kit wrappers/preset/extension/workflow are deprecated for future Rosetta work;
+they remain shipped and their conformance remains exercised through this rollback
+window. No historical data, generic evidence or issue ledger is deleted. A later
+explicit contraction can remove deprecated payloads after adoption/rollback review.

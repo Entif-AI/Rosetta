@@ -75,7 +75,9 @@
     "src",
     "!src/**/*.spec.ts",
     "!**/__pycache__/**",
-    "!**/*.pyc"
+    "!**/*.pyc",
+    "specops",
+    "!specops/*.spec.mjs"
   ],
   "executors": "./executors.json",
   "nx-migrations": "./migrations.json",
@@ -83,5 +85,8 @@
   "description": "Source-owned governance checks, admission evidence and specification projections for Nx workspaces.",
   "peerDependencies": {
     "nx": ">=22.6.5 <23"
+  },
+  "bin": {
+    "entif-substrate": "./specops/install.mjs"
   }
 }

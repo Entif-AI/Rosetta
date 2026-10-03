@@ -1,7 +1,7 @@
 ---
 id: entif:specops-integrated
 task: T1716
-status: planned
+status: in-progress
 depends:
   - specops-dist
 awaits: []

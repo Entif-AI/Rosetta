@@ -26,6 +26,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install 'git+https://github.com/github/spec-kit.git@de0cbd762e2d0b30f90d3ffcbe2ee9d7167f4eda'
+      - run: pnpm exec nx build @entif-ai/nx-governance
+      - run: node --test tools/axi/*.spec.mjs packages/nx-governance/specops/*.spec.mjs
+      - run: pnpm exec nx release plan:check --base=origin/main
+      - run: pnpm exec nx run dev-bundle:e2e
       - run: pnpm exec nx sync:check
       - run: pnpm exec nx affected -t spec-admission,test,lint,typecheck,build --base=origin/main --exclude=@entif-ai/source --parallel=3
       - run: pnpm run governance:admission

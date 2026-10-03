@@ -9,7 +9,7 @@ reviewed desired-state/temporal-plan methodology. Generated outputs grant no aut
 ## Reproducible setup
 
 `node tools/axi/setup.mjs axi` checks out the exact upstream commit recorded in
-`upstreams.json` into ignored `.axi/upstreams/axi`. It refuses revision mismatch
+`../../packages/nx-governance/specops/upstreams.json` into ignored `.axi/upstreams/axi`. It refuses revision mismatch
 and local edits. Re-run safely; preserve local edits rather than resetting them.
 The upstream `.agents/skills/axi/SKILL.md` and `principles.yaml` are on-demand design
 references, never an eager installed Skill. The same command takes `quota-axi`,

@@ -1,5 +1,63 @@
 # Entif Nx governance
 
+## SpecOps substrate (future workflow)
+
+Install a local-packed artifact and author your own `governance/governance.config.json`
+using `src/config.schema.json`. No Rosetta sources, external services or authorization
+are inherited. Node 24 and Nx >=22.6.5 <23 are the tested lane; exact source pins and
+runtime compatibility live in `specops/upstreams.json` and `specops/compatibility.json`.
+
+```sh
+pnpm add -D /path/to/entif-ai-nx-governance-0.1.0.tgz
+pnpm exec nx g @entif-ai/nx-governance:init --substrate=specops
+# Separate explicit network acquisition; installation itself stays local-first.
+pnpm exec entif-substrate --acquire-source=specops
+pnpm exec entif-substrate codex
+pnpm exec nx sync
+pnpm exec nx sync:check
+node node_modules/@entif-ai/nx-governance/specops/cli.mjs next
+pnpm exec nx run <consumer-project>:merge-admission
+```
+
+`claude` generates `.claude/skills/entif-substrate/SKILL.md`; `generic` generates
+`.specops/runtime.md`. Codex uses `.agents/skills/entif-substrate/SKILL.md`.
+These are small on-demand routes, not authority or eager adapter installations.
+Review legacy Spec Kit prose before using the canonical corpus: explicitly port its
+owned intent/frontmatter or archive it outside `specs/` while preserving the files.
+The installer never invents that migration or deletes prose. The upgrade fixture
+uses an explicit consumer-owned archive and authors its own canonical spec/plan.
+Create source-owned `specs/` and canonical YAML `plans/` from your own requirements;
+no corpus is copied from Rosetta. Use `specops/check.mjs` for consumer-configured
+spec/plan validation, and `context.mjs` for compact TOON/section/full disclosure.
+Configure the generic Nx checks and any catalog generator explicitly in your own
+config; installing a route does not silently enable checks or external mutation.
+
+The installer records generating package/version, exact source digest, donor pin
+and per-file SHA-256 in `.specops/managed-veneers.json`. Repeats are idempotent.
+Upgrades require `--refresh` and reject edited/deleted managed files, unmanaged
+collisions, symlinks and runtime changes. An exclusive local lock and pending
+manifest make interrupted writes observable and resumable with the exact payload.
+After a crash, explicit `entif-substrate --recover-lock` removes only a verified
+dead owner on the same host; live/ambiguous owners fail closed. A separate
+recovery mutex serializes administrative recovery. Unknown old/malformed locks or
+a killed recovery operation require recorded-owner review before manual repair.
+Source acquisition stages clone/checkout/verification before atomic activation;
+abandoned staging directories never become the final source. Preserve
+local edits explicitly; never erase the manifest to force regeneration. Removed
+managed paths need a separate reviewed migration, not implicit deletion.
+
+S1 consumers run the same init with `--substrate=specops`; `.specify` data and legacy
+payloads remain for rollback. Compatible dual metadata is accepted; conflicting
+config/branch/writer identity fails before writes. Baseline/convergence generators
+resolve either installation. Spec Kit no longer owns Rosetta's future workflow;
+its payload is deprecated, still shipped and tested during this rollback window.
+`tools/specops/MIGRATION.md` records dispositions. `dev-bundle:e2e` now proves the
+real S1-installed consumer expansion and independent Claude/generic consumers,
+alongside the retained package/Nx/Spec Kit conformance. It does not claim live
+model compliance. Donor code is acquired separately, not vendored, because its
+pinned source lacks a conventional license declaration.
+
+
 Maintainer entrypoint for #1699, #1700 and #1701. Rosetta owns meaning; this plugin
 owns deterministic repository mechanics. Spec Kit orchestrates source-owned checks.
 
@@ -124,7 +182,7 @@ and admission evidence have explicit source inputs and cacheable pure execution.
 
 ## Install and upgrade
 
-The single npm package carries the Nx plugin and the versioned Spec Kit payloads.
+The single npm package carries the Nx plugin, SpecOps adaptation and deprecated versioned Spec Kit payloads.
 Use a local-packed artifact until an authorized release publishes it. Nx-only consumers
 can install just the plugin and configure only their own checks; Spec Kit is optional.
 

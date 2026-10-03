@@ -1,8 +1,7 @@
+import { isMain } from './entrypoint.mjs';
 import process from 'node:process';
 import console from 'node:console';
 import { execFileSync } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { encode } from '@toon-format/toon';
 import { loadPlans, readiness } from './plans.mjs';
 import { loadSpecs } from './drift.mjs';
@@ -192,7 +191,7 @@ export function expandSource(root, identity, heading) {
     content: found[0].text,
   };
 }
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? '')) {
+if (isMain(import.meta.url)) {
   try {
     const [command, identity, ...args] = process.argv.slice(2);
     if (!identity || !['context', 'expand'].includes(command))
@@ -232,8 +231,10 @@ if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? '')) {
           stdio: ['ignore', 'pipe', 'pipe'],
         }).trim();
       const head = git('rev-parse', 'HEAD');
-      const remote = git('remote', 'get-url', 'origin');
-      const repository = remote.match(
+      const remote = git('remote').split('\n').includes('origin')
+        ? git('remote', 'get-url', 'origin')
+        : null;
+      const repository = remote?.match(
         /github\.com[/:]([^/]+\/[^/]+?)(?:\.git)?$/
       )?.[1];
       const revision = base

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -40,4 +40,49 @@ test('pinned source install is repeatable and refuses local edits or wrong revis
   assert.throws(() =>
     installSource({ ...pin, commit: '0'.repeat(40) }, path.join(root, 'bad'))
   );
+});
+test('failed acquisition leaves no final checkout and can retry safely', () => {
+  const root = mkdtempSync(path.join(tmpdir(), 'axi-retry-'));
+  const target = path.join(root, 'installed');
+  assert.throws(() =>
+    installSource(
+      { repository: path.join(root, 'missing-donor'), commit: 'a'.repeat(40) },
+      target
+    )
+  );
+  assert.equal(existsSync(target), false);
+  // Leftover staging from a killed clone must not poison or be overwritten by retry.
+  const donor = path.join(root, 'donor');
+  execFileSync('git', ['init', '-q', donor]);
+  writeFileSync(path.join(donor, 'README.md'), 'reference');
+  execFileSync('git', ['-C', donor, 'add', '.']);
+  execFileSync('git', [
+    '-C',
+    donor,
+    '-c',
+    'user.name=Fixture',
+    '-c',
+    'user.email=fixture@example.invalid',
+    'commit',
+    '-qm',
+    'fixture',
+  ]);
+  const commit = execFileSync('git', ['-C', donor, 'rev-parse', 'HEAD'], {
+    encoding: 'utf8',
+  }).trim();
+  const abandoned = path.join(root, '.installed-stage-abandoned');
+  execFileSync('git', ['clone', '--no-checkout', donor, abandoned], {
+    stdio: 'ignore',
+  });
+  const failed = path.join(root, 'failed-checkout');
+  assert.throws(() =>
+    installSource({ repository: donor, commit: '0'.repeat(40) }, failed)
+  );
+  assert.equal(existsSync(failed), false);
+  installSource({ repository: donor, commit }, target);
+  assert.equal(
+    readFileSync(path.join(target, 'README.md'), 'utf8'),
+    'reference'
+  );
+  assert.ok(existsSync(abandoned));
 });

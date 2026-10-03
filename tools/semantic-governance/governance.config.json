@@ -11,7 +11,7 @@
     "specs/architecture.md",
     "specs/principles.md"
   ],
-  "projectionPath": ".specify/memory/constitution.json",
+  "projectionPath": ".specops/authority.json",
   "checks": {
     "authority": {
       "command": "node tools/semantic-governance/check-authority-closure.mjs",
@@ -208,15 +208,25 @@
     "sourcePaths": [
       "packages/nx-governance/specops/check.mjs",
       "packages/nx-governance/specops/cli.mjs",
+      "packages/nx-governance/specops/configuration.mjs",
+      "packages/nx-governance/specops/context.mjs",
+      "packages/nx-governance/specops/context.spec.mjs",
       "packages/nx-governance/specops/drift.mjs",
       "packages/nx-governance/specops/drift.spec.mjs",
+      "packages/nx-governance/specops/entrypoint.mjs",
+      "packages/nx-governance/specops/install.mjs",
+      "packages/nx-governance/specops/install.spec.mjs",
       "packages/nx-governance/specops/plans.mjs",
       "packages/nx-governance/specops/plans.spec.mjs",
+      "packages/nx-governance/specops/source.mjs",
       "packages/nx-governance/src/baseline.spec.ts",
       "packages/nx-governance/src/convergence.spec.ts",
+      "packages/nx-governance/src/installation.spec.ts",
+      "packages/nx-governance/src/installation.ts",
       "packages/nx-governance/src/specops-migration.spec.ts",
       "specs/architecture.md",
-      "specs/principles.md"
+      "specs/principles.md",
+      "tools/dev-bundle/e2e.mjs"
     ]
   }
 }
