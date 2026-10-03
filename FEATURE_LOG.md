@@ -1,3 +1,20 @@
+# Semantic governance integration, PR #1600
+
+Active branch: `codex/roadmap-s1-promotion-transition`. One writer; no branch per issue.
+Execution order: #1698, #1179, #1699, #1700, #1701, #10 closeout.
+Current main reconciled by ordinary merge on 2026-10-03. Original TC-005 work retained.
+Public authority: Core Spine v3, Genesis semantic alignment/audit, promotion and
+receipt contracts, source-substrate Pack, schema catalog, DocID registry, Pack manifests.
+Bridge review: this run changes public representation and deterministic tooling, not
+protected scoring, routing, recurrence, thresholds, or operational selection policies.
+No applicable protected behavior change is proposed. Publication posture: public.
+Validation: executable pre-fix Profile fixture, predecessor/receipt replay adversaries;
+complete descent audit; real Nx sync/task graph/cache and Spec Kit install/migration
+fixtures; generated catalog drift/regeneration; affected and full repository gates.
+Next safe step: #1698 red/green Profile and exact predecessor binding.
+Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
+no lease is claimed. Preserve the inherited editorial log below as unrelated history.
+
 # ETR-2026-07 editorial series — #1603
 
 ## User-review correction: experience incomplete
