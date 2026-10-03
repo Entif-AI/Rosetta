@@ -46,6 +46,11 @@ try {
     ['home', '/'],
     ['cost', '/tags/research/2026/09/06/the-cost-of-learning-too-late/'],
     ['inflection', '/tags/research/2026/09/07/after-the-inflection/'],
+    [
+      'etr-opening',
+      '/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/',
+    ],
+    ['etr-references', '/articles/accelerating-the-dystopia/17-citations/'],
   ]) {
     for (const mode of ['mobile', 'desktop']) {
       const result = await lighthouse('http://127.0.0.1:4325' + path, {

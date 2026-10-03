@@ -39,6 +39,7 @@ const logoPath = joinBasePath(
       content={new URL(logoPath, Astro.site ?? Astro.url.origin)}
     />
     <title>{pageTitle}</title>
+    <slot name="head" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 

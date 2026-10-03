@@ -21,6 +21,7 @@ export const toSummary = (entry: SiteEntry): ContentSummary => ({
   projects: entry.data.projects,
   related: entry.data.related,
   noindex: entry.data.noindex,
+  ...(entry.data.series ? { series: entry.data.series } : {}),
 });
 
 export const getPublishedEntries = async (): Promise<readonly SiteEntry[]> => {

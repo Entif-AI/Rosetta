@@ -28,6 +28,12 @@ const siteSchema = z
     manuscript: z.string().optional(),
     featured: z.boolean().default(false),
     noindex: z.boolean().default(false),
+    series: z
+      .object({
+        id: z.string().regex(slugPattern),
+        order: z.number().int().min(1),
+      })
+      .optional(),
   })
   .superRefine((data, context) => {
     if (
@@ -150,4 +156,26 @@ const ui = defineCollection({
     returnHome: z.string().min(1),
   }),
 });
-export const collections = { site, pages, ui };
+const editorial = defineCollection({
+  loader: glob({ pattern: '*.md', base: './content/editorial' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    report: z.string(),
+    chapters: z.number().int().positive(),
+    navigation: z.string(),
+    previous: z.string(),
+    next: z.string(),
+    section: z.string(),
+    sources: z.string(),
+    referenceIntro: z.string(),
+    sourceLink: z.string(),
+    sourceLocation: z.string(),
+    author: z.string(),
+    year: z.string(),
+    type: z.string(),
+    role: z.string(),
+    families: z.string(),
+  }),
+});
+export const collections = { site, pages, ui, editorial };

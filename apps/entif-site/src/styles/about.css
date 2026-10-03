@@ -1,0 +1,113 @@
+/* About-page editorial measure and rhythm, adapted from editorial/series.css. */
+.about-page {
+  --about-measure: 44rem;
+}
+
+.about-page > .eyebrow,
+.about-page > h1,
+.about-page > .lede {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-page > h1 {
+  width: min(100%, 72rem);
+  max-width: none;
+  font-size: clamp(2.34rem, 5vw, 5.7rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.about-page > .lede {
+  max-width: 60rem;
+  font-size: clamp(1.44rem, 2vw, 1.57rem);
+  font-weight: 300;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.about-prose {
+  max-width: var(--about-measure);
+  margin-inline: auto;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.about-prose > * {
+  margin-inline: auto;
+}
+
+.about-prose p,
+.about-prose li {
+  font-size: 1.44rem;
+  line-height: 1.7;
+}
+
+.about-prose p {
+  margin-block: 1.5rem;
+}
+
+.about-prose h2 {
+  width: min(100%, 56rem);
+  max-width: none;
+  margin-block: 3.5rem 1.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  text-wrap: balance;
+}
+
+.about-prose > h2:first-child + p {
+  max-width: 54rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.45;
+  margin-block: 0 2rem;
+}
+
+.about-prose figure {
+  width: min(100%, 32rem);
+  margin-block: 3rem;
+}
+
+.about-prose figure img {
+  width: min(15rem, 60vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 2rem #01266420;
+}
+
+.about-prose figcaption {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.about-prose ul,
+.about-prose ol {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.about-prose li + li {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 55rem) {
+  .about-prose p,
+  .about-prose li {
+    font-size: 1.23rem;
+    line-height: 1.5;
+  }
+}
+
+@media print {
+  .about-page > h1 {
+    font-size: 2rem;
+  }
+
+  .about-prose p,
+  .about-prose li {
+    font-size: 1rem;
+  }
+}

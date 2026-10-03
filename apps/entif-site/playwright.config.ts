@@ -7,6 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? 'github' : 'list',
   use: {
+    testIdAttribute: 'data-test-id',
     baseURL: 'http://127.0.0.1:4322/',
     trace: 'on-first-retry',
   },
@@ -19,6 +20,6 @@ export default defineConfig({
   webServer: {
     command: 'pnpm exec astro preview --host 127.0.0.1 --port 4322',
     port: 4322,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
   },
 });

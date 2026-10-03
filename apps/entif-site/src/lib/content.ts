@@ -23,6 +23,7 @@ export interface ContentSummary {
   readonly projects: readonly string[];
   readonly related: readonly string[];
   readonly noindex: boolean;
+  readonly series?: { readonly id: string; readonly order: number };
 }
 
 export interface ContentCardData {
@@ -67,8 +68,12 @@ export const getTaxonomyTerms = (
   [...new Set([item.routeTag, ...item.projects, ...item.tags])].sort();
 
 export const getContentPath = (
-  item: Pick<ContentSummary, 'kind' | 'slug' | 'published' | 'routeTag'>
+  item: Pick<
+    ContentSummary,
+    'kind' | 'slug' | 'published' | 'routeTag' | 'series'
+  >
 ): string => {
+  if (item.series) return `articles/${item.series.id}/${item.slug}/`;
   if (item.kind === 'project') {
     return `projects/${item.slug}/`;
   }

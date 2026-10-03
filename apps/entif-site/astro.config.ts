@@ -5,6 +5,7 @@ import {
   rehypeSiteTables,
 } from './src/lib/remark-site-assets.mjs';
 import react from '@astrojs/react';
+import { rehypeEditorial } from './src/lib/editorial-citations.mjs';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
@@ -20,7 +21,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkSiteAssets],
-      rehypePlugins: [rehypeSiteTables],
+      rehypePlugins: [rehypeSiteTables, rehypeEditorial],
     }),
   },
   integrations: [

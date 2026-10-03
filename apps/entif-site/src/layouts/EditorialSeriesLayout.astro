@@ -1,0 +1,147 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import EditorialChapterNav from '../components/EditorialChapterNav.astro';
+import { getContentPath, joinBasePath } from '../lib/content';
+import { toSummary, type SiteEntry } from '../lib/site-data';
+import sources from '../../content/editorial/accelerating-the-dystopia/sources.json';
+import '../styles/editorial/series.css';
+import '../styles/editorial/citations.css';
+import '../styles/editorial/scenes.css';
+const chapterStyles = import.meta.glob<string>(
+  '../styles/editorial/chapters/chapter-*.css',
+  {
+    query: '?url',
+    import: 'default',
+    eager: true,
+  }
+);
+interface Props {
+  entry: SiteEntry;
+  chapters: readonly SiteEntry[];
+  metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+}
+const { entry, chapters, metadata } = Astro.props;
+const current = entry.data.series!.order;
+const chapterStyle =
+  chapterStyles[
+    `../styles/editorial/chapters/chapter-${String(current).padStart(
+      2,
+      '0'
+    )}.css`
+  ];
+const { Content } = await render(entry);
+const isReferences = current === metadata.chapters;
+const next = chapters[current];
+const previous = chapters[current - 2];
+const isWebUrl = (url: string) => /^https?:\/\//.test(url);
+const href = (item: SiteEntry) =>
+  joinBasePath(import.meta.env.BASE_URL, getContentPath(toSummary(item)));
+---
+
+<BaseLayout
+  title={`${entry.data.title} · ${metadata.title}`}
+  description={entry.data.description}
+  noindex={entry.data.noindex}
+>
+  {chapterStyle && <link slot="head" rel="stylesheet" href={chapterStyle} />}
+  <article
+    class="shell article-shell editorial-series"
+    data-test-id="editorial-series"
+    data-chapter={current}
+  >
+    <EditorialChapterNav
+      chapters={chapters}
+      current={current}
+      metadata={metadata}
+    />
+    <header class="editorial-masthead">
+      <p class="eyebrow">
+        {`${metadata.report}`}
+      </p>
+      <p class="editorial-series-title">{metadata.title}</p>
+      <p class="editorial-subtitle">{metadata.subtitle}</p>
+      <p class="editorial-byline">{entry.data.authors.join(', ')}</p>
+    </header>
+    <header class="editorial-chapter-header">
+      <span class="editorial-number" aria-hidden="true">{current}</span>
+      <h1 data-test-id="editorial-heading">{entry.data.title}</h1>
+    </header>
+    {
+      isReferences ? (
+        <div class="editorial-references" data-test-id="editorial-references">
+          <p class="editorial-reference-intro">{metadata.referenceIntro}</p>
+          <ol>
+            {sources.map((source) => (
+              <li
+                id={`source-${source.Source_ID}`}
+                tabindex="-1"
+                data-test-id="editorial-source"
+                data-source={source.Source_ID}
+              >
+                <span class="editorial-source-id">{source.Source_ID}</span>
+                <div>
+                  <h2>{source.Title}</h2>
+                  <dl>
+                    {[
+                      [metadata.author, source.Author_or_Institution],
+                      [metadata.year, source.Year],
+                      [metadata.type, source.Source_Type],
+                      [metadata.role, source.Authority_Role],
+                      [metadata.families, source.Primary_Families],
+                    ].map(([label, value]) => (
+                      <div>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p>{source.Notes}</p>
+                  {isWebUrl(source.URL) && (
+                    <a href={source.URL} data-test-id="editorial-source-url">
+                      {metadata.sourceLink}: {source.Title} ↗
+                    </a>
+                  )}
+                  {source.URL && !isWebUrl(source.URL) && (
+                    <p>
+                      {metadata.sourceLocation}: {source.URL}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : (
+        <div class="editorial-body" data-test-id="editorial-body">
+          <Content />
+        </div>
+      )
+    }
+    <nav
+      class="editorial-ending"
+      aria-label={`${metadata.navigation} — ${metadata.title}`}
+    >
+      {
+        previous && (
+          <a href={href(previous)} data-test-id="editorial-ending-previous">
+            <span>{metadata.previous} ←</span>
+            {previous.data.title}
+          </a>
+        )
+      }
+      {
+        next && (
+          <a href={href(next)} data-test-id="editorial-ending-next">
+            <span>{metadata.next} →</span>
+            {next.data.title}
+          </a>
+        )
+      }
+    </nav>
+  </article>
+</BaseLayout>
+<script>
+  import { enhanceCitations } from '../scripts/editorial-citations';
+  enhanceCitations();
+</script>

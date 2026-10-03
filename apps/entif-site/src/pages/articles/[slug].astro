@@ -1,24 +1,72 @@
 ---
+import { getEntry } from 'astro:content';
 import PublishedEntry from '../../components/PublishedEntry.astro';
+import EditorialSeriesLayout from '../../layouts/EditorialSeriesLayout.astro';
+import { orderSeries } from '../../lib/editorial';
 import { getPublishedEntries, type SiteEntry } from '../../lib/site-data';
 
 export async function getStaticPaths() {
   const entries = await getPublishedEntries();
+  const essays = entries.filter(({ data }) => data.kind === 'essay');
+  const seriesContexts = new Map<
+    string,
+    {
+      chapters: SiteEntry[];
+      metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+    }
+  >();
 
-  return entries
-    .filter(({ data }) => data.kind === 'essay')
-    .map((entry) => ({
-      params: { slug: entry.data.slug },
-      props: { entry, allEntries: entries },
-    }));
+  for (const id of new Set(
+    essays.flatMap((entry) => (entry.data.series ? [entry.data.series.id] : []))
+  )) {
+    const metadata = await getEntry('editorial', id);
+    if (!metadata) throw new Error(`Missing series metadata: ${id}`);
+    const chapters = orderSeries(
+      essays
+        .filter((entry) => entry.data.series?.id === id)
+        .map((entry) => ({
+          ...entry,
+          slug: entry.data.slug,
+          series: entry.data.series!,
+        }))
+    );
+    if (chapters.length !== metadata.data.chapters)
+      throw new Error(`Incomplete series: ${id}`);
+    seriesContexts.set(id, { chapters, metadata: metadata.data });
+  }
+
+  return essays.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: {
+      entry,
+      allEntries: entries,
+      editorial: entry.data.series
+        ? seriesContexts.get(entry.data.series.id)
+        : undefined,
+    },
+  }));
 }
 
 interface RouteProps {
   entry: SiteEntry;
   allEntries: readonly SiteEntry[];
+  editorial?: {
+    chapters: SiteEntry[];
+    metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+  };
 }
 
-const { entry, allEntries } = Astro.props as RouteProps;
+const { entry, allEntries, editorial } = Astro.props as RouteProps;
 ---
 
-<PublishedEntry entry={entry} allEntries={allEntries} />
+{
+  editorial ? (
+    <EditorialSeriesLayout
+      entry={entry}
+      chapters={editorial.chapters}
+      metadata={editorial.metadata}
+    />
+  ) : (
+    <PublishedEntry entry={entry} allEntries={allEntries} />
+  )
+}

@@ -1,0 +1,71 @@
+---
+import { getContentPath, joinBasePath } from '../lib/content';
+import { toSummary, type SiteEntry } from '../lib/site-data';
+interface Props {
+  chapters: readonly SiteEntry[];
+  current: number;
+  metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+}
+const { chapters, current, metadata } = Astro.props;
+const href = (entry: SiteEntry) =>
+  joinBasePath(import.meta.env.BASE_URL, getContentPath(toSummary(entry)));
+const previous = chapters[current - 2];
+const next = chapters[current];
+---
+
+<nav
+  class="editorial-nav"
+  aria-label={metadata.navigation}
+  data-test-id="editorial-navigation"
+>
+  <div class="editorial-numbers">
+    {
+      chapters.map((entry) => (
+        <a
+          href={href(entry)}
+          aria-current={
+            entry.data.series!.order === current ? 'page' : undefined
+          }
+          aria-label={`${metadata.section} ${entry.data.series!.order}: ${
+            entry.data.title
+          }`}
+          title={entry.data.title}
+          data-test-id="editorial-chapter-link"
+        >
+          {entry.data.series!.order}
+        </a>
+      ))
+    }
+  </div>
+  <div class="editorial-mobile-nav">
+    {
+      previous ? (
+        <a
+          href={href(previous)}
+          aria-label={`${metadata.previous}: ${previous.data.title}`}
+          data-test-id="editorial-previous"
+        >
+          ← {metadata.previous}
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    <span aria-current="page" data-test-id="editorial-position"
+      >{current} / {chapters.length}</span
+    >
+    {
+      next ? (
+        <a
+          href={href(next)}
+          aria-label={`${metadata.next}: ${next.data.title}`}
+          data-test-id="editorial-next"
+        >
+          {metadata.next} →
+        </a>
+      ) : (
+        <span />
+      )
+    }
+  </div>
+</nav>

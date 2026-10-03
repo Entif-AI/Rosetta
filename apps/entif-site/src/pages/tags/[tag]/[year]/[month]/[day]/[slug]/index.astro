@@ -11,7 +11,7 @@ export async function getStaticPaths() {
   const entries = await getPublishedEntries();
 
   return entries
-    .filter(({ data }) => data.kind !== 'project')
+    .filter(({ data }) => data.kind !== 'project' && !data.series)
     .map((entry) => {
       const summary = toSummary(entry);
       const { year, month, day } = getPublicationDateParts(summary.published);

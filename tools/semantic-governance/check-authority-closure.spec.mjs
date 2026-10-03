@@ -36,7 +36,7 @@ async function createCompliantFixture() {
     'docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md',
     [
       'Resolve authority before implementation.',
-      'Public meaning is authoritative for interoperability',
+      'Rosetta owns data-bearing interoperability',
       'Authority closure',
       'Requirements graph',
       'Pre-commit and CI enforcement',

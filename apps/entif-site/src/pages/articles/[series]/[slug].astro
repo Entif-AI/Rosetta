@@ -1,0 +1,42 @@
+---
+import { getEntry } from 'astro:content';
+import EditorialSeriesLayout from '../../../layouts/EditorialSeriesLayout.astro';
+import { getPublishedEntries, type SiteEntry } from '../../../lib/site-data';
+import { orderSeries } from '../../../lib/editorial';
+
+export async function getStaticPaths() {
+  const entries = (await getPublishedEntries()).filter(
+    (entry) => entry.data.series
+  );
+  const paths = [];
+  for (const id of new Set(entries.map((entry) => entry.data.series!.id))) {
+    const metadata = await getEntry('editorial', id);
+    if (!metadata) throw new Error(`Missing series metadata: ${id}`);
+    const chapters = orderSeries(
+      entries
+        .filter((entry) => entry.data.series!.id === id)
+        .map((entry) => ({
+          ...entry,
+          slug: entry.data.slug,
+          series: entry.data.series!,
+        }))
+    );
+    if (chapters.length !== metadata.data.chapters)
+      throw new Error(`Incomplete series: ${id}`);
+    for (const entry of chapters)
+      paths.push({
+        params: { series: id, slug: entry.data.slug },
+        props: { entry, chapters, metadata: metadata.data },
+      });
+  }
+  return paths;
+}
+interface Props {
+  entry: SiteEntry;
+  chapters: SiteEntry[];
+  metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+}
+const { entry, chapters, metadata } = Astro.props;
+---
+
+<EditorialSeriesLayout entry={entry} chapters={chapters} metadata={metadata} />

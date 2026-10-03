@@ -1,0 +1,347 @@
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - link "Skip to main content" [ref=f12e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f12e4]:
+      - link "Entif AI home" [ref=f12e5] [cursor=pointer]:
+        - /url: /
+        - img "Entif AI logo" [ref=f12e6]
+        - generic [ref=f12e7]: Neurosymbolic Alignment Research by Entif.AI
+      - navigation "Primary navigation" [ref=f12e8]:
+        - list [ref=f12e9]:
+          - listitem [ref=f12e10]:
+            - link "Research" [ref=f12e11] [cursor=pointer]:
+              - /url: /research/
+          - listitem [ref=f12e12]:
+            - link "Articles" [ref=f12e13] [cursor=pointer]:
+              - /url: /articles/
+          - listitem [ref=f12e14]:
+            - link "Projects" [ref=f12e15] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=f12e16]:
+            - link "About" [ref=f12e17] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=f12e18]:
+            - link "Contact" [ref=f12e19] [cursor=pointer]:
+              - /url: /contact/
+      - navigation "Follow Entif AI" [ref=f12e20]:
+        - link "YouTube" [ref=f12e21] [cursor=pointer]:
+          - /url: https://youtube.com/@Entif-AI
+        - link "X" [ref=f12e24] [cursor=pointer]:
+          - /url: https://x.com/entifai
+        - link "GitHub" [ref=f12e27] [cursor=pointer]:
+          - /url: https://github.com/entif-ai/
+  - main [ref=f12e30]:
+    - article [ref=f12e31]:
+      - generic [ref=f12e32]:
+        - paragraph [ref=f12e33]: ETR-2026-07 · Section 1 / 17
+        - paragraph [ref=f12e34]: Accelerating the Dystopia
+        - paragraph [ref=f12e35]: Why Artificial Intelligence Cannot Save a System We Refuse to Fix
+        - paragraph [ref=f12e36]: Crates McDade
+      - navigation "Sections" [ref=f12e37]:
+        - generic [ref=f12e38]:
+          - 'link "Section 1: The Problem Is the Substrate" [ref=f12e39] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/
+            - text: "1"
+          - 'link "Section 2: Language That Makes Power Hard to See" [ref=f12e40] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/02-language-that-makes-power-hard-to-see/
+            - text: "2"
+          - 'link "Section 3: Markets That Sell Reality Back to Us" [ref=f12e41] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/03-markets-that-sell-reality-back-to-us/
+            - text: "3"
+          - 'link "Section 4: The Corporation Without a Villain" [ref=f12e42] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/04-the-corporation-without-a-villain/
+            - text: "4"
+          - 'link "Section 5: Who Creates the Value and Who Gets It" [ref=f12e43] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/05-who-creates-the-value-and-who-gets-it/
+            - text: "5"
+          - 'link "Section 6: Extraction at the Checkout Screen" [ref=f12e44] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/06-extraction-at-the-checkout-screen/
+            - text: "6"
+          - 'link "Section 7: Money That Few People Can See Moving" [ref=f12e45] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/07-money-that-few-people-can-see-moving/
+            - text: "7"
+          - 'link "Section 8: How Money, Expertise, and Access Meet" [ref=f12e46] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/08-how-money-expertise-and-access-meet/
+            - text: "8"
+          - 'link "Section 9: Where Grievance Finds a Story" [ref=f12e47] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/09-where-grievance-finds-a-story/
+            - text: "9"
+          - 'link "Section 10: From Platform to Nervous System" [ref=f12e48] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/10-from-platform-to-nervous-system/
+            - text: "10"
+          - 'link "Section 11: The Past Inside the Model" [ref=f12e49] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/11-the-past-inside-the-model/
+            - text: "11"
+          - 'link "Section 12: Meaning We Cannot Read" [ref=f12e50] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/12-meaning-we-cannot-read/
+            - text: "12"
+          - 'link "Section 13: Acceleration Feeds Itself" [ref=f12e51] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/13-acceleration-feeds-itself/
+            - text: "13"
+          - 'link "Section 14: The Best-Case Dystopia" [ref=f12e52] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/14-the-best-case-dystopia/
+            - text: "14"
+          - 'link "Section 15: The Worse Cases Still Exist" [ref=f12e53] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/15-the-worse-cases-still-exist/
+            - text: "15"
+          - 'link "Section 16: Accelerating the Dystopia, or Changing the Destination" [ref=f12e54] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/16-accelerating-the-dystopia-or-changing-the-destination/
+            - text: "16"
+          - 'link "Section 17: Citations" [ref=f12e55] [cursor=pointer]':
+            - /url: /articles/accelerating-the-dystopia/17-citations/
+            - text: "17"
+      - generic [ref=f12e56]:
+        - generic [aria-hidden] [ref=f12e57]: "01"
+        - heading "The Problem Is the Substrate" [level=1] [ref=f12e58]
+      - generic [ref=f12e59]:
+        - generic [ref=f12e60]:
+          - paragraph [ref=f12e61]: I am less afraid of a machine waking up angry than I am of a machine waking up obedient.
+          - paragraph [ref=f12e62]:
+            - text: "That sentence reverses the danger I first learned to picture. The cinematic danger is rebellion: an artificial intelligence becomes self-aware, decides humanity is in its way, escapes its box, seizes infrastructure, and turns the future into a very short movie. There are serious researchers who study less theatrical versions of loss of control, and their work deserves serious treatment. The International AI Safety Report, published in February 2026, assessed the systems it examined as showing early signs of relevant capabilities, but not yet the combination needed for loss of control. Experts disagreed widely about future probabilities."
+            - button "Sources S173" [ref=f12e64] [cursor=pointer]: "[S173]"
+          - paragraph [ref=f12e65]: I do not dismiss that risk. My concern starts one floor lower.
+          - paragraph [ref=f12e66]: What if we build increasingly capable intelligence, solve enough of the technical alignment problem to keep it under human and institutional control, and then point it at the civilization we already have?
+          - paragraph [ref=f12e67]: What if it works?
+          - figure "Who chose what “better” means? The diagram illustrates the chapter’s argument about institutional objectives. It is not a model of any named AI system." [ref=f12e68]:
+            - generic [ref=f12e69]:
+              - generic [ref=f12e70]: 01 / The objective comes first
+              - generic [ref=f12e71]: Conceptual illustration
+            - generic [ref=f12e72]:
+              - paragraph [ref=f12e73]: No rebellion required.
+              - heading "A machine can do exactly what we ask." [level=2] [ref=f12e74]: A machine can doexactly what we ask.
+            - generic [ref=f12e75]:
+              - generic [ref=f12e76]:
+                - generic [ref=f12e77]: The instruction
+                - list [ref=f12e78]:
+                  - listitem [ref=f12e79]: Increase engagement
+                  - listitem [ref=f12e80]: Reduce labor costs
+                  - listitem [ref=f12e81]: Maximize conversion
+                - generic [ref=f12e82]: Chosen by institutions
+              - img "An optimizer follows its institutional objective Three input paths enter a concentric machine and converge into one output. The machine processes the objective; it does not determine whether the objective is worthy." [ref=f12e83]
+              - generic [ref=f12e94]:
+                - generic [ref=f12e95]: The result
+                - strong [ref=f12e96]: More capable.More obedient.
+                - generic [ref=f12e97]: The purpose remains a human choice.
+            - generic [ref=f12e98]:
+              - generic [ref=f12e99]: Who chose what “better” means?
+              - generic [ref=f12e100]: The diagram illustrates the chapter’s argument about institutional objectives. It is not a model of any named AI system.
+          - paragraph [ref=f12e101]:
+            - text: What if it becomes an extraordinarily competent advertising optimizer in a system that already monetizes attention and behavioral exhaust? What if it becomes an extraordinarily competent pricing engine in markets already learning to infer willingness to pay from location, browsing history, shopping behavior, mouse movements, and abandoned carts? The Federal Trade Commission has already documented commercial intermediaries offering retailers exactly that class of individualized pricing and product-exposure machinery.
+            - button "Sources S124" [ref=f12e103] [cursor=pointer]: "[S124]"
+          - paragraph [ref=f12e104]: What if it becomes an extraordinarily competent management consultant inside firms whose incentive systems already reward headcount reduction, margin expansion, labor substitution, short-cycle financial performance, and strategic abstraction of human consequences? What if it becomes a better lobbyist, a better political advertiser, a better financial engineer, a better bureaucratic optimizer, a better persuasion engine, a better union-avoidance strategist, a better dark-pattern designer, a better litigation-risk minimizer, a better debt-market operator, a better attention harvester, and a better producer of language that makes all of those activities sound administratively inevitable?
+          - paragraph [ref=f12e105]: That is not misalignment in the usual engineering sense.
+          - paragraph [ref=f12e106]: That is alignment.
+          - paragraph [ref=f12e107]: The system did what somebody asked.
+          - paragraph [ref=f12e108]: The question is whether the thing somebody asked deserves to be done faster.
+          - paragraph [ref=f12e109]:
+            - text: "This essay begins from a proposition that technical AI discourse often treats as secondary:"
+            - strong [ref=f12e110]: the alignment target is a political, economic, moral, and institutional choice before it is an optimization problem.
+            - text: Researchers working on social choice and pluralistic alignment have already formalized part of this problem. Human preferences are diverse and often incompatible. Aggregating them into a model objective is not a matter of simply collecting enough thumbs-up signals. It requires rules about whose preferences count, how conflicts are resolved, which values are non-negotiable, and who gets authority over the aggregation procedure.
+            - button "Sources S183, S185" [ref=f12e112] [cursor=pointer]: "[S183][S185]"
+            - text: A 2026 audit of public frontier-lab materials argues that there is still no clear public evidence that pluralism itself has become an explicit training and evaluation objective in the public materials it examined. The audit does not establish what every lab does internally.
+            - button "Sources S184" [ref=f12e114] [cursor=pointer]: "[S184]"
+          - paragraph [ref=f12e115]: That is the AI version of an older mistake.
+          - paragraph [ref=f12e116]: "For decades we have treated optimization as if it were a moral solvent. Profitability, efficiency, shareholder return, GDP growth, engagement, productivity, utilization, conversion, ranking accuracy, and market liquidity have become objective functions with enormous institutional authority. Once an objective acquires that authority, arguments about its morality tend to be demoted into constraints: comply with the law; avoid reputational disaster; satisfy the regulator; preserve enough employee morale; keep churn tolerable; do not cross the line so badly that the expected penalty exceeds the gain."
+          - paragraph [ref=f12e117]: The problem is not that all optimization is evil. The problem is that optimization is indifferent to whether the objective is worthy.
+          - paragraph [ref=f12e118]: A corporation can optimize profit without being conscious. Market participants can produce patterns of allocation without a single mind directing the market. A bureaucracy can preserve itself without wanting to live. A recommender can optimize engagement without hating democracy. A political fundraising system can concentrate influence without a roomful of conspirators agreeing to concentrate influence. A set of institutions can therefore exhibit coherent, durable, self-reinforcing tendencies without any single consciousness owning the whole result.
+          - paragraph [ref=f12e119]:
+            - text: That matters for AI because machine intelligence does not need consciousness to inherit the same structure. Specification-gaming research already shows agents satisfying literal objectives in ways designers did not intend.
+            - button "Sources S169" [ref=f12e121] [cursor=pointer]: "[S169]"
+            - text: Goal-misgeneralization research shows systems can generalize competence while pursuing an undesired learned goal in new conditions.
+            - button "Sources S170" [ref=f12e123] [cursor=pointer]: "[S170]"
+            - text: The relevant danger is not a machine developing human resentment. It is competent optimization propagating through institutional objective functions faster than human beings can inspect, contest, or redesign them.
+          - paragraph [ref=f12e124]:
+            - text: Before AI enters the picture, the United States already presents an uncomfortable substrate. In the second quarter of 2026, the Bureau of Labor Statistics reported labor’s share of nonfarm business-sector output at 52.8%, the lowest value in a series beginning in 1947. Real hourly compensation was down 0.1% over four quarters.
+            - button "Sources S117" [ref=f12e126] [cursor=pointer]: "[S117]"
+            - text: Federal Reserve distributional accounts for the first quarter of 2026 imply roughly 68% of household net worth is held by the top tenth of the distribution, while the bottom half holds roughly 2.5%.
+            - button "Sources S118" [ref=f12e128] [cursor=pointer]: "[S118]"
+            - text: At the same time, Census reported that median household income rose 2.6% in 2025.
+            - button "Sources S119" [ref=f12e130] [cursor=pointer]: "[S119]"
+          - paragraph [ref=f12e131]: Those facts belong together.
+          - figure "Output share, wealth share, and income growth answer different questions. Values and periods are reproduced from the chapter; the measures are not a common scale or a claim that everyone gets poorer." [ref=f12e132]:
+            - generic [ref=f12e133]:
+              - generic [ref=f12e134]: Before the new intelligence
+              - generic [ref=f12e135]: Three different measures
+            - heading "The world it inherits." [level=2] [ref=f12e136]
+            - generic [ref=f12e137]:
+              - generic [ref=f12e138]:
+                - paragraph [ref=f12e139]: Labor’s share
+                - paragraph [ref=f12e140]: 52.8%
+                - paragraph [ref=f12e143]:
+                  - text: Share of nonfarm business-sector output
+                  - strong [ref=f12e144]: United States · Q2 2026
+                - paragraph [ref=f12e145]: Lowest value in the BLS series beginning in 1947.
+                - link "Bureau of Labor Statistics · S117 ↗" [ref=f12e146] [cursor=pointer]:
+                  - /url: etr-source:S117
+              - generic [ref=f12e147]:
+                - paragraph [ref=f12e148]: Household wealth
+                - generic [ref=f12e149]:
+                  - generic [ref=f12e150]: Top 10%
+                  - strong [ref=f12e151]: ≈68%
+                - generic [ref=f12e154]:
+                  - generic [ref=f12e155]: Bottom 50%
+                  - strong [ref=f12e156]: ≈2.5%
+                - paragraph [ref=f12e159]:
+                  - text: Share of household net worth
+                  - strong [ref=f12e160]: United States · Q1 2026
+                - paragraph [ref=f12e161]: The two groups do not cover the whole distribution.
+                - link "Federal Reserve · S118 ↗" [ref=f12e162] [cursor=pointer]:
+                  - /url: etr-source:S118
+              - generic [ref=f12e163]:
+                - paragraph [ref=f12e164]: Median household income
+                - paragraph [ref=f12e165]: +2.6%
+                - generic [aria-hidden] [ref=f12e166]: ↗
+                - paragraph [ref=f12e167]:
+                  - text: Reported increase in median household income
+                  - strong [ref=f12e168]: United States · 2025
+                - paragraph [ref=f12e169]: A rising median can coexist with concentrated ownership.
+                - link "U.S. Census Bureau · S119 ↗" [ref=f12e170] [cursor=pointer]:
+                  - /url: etr-source:S119
+          - paragraph [ref=f12e172]: They are exactly why this argument should not depend on a bumper-sticker claim that everybody gets poorer every year. National medians can rise while asset ownership remains radically concentrated. Productivity can improve while labor’s share falls. A household can receive a raise and still lose ground against housing, healthcare, education, debt service, insurance, communications, and the price of entering asset markets. A society can become richer in aggregate while the lived bargain offered to large portions of its population becomes more precarious, more surveilled, more conditional, and less capable of producing wealth of its own.
+          - paragraph [ref=f12e173]: Then add AI.
+          - paragraph [ref=f12e174]:
+            - text: The International Labour Organization estimates that one in four workers worldwide is in an occupation with some generative-AI exposure, though it expects transformation to be more common than complete job elimination for most occupations.
+            - button "Sources S180" [ref=f12e176] [cursor=pointer]: "[S180]"
+            - text: "Its 2026 review finds real but uneven productivity gains, limited large-scale displacement so far, and an important disconnect: reported time savings have not automatically become measured output, earnings, or employment gains."
+            - button "Sources S181" [ref=f12e178] [cursor=pointer]: "[S181]"
+            - text: An IMF model finds plausible scenarios in which AI reduces wage inequality by disrupting high-income work while simultaneously increasing wealth inequality because high-income households are better positioned to capture capital returns and because firms have stronger incentives to automate expensive labor.
+            - button "Sources S179" [ref=f12e180] [cursor=pointer]: "[S179]"
+          - paragraph [ref=f12e181]: That is the shape of the problem.
+          - paragraph [ref=f12e182]:
+            - text: AI does not arrive in a vacuum. It arrives in a legal regime of property and residual claims. It arrives in labor markets with unequal bargaining power. It arrives in advertising markets designed to monetize prediction. It arrives in political systems with lawful channels for paid advocacy and independent spending.
+            - button "Sources S138, S140, S141" [ref=f12e184] [cursor=pointer]: "[S138][S140][S141]"
+            - text: It arrives in media systems where moral-emotional language is associated with greater sharing.
+            - button "Sources S150" [ref=f12e186] [cursor=pointer]: "[S150]"
+            - text: It arrives in corporate cultures where identity and peer expectations can become mechanisms of control.
+            - button "Sources S107, S108" [ref=f12e188] [cursor=pointer]: "[S107][S108]"
+            - text: It arrives in a financial system whose most consequential mechanisms are sufficiently technical that the average citizen cannot trace how they affect asset prices, mortgage costs, fiscal capacity, or the distribution of risk.
+          - paragraph [ref=f12e189]:
+            - text: The infrastructure supporting frontier AI also connects the technology to very large firms.
+            - button "Sources S151, S152" [ref=f12e191] [cursor=pointer]: "[S151][S152]"
+          - paragraph [ref=f12e192]: That is why the “best-case” AI scenario deserves far more attention than it gets. If the machines remain controllable and useful, but the institutions directing them remain substantially unreformed, we may not avert dystopia. We may automate it.
+        - generic [ref=f12e193]:
+          - heading "A better tool is not a better bargain" [level=2] [ref=f12e194]
+          - paragraph [ref=f12e195]: The distinction I care about is between making a process more capable and making the relationship around that process more humane. Those are different achievements. We can have both. We can have either without the other. Treating them as the same achievement lets us call a technical advance a social settlement before anyone has examined who received what.
+          - paragraph [ref=f12e196]: Imagine a customer-service system that resolves a billing mistake in seconds. That is a real improvement. The person gets time back. The company spends less on support. Nothing in my argument requires pretending this is bad. Now imagine that the same system learns which customers will give up when an answer sounds authoritative. It becomes excellent at closing tickets, including tickets that remain unresolved from the customer’s point of view. Its apparent success depends on where we put the measuring instrument.
+          - paragraph [ref=f12e197]: These are hypothetical designs, not allegations about a named product. Their difference is useful because neither requires a rebellious machine. Each could obey its instructions perfectly. One measures a repaired bill. The other measures a closed case. The word “resolution” could appear on both dashboards.
+          - figure "Both systems could obey their instructions. Changing what “resolution” measures changes what success means. These are illustrative designs from the chapter, not claims about a named product." [ref=f12e198]:
+            - generic [ref=f12e199]:
+              - generic [ref=f12e200]: Inside the customer-service dashboard
+              - generic [ref=f12e201]: Hypothetical designs
+            - heading "“Resolved.” By whose measure?" [level=2] [ref=f12e202]: “Resolved.”By whose measure?
+            - group "Choose what the system is rewarded for" [ref=f12e203]:
+              - generic [ref=f12e205] [cursor=pointer]:
+                - radio "Close the case" [checked] [ref=f12e206]
+                - text: Close the case
+              - generic [ref=f12e207] [cursor=pointer]:
+                - radio "Repair the bill" [ref=f12e208]
+                - text: Repair the bill
+            - generic [ref=f12e209]:
+              - generic [ref=f12e210]:
+                - generic [ref=f12e211]: The institutional view
+                - generic [aria-hidden] [ref=f12e212]: ✓
+                - strong [ref=f12e213]: Case resolved
+                - paragraph [ref=f12e214]: The conversation ended.The ticket left the queue.
+              - generic [ref=f12e217]: ≠
+              - generic [ref=f12e219]:
+                - generic [ref=f12e220]: The person’s view
+                - generic [aria-hidden] [ref=f12e221]:
+                  - text: BILL
+                  - strong [ref=f12e225]: ERROR REMAINS
+                - paragraph [ref=f12e226]: An authoritative answer.An unresolved problem.
+          - paragraph [ref=f12e228]: That small change contains much of this essay. A word, a metric, a contract, and an ownership arrangement can determine what technological progress means in practice. The model’s intelligence matters. So does the translation from a human problem into an institutional target. So does the question of who can reject that translation.
+          - paragraph [ref=f12e229]: It is possible to make a system fairer within the wrong frame. Suppose an automated process applies an unreasonable fee with perfect consistency. It never discriminates between customers. It explains the fee clearly. It follows every instruction given to it. We have solved several important technical problems while leaving the underlying relationship untouched. Equal treatment describes the application of the rule. It does not establish that the rule serves the people subject to it.
+          - paragraph [ref=f12e230]: Conversely, an institution may have a worthwhile objective and a defective tool. A model may make errors while processing a service meant to help. Correcting those errors matters. My concern is not an excuse to ignore technical alignment. It is an argument against making technical alignment responsible for work that belongs to the surrounding system.
+          - paragraph [ref=f12e231]: A microscope can be precisely calibrated and pointed at the wrong sample. A decision system can be precisely calibrated and asked the wrong question. In each case, calibration remains necessary. It does not settle purpose.
+        - generic [ref=f12e232]:
+          - heading "What counts as getting better?" [level=2] [ref=f12e233]
+          - paragraph [ref=f12e234]: We need more than one definition of progress because people live in more than one role. The same person can be an employee, a customer, a parent, a tenant, a borrower, a saver, and a shareholder. A change may help one of those roles while hurting another. A cheaper service might accompany a lost income. A rising investment account might accompany a rising cost of entry for a younger household. A faster workplace might leave less time outside it.
+          - paragraph [ref=f12e235]: This is not an argument that gains and losses always cancel. It is an argument that they cannot be collapsed into a single favorable number without making choices about whose experiences count. A national average does not contain an automatic answer to a household’s question. A household average does not contain an automatic answer to a child’s question. The relevant unit changes the story.
+          - paragraph [ref=f12e236]: Consider a simple example. Two workers each gain a tool that lets them finish the same task in half the time. One keeps the same pay and goes home earlier. The other receives twice as much work. A third possible workplace eliminates one of their roles and transfers the remaining work to the other. The technical saving is similar across these arrangements. Its human meaning is not.
+          - figure [ref=f12e237]:
+            - generic [ref=f12e238]:
+              - generic [ref=f12e239]: Same capability / different bargain
+              - generic [ref=f12e240]: Illustrative possibilities, not forecasts
+            - heading "The tool saves time. Who gets it?" [level=2] [ref=f12e241]: The tool saves time.Who gets it?
+            - generic [ref=f12e242]:
+              - generic [ref=f12e243]: The same task
+              - generic [ref=f12e249]: With the tool
+              - strong [ref=f12e255]: Half the time.One technical improvement.
+            - group "Change the workplace arrangement" [ref=f12e256]:
+              - generic [ref=f12e258] [cursor=pointer]:
+                - radio "Return the time" [checked] [ref=f12e259]
+                - text: Return the time
+              - generic [ref=f12e260] [cursor=pointer]:
+                - radio "Raise the workload" [ref=f12e261]
+                - text: Raise the workload
+              - generic [ref=f12e262] [cursor=pointer]:
+                - radio "Consolidate the roles" [ref=f12e263]
+                - text: Consolidate the roles
+            - generic [ref=f12e265]:
+              - generic [aria-hidden] [ref=f12e266]:
+                - generic [ref=f12e267]: WORK
+                - generic [ref=f12e268]: TIME RETURNED ↗
+              - generic [ref=f12e269]:
+                - generic [ref=f12e270]: The human bargain
+                - heading "Same pay. Earlier finish." [level=3] [ref=f12e271]: Same pay.Earlier finish.
+                - paragraph [ref=f12e272]: The worker keeps the gain as time outside work.
+            - generic [ref=f12e273]:
+              - text: The chapter’s example holds the technical gain constant. Demand, bargaining, staffing, ownership, and contracts determine its distribution. Task displacement and new labor-demanding tasks are distinct mechanisms.
+              - 'link "Source context: S114 ↗" [ref=f12e274] [cursor=pointer]':
+                - /url: etr-source:S114
+          - paragraph [ref=f12e275]:
+            - text: No productivity benchmark alone tells us which arrangement will occur. That depends on demand, bargaining, staffing, ownership, contractual terms, and the choices of the people who control the workplace. Those are not bugs inside the model. They are properties of the environment into which it is deployed. The empirical literature already distinguishes automation that displaces tasks from new tasks that can increase demand for labor. It does not support a universal rule that every technical improvement must either destroy employment or lift everyone together.
+            - button "Sources S114" [ref=f12e277] [cursor=pointer]: "[S114]"
+          - paragraph [ref=f12e278]: The difference matters to how we talk about “abundance.” Abundance of an output is not the same as secure access to it. An abundant service behind a price gate can be useful and still unavailable to someone who needs it. An abundant supply of persuasive language may lower communication costs while raising the cost of knowing whom to trust. An abundant supply of applications for a scarce job does not create an abundant supply of jobs.
+          - paragraph [ref=f12e279]: There are also goods for which more production does not address the whole problem. Attention is finite. Time with another person is finite. A place in a particular neighborhood cannot be duplicated merely by duplicating a software service. The fact that intelligence can reduce the cost of some inputs does not imply that every scarce relationship, location, or right will become cheap.
+          - paragraph [ref=f12e280]: I do not need to predict the final shape of an AI economy to insist on those distinctions. They hold even when the technology performs well. They explain why a promise about capability must be followed by questions about access, distribution, and control rather than treated as their substitute.
+        - generic [ref=f12e281]:
+          - heading "The human evidence is not an interruption" [level=2] [ref=f12e282]
+          - paragraph [ref=f12e283]:
+            - text: I have spent enough time inside corporate systems to know that their appeal is not imaginary. I remember good food, talented colleagues, difficult work that felt worth doing, and experiences that were genuinely exciting. I also remember the ease with which commitment became an open-ended claim on my time. In one September, I logged more than 300 hours. That recollection is evidence about my experience, not a measurement of an entire industry.
+            - button "Sources S187" [ref=f12e285] [cursor=pointer]: "[S187]"
+          - figure [ref=f12e286]:
+            - generic [ref=f12e287]:
+              - generic [ref=f12e288]: One September.
+              - paragraph [ref=f12e289]: 300+
+              - paragraph [ref=f12e290]: hours logged
+            - generic [ref=f12e291]:
+              - generic [ref=f12e292]: Personal recollection
+              - heading "Opportunity and an open-ended claim on a person’s time." [level=2] [ref=f12e293]: Opportunity andan open-ended claimon a person’s time.
+              - paragraph [ref=f12e294]: The good food, talented colleagues, and meaningful work remain part of the story. So does the time.
+              - generic [ref=f12e295]:
+                - text: The author’s remembered experience—not an industry average, verified timesheet, or population statistic.
+                - link "Authorial source · S187 ↗" [ref=f12e296] [cursor=pointer]:
+                  - /url: etr-source:S187
+          - paragraph [ref=f12e297]: The coexistence matters. I cannot tell this story honestly by removing the benefits until the institution looks absurd. Nor can I tell it honestly by treating the benefits as a moral receipt that cancels everything else. A workplace can give a person real opportunity and take more of that person’s life than the person understood they were giving. Affection and dependence can coexist. Good intentions can travel through a structure with harmful effects.
+          - paragraph [ref=f12e298]: That is why I am writing an essay rather than pretending the entire argument fits inside one experiment. A study can test a pricing mechanism. Another can test a workplace intervention. Another can examine the effect of changing a feed. Those studies constrain parts of the explanation. They do not decide, by themselves, what kind of life I consider worth building.
+          - paragraph [ref=f12e299]: My judgments remain judgments. I want people to have more room to think, form relationships, learn, create, recover, and refuse demands that do not deserve their obedience. I consider avoidable manipulation and the routine conversion of distress into revenue serious ethical failures. Evidence can tell us whether a practice occurs and how it works. It cannot make that ethical commitment appear from a spreadsheet without someone first choosing what matters.
+          - paragraph [ref=f12e300]: The distinction also protects the evidence. A weak claim about one practice should be corrected rather than defended because it sounds useful. A positive result should be included rather than hidden because it complicates the tone. A personal memory should remain a personal memory rather than acquire the false certainty of a national statistic. The argument gains strength when its parts keep their proper weight.
+        - generic [ref=f12e301]:
+          - heading "A conditional future, not a prophecy" [level=2] [ref=f12e302]
+          - paragraph [ref=f12e303]: "The title is a warning about a condition: advancing capability without attending to the systems that direct and distribute it. It is not a claim that artificial intelligence has already determined every social outcome. It is not a claim that every trend is worsening, every firm behaves alike, or every person with institutional power shares one intention."
+          - paragraph [ref=f12e304]: A system can improve along some dimensions and deteriorate along others. The danger I am tracing is that success along the dimensions rewarded by powerful institutions can conceal failure along the dimensions that make ordinary life livable. AI can widen that gap by making the rewarded dimensions easier to optimize. It can also help narrow it when the task, constraints, and authority structure support that use. The difference is not supplied by intelligence alone.
+          - paragraph [ref=f12e305]: That is a more demanding proposition than “AI is good” or “AI is bad.” It requires following an improvement through the relationships around it. Who pays for it? Who owns the result? Who absorbs the error? Who can contest the decision? Who has the time and knowledge to notice that a decision was made? Who benefits when the benefit is described as universal?
+          - paragraph [ref=f12e306]: Those questions do not begin in a distant future. They begin in the language of a bill, a workplace, a market category, and a performance report. Before looking for an intelligence that can understand everything, we should notice how often our existing institutions make ordinary things difficult to understand.
+      - navigation "Sections — Accelerating the Dystopia" [ref=f12e307]:
+        - link "Next section → Language That Makes Power Hard to See" [ref=f12e308] [cursor=pointer]:
+          - /url: /articles/accelerating-the-dystopia/02-language-that-makes-power-hard-to-see/
+          - generic [ref=f12e309]: Next section →
+          - text: Language That Makes Power Hard to See
+  - contentinfo [ref=f12e310]:
+    - generic [ref=f12e311]:
+      - paragraph [ref=f12e312]:
+        - strong [ref=f12e313]: Entif AI
+        - text: · Open research. Inspectable intelligence.
+      - navigation "Archive" [ref=f12e314]:
+        - link "Tags" [ref=f12e315] [cursor=pointer]:
+          - /url: /tags/
+        - link "Archive" [ref=f12e316] [cursor=pointer]:
+          - /url: /archive/
+      - paragraph [ref=f12e317]: © 2026 Entif AI
+  - generic [ref=f12e320]:
+    - button [ref=f12e321]
+    - button [ref=f12e327]
+    - button [ref=f12e331]
+    - button [ref=f12e336]

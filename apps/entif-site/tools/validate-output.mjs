@@ -13,6 +13,23 @@ const validator = new HtmlValidate({
   rules: { 'void-style': 'off', 'attr-quotes': 'off' },
 });
 let errors = 0;
+const fragmentIds = new Map();
+const readFragmentIds = (path) => {
+  if (!fragmentIds.has(path)) {
+    const dom = new JSDOM(readFileSync(path, 'utf8'));
+    fragmentIds.set(
+      path,
+      new Set(
+        Array.from(
+          dom.window.document.querySelectorAll('[id]'),
+          (element) => element.id
+        )
+      )
+    );
+    dom.window.close();
+  }
+  return fragmentIds.get(path);
+};
 for (const file of files) {
   const path = resolve(root, file);
   const source = readFileSync(path, 'utf8');
@@ -26,7 +43,8 @@ for (const file of files) {
       )
     );
   }
-  const document = new JSDOM(source).window.document;
+  const dom = new JSDOM(source);
+  const document = dom.window.document;
   const ids = new Set();
   for (const el of document.querySelectorAll('[id]')) {
     if (ids.has(el.id)) {
@@ -35,6 +53,7 @@ for (const file of files) {
     }
     ids.add(el.id);
   }
+  fragmentIds.set(path, ids);
   for (const el of document.querySelectorAll(
     'a[href],img[src],script[src],link[href]'
   )) {
@@ -54,16 +73,13 @@ for (const file of files) {
       continue;
     }
     if (hash && dest.endsWith('.html')) {
-      const other =
-        dest === path
-          ? document
-          : new JSDOM(readFileSync(dest, 'utf8')).window.document;
-      if (!other.getElementById(decodeURIComponent(hash))) {
+      if (!readFragmentIds(dest).has(decodeURIComponent(hash))) {
         errors++;
         console.error(file, 'Missing fragment', value);
       }
     }
   }
+  dom.window.close();
 }
 if (errors) process.exitCode = 1;
 else
