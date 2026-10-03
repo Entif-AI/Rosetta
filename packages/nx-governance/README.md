@@ -3,6 +3,9 @@
 Maintainer entrypoint for #1699, #1700 and #1701. Rosetta owns meaning; this plugin
 owns deterministic repository mechanics. Spec Kit orchestrates source-owned checks.
 
+Post-delivery research provenance and retained/rejected mechanisms are recorded in
+[`spec-kit/reconciliation.json`](spec-kit/reconciliation.json) for #1705–#1710.
+
 ```sh
 pnpm nx g @entif-ai/nx-governance:init --configPath=tools/semantic-governance/governance.config.json --pluginPath=./packages/nx-governance/src/index.ts
 pnpm nx sync

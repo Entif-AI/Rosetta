@@ -38,6 +38,11 @@ governance:admission pass. Packed Codex install/refresh, prototype config migrat
 real Nx 22.6.4 -> 22.6.5 upgrade, reproducible ZIP and conflict rejection proved.
 Next safe step: #1705 provenance/disposition, then ordered #1706–#1710 follow-ups.
 Do not merge or publish. Hosted CI must confirm the checkpoint after push.
+Checkpoint #1705: pinned donor/license verified, MIT upstream pin and current-main
+delta resolved; research dispositions in packages/nx-governance/spec-kit/reconciliation.json.
+No donor code imported. Explicitly reject inferred normative requirements and automatic
+branch creation. Existing delivered owners retained; five child problem spaces remain
+independent. Next: #1706 bounded observed-behavior evidence and authority reconciliation.
 Lease tooling and `docs/workflows/agentic-development` are absent in current repository;
 no lease is claimed. Preserve the inherited editorial log below as unrelated history.
 
