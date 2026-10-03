@@ -1,0 +1,156 @@
+{
+  "formatVersion": 1,
+  "role": "preparation-observation-not-benchmark-or-routing-policy",
+  "base": "88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+  "implementationHead": "a601f28",
+  "branch": "codex/badger-preflight",
+  "pr": "https://github.com/Entif-AI/Rosetta/pull/1724",
+  "quotaObservations": [
+    {
+      "event": "before",
+      "observedAt": "2026-10-03T22:56:23.581Z",
+      "source": "oauth",
+      "status": "fresh",
+      "stale": false,
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 82,
+          "remainingPercent": 18,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T00:24:56.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 23,
+          "remainingPercent": 77,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ],
+      "localEvidence": ".axi/evidence/2026-10-03T22-56-23-581Z-before.json"
+    },
+    {
+      "event": "checkpoint",
+      "observedAt": "2026-10-03T23:00:04.451Z",
+      "source": "oauth",
+      "status": "fresh",
+      "stale": false,
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 85,
+          "remainingPercent": 15,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T00:24:56.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 24,
+          "remainingPercent": 76,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ],
+      "localEvidence": ".axi/evidence/2026-10-03T23-00-04-451Z-checkpoint.json"
+    },
+    {
+      "event": "checkpoint",
+      "observedAt": "2026-10-03T23:03:26.580Z",
+      "source": "oauth",
+      "status": "fresh",
+      "stale": false,
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 87,
+          "remainingPercent": 13,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T00:24:56.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 24,
+          "remainingPercent": 76,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ],
+      "localEvidence": ".axi/evidence/2026-10-03T23-03-26-581Z-checkpoint.json"
+    },
+    {
+      "event": "after",
+      "observedAt": "2026-10-03T23:04:37.086Z",
+      "source": "oauth",
+      "status": "fresh",
+      "stale": false,
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 88,
+          "remainingPercent": 12,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T00:24:56.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 24,
+          "remainingPercent": 76,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ],
+      "localEvidence": ".axi/evidence/2026-10-03T23-04-37-086Z-after.json"
+    }
+  ],
+  "fiveHourPercentagePointsConsumed": 6,
+  "weeklyPercentagePointsConsumed": 1,
+  "windowReset": false,
+  "limitations": [
+    "Shared account deltas may include concurrent work",
+    "Final observation precedes handoff commit/push; no background polling",
+    "Topology bytes stayed local; no model inference",
+    "Live A/B/C/D and adoption remain untested"
+  ],
+  "validation": {
+    "focusedTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    "eslint": "pass",
+    "authority": "pass",
+    "nxSyncCheck": "pass",
+    "nxBadgerTest": "pass"
+  },
+  "issue1711": "OPEN",
+  "modelTrialsExecuted": false,
+  "defaultRoutingChanged": false,
+  "adoptionDecisionMade": false,
+  "skillsInstalled": false,
+  "mergeBlockedUntil": "concurrent pre-Badger Medium baseline explicitly complete"
+}
