@@ -7,6 +7,7 @@ import logging
 import os
 import platform
 import socket
+from datetime import datetime
 from pathlib import Path
 
 from graphiti_falkor_runner import GRAPH_NAME, open_fixture_driver, run
@@ -22,6 +23,20 @@ QUERIES = {
 
 async def snapshot(driver):
     return {name: (await driver.execute_query(query))[0] for name, query in QUERIES.items()}
+
+
+async def effective_facts(driver, effective):
+    # 4.20.7's indexed AND/OR predicate can admit future facts; CASE evaluates
+    # the same temporal boundary without that index-union optimization.
+    query = QUERIES['facts'].replace(' RETURN ',
+        ' WHERE CASE WHEN r.valid_at <= $effective_at THEN '
+        '(r.invalid_at IS NULL OR r.invalid_at > $effective_at) ELSE false END RETURN ')
+    rows = (await driver.execute_query(query, effective_at=effective))[0]
+    frontier = datetime.fromisoformat(effective)
+    assert all(row['valid_at'] is not None and datetime.fromisoformat(row['valid_at']) <= frontier
+               and (row['invalid_at'] is None or datetime.fromisoformat(row['invalid_at']) > frontier)
+               for row in rows)
+    return dict(effectiveAt=effective, query=query, parameters=dict(effective_at=effective), rows=rows)
 
 
 async def prove(selected, output, label):
@@ -65,8 +80,8 @@ async def prove(selected, output, label):
         projection.update(artifacts=artifacts, loss=list(EXTRACTION_LOSS))
         direct = {}
         for name, effective in [('historical', '2000-01-02T12:00:00+00:00'), ('current', '2000-01-06T00:00:00+00:00')]:
-            query = QUERIES['facts'].replace(' RETURN ', " WHERE r.valid_at <= '" + effective + "' AND (r.invalid_at IS NULL OR r.invalid_at > '" + effective + "') RETURN ")
-            direct[name] = dict(effectiveAt=effective, query=query, rows=(await driver.execute_query(query))[0])
+            direct[name] = await effective_facts(driver, effective)
+        assert all(result['rows'] for result in direct.values())
         final = await snapshot(driver)
         assert len(final['episodes']) == len(selected['episodes'])
         assert final['entities'] and final['facts']

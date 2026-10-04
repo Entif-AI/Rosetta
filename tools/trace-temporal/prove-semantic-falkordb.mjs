@@ -121,6 +121,7 @@ try {
       semantic: { profile: initial.projection.profile, authority: 'derived-interpretation', graphName: semantic.graphName } },
     preservedDigests: before, canonicalSourcePreserved: true, deterministicOperationalEvidencePreserved: true,
     knownGraphitiLimitations: [...initial.projection.loss, 'Donor correction and ambiguous-identity behavior is captured literally; source interpretation remains unresolved, never canonical truth.',
+      'Pinned FalkorDB 4.20.7 indexed AND/OR predicates can over-admit temporal rows. Direct proof queries use native CASE and independently verify every returned interval.',
       'Direct donor effective-time queries do not provide Rosetta knowledge-frontier or current-rights admission; use the governed wrapper.',
       'Reranker is explicitly configured; direct Cypher inspection does not qualify its ranking behavior.',
       'Local executor-attested database/model proof is not independent hosted re-execution or production certification.'],
