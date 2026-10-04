@@ -4,7 +4,9 @@ import {
   mkdirSync,
   mkdtempSync,
   rmSync,
+  existsSync,
 } from 'node:fs';
+import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -18,8 +20,18 @@ import {
 import process from 'node:process';
 import console from 'node:console';
 import { admitTemporalFixture } from './fixture-input.mjs';
-const historicalReference = process.argv.includes('--neo4j-reference');
-const live = process.argv.includes('--live');
+const { values } = parseArgs({ options: {
+  'neo4j-reference': { type: 'boolean' }, live: { type: 'boolean' }, 'output-dir': { type: 'string' },
+} });
+const historicalReference = values['neo4j-reference'];
+const live = values.live;
+const outputDirectory = values['output-dir'] ?? (historicalReference ? '.axi/trace-temporal-neo4j-reference' : '.axi/trace-temporal-falkor');
+if (!outputDirectory.trim()) throw new Error('Output directory must be nonempty.');
+const outputPrefix = historicalReference ? '' : `falkordb-${live ? 'live' : 'model-off'}-`;
+for (const name of [outputPrefix + 'projection.json', outputPrefix + 'inspection.json', 'selection.schema.json', 'projection.schema.json']) {
+  const target = path.join(outputDirectory, name);
+  if (existsSync(target)) throw new Error(`Evidence output already exists: ${target}; select a fresh --output-dir.`);
+}
 let normalized, selected;
 if (historicalReference) {
   normalized = JSON.parse(readFileSync('packages/ingress-refinery/test-vectors/trace/generated-edges.json', 'utf8'));
@@ -34,8 +46,6 @@ if (historicalReference) {
   ({ normalized, selected } = admitTemporalFixture());
 }
 const temporary = mkdtempSync(path.join(tmpdir(), 'rosetta-trace-temp-'));
-const outputDirectory = historicalReference ? '.axi/trace-temporal-neo4j-reference' : 'tools/trace-temporal/evidence';
-const outputPrefix = historicalReference ? '' : `falkordb-${live ? 'live' : 'model-off'}-`;
 mkdirSync(outputDirectory, { recursive: true });
 try {
   const input = path.join(temporary, 'selected.json');
@@ -67,19 +77,19 @@ try {
   });
   writeFileSync(
     path.join(outputDirectory, outputPrefix + 'projection.json'),
-    JSON.stringify(projection, null, 2) + '\n'
+    JSON.stringify(projection, null, 2) + '\n', { flag: 'wx' }
   );
   writeFileSync(
     path.join(outputDirectory, outputPrefix + 'inspection.json'),
-    JSON.stringify(inspection, null, 2) + '\n'
+    JSON.stringify(inspection, null, 2) + '\n', { flag: 'wx' }
   );
   writeFileSync(
-    'tools/trace-temporal/selection.schema.json',
-    JSON.stringify(GRAPHITI_SELECTION_SCHEMA, null, 2) + '\n'
+    path.join(outputDirectory, 'selection.schema.json'),
+    JSON.stringify(GRAPHITI_SELECTION_SCHEMA, null, 2) + '\n', { flag: 'wx' }
   );
   writeFileSync(
-    'tools/trace-temporal/projection.schema.json',
-    JSON.stringify(GRAPHITI_PROJECTION_SCHEMA, null, 2) + '\n'
+    path.join(outputDirectory, 'projection.schema.json'),
+    JSON.stringify(GRAPHITI_PROJECTION_SCHEMA, null, 2) + '\n', { flag: 'wx' }
   );
   console.log(
     JSON.stringify({
