@@ -44,7 +44,7 @@
       ],
       "outputs": [],
       "options": {
-        "command": "vitest run tools/spec-catalog/catalog.spec.mjs"
+        "command": "vitest run tools/spec-catalog/catalog.spec.mjs tools/semantic-governance/load-schemas.spec.mjs"
       }
     }
   },

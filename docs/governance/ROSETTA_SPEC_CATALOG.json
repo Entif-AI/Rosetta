@@ -1177,6 +1177,89 @@
       ]
     },
     {
+      "authorityTier": "source-ingest",
+      "boundaryKind": "owned-schema",
+      "consumerPackages": [
+        "@entif-ai/source-substrate",
+        "@entif-ai/ingress-refinery",
+        "@entif-ai/projection-adapters"
+      ],
+      "docs": [
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packages/rosetta-schemas/docs/engineering-lifecycle-v1.md",
+        "packages/rosetta-schemas/docs/engineering-lifecycle-v1.schema.json"
+      ],
+      "exposureStatus": "fixture-only",
+      "family": "engineering-evidence",
+      "knownGaps": [
+        "Bounded source metadata and reference closure; external source authentication and unobserved historical executor/model configuration remain outside this adapter."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "engineering.lifecycle-source.v1",
+      "sourceIssues": ["#1726", "#1509"],
+      "sourcePrs": ["#1732"],
+      "tests": [
+        "packages/projection-adapters/src/lib/engineering-lifecycle.spec.ts"
+      ],
+      "validator": "parseEngineeringLifecycleSource",
+      "coreDescent": "implementation-local",
+      "descentAuthority": "packages/rosetta-schemas/docs/engineering-lifecycle-v1.md",
+      "relatedCoreKinds": [
+        "rosetta.action",
+        "rosetta.evaluation",
+        "rosetta.receipt"
+      ],
+      "availability": "fixture-only",
+      "publicAuthority": "see-owning-contract",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "4acb815c5f35152ade9ff1720e3a083ecc5295087bc2a2136564a5801638c1a9",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "12c4f75d0d5baaf3e9db59f3209173476587ca05d06630e2807654f68003b738",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/engineering-lifecycle-v1.md",
+          "sha256": "9570531932ded258c06d477f2467c6d5ebb410311537216451befaee6aa615a2",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "4e5a0aa7575ccfc064832dde21e5cad427e41bd5806956831f42386e58167bef",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/engineering-lifecycle-v1.md",
+          "sha256": "9570531932ded258c06d477f2467c6d5ebb410311537216451befaee6aa615a2",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/engineering-lifecycle-v1.schema.json",
+          "sha256": "e52c8027fb2acde24d1fa3fee20ab9e02c5f22bf73602a14180980796990c9fe",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/projection-adapters/src/lib/engineering-lifecycle.spec.ts",
+          "sha256": "1578827fc34d421099381f6a0be5424ad3e4537eef92a789900fcc47fd88a96b",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
       "authorityTier": "governance-admission",
       "boundaryKind": "owned-schema",
       "consumerPackages": ["@entif-ai/rosetta-guard", "apps/rosetta-api"],
@@ -4810,6 +4893,150 @@
         {
           "path": "packages/projection-adapters/src/lib/neo4j-trace-projection.spec.ts",
           "sha256": "7071c19967df241bfef671140f85a62e8f42fa38f77ea053bfd533a791fbabc5",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
+      "authorityTier": "projection-product-ops",
+      "boundaryKind": "validation-entrypoint",
+      "consumerPackages": ["@entif-ai/projection-adapters"],
+      "docs": [
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packages/rosetta-schemas/docs/work-lifecycle-v1.md"
+      ],
+      "exposureStatus": "downstream-contract",
+      "family": "work-lifecycle",
+      "knownGaps": [
+        "Closed bounded history only; current state is an inspection projection, not scheduling or authorization."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "work.lifecycle-state.v1",
+      "sourceIssues": ["#1509"],
+      "sourcePrs": ["#1732"],
+      "tests": ["packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts"],
+      "validator": "materializeWorkLifecycle",
+      "coreDescent": "derived-projection",
+      "descentAuthority": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+      "relatedCoreKinds": ["rosetta.action"],
+      "availability": "downstream-contract",
+      "publicAuthority": "see-owning-contract",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "4acb815c5f35152ade9ff1720e3a083ecc5295087bc2a2136564a5801638c1a9",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "12c4f75d0d5baaf3e9db59f3209173476587ca05d06630e2807654f68003b738",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+          "sha256": "960171204b3c69d5f37fb8828cd606fec384988bcb382371ecba3f6ff6fe56b6",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "4e5a0aa7575ccfc064832dde21e5cad427e41bd5806956831f42386e58167bef",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+          "sha256": "960171204b3c69d5f37fb8828cd606fec384988bcb382371ecba3f6ff6fe56b6",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts",
+          "sha256": "0874077818b9aaf156b23063620b1a2aea5646a6c569031d304de4e037ec6458",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
+      "authorityTier": "projection-product-ops",
+      "boundaryKind": "owned-schema",
+      "consumerPackages": ["@entif-ai/projection-adapters"],
+      "docs": [
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+        "packages/rosetta-schemas/docs/work-lifecycle-v1.schema.json"
+      ],
+      "exposureStatus": "downstream-contract",
+      "family": "work-lifecycle",
+      "knownGaps": [
+        "Structural attribution and bounded history closure do not authenticate evidence, establish real-world verifier independence or grant operational authority."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "work.lifecycle.v1",
+      "sourceIssues": ["#1509"],
+      "sourcePrs": ["#1732"],
+      "tests": ["packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts"],
+      "validator": "validateWorkLifecycle",
+      "coreDescent": "implementation-local",
+      "descentAuthority": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+      "relatedCoreKinds": [
+        "rosetta.action",
+        "rosetta.evaluation",
+        "rosetta.receipt"
+      ],
+      "availability": "downstream-contract",
+      "publicAuthority": "see-owning-contract",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "4acb815c5f35152ade9ff1720e3a083ecc5295087bc2a2136564a5801638c1a9",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "12c4f75d0d5baaf3e9db59f3209173476587ca05d06630e2807654f68003b738",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+          "sha256": "960171204b3c69d5f37fb8828cd606fec384988bcb382371ecba3f6ff6fe56b6",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "4e5a0aa7575ccfc064832dde21e5cad427e41bd5806956831f42386e58167bef",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/work-lifecycle-v1.md",
+          "sha256": "960171204b3c69d5f37fb8828cd606fec384988bcb382371ecba3f6ff6fe56b6",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/work-lifecycle-v1.schema.json",
+          "sha256": "ace886409979c1d6e0063e16304e3d19cf8bafb3a32de3591a98545069d244da",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts",
+          "sha256": "0874077818b9aaf156b23063620b1a2aea5646a6c569031d304de4e037ec6458",
           "availability": "checked-in"
         }
       ]
