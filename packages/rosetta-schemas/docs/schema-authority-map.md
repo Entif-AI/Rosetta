@@ -93,3 +93,5 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 ## Trace derived Profile
 
 `trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
+
+`trace.projection.v1` owns graph exchange/identity/provenance for #1667. See [trace-projection-v1.md](trace-projection-v1.md). Neo4j implements a disposable development adapter, with explicit derived-projection descent.

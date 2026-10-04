@@ -1,13 +1,13 @@
 ---
 id: entif:trace-graph
 task: T1667
-status: planned
+status: done
 depends: [trace-norm]
 awaits: []
 specs:
   - specs/architecture.md
 issues: [1667, 1664, 994, 1036, 1122, 1558, 1567]
-pr:
+pr: 1725
 ---
 # Project TRACE-NORM into a real Neo4j operational graph
 
@@ -15,15 +15,15 @@ Add a development-grade Neo4j projection in `projection-adapters` plus a real-da
 
 ## Validation
 
-- [ ] A clean Neo4j 5.26+ development database accepts the golden normalized fixture.
-- [ ] Uniqueness constraints cover every stable projected node family.
-- [ ] Re-import creates no duplicate semantic nodes/relationships.
-- [ ] Direct Cypher proves run/window membership, explicit parentage, request/result correlation, object lifecycle, and source lineage.
-- [ ] A bounded subgraph can be exported without reading the full graph.
-- [ ] Source sequence/timestamps are not represented as causal authority.
-- [ ] Projection reset deletes only the named `projectionId` namespace.
-- [ ] Reset + rebuild reproduces literal query results and graph-closure digest.
-- [ ] Source/canonical artifacts remain available when the Neo4j projection is absent.
+- [x] A clean Neo4j 5.26+ development database accepts the golden normalized fixture.
+- [x] Uniqueness constraints cover every stable projected node family.
+- [x] Re-import creates no duplicate semantic nodes/relationships.
+- [x] Direct Cypher proves run/window membership, explicit parentage, request/result correlation, object lifecycle, and source lineage.
+- [x] A bounded subgraph can be exported without reading the full graph.
+- [x] Source sequence/timestamps are not represented as causal authority.
+- [x] Projection reset deletes only the named `projectionId` namespace.
+- [x] Reset + rebuild reproduces literal query results and graph-closure digest.
+- [x] Source/canonical artifacts remain available when the Neo4j projection is absent.
 
 ## External authorities
 

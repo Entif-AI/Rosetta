@@ -211,13 +211,13 @@
       "id": "entif:trace-graph",
       "kind": "plan",
       "title": "Project TRACE-NORM into a real Neo4j operational graph",
-      "status": "planned",
+      "status": "done",
       "task": "T1667",
       "issues": [1667, 1664, 994, 1036, 1122, 1558, 1567],
-      "pr": null,
+      "pr": 1725,
       "source": {
         "path": "plans/trace-graph.md",
-        "sha256": "842a38f739c70c9b6f9550b262b69d86bea60cf222440372dc602242980be733"
+        "sha256": "1b074a72346c54cca1dea19ef3185b31d5f55465c79a4e9907192cae8a82da3e"
       }
     },
     {

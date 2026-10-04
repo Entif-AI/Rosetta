@@ -231,3 +231,5 @@ with #803, #1211 and #240; the audit does not reopen those owners.
 ## Deterministic trace normalization
 
 `trace.normalization.v1` (#1666) is a namespaced derived view over immutable source evidence. It introduces no Core kind or hidden provider-state claim. Object identity, time roles, loss and dictionary references remain observable source mechanics.
+
+The #1667 `trace.projection.v1` exchange Profile is a derived projection of normalized trace/source evidence. Neo4j runtime storage and indexes are adapter mechanics; no Core/store authority is replaced. Five lifecycle dispositions and shared explicit request IDs remain source mechanics, without inferred causal edges.

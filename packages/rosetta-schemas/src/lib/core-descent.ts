@@ -48,6 +48,7 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'trace.projection.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/trace-projection-v1.md', ['rosetta.observation']),
   'trace.normalization.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/trace-normalization-v1.md', ['rosetta.observation']),
   'rrp.promotion-state.v1': metadata('core-tile-profile', 'packs/rrp/schema/promotion-state.schema.json', ['rosetta.observation']),
   'entif.agentic-messaging.envelope.v1': metadata('implementation-local', AUDIT),
