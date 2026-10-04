@@ -1,8 +1,10 @@
 import os
+import asyncio
 import unittest
-from unittest.mock import patch
+from types import SimpleNamespace
+from unittest.mock import patch, AsyncMock
 
-from graphiti_provider import provider_settings, public_config
+from graphiti_provider import provider_settings, public_config, configure_provider_client
 
 
 LOCAL = dict(TRACE_GRAPHITI_PROVIDER='lmstudio', TRACE_GRAPHITI_BASE_URL='http://127.0.0.1:1234/v1',
@@ -12,6 +14,22 @@ LOCAL = dict(TRACE_GRAPHITI_PROVIDER='lmstudio', TRACE_GRAPHITI_BASE_URL='http:/
 
 
 class ProviderBoundary(unittest.TestCase):
+    def test_explicit_local_reasoning_posture_uses_sdk_options_without_changing_embedder(self):
+        create = AsyncMock(return_value='response')
+        sdk = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)),
+                              embeddings=object(), models=object(), close=AsyncMock())
+        configured = configure_provider_client(sdk, 'lmstudio')
+        messages = [{'role': 'user', 'content': 'Extract selected fixture entities.'}]
+        schema = {'type': 'object', 'properties': {'entities': {'type': 'array'}}}
+        result = asyncio.run(configured.chat.completions.create(model='selected', messages=messages,
+                              response_format={'type': 'json_schema', 'json_schema': {'schema': schema}}))
+        self.assertEqual(result, 'response')
+        self.assertEqual(create.call_args.kwargs['reasoning_effort'], 'none')
+        self.assertIn('"entities"', create.call_args.kwargs['messages'][-1]['content'])
+        self.assertEqual(messages[-1]['content'], 'Extract selected fixture entities.')
+        self.assertIs(configured.embeddings, sdk.embeddings)
+        self.assertIs(configure_provider_client(sdk, 'openai'), sdk)
+
     def test_loopback_provider_does_not_require_a_cloud_credential(self):
         with patch.dict(os.environ, LOCAL, clear=True):
             settings = provider_settings()

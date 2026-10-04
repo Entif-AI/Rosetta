@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+from types import SimpleNamespace
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 
@@ -45,10 +46,31 @@ def public_config(settings, dimension):
     return dict(provider=settings['provider'], apiProfile='openai-compatible', endpointRef=settings['endpointRef'],
                 inferenceHostRef=settings['hostRef'], locality='loopback' if settings['provider'] == 'lmstudio' else 'remote',
                 credentialRef=settings['credentialRef'], model=settings['model'], embedder=settings['embedder'],
-                embeddingDimension=dimension, reranker=settings['reranker'], structuredOutputMode='json_schema',
+                embeddingDimension=dimension, reranker=settings['reranker'],
+                structuredOutputMode='json_schema', schemaIncludedInPrompt=settings['provider'] == 'lmstudio',
+                reasoningEffort='none' if settings['provider'] == 'lmstudio' else None,
                 temperature=0, maxTokens=4096, requestTimeoutSeconds=90, sdkRetries=0,
                 supportPolicy='conservative-cumulative-selected-context',
                 rerankerClient='graphiti_core.cross_encoder.openai_reranker_client.OpenAIRerankerClient')
+
+
+def configure_provider_client(sdk, provider):
+    if provider != 'lmstudio':
+        return sdk
+
+    async def complete(**kwargs):
+        # Native constrained output does not show its schema to the reasoning model.
+        # Make that same requested schema explicit, using only SDK request options.
+        options = dict(kwargs, reasoning_effort='none')
+        schema = options.get('response_format', {}).get('json_schema', {}).get('schema')
+        if schema:
+            messages = [dict(m) for m in options['messages']]
+            messages[-1]['content'] += '\nReturn JSON conforming to this requested schema:\n' + json.dumps(schema)
+            options['messages'] = messages
+        return await sdk.chat.completions.create(**options)
+
+    return SimpleNamespace(models=sdk.models, embeddings=sdk.embeddings, close=sdk.close,
+                           chat=SimpleNamespace(completions=SimpleNamespace(create=complete)))
 
 
 def provider_client(settings, receipts, phase):
@@ -68,12 +90,14 @@ def provider_client(settings, receipts, phase):
                              requestedModel=request.get('model'), responseId=body.get('id'), responseModel=body.get('model'),
                              requestMaxTokens=request.get('max_tokens'), structuredOutputMode=request.get('response_format', {}).get('type'),
                              logprobsRequested=request.get('logprobs', False),
+                             reasoningEffort=request.get('reasoning_effort'),
                              providerCreatedAt=body.get('created'), systemFingerprint=body.get('system_fingerprint'),
                              usage=body.get('usage'), finishReasons=[c.get('finish_reason') for c in body.get('choices', [])]))
 
     transport = httpx.AsyncClient(timeout=90, trust_env=False, event_hooks={'response': [observe]})
-    return AsyncOpenAI(api_key=settings['apiKey'], base_url=settings['baseUrl'], http_client=transport,
-                       max_retries=0, timeout=90)
+    sdk = AsyncOpenAI(api_key=settings['apiKey'], base_url=settings['baseUrl'], http_client=transport,
+                      max_retries=0, timeout=90)
+    return configure_provider_client(sdk, settings['provider'])
 
 
 def graphiti_clients(settings, client, dimension):
@@ -107,8 +131,9 @@ async def probe_provider(settings, client):
         ready: Literal[True]
         entity: Literal['Cedar']
 
+    mode = 'json_schema'
     llm = OpenAIGenericClient(config=LLMConfig(model=settings['model'], temperature=0), client=client,
-                              max_tokens=1024, structured_output_mode='json_schema')
+                              max_tokens=1024, structured_output_mode=mode)
     started = now()
     result = await llm.generate_response([Message(role='system', content='Return the requested JSON object.'),
                                          Message(role='user', content='Return ready true and entity Cedar.')], response_model=Probe)
@@ -118,5 +143,5 @@ async def probe_provider(settings, client):
     if not vector or not all(isinstance(v, (int, float)) for v in vector):
         raise ValueError('Provider returned no compatible embedding vector.')
     return dict(startedAt=started, completedAt=now(), discoveredModelIds=discovered, structuredOutput=result,
-                structuredOutputPosture='json_schema requested; actual response locally validated',
+                structuredOutputPosture=mode + ' requested; actual response locally validated',
                 embeddingDimension=len(vector), embeddingModel=embedding.model, embeddingDigest=digest(vector))

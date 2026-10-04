@@ -1,6 +1,6 @@
 import process from 'node:process';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
@@ -17,6 +17,7 @@ const hashes = paths => Object.fromEntries(paths.map(p => [p, digest(readFileSyn
 const sourcePaths = ['tools/trace-temporal/fixtures/temporal-evolution.sse', 'tools/trace-temporal/fixtures/temporal-evolution.normalized.json'];
 const preservedPaths = [...sourcePaths, 'tools/trace-graph/evidence/neo4j-proof.json', 'tools/trace-graph/golden-proof.json', 'tools/trace-graph/evidence/batch-validation.json', 'tools/trace-graph/evidence/falkordb-proof.json', 'tools/trace-graph/evidence/falkordb-kinematics-proof.json', 'tools/trace-temporal/evidence/falkordb-backend-proof.json', 'tools/trace-temporal/evidence/projection.json', 'tools/trace-temporal/evidence/inspection.json'];
 const before = hashes(preservedPaths);
+const implementationHead = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 const store = new InMemoryTileStore(); sourceTiles.forEach(tile => store.put(tile));
 const storedBefore = sourceTiles.map(tile => canonicalTraceJson(store.get(tile.cid)));
 const projection = buildTraceProjection(normalized, { projectionId: 'trace-v1-temporal-evolution', sourceArtifactCid: selected.sourceArtifactRef });
@@ -82,7 +83,12 @@ try {
   const input = path.join(temporary, 'selected.json'); writeFileSync(input, JSON.stringify(selected));
   const run = label => {
     const output = path.join(temporary, label + '.json');
-    execFileSync(process.env.TRACE_GRAPHITI_PYTHON ?? 'python3', ['tools/trace-temporal/prove_falkor_semantic.py', input, output, '--label', label], { stdio: 'inherit', timeout: 1800000 });
+    try {
+      execFileSync(process.env.TRACE_GRAPHITI_PYTHON ?? 'python3', ['tools/trace-temporal/prove_falkor_semantic.py', input, output, '--label', label], { stdio: 'inherit', timeout: 1800000 });
+    } catch (error) {
+      if (existsSync(output + '.failure.json')) writeFileSync(`.axi/semantic-${implementationHead}-${label}-failure.json`, readFileSync(output + '.failure.json'));
+      throw error;
+    }
     return JSON.parse(readFileSync(output, 'utf8'));
   };
   const initial = run('initial'), initialAdmission = admit(initial);
@@ -99,8 +105,9 @@ try {
   assert.deepEqual((await semDatabase.list()).sort(), semNames);
   assert.deepEqual((await opDatabase.list()).sort(), opNames);
   const implementationPaths = ['tools/trace-temporal/prove-semantic-falkordb.mjs', 'tools/trace-temporal/prove_falkor_semantic.py', 'tools/trace-temporal/graphiti_falkor_runner.py', 'tools/trace-temporal/graphiti_support.py', 'tools/trace-temporal/graphiti_provider.py', 'tools/trace-temporal/fixture-input.mjs', 'packages/projection-adapters/src/lib/graphiti-trace.ts', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts'];
+  assert.equal(execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), implementationHead);
   const proof = { profile: 'trace-graphiti-falkordb-semantic-proof-v1', observedAt: new Date().toISOString(),
-    implementation: { gitHead: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), posture: 'source-digest-bound', digests: hashes(implementationPaths) },
+    implementation: { gitHead: implementationHead, posture: 'source-digest-bound', digests: hashes(implementationPaths) },
     sourceDigest: selected.sourceDigest, normalizedDigest: selected.normalizedDigest, selectedInputDigest: digest(canonicalTraceJson(selected)),
     executionHostRef: 'host:m3-ultra', inferenceHostRef: 'host:m3-ultra', graphHostRef: 'host:m3-ultra', providerLocality: 'loopback',
     providerDiscovery: JSON.parse(readFileSync(process.env.TRACE_GRAPHITI_CAPABILITY_PROOF, 'utf8')),

@@ -116,6 +116,11 @@ async def prove(selected, output, label):
                       for name in ['graphiti-core', 'falkordb', 'openai', 'httpx', 'httpx2', 'pydantic']}))
         output.write_text(json.dumps(result, indent=2) + '\n')
         return result
+    except Exception as exc:
+        Path(str(output) + '.failure.json').write_text(json.dumps(dict(startedAt=started, failedAt=now(),
+            failureClass=type(exc).__name__, phase=phase['name'], transitions=transitions,
+            responseProvenance=receipts), indent=2) + '\n')
+        raise
     finally:
         if graphiti is not None:
             await graphiti.close()
