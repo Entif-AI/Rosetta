@@ -1,4 +1,5 @@
 import process from 'node:process';
+import { proofOutputPath } from '../trace-graph/proof-output.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdtempSync, rmSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -11,6 +12,7 @@ import { canonicalTraceJson } from '../../packages/rosetta-schemas/dist/index.js
 import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
 
 if (process.env.TRACE_GRAPH_ISOLATED !== 'true') throw new Error('Explicit isolated fixture ownership is required.');
+const proofPath = proofOutputPath('tools/trace-temporal/evidence/falkordb-semantic-proof.json');
 const { normalized, selected, sourceTiles } = admitTemporalFixture();
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const hashes = paths => Object.fromEntries(paths.map(p => [p, digest(readFileSync(p))]));
@@ -104,7 +106,7 @@ try {
   await semGraph.delete(); await opGraph.delete();
   assert.deepEqual((await semDatabase.list()).sort(), semNames);
   assert.deepEqual((await opDatabase.list()).sort(), opNames);
-  const implementationPaths = ['tools/trace-temporal/prove-semantic-falkordb.mjs', 'tools/trace-temporal/prove_falkor_semantic.py', 'tools/trace-temporal/graphiti_falkor_runner.py', 'tools/trace-temporal/graphiti_support.py', 'tools/trace-temporal/graphiti_provider.py', 'tools/trace-temporal/fixture-input.mjs', 'packages/projection-adapters/src/lib/graphiti-trace.ts', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts'];
+  const implementationPaths = ['tools/trace-graph/proof-output.mjs', 'tools/trace-temporal/prove-semantic-falkordb.mjs', 'tools/trace-temporal/prove_falkor_semantic.py', 'tools/trace-temporal/graphiti_falkor_runner.py', 'tools/trace-temporal/graphiti_support.py', 'tools/trace-temporal/graphiti_provider.py', 'tools/trace-temporal/fixture-input.mjs', 'packages/projection-adapters/src/lib/graphiti-trace.ts', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts'];
   assert.equal(execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), implementationHead);
   const proof = { profile: 'trace-graphiti-falkordb-semantic-proof-v1', observedAt: new Date().toISOString(),
     implementation: { gitHead: implementationHead, posture: 'source-digest-bound', digests: hashes(implementationPaths) },
@@ -128,8 +130,8 @@ try {
     versionSplitDisposition: 'V0_VERSION_SPLIT_ACCEPTED_PENDING_UPSTREAM_COMPATIBILITY',
     declaredNondeterminismAndLoss: initial.projection.loss, promotionPosture: 'fixture-local-private; G15/#361/#1222 and SSPL public-service review remain required',
     cleanup: { ownedSemanticGraphDropped: true, ownedOperationalGraphDropped: true, otherGraphsPreserved: true }, semanticAcceptance: true };
-  const target = process.argv.includes('--output') ? process.argv[process.argv.indexOf('--output') + 1] : 'tools/trace-temporal/evidence/falkordb-semantic-proof.json';
-  assert.ok(target); const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(target, bytes);
+  const target = proofPath;
+  const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(target, bytes, { flag: 'wx' });
   process.stdout.write(JSON.stringify({ proof: target, sha256: digest(bytes), semanticAcceptance: true, episodes: selected.episodes.length,
     initialArtifacts: initial.projection.artifacts.length, rebuiltArtifacts: rebuilt.projection.artifacts.length, preservedSource: true, rebuilt: true }) + '\n');
 } finally {

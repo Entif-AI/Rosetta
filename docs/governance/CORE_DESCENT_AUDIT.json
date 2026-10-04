@@ -1016,7 +1016,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "packages/rosetta-schemas/docs/trace-kinematics-v1.md",
-        "sha256": "bf178c00568a9dfd9b7e012154ddfbfcc401d51407b365e1527d69141d2179c2"
+        "sha256": "5188ad9f4b03f2a3fdceb6204e4f196d76dc701a457c86de322f90f95af0a5a2"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -1042,7 +1042,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "packages/rosetta-schemas/docs/trace-projection-v1.md",
-        "sha256": "2ae82f64d7d012d8d81370d87838b078bb5b31b68df5f8e8a913ace86308b1c3"
+        "sha256": "77990478fd2e24721586340746ab5d9608d4eb412157ca49ac0b53443b470b51"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",

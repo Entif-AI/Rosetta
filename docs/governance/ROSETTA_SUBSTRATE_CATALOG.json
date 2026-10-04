@@ -26,16 +26,29 @@
       }
     },
     {
+      "id": "entif:akasha-falkor-closeout",
+      "kind": "plan",
+      "title": "Reconcile the forward Akasha V0 backend path",
+      "status": "in-progress",
+      "task": "T1738",
+      "issues": [1738, 1734, 1664, 1667, 1668, 1669],
+      "pr": 1732,
+      "source": {
+        "path": "plans/akasha-falkor-closeout.md",
+        "sha256": "7aeb8f50584947b894c40c086a49c9438f419f0121808ce81104d412ccae3f34"
+      }
+    },
+    {
       "id": "entif:akasha-v0-acceptance",
       "kind": "plan",
       "title": "Close the integrated Akasha V0 proving slice",
       "status": "planned",
       "task": "T1664",
       "issues": [1664],
-      "pr": null,
+      "pr": 1732,
       "source": {
         "path": "plans/akasha-v0-acceptance.md",
-        "sha256": "9a0e158ef919518631accc82bddf7abcbaa24735960468fbaab6edd5c5d8425b"
+        "sha256": "a1956289fa86ff430c1dfea89b71a5b72ac9f1634addbd73e79b2bb25e01ef66"
       }
     },
     {
@@ -405,6 +418,26 @@
   ],
   "relationships": [
     {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-kin-falkor"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-temp-falkor"
+    },
+    {
       "from": "entif:akasha-v0-acceptance",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -412,12 +445,7 @@
     {
       "from": "entif:akasha-v0-acceptance",
       "kind": "depends-on",
-      "to": "entif:trace-kin"
-    },
-    {
-      "from": "entif:akasha-v0-acceptance",
-      "kind": "depends-on",
-      "to": "entif:trace-temp"
+      "to": "entif:akasha-falkor-closeout"
     },
     {
       "from": "entif:axi-base",

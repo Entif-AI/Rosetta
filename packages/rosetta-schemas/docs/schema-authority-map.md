@@ -101,6 +101,8 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 
 `trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
 
-`trace.projection.v1` owns graph exchange/identity/provenance for #1667. See [trace-projection-v1.md](trace-projection-v1.md). Neo4j implements a disposable development adapter, with explicit derived-projection descent.
+`trace.projection.v1` owns provider-neutral graph exchange/identity/provenance for #1667 and the #1734/#1735 successor. See [trace-projection-v1.md](trace-projection-v1.md). FalkorDB is the active fixture-backed V0 adapter; Neo4j remains historical/reference tooling. Both have explicit derived-projection descent. #1738 reconciles the forward path without changing Profile identity or semantics.
 
-`trace-kin-v1` owns public observable metric/result semantics for #1669. See [trace-kinematics-v1.md](trace-kinematics-v1.md). It has derived-projection descent and does not authorize hidden-memory interpretations or protected scoring.
+`trace-kin-v1` owns public observable metric/result semantics for #1669, independently re-proven on FalkorDB by #1736. See [trace-kinematics-v1.md](trace-kinematics-v1.md). It has derived-projection descent and does not authorize hidden-memory interpretations or protected scoring.
+
+`trace.graphiti-selection.v1` and `trace.graphiti-projection.v1` retain the #1668 admission/support/rights boundary. #1737 proves the unchanged first-party Graphiti/Falkor successor as experimental derived interpretation. The accepted V0 compatibility split uses operational FalkorDB 6.0.1 and semantic FalkorDB 4.20.7; neither database nor donor becomes semantic authority. G15/#361/#1222 promotion and SSPL public-service review remain separate.

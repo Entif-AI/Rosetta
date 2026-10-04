@@ -1,4 +1,5 @@
 import process from 'node:process';
+import { proofOutputPath } from './proof-output.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -9,6 +10,7 @@ import { createSourceRecordTile, createSourceManifestationTile } from '../../pac
 import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
 
 if (process.env.TRACE_GRAPH_ISOLATED !== 'true') throw new Error('Declare ownership of an isolated local fixture runtime before proof/reset/drop.');
+const proofPath = proofOutputPath('tools/trace-graph/evidence/falkordb-proof.json');
 const graphName = process.env.TRACE_FALKORDB_GRAPH ?? 'entif_trace_1735';
 const container = process.env.TRACE_FALKORDB_CONTAINER ?? 'entif-falkor-1735';
 const config = { host: '127.0.0.1', port: Number(process.env.TRACE_FALKORDB_PORT ?? '16379'), graphName };
@@ -100,7 +102,7 @@ try {
   assert.deepEqual(hashes(sourcePaths), sourceBefore);
   assert.deepEqual([sourceBundle.record, sourceBundle.derived].map(tile => canonicalTraceJson(store.get(tile.cid))), storedBefore);
   assert.deepEqual(hashes(historicalPaths), historicalBefore);
-  const implementationPaths = ['packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts', 'tools/trace-graph/prove-falkordb.mjs', 'packages/projection-adapters/package.json', ...['membership','parentage','correlation','lifecycle','lineage','bounded','morphology','neighborhood'].map(name => `tools/trace-graph/cypher/${name}.cypher`)];
+  const implementationPaths = ['tools/trace-graph/proof-output.mjs', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts', 'tools/trace-graph/prove-falkordb.mjs', 'packages/projection-adapters/package.json', ...['membership','parentage','correlation','lifecycle','lineage','bounded','morphology','neighborhood'].map(name => `tools/trace-graph/cypher/${name}.cypher`)];
   const proof = {
     profile: 'trace-graph-falkordb-proof-v1', observedAt: new Date().toISOString(),
     implementation: { baseCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), posture: 'working-tree-source-digests', digests: hashes(implementationPaths) },
@@ -110,8 +112,8 @@ try {
     dropped: true, canonicalSourcesUnaffected: true, rosettaStoreUnaffected: true,
     residue: { 1736: 'Independent TRACE-KIN Falkor acceptance and agent-stream structural query re-proof', 1737: 'Graphiti first-party Falkor backend and live model/provider proof', 1738: 'Final roadmap/catalog/V0 reconciliation and promotion review' }
   };
-  const path = 'tools/trace-graph/evidence/falkordb-proof.json';
+  const path = proofPath;
   const bytes = canonicalTraceJson(proof) + '\n';
-  writeFileSync(path, bytes);
+  writeFileSync(path, bytes, { flag: 'wx' });
   process.stdout.write(JSON.stringify({ proof: path, sha256: digest(bytes), fixtures: evidence.map(({ fixture, nodes, edges, closureDigest }) => ({ fixture, nodes, edges, closureDigest })), indexes: schema.indexes.length, operationalConstraints: schema.constraints.length, directQueryFamilies: 8, idempotent: true, scopedReset: true, rebuilt: true, dropped: true, canonicalSourcesUnaffected: true, rosettaStoreUnaffected: true }) + '\n');
 } finally { await database.close(); }

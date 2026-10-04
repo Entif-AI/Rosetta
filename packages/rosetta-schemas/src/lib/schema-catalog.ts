@@ -323,14 +323,14 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
     authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-kinematics-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Observable representation measurements; no hidden-memory or scoring authority.'],
-    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace-kin-v1', sourceIssues: ['#1669', '#1666', '#1667'], sourcePrs: ['#1725'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace-kin-v1', sourceIssues: ['#1669', '#1666', '#1667', '#1736', '#1738'], sourcePrs: ['#1725', '#1732'],
     tests: ['packages/rosetta-schemas/src/lib/trace-kinematics.spec.ts', 'packages/projection-adapters/src/lib/trace-kinematics.spec.ts'], validator: 'parseTraceKinematics'
   },
   {
     authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-projection-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Rebuildable development projection; no semantic storage or runtime policy.'],
-    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace.projection.v1', sourceIssues: ['#1667', '#1666'], sourcePrs: ['#1725'],
-    tests: ['packages/projection-adapters/src/lib/neo4j-trace-projection.spec.ts'], validator: 'parseTraceProjection'
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace.projection.v1', sourceIssues: ['#1667', '#1666', '#1734', '#1735', '#1738'], sourcePrs: ['#1725', '#1732'],
+    tests: ['packages/projection-adapters/src/lib/falkordb-trace-projection.spec.ts', 'packages/projection-adapters/src/lib/neo4j-trace-projection.spec.ts'], validator: 'parseTraceProjection'
   },
   {
     authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/ingress-refinery', '@entif-ai/projection-adapters'],

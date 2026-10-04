@@ -1,4 +1,5 @@
 import process from 'node:process';
+import { proofOutputPath } from './proof-output.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -9,6 +10,7 @@ import { createSourceRecordTile, createSourceManifestationTile } from '../../pac
 import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
 
 if (process.env.TRACE_GRAPH_ISOLATED !== 'true') throw new Error('Explicit isolated fixture ownership is required before kinematics import/drop.');
+const proofPath = proofOutputPath('tools/trace-graph/evidence/falkordb-kinematics-proof.json');
 const graphName = 'entif_trace_1736';
 const container = process.env.TRACE_FALKORDB_CONTAINER ?? 'entif-falkor-1735';
 const config = { host: '127.0.0.1', port: Number(process.env.TRACE_FALKORDB_PORT ?? '16379'), graphName };
@@ -71,8 +73,8 @@ try {
   await graph.delete(); assert.deepEqual((await database.list()).sort(), graphsBefore);
   assert.deepEqual(hashes(sourcePaths), sourcesBefore); assert.deepEqual(hashes(historicalPaths), historicalBefore);
   assert.deepEqual([sourceBundle.record, sourceBundle.derived].map(tile => canonicalTraceJson(store.get(tile.cid))), storedBefore);
-  const implementationPaths = ['tools/trace-graph/prove-kinematics-falkordb.mjs', 'packages/projection-adapters/src/lib/trace-kinematics.ts', 'packages/rosetta-schemas/src/lib/trace-kinematics.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts', ...['morphology', 'lifecycle', 'neighborhood'].map(name => `tools/trace-graph/cypher/${name}.cypher`)];
+  const implementationPaths = ['tools/trace-graph/proof-output.mjs', 'tools/trace-graph/prove-kinematics-falkordb.mjs', 'packages/projection-adapters/src/lib/trace-kinematics.ts', 'packages/rosetta-schemas/src/lib/trace-kinematics.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts', ...['morphology', 'lifecycle', 'neighborhood'].map(name => `tools/trace-graph/cypher/${name}.cypher`)];
   const proof = { profile: 'trace-kin-falkordb-proof-v1', observedAt: new Date().toISOString(), implementation: { baseCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), posture: 'working-tree-source-digests', digests: hashes(implementationPaths) }, backend: { provider: 'FalkorDB', version: '6.0.1', moduleVersion: 60001, image: expectedImage, imageId: image.Image, clientVersion: '6.8.0', protocol: 'RESP', ...config, posture: 'local-private-fixture', promotionBoundary: 'SSPLv1 public/network service deployment requires separate review' }, evidence, ...schema, sourceDigests: sourcesBefore, historicalDigests: historicalBefore, oracle: { path: historicalPaths[0], comparison: 'literal query and provider-neutral deterministic metric parity; never migration input' }, dropped: true, otherGraphsPreserved: true, canonicalSourcesUnaffected: true, rosettaStoreUnaffected: true };
-  const output = 'tools/trace-graph/evidence/falkordb-kinematics-proof.json'; const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(output, bytes);
+  const output = proofPath; const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(output, bytes, { flag: 'wx' });
   process.stdout.write(JSON.stringify({ proof: output, sha256: digest(bytes), evidence: evidence.map(({ fixture, resultDigest, measurements }) => ({ fixture, resultDigest, measurements })), directQueryFamilies: 3, operationalConstraints: schema.constraints.length, dropped: true, otherGraphsPreserved: true }) + '\n');
 } finally { await database.close(); }

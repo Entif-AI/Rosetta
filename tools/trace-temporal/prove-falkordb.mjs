@@ -1,4 +1,5 @@
 import process from 'node:process';
+import { proofOutputPath } from '../trace-graph/proof-output.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -11,6 +12,7 @@ import { canonicalTraceJson } from '../../packages/rosetta-schemas/dist/index.js
 import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
 
 if (process.env.TRACE_GRAPH_ISOLATED !== 'true') throw new Error('Explicit isolated fixture ownership is required.');
+const proofPath = proofOutputPath('tools/trace-temporal/evidence/falkordb-backend-proof.json');
 const { normalized, selected, sourceTiles } = admitTemporalFixture();
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const hashes = paths => Object.fromEntries(paths.map(p => [p, digest(readFileSync(p))]));
@@ -41,15 +43,15 @@ try {
   await graph.delete(); assert.deepEqual((await database.list()).sort(), names);
   assert.deepEqual(hashes([...sourcePaths, ...historicalPaths]), before);
   assert.deepEqual(sourceTiles.map(tile => canonicalTraceJson(store.get(tile.cid))), storedBefore);
-  const implementationPaths = ['tools/trace-temporal/prove-falkordb.mjs', 'tools/trace-temporal/prove_falkor_backend.py', 'tools/trace-temporal/graphiti_falkor_runner.py', 'tools/trace-temporal/graphiti_support.py', 'tools/trace-temporal/fixture-input.mjs', 'tools/trace-temporal/generate-fixture.mjs', 'packages/projection-adapters/src/lib/graphiti-trace.ts', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts'];
+  const implementationPaths = ['tools/trace-graph/proof-output.mjs', 'tools/trace-temporal/prove-falkordb.mjs', 'tools/trace-temporal/prove_falkor_backend.py', 'tools/trace-temporal/graphiti_falkor_runner.py', 'tools/trace-temporal/graphiti_support.py', 'tools/trace-temporal/fixture-input.mjs', 'tools/trace-temporal/generate-fixture.mjs', 'packages/projection-adapters/src/lib/graphiti-trace.ts', 'packages/projection-adapters/src/lib/trace-projection.ts', 'packages/projection-adapters/src/lib/falkordb-trace-projection.ts'];
   Object.assign(proof, {
     implementation: { baseCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), posture: 'working-tree-source-digests', digests: hashes(implementationPaths) },
     preservedDigests: before, canonicalSourcesUnaffected: true, rosettaStoreUnaffected: true,
     operationalProjection: { ...config, closureDigest: projection.closureDigest, nodes: projection.nodes.length, edges: projection.edges.length, unaffectedBySemanticDrop: true, dropped: true },
     remainingAcceptance: ['Actual model-backed extraction/evolution/invalidation', 'Live out-of-order/retraction/contradiction/identity/rights cases', 'Semantic current/history direct queries and donor re-extraction rebuild'],
   });
-  const target = 'tools/trace-temporal/evidence/falkordb-backend-proof.json';
-  const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(target, bytes);
+  const target = proofPath;
+  const bytes = canonicalTraceJson(proof) + '\n'; writeFileSync(target, bytes, { flag: 'wx' });
   process.stdout.write(JSON.stringify({ proof: target, sha256: digest(bytes), status: proof.status, episodes: proof.episodeRows.length, idempotent: proof.duplicateDeliveryIdempotent, episodePersistenceRebuilt: proof.episodePersistenceRebuilt, semanticAcceptance: false, canonicalSourcesUnaffected: true, operationalProjectionUnaffected: true }) + '\n');
 } finally {
   await database.close(); rmSync(temporary, { recursive: true, force: true });

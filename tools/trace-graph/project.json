@@ -6,7 +6,7 @@
       "executor": "nx:run-commands",
       "dependsOn": [{ "projects": ["projection-adapters", "source-substrate", "rosetta-store"], "target": "build" }],
       "options": {
-        "command": "node --test tools/trace-graph/kinematics-proof.spec.mjs"
+        "command": "node --test tools/trace-graph/*.spec.mjs"
       }
     },
     "prove-kinematics": {
