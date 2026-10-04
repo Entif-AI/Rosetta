@@ -1,0 +1,549 @@
+{
+  "profile": {
+    "id": "engineering.run-completion.v1",
+    "version": "1.0.0"
+  },
+  "runRef": "urn:rosetta:engineering-run:1732:1509:0adcdcbd030513552420ad8b347dafc887a7b014",
+  "workRefs": [
+    "https://github.com/Entif-AI/Rosetta/issues/1509",
+    "https://github.com/Entif-AI/Rosetta/pull/1732"
+  ],
+  "identityRefs": {
+    "issues": [
+      "https://github.com/Entif-AI/Rosetta/issues/1509"
+    ],
+    "specs": [
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:specs/architecture.md"
+    ],
+    "plans": [
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:plans/work-lifecycle.md"
+    ],
+    "prs": [
+      "https://github.com/Entif-AI/Rosetta/pull/1732"
+    ]
+  },
+  "createdAt": "2026-10-04T07:20:44.891Z",
+  "terminalState": "completed",
+  "lifecycleRecords": [
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fissues%2F1509:declared",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1509",
+      "event": "declared",
+      "createdAt": "2026-10-04T07:20:44.891Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1509"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1509"
+      ]
+    },
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fissues%2F1509:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1509",
+      "event": "completed",
+      "createdAt": "2026-10-04T07:20:44.891Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1509"
+      ],
+      "executorRef": "executor:codex-desktop:batch-1732",
+      "resultRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json",
+        "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014"
+      ],
+      "disposition": "completed",
+      "priorRecordRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fissues%2F1509:declared"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fissues%2F1509:verification_accepted",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1509",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T07:20:44.891Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1509"
+      ],
+      "executorRef": "executor:codex-desktop:batch-1732",
+      "resultRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191419/job/111385546867",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191435/job/111385546733"
+      ],
+      "verifierRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191419/job/111385546867",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191435/job/111385546733"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fissues%2F1509:completed"
+    }
+  ],
+  "observations": {
+    "executorSurface": {
+      "status": "observed",
+      "value": "Codex desktop",
+      "evidenceRefs": [
+        "evidence:batch-1732-observations"
+      ]
+    },
+    "provider": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "model": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "modelVersion": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "reasoning": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "compiledContext": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "tools": {
+      "status": "observed",
+      "value": [
+        "Git",
+        "pnpm",
+        "Nx",
+        "Vitest",
+        "GitHub CLI",
+        "quota-axi"
+      ],
+      "evidenceRefs": [
+        "evidence:batch-1732-observations",
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json"
+      ]
+    },
+    "runtime": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "repairs": {
+      "status": "observed",
+      "value": [
+        "Rejected invalid completion/dispatch/authority declarations.",
+        "Rejected integration based on superseded verification.",
+        "Disabled stale Jiti module cache after clean hosted catalog failures.",
+        "Regenerated the stale Core-descent audit exposed by the repaired source loader.",
+        "Allowed 30 seconds for the existing cold Profile integration test while retaining its assertions."
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json",
+        "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1:tools/semantic-governance/load-schemas.spec.mjs",
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:docs/governance/CORE_DESCENT_AUDIT.json",
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/semantic-governance/profile-admission.spec.mjs",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37182455915/job/111377592380",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37183272818/job/111379942334",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37184429189/job/111383312789",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37184887185/job/111384644946"
+      ]
+    },
+    "rework": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "discardedWork": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "startedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "endedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "delegation": {
+      "status": "observed",
+      "value": [],
+      "evidenceRefs": [
+        "evidence:batch-1732-observations"
+      ]
+    },
+    "quota": {
+      "status": "observed",
+      "value": [
+        {
+          "meterRef": "evidence:batch-1732-observations",
+          "windowRef": "five_hour",
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-04T06:06:00.681Z",
+          "phase": "before",
+          "usedPercent": 8,
+          "remainingPercent": 92,
+          "resetAt": "2026-10-04T11:02:46.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "evidence:batch-1732-observations",
+          "windowRef": "weekly",
+          "windowKind": "weekly",
+          "observedAt": "2026-10-04T06:06:00.681Z",
+          "phase": "before",
+          "usedPercent": 25,
+          "remainingPercent": 75,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "evidence:batch-1732-observations",
+          "windowRef": "five_hour",
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-04T06:19:09.499Z",
+          "phase": "checkpoint",
+          "usedPercent": 16,
+          "remainingPercent": 84,
+          "resetAt": "2026-10-04T11:02:46.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "evidence:batch-1732-observations",
+          "windowRef": "weekly",
+          "windowKind": "weekly",
+          "observedAt": "2026-10-04T06:19:09.499Z",
+          "phase": "checkpoint",
+          "usedPercent": 27,
+          "remainingPercent": 73,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        }
+      ],
+      "evidenceRefs": [
+        "evidence:batch-1732-observations"
+      ]
+    },
+    "duration": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "contextSize": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "cache": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "tokens": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "cost": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "retries": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    }
+  },
+  "validation": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@b99ff2428002b35d4d1a5c8fd18c3ae5005e31b4",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37182455915/job/111377592380"
+      ],
+      "independence": "independent",
+      "disposition": "failed"
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@4a4a7ccaba2392bc812e5f0913f16b0b712f0b78",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37183272818/job/111379942334"
+      ],
+      "independence": "independent",
+      "disposition": "failed"
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37184429189/job/111383312789"
+      ],
+      "independence": "independent",
+      "disposition": "failed"
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@275e913a2ccf2ed64966d0254ef50949e4f467f9",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37184887185/job/111384644946"
+      ],
+      "independence": "independent",
+      "disposition": "failed"
+    },
+    {
+      "subjectRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json"
+      ],
+      "independence": "executor-attested",
+      "disposition": "passed"
+    }
+  ],
+  "independentVerification": [
+    {
+      "subjectRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191419/job/111385546867"
+      ],
+      "independence": "independent",
+      "disposition": "passed"
+    },
+    {
+      "subjectRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37185191435/job/111385546733"
+      ],
+      "independence": "independent",
+      "disposition": "passed"
+    }
+  ],
+  "externalEffects": [
+    {
+      "effectRef": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "kind": "push",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+        "https://github.com/Entif-AI/Rosetta/pull/1732"
+      ]
+    }
+  ],
+  "result": {
+    "disposition": "verified",
+    "evidenceRefs": [
+      "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37185191419/job/111385546867",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37185191435/job/111385546733"
+    ]
+  },
+  "limitations": [
+    "Shared-seat observations do not attribute consumption to this run.",
+    "Actual run start/end, token counts, cost and hidden model configuration are not exposed.",
+    "Unmerged implementation and hosted verification are distinct from integration.",
+    "Quota observation scope is the shared seat; no tranche consumption is inferred."
+  ],
+  "continuation": {
+    "refs": [
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:plans/work-lifecycle.md"
+    ],
+    "nextSafeStep": "Continue the prepared engineering-evidence frontier; retain unmerged plan state until integration.",
+    "evidenceRefs": [
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:plans/work-lifecycle.md",
+      "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json"
+    ]
+  },
+  "sources": [
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/issues/1509",
+      "locator": "tools/engineering-evidence/completion-sources/issue-1509.json",
+      "role": "issue",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-09-03T14:45:17Z",
+      "sha256": "502468b940489c6183034e7c801a035b9410bc9db76dd7a0eee8c4d4fd95864c"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/pull/1732",
+      "locator": "tools/engineering-evidence/completion-sources/pr-1732.json",
+      "role": "pull-request",
+      "authorityClass": "source-evidence",
+      "sourceTime": null,
+      "sha256": "f98b6dc3f6209d1acd9b99776e6ab8a442be417ef8a5a8c0c2a7bd882414204a"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/commit/0adcdcbd030513552420ad8b347dafc887a7b014",
+      "locator": "tools/engineering-evidence/completion-sources/checkpoint-verified.json",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": "2026-10-04T07:14:15Z",
+      "sha256": "82aecdd4938b63cc0782adb73ce84ad11bd336a0721549d8f9029ffb98d52c49"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json",
+      "locator": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/engineering-evidence/evidence/lifecycle-validation.json",
+      "role": "green",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null,
+      "sha256": "fe071d093a65427f68d323496c891c7d7dfbe47955b58d8958311cea2e9dd9fc"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:specs/architecture.md",
+      "locator": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:specs/architecture.md",
+      "role": "spec",
+      "authorityClass": "desired-state",
+      "sourceTime": null,
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:plans/work-lifecycle.md",
+      "locator": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:plans/work-lifecycle.md",
+      "role": "plan",
+      "authorityClass": "desired-state",
+      "sourceTime": null,
+      "sha256": "0475a14a6e6d2ba7bfb10b5948f61a913bef84fcebafc8267f38adba5b316fb2"
+    },
+    {
+      "ref": "evidence:batch-1732-observations",
+      "locator": "tools/engineering-evidence/completion-sources/current-observations.json",
+      "role": "other",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T06:43:53.462Z",
+      "sha256": "9320a9992262f90c567c399581aba424d713ff404b201227958614185771c07a"
+    },
+    {
+      "ref": "executor:codex-desktop:batch-1732",
+      "locator": "tools/engineering-evidence/completion-sources/current-observations.json",
+      "role": "executor",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T06:43:53.462Z",
+      "sha256": "9320a9992262f90c567c399581aba424d713ff404b201227958614185771c07a"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37185191419/job/111385546867",
+      "locator": "tools/engineering-evidence/completion-sources/checks-verified.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T07:15:12Z",
+      "sha256": "4806c461d4f0986535e3054d9c1b8e1b52c45de65ea6c17368e610c0addb3ae6"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37185191435/job/111385546733",
+      "locator": "tools/engineering-evidence/completion-sources/checks-verified.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T07:20:08Z",
+      "sha256": "4806c461d4f0986535e3054d9c1b8e1b52c45de65ea6c17368e610c0addb3ae6"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@b99ff2428002b35d4d1a5c8fd18c3ae5005e31b4",
+      "locator": "git:Entif-AI/Rosetta@b99ff2428002b35d4d1a5c8fd18c3ae5005e31b4",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "3a9f402efe2a927363b089a07e27415279e79d4085f1f829d089da423d6bf5e8"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37182455915/job/111377592380",
+      "locator": "tools/engineering-evidence/completion-sources/checks-b99ff24.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T06:21:33Z",
+      "sha256": "72f68c0c41e0d7b13637571647aa908a811d3697d24272d282d03aef78fa08e1"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@4a4a7ccaba2392bc812e5f0913f16b0b712f0b78",
+      "locator": "git:Entif-AI/Rosetta@4a4a7ccaba2392bc812e5f0913f16b0b712f0b78",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "f6e6062e1fce6a4d100a276baa0b9135d6ffd9c0101958e62f304dae8ea6fd56"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37183272818/job/111379942334",
+      "locator": "tools/engineering-evidence/completion-sources/checks-4a4a7cc.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T06:37:41Z",
+      "sha256": "df2aac9ee564cc73cef90d08b9234daa49aaf729e20a8e76cbb5031a267d1e78"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1",
+      "locator": "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "a304ac3eee74c89e71c87b2360d62cea5f8605ecaf2524570dee00ab089e3f29"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37184429189/job/111383312789",
+      "locator": "tools/engineering-evidence/completion-sources/checks-c62a76d.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T07:02:14Z",
+      "sha256": "3871cbf992d2ca5622ed09a442f21f65fa30b7e53a69b3d0d322679d4fde9bda"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@275e913a2ccf2ed64966d0254ef50949e4f467f9",
+      "locator": "git:Entif-AI/Rosetta@275e913a2ccf2ed64966d0254ef50949e4f467f9",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "662e753b3d75efe42ecaa8f1c84a2a8136139e76f580e5745548a27735c81f76"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37184887185/job/111384644946",
+      "locator": "tools/engineering-evidence/completion-sources/checks-275e913.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T07:12:01Z",
+      "sha256": "2ea241e27bd152d52d11a85f39c66b291021df0ef22404b74adb89c75f3df5c9"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1:tools/semantic-governance/load-schemas.spec.mjs",
+      "locator": "git:Entif-AI/Rosetta@c62a76d58528d3cc576385a52ed598860ad1f6b1:tools/semantic-governance/load-schemas.spec.mjs",
+      "role": "other",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "33c13d1cad9280597d395378ccc16046453dead2bedcfc67dd7c4024a50ad873"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:docs/governance/CORE_DESCENT_AUDIT.json",
+      "locator": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:docs/governance/CORE_DESCENT_AUDIT.json",
+      "role": "other",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "bdf8efce6a5b9957138c341cbfdcca53b54e6c883a94e33ff83e73529bf59479"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/semantic-governance/profile-admission.spec.mjs",
+      "locator": "git:Entif-AI/Rosetta@0adcdcbd030513552420ad8b347dafc887a7b014:tools/semantic-governance/profile-admission.spec.mjs",
+      "role": "other",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "1024c79384e2849332f6e030bedf68f36cc7b8c91c14f282c2f516340f0713e8"
+    }
+  ],
+  "supersedesRefs": [],
+  "envelopeId": "sha256:9500570b0b4d61fad343629e2e30095a8af3175761d47643dc85127fcd0d7893"
+}

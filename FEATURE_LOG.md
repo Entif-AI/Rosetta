@@ -16,7 +16,7 @@ Validate focused failing-before/passing-after fixtures, owner package checks, sc
 
 Starting quota-axi observation at 2026-10-04T05:38:20.875Z: fresh, five-hour remaining 47%, weekly 63%. Earlier desktop meter reported five-hour 81%; meters disagree, attribution and precision are not inferred. Raw seat telemetry remains outside Git. Provider/model/reasoning identity is not durably exposed and remains unknown. No implementation acceptance yet.
 
-Next safe step: #1727 terminal completion envelope with real #1725/#1723 fixtures and a fresh #1509/#1726 backfill; then #1730 dependency impact/revalidation.
+Next safe step: checkpoint #1727 and enter #1730 dependency impact/revalidation. Dogfood completion evidence on later tranches. Keep all new plans in-progress until integration.
 
 ## TRACE-TEMP checkpoint
 
@@ -49,3 +49,9 @@ The shared source loader regression changed a transitive catalog module between 
 Resumption verified c62a76d hosted site checks passed but admission still failed. A clean replay at that exact head reproduced Core-descent audit drift: the loader repair also exposed missing lifecycle rows and stale authority digests in that generated projection. Regenerating only the audit makes all nine spec-admission prerequisites and the gate pass. A replay-only missing built SpecOps dependency was resolved by the normal governance build; CI already performed that build. No semantic check was relaxed. Completion fixtures must preserve failed checkpoints b99ff24, 4a4a7cc and c62a76d alongside the subsequent repair/verification. Quota-axi at 2026-10-04T07:05:27.489Z: five-hour 62%, weekly 70% remaining, shared-seat and unattributed.
 
 Pushed/read back audit repair 275e913a2ccf2ed64966d0254ef50949e4f467f9. Hosted spec admission then passed; the existing #1699 Profile integration test exceeded its default five-second limit during cold source/Nx graph work. The named test passes locally (two cases, 1.24 seconds). Its integration timeout is now 30 seconds; all conformance assertions and fresh-load behavior are retained. Preserve this fourth failed checkpoint in the completion backfill as well.
+
+## #1727 completion checkpoint
+
+Hosted admission and site verification both passed at 0adcdcbd030513552420ad8b347dafc887a7b014, independently read back through check-run APIs. Three canonical completion envelopes and derived Markdown renderings now exist: historical merged Akasha #1725, historical merged AXI/SpecOps #1723, and the fresh unmerged #1509 tranche. The fresh envelope retains failures at b99ff24, 4a4a7cc, c62a76d and 275e913, plus loader/audit/startup repairs and later passed verification. Shared-seat quota is unattributed; historical model, effort, tokens, cost and total timing remain unknown.
+
+Nine focused tests pass; owner lint/typecheck/build and 111 tests pass. New red regressions exposed verified claims without completed/accepted lifecycle subjects and loss of the separately recorded integration fact after later rejection. Both repaired without conflating current acceptance with historical integration. Canonical digest, source closure, unknown-value exclusion, shared-meter uncertainty, additive correction history and immutable fixture checks are executable. The current schema is source-linked evidence, never a routing verdict or effect authority. Local SpecOps admission needs the normal Nx governance build first; do not mistake absent dist output for a schema failure.

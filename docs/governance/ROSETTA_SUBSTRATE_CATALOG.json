@@ -130,6 +130,19 @@
       }
     },
     {
+      "id": "entif:run-completion",
+      "kind": "plan",
+      "title": "Terminal engineering-run completion evidence",
+      "status": "in-progress",
+      "task": "T1727",
+      "issues": [1727],
+      "pr": 1732,
+      "source": {
+        "path": "plans/run-completion.md",
+        "sha256": "02087393b41371c7fbd56ce3c22d643891faaff2e3f1b0413ea28c98cecf1985"
+      }
+    },
+    {
       "id": "entif:salience-schema",
       "kind": "plan",
       "title": "Implement the public salience Profile/schema and conformance fixtures",
@@ -394,6 +407,21 @@
       "from": "entif:jcs-001",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "depends-on",
+      "to": "entif:work-lifecycle"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "depends-on",
+      "to": "entif:engineering-akasha"
     },
     {
       "from": "entif:salience-schema",

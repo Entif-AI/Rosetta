@@ -8,4 +8,5 @@ export * from './lib/trace-projection.js';
 export * from './lib/trace-kinematics.js';
 export * from './lib/work-lifecycle.js';
 export * from './lib/engineering-lifecycle.js';
+export * from './lib/engineering-completion.js';
 export type { JsonValue } from '@entif-ai/rosetta-canon';

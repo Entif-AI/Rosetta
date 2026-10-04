@@ -230,6 +230,13 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-completion-v1.md', 'packages/rosetta-schemas/docs/engineering-completion-v1.schema.json'], exposureStatus: 'downstream-contract', family: 'engineering-evidence',
+    knownGaps: ['Source-linked observations and structural conformance only; no hidden telemetry reconstruction, evidence authentication, routing score or production promotion.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'engineering.run-completion.v1', sourceIssues: ['#1727', '#1509', '#1726'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/engineering-completion.spec.ts'], validator: 'parseEngineeringCompletion'
+  },
+  {
     authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/source-substrate', '@entif-ai/ingress-refinery', '@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-lifecycle-v1.md', 'packages/rosetta-schemas/docs/engineering-lifecycle-v1.schema.json'],
     exposureStatus: 'fixture-only', family: 'engineering-evidence', knownGaps: ['Bounded source metadata and reference closure; external source authentication and unobserved historical executor/model configuration remain outside this adapter.'],

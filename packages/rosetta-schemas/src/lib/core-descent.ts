@@ -49,6 +49,7 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'engineering.run-completion.v1': metadata('implementation-local', 'packages/rosetta-schemas/docs/engineering-completion-v1.md', ['rosetta.action', 'rosetta.evaluation', 'rosetta.receipt']),
   'engineering.lifecycle-source.v1': metadata('implementation-local', 'packages/rosetta-schemas/docs/engineering-lifecycle-v1.md', ['rosetta.action', 'rosetta.evaluation', 'rosetta.receipt']),
   'work.lifecycle.v1': metadata('implementation-local', 'packages/rosetta-schemas/docs/work-lifecycle-v1.md', ['rosetta.action', 'rosetta.evaluation', 'rosetta.receipt']),
   'work.lifecycle-state.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/work-lifecycle-v1.md', ['rosetta.action']),

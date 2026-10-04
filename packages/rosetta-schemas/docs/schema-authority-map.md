@@ -97,6 +97,8 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 
 `engineering.lifecycle-source.v1` (#1726) owns bounded source/reference admission for the engineering specialization of #1509. See [engineering-lifecycle-v1.md](engineering-lifecycle-v1.md). Normalization and graph projection retain their existing owners.
 
+`engineering.run-completion.v1` (#1727) owns public source-linked terminal evidence, explicit unknown telemetry and additive correction history. See [engineering-completion-v1.md](engineering-completion-v1.md).
+
 `trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
 
 `trace.projection.v1` owns graph exchange/identity/provenance for #1667. See [trace-projection-v1.md](trace-projection-v1.md). Neo4j implements a disposable development adapter, with explicit derived-projection descent.

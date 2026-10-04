@@ -1,0 +1,534 @@
+{
+  "profile": {
+    "id": "engineering.run-completion.v1",
+    "version": "1.0.0"
+  },
+  "runRef": "https://github.com/Entif-AI/Rosetta/pull/1723",
+  "workRefs": [
+    "https://github.com/Entif-AI/Rosetta/pull/1723"
+  ],
+  "identityRefs": {
+    "issues": [],
+    "specs": [
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:specs/architecture.md"
+    ],
+    "plans": [
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:plans/specops-integrated.md"
+    ],
+    "prs": [
+      "https://github.com/Entif-AI/Rosetta/pull/1723"
+    ]
+  },
+  "createdAt": "2026-10-04T06:43:53.462Z",
+  "terminalState": "completed",
+  "lifecycleRecords": [
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:declared",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "event": "declared",
+      "createdAt": "2026-10-04T06:43:53.462Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723"
+      ]
+    },
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "event": "completed",
+      "createdAt": "2026-10-04T06:43:53.462Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723"
+      ],
+      "executorRef": "unknown:historical-executor:specops-1723",
+      "resultRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ],
+      "disposition": "completed",
+      "priorRecordRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:declared"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:verification_accepted",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T06:43:53.462Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723"
+      ],
+      "executorRef": "unknown:historical-executor:specops-1723",
+      "resultRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266919/job/111300163092",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266879/job/111300162732"
+      ],
+      "verifierRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266919/job/111300163092",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266879/job/111300162732"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:completed"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:integrated",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "event": "integrated",
+      "createdAt": "2026-10-04T06:43:53.462Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723"
+      ],
+      "verificationRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:verification_accepted",
+      "integrationRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723",
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723",
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "urn:rosetta:work-event:https%3A%2F%2Fgithub.com%2FEntif-AI%2FRosetta%2Fpull%2F1723:verification_accepted"
+    }
+  ],
+  "observations": {
+    "executorSurface": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "provider": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "model": {
+      "status": "unknown",
+      "reason": "not exposed by run tools",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "modelVersion": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "reasoning": {
+      "status": "unknown",
+      "reason": "not exposed by run tools",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "compiledContext": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "tools": {
+      "status": "observed",
+      "value": [
+        "pnpm",
+        "Nx",
+        "quota-axi",
+        "SpecOps"
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "runtime": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "repairs": {
+      "status": "observed",
+      "value": [
+        "Donor does not accept JSON-shaped frontmatter: canonical YAML and rejection guard",
+        "Evidence incorrectly placed in Profile-only spec-surfaces: moved to tooling evidence",
+        "Stale Nx daemon catalog count: daemon disabled, caches preserved",
+        "pnpm symlink main-module identity skipped CLI: realpath identity",
+        "S1 prose incompatible with canonical corpus: explicit consumer-owned archive, no inferred semantics",
+        "No Git origin in local consumer: omit remote lineage explicitly",
+        "Hosted Core-descent test bypassed existing source loader: shared loader reused",
+        "Review: staged source acquisition and explicit dead-owner lock recovery, red/green fixtures and re-review"
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "rework": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "discardedWork": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "startedAt": {
+      "status": "unknown",
+      "reason": "not captured; checkpoint interval is not total runtime",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "endedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "delegation": {
+      "status": "observed",
+      "value": [
+        {
+          "role": "efficient_reviewer",
+          "model": "gpt-5.6-sol",
+          "reasoning": "high",
+          "scope": "read-only distribution crash/ownership/consumer safety",
+          "mutableWriterCount": 1
+        }
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "quota": {
+      "status": "observed",
+      "value": [
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": null,
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-03T20:35:43.486Z",
+          "phase": "installed-mid-run",
+          "usedPercent": 23,
+          "remainingPercent": 77,
+          "resetAt": "2026-10-04T00:24:56.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": null,
+          "windowKind": "weekly",
+          "observedAt": "2026-10-03T20:35:43.486Z",
+          "phase": "installed-mid-run",
+          "usedPercent": 14,
+          "remainingPercent": 86,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": "five_hour",
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-03T21:38:19.664Z",
+          "phase": "checkpoint",
+          "usedPercent": 72,
+          "remainingPercent": 28,
+          "resetAt": "2026-10-04T00:24:56.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": "weekly",
+          "windowKind": "weekly",
+          "observedAt": "2026-10-03T21:38:19.664Z",
+          "phase": "checkpoint",
+          "usedPercent": 22,
+          "remainingPercent": 78,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": "five_hour",
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-03T21:46:34.457Z",
+          "phase": "after",
+          "usedPercent": 76,
+          "remainingPercent": 24,
+          "resetAt": "2026-10-04T00:24:56.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": "weekly",
+          "windowKind": "weekly",
+          "observedAt": "2026-10-03T21:46:34.457Z",
+          "phase": "after",
+          "usedPercent": 22,
+          "remainingPercent": 78,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": null,
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-03T21:08:59.184Z",
+          "phase": "checkpoint",
+          "usedPercent": 45,
+          "remainingPercent": null,
+          "resetAt": null,
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "unknown"
+        },
+        {
+          "meterRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "windowRef": null,
+          "windowKind": "weekly",
+          "observedAt": "2026-10-03T21:08:59.184Z",
+          "phase": "checkpoint",
+          "usedPercent": 17,
+          "remainingPercent": null,
+          "resetAt": null,
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "unknown"
+        }
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "duration": {
+      "status": "observed",
+      "value": {
+        "seconds": 4529,
+        "basis": "checkpoint-interval"
+      },
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "contextSize": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "cache": {
+      "status": "observed",
+      "value": [
+        {
+          "kind": "nx-task",
+          "subjectRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "cachedCount": 25,
+          "totalCount": 28,
+          "unit": "tasks"
+        },
+        {
+          "kind": "nx-task",
+          "subjectRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "cachedCount": 19,
+          "totalCount": 19,
+          "unit": "tasks"
+        },
+        {
+          "kind": "nx-task",
+          "subjectRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+          "cachedCount": 9,
+          "totalCount": 14,
+          "unit": "tasks"
+        }
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ]
+    },
+    "tokens": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "cost": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    },
+    "retries": {
+      "status": "unknown",
+      "reason": "Not durably exposed in the selected run evidence.",
+      "evidenceRefs": []
+    }
+  },
+  "validation": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json"
+      ],
+      "independence": "executor-attested",
+      "disposition": "passed"
+    }
+  ],
+  "independentVerification": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266919/job/111300163092"
+      ],
+      "independence": "independent",
+      "disposition": "passed"
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37156266879/job/111300162732"
+      ],
+      "independence": "independent",
+      "disposition": "passed"
+    }
+  ],
+  "externalEffects": [
+    {
+      "effectRef": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "kind": "git-checkpoint",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c"
+      ]
+    },
+    {
+      "effectRef": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+      "kind": "merge",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1723",
+        "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9"
+      ]
+    }
+  ],
+  "result": {
+    "disposition": "integrated",
+    "evidenceRefs": [
+      "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9"
+    ]
+  },
+  "limitations": [
+    "Run evidence was captured before merge; separate later GitHub metadata establishes PR integration.",
+    "Checkpoint interval is not total run wall time.",
+    "provider observations only; no attributable run delta, billing contract or efficiency claim",
+    "SpecOps pinned donor has no conventional license declaration; separately acquired, no vendoring",
+    "Legacy prose needs consumer review/port or preserved archive",
+    "No live model compliance claim from runtime/agent-dispatch fixtures",
+    "Substrate desired-state docs remain in-development under review; no generated acceptance promotion"
+  ],
+  "continuation": {
+    "refs": [
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:plans/specops-integrated.md"
+    ],
+    "nextSafeStep": "Review remaining deferred work against current SpecOps plans; preserve the integrated substrate.",
+    "evidenceRefs": [
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+      "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:plans/specops-integrated.md"
+    ]
+  },
+  "sources": [
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/pull/1723",
+      "locator": "tools/engineering-evidence/completion-sources/pr-1723.json",
+      "role": "pull-request",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-03T22:54:21Z",
+      "sha256": "955f0d5d25ea1f305a77d87f4e8831645f6d1bbd42cfe118670e3afdc0cd02d7"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+      "locator": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:tools/specops/evidence/run-evidence.json",
+      "role": "green",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null,
+      "sha256": "3d796969e1631f1fb5839e8f4014f6e98f403faefdc535db0ed71f4e13990eb7"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "locator": "git:Entif-AI/Rosetta@7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null,
+      "sha256": "2b67b522538e9e85388129dad9a76ee36bfa9e822f7245d82279c37a7e2276c5"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+      "locator": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+      "role": "integration",
+      "authorityClass": "integration-evidence",
+      "sourceTime": null,
+      "sha256": "a72327a421d6dce1041c0e9e995b406657f4a84fc075ed0a463b5ce0285e13ba"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:specs/architecture.md",
+      "locator": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:specs/architecture.md",
+      "role": "spec",
+      "authorityClass": "desired-state",
+      "sourceTime": null,
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:plans/specops-integrated.md",
+      "locator": "git:Entif-AI/Rosetta@88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9:plans/specops-integrated.md",
+      "role": "plan",
+      "authorityClass": "desired-state",
+      "sourceTime": null,
+      "sha256": "6a4645114492f01f008a17f0d561b1f2a78188aa5758aac87f4c484ac7eef2bb"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37156266919/job/111300163092",
+      "locator": "tools/engineering-evidence/completion-sources/pr-1723.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-03T21:50:08Z",
+      "sha256": "955f0d5d25ea1f305a77d87f4e8831645f6d1bbd42cfe118670e3afdc0cd02d7"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37156266879/job/111300162732",
+      "locator": "tools/engineering-evidence/completion-sources/pr-1723.json",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-03T21:49:43Z",
+      "sha256": "955f0d5d25ea1f305a77d87f4e8831645f6d1bbd42cfe118670e3afdc0cd02d7"
+    },
+    {
+      "ref": "unknown:historical-executor:specops-1723",
+      "locator": null,
+      "role": "executor",
+      "authorityClass": "unknown",
+      "sourceTime": null,
+      "sha256": null
+    }
+  ],
+  "supersedesRefs": [],
+  "envelopeId": "sha256:2a7a7fb64c42143d77d3235367c866e6e16315fa87e740036fdac42b97a54650"
+}
