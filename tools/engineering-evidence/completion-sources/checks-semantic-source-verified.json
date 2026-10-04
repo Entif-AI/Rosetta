@@ -1,0 +1,18 @@
+[
+  {
+    "completed_at": "2026-10-04T21:11:12Z",
+    "conclusion": "success",
+    "head_sha": "8912484aad2ab89745805c0989caec01d95b8879",
+    "html_url": "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740",
+    "name": "verify",
+    "status": "completed"
+  },
+  {
+    "completed_at": "2026-10-04T21:16:56Z",
+    "conclusion": "success",
+    "head_sha": "8912484aad2ab89745805c0989caec01d95b8879",
+    "html_url": "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519",
+    "name": "admission",
+    "status": "completed"
+  }
+]

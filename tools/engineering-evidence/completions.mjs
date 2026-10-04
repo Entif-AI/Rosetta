@@ -188,7 +188,7 @@ for (const [name, build] of Object.entries(examples)) {
 }
 
 // A later tranche dogfoods the same admitted envelope without rewriting earlier completions.
-for (const name of ['batch-1732-falkor-1735', 'batch-1732-falkor-kin-1736']) {
+for (const name of ['batch-1732-falkor-1735', 'batch-1732-falkor-kin-1736', 'batch-1732-falkor-semantic-1737']) {
   const laterPath = `${root}/completions/${name}`;
   const later = parseEngineeringCompletion(read(laterPath + '.json'));
   if (readFileSync(laterPath + '.md', 'utf8') !== renderEngineeringCompletion(later)) throw new Error(`${name} completion rendering drift.`);
