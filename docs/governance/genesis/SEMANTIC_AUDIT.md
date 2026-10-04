@@ -227,3 +227,7 @@ package-internal use is bounded and needs no breaking rename in this audit.
 with declared Observation descent and exact predecessor closure. General Profile
 negotiation remains #907. Source trust, lifecycle, and conformance execution remain
 with #803, #1211 and #240; the audit does not reopen those owners.
+
+## Deterministic trace normalization
+
+`trace.normalization.v1` (#1666) is a namespaced derived view over immutable source evidence. It introduces no Core kind or hidden provider-state claim. Object identity, time roles, loss and dictionary references remain observable source mechanics.

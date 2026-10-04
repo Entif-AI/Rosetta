@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts packages/rosetta-schemas/src/lib/workspace-contract.spec.ts"
+        "command": "vitest run packages/rosetta-schemas/src/lib/*.spec.ts"
       },
       "cache": true,
       "inputs": [

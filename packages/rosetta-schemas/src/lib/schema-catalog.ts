@@ -228,6 +228,12 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
+    authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/ingress-refinery', '@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-normalization-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Fixture-backed structural view; no live capture or model interpretation.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace.normalization.v1', sourceIssues: ['#1666', '#1665', '#528'], sourcePrs: ['#1725'],
+    tests: ['packages/rosetta-schemas/src/lib/trace-normalization.spec.ts', 'packages/ingress-refinery/src/lib/trace-normalizer.spec.ts'], validator: 'parseTraceNormalization'
+  },
+  {
     authorityTier: 'governance-admission',
     boundaryKind: 'owned-schema',
     consumerPackages: ['@entif-ai/rosetta-guard', 'apps/rosetta-api'],

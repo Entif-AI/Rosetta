@@ -237,13 +237,13 @@
       "id": "entif:trace-norm",
       "kind": "plan",
       "title": "Normalize trace structure, deltas, duplicate refs, and loss report",
-      "status": "planned",
+      "status": "done",
       "task": "T1666",
       "issues": [1666, 1664, 1558, 1567],
-      "pr": null,
+      "pr": 1725,
       "source": {
         "path": "plans/trace-norm.md",
-        "sha256": "87f59cebd3407600b2bbd3e443f744439c396f2e769e42562c052be0424b64d4"
+        "sha256": "dd58097a1a1160e825d5474ec4055814092e4d0496835535d09626b9c22b45cc"
       }
     },
     {

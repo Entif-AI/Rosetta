@@ -89,3 +89,7 @@ as `lifecycle-state`. Source packages compose membership related to Frame semant
 source receipt records and trust axes reference Core meaning without claiming
 structural equivalence. The named RRP promotion Profile is `core-tile-profile` of
 Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation record.
+
+## Trace derived Profile
+
+`trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
