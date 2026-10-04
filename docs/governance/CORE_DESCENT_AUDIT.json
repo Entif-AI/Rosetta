@@ -397,6 +397,19 @@
       ]
     },
     {
+      "schemaId": "graph.view.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/graph-view-v1.md",
+        "sha256": "03ba2569eaf8ba74b6ead4c25134bc4f296a290449008152987289860fed9055"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Declared projection/source closure and rights admission do not authenticate evidence, resolve permissions, select membership or implement graph federation."
+      ]
+    },
+    {
       "schemaId": "guard.decision_token",
       "coreDescent": "implementation-local",
       "authority": {

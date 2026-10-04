@@ -49,6 +49,7 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'graph.view.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/graph-view-v1.md', ['rosetta.observation', 'rosetta.lattice_edge', 'rosetta.receipt']),
   'materialized.view.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/materialized-view-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt']),
   'impact.revalidation.v1': metadata('governed-extension', 'packages/rosetta-schemas/docs/impact-revalidation-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt', 'rosetta.action']),
   'engineering.run-completion.v1': metadata('implementation-local', 'packages/rosetta-schemas/docs/engineering-completion-v1.md', ['rosetta.action', 'rosetta.evaluation', 'rosetta.receipt']),

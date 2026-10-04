@@ -231,6 +231,14 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
     authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/graph-view-v1.md', 'packages/rosetta-schemas/docs/graph-view-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Declared projection/source closure and rights admission do not authenticate evidence, resolve permissions, select membership or implement graph federation.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'graph.view.v1', sourceIssues: ['#1728', '#1671', '#1731', '#1730', '#1558', '#315', '#1219', '#1221'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/graph-view.spec.ts'], validator: 'parseGraphView'
+  },
+  {
+    authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/materialized-view-v1.md', 'packages/rosetta-schemas/docs/materialized-view-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'view-integrity',
     knownGaps: ['Metadata identity and explicit currency admission do not authenticate artifacts, resolve current rights or implement cache/query/refresh policy.'],

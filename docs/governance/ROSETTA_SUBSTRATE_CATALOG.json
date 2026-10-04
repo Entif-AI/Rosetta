@@ -117,6 +117,19 @@
       }
     },
     {
+      "id": "entif:graph-view",
+      "kind": "plan",
+      "title": "Bounded GraphView conformance",
+      "status": "in-progress",
+      "task": "T1728",
+      "issues": [1728, 1671],
+      "pr": 1732,
+      "source": {
+        "path": "plans/graph-view.md",
+        "sha256": "970c40c58cc1579fac89c84c8b88b90404a7ad37221f349d5065a09345d3a873"
+      }
+    },
+    {
       "id": "entif:impact-revalidation",
       "kind": "plan",
       "title": "Dependency impact and revalidation",
@@ -441,6 +454,21 @@
       "from": "entif:engineering-akasha",
       "kind": "depends-on",
       "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "depends-on",
+      "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "depends-on",
+      "to": "entif:materialized-view"
     },
     {
       "from": "entif:impact-revalidation",
