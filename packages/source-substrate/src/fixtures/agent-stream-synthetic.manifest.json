@@ -1,0 +1,37 @@
+{
+  "fixtureVersion": "1.0.0",
+  "sourceArtifact": {
+    "path": "agent-stream-synthetic.ndjson",
+    "mediaType": "application/x-ndjson",
+    "sha256": "60e556bb5144659a6f2453e67a68a7d52193d6da41c3f18c010dc672e41c86f1",
+    "sizeBytes": 5779,
+    "rightsPosture": "public-authored-synthetic-no-live-capture"
+  },
+  "capture": {
+    "method": "authored public synthetic fixture; no live or ambient capture",
+    "captureWindow": {
+      "startedAt": "2026-09-30T14:00:00.000Z",
+      "endedAt": "2026-09-30T14:00:02.450Z"
+    },
+    "recordedAt": "2026-10-01T09:00:00.000Z",
+    "sourceClientProfile": {
+      "sourceSystemId": "agent-stream.synthetic-public",
+      "clientId": "client.synthetic.public",
+      "clientVersion": null
+    },
+    "parserProfile": null
+  },
+  "sourceIdentity": {
+    "recordLocalId": "agent-stream-synthetic-001",
+    "manifestationId": "agent-stream-synthetic-001.ndjson",
+    "packageId": "agent-stream-synthetic-001.window-001",
+    "episodeId": "agent-stream-synthetic-001"
+  },
+  "artifactIdentity": {
+    "systemProfileCid": "cidv1-sha256-290bf6d9d633281fcb3a7ffab43ef840e50724c5fe2e82e9f4d5c7705573eb80",
+    "recordCid": "cidv1-sha256-c2cc1d2f12e5a034d7c158dfd53d069c93bea04485a387440080791c3822bf01",
+    "manifestationCid": "cidv1-sha256-a5e463dbd96b9804a0b4a6d312381cf758d682de52eeceb61716adfa2ef5351e",
+    "packageCid": "cidv1-sha256-6bc11c138aa143f2488861c71300dd71a885a71f059153c5eeebaaafe9bf80bc",
+    "episodeCid": "cidv1-sha256-bc230e189cd9b3b41809decf7a11ec031e311cdb5cb2f5ab1ab83f8fecdfc279"
+  }
+}

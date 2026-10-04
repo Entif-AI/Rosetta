@@ -28,6 +28,21 @@ describe('specification catalog #1700', () => {
     catalog.packs.find((pack) => pack.id === 'rrp').profiles[0].coreKind = 'rosetta.promotion_state';
     expect(validateCatalog(catalog).join(';')).toMatch(/Core|parent/i);
   });
+  it('projects Packs without optional examples and keeps evaluation Profile and schema IDs distinct', async () => {
+    const catalog = await buildCatalog();
+    const pack = catalog.packs.find((entry) => entry.id === 'schema-pack-evaluation-profiles');
+    expect(catalog.packMap.rows.find((row) => row.identity === pack.docId).examples).toEqual([]);
+    for (const profile of pack.profiles) {
+      const definition = JSON.parse(await readFile(new URL(`../../${profile.provenance[1].path}`, import.meta.url), 'utf8'));
+      expect(profile).toMatchObject({ schemaId: definition.$id, coreKind: 'rosetta.evaluation', coreDescent: 'core-tile-profile', version: '1.0.0' });
+      expect(profile.schemaId).not.toBe(profile.id);
+      expect(catalog.schemas.find((entry) => entry.schemaId === profile.id)).toMatchObject({ coreDescent: 'core-tile-profile', relatedCoreKinds: ['rosetta.evaluation'] });
+    }
+    expect(pack.profiles.map((profile) => profile.id).sort()).toEqual(['counterfactual.evaluation.v1', 'salience.evaluation.v1']);
+    expect(validateCatalog(catalog)).toEqual([]);
+    pack.profiles[0].provenance[1].path = catalog.packs.find((entry) => entry.id === 'rrp').profiles[0].provenance[1].path;
+    expect(validateCatalog(catalog).join(';')).toMatch(/Core|parent/i);
+  });
   it('discovers manifest roots, detects changed authority and never reads planning overlays', async () => {
     const root = fileURLToPath(new URL('../../', import.meta.url));
     const before = await generateProjections();
@@ -42,7 +57,7 @@ describe('specification catalog #1700', () => {
     } });
     expect(after).not.toEqual(before);
     const catalog = JSON.parse(before['docs/governance/ROSETTA_SPEC_CATALOG.json']);
-    expect(catalog.packs).toHaveLength(3);
+    expect(catalog.packs.map((pack) => pack.id).sort()).toEqual(['rrp', 'schema-pack-evaluation-profiles', 'stdpack-source-substrate', 'vocabpack-source-taxonomy']);
     expect(catalog.schemas.find((entry) => entry.schemaId === 'source.fetch_receipt')).toMatchObject({ exposureStatus: 'fixture-only', publicAuthority: 'see-owning-contract' });
     expect(catalog.documents.find((entry) => entry.docId === 'ROCK-3002').availability).toBe('declared-only');
   });

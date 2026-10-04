@@ -73,7 +73,7 @@ export async function buildCatalog(options = {}) {
     admissionRule: 'Owning document controls meaning; suite declaration does not prove implementation.', issueOwners: [], examples: [], sourceRef: entry.declaredIn })),
   ...packs.map((pack) => ({ identity: pack.docId, family: pack.family, maturity: `${pack.status} ${pack.version}`,
     authorityRole: pack.authorityRole, scope: pack.scope, admissionRule: 'Declared manifest, exports, Core compatibility and conformance gates.',
-    issueOwners: pack.sourceIssues, examples: pack.assets.examples.map((item) => item.path), sourceRef: pack.source.path })),
+    issueOwners: pack.sourceIssues, examples: (pack.assets.examples ?? []).map((item) => item.path), sourceRef: pack.source.path })),
   ...packs.flatMap((pack) => pack.profiles.map((profile) => ({ identity: profile.id, family: 'Profile', maturity: profile.version,
     authorityRole: `Specialization of ${profile.coreKind}`, scope: `Declared by ${pack.docId}`,
     admissionRule: 'Explicit Core descent, owning Pack schema and acceptance fixtures.', issueOwners: profile.sourceIssues,
@@ -107,8 +107,9 @@ export function validateCatalog(catalog) {
   for (const id of edges.keys()) visit(id);
   for (const profile of profiles) {
     const parent = catalog.schemas.find((entry) => entry.schemaId === profile.coreKind);
-    const entry = catalog.schemas.find((entry) => entry.schemaId === profile.schemaId);
-    if (parent?.coreDescent !== 'core-primitive' || entry?.coreDescent !== 'core-tile-profile' || !entry.relatedCoreKinds.includes(profile.coreKind) || profile.coreDescent !== 'core-tile-profile') errors.push(`False or ambiguous Core parent: ${profile.id}`);
+    // Registry contracts use the Profile ID; the JSON Schema $id may be a distinct URI.
+    const entry = catalog.schemas.find((entry) => entry.schemaId === profile.id);
+    if (parent?.coreDescent !== 'core-primitive' || entry?.coreDescent !== 'core-tile-profile' || !entry.relatedCoreKinds.includes(profile.coreKind) || profile.coreDescent !== 'core-tile-profile' || entry.descentAuthority !== profile.provenance[1]?.path) errors.push(`False or ambiguous Core parent: ${profile.id}`);
   }
   return errors;
 }

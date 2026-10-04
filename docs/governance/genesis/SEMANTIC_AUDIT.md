@@ -68,6 +68,22 @@ Current examples include:
 
 The word `profile` in `source.system_profile` is a qualified source-domain noun. It MUST NOT be presented as a Rosetta conformance **Profile**.
 
+### 3.2.1 Pack-defined evaluation Profiles
+
+`salience.evaluation.v1` is a draft Pack-defined Profile that composes the existing `rosetta.evaluation` primitive. It represents separate Impact, Exigency, and Novelty assessments with declared scope, valid time, evidence, uncertainty, receipts, provenance, and attributable supersession. It is not a Core kind and does not establish truth, authorization, activation, execution, scoring, weighting, gating, selection, or private operational policy.
+
+`counterfactual.evaluation.v1` is a draft Pack-defined Profile over the same Core
+Evaluation primitive. It records a declared historical evidence frontier and
+bounded authority context, candidate identity, replayability, sandbox/no-live-effect
+posture, separate comparison evidence, validity scope, and supersession. Comparison
+disposition is separate from the unchanged Core verdict vocabulary. It grants no
+production routing, installation, promotion, activation, or write authority.
+
+The catalog classifies both evaluation Profiles as `core-tile-profile`, recording
+their declared specialization of `rosetta.evaluation`. Their JSON Schema `$id`
+URIs remain distinct from their Profile identifiers. Neither classification nor
+catalog registration introduces a new Core kind.
+
 ### 3.3 Entif and project application contracts
 
 The following families are application contracts unless a later accepted authority explicitly elevates them:

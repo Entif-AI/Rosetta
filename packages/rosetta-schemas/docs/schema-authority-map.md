@@ -10,6 +10,7 @@ Its `authorityTier` field describes package ownership and admission lanes. It do
 identity map in `src/lib/core-descent.ts` follows the existing semantic audit:
 
 - `core-primitive`: one of the seven implemented v3 concepts listed in the audit.
+- `core-tile-profile`: a named Pack-defined specialization of an existing Core kind, including the Salience and Counterfactual Evaluation Profiles and the Promotion Observation Profile.
 - `pack-defined-schema`: an explicitly present Source Substrate starter shape.
 - `governed-extension`: a source-substrate contract whose kind is not yet present
   in that starter schema. This records the packaging gap instead of inventing an export.

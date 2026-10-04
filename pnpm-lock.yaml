@@ -105,6 +105,12 @@ importers:
       '@vitest/ui':
         specifier: 4.1.4
         version: 4.1.4(vitest@4.1.4)
+      ajv:
+        specifier: 8.17.1
+        version: 8.17.1
+      ajv-formats:
+        specifier: 2.1.1
+        version: 2.1.1(ajv@8.17.1)
       esbuild:
         specifier: ^0.19.2
         version: 0.19.12
@@ -365,6 +371,9 @@ importers:
       '@entif-ai/ingress-refinery':
         specifier: workspace:*
         version: link:../ingress-refinery
+      '@entif-ai/rosetta-canon':
+        specifier: workspace:*
+        version: link:../rosetta-canon
       '@entif-ai/rosetta-core':
         specifier: workspace:*
         version: link:../rosetta-core

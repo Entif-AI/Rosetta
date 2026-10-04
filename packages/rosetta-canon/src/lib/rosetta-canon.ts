@@ -21,8 +21,8 @@ function assertWellFormedUnicode(value: string): void {
   for (let index = 0; index < value.length; index += 1) {
     const codeUnit = value.charCodeAt(index);
     if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
-      const next = value.charCodeAt(index + 1);
-      if (!(next >= 0xdc00 && next <= 0xdfff)) {
+      const nextCodeUnit = value.charCodeAt(index + 1);
+      if (index + 1 === value.length || nextCodeUnit < 0xdc00 || nextCodeUnit > 0xdfff) {
         throw new Error('JCS canonicalization rejects lone Unicode surrogates.');
       }
       index += 1;
@@ -32,23 +32,39 @@ function assertWellFormedUnicode(value: string): void {
   }
 }
 
-export function canonicalizeJson<T extends JsonValue>(value: T): string {
+function serializeCanonicalJson(value: JsonValue | undefined, arrayMember = false): string | undefined {
+  if (value === undefined) {
+    return arrayMember ? 'null' : undefined;
+  }
+
   if (Array.isArray(value)) {
-    return `[${value.map((entry) => canonicalizeJson(entry)).join(',')}]`;
+    return `[${Array.from({ length: value.length }, (_, index) => serializeCanonicalJson(value[index], true)).join(',')}]`;
   }
+
   if (value && typeof value === 'object') {
-    const objectValue: { [key: string]: JsonValue } = value;
-    // Emit sorted keys directly: ordinary objects re-enumerate integer keys numerically.
-    return `{${Object.keys(objectValue).sort().map((key) => {
-      assertWellFormedUnicode(key);
-      return `${JSON.stringify(key)}:${canonicalizeJson(objectValue[key])}`;
-    }).join(',')}}`;
+    const entries = Object.entries(value)
+      .sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0))
+      .flatMap(([key, entry]) => {
+        assertWellFormedUnicode(key);
+        const serialized = serializeCanonicalJson(entry);
+        return serialized === undefined ? [] : `${JSON.stringify(key)}:${serialized}`;
+      });
+    return `{${entries.join(',')}}`;
   }
+
   if (typeof value === 'number' && !Number.isFinite(value)) {
     throw new Error('JCS canonicalization only accepts finite JSON numbers.');
   }
-  if (typeof value === 'string') assertWellFormedUnicode(value);
+
+  if (typeof value === 'string') {
+    assertWellFormedUnicode(value);
+  }
+
   return JSON.stringify(value);
+}
+
+export function canonicalizeJson<T extends JsonValue>(value: T): string {
+  return serializeCanonicalJson(value) as string;
 }
 
 export function normalizePlainText(input: string): string {

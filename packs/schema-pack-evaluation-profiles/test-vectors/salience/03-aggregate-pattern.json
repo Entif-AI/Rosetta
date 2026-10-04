@@ -1,0 +1,263 @@
+{
+  "expectOk": true,
+  "payloads": [
+    {
+      "evaluationId": "salience-03-leaf-a",
+      "summary": "Low-salience authored leaf; no aggregation policy is asserted.",
+      "verdict": "pass",
+      "profile": {
+        "id": "salience.evaluation.v1",
+        "version": "1.0.0"
+      },
+      "scope": {
+        "scale": "event",
+        "subjectRefs": [
+          "cidv1-event-a"
+        ]
+      },
+      "assessedAt": "2026-10-02T12:00:00.000Z",
+      "validTime": {
+        "validFrom": "2026-10-01T00:00:00.000Z"
+      },
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "cidv1-provenance-03"
+      ],
+      "assessment": {
+        "impact": {
+          "status": "observed",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": []
+        },
+        "exigency": {
+          "status": "estimated",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [],
+          "provenanceRefs": []
+        },
+        "novelty": {
+          "status": "observed",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": [],
+          "baselineRefs": [
+            "cidv1-baseline-03"
+          ],
+          "phenomenonRefs": [
+            "cidv1-pattern-03"
+          ]
+        }
+      }
+    },
+    {
+      "evaluationId": "salience-03-leaf-b",
+      "summary": "Low-salience authored leaf; no aggregation policy is asserted.",
+      "verdict": "pass",
+      "profile": {
+        "id": "salience.evaluation.v1",
+        "version": "1.0.0"
+      },
+      "scope": {
+        "scale": "event",
+        "subjectRefs": [
+          "cidv1-event-b"
+        ]
+      },
+      "assessedAt": "2026-10-02T12:00:00.000Z",
+      "validTime": {
+        "validFrom": "2026-10-01T00:00:00.000Z"
+      },
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "cidv1-provenance-03"
+      ],
+      "assessment": {
+        "impact": {
+          "status": "observed",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": []
+        },
+        "exigency": {
+          "status": "estimated",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [],
+          "provenanceRefs": []
+        },
+        "novelty": {
+          "status": "observed",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "low"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": [],
+          "baselineRefs": [
+            "cidv1-baseline-03"
+          ],
+          "phenomenonRefs": [
+            "cidv1-pattern-03"
+          ]
+        }
+      }
+    },
+    {
+      "evaluationId": "salience-03",
+      "summary": "Low-salience events form a consequential aggregate pattern.",
+      "verdict": "pass",
+      "profile": {
+        "id": "salience.evaluation.v1",
+        "version": "1.0.0"
+      },
+      "scope": {
+        "scale": "pattern",
+        "subjectRefs": [
+          "cidv1-event-a",
+          "cidv1-event-b",
+          "cidv1-pattern-03"
+        ]
+      },
+      "assessedAt": "2026-10-02T12:00:00.000Z",
+      "validTime": {
+        "validFrom": "2026-10-01T00:00:00.000Z"
+      },
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "cidv1-provenance-03"
+      ],
+      "assessment": {
+        "impact": {
+          "status": "observed",
+          "value": {
+            "representation": "scalar",
+            "schemaRef": "salience.scalar.v1",
+            "value": 0.8
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": []
+        },
+        "exigency": {
+          "status": "estimated",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "high"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [],
+          "provenanceRefs": []
+        },
+        "novelty": {
+          "status": "observed",
+          "value": {
+            "representation": "ordinal",
+            "schemaRef": "salience.ordinal.v1",
+            "allowedLevels": [
+              "low",
+              "high"
+            ],
+            "level": "high"
+          },
+          "uncertainty": {
+            "status": "bounded"
+          },
+          "evidenceRefs": [
+            "cidv1-pattern-03"
+          ],
+          "provenanceRefs": [],
+          "baselineRefs": [
+            "cidv1-baseline-03"
+          ],
+          "phenomenonRefs": [
+            "cidv1-pattern-03",
+            "salience-03-leaf-a",
+            "salience-03-leaf-b"
+          ]
+        }
+      }
+    }
+  ]
+}

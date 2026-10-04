@@ -10,17 +10,17 @@
     },
     {
       "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-      "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+      "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
       "availability": "checked-in"
     },
     {
       "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-      "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+      "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
       "availability": "checked-in"
     },
     {
       "path": "tools/spec-catalog/catalog.mjs",
-      "sha256": "711f05137a6e7b706f9b722606e7a325242364d5df29fa9a25b148b4a7164f0f",
+      "sha256": "964a4769336d64d9437036c7824d082ba951e06ef139cd3d08093f4121d71155",
       "availability": "checked-in"
     },
     {
@@ -405,6 +405,414 @@
       "supersessionPosture": "Only explicitly declared Profile supersession is projected."
     },
     {
+      "id": "schema-pack-evaluation-profiles",
+      "packId": "cidv1-sha256-2385e88732d01be2a3c5a1294981aa1522b298e1abeb88c55d54ab0117f6514a",
+      "docId": "ROCK-3010-SALIENCE-EVALUATION",
+      "namespace": "salience",
+      "title": "Evaluation Profiles Schema Pack",
+      "family": "SchemaPack",
+      "status": "draft",
+      "version": "0.1.0",
+      "compatibleCore": {
+        "min": "3.0.0",
+        "max_exclusive": "4.0.0"
+      },
+      "dependsOn": [],
+      "owners": [
+        {
+          "name": "Entif/Rosetta maintainers",
+          "role": "editor"
+        }
+      ],
+      "sourceIssues": ["#1694", "#1692", "#1695"],
+      "sourceIssuePosture": "declared-profile-issues-only",
+      "authorityRole": "Pack extension; does not redefine Core",
+      "scope": "Public representational Profiles over Core Evaluation: salience assessments and bounded historical counterfactual comparisons.",
+      "source": {
+        "path": "packs/schema-pack-evaluation-profiles/pack.json",
+        "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+        "availability": "checked-in"
+      },
+      "profiles": [
+        {
+          "id": "salience.evaluation.v1",
+          "schemaId": "https://entif.ai/packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+          "coreKind": "rosetta.evaluation",
+          "coreDescent": "core-tile-profile",
+          "version": "1.0.0",
+          "sourceIssues": ["#1694"],
+          "supersedes": [],
+          "authority": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+          "provenance": [
+            {
+              "path": "packs/schema-pack-evaluation-profiles/pack.json",
+              "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+              "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac",
+              "availability": "checked-in"
+            }
+          ],
+          "conformanceRefs": [
+            {
+              "path": "packs/schema-pack-evaluation-profiles/tests/README.md",
+              "sha256": "aba32b37c3fbd59bcda2f2b9056788a8e0668f495d681871e8433947b972fdb3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+              "sha256": "fb6d608b0f88e246f80419a96ed32837431e86dfcc0dca8705cb7a5694e99725",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+              "sha256": "eace4417bd16acef71dd52c0f129cad593a8930e88a80de351fe49e80059e7f9",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/03-aggregate-pattern.json",
+              "sha256": "c1f139d901fb2965e9baedb6a6c25ee43ea688a6a327b44d6665e30f0a37371e",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/04-expected-absence.json",
+              "sha256": "410d14a2ce3d0c102638892933cb18a7cd3d35729a80b1704f9772b7b50370ff",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/05-contradiction.json",
+              "sha256": "cfb42d5abea094ff719828319ad8196f95865290c650949d90b31b4c6a9cac8d",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/06-historical-reassessment.json",
+              "sha256": "57f230afbfaec9819417540cae3b4ac905fefa53d95f84c231631b3213af23b3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/07-unknown-insufficient-evidence.json",
+              "sha256": "36d853a2aa359279a51fb8eab6243ff73efb66eb92bf022966c83141a33e648f",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/08-invalid-no-grant.json",
+              "sha256": "c0c9d65f24df0e3db8b2c2ca665de60e73070a4cb6817109d42162081b3ad0cb",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/09-interoperable-private-procedures.json",
+              "sha256": "838b39f3f69796332bf04926dd88b0b09ed8f45a8558196e3f49ba4a25dfe601",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/01-equivalent.json",
+              "sha256": "10ad4ab5be5a06098bb66c25be62366d5f3fb29800ee8b9a4c0827c26236ae52",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/02-missed-exception.json",
+              "sha256": "21c9214610859616ccdfcffefe743280d46b8b7899ae0969e54f0b09d2d61cec",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/03-worse.json",
+              "sha256": "cb49f8b54b8888075d7ab43327479ca68f529d2bd693d7f0058632910c2d91ec",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/04-partial-replay.json",
+              "sha256": "36f6e473e9afe66c71c8144090613715ceef1988cc46114dbdaaa27c0d96e8a3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/05-later-evidence-excluded.json",
+              "sha256": "2246833a90f226810207e15e9631862f068a742f1379fb42ae70f0c8b3aeb481",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/06-effect-rejected.json",
+              "sha256": "f181c0f4e9a76ba4e761e72f9151d9317936c56450d6b93b06c04bc4a783c876",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/07-inconclusive.json",
+              "sha256": "ce2bbc9d42be823e9f7828c5cb606f6ab6a32cd0dacc501630297229f8b5b5af",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/08-preserved-reassessment.json",
+              "sha256": "1c59fa59e3fd65c93159a7ff02c3b78d87955f0ad6555ea2723eab36562b38a8",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/09-invalid-activation.json",
+              "sha256": "dd1a496a8d2543205d25a8a3d49a014d751d07b8e9dba7c68c0804f0eda330c1",
+              "availability": "checked-in"
+            }
+          ]
+        },
+        {
+          "id": "counterfactual.evaluation.v1",
+          "schemaId": "https://entif.ai/packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+          "coreKind": "rosetta.evaluation",
+          "coreDescent": "core-tile-profile",
+          "version": "1.0.0",
+          "sourceIssues": ["#1692", "#1695"],
+          "supersedes": [],
+          "authority": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+          "provenance": [
+            {
+              "path": "packs/schema-pack-evaluation-profiles/pack.json",
+              "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+              "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8",
+              "availability": "checked-in"
+            }
+          ],
+          "conformanceRefs": [
+            {
+              "path": "packs/schema-pack-evaluation-profiles/tests/README.md",
+              "sha256": "aba32b37c3fbd59bcda2f2b9056788a8e0668f495d681871e8433947b972fdb3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+              "sha256": "fb6d608b0f88e246f80419a96ed32837431e86dfcc0dca8705cb7a5694e99725",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+              "sha256": "eace4417bd16acef71dd52c0f129cad593a8930e88a80de351fe49e80059e7f9",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/03-aggregate-pattern.json",
+              "sha256": "c1f139d901fb2965e9baedb6a6c25ee43ea688a6a327b44d6665e30f0a37371e",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/04-expected-absence.json",
+              "sha256": "410d14a2ce3d0c102638892933cb18a7cd3d35729a80b1704f9772b7b50370ff",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/05-contradiction.json",
+              "sha256": "cfb42d5abea094ff719828319ad8196f95865290c650949d90b31b4c6a9cac8d",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/06-historical-reassessment.json",
+              "sha256": "57f230afbfaec9819417540cae3b4ac905fefa53d95f84c231631b3213af23b3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/07-unknown-insufficient-evidence.json",
+              "sha256": "36d853a2aa359279a51fb8eab6243ff73efb66eb92bf022966c83141a33e648f",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/08-invalid-no-grant.json",
+              "sha256": "c0c9d65f24df0e3db8b2c2ca665de60e73070a4cb6817109d42162081b3ad0cb",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/09-interoperable-private-procedures.json",
+              "sha256": "838b39f3f69796332bf04926dd88b0b09ed8f45a8558196e3f49ba4a25dfe601",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/01-equivalent.json",
+              "sha256": "10ad4ab5be5a06098bb66c25be62366d5f3fb29800ee8b9a4c0827c26236ae52",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/02-missed-exception.json",
+              "sha256": "21c9214610859616ccdfcffefe743280d46b8b7899ae0969e54f0b09d2d61cec",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/03-worse.json",
+              "sha256": "cb49f8b54b8888075d7ab43327479ca68f529d2bd693d7f0058632910c2d91ec",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/04-partial-replay.json",
+              "sha256": "36f6e473e9afe66c71c8144090613715ceef1988cc46114dbdaaa27c0d96e8a3",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/05-later-evidence-excluded.json",
+              "sha256": "2246833a90f226810207e15e9631862f068a742f1379fb42ae70f0c8b3aeb481",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/06-effect-rejected.json",
+              "sha256": "f181c0f4e9a76ba4e761e72f9151d9317936c56450d6b93b06c04bc4a783c876",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/07-inconclusive.json",
+              "sha256": "ce2bbc9d42be823e9f7828c5cb606f6ab6a32cd0dacc501630297229f8b5b5af",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/08-preserved-reassessment.json",
+              "sha256": "1c59fa59e3fd65c93159a7ff02c3b78d87955f0ad6555ea2723eab36562b38a8",
+              "availability": "checked-in"
+            },
+            {
+              "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/09-invalid-activation.json",
+              "sha256": "dd1a496a8d2543205d25a8a3d49a014d751d07b8e9dba7c68c0804f0eda330c1",
+              "availability": "checked-in"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "json-schema",
+          "id": "salience.evaluation.v1",
+          "path": "schema/salience-evaluation.schema.json",
+          "version": "1.0.0",
+          "profile": "salience.evaluation.v1",
+          "source": {
+            "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+            "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac",
+            "availability": "checked-in"
+          }
+        },
+        {
+          "kind": "json-schema",
+          "id": "counterfactual.evaluation.v1",
+          "path": "schema/counterfactual-evaluation.schema.json",
+          "version": "1.0.0",
+          "profile": "counterfactual.evaluation.v1",
+          "source": {
+            "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+            "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8",
+            "availability": "checked-in"
+          }
+        }
+      ],
+      "assets": {
+        "schema": [
+          {
+            "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+            "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+            "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8",
+            "availability": "checked-in"
+          }
+        ],
+        "tests": [
+          {
+            "path": "packs/schema-pack-evaluation-profiles/tests/README.md",
+            "sha256": "aba32b37c3fbd59bcda2f2b9056788a8e0668f495d681871e8433947b972fdb3",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+            "sha256": "fb6d608b0f88e246f80419a96ed32837431e86dfcc0dca8705cb7a5694e99725",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+            "sha256": "eace4417bd16acef71dd52c0f129cad593a8930e88a80de351fe49e80059e7f9",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/03-aggregate-pattern.json",
+            "sha256": "c1f139d901fb2965e9baedb6a6c25ee43ea688a6a327b44d6665e30f0a37371e",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/04-expected-absence.json",
+            "sha256": "410d14a2ce3d0c102638892933cb18a7cd3d35729a80b1704f9772b7b50370ff",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/05-contradiction.json",
+            "sha256": "cfb42d5abea094ff719828319ad8196f95865290c650949d90b31b4c6a9cac8d",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/06-historical-reassessment.json",
+            "sha256": "57f230afbfaec9819417540cae3b4ac905fefa53d95f84c231631b3213af23b3",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/07-unknown-insufficient-evidence.json",
+            "sha256": "36d853a2aa359279a51fb8eab6243ff73efb66eb92bf022966c83141a33e648f",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/08-invalid-no-grant.json",
+            "sha256": "c0c9d65f24df0e3db8b2c2ca665de60e73070a4cb6817109d42162081b3ad0cb",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/salience/09-interoperable-private-procedures.json",
+            "sha256": "838b39f3f69796332bf04926dd88b0b09ed8f45a8558196e3f49ba4a25dfe601",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/01-equivalent.json",
+            "sha256": "10ad4ab5be5a06098bb66c25be62366d5f3fb29800ee8b9a4c0827c26236ae52",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/02-missed-exception.json",
+            "sha256": "21c9214610859616ccdfcffefe743280d46b8b7899ae0969e54f0b09d2d61cec",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/03-worse.json",
+            "sha256": "cb49f8b54b8888075d7ab43327479ca68f529d2bd693d7f0058632910c2d91ec",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/04-partial-replay.json",
+            "sha256": "36f6e473e9afe66c71c8144090613715ceef1988cc46114dbdaaa27c0d96e8a3",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/05-later-evidence-excluded.json",
+            "sha256": "2246833a90f226810207e15e9631862f068a742f1379fb42ae70f0c8b3aeb481",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/06-effect-rejected.json",
+            "sha256": "f181c0f4e9a76ba4e761e72f9151d9317936c56450d6b93b06c04bc4a783c876",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/07-inconclusive.json",
+            "sha256": "ce2bbc9d42be823e9f7828c5cb606f6ab6a32cd0dacc501630297229f8b5b5af",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/08-preserved-reassessment.json",
+            "sha256": "1c59fa59e3fd65c93159a7ff02c3b78d87955f0ad6555ea2723eab36562b38a8",
+            "availability": "checked-in"
+          },
+          {
+            "path": "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/09-invalid-activation.json",
+            "sha256": "dd1a496a8d2543205d25a8a3d49a014d751d07b8e9dba7c68c0804f0eda330c1",
+            "availability": "checked-in"
+          }
+        ]
+      },
+      "supersessionPosture": "Only explicitly declared Profile supersession is projected."
+    },
+    {
       "id": "stdpack-source-substrate",
       "packId": "cidv1-sha256-28ba351886bdc7dd2f801abda105ca46d395707d376b73342204e4f8f74968a6",
       "docId": "PACK-SOURCE-SUBSTRATE",
@@ -635,29 +1043,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -680,6 +1088,90 @@
         {
           "path": "packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts",
           "sha256": "ea4dbb18e1eb05e53ed7aac4ebedb773670d67142fb923dba3b30d0e26e17f47",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
+      "authorityTier": "core-spine",
+      "boundaryKind": "owned-schema",
+      "consumerPackages": [
+        "@entif-ai/rosetta-schemas",
+        "@entif-ai/rosetta-core"
+      ],
+      "docs": [
+        "packages/rosetta-schemas/README.md",
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json"
+      ],
+      "exposureStatus": "downstream-contract",
+      "family": "evaluation-profile",
+      "knownGaps": [
+        "Records declared historical frontier and sandbox evidence; does not resolve referenced evidence, enforce isolation, select mechanisms or authorize production activation."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "counterfactual.evaluation.v1",
+      "sourceIssues": ["#1692", "#1695"],
+      "sourcePrs": [],
+      "tests": [
+        "packages/rosetta-schemas/src/lib/counterfactual-profile.spec.ts",
+        "packs/schema-pack-evaluation-profiles/tests/README.md"
+      ],
+      "validator": "validateCounterfactualEvaluation",
+      "coreDescent": "core-tile-profile",
+      "descentAuthority": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+      "relatedCoreKinds": ["rosetta.evaluation"],
+      "availability": "downstream-contract",
+      "publicAuthority": "declared-by-owning-authority",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+          "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/README.md",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+          "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/counterfactual-profile.spec.ts",
+          "sha256": "f8599e037f152b4099669fedd4ceac35112618483ceafbfca4b92dc2ca353985",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/tests/README.md",
+          "sha256": "aba32b37c3fbd59bcda2f2b9056788a8e0668f495d681871e8433947b972fdb3",
           "availability": "checked-in"
         }
       ]
@@ -715,24 +1207,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -780,24 +1272,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -845,24 +1337,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -910,24 +1402,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -975,24 +1467,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1039,24 +1531,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1103,24 +1595,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1168,24 +1660,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1233,24 +1725,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1298,24 +1790,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1363,24 +1855,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1428,24 +1920,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1490,24 +1982,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1559,29 +2051,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -1627,29 +2119,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -1692,29 +2184,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -1753,24 +2245,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1821,29 +2313,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -1882,24 +2374,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -1949,24 +2441,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2019,12 +2511,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2036,7 +2528,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2089,24 +2581,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2156,29 +2648,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -2226,12 +2718,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2243,7 +2735,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2296,12 +2788,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2313,7 +2805,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2369,12 +2861,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2386,7 +2878,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2439,12 +2931,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2456,7 +2948,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2506,29 +2998,29 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -2579,12 +3071,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2596,7 +3088,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2649,12 +3141,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2666,7 +3158,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2719,24 +3211,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2789,12 +3281,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2834,6 +3326,90 @@
       ]
     },
     {
+      "authorityTier": "core-spine",
+      "boundaryKind": "owned-schema",
+      "consumerPackages": [
+        "@entif-ai/rosetta-schemas",
+        "@entif-ai/rosetta-core"
+      ],
+      "docs": [
+        "packages/rosetta-schemas/README.md",
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json"
+      ],
+      "exposureStatus": "downstream-contract",
+      "family": "evaluation-profile",
+      "knownGaps": [
+        "Represents inspectable salience assessments only; formulas, weighting, gating, selection, activation, and execution policy remain outside this Profile."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "salience.evaluation.v1",
+      "sourceIssues": ["#1694"],
+      "sourcePrs": [],
+      "tests": [
+        "packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts",
+        "packs/schema-pack-evaluation-profiles/tests/README.md"
+      ],
+      "validator": "validateSalienceEvaluation",
+      "coreDescent": "core-tile-profile",
+      "descentAuthority": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+      "relatedCoreKinds": ["rosetta.evaluation"],
+      "availability": "downstream-contract",
+      "publicAuthority": "declared-by-owning-authority",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+          "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/README.md",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+          "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts",
+          "sha256": "ea4dbb18e1eb05e53ed7aac4ebedb773670d67142fb923dba3b30d0e26e17f47",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packs/schema-pack-evaluation-profiles/tests/README.md",
+          "sha256": "aba32b37c3fbd59bcda2f2b9056788a8e0668f495d681871e8433947b972fdb3",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
       "authorityTier": "governance-admission",
       "boundaryKind": "owned-schema",
       "consumerPackages": ["skill-broker-runtime", "@entif-ai/rosetta-schemas"],
@@ -2862,24 +3438,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-          "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61",
+          "sha256": "5e155cd8fd18048bf16c7f3ac9bd30a3433aabfe19eb6dd6983db7540a40b40c",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -2941,12 +3517,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -2958,7 +3534,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3015,24 +3591,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3089,12 +3665,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3106,7 +3682,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3163,24 +3739,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3237,12 +3813,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3254,7 +3830,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3311,12 +3887,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3328,7 +3904,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3385,24 +3961,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3459,24 +4035,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3533,12 +4109,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3550,7 +4126,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3607,12 +4183,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3624,7 +4200,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3681,24 +4257,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3755,12 +4331,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3772,7 +4348,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3829,24 +4405,24 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
           "path": "packages/source-substrate/README.md",
-          "sha256": "61f560cd5ddb2b257b539c33ba148136707d0cf8f065b57c7c3c2410441c8db7",
+          "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f",
           "availability": "checked-in"
         }
       ],
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3903,12 +4479,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3920,7 +4496,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -3977,12 +4553,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -3994,7 +4570,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "3e36ddc1d64e6ef8a3bf11ecffb180cc9193313361fb87a1c68f9aab47cbcf81",
+          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
           "availability": "checked-in"
         },
         {
@@ -4047,12 +4623,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -4064,7 +4640,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -4125,12 +4701,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -4142,7 +4718,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -4199,12 +4775,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "216cf0871152db9b5b2466108fbd14ac88dec1f3a4d34fa89704b48a547a0f16",
+          "sha256": "0133ed9bf4198d16012ce272c931706f0d1a95232ab9588be8633f28904db4f0",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "23b436758b8d49440c348591d9243ac9f572f16c786ebd3f8f298498ab8ea516",
+          "sha256": "b0a7710239b07a13514331de66e276de0ab7d59dcd9f60e450dcc44f1b8a88e2",
           "availability": "checked-in"
         },
         {
@@ -4216,7 +4792,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "0b55509d33d026aa65dfc199b8965a8d33d6b246ef1818c9e65496dd3b256ff2",
+          "sha256": "f93a0ea10be05cb600e8c3ebbe41b69b5b7a25ad798877658cc42babd62f0c06",
           "availability": "checked-in"
         },
         {
@@ -4352,6 +4928,17 @@
         "sourceRef": "packs/rrp/pack.json"
       },
       {
+        "identity": "ROCK-3010-SALIENCE-EVALUATION",
+        "family": "SchemaPack",
+        "maturity": "draft 0.1.0",
+        "authorityRole": "Pack extension; does not redefine Core",
+        "scope": "Public representational Profiles over Core Evaluation: salience assessments and bounded historical counterfactual comparisons.",
+        "admissionRule": "Declared manifest, exports, Core compatibility and conformance gates.",
+        "issueOwners": ["#1694", "#1692", "#1695"],
+        "examples": [],
+        "sourceRef": "packs/schema-pack-evaluation-profiles/pack.json"
+      },
+      {
         "identity": "PACK-SOURCE-SUBSTRATE",
         "family": "StdPack",
         "maturity": "draft 0.1.0",
@@ -4394,6 +4981,68 @@
           "packs/rrp/test-vectors/promotion-state-valid.json"
         ],
         "sourceRef": "packs/rrp/schema/promotion-state.schema.json"
+      },
+      {
+        "identity": "salience.evaluation.v1",
+        "family": "Profile",
+        "maturity": "1.0.0",
+        "authorityRole": "Specialization of rosetta.evaluation",
+        "scope": "Declared by ROCK-3010-SALIENCE-EVALUATION",
+        "admissionRule": "Explicit Core descent, owning Pack schema and acceptance fixtures.",
+        "issueOwners": ["#1694"],
+        "examples": [
+          "packs/schema-pack-evaluation-profiles/tests/README.md",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/03-aggregate-pattern.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/04-expected-absence.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/05-contradiction.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/06-historical-reassessment.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/07-unknown-insufficient-evidence.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/08-invalid-no-grant.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/09-interoperable-private-procedures.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/01-equivalent.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/02-missed-exception.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/03-worse.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/04-partial-replay.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/05-later-evidence-excluded.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/06-effect-rejected.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/07-inconclusive.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/08-preserved-reassessment.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/09-invalid-activation.json"
+        ],
+        "sourceRef": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json"
+      },
+      {
+        "identity": "counterfactual.evaluation.v1",
+        "family": "Profile",
+        "maturity": "1.0.0",
+        "authorityRole": "Specialization of rosetta.evaluation",
+        "scope": "Declared by ROCK-3010-SALIENCE-EVALUATION",
+        "admissionRule": "Explicit Core descent, owning Pack schema and acceptance fixtures.",
+        "issueOwners": ["#1692", "#1695"],
+        "examples": [
+          "packs/schema-pack-evaluation-profiles/tests/README.md",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/01-high-impact-exigency-low-novelty.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/02-low-impact-low-exigency-high-novelty-failure.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/03-aggregate-pattern.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/04-expected-absence.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/05-contradiction.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/06-historical-reassessment.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/07-unknown-insufficient-evidence.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/08-invalid-no-grant.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/salience/09-interoperable-private-procedures.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/01-equivalent.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/02-missed-exception.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/03-worse.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/04-partial-replay.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/05-later-evidence-excluded.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/06-effect-rejected.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/07-inconclusive.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/08-preserved-reassessment.json",
+          "packs/schema-pack-evaluation-profiles/test-vectors/counterfactual/09-invalid-activation.json"
+        ],
+        "sourceRef": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json"
       }
     ],
     "generatedFields": [

@@ -171,7 +171,8 @@ export async function validatePackRoot(packRoot) {
     }
     const schema = await readJson(path.join(packRoot, profile.path));
     const descent = schema['x-rosetta'];
-    if (schema.$id !== profile.name || descent?.coreDescent !== 'core-tile-profile' || !descent?.coreKind?.startsWith('rosetta.') || descent?.pack !== manifest.id || !descent?.authority) {
+    const profileId = schema.properties?.profile?.const ?? schema.properties?.profile?.properties?.id?.const;
+    if (typeof schema.$id !== 'string' || !schema.$id.trim() || (schema.$id !== profile.name && profileId !== profile.name) || descent?.coreDescent !== 'core-tile-profile' || !descent?.coreKind?.startsWith('rosetta.') || descent?.pack !== manifest.id || !descent?.authority) {
       errors.push(validationError('profile-descent-missing', packRoot, profile.name));
     }
   }
