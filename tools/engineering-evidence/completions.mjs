@@ -2,7 +2,7 @@ import process from 'node:process';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { createEngineeringCompletion, renderEngineeringCompletion, traceHash } from '../../packages/rosetta-schemas/dist/index.js';
+import { createEngineeringCompletion, parseEngineeringCompletion, renderEngineeringCompletion, traceHash } from '../../packages/rosetta-schemas/dist/index.js';
 
 const root = 'tools/engineering-evidence';
 const read = file => JSON.parse(readFileSync(file, 'utf8'));
@@ -186,3 +186,12 @@ for (const [name, build] of Object.entries(examples)) {
   }
   process.stdout.write(`${name}: ${envelope.envelopeId}; ${envelope.result.disposition}.\n`);
 }
+
+// A later tranche dogfoods the same admitted envelope without rewriting earlier completions.
+const laterPath = `${root}/completions/batch-1732-falkor-1735`;
+const later = parseEngineeringCompletion(read(laterPath + '.json'));
+if (readFileSync(laterPath + '.md', 'utf8') !== renderEngineeringCompletion(later)) throw new Error('Falkor completion rendering drift.');
+for (const source of later.sources) {
+  if (source.sha256 && source.locator && existsSync(source.locator) && traceHash(readFileSync(source.locator)) !== source.sha256) throw new Error('Falkor completion source drift: ' + source.locator);
+}
+process.stdout.write(`batch-1732-falkor-1735: ${later.envelopeId}; ${later.result.disposition}.\n`);

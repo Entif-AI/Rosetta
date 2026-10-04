@@ -230,6 +230,14 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
+    authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/materialized-view-v1.md', 'packages/rosetta-schemas/docs/materialized-view-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Metadata identity and explicit currency admission do not authenticate artifacts, resolve current rights or implement cache/query/refresh policy.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'materialized.view.v1', sourceIssues: ['#1731', '#1567', '#1730', '#1558', '#1559'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/materialized-view.spec.ts'], validator: 'parseMaterializedView'
+  },
+  {
     authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/impact-revalidation-v1.md', 'packages/rosetta-schemas/docs/impact-revalidation-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'view-integrity',

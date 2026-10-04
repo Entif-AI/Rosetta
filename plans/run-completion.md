@@ -19,7 +19,7 @@ Compose #1509 lifecycle identity and #1726 source lineage into the smallest publ
 - [x] Compact rendering is derived from the same canonical envelope.
 - [x] Supersession retains earlier envelopes and rejects cross-run/unresolved history.
 - [x] Backfill an actual #1509 tranche from this run, retaining four failed CI checkpoints and verified repair.
-- [ ] Dogfood later work.
+- [x] Dogfood later Falkor tranche, preserving failed d10e336 CI and verified eef561d repair without claiming integration.
 - [x] Owner lint/typecheck/build and 111 tests pass; nine completion cases pass.
 - [x] Authority/semantic/Core-descent/SpecOps/Profile/Pack/catalog spec admission and sync pass at checkpoint.
 - [ ] Integrated after PR merge.

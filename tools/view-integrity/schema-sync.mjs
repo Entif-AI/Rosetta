@@ -1,8 +1,8 @@
 import process from 'node:process';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { IMPACT_REVALIDATION_SCHEMA } from '../../packages/rosetta-schemas/dist/index.js';
+import { IMPACT_REVALIDATION_SCHEMA, MATERIALIZED_VIEW_SCHEMA } from '../../packages/rosetta-schemas/dist/index.js';
 
-const schemas = { 'impact-revalidation-v1': IMPACT_REVALIDATION_SCHEMA };
+const schemas = { 'impact-revalidation-v1': IMPACT_REVALIDATION_SCHEMA, 'materialized-view-v1': MATERIALIZED_VIEW_SCHEMA };
 if (process.argv.slice(2).some(arg => arg !== '--write')) throw new Error('usage: schema-sync.mjs [--write]');
 for (const [name, schema] of Object.entries(schemas)) {
   const path = `packages/rosetta-schemas/docs/${name}.schema.json`;

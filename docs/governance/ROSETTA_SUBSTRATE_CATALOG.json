@@ -126,7 +126,7 @@
       "pr": 1732,
       "source": {
         "path": "plans/impact-revalidation.md",
-        "sha256": "939d3add6d4dc2050ac53f357c1015e4eb7ecce77b2c1aae71891a9ffa518ce9"
+        "sha256": "725d8c1853add741aead7974aa5880e4bd12f54f21f3360575256556dd68e027"
       }
     },
     {
@@ -143,6 +143,19 @@
       }
     },
     {
+      "id": "entif:materialized-view",
+      "kind": "plan",
+      "title": "Materialized view identity, frontier and currency",
+      "status": "in-progress",
+      "task": "T1731",
+      "issues": [1731, 1567],
+      "pr": 1732,
+      "source": {
+        "path": "plans/materialized-view.md",
+        "sha256": "9ebf249b4951c0b9223f2030b2b114f75c1d70042a4a70319dac9b427b29ab5f"
+      }
+    },
+    {
       "id": "entif:run-completion",
       "kind": "plan",
       "title": "Terminal engineering-run completion evidence",
@@ -152,7 +165,7 @@
       "pr": 1732,
       "source": {
         "path": "plans/run-completion.md",
-        "sha256": "02087393b41371c7fbd56ce3c22d643891faaff2e3f1b0413ea28c98cecf1985"
+        "sha256": "6e40c08ded8c9261066942db9050e9031d3e5fb9890afe8c70f8f0c693cf6213"
       }
     },
     {
@@ -438,6 +451,16 @@
       "from": "entif:jcs-001",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:materialized-view",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:materialized-view",
+      "kind": "depends-on",
+      "to": "entif:impact-revalidation"
     },
     {
       "from": "entif:run-completion",

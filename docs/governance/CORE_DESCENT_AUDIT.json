@@ -435,6 +435,19 @@
       ]
     },
     {
+      "schemaId": "materialized.view.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/materialized-view-v1.md",
+        "sha256": "e6bba6b334f8d5eb8593a7eb88a7f2ee2e173d0d2ad2fbe8aa17350b2bbb3dc0"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Metadata identity and explicit currency admission do not authenticate artifacts, resolve current rights or implement cache/query/refresh policy."
+      ]
+    },
+    {
       "schemaId": "rosetta.action",
       "coreDescent": "core-primitive",
       "authority": {
