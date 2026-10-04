@@ -1,10 +1,11 @@
 services:
-  neo4j:
-    image: neo4j:5-community
+  falkordb:
+    image: falkordb/falkordb:6.0.1@sha256:e2765e207e5ba4ee90e47ed31eb7491ad6dd3d42241c326e429375c02ad9882f
+    container_name: entif-falkor-1735
+    labels:
+      entif.issue: "1735"
+      entif.branch: codex/roadmap-engineering-evidence-completion
     ports:
-      - "127.0.0.1:17474:7474"
-    environment:
-      NEO4J_AUTH: none
-      NEO4J_server_memory_heap_initial__size: 256m
-      NEO4J_server_memory_heap_max__size: 512m
-# Ephemeral fixture database: no production data, credentials, or persistent volume.
+      - "127.0.0.1:16379:6379"
+# Disposable local/private fixture only. No persistent volume or public browser port.
+# SSPLv1 public/network service promotion requires separate review.

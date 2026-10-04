@@ -1,7 +1,7 @@
 import { normalizeTrace } from '@entif-ai/ingress-refinery';
 import { canonicalTraceJson, parseEngineeringLifecycleSource, parseTraceProjection, materializeWorkLifecycle, traceHash, type EngineeringLifecycleSource, type TraceObjectState } from '@entif-ai/rosetta-schemas';
 import { createSourceRecordTile, createSourceManifestationTile } from '@entif-ai/source-substrate';
-import { buildTraceProjection } from './neo4j-trace-projection.js';
+import { buildTraceProjection } from './trace-projection.js';
 
 export function buildEngineeringLifecycleProjection(input: unknown) {
   const source = parseEngineeringLifecycleSource(input);

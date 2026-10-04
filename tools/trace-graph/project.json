@@ -4,9 +4,36 @@
   "targets": {
     "prove": {
       "executor": "nx:run-commands",
-      "dependsOn": [{"projects": ["projection-adapters", "source-substrate"], "target": "build"}],
+      "dependsOn": [
+        {
+          "projects": [
+            "projection-adapters",
+            "source-substrate",
+            "rosetta-store"
+          ],
+          "target": "build"
+        }
+      ],
       "cache": false,
-      "options": {"command": "node tools/trace-graph/prove.mjs"}
+      "options": {
+        "command": "node tools/trace-graph/prove-falkordb.mjs"
+      }
+    },
+    "prove-neo4j-reference": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "projection-adapters",
+            "source-substrate"
+          ],
+          "target": "build"
+        }
+      ],
+      "cache": false,
+      "options": {
+        "command": "node tools/trace-graph/prove.mjs"
+      }
     }
   }
 }

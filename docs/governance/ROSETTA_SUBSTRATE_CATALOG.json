@@ -234,6 +234,19 @@
       }
     },
     {
+      "id": "entif:trace-graph-falkor",
+      "kind": "plan",
+      "title": "Re-prove the operational projection against FalkorDB",
+      "status": "in-progress",
+      "task": "T1735",
+      "issues": [1735, 1734, 1664],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-graph-falkor.md",
+        "sha256": "a3100c9ca8054b623890b187615bb3c0e419ed1b85b8a76bcd85084a4d68be5d"
+      }
+    },
+    {
       "id": "entif:trace-graph",
       "kind": "plan",
       "title": "Project TRACE-NORM into a real Neo4j operational graph",
@@ -487,6 +500,16 @@
       "from": "entif:specops-plans",
       "kind": "depends-on",
       "to": "entif:specops-migrate"
+    },
+    {
+      "from": "entif:trace-graph-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-graph-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
     },
     {
       "from": "entif:trace-graph",

@@ -6,3 +6,4 @@ export * from './lib/trace-kinematics.js';
 
 export * from './lib/graphiti-trace.js';
 export * from './lib/engineering-lifecycle.js';
+export * from './lib/falkordb-trace-projection.js';
