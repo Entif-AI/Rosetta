@@ -1,0 +1,12 @@
+{
+  "name": "trace-graph",
+  "projectType": "application",
+  "targets": {
+    "prove": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{"projects": ["projection-adapters", "source-substrate"], "target": "build"}],
+      "cache": false,
+      "options": {"command": "node tools/trace-graph/prove.mjs"}
+    }
+  }
+}

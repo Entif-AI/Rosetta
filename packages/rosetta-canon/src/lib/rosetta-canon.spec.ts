@@ -3,6 +3,43 @@ import { describe, expect, it } from 'vitest';
 import { buildCanonicalJsonVector, buildTextFingerprints, canonicalizeJson, normalizePlainText, splitSentences } from './rosetta-canon.js';
 
 describe('rosetta-canon', () => {
+  it('sorts integer-like keys lexically before hashing', () => {
+    expect(canonicalizeJson({ '10': 'ten', '2': 'two' })).toBe('{"10":"ten","2":"two"}');
+  });
+  it('orders mixed and nested integer-like keys without re-enumeration', () => {
+    expect(canonicalizeJson({ '2': 2, '10': 10, '01': 1, a: 3 })).toBe('{"01":1,"10":10,"2":2,"a":3}');
+    expect(canonicalizeJson({ '2': { '2': 2, '10': 10 }, '10': [{ '2': 2, '10': 10 }] }))
+      .toBe('{"10":[{"10":10,"2":2}],"2":{"10":10,"2":2}}');
+  });
+
+  it('matches the RFC 8785 section 3.2.3 official UTF-16 property ordering vector', () => {
+    expect(canonicalizeJson({
+      '\u20ac': 'Euro Sign', '\r': 'Carriage Return', '\ufb33': 'Hebrew Letter Dalet With Dagesh',
+      '1': 'One', '\ud83d\ude00': 'Emoji: Grinning Face', '\u0080': 'Control', '\u00f6': 'Latin Small Letter O With Diaeresis'
+    })).toBe('{"\\r":"Carriage Return","1":"One","\u0080":"Control","ö":"Latin Small Letter O With Diaeresis","€":"Euro Sign","😀":"Emoji: Grinning Face","דּ":"Hebrew Letter Dalet With Dagesh"}');
+  });
+
+  it('matches RFC primitive numbers, literals and string escaping', () => {
+    expect(canonicalizeJson({ numbers: [Number('333333333.33333329'), 1e30, 4.50, 2e-3, 1e-27],
+      string: "€$\u000f\nA'B\"\\\\\"/", literals: [null, true, false] }))
+      .toBe(String.raw`{"literals":[null,true,false],"numbers":[333333333.3333333,1e+30,4.5,0.002,1e-27],"string":"€$\u000f\nA'B\"\\\\\"/"}`);
+    expect(canonicalizeJson([-0, Number.MIN_VALUE, 1e-6, 1e-7])).toBe('[0,5e-324,0.000001,1e-7]');
+  });
+
+  it.each(['\ud800', '\udfff', 'x\ud800y'])('rejects lone surrogates in strings and property names', (invalid) => {
+    expect(() => canonicalizeJson({ value: invalid })).toThrow('lone Unicode surrogates');
+    expect(() => canonicalizeJson({ [invalid]: null })).toThrow('lone Unicode surrogates');
+  });
+
+  it('replays the same canonical bytes and identity independently', () => {
+    const value = { '2': ['😀', { '10': -0, '2': true }], '10': null };
+    const expected = '{"10":null,"2":["😀",{"10":0,"2":true}]}';
+    for (let index = 0; index < 10; index += 1) {
+      expect(buildCanonicalJsonVector(value)).toEqual(buildCanonicalJsonVector(JSON.parse(expected)));
+      expect(canonicalizeJson(value)).toBe(expected);
+    }
+  });
+
   it('keeps object key order deterministic', () => {
     const left = canonicalizeJson({
       z: 1,

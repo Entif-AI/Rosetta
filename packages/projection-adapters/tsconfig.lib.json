@@ -13,6 +13,9 @@
   "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"],
   "references": [
     {
+      "path": "../rosetta-schemas/tsconfig.lib.json"
+    },
+    {
       "path": "../source-substrate/tsconfig.lib.json"
     },
     {
