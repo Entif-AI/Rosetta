@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Explicit Spec Kit task issue synchronization request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "repository",
+    "featureId",
+    "publicationPosture",
+    "tasks"
+  ],
+  "properties": {
+    "formatVersion": {
+      "const": 1
+    },
+    "repository": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "featureId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "publicationPosture": {
+      "const": "public"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "body",
+          "issueNumber",
+          "sourceRef",
+          "findingRefs",
+          "originTaskIds",
+          "decision",
+          "closedDisposition"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^T[0-9]{3,}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "body": {
+            "type": "string"
+          },
+          "issueNumber": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "findingRefs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^finding:[a-z0-9-]+:[a-z0-9-]+$"
+            }
+          },
+          "originTaskIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^T[0-9]{3,}$"
+            }
+          },
+          "decision": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "ref"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "split",
+                      "merge"
+                    ]
+                  },
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^\\S+$"
+                  }
+                }
+              }
+            ]
+          },
+          "closedDisposition": {
+            "enum": [
+              null,
+              "retain"
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "active",
+              "deferred"
+            ]
+          },
+          "retryRef": {
+            "type": "string",
+            "pattern": "^\\S+$"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "formatVersion",
+        "repository",
+        "featureId",
+        "bindings"
+      ],
+      "properties": {
+        "formatVersion": {
+          "const": 1
+        },
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "featureId": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "bindings": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^T[0-9]{3,}$"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "sourceRef",
+              "findingRefs",
+              "originTaskIds",
+              "decision",
+              "bindingId",
+              "marker",
+              "taskId",
+              "state",
+              "issueNumber",
+              "taskDigest",
+              "status",
+              "consumedRetryRefs"
+            ],
+            "properties": {
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "findingRefs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^finding:[a-z0-9-]+:[a-z0-9-]+$"
+                }
+              },
+              "originTaskIds": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^T[0-9]{3,}$"
+                }
+              },
+              "decision": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "ref"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "split",
+                          "merge"
+                        ]
+                      },
+                      "ref": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^\\S+$"
+                      }
+                    }
+                  }
+                ]
+              },
+              "bindingId": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "marker": {
+                "type": "string"
+              },
+              "taskId": {
+                "type": "string",
+                "pattern": "^T[0-9]{3,}$"
+              },
+              "state": {
+                "enum": [
+                  "pending",
+                  "bound"
+                ]
+              },
+              "issueNumber": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "taskDigest": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "status": {
+                "enum": [
+                  "active",
+                  "removed-projection",
+                  "deferred-projection"
+                ]
+              },
+              "consumedRetryRefs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^\\S+$"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

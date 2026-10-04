@@ -1,0 +1,257 @@
+{
+  "formatVersion": 1,
+  "role": "convergence-evidence-not-authority",
+  "revision": "47e4c28f7dcd0383c5b5d5592db38473cc590902",
+  "sourceState": "captured-working-tree",
+  "request": {
+    "formatVersion": 1,
+    "featureId": "roadmap-s2",
+    "runId": "substrate-drift",
+    "inventory": [
+      {
+        "key": "authority-and-desired-state",
+        "authorityRef": {
+          "path": "specs/principles.md",
+          "start": 1,
+          "end": 26
+        },
+        "verificationRefs": [
+          {
+            "path": "packages/nx-governance/specops/drift.spec.mjs",
+            "start": 1,
+            "end": 86
+          },
+          {
+            "path": "packages/nx-governance/specops/drift.mjs",
+            "start": 1,
+            "end": 152
+          },
+          {
+            "path": "packages/nx-governance/specops/check.mjs",
+            "start": 1,
+            "end": 28
+          },
+          {
+            "path": "packages/nx-governance/src/baseline.spec.ts",
+            "start": 1,
+            "end": 56
+          },
+          {
+            "path": "packages/nx-governance/src/convergence.spec.ts",
+            "start": 1,
+            "end": 66
+          }
+        ]
+      },
+      {
+        "key": "plan-ownership-and-preservation",
+        "authorityRef": {
+          "path": "specs/architecture.md",
+          "start": 1,
+          "end": 38
+        },
+        "verificationRefs": [
+          {
+            "path": "packages/nx-governance/specops/plans.spec.mjs",
+            "start": 1,
+            "end": 81
+          },
+          {
+            "path": "packages/nx-governance/specops/plans.mjs",
+            "start": 1,
+            "end": 181
+          },
+          {
+            "path": "packages/nx-governance/specops/cli.mjs",
+            "start": 1,
+            "end": 71
+          },
+          {
+            "path": "packages/nx-governance/src/specops-migration.spec.ts",
+            "start": 1,
+            "end": 45
+          }
+        ]
+      },
+      {
+        "key": "context-and-safe-consumer-distribution",
+        "authorityRef": {
+          "path": "specs/architecture.md",
+          "start": 1,
+          "end": 38
+        },
+        "verificationRefs": [
+          {
+            "path": "packages/nx-governance/specops/context.mjs",
+            "start": 1,
+            "end": 264
+          },
+          {
+            "path": "packages/nx-governance/specops/context.spec.mjs",
+            "start": 1,
+            "end": 43
+          },
+          {
+            "path": "packages/nx-governance/specops/install.mjs",
+            "start": 1,
+            "end": 345
+          },
+          {
+            "path": "packages/nx-governance/specops/install.spec.mjs",
+            "start": 1,
+            "end": 155
+          },
+          {
+            "path": "packages/nx-governance/specops/configuration.mjs",
+            "start": 1,
+            "end": 21
+          },
+          {
+            "path": "packages/nx-governance/specops/source.mjs",
+            "start": 1,
+            "end": 47
+          },
+          {
+            "path": "packages/nx-governance/specops/entrypoint.mjs",
+            "start": 1,
+            "end": 9
+          },
+          {
+            "path": "packages/nx-governance/src/installation.ts",
+            "start": 1,
+            "end": 38
+          },
+          {
+            "path": "packages/nx-governance/src/installation.spec.ts",
+            "start": 1,
+            "end": 49
+          },
+          {
+            "path": "tools/dev-bundle/e2e.mjs",
+            "start": 1,
+            "end": 440
+          }
+        ]
+      }
+    ],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "packages/nx-governance/specops/check.mjs",
+      "role": "observed-evidence",
+      "sha256": "b04be77a99a9bf9ef02939aaa4aa22344f713d3b2cb0fc97b84db3bf6614043c"
+    },
+    {
+      "path": "packages/nx-governance/specops/cli.mjs",
+      "role": "observed-evidence",
+      "sha256": "0ee09015438f6e648754eb1888fa67bdc00e4d712c982ea28c02ea74009cd303"
+    },
+    {
+      "path": "packages/nx-governance/specops/configuration.mjs",
+      "role": "observed-evidence",
+      "sha256": "f4bd14b3e97ffebaca408eebec2cb0fc0ce7e01383374aaf80b48588ab85b776"
+    },
+    {
+      "path": "packages/nx-governance/specops/context.mjs",
+      "role": "observed-evidence",
+      "sha256": "8fcea950387390dcfbd70579c9fcf0eaa1043ac0225e033c44343b2b6fdf9e18"
+    },
+    {
+      "path": "packages/nx-governance/specops/context.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "bfbdb9e8be9810ae318c3939acfb01c2bec3fc5484433fe351b991a79611d183"
+    },
+    {
+      "path": "packages/nx-governance/specops/drift.mjs",
+      "role": "observed-evidence",
+      "sha256": "e1f83788eb494e6fe753d2b62fd0c40cf26eb214a84aa5e6dfb0ad6c04736752"
+    },
+    {
+      "path": "packages/nx-governance/specops/drift.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "f7afe4dbd0cde95fd348d5ff1a132483a716cfc5cfa7217610dbbb4c4e2f3748"
+    },
+    {
+      "path": "packages/nx-governance/specops/entrypoint.mjs",
+      "role": "observed-evidence",
+      "sha256": "6f0209cd21080ef40d426c8f144dacfb216a7e8ba8476060570556957e001f63"
+    },
+    {
+      "path": "packages/nx-governance/specops/install.mjs",
+      "role": "observed-evidence",
+      "sha256": "394de5566d05423d715639e8a5d82fc1a56d8a38bbdd2d23ca0566e74b29c2d8"
+    },
+    {
+      "path": "packages/nx-governance/specops/install.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "fa9ac322434fef5f93c0b677606fb437369a80b63056ff73df10d73263389f3b"
+    },
+    {
+      "path": "packages/nx-governance/specops/plans.mjs",
+      "role": "observed-evidence",
+      "sha256": "c7d68cd240f9b63b19a9f9aa4eac1a4a87acb5ee524d92de0c6e1331ab7de257"
+    },
+    {
+      "path": "packages/nx-governance/specops/plans.spec.mjs",
+      "role": "observed-evidence",
+      "sha256": "5b2493b1210b717da5221ac765309595b152f5017b94fe478a104f884b9d961b"
+    },
+    {
+      "path": "packages/nx-governance/specops/source.mjs",
+      "role": "observed-evidence",
+      "sha256": "4f03226d1413df6aae5a94ee9c5bc98f6f27fe57ad9101d4374dbd11448bc6f7"
+    },
+    {
+      "path": "packages/nx-governance/src/baseline.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "263edb2635eb44670c2082a535a9220d462f079f88e2f5de0bd39bbf0d9c6909"
+    },
+    {
+      "path": "packages/nx-governance/src/convergence.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "f3dcf1f8d1ca8be46360541e2e90480a408375935c066e04dd5e13bc521eb3a8"
+    },
+    {
+      "path": "packages/nx-governance/src/installation.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "c9a0dd7584eeef5b0627698ff7f415dec61c1d920220abcc079bd73674b8b227"
+    },
+    {
+      "path": "packages/nx-governance/src/installation.ts",
+      "role": "observed-evidence",
+      "sha256": "1cb06de4e3a56754da74f038b359816a635bba0d9a7b14ffc9e650b161d85278"
+    },
+    {
+      "path": "packages/nx-governance/src/specops-migration.spec.ts",
+      "role": "observed-evidence",
+      "sha256": "3dc2756ef2c2c9ffb16dbc69fbeb4ff2fdaffd2598cd5f5ac4fbec3b54afab3e"
+    },
+    {
+      "path": "specs/architecture.md",
+      "role": "governing-authority",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7"
+    },
+    {
+      "path": "specs/principles.md",
+      "role": "governing-authority",
+      "sha256": "cad4ce7f4f9c492b1c8276d2f940a868536206dbaa06372a93d400ded299a89e"
+    },
+    {
+      "path": "tools/dev-bundle/e2e.mjs",
+      "role": "observed-evidence",
+      "sha256": "6d9a7d6ae1ce48527eb723717af56fcd7c6d2cf9e4885b575764c2aa94c08769"
+    }
+  ],
+  "findings": [],
+  "summary": {
+    "runId": "substrate-drift",
+    "checked": 3,
+    "actionable": 0,
+    "byType": {},
+    "bySeverity": {},
+    "blockerRefs": [],
+    "remediationTaskRefs": [],
+    "disposition": "pass"
+  }
+}

@@ -125,9 +125,9 @@ describe('salience evaluation Profile', () => {
     }
   });
 
-  it('catalogs the Profile as a pack-defined evaluation mapping', () => {
+  it('catalogs the Pack-defined Profile as an Evaluation specialization', () => {
     expect(getSchemaCatalogEntry('salience.evaluation.v1')).toMatchObject({
-      coreDescent: 'pack-defined-schema',
+      coreDescent: 'core-tile-profile',
       relatedCoreKinds: ['rosetta.evaluation'],
       validator: 'validateSalienceEvaluation'
     });

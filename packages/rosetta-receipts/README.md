@@ -14,6 +14,8 @@ Implements Rosetta Receipt Pack mechanics for receipt creation, signing, bundlin
 - builds receipt bundles and verifies bundle closure against a tile store
 - creates deterministic lifecycle receipts over existing run/action/artifact/check tiles;
   see the [minimum receipt-family contract](../../docs/spec/RECEIPT_FAMILY_CONTRACT.md)
+- defines the first-wave promotion-state machine and structured extract posture;
+  see the [promotion transition contract](../../docs/spec/PROMOTION_TRANSITION_CONTRACT.md)
 
 ## Fixture Status
 

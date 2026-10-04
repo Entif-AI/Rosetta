@@ -1,0 +1,924 @@
+{
+  "formatVersion": 1,
+  "issue": "#1179",
+  "scope": "all schema catalog entries and first-wave Pack assets",
+  "coreGapCandidates": [],
+  "conclusion": "No irreducible Core gap found. Existing Core composition, governed extensions and explicit application boundaries suffice.",
+  "packAssets": [
+    {
+      "source": "packs/_schemas/pack-manifest.schema.json",
+      "disposition": "pack-defined-schema"
+    },
+    {
+      "source": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+      "disposition": "pack-defined-schema"
+    },
+    {
+      "source": "packs/stdpack-source-substrate/vocab/source-substrate.ttl",
+      "disposition": "controlled-vocabulary"
+    },
+    {
+      "source": "packs/vocabpack-source-taxonomy/vocab/source-taxonomy.ttl",
+      "disposition": "controlled-vocabulary"
+    }
+  ],
+  "rows": [
+    {
+      "schemaId": "adapter.capability_manifest",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "skill.card",
+            "adapter.capability_manifest",
+            "guard.decision_token"
+          ],
+          "risk": "Admission ownership mistaken for semantic Core status or authorization execution.",
+          "disposition": "implementation-local",
+          "remediation": "Keep governed application contracts; schemas do not grant execution authority.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Defines the shared capability vocabulary only; startup exposure profiles, runtime modes, paid execution, and bridge transport behavior remain downstream issues."
+      ]
+    },
+    {
+      "schemaId": "counterfactual.evaluation.v1",
+      "coreDescent": "core-tile-profile",
+      "authority": {
+        "path": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+        "sha256": "df391e2713285fdeda13f1dca71229a478c2bdae7ce0224d94aea6a1e947d0b8"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Records declared historical frontier and sandbox evidence; does not resolve referenced evidence, enforce isolation, select mechanisms or authorize production activation."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.action-decision.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Guard and IAM semantics remain delegated to owning contracts."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.action-request.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Guard and IAM semantics remain delegated to owning contracts."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.approval-request.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Guard and IAM semantics remain delegated to owning contracts."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.approval-response.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Guard and IAM semantics remain delegated to owning contracts."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.artifact-publish.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Data-plane routing stays side-effect free."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.envelope.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Envelope validation is structural; replay storage and transport custody are owned by downstream mailroom work."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.execution-admission.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Does not execute Guard decisions or IAM semantics; it only classifies structural routing eligibility."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.health-report.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Data-plane routing stays side-effect free."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.incident-envelope.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Data-plane routing stays side-effect free."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.size-policy.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "First-wave policy uses one 1 MiB ceiling and requires artifact references or future chunking for larger transfers.",
+        "Runtime custody, replay storage, and telemetry aggregation remain downstream mailroom responsibilities."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.task-receipt.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Data-plane routing stays side-effect free."
+      ]
+    },
+    {
+      "schemaId": "entif.agentic-messaging.work-unit-update.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
+      "knownGaps": [
+        "Structural schema validation does not imply runtime authorization.",
+        "Data-plane routing stays side-effect free."
+      ]
+    },
+    {
+      "schemaId": "entif.daily_top_shelf_digest",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "entif.daily_top_shelf_digest",
+            "entif.postmortem_artifact",
+            "entif.intake_envelope",
+            "entif.domain_ref.v1"
+          ],
+          "risk": "Product records become universal semantic roots.",
+          "disposition": "application-or-projection",
+          "remediation": "Retain qualified application owners; digest is a projection. No Core expansion.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "entif.domain_ref.v1",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "entif.daily_top_shelf_digest",
+            "entif.postmortem_artifact",
+            "entif.intake_envelope",
+            "entif.domain_ref.v1"
+          ],
+          "risk": "Product records become universal semantic roots.",
+          "disposition": "application-or-projection",
+          "remediation": "Retain qualified application owners; digest is a projection. No Core expansion.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "`rosetta-schemas` normalizes and compares domain_ref values but does not own every future domain policy."
+      ]
+    },
+    {
+      "schemaId": "entif.guard.decision-request.ref",
+      "coreDescent": "external-contract-ref",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Guard request/validation flow is a downstream consumer boundary, not redefined here."
+      ]
+    },
+    {
+      "schemaId": "entif.iam.decision.ref",
+      "coreDescent": "external-contract-ref",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "`iam.decision` artifact semantics are intentionally out of scope for this package."
+      ]
+    },
+    {
+      "schemaId": "entif.intake_envelope",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "entif.daily_top_shelf_digest",
+            "entif.postmortem_artifact",
+            "entif.intake_envelope",
+            "entif.domain_ref.v1"
+          ],
+          "risk": "Product records become universal semantic roots.",
+          "disposition": "application-or-projection",
+          "remediation": "Retain qualified application owners; digest is a projection. No Core expansion.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "entif.mailroom.consumer-boundary.ref",
+      "coreDescent": "external-contract-ref",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Runtime mailroom custody, replay storage, and routing are downstream of the schema registry."
+      ]
+    },
+    {
+      "schemaId": "entif.postmortem_artifact",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "entif.daily_top_shelf_digest",
+            "entif.postmortem_artifact",
+            "entif.intake_envelope",
+            "entif.domain_ref.v1"
+          ],
+          "risk": "Product records become universal semantic roots.",
+          "disposition": "application-or-projection",
+          "remediation": "Retain qualified application owners; digest is a projection. No Core expansion.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "guard.decision_token",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "skill.card",
+            "adapter.capability_manifest",
+            "guard.decision_token"
+          ],
+          "risk": "Admission ownership mistaken for semantic Core status or authorization execution.",
+          "disposition": "implementation-local",
+          "remediation": "Keep governed application contracts; schemas do not grant execution authority.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.action",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.composition_provenance",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "rosetta.translation_evidence",
+            "rosetta.composition_provenance"
+          ],
+          "risk": "Reserved namespace suggests Core authority.",
+          "disposition": "retain-local",
+          "remediation": "Keep package-internal legacy IDs; require a namespaced Pack/migration before public exchange.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.conformance_bundle",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "rosetta.conformance_bundle",
+            "rosetta.shacl_shapes"
+          ],
+          "risk": "Generated validation output may appear normative.",
+          "disposition": "projection",
+          "remediation": "Treat bundles and emitted shapes as derived inspection data, not conformance execution or schema authority.",
+          "owner": "#240"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Summary bundles are derived validation reports, not signed Rosetta Receipts or a full conformance engine."
+      ]
+    },
+    {
+      "schemaId": "rosetta.evaluation",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.observation",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.receipt",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.run",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.shacl_shapes",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "rosetta.conformance_bundle",
+            "rosetta.shacl_shapes"
+          ],
+          "risk": "Generated validation output may appear normative.",
+          "disposition": "projection",
+          "remediation": "Treat bundles and emitted shapes as derived inspection data, not conformance execution or schema authority.",
+          "owner": "#240"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Emits SHACL-like Turtle only; it does not run a SHACL engine."
+      ]
+    },
+    {
+      "schemaId": "rosetta.tapestry",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.toolcall",
+      "coreDescent": "core-primitive",
+      "authority": {
+        "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rosetta.translation_evidence",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "rosetta.translation_evidence",
+            "rosetta.composition_provenance"
+          ],
+          "risk": "Reserved namespace suggests Core authority.",
+          "disposition": "retain-local",
+          "remediation": "Keep package-internal legacy IDs; require a namespaced Pack/migration before public exchange.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "rrp.promotion-state.v1",
+      "coreDescent": "core-tile-profile",
+      "authority": {
+        "path": "packs/rrp/schema/promotion-state.schema.json",
+        "sha256": "92e7b33ae83fbeb13c2119841ba1bc7d46c93c407cb8b542a1f24590fe0d19cd"
+      },
+      "findings": [
+        {
+          "ids": [
+            "rrp.promotion-state.v1"
+          ],
+          "risk": "State hidden in prose or caller assertion.",
+          "disposition": "resolved-profile",
+          "remediation": "#1698 declares Observation specialization and exact predecessor/receipt closure.",
+          "owner": "#1698"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Profile validation does not authorize execution or select a current state in storage."
+      ]
+    },
+    {
+      "schemaId": "salience.evaluation.v1",
+      "coreDescent": "core-tile-profile",
+      "authority": {
+        "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+        "sha256": "ec35e478e17d6a945f61735064456e4830aa029940f3c84e9be6fed1b0e553ac"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Represents inspectable salience assessments only; formulas, weighting, gating, selection, activation, and execution policy remain outside this Profile."
+      ]
+    },
+    {
+      "schemaId": "skill.card",
+      "coreDescent": "implementation-local",
+      "authority": {
+        "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
+        "sha256": "0a7c6d1c374ad2a4304ef51afb490310059c7ca7fea36bd4033fe95b20ad3ef6"
+      },
+      "findings": [
+        {
+          "ids": [
+            "skill.card",
+            "adapter.capability_manifest",
+            "guard.decision_token"
+          ],
+          "risk": "Admission ownership mistaken for semantic Core status or authorization execution.",
+          "disposition": "implementation-local",
+          "remediation": "Keep governed application contracts; schemas do not grant execution authority.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Defines the broker-facing Tier 0 card only; playbook loading, certification flow, broker ranking, and runtime grants remain downstream issues."
+      ]
+    },
+    {
+      "schemaId": "source.canonical_artifact",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.correction_event",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.derived_artifact",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.episode",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.evaluation_receipt",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.evaluation_receipt",
+            "source.fetch_receipt",
+            "source.normalization_receipt",
+            "source.identity_resolution_receipt"
+          ],
+          "risk": "Receipt-like domain records lack canonical claims, digests and signatures.",
+          "disposition": "pack-composition",
+          "remediation": "Domain record is not substitutable for rosetta.receipt; attestation uses canonical receipt evidence/subject refs. No signed conformance claim.",
+          "owner": "#158"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.fetch_receipt",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.evaluation_receipt",
+            "source.fetch_receipt",
+            "source.normalization_receipt",
+            "source.identity_resolution_receipt"
+          ],
+          "risk": "Receipt-like domain records lack canonical claims, digests and signatures.",
+          "disposition": "pack-composition",
+          "remediation": "Domain record is not substitutable for rosetta.receipt; attestation uses canonical receipt evidence/subject refs. No signed conformance claim.",
+          "owner": "#158"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.identity_resolution_receipt",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.evaluation_receipt",
+            "source.fetch_receipt",
+            "source.normalization_receipt",
+            "source.identity_resolution_receipt"
+          ],
+          "risk": "Receipt-like domain records lack canonical claims, digests and signatures.",
+          "disposition": "pack-composition",
+          "remediation": "Domain record is not substitutable for rosetta.receipt; attestation uses canonical receipt evidence/subject refs. No signed conformance claim.",
+          "owner": "#158"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.ingress_job",
+      "coreDescent": "lifecycle-state",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.ingress_job"
+          ],
+          "risk": "Mutable job shorthand obscures immutable lifecycle history.",
+          "disposition": "lifecycle-state",
+          "remediation": "Append new state artifacts with lineage; operational scheduling remains downstream.",
+          "owner": "#1211"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.manifestation",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.normalization_receipt",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.evaluation_receipt",
+            "source.fetch_receipt",
+            "source.normalization_receipt",
+            "source.identity_resolution_receipt"
+          ],
+          "risk": "Receipt-like domain records lack canonical claims, digests and signatures.",
+          "disposition": "pack-composition",
+          "remediation": "Domain record is not substitutable for rosetta.receipt; attestation uses canonical receipt evidence/subject refs. No signed conformance claim.",
+          "owner": "#158"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.package",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.package"
+          ],
+          "risk": "Source grouping confused with a protocol extension Pack or PACKID.",
+          "disposition": "governed-composition",
+          "remediation": "Membership grouping is source-domain data related to Frame composition, not a Pack manifest or release.",
+          "owner": "#1179"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.record",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.registry_entry",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/source-substrate/README.md",
+        "sha256": "8e890e45e6174820652221f9b76e267dc66b4dfb5597fc743c426cc9d737041f"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.system_profile",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "source.trust_matrix",
+      "coreDescent": "pack-defined-schema",
+      "authority": {
+        "path": "packs/stdpack-source-substrate/schema/source-substrate.schema.json",
+        "sha256": "a8bbfb0348c907b633f3248938ba932d170b6174b0967d8f19072897b48adc62"
+      },
+      "findings": [
+        {
+          "ids": [
+            "source.trust_matrix"
+          ],
+          "risk": "Trust axes mistaken for a canonical Matrix or universal scalar.",
+          "disposition": "pack-composition",
+          "remediation": "Pack axes remain lane-local inputs; canonical Matrix conversion needs explicit axis/version/subject mapping. No equivalence claim.",
+          "owner": "#803"
+        }
+      ],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    }
+  ]
+}

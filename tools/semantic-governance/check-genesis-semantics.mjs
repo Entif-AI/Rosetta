@@ -1,3 +1,5 @@
+import console from 'node:console';
+// #1572 removed protected working authorities. Public checks must not require their return.
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
@@ -66,23 +68,15 @@ const ACTIVE_TEXT_PATHS = [
   'docs/governance/Genesis.md',
   'docs/governance/rosetta_governance_addendum_personhood_provenance_and_cognitive_twin_risk.md',
   'docs/RFCs/20251024 - RFC - Rosetta - Cognitive Tiles and Swarm Gnosis.md',
-  'docs/RFCs/20260324 - Entif AI - Specification - Agentic Memory and Graph Design Doctrine.md',
-  'docs/RFCs/ontological_mixture_of_concepts_research_spec.md',
-  'docs/PRDs/20251024 - PRD - Rosetta - Cognitive Tapestries via Semantic Latticing.md',
-  'docs/PRDs/20260426 - Entif - PRD - Context CLI and Memory Services.md',
   'packages/rosetta-schemas/README.md',
   'packages/rosetta-schemas/docs/schema-authority-map.md',
 ];
 
 const HISTORICAL_ALIGNMENT_PATHS = [
   'docs/RFCs/20251024 - RFC - Rosetta - Cognitive Tiles and Swarm Gnosis.md',
-  'docs/RFCs/ontological_mixture_of_concepts_research_spec.md',
-  'docs/PRDs/20251024 - PRD - Rosetta - Cognitive Tapestries via Semantic Latticing.md',
 ];
 
 const APPLICATION_ALIGNMENT_PATHS = [
-  'docs/RFCs/20260324 - Entif AI - Specification - Agentic Memory and Graph Design Doctrine.md',
-  'docs/PRDs/20260426 - Entif - PRD - Context CLI and Memory Services.md',
   'docs/governance/rosetta_governance_addendum_personhood_provenance_and_cognitive_twin_risk.md',
 ];
 

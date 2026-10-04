@@ -1,0 +1,11 @@
+summary: 0 ready · 1 in-progress · 1 awaiting · 3 blocked-by-deps · 0 blocked · 6 done · 0 cancelled
+in_progress[1]{slug,unblocks,awaits}:
+  specops-drift,4,none
+awaiting[1]{slug,awaits,deps}:
+  badger-experiment,#1712–#1721 integrated acceptance and review-ready substrate; out of this migration run,"specops-integrated [planned]"
+blocked_by_deps[3]{slug,deps}:
+  specops-context,"specops-drift [in-progress]"
+  specops-dist,"specops-context [planned]"
+  specops-integrated,"specops-dist [planned]"
+help[1]:
+  Run `~/.codex/worktrees/roadmap-s2-axi-specops/entif-ai/.axi/upstreams/specops/skills/specops/scripts/specops dag --fence` to visualize the dependency graph

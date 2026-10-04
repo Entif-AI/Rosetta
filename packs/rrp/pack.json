@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "rrp",
-  "pack_id": "cidv1-sha256-e1a7a7788e8bbd7f046c6bceeaf780c55952045968396d37f31ec9f77ce2759e",
+  "pack_id": "cidv1-sha256-eda795ee0ca8600a8a3e7a599f950b65f9fa11864b2ed720e89ce62396aaa80b",
   "kind": "pack",
   "category": "SchemaPack",
   "namespace": "rrp",
@@ -20,7 +20,8 @@
       "examples/bootstrap-receipt-bundle.md"
     ],
     "schema": [
-      "schema/receipt.schema.json"
+      "schema/receipt.schema.json",
+      "schema/promotion-state.schema.json"
     ],
     "shacl": [
       "shacl/receipt.shacl.ttl"
@@ -29,7 +30,9 @@
       "tests/README.md",
       "test-vectors/pack-id-v1.expected.json",
       "test-vectors/receipt-pass.json",
-      "test-vectors/receipt-tampered.json"
+      "test-vectors/receipt-tampered.json",
+      "test-vectors/promotion-pre-fix.json",
+      "test-vectors/promotion-state-valid.json"
     ],
     "vocab": [
       "vocab/rrp.ttl"
@@ -60,9 +63,21 @@
       "id": "rrp.vocab",
       "path": "vocab/rrp.ttl",
       "version": "0.1.0"
+    },
+    {
+      "kind": "json-schema",
+      "id": "rrp.promotion-state.v1",
+      "path": "schema/promotion-state.schema.json",
+      "version": "1.0.0",
+      "profile": "rrp.promotion-state.v1"
     }
   ],
-  "profiles": [],
+  "profiles": [
+    {
+      "name": "rrp.promotion-state.v1",
+      "path": "schema/promotion-state.schema.json"
+    }
+  ],
   "source_of_truth": {
     "doctrine": "Doctrine v0.2",
     "traceability_required": true

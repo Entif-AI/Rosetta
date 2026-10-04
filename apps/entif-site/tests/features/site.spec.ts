@@ -68,6 +68,37 @@ test('published manuscripts retain scientific status and working figures', async
   }
 });
 
+test('IndraNet publication shell owns the title and all figures render', async ({
+  page,
+}) => {
+  await page.goto('/tags/research/2026/09/28/indranet-research/');
+  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(
+    page.locator('[data-test-id="published-entry-heading"]')
+  ).toHaveText(
+    'IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance'
+  );
+  await expect(
+    page.locator('[data-test-id="published-entry-body"] h1')
+  ).toHaveCount(0);
+  await expect(page.locator('.article-body')).toContainText('Abstract');
+  await expect(page.locator('.article-body')).toContainText('References');
+
+  const figures = page.locator('.article-body img');
+  await expect(figures).toHaveCount(20);
+  for (const img of await figures.all()) {
+    await img.scrollIntoViewIfNeeded();
+    await expect(img).toHaveJSProperty('complete', true);
+    expect(
+      await img.evaluate((el: HTMLImageElement) => el.naturalWidth)
+    ).toBeGreaterThan(0);
+    await expect(img).toHaveAttribute(
+      'src',
+      /^\/research-assets\/indranet\/graphics\/F\d{2}\.svg$/
+    );
+  }
+});
+
 test('old URLs and date archives remain available; drafts stay private', async ({
   page,
 }) => {

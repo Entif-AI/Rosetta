@@ -1,0 +1,17 @@
+{
+  "name": "specops",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/packages/nx-governance/**/*"
+      ],
+      "options": {
+        "command": "node --test packages/nx-governance/specops/*.spec.mjs"
+      }
+    }
+  }
+}

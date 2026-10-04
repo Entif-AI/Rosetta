@@ -1,0 +1,12 @@
+{
+  "formatVersion": 1,
+  "nx": ">=22.6.5 <23",
+  "speckit": ">=1.1.1.dev0,<1.2",
+  "verifiedUpstream": {
+    "repository": "https://github.com/github/spec-kit",
+    "commit": "de0cbd762e2d0b30f90d3ffcbe2ee9d7167f4eda"
+  },
+  "rosettaCore": "3.0.0",
+  "promotionProfile": "rrp.promotion-state.v1",
+  "branchPolicy": "existing-authorized"
+}

@@ -28,7 +28,7 @@ describe('rosetta-canon', () => {
     expect(
       canonicalizeJson({
         nested: [{ 10: 'ten', 2: 'two', a: 'letter' }],
-        numbers: [333333333.33333329, 1e30, 4.5, 2e-3, 1e-27],
+        numbers: [Number('333333333.33333329'), 1e30, 4.5, 2e-3, 1e-27],
         string: '€$\u000f\nA\'B"\\\\"/'
       })
     ).toBe(

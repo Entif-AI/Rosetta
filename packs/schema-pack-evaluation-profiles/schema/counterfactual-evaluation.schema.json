@@ -2,6 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://entif.ai/packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
   "title": "Counterfactual Mechanism Evaluation Profile v1",
+  "x-rosetta": {
+    "coreDescent": "core-tile-profile",
+    "coreKind": "rosetta.evaluation",
+    "pack": "schema-pack-evaluation-profiles",
+    "version": "1.0.0",
+    "authority": "packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json",
+    "sourceIssues": ["#1692", "#1695"],
+    "scope": "Declared historical comparison posture, not isolation or production authority",
+    "supersedes": []
+  },
   "description": "Public Profile over Core Evaluation. Records a historical evidence frontier and no-live-effect comparison posture; does not enforce isolation or grant production authority.",
   "type": "object",
   "additionalProperties": false,

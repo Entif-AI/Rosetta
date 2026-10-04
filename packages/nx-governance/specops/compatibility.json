@@ -1,0 +1,22 @@
+{
+  "formatVersion": 1,
+  "package": "@entif-ai/nx-governance",
+  "packageVersion": "0.1.0",
+  "nx": ">=22.6.5 <23",
+  "node": ">=24 <25",
+  "specopsCommit": "03c332620c207ade153a25c8c49805a64228961d",
+  "configSchemaVersion": 1,
+  "runtimes": {
+    "codex": ".agents/skills/entif-substrate/SKILL.md",
+    "claude": ".claude/skills/entif-substrate/SKILL.md",
+    "generic": ".specops/runtime.md"
+  },
+  "defaults": {
+    "networkAcquisition": "explicit only",
+    "writerCount": 1,
+    "authority": "consumer-owned",
+    "services": "none"
+  },
+  "legacy": "Spec Kit payload retained and deprecated for rollback; init default remains legacy-compatible",
+  "upstreamLicense": "No conventional license declaration at pinned source; separately acquire, no vendored implementation"
+}

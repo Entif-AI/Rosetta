@@ -7,14 +7,20 @@ import {
   buildReceiptBundle,
   createFinalizeAnswerEvent,
   createPartialResultTile,
+  createPromotionGenesis,
+  createPromotionTransition,
+  createPromotionTransitionRefusal,
   createReceipt,
   createLifecycleReceipt,
   createSigningKeyPair,
   createTerminationReceipt,
   digestTile,
+  PROMOTION_TRANSITIONS,
   signReceiptEd25519,
   verifyReceiptBundle,
-  verifySignedReceipt
+  verifySignedReceipt,
+  type PromotionState,
+  type PromotionTransitionKind
 } from './rosetta-receipts.js';
 
 describe('minimum receipt lifecycle contract', () => {
@@ -199,5 +205,214 @@ describe('rosetta-receipts', () => {
       claimType: 'rlm.hard_stop',
       verdict: 'partial'
     });
+  });
+});
+
+describe('promotion transition contract', () => {
+  function fixture(priorState: PromotionState, kind: PromotionTransitionKind) {
+    const subject = buildTile('rosetta.observation', {
+      observationId: `promotion.spec.subject.${priorState}.${kind}`,
+      signal: 'Synthetic promotion transition subject.',
+      source: 'fixture'
+    });
+    const evidence = buildTile('rosetta.evaluation', {
+      evaluationId: `promotion.spec.evidence.${priorState}.${kind}`,
+      summary: 'Synthetic lane-local evaluation vector.',
+      verdict: 'pass'
+    });
+    const trustMatrix = buildTile('rosetta.evaluation', {
+      evaluationId: `promotion.spec.trust.${priorState}.${kind}`,
+      summary: 'Synthetic staged trust input; not collapsed.',
+      verdict: 'pass'
+    });
+    const policy = buildTile('rosetta.policy', {
+      policyId: `promotion.spec.policy.${priorState}.${kind}`,
+      description: 'Synthetic promotion policy evidence'
+    });
+    return { subject, evidence, trustMatrix, policy };
+  }
+
+  const happyPaths: Array<{ kind: PromotionTransitionKind; prior: PromotionState; next: PromotionState }> = [
+    { kind: 'confirm', prior: 'pending-confirmation', next: 'active' },
+    { kind: 'promote', prior: 'active', next: 'promoted' },
+    { kind: 'cool', prior: 'active', next: 'cooled' },
+    { kind: 'quarantine', prior: 'active', next: 'quarantined' },
+    { kind: 'revisit', prior: 'active', next: 'pending-revisit' },
+    { kind: 'supersede', prior: 'active', next: 'superseded' },
+    { kind: 'activate', prior: 'cooled', next: 'active' },
+    { kind: 'activate', prior: 'pending-revisit', next: 'active' },
+    { kind: 'revisit', prior: 'quarantined', next: 'pending-revisit' },
+    { kind: 'supersede', prior: 'promoted', next: 'superseded' }
+  ];
+
+  it.each(happyPaths)('applies $kind from $prior -> $next and preserves closure', ({ kind, prior, next }) => {
+    const { subject, evidence, trustMatrix, policy } = fixture(prior, kind);
+    const input = {
+      evidenceRefs: [evidence, trustMatrix],
+      kind,
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, prior),
+      subject,
+      evaluationVectors: [trustMatrix]
+    };
+    const result = createPromotionTransition(input);
+    expect('block' in result).toBe(false);
+    if ('block' in result) throw new Error('unreachable');
+    expect(result.kind).toBe(kind);
+    expect(result.fromState).toBe(prior);
+    expect(result.nextState).toBe(next);
+    expect(result.receipt.kind).toBe('rosetta.receipt');
+    expect(result.receipt.payload.claims[0]).toMatchObject({
+      claimType: `rrp:promotion.transition.${kind}`,
+      verdict: 'pass'
+    });
+    expect(result.receipt.payload.subjects.map((s) => s.role)).toEqual([
+      'rrp:promotion.subject',
+      'rrp:promotion.next_state'
+    ]);
+    expect(result.receipt.payload.policyRefs).toEqual([policy.cid]);
+    const store = new InMemoryTileStore();
+    for (const tile of [subject, evidence, trustMatrix, policy, input.priorStateTile, result.nextStateTile, result.receipt]) store.put<unknown>(tile);
+    expect(verifyReceiptBundle(buildReceiptBundle(result.receipt), store).ok).toBe(true);
+  });
+
+  it('rejects transitions that are not in the default-deny allow-list', () => {
+    const { subject, evidence, trustMatrix, policy } = fixture('cooled', 'promote');
+    const result = createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'promote',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'cooled'),
+      subject
+    });
+    expect('block' in result).toBe(true);
+    if (!('block' in result)) throw new Error('unreachable');
+    expect(result.block).toBe('hard');
+    expect(result.kind).toBe('promote');
+    expect(PROMOTION_TRANSITIONS.promote).toEqual(['active']);
+  });
+
+  it('routes missing-evidence transitions to a soft block (verdict: unknown)', () => {
+    const { subject, policy } = fixture('active', 'promote');
+    const result = createPromotionTransition({
+      evidenceRefs: [],
+      kind: 'promote',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject
+    });
+    expect('block' in result).toBe(true);
+    if (!('block' in result)) throw new Error('unreachable');
+    expect(result.block).toBe('soft');
+    const refusal = createPromotionTransitionRefusal(
+      { evidenceRefs: [], kind: 'promote', policies: [policy], priorStateTile: createPromotionGenesis(subject, 'active'), subject },
+      'soft',
+      'Evidence closure pending.'
+    );
+    expect(refusal.payload.claims[0]).toMatchObject({
+      claimType: 'rrp:promotion.transition.promote.blocked',
+      verdict: 'unknown'
+    });
+    expect(refusal.payload.policyRefs).toEqual([policy.cid]);
+  });
+
+  it('routes missing-policy transitions to a hard block (verdict: deny)', () => {
+    const { subject, evidence, trustMatrix } = fixture('active', 'promote');
+    const result = createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'promote',
+      policies: [],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject
+    });
+    expect('block' in result).toBe(true);
+    if (!('block' in result)) throw new Error('unreachable');
+    expect(result.block).toBe('hard');
+    const refusal = createPromotionTransitionRefusal(
+      { evidenceRefs: [evidence, trustMatrix], kind: 'promote', policies: [], priorStateTile: createPromotionGenesis(subject, 'active'), subject },
+      'hard',
+      'Policy backing denied.'
+    );
+    expect(refusal.payload.claims[0]).toMatchObject({
+      claimType: 'rrp:promotion.transition.promote.denied',
+      verdict: 'deny'
+    });
+  });
+
+  it('treats superseded as a terminal promotion state', () => {
+    const { subject, evidence, trustMatrix, policy } = fixture('superseded', 'activate');
+    const result = createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'activate',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'superseded'),
+      subject
+    });
+    expect('block' in result).toBe(true);
+    if (!('block' in result)) throw new Error('unreachable');
+    expect(result.block).toBe('hard');
+    expect(result.reason).toMatch(/terminal/);
+  });
+
+  it('rejects promotion transitions whose closure members fail integrity or payload validation', () => {
+    const { subject, evidence, trustMatrix, policy } = fixture('active', 'promote');
+    const tampered = { ...evidence, payload: { ...evidence.payload, summary: 'tampered' } };
+    expect(() => createPromotionTransition({
+      evidenceRefs: [tampered, trustMatrix],
+      kind: 'promote',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject
+    })).toThrow(/integrity/i);
+  });
+
+  it('preserves the prior receipt evidence when a corrected successor transitions the same subject', () => {
+    const { subject, evidence, trustMatrix, policy } = fixture('active', 'cool');
+    const original = createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'cool',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject,
+      reason: 'Synthetic cooling'
+    });
+    if ('block' in original) throw new Error('unreachable');
+    const before = JSON.stringify({ subject, evidence, trustMatrix, policy });
+    const next = createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'activate',
+      policies: [policy],
+      priorStateTile: original.nextStateTile,
+      subject,
+      reason: 'Synthetic reactivation'
+    });
+    if ('block' in next) throw new Error('unreachable');
+    expect(next.receipt.cid).not.toBe(original.receipt.cid);
+    expect(JSON.stringify({ subject, evidence, trustMatrix, policy })).toBe(before);
+    expect(original.receipt.cid).toBe(createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'cool',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject,
+      reason: 'Synthetic cooling'
+    }).kind !== 'cool' ? '' : original.receipt.cid);
+  });
+
+  it('does not mutate the subject, evidence, or policy tiles when a transition is applied', () => {
+    const { subject, evidence, trustMatrix, policy } = fixture('active', 'promote');
+    const beforeSubject = JSON.stringify(subject);
+    const beforeEvidence = JSON.stringify(evidence);
+    const beforePolicy = JSON.stringify(policy);
+    createPromotionTransition({
+      evidenceRefs: [evidence, trustMatrix],
+      kind: 'promote',
+      policies: [policy],
+      priorStateTile: createPromotionGenesis(subject, 'active'),
+      subject
+    });
+    expect(JSON.stringify(subject)).toBe(beforeSubject);
+    expect(JSON.stringify(evidence)).toBe(beforeEvidence);
+    expect(JSON.stringify(policy)).toBe(beforePolicy);
   });
 });

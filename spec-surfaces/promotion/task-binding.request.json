@@ -1,0 +1,17 @@
+{
+  "formatVersion": 1,
+  "repository": "Entif-AI/Rosetta",
+  "featureId": "promotion-profile-example",
+  "publicationPosture": "public",
+  "tasks": [{
+    "id": "T001",
+    "title": "Formalize promotion-state Observation Profile",
+    "body": "Existing work identity belongs to #1698; this is a binding example, not another request to implement it.",
+    "issueNumber": 1698,
+    "sourceRef": "spec-surfaces/promotion/task-binding.request.json#/tasks/0",
+    "findingRefs": [],
+    "originTaskIds": [],
+    "decision": null,
+    "closedDisposition": "retain"
+  }]
+}

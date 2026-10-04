@@ -56,7 +56,7 @@ const ROSETTA_CORE_SPEC = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md'
 const ENTIF_ROSETTA_PRD = 'docs/PRDs/20260426 - Entif and Rosetta PRD.md';
 const ROSETTA_GUARD_README = 'packages/rosetta-guard/README.md';
 const SALIENCE_PACK_SCHEMA = 'packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json';
-const SALIENCE_PACK_TESTS = 'packs/schema-pack-evaluation-profiles/test-vectors/salience';
+const SALIENCE_PACK_TESTS = 'packs/schema-pack-evaluation-profiles/tests/README.md';
 const SKILL_LIBRARY_DESIGN = 'docs/chats/20260323 - Chat GPT - Entif Skill Library Design.md';
 const PROGRESSIVE_DISCLOSURE_SKILLS = 'docs/chats/20260323 - Chat GPT - Progressive-Disclosure Skill System.md';
 
@@ -181,7 +181,7 @@ function tileCatalogEntry(schemaId: string): SchemaCatalogSourceEntry {
     docs: tileDocs(schemaId),
     exposureStatus: tileExposureStatus(schemaId),
     family: schemaId.split('.')[0] ?? 'unknown',
-    knownGaps: ['Lightweight required-field validation only; full SHACL/RDF execution is not implemented.'],
+    knownGaps: schemaId.startsWith('source.') ? ['Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented.'] : ['Structural validation only; full SHACL/RDF execution is not implemented.'],
     ownerPackage: '@entif-ai/rosetta-schemas',
     rfcPrdAnchors: [ROSETTA_CORE_SPEC, ENTIF_ROSETTA_PRD],
     schemaId,
@@ -215,6 +215,14 @@ function agenticMessageCatalogEntry(msgType: string, profile: AgenticMessageSche
 }
 
 const TILE_CATALOG_ENTRIES = Object.keys(SUPPORTED_TILE_KIND_REQUIRED_FIELDS).map(tileCatalogEntry);
+TILE_CATALOG_ENTRIES.push({
+  ...tileCatalogEntry('rosetta.observation'), schemaId: 'rrp.promotion-state.v1',
+  authorityTier: 'governance-admission', family: 'promotion-state',
+  ownerPackage: '@entif-ai/rosetta-receipts', consumerPackages: ['@entif-ai/rosetta-receipts'],
+  docs: ['docs/spec/PROMOTION_TRANSITION_CONTRACT.md', 'packs/rrp/schema/promotion-state.schema.json'],
+  sourceIssues: ['#10', '#1698'], knownGaps: ['Profile validation does not authorize execution or select a current state in storage.'],
+  tests: ['packages/rosetta-receipts/src/lib/promotion-profile.spec.ts'], validator: 'validatePromotionStatePayload'
+});
 
 const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROFILES).map(([msgType, profile]) =>
   agenticMessageCatalogEntry(msgType, profile)
@@ -234,7 +242,7 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     schemaId: 'counterfactual.evaluation.v1',
     sourceIssues: ['#1692', '#1695'],
     sourcePrs: [],
-    tests: ['packages/rosetta-schemas/src/lib/counterfactual-profile.spec.ts', 'packs/schema-pack-evaluation-profiles/test-vectors/counterfactual'],
+    tests: ['packages/rosetta-schemas/src/lib/counterfactual-profile.spec.ts', 'packs/schema-pack-evaluation-profiles/tests/README.md'],
     validator: 'validateCounterfactualEvaluation'
   },
   {
@@ -311,7 +319,7 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     docs: [SCHEMA_README, AUTHORITY_MAP],
     exposureStatus: 'package-internal',
     family: 'conformance',
-    knownGaps: ['Summary bundles are local conformance receipts, not a full standards conformance engine.'],
+    knownGaps: ['Summary bundles are derived validation reports, not signed Rosetta Receipts or a full conformance engine.'],
     ownerPackage: '@entif-ai/rosetta-schemas',
     rfcPrdAnchors: [ROSETTA_CORE_SPEC],
     schemaId: 'rosetta.conformance_bundle',

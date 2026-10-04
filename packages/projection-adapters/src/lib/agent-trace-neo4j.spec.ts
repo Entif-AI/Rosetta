@@ -41,6 +41,7 @@ describe('fixture Neo4j projection', () => {
     plan.edges[0].from = 'missing-node';
     const { sha256: _prior, ...body } = plan;
     plan.sha256 = createHash('sha256').update(canonicalizeJson(body as unknown as JsonValue)).digest('hex');
+    expect(plan.sha256).not.toBe(_prior);
     const fetch = vi.fn(); vi.stubGlobal('fetch', fetch);
     await expect(importAgentTraceProjection('http://127.0.0.1:17474', plan)).rejects.toThrow('integrity');
     expect(fetch).not.toHaveBeenCalled();

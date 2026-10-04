@@ -1,0 +1,41 @@
+{
+  "axi": {
+    "repository": "https://github.com/kunchenguid/axi.git",
+    "commit": "9fb95abba8546697512ea70befd3c73c445a4cb2",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  },
+  "quota-axi": {
+    "repository": "https://github.com/kunchenguid/quota-axi.git",
+    "commit": "1f5875c3f3ebf09b0fa04e124e9f395fcec68b25",
+    "observedAt": "2026-10-03",
+    "role": "adopted-registry",
+    "version": "0.1.56",
+    "registryGitHead": "1f5875c3f3ebf09b0fa04e124e9f395fcec68b25",
+    "integrity": "sha512-B3XNtSrcJffPxBHYD4bU3YBmj0Lvu8HiU6jBgRmzSwEfKjR8n3+iGWC22hUf9ytvvUEekM5nGkNx2qU6QNvq3g=="
+  },
+  "gh-axi": {
+    "repository": "https://github.com/kunchenguid/gh-axi.git",
+    "commit": "13e81833fae5d844812d2e04b01272aed1df386c",
+    "observedAt": "2026-10-03",
+    "role": "adopted-registry",
+    "inspectedCommit": "d221ffabfe106e2c7a5998bde30bf58528678d22",
+    "version": "0.1.35",
+    "integrity": "sha512-xxe7ui0548FJ9KF0LTQZWdfm8UYuLRsfSidSEx3Ztu1Eqrn4GMg+oJW7UReG33Wt0+2Vppwl7P6Qcll0KpymTQ=="
+  },
+  "npm-axi": {
+    "repository": "https://github.com/SSBrouhard/npm-axi.git",
+    "commit": "c77a9affa23c773c3eaeb467de2ed67185a89555",
+    "observedAt": "2026-10-03",
+    "role": "adopted-registry",
+    "inspectedCommit": "f2118ebfaa65a7f344a7625f30c79c69b7e1667e",
+    "version": "0.1.1",
+    "integrity": "sha512-Z11rtzROaRGqXNpb9h2Qev1wjligcskf4fEWlFTQk9NzjXhVAuDvZFhdIbkYF4fCLLly/RPS/u6iQBtsfPh3FQ=="
+  },
+  "specops": {
+    "repository": "https://github.com/JarvusInnovations/specops.git",
+    "commit": "03c332620c207ade153a25c8c49805a64228961d",
+    "observedAt": "2026-10-03",
+    "role": "source-reference"
+  }
+}

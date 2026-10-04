@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "preset": {
+    "author": "Entif/Rosetta maintainers",
+    "license": "MIT",
+    "version": "0.1.0",
+    "id": "entif-rosetta",
+    "name": "Entif Rosetta",
+    "description": "Authority, Core descent, acceptance and migration constraints"
+  },
+  "requires": {
+    "speckit_version": ">=1.1.1.dev0,<1.2"
+  },
+  "provides": {
+    "templates": [
+      {
+        "type": "template",
+        "name": "spec-template",
+        "file": "templates/spec-addendum.md",
+        "strategy": "append",
+        "description": "Governed spec decisions"
+      },
+      {
+        "type": "template",
+        "name": "plan-template",
+        "file": "templates/plan-addendum.md",
+        "strategy": "append",
+        "description": "Governed plan decisions"
+      },
+      {
+        "type": "template",
+        "name": "tasks-template",
+        "file": "templates/tasks-addendum.md",
+        "strategy": "append",
+        "description": "Governed tasks decisions"
+      },
+      {
+        "type": "command",
+        "name": "speckit.specify",
+        "file": "commands/specify.md",
+        "strategy": "wrap",
+        "description": "Preserve existing authorized integration branch"
+      }
+    ]
+  },
+  "tags": [
+    "governance",
+    "rosetta"
+  ]
+}

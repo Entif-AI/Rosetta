@@ -69,7 +69,7 @@ describe('counterfactual mechanism evaluation Profile', () => {
   it('routes the Profile through the existing Evaluation kind and schema catalog', () => {
     expect(validatePayload('rosetta.evaluation', counterfactualFixture()).ok).toBe(true);
     expect(validatePayload('rosetta.evaluation', { ...counterfactualFixture(), productionActivation: true }).ok).toBe(false);
-    expect(getSchemaCatalogEntry(COUNTERFACTUAL_PROFILE.id)).toMatchObject({ coreDescent: 'pack-defined-schema', relatedCoreKinds: ['rosetta.evaluation'], validator: 'validateCounterfactualEvaluation' });
+    expect(getSchemaCatalogEntry(COUNTERFACTUAL_PROFILE.id)).toMatchObject({ coreDescent: 'core-tile-profile', relatedCoreKinds: ['rosetta.evaluation'], validator: 'validateCounterfactualEvaluation' });
   });
 
   it('validates nine independently readable public fixture cases and their portable schema', async () => {

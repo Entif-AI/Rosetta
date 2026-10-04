@@ -2,6 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://entif.ai/packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
   "title": "Salience Evaluation Profile v1",
+  "x-rosetta": {
+    "coreDescent": "core-tile-profile",
+    "coreKind": "rosetta.evaluation",
+    "pack": "schema-pack-evaluation-profiles",
+    "version": "1.0.0",
+    "authority": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
+    "sourceIssues": ["#1694"],
+    "scope": "Public salience assessments, not estimation or execution policy",
+    "supersedes": []
+  },
   "description": "A Profile over rosetta.evaluation. It represents distinct impact, exigency, and novelty assessments; it does not establish truth, authorization, activation, or execution policy.",
   "type": "object",
   "additionalProperties": false,

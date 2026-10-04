@@ -1,0 +1,56 @@
+{
+  "name": "spec-catalog",
+  "projectType": "library",
+  "targets": {
+    "check": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{workspaceRoot}/tools/spec-catalog/**/*",
+        "{workspaceRoot}/tools/docid-registry/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/.prettierrc",
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*"
+      ],
+      "outputs": [],
+      "options": {
+        "command": "node tools/spec-catalog/catalog.mjs"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{workspaceRoot}/tools/spec-catalog/**/*",
+        "{workspaceRoot}/tools/docid-registry/**/*",
+        "{workspaceRoot}/tools/semantic-governance/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/**/*",
+        "{workspaceRoot}/docs/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/vitest.config.ts",
+        "{workspaceRoot}/.prettierrc",
+        "{workspaceRoot}/specs/**/*",
+        "{workspaceRoot}/plans/**/*"
+      ],
+      "outputs": [],
+      "options": {
+        "command": "vitest run tools/spec-catalog/catalog.spec.mjs"
+      }
+    }
+  },
+  "tags": [
+    "tooling",
+    "governance",
+    "projection"
+  ]
+}

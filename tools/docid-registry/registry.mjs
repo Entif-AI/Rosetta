@@ -12,8 +12,8 @@ const idPattern = /^ROCK-\d{4}(?:-[A-Z])?$/u;
 
 /** Project the suite table, joining intake identity without inheriting intake authority. */
 export function buildRegistry(source, ledger) {
-  const matches = ledger.documents.filter((entry) => entry.path === sourcePath);
-  if (matches.length !== 1) throw new Error('Core Spine requires exactly one intake ledger path identity.');
+  const matches = ledger?.documents.filter((entry) => entry.path === sourcePath);
+  if (ledger && matches.length !== 1) throw new Error('Core Spine requires exactly one intake ledger path identity.');
   const header = source.indexOf('| DocID | Title | Scope & Description | Dependencies | Type | Aligned Standards |');
   if (header < 0) throw new Error('Core suite table missing; review the authority source before regenerating.');
   const lines = source.slice(header).split(/\r?\n/u);
@@ -47,7 +47,7 @@ export function buildRegistry(source, ledger) {
   return {
     formatVersion: 1,
     scope: 'core-suite',
-    source: { path: sourcePath, sha256: createHash('sha256').update(source).digest('hex'), ledgerPath },
+    source: { path: sourcePath, sha256: createHash('sha256').update(source).digest('hex'), ledgerPath: ledger ? ledgerPath : null },
     documents: rows
   };
 }
@@ -57,7 +57,7 @@ export function validateRegistry(registry) {
   if (registry?.formatVersion !== 1 || registry?.scope !== 'core-suite' || !Array.isArray(registry?.documents)) {
     return ['Invalid registry format or scope.'];
   }
-  if (registry.source?.path !== sourcePath || !/^[a-f0-9]{64}$/u.test(registry.source?.sha256 ?? '') || registry.source?.ledgerPath !== ledgerPath) {
+  if (registry.source?.path !== sourcePath || !/^[a-f0-9]{64}$/u.test(registry.source?.sha256 ?? '') || (registry.source?.ledgerPath !== null && registry.source?.ledgerPath !== ledgerPath)) {
     errors.push('Invalid source identity or digest.');
   }
   const ids = new Set();
@@ -98,8 +98,8 @@ export function validateRegistry(registry) {
 async function main() {
   const root = fileURLToPath(new URL('../../', import.meta.url));
   const source = await readFile(path.join(root, sourcePath), 'utf8');
-  const ledger = JSON.parse(await readFile(path.join(root, ledgerPath), 'utf8'));
-  const registry = buildRegistry(source, ledger);
+  // Public suite authority is sufficient; the intake ledger moved out in #1572.
+  const registry = buildRegistry(source);
   const errors = validateRegistry(registry);
   if (errors.length) throw new Error(errors.join('\n'));
   const expected = `${JSON.stringify(registry, null, 2)}\n`;

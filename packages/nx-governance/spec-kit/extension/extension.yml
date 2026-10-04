@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "extension": {
+    "author": "Entif/Rosetta maintainers",
+    "license": "MIT",
+    "version": "0.1.0",
+    "id": "rosetta-governance",
+    "name": "Rosetta governance",
+    "description": "Required Nx authority, semantic and merge admission hooks",
+    "category": "process",
+    "effect": "read-write"
+  },
+  "requires": {
+    "speckit_version": ">=1.1.1.dev0,<1.2"
+  },
+  "provides": {
+    "commands": [
+      {
+        "name": "speckit.rosetta-governance.issue-sync",
+        "file": "commands/issue-sync.md",
+        "description": "Reconcile stable task and GitHub issue identity without blind duplicate sends"
+      },
+      {
+        "name": "speckit.rosetta-governance.convergence",
+        "file": "commands/convergence.md",
+        "description": "Preserve structured upstream convergence evidence and remediation lineage"
+      },
+      {
+        "name": "speckit.rosetta-governance.baseline",
+        "file": "commands/baseline.md",
+        "description": "Capture bounded observed behavior without reverse-authoring intent"
+      },
+      {
+        "name": "speckit.rosetta-governance.admit",
+        "file": "commands/admit.md",
+        "description": "Run specification admission"
+      },
+      {
+        "name": "speckit.rosetta-governance.verify",
+        "file": "commands/verify.md",
+        "description": "Run affected implementation checks and merge admission"
+      }
+    ]
+  },
+  "hooks": {
+    "after_specify": {
+      "command": "speckit.rosetta-governance.admit",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "before_plan": {
+      "command": "speckit.rosetta-governance.admit",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "after_plan": {
+      "command": "speckit.rosetta-governance.admit",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "after_tasks": {
+      "command": "speckit.rosetta-governance.admit",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "before_implement": {
+      "command": "speckit.rosetta-governance.admit",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "after_implement": {
+      "command": "speckit.rosetta-governance.verify",
+      "optional": false,
+      "description": "Run owning deterministic Nx gates"
+    },
+    "before_converge": {
+      "command": "speckit.rosetta-governance.verify",
+      "optional": false,
+      "description": "Compose final Nx merge evidence"
+    },
+    "after_converge": {
+      "command": "speckit.rosetta-governance.verify",
+      "optional": false,
+      "description": "Compose final Nx merge evidence"
+    }
+  },
+  "tags": [
+    "governance",
+    "nx"
+  ]
+}

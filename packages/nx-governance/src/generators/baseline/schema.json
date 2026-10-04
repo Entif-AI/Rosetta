@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "output"],
+  "properties": {
+    "request": { "type": "string" },
+    "output": { "type": "string" }
+  }
+}

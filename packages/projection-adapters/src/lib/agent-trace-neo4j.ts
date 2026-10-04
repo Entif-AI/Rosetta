@@ -117,7 +117,7 @@ export async function executeFixtureCypher(endpoint: string, statements: Fixture
   if (!reader) throw new Error('Neo4j response shape is invalid.');
   const chunks: Uint8Array[] = []; let size = 0;
   try {
-    while (true) {
+    for (;;) {
       const { done, value } = await reader.read(); if (done) break;
       size += value.byteLength;
       if (size > 2_000_000) { await reader.cancel(); throw new Error('Neo4j response limit exceeded.'); }
