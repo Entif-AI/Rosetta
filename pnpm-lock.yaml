@@ -386,6 +386,9 @@ importers:
       '@entif-ai/source-substrate':
         specifier: workspace:*
         version: link:../source-substrate
+      ajv:
+        specifier: 8.17.1
+        version: 8.17.1
       neo4j-driver:
         specifier: 5.28.3
         version: 5.28.3

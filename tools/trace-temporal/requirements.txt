@@ -1,0 +1,2 @@
+# Apache-2.0 donor, tag commit eaa4128681bc53487138a4bbc22d58336ebe70d2.
+graphiti-core==0.30.2

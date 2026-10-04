@@ -17,3 +17,11 @@ Validate focused failing-before/passing-after fixtures, owner package checks, sc
 Starting quota-axi observation at 2026-10-04T05:38:20.875Z: fresh, five-hour remaining 47%, weekly 63%. Earlier desktop meter reported five-hour 81%; meters disagree, attribution and precision are not inferred. Raw seat telemetry remains outside Git. Provider/model/reasoning identity is not durably exposed and remains unknown. No implementation acceptance yet.
 
 Next safe step: selected-episode contract and adversarial red tests for #1668.
+
+## TRACE-TEMP checkpoint
+
+Public adapter and schemas implemented; 18 focused TypeScript fixtures and two Python degraded-runtime tests pass. Owner lint/typecheck/test/build passes after building dependencies before tests. Owner suite: 36 passed, one preexisting endpoint-dependent integration case skipped. The CLI needed the repository's relative built-package import convention; its repaired `--live` invocation emits an honest unavailable report with zero artifacts because provider/model configuration is absent. Pinned donor APIs inspected; model inference and real semantic database drop/rebuild are unverified. #1668 remains partial/blocked, #1664 acceptance is not entered.
+
+Review repaired independently admitted rights/source/time bindings, invalidation knowledge-time visibility, resolvable permitted support and linear supersession-cycle detection. The concrete invalidation red regression exposed a future end-date in an earlier permitted artifact; the green projection removes unseen/revoked invalidation metadata. Other first-pass boundary regressions initially failed schema admission because the new fields were absent; those are contract red evidence, not behavior-specific reproductions.
+
+#1694 and #1695 are already integrated through #1697 at the base. Fresh focused suites pass 16 tests and all four Packs pass. No duplicate implementation. Quota checkpoint at 2026-10-04T05:52:01.761Z reports 26% five-hour remaining; reset/window identity and weekly meter changed, so no per-run consumption is inferred.
