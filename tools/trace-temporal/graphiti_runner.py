@@ -1,37 +1,17 @@
 """Optional pinned donor runtime. Invoke through run.mjs for Rosetta admission."""
 import argparse
 import asyncio
-import hashlib
 import importlib.metadata
 import json
 import os
 import re
-from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
 os.environ['GRAPHITI_TELEMETRY_ENABLED'] = 'false'
-PIN = '0.30.2'
-COMMIT = 'eaa4128681bc53487138a4bbc22d58336ebe70d2'
+from graphiti_support import PIN, COMMIT, base, extract_selected, EXTRACTION_LOSS
 
 
-def utc(value):
-    if value is None:
-        return None
-    if isinstance(value, str):
-        value = datetime.fromisoformat(value.replace('Z', '+00:00'))
-    return value.astimezone(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
-
-
-def base(selected):
-    return {
-        'profile': 'trace.graphiti-projection.v1', 'profileVersion': '1.0.0',
-        'selected': selected,
-        'derivation': {'mode': 'unavailable', 'graphitiVersion': PIN, 'graphitiCommit': COMMIT,
-                       'databaseVersion': None, 'provider': None, 'model': None, 'modelVersion': None,
-                       'extractionConfig': {}, 'embedder': None, 'reranker': None, 'adapterVersion': '1.0.0'},
-        'artifacts': [], 'loss': [],
-    }
 
 
 async def run(selected, args):
@@ -53,7 +33,6 @@ async def run(selected, args):
     if importlib.metadata.version('graphiti-core') != PIN:
         raise ValueError('Incorrect graphiti-core version.')
     from graphiti_core import Graphiti
-    from graphiti_core.nodes import EpisodeType
     from graphiti_core.llm_client.config import LLMConfig
     from graphiti_core.llm_client.openai_client import OpenAIClient
     from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
@@ -80,47 +59,8 @@ async def run(selected, args):
         await graphiti.build_indices_and_constraints()
         # The explicit isolated flag authorizes resetting this fixture group only.
         await clear_data(graphiti.driver, group_ids=[group])
-        known = []
-        donor_episodes = {}
-        last_revision = {}
-        for episode in selected['episodes']:
-            if episode['id'] in known:
-                continue
-            if episode['effectiveAt'] is None:
-                raise ValueError('Live donor requires an explicitly supplied effective time; no arrival-time fallback.')
-            result = await graphiti.add_episode(
-                name=episode['id'], episode_body=json.dumps(episode['content']),
-                source_description='Selected Rosetta TRACE-NORM evidence; wrapper=' + episode['id'],
-                reference_time=datetime.fromisoformat(episode['effectiveAt'].replace('Z', '+00:00')),
-                source=EpisodeType.json, group_id=group, update_communities=False)
-            known.append(episode['id'])
-            donor_episodes[result.episode.uuid] = episode['id']
-            recorded = utc(datetime.now(timezone.utc))
-            objects = [('episode', result.episode)] + [('entity', n) for n in result.nodes] + [('edge', e) for e in result.episodic_edges] + [('fact', e) for e in result.edges]
-            for kind, item in objects:
-                raw = item.model_dump(mode='json')
-                if any(ref not in donor_episodes for ref in raw.get('episodes', [])):
-                    raise ValueError('Donor output cites an episode outside admitted selected evidence.')
-                identity = kind + ':' + item.uuid
-                revision = identity + ':' + hashlib.sha256(episode['id'].encode()).hexdigest()[:16]
-                prior = last_revision.get(identity)
-                output['artifacts'].append({
-                    'id': revision, 'kind': kind, 'interpretation': json.dumps(raw, sort_keys=True),
-                    'supportEpisodeIds': list(known),
-                    'validFrom': utc(raw.get('valid_at')) if kind == 'fact' else episode['effectiveAt'],
-                    'validUntil': utc(raw.get('invalid_at')) if kind == 'fact' else None,
-                    'validUntilKnownAt': recorded if kind == 'fact' and raw.get('invalid_at') else None,
-                    'validUntilSupportEpisodeIds': list(known) if kind == 'fact' and raw.get('invalid_at') else [],
-                    'materializedAt': recorded, 'supersedes': [prior] if prior else [], 'identity': 'unresolved',
-                })
-                last_revision[identity] = revision
-        output['loss'] = [
-            'Model-backed extraction is nondeterministic; temperature zero is not determinism.',
-            'Support conservatively includes all preceding selected context. Any revoked support fences the artifact.',
-            'Donor identities remain unresolved interpretations; no equivalence or independent corroboration is asserted.',
-            'Unknown donor validity is omitted from visible temporal inspection. Raw invalidation fields remain in attributed interpretation.',
-            'Fresh drop/re-extraction can differ in identifiers and inferred facts. Exact replay requires preserved accepted outputs.',
-        ]
+        output['artifacts'] = await extract_selected(graphiti, selected, group)
+        output['loss'] = list(EXTRACTION_LOSS)
         return output
     except Exception as exc:
         # Do not leak provider messages, endpoints, or credentials into evidence.

@@ -15,27 +15,27 @@ import {
   GRAPHITI_SELECTION_SCHEMA,
   GRAPHITI_PROJECTION_SCHEMA,
 } from '../../packages/projection-adapters/dist/index.js';
-const normalizedPath =
-  'packages/ingress-refinery/test-vectors/trace/generated-edges.json';
-const normalized = JSON.parse(readFileSync(normalizedPath, 'utf8'));
-const selections = normalized.records
-  .slice(0, 3)
-  .map((r) => ({
-    recordId: r.recordId,
-    effectiveAt: r.time.sourceEvent ?? null,
-    correctionAt: null,
-    scopeRef: 'scope:public-generated-fixture',
-    rightsRef: 'rights:public-generated-fixture',
-    identity: 'unresolved',
-  }));
-const selected = selectTraceEpisodes(normalized, {
-  sourceArtifactRef: normalized.sourceFixtureRef,
-  selections,
-  maxEpisodes: 3,
-  maxBytes: 20000,
-});
+import process from 'node:process';
+import console from 'node:console';
+import { admitTemporalFixture } from './fixture-input.mjs';
+const historicalReference = process.argv.includes('--neo4j-reference');
+const live = process.argv.includes('--live');
+let normalized, selected;
+if (historicalReference) {
+  normalized = JSON.parse(readFileSync('packages/ingress-refinery/test-vectors/trace/generated-edges.json', 'utf8'));
+  selected = selectTraceEpisodes(normalized, {
+    sourceArtifactRef: normalized.sourceFixtureRef, maxEpisodes: 3, maxBytes: 20000,
+    selections: normalized.records.slice(0, 3).map(r => ({
+      recordId: r.recordId, effectiveAt: r.time.sourceEvent ?? null, correctionAt: null,
+      scopeRef: 'scope:public-generated-fixture', rightsRef: 'rights:public-generated-fixture', identity: 'unresolved',
+    })),
+  });
+} else {
+  ({ normalized, selected } = admitTemporalFixture());
+}
 const temporary = mkdtempSync(path.join(tmpdir(), 'rosetta-trace-temp-'));
-const outputDirectory = 'tools/trace-temporal/evidence';
+const outputDirectory = historicalReference ? '.axi/trace-temporal-neo4j-reference' : 'tools/trace-temporal/evidence';
+const outputPrefix = historicalReference ? '' : `falkordb-${live ? 'live' : 'model-off'}-`;
 mkdirSync(outputDirectory, { recursive: true });
 try {
   const input = path.join(temporary, 'selected.json');
@@ -44,10 +44,10 @@ try {
   execFileSync(
     process.env.TRACE_GRAPHITI_PYTHON ?? 'python3',
     [
-      'tools/trace-temporal/graphiti_runner.py',
+      historicalReference ? 'tools/trace-temporal/graphiti_runner.py' : 'tools/trace-temporal/graphiti_falkor_runner.py',
       input,
       output,
-      ...(process.argv.includes('--live') ? ['--live'] : []),
+      ...(live ? ['--live'] : []),
     ],
     { stdio: 'inherit', timeout: 180000 }
   );
@@ -66,11 +66,11 @@ try {
     revokedEpisodeIds: [],
   });
   writeFileSync(
-    path.join(outputDirectory, 'projection.json'),
+    path.join(outputDirectory, outputPrefix + 'projection.json'),
     JSON.stringify(projection, null, 2) + '\n'
   );
   writeFileSync(
-    path.join(outputDirectory, 'inspection.json'),
+    path.join(outputDirectory, outputPrefix + 'inspection.json'),
     JSON.stringify(inspection, null, 2) + '\n'
   );
   writeFileSync(

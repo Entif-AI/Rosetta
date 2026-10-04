@@ -1,0 +1,212 @@
+{
+  "profile": "trace.graphiti-projection.v1",
+  "profileVersion": "1.0.0",
+  "selected": {
+    "profile": "trace.graphiti-selection.v1",
+    "profileVersion": "1.0.0",
+    "sourceArtifactRef": "cidv1-sha256-ffddff0ced0e7469c5c57469849ed8251adf3fbebce1551ad18f049864e87aad",
+    "sourceDigest": "9a1fd0ee94765e317f7220167e32bcb3f3c1e9ef54eae64070a14a336e750577",
+    "normalizedProfile": "trace.normalization.v1",
+    "normalizedVersion": "trace-norm-v1",
+    "normalizedDigest": "bd301bd71d17b90e7dd6d555b7fc8acc801bf919df2cf81ca3bf27215c8389fa",
+    "episodes": [
+      {
+        "recordId": "temporal-evolution:record:0",
+        "effectiveAt": "2000-01-01T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "episode-0"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "Avery manages Project Cedar beginning January 1, 2000."
+              },
+              "id": "episode-0",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "temporal-evolution",
+          "source_event_time": "2000-01-01T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "temporal-evolution-window"
+        },
+        "sourceEventAt": "2000-01-01T00:00:00.000Z",
+        "observedAt": "2000-01-06T00:00:30.000Z",
+        "recordedAt": "2000-01-06T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 0,
+        "id": "episode:a0a3557893597adedd54fa9d6ddc632446244049dffe352ec9d51ec25dde2a91"
+      },
+      {
+        "recordId": "temporal-evolution:record:1",
+        "effectiveAt": "2000-01-03T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "episode-1"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "Blair replaces Avery as manager of Project Cedar beginning January 3, 2000."
+              },
+              "id": "episode-1",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "temporal-evolution",
+          "source_event_time": "2000-01-03T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "temporal-evolution-window"
+        },
+        "sourceEventAt": "2000-01-03T00:00:00.000Z",
+        "observedAt": "2000-01-06T00:00:30.000Z",
+        "recordedAt": "2000-01-06T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 1,
+        "id": "episode:2a4ff801b0ae682affdd747609437816e6df0ae405c5e778f09d7c7a1ce8ab63"
+      },
+      {
+        "recordId": "temporal-evolution:record:2",
+        "effectiveAt": "2000-01-02T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "episode-2"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "Historical event delivered late: Avery still managed Project Cedar on January 2, 2000."
+              },
+              "id": "episode-2",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "temporal-evolution",
+          "source_event_time": "2000-01-02T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "temporal-evolution-window"
+        },
+        "sourceEventAt": "2000-01-02T00:00:00.000Z",
+        "observedAt": "2000-01-06T00:00:30.000Z",
+        "recordedAt": "2000-01-06T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 2,
+        "id": "episode:674e689de5f71253d53e023136c3b1d4e2a9fa2cd9d660736708232a2534ca29"
+      },
+      {
+        "recordId": "temporal-evolution:record:3",
+        "effectiveAt": "2000-01-04T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "episode-3"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "Correction: retract the January 3 claim that Blair manages Project Cedar. The current manager is unknown."
+              },
+              "id": "episode-3",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "temporal-evolution",
+          "source_event_time": "2000-01-04T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "temporal-evolution-window"
+        },
+        "sourceEventAt": "2000-01-04T00:00:00.000Z",
+        "observedAt": "2000-01-06T00:00:30.000Z",
+        "recordedAt": "2000-01-06T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 3,
+        "id": "episode:8696337beba201ed21d5ad3ca3af79c06cb224dc603b821384b7773d687f931d"
+      },
+      {
+        "recordId": "temporal-evolution:record:4",
+        "effectiveAt": "2000-01-05T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "episode-4"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "Two people named Avery have unresolved identity. A disputed assignment claims an end on January 1 and a start on January 5, 2000. Preserve the contradiction."
+              },
+              "id": "episode-4",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "temporal-evolution",
+          "source_event_time": "2000-01-05T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "temporal-evolution-window"
+        },
+        "sourceEventAt": "2000-01-05T00:00:00.000Z",
+        "observedAt": "2000-01-06T00:00:30.000Z",
+        "recordedAt": "2000-01-06T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 4,
+        "id": "episode:bda7a08b725867b91f356d903b2dfd2fe9febe3f13260bb51838d2ff75042e86"
+      }
+    ]
+  },
+  "derivation": {
+    "mode": "unavailable",
+    "graphitiVersion": "0.30.2",
+    "graphitiCommit": "eaa4128681bc53487138a4bbc22d58336ebe70d2",
+    "databaseVersion": null,
+    "provider": null,
+    "model": null,
+    "modelVersion": null,
+    "extractionConfig": {},
+    "embedder": null,
+    "reranker": null,
+    "adapterVersion": "1.0.0"
+  },
+  "artifacts": [],
+  "loss": [
+    "Model-off requested. No donor extraction or graph mutation occurred."
+  ]
+}

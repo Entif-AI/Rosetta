@@ -1,0 +1,23 @@
+{
+  "profile": "trace.graphiti-inspection.v1",
+  "authority": "derived-interpretation",
+  "status": "degraded",
+  "effectiveAt": "2026-10-04T16:23:49.119Z",
+  "knownAt": "2026-10-04T16:23:49.119Z",
+  "support": {
+    "profile": "trace.graphiti-selection.v1",
+    "profileVersion": "1.0.0",
+    "sourceArtifactRef": "cidv1-sha256-ffddff0ced0e7469c5c57469849ed8251adf3fbebce1551ad18f049864e87aad",
+    "sourceDigest": "9a1fd0ee94765e317f7220167e32bcb3f3c1e9ef54eae64070a14a336e750577",
+    "normalizedProfile": "trace.normalization.v1",
+    "normalizedVersion": "trace-norm-v1",
+    "normalizedDigest": "bd301bd71d17b90e7dd6d555b7fc8acc801bf919df2cf81ca3bf27215c8389fa",
+    "episodes": []
+  },
+  "artifacts": [],
+  "sourceLineages": [],
+  "loss": [
+    "Model-off requested. No donor extraction or graph mutation occurred.",
+    "Unknown validity is omitted. Contradictions and ambiguous identities are not silently resolved. Current rights govern historical queries. Projection multiplicity is not independent evidence."
+  ]
+}

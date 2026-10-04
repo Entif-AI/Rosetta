@@ -364,6 +364,19 @@
       }
     },
     {
+      "id": "entif:trace-temp-falkor",
+      "kind": "plan",
+      "title": "First-party Graphiti temporal bridge on FalkorDB",
+      "status": "in-progress",
+      "task": "T1737",
+      "issues": [1737, 1734, 1668, 1558],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-temp-falkor.md",
+        "sha256": "2a9b36955517b8518a2749923cfcc41ec5d1ca5841f3b29e4fb405f4a65c0911"
+      }
+    },
+    {
       "id": "entif:trace-temp",
       "kind": "plan",
       "title": "Bridge selected normalized episodes into Graphiti temporal semantics",
@@ -665,6 +678,16 @@
       "from": "entif:trace-src",
       "kind": "depends-on",
       "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:trace-temp-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-temp-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
     },
     {
       "from": "entif:trace-temp",

@@ -188,10 +188,12 @@ for (const [name, build] of Object.entries(examples)) {
 }
 
 // A later tranche dogfoods the same admitted envelope without rewriting earlier completions.
-const laterPath = `${root}/completions/batch-1732-falkor-1735`;
-const later = parseEngineeringCompletion(read(laterPath + '.json'));
-if (readFileSync(laterPath + '.md', 'utf8') !== renderEngineeringCompletion(later)) throw new Error('Falkor completion rendering drift.');
-for (const source of later.sources) {
-  if (source.sha256 && source.locator && existsSync(source.locator) && traceHash(readFileSync(source.locator)) !== source.sha256) throw new Error('Falkor completion source drift: ' + source.locator);
+for (const name of ['batch-1732-falkor-1735', 'batch-1732-falkor-kin-1736']) {
+  const laterPath = `${root}/completions/${name}`;
+  const later = parseEngineeringCompletion(read(laterPath + '.json'));
+  if (readFileSync(laterPath + '.md', 'utf8') !== renderEngineeringCompletion(later)) throw new Error(`${name} completion rendering drift.`);
+  for (const source of later.sources) {
+    if (source.sha256 && source.locator && existsSync(source.locator) && traceHash(readFileSync(source.locator)) !== source.sha256) throw new Error(`${name} completion source drift: ` + source.locator);
+  }
+  process.stdout.write(`${name}: ${later.envelopeId}; ${later.result.disposition}.\n`);
 }
-process.stdout.write(`batch-1732-falkor-1735: ${later.envelopeId}; ${later.result.disposition}.\n`);
