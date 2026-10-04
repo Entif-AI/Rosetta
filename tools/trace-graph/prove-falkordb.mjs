@@ -77,7 +77,7 @@ try {
     assert.ok(projection.edges.every(edge => edge.type !== 'CAUSES'));
     const causalEdges = (await graph.roQuery('MATCH (:TraceProjectionNode {projectionId:$projectionId})-[r:CAUSES]->() RETURN count(r) AS count', { params: { projectionId } })).data;
     assert.deepEqual(causalEdges, [{ count: 0 }]);
-    await graph.query('MATCH (n:TraceProjectionNode {id:$id}) CREATE (:ForeignResetSentinel {proof:$projectionId})-[:FOREIGN_PROOF {projectionId: \"other-projection\"}]->(n)', { params: { id: projection.nodes[0].id, projectionId } });
+    await graph.query('MATCH (n:TraceProjectionNode {id:$id}) CREATE (:ForeignResetSentinel {proof:$projectionId})-[:FOREIGN_PROOF {projectionId: "other-projection"}]->(n)', { params: { id: projection.nodes[0].id, projectionId } });
     try {
       await assert.rejects(resetTraceFalkorProjection(graph, projectionId), /foreign|relationship/i);
       assert.deepEqual(await exportTraceFalkorProjection(graph, projection), closure);
