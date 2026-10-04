@@ -17,25 +17,38 @@ export interface CanonicalJsonVector {
   sha256: string;
 }
 
-function sortValue(value: JsonValue): JsonValue {
-  if (Array.isArray(value)) {
-    return value.map((entry) => sortValue(entry));
+function assertWellFormedUnicode(value: string): void {
+  for (let index = 0; index < value.length; index += 1) {
+    const codeUnit = value.charCodeAt(index);
+    if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (!(next >= 0xdc00 && next <= 0xdfff)) {
+        throw new Error('JCS canonicalization rejects lone Unicode surrogates.');
+      }
+      index += 1;
+    } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
+      throw new Error('JCS canonicalization rejects lone Unicode surrogates.');
+    }
   }
-
-  if (value && typeof value === 'object') {
-    const entries = Object.entries(value).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0));
-    return Object.fromEntries(entries.map(([key, entry]) => [key, sortValue(entry)]));
-  }
-
-  if (typeof value === 'number' && !Number.isFinite(value)) {
-    throw new Error('JCS canonicalization only accepts finite JSON numbers.');
-  }
-
-  return value;
 }
 
 export function canonicalizeJson<T extends JsonValue>(value: T): string {
-  return JSON.stringify(sortValue(value));
+  if (Array.isArray(value)) {
+    return `[${value.map((entry) => canonicalizeJson(entry)).join(',')}]`;
+  }
+  if (value && typeof value === 'object') {
+    const objectValue: { [key: string]: JsonValue } = value;
+    // Emit sorted keys directly: ordinary objects re-enumerate integer keys numerically.
+    return `{${Object.keys(objectValue).sort().map((key) => {
+      assertWellFormedUnicode(key);
+      return `${JSON.stringify(key)}:${canonicalizeJson(objectValue[key])}`;
+    }).join(',')}}`;
+  }
+  if (typeof value === 'number' && !Number.isFinite(value)) {
+    throw new Error('JCS canonicalization only accepts finite JSON numbers.');
+  }
+  if (typeof value === 'string') assertWellFormedUnicode(value);
+  return JSON.stringify(value);
 }
 
 export function normalizePlainText(input: string): string {

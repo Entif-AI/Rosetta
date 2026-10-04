@@ -7,7 +7,7 @@ Base: 88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9
 Coordination: user-authorized-single-writer-exception.
 Authorization: explicit current user launch turn, October 3, 2026.
 No force-push, merge, release or automatic issue closure. One mutable writer.
-Last acknowledged remote SHA: none, bootstrap branch does not exist.
+Last acknowledged remote SHA: 0bf8ed98c323aac8313f884218325c101d4be4c6
 
 ## Authority preflight
 
@@ -15,8 +15,8 @@ Fresh main matches the packet baseline. Public boundary/closure/bridge, #528 and
 
 ## Acceptance and validation
 
-Current leaf: #1693, not implemented. Prepay package passes all 25 manifest checks. Combined 19 plans validated; SpecOps 16 fixtures, next/DAG and authority gate passed. Draft external doc locators moved from `specs` to body authority references because sync requires catalog-owned desired-state specs. Each leaf requires focused red/green proof and applicable gates; graph completion requires real Neo4j proof.
+Current leaf: #1693 accepted locally; checkpoint pending. 17 canonicalizer, 16 Core, 18 refinery tests passed; semantic/authority and affected lint/typecheck/test/build passed. No golden CID changes. Red failure is tools/trace-graph/jcs-red-evidence.txt. Fresh worktree dependencies needed frozen install and dependency builds before fanout tests. Prepay package passes all 25 manifest checks. Combined 19 plans validated; SpecOps 16 fixtures, next/DAG and authority gate passed. Draft external doc locators moved from `specs` to body authority references because sync requires catalog-owned desired-state specs. Each leaf requires focused red/green proof and applicable gates; graph completion requires real Neo4j proof.
 
 ## Handoff
 
-Next safe step: verify bootstrap remote SHA, then add integer-key regression and capture red before changing shared serializer. #1668 and #1694 remain deferred. #1664 stays open. Every checkpoint compares the remote ref to the acknowledged SHA, pushes without force, and verifies remote readback. The committed log names the previously acknowledged SHA; the exact known checkpoint commit is the readback successor, avoiding recursive self-hashing.
+Next safe step: checkpoint JCS, create the one draft PR, bind its identity, then proceed to #1665 captured structural fixture. #1668 and #1694 remain deferred. #1664 stays open. Every checkpoint compares the remote ref to the acknowledged SHA, pushes without force, and verifies remote readback. The committed log names the previously acknowledged SHA; the exact known checkpoint commit is the readback successor, avoiding recursive self-hashing.
