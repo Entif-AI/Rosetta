@@ -26,6 +26,19 @@
       }
     },
     {
+      "id": "entif:akasha-v0-acceptance",
+      "kind": "plan",
+      "title": "Close the integrated Akasha V0 proving slice",
+      "status": "planned",
+      "task": "T1664",
+      "issues": [1664],
+      "pr": null,
+      "source": {
+        "path": "plans/akasha-v0-acceptance.md",
+        "sha256": "9a0e158ef919518631accc82bddf7abcbaa24735960468fbaab6edd5c5d8425b"
+      }
+    },
+    {
       "id": "entif:axi-base",
       "kind": "plan",
       "title": "axi-base",
@@ -88,6 +101,32 @@
       "source": {
         "path": "plans/badger-experiment.md",
         "sha256": "0ab74071d92422fafdd68dabf45f021d52991a87e4bad63c9de7b72bed96c947"
+      }
+    },
+    {
+      "id": "entif:jcs-001",
+      "kind": "plan",
+      "title": "Repair RFC 8785 canonical JSON ordering and conformance vectors",
+      "status": "planned",
+      "task": "T1693",
+      "issues": [1693, 528],
+      "pr": null,
+      "source": {
+        "path": "plans/jcs-001.md",
+        "sha256": "b4e131a7508530379020c1f12bafb905aa8787a2d7544f69bd671a7db551115a"
+      }
+    },
+    {
+      "id": "entif:salience-schema",
+      "kind": "plan",
+      "title": "Implement the public salience Profile/schema and conformance fixtures",
+      "status": "planned",
+      "task": "T1694",
+      "issues": [1694, 1670, 1558, 1567],
+      "pr": null,
+      "source": {
+        "path": "plans/salience-schema.md",
+        "sha256": "b81c51ff21d0bf84a0d04f8492c18c5ed697d4015f9e0efad4d3f1121ae6c7ee"
       }
     },
     {
@@ -167,9 +206,89 @@
         "path": "plans/specops-plans.md",
         "sha256": "71a3ac5aab8fa4cc69da0d68d9fe4a17cfb415bdcbc4bc89644fb55cddb4101c"
       }
+    },
+    {
+      "id": "entif:trace-graph",
+      "kind": "plan",
+      "title": "Project TRACE-NORM into a real Neo4j operational graph",
+      "status": "planned",
+      "task": "T1667",
+      "issues": [1667, 1664, 994, 1036, 1122, 1558, 1567],
+      "pr": null,
+      "source": {
+        "path": "plans/trace-graph.md",
+        "sha256": "842a38f739c70c9b6f9550b262b69d86bea60cf222440372dc602242980be733"
+      }
+    },
+    {
+      "id": "entif:trace-kin",
+      "kind": "plan",
+      "title": "Measure trace kinematics and conservative representation shrinkage",
+      "status": "planned",
+      "task": "T1669",
+      "issues": [1669, 1664, 1558, 1567],
+      "pr": null,
+      "source": {
+        "path": "plans/trace-kin.md",
+        "sha256": "83c6fee554c6858389495bc1e42a72b3bde1528dbcb7361f43156ee55c643443"
+      }
+    },
+    {
+      "id": "entif:trace-norm",
+      "kind": "plan",
+      "title": "Normalize trace structure, deltas, duplicate refs, and loss report",
+      "status": "planned",
+      "task": "T1666",
+      "issues": [1666, 1664, 1558, 1567],
+      "pr": null,
+      "source": {
+        "path": "plans/trace-norm.md",
+        "sha256": "87f59cebd3407600b2bbd3e443f744439c396f2e769e42562c052be0424b64d4"
+      }
+    },
+    {
+      "id": "entif:trace-src",
+      "kind": "plan",
+      "title": "Establish immutable rights-safe TRACE-SRC fixture",
+      "status": "planned",
+      "task": "T1665",
+      "issues": [1665, 1664],
+      "pr": null,
+      "source": {
+        "path": "plans/trace-src.md",
+        "sha256": "8650c8a159e6e4d4364ebf50faf81b4ddb1da3dda55cae2573f6c8b146a69571"
+      }
+    },
+    {
+      "id": "entif:trace-temp",
+      "kind": "plan",
+      "title": "Bridge selected normalized episodes into Graphiti temporal semantics",
+      "status": "planned",
+      "task": "T1668",
+      "issues": [1668, 1664, 1558, 1567],
+      "pr": null,
+      "source": {
+        "path": "plans/trace-temp.md",
+        "sha256": "24a5f45f3afff4dbda9699f06e39691c7c7a153054f6145d35420bd58bb421de"
+      }
     }
   ],
   "relationships": [
+    {
+      "from": "entif:akasha-v0-acceptance",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:akasha-v0-acceptance",
+      "kind": "depends-on",
+      "to": "entif:trace-kin"
+    },
+    {
+      "from": "entif:akasha-v0-acceptance",
+      "kind": "depends-on",
+      "to": "entif:trace-temp"
+    },
     {
       "from": "entif:axi-base",
       "kind": "implements",
@@ -214,6 +333,16 @@
       "from": "entif:badger-experiment",
       "kind": "depends-on",
       "to": "entif:specops-integrated"
+    },
+    {
+      "from": "entif:jcs-001",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:salience-schema",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:specops-context",
@@ -274,6 +403,61 @@
       "from": "entif:specops-plans",
       "kind": "depends-on",
       "to": "entif:specops-migrate"
+    },
+    {
+      "from": "entif:trace-graph",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-graph",
+      "kind": "depends-on",
+      "to": "entif:trace-norm"
+    },
+    {
+      "from": "entif:trace-kin",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-kin",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:trace-norm",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-norm",
+      "kind": "depends-on",
+      "to": "entif:trace-src"
+    },
+    {
+      "from": "entif:trace-norm",
+      "kind": "depends-on",
+      "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:trace-src",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-src",
+      "kind": "depends-on",
+      "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:trace-temp",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-temp",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
     },
     {
       "from": "entif:development-substrate",
