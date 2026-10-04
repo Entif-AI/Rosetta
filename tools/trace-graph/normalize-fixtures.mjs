@@ -1,3 +1,4 @@
+import process from 'node:process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { normalizeTrace } from '../../packages/ingress-refinery/dist/index.js';
 import { canonicalTraceJson, TRACE_NORMALIZATION_SCHEMA } from '../../packages/rosetta-schemas/dist/index.js';

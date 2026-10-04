@@ -21,6 +21,11 @@ describe('trace.normalization.v1', () => {
     expect(n.records[0].time).toEqual({ sourceEvent: '2000-01-01T00:00:00.000Z', observed: options.observedAt, recorded: options.recordedAt, basis: 'fixture' });
     expect(canonicalTraceJson(n)).not.toContain('CAUSES');
   });
+  it('measures physical source bytes with CRLF framing', () => {
+    const raw = fixture('generated-edges').replace(/\n/g, '\r\n');
+    const n = normalizeTrace(raw, options);
+    expect(n.snapshots.at(-1)?.sourceBytes).toBe(Buffer.byteLength(raw));
+  });
   it('retains malformed/unknown records and distinguishes materialization from event time', () => {
     const n = normalizeTrace('event: unknown\ndata: malformed\n\n', options);
     expect(n.records[0].unknown).toEqual({ data: 'malformed' });

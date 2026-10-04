@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { canonicalTraceJson, parseTraceProjection, traceHash } from '@entif-ai/rosetta-schemas';
 import { buildTraceProjection } from './neo4j-trace-projection.js';
 const fixture = () => JSON.parse(readFileSync('packages/ingress-refinery/test-vectors/trace/generated-edges.json', 'utf8'));
 describe('trace.projection.v1', () => {
@@ -12,6 +13,14 @@ describe('trace.projection.v1', () => {
     expect(p.nodes.every(n => n.properties.normalizedDigest === p.normalizedDigest)).toBe(true);
     const ids = new Set(p.nodes.map(n => n.id));
     expect(p.edges.every(e => ids.has(e.from) && ids.has(e.to))).toBe(true);
+  });
+  it('rejects cross-namespace identities even with recomputed closure digest', () => {
+    const p = buildTraceProjection(fixture(), { projectionId: 'test', sourceArtifactCid: 'fixture-source-cid' });
+    const old = p.nodes[0].id;
+    p.edges = p.edges.map(e => ({ ...e, from: e.from === old ? 'other:SourceArtifact:collision' : e.from, to: e.to === old ? 'other:SourceArtifact:collision' : e.to }));
+    p.nodes[0].id = 'other:SourceArtifact:collision'; p.nodes[0].properties.id = p.nodes[0].id;
+    const body = Object.fromEntries(Object.entries(p).filter(([key]) => key !== 'closureDigest'));
+    expect(() => parseTraceProjection({ ...body, closureDigest: traceHash(canonicalTraceJson(body)) })).toThrow('namespace');
   });
   it('isolates identities for two projections of the same canonical evidence', () => {
     const a = buildTraceProjection(fixture(), { projectionId: 'a', sourceArtifactCid: 'same-cid' });

@@ -28,7 +28,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -53,7 +53,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -67,7 +67,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -81,7 +81,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -95,7 +95,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -109,7 +109,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -123,7 +123,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -136,7 +136,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -149,7 +149,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -163,7 +163,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -177,7 +177,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -191,7 +191,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -205,7 +205,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Transport/application labels, including TASK_RECEIPT and INCIDENT_ENVELOPE, do not prove canonical Receipt/Incident semantics.",
@@ -219,7 +219,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -245,7 +245,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -271,7 +271,7 @@
       "coreDescent": "external-contract-ref",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -284,7 +284,7 @@
       "coreDescent": "external-contract-ref",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -297,7 +297,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -323,7 +323,7 @@
       "coreDescent": "external-contract-ref",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -336,7 +336,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -362,7 +362,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -400,7 +400,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -424,7 +424,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -500,7 +500,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -550,7 +550,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -597,7 +597,7 @@
       "coreDescent": "implementation-local",
       "authority": {
         "path": "docs/governance/genesis/SEMANTIC_AUDIT.md",
-        "sha256": "1f495e1653a9cc06a054e180ddb4db0750ad12d6825012bb55f13e074b402479"
+        "sha256": "2ce2d08f2281a08905238dd6e5b2bd7137e71430d9eb1860f3153e940f3f6f61"
       },
       "findings": [
         {
@@ -892,6 +892,19 @@
       "review": "Classification reviewed against owning contract.",
       "knownGaps": [
         "Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "trace-kin-v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/trace-kinematics-v1.md",
+        "sha256": "bf178c00568a9dfd9b7e012154ddfbfcc401d51407b365e1527d69141d2179c2"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Observable representation measurements; no hidden-memory or scoring authority."
       ]
     },
     {

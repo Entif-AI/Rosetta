@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { writeFileSync } from 'node:fs';
 import { canonicalTraceJson } from '../../packages/rosetta-schemas/dist/index.js';
 const size = (id, content) => Buffer.byteLength(canonicalTraceJson({ objectId: id, objectKind: 'message', stableFields: {}, content }));

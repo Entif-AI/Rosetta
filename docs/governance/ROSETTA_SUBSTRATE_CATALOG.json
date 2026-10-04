@@ -224,13 +224,13 @@
       "id": "entif:trace-kin",
       "kind": "plan",
       "title": "Measure trace kinematics and conservative representation shrinkage",
-      "status": "planned",
+      "status": "done",
       "task": "T1669",
       "issues": [1669, 1664, 1558, 1567],
-      "pr": null,
+      "pr": 1725,
       "source": {
         "path": "plans/trace-kin.md",
-        "sha256": "83c6fee554c6858389495bc1e42a72b3bde1528dbcb7361f43156ee55c643443"
+        "sha256": "a4064d5f6bcefc9534bebea74ee6546a253ccb098c6787da884509498ad42c45"
       }
     },
     {

@@ -1,3 +1,4 @@
+import process from 'node:process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';

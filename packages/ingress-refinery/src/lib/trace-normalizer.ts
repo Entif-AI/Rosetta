@@ -29,8 +29,11 @@ export function normalizeTrace(raw: string, options: TraceNormalizerOptions): Tr
     return { objectId: id, objectKind: text(v.kind) ?? text(object(v.author)?.role) ?? 'message', stableFields, content: storeContent(content, sequence) };
   };
   const stateBytes = (states: TraceObjectState[]): number => Buffer.byteLength(canonicalTraceJson(states.map(s => ({ ...s, content: s.content.kind === 'inline' ? s.content.value : payloads.get(s.content.payloadRef)?.value }))));
-  for (const [index, frame] of raw.replace(/\r\n/g, '\n').split(/\n\n+/).filter(x => x.trim()).entries()) {
-    sourceBytes += Buffer.byteLength(frame + '\n\n');
+  const frames = raw.match(/[\s\S]*?(?:\r?\n\r?\n|$)/g)?.filter(frame => frame.length > 0) ?? [];
+  for (const [index, physicalFrame] of frames.entries()) {
+    sourceBytes += Buffer.byteLength(physicalFrame);
+    const frame = physicalFrame.replace(/\r\n/g, '\n').replace(/\n+$/, '');
+    if (!frame.trim()) continue;
     const lines = frame.split('\n');
     const data = lines.filter(x => x.startsWith('data:')).map(x => x.slice(5).trimStart()).join('\n');
     let parsed: JsonValue = null;

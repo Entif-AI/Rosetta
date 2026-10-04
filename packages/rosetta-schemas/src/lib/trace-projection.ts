@@ -18,6 +18,7 @@ export function parseTraceProjection(value: unknown): TraceProjection {
   if (!validate(value)) throw new Error('Invalid trace projection shape.');
   const { closureDigest, ...body } = value;
   if (traceHash(canonicalTraceJson(body)) !== closureDigest) throw new Error('Graph closure digest mismatch.');
+  if (value.nodes.some(n => !n.id.startsWith(`${encodeURIComponent(value.projectionId)}:${n.label}:`) || n.properties.id !== n.id)) throw new Error('Invalid graph namespace identity.');
   const ids = new Set(value.nodes.map(n => n.id));
   if (ids.size !== value.nodes.length) throw new Error('Duplicate graph identity.');
   if ([...value.nodes, ...value.edges].some(n => n.properties.projectionId !== value.projectionId || n.properties.normalizedDigest !== value.normalizedDigest || n.properties.sourceDigest !== value.sourceDigest)) throw new Error('Missing graph provenance.');
