@@ -104,6 +104,19 @@
       }
     },
     {
+      "id": "entif:engineering-akasha",
+      "kind": "plan",
+      "title": "Reconstruct JCS engineering work through Akasha evidence",
+      "status": "in-progress",
+      "task": "T1726",
+      "issues": [1726, 1693],
+      "pr": 1732,
+      "source": {
+        "path": "plans/engineering-akasha.md",
+        "sha256": "1c24f4b98f5ed58b5131fff4216dcbe2b3a024cba83ee4f789670bd16cf06ca4"
+      }
+    },
+    {
       "id": "entif:jcs-001",
       "kind": "plan",
       "title": "Repair RFC 8785 canonical JSON ordering and conformance vectors",
@@ -346,6 +359,36 @@
       "from": "entif:badger-experiment",
       "kind": "depends-on",
       "to": "entif:specops-integrated"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:work-lifecycle"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-src"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-norm"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:jcs-001"
     },
     {
       "from": "entif:jcs-001",

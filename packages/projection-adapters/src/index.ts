@@ -5,3 +5,4 @@ export * from './lib/neo4j-trace-projection.js';
 export * from './lib/trace-kinematics.js';
 
 export * from './lib/graphiti-trace.js';
+export * from './lib/engineering-lifecycle.js';

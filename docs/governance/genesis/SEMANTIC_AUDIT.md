@@ -88,6 +88,8 @@ catalog registration introduces a new Core kind.
 
 `work.lifecycle.v1` (#1509) is a public application contract composing references to existing execution, Evaluation and Receipt semantics. It is not a Core kind and grants no dispatch/write authority. Its separately materialized `work.lifecycle-state.v1` is a derived inspection view. Procedure/executor, completion/verification/integration and history/current-state distinctions remain explicit; private orchestration policy is outside this surface.
 
+`engineering.lifecycle-source.v1` (#1726) specializes that application contract with bounded durable engineering-source references and red/green lineage. It feeds the existing source, TRACE-NORM and TRACE-GRAPH lanes; Git/PR chronology and hosted checks remain evidence rather than semantic authority. Unknown historical executor identity and absent canonical receipts are not reconstructed.
+
 The following families are application contracts unless a later accepted authority explicitly elevates them:
 
 - `entif.*`, including `entif.intake_envelope`, digest, postmortem, Agentic Messaging, domain-reference, and execution-admission schemas;

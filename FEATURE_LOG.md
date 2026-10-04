@@ -16,7 +16,7 @@ Validate focused failing-before/passing-after fixtures, owner package checks, sc
 
 Starting quota-axi observation at 2026-10-04T05:38:20.875Z: fresh, five-hour remaining 47%, weekly 63%. Earlier desktop meter reported five-hour 81%; meters disagree, attribution and precision are not inferred. Raw seat telemetry remains outside Git. Provider/model/reasoning identity is not durably exposed and remains unknown. No implementation acceptance yet.
 
-Next safe step: #1726 engineering lifecycle source adapter, using merged #1693/#1725 durable evidence and the #1509 contract on this branch.
+Next safe step: #1727 terminal completion envelope with real #1725/#1723 fixtures and a fresh #1509/#1726 backfill; then #1730 dependency impact/revalidation.
 
 ## TRACE-TEMP checkpoint
 
@@ -31,3 +31,11 @@ Review repaired independently admitted rights/source/time bindings, invalidation
 Recovered remote head e7976f74e2bebbbf13babc4a7c024bd7839490d5; fetched main remains 6a9ddc28853ab519064b3216c2d98f55e3b34251. Isolated clean worktree, same integration branch and serialized writer. Original editorial checkout and its unresolved merge were left untouched. Quota-axi fresh observation at 2026-10-04T06:06:00.681Z: five-hour 92% remaining (reset 2026-10-04T11:02:46Z), weekly 75%; raw evidence is ignored local state. This is a different observed quota window from the original attempt; no per-run consumption inference.
 
 #1509 public work.lifecycle.v1 schema and bounded append-only history/materialized-state helpers implemented. No Core kind or IPR-0053 private policy was added. Five admission regressions failed before implementation; a sixth history regression exposed integration using superseded verification and was repaired. Nine public synthetic vectors and 18 focused cases pass. Owner lint/typecheck/test/build: 102 tests passed. Completion never implies verification/integration; recorded integration survives later rejection as an external fact. Evidence authentication and actual verifier independence remain the responsibility of referenced authorities. Plan is in-progress until integration.
+
+## #1726 engineering lifecycle checkpoint
+
+#1509 checkpoint b99ff2428002b35d4d1a5c8fd18c3ae5005e31b4 was pushed/read back; quota-axi at 2026-10-04T06:19:09.499Z reported 84% five-hour and 73% weekly remaining. #1726 consumes its executable public contract on this branch. Both plans remain in-progress until merge; generated integrated readiness must not be falsified to enter the authorized sequence.
+
+Real #1693/#1725 reconstruction has four lifecycle records and 13 exact source refs, including committed red/green evidence and independently captured hosted workflow head identities. Public source/ref admission composes #1509, adapts through source Record/Manifestation and existing TRACE-NORM/TRACE-GRAPH, and reconstructs without transcript input. Historical executor, hidden model/config, precise work-event timing and absent canonical receipts remain explicit unknown/absence. The captured issue is still open; actual PR integration is separately recorded.
+
+Five focused cases pass, including a correctly rehashed graph mutation that failed before exact source-bundle rebuild admission. Owner checks pass: schema 102 tests; projection 41 passed and one preexisting endpoint-dependent case skipped. Neo4j 5.26.0 real isolated container proof: 29 nodes, 49 edges, exact source digests, duplicate import, sentinel-preserving reset and identical rebuilt closure/query. Disposable container `entif-roadmap-evidence-1732` is owned by this execution and must be stopped at closeout. Proof binds exact implementation-source digests and names its dirty working-tree/base revision rather than claiming an uncommitted implementation was tested at the prior Git SHA.
