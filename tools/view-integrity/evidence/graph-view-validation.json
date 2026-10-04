@@ -1,0 +1,54 @@
+{
+  "profile": "graph-view-validation-v1",
+  "observedAt": "2026-10-04T15:06:51.450714+00:00",
+  "baseCommit": "33c30157684823b0da14af92d6061d71ce1ef78a",
+  "posture": "working-tree-source-digests",
+  "sourceDigests": {
+    "packages/rosetta-schemas/src/lib/graph-view.ts": "73a1193291afcd1e3cc437afc811cfc981f85be9250be9fc1550f2f75642a7dc",
+    "packages/rosetta-schemas/src/lib/graph-view.spec.ts": "0c7d0b565a171c68fa6b6017d7a36007820d24dbbc3a412d26efa50ebb94b936",
+    "packages/rosetta-schemas/src/lib/materialized-view.ts": "1d008f59df002a71375b2d12c10bd323befbb0dbcd7427736413850aa1aef784",
+    "packages/rosetta-schemas/src/lib/evidence-contract-validation.ts": "b854b3243da37600a0715d78ad1b769573a9df5ed8469dfe85ad1943cc9114c5",
+    "packages/rosetta-schemas/docs/graph-view-v1.schema.json": "1494f316391081c41784c455d35d50a74b1cda30bedee1c767e4fb0ede129e15"
+  },
+  "focusedTests": {
+    "passed": 13,
+    "failed": 0,
+    "requiredScenarios": 10
+  },
+  "ownerChecks": {
+    "command": "NX_DAEMON=false pnpm exec nx run-many -p rosetta-schemas -t lint,typecheck,test,build --parallel=1",
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "test": {
+      "passed": 155,
+      "failed": 0
+    },
+    "cachedTasks": 6,
+    "tasks": 10
+  },
+  "schemaSync": "passed",
+  "nxSyncCheck": "passed",
+  "authority": "passed",
+  "mergeAdmission": {
+    "status": "passed",
+    "command": "pnpm run governance:admission",
+    "tasks": 14,
+    "cachedTasks": 2,
+    "consumerEnvironment": {
+      "specifyCliCommit": "de0cbd762e2d0b30f90d3ffcbe2ee9d7167f4eda",
+      "specifyCliVersion": "1.1.1.dev0",
+      "pythonVersion": "3.13.12",
+      "scope": "ignored-local-venv",
+      "repairedFailure": "missing specify executable; no repository behavior changed"
+    }
+  },
+  "semanticOwnerIssue": 1671,
+  "composes": [
+    1730,
+    1731
+  ],
+  "coreDescent": "derived-projection",
+  "rebuildProof": "exact declared descriptor/source/profile closure; not source retrieval or private graph selection",
+  "noOperationalAuthorityGranted": true
+}

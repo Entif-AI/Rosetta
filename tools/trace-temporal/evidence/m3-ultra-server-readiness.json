@@ -1,0 +1,88 @@
+{
+  "profile": "m3-ultra-server-readiness-proof-v1",
+  "observedAt": "2026-10-04T20:33:37.997526+00:00",
+  "gitHead": "32428bc0b20283ff213105a1504cb317f60f2d9a",
+  "computeHostRef": "host:m3-ultra",
+  "fixtureAddress": "192.168.0.92",
+  "machineProfile": {
+    "cpu": "Apple M3 Ultra",
+    "memoryBytes": 103079215104
+  },
+  "ssh": {
+    "service": "macOS native OpenSSH / Remote Login",
+    "activation": "launchd socket activation; actual SSH banner observed on LAN interface",
+    "banner": "SSH-2.0-OpenSSH_10.0",
+    "lanInterfaceTcp22ReachableFromSameHost": true,
+    "remoteLaptopReachability": null,
+    "hostKeyFingerprint": "SHA256:FFzTtBeutOIy6dDZdm/5l53vbVcIhkmKJgTaW1ylJFU",
+    "strictPinnedHostKeyVerified": true,
+    "effectiveConfiguration": {
+      "port": "22",
+      "pubkeyauthentication": "yes",
+      "passwordauthentication": "yes",
+      "kbdinteractiveauthentication": "yes",
+      "strictmodes": "yes",
+      "allowtcpforwarding": "yes",
+      "authorizedkeysfile": ".ssh/authorized_keys",
+      "authenticationmethods": "any"
+    },
+    "configurationInspection": "sshd -T over active configuration with disposable host key; actual server fingerprint verified independently",
+    "offeredAuthenticationMethods": [
+      "publickey,password,keyboard-interactive"
+    ],
+    "automatedPublicKeyOnlyAttemptExitCode": 255,
+    "noninteractiveFailureWithNoAdmittedClientKey": true,
+    "accountConfigRef": "host-local:intended-account-ssh",
+    "directoryMode": "0o700",
+    "authorizedKeysMode": "0o600",
+    "authorizedKeyCount": 0,
+    "laptopKeyAdmission": "pending; no laptop public key supplied or present",
+    "laptopEndToEndAuthentication": null
+  },
+  "firewall": {
+    "globalState": "Firewall is disabled. (State = 0)",
+    "sshServicePosture": "Incoming connection to /usr/libexec/sshd-keygen-wrapper is permitted."
+  },
+  "lmStudio": {
+    "endpointRef": "endpoint:lmstudio-m3-ultra",
+    "loopbackBindingObservation": "127.0.0.1:1234"
+  },
+  "ownedFalkorFixtures": [
+    {
+      "container": "entif-falkor-1735",
+      "image": "falkordb/falkordb:6.0.1@sha256:e2765e207e5ba4ee90e47ed31eb7491ad6dd3d42241c326e429375c02ad9882f",
+      "running": true,
+      "bindings": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "16379"
+        }
+      ]
+    },
+    {
+      "container": "entif-graphiti-falkor-1737",
+      "image": "falkordb/falkordb:v4.20.7@sha256:13996aa523f0dd283f6bd6df6620b094dcea525452417c4d6ef9bef15dc9998d",
+      "running": true,
+      "bindings": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "16380"
+        }
+      ]
+    }
+  ],
+  "preexistingUnownedFalkorService": {
+    "container": "stoic_swartz",
+    "image": "falkordb/falkordb",
+    "lanBindings": [
+      "0.0.0.0:3000",
+      "0.0.0.0:6579"
+    ],
+    "disposition": "not modified; outside owned proof jurisdictions; broader #1744 loopback-only posture remains incomplete"
+  },
+  "serverServiceReady": true,
+  "fullDevelopmentComputeProfileAccepted": false,
+  "scope": "M3 Ultra server-readiness slice; laptop credentials/tunnel/jobs and other consumers remain separate",
+  "bootstrapDoctorOwner": 1154,
+  "noCredentialsRecorded": true
+}

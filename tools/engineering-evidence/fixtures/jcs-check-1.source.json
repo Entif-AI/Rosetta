@@ -1,0 +1,19 @@
+{
+  "checkRun": {
+    "__typename": "CheckRun",
+    "completedAt": "2026-10-04T04:17:33Z",
+    "conclusion": "SUCCESS",
+    "detailsUrl": "https://github.com/Entif-AI/Rosetta/actions/runs/37176291614/job/111359466740",
+    "name": "admission",
+    "startedAt": "2026-10-04T04:11:47Z",
+    "status": "COMPLETED",
+    "workflowName": "Semantic governance"
+  },
+  "workflowRun": {
+    "conclusion": "success",
+    "head_sha": "1117b9d44855d05e9c870e15838ccd8c7874237d",
+    "html_url": "https://github.com/Entif-AI/Rosetta/actions/runs/37176291614",
+    "status": "completed",
+    "updated_at": "2026-10-04T04:17:33Z"
+  }
+}

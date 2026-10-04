@@ -1,0 +1,225 @@
+{
+  "profile": "trace.graphiti-projection.v1",
+  "profileVersion": "1.0.0",
+  "selected": {
+    "profile": "trace.graphiti-selection.v1",
+    "profileVersion": "1.0.0",
+    "sourceArtifactRef": "generated-edges",
+    "sourceDigest": "8cb0d6c4922935fe49a88b67a391729f33f602ce7c69eda3df9297b85bc96f07",
+    "normalizedProfile": "trace.normalization.v1",
+    "normalizedVersion": "trace-norm-v1",
+    "normalizedDigest": "1eba0b0c5d2bc7f8d6e6ba337665abb5d680e7349b59b39e6193362bb87c25fa",
+    "episodes": [
+      {
+        "recordId": "generated-edges:record:0",
+        "effectiveAt": "2000-01-01T00:00:00.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "A",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "B",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "dictionary",
+                "payloadRef": "sha256:61b08f1b41ac9fd74fec319802a02686528530b58081a0463370ba88167d7720"
+              },
+              "id": "C",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "dictionary",
+                "payloadRef": "sha256:61b08f1b41ac9fd74fec319802a02686528530b58081a0463370ba88167d7720"
+              },
+              "id": "D",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "original-run",
+          "source_event_time": "2000-01-01T00:00:00.000Z",
+          "type": "trace_snapshot",
+          "window_id": "generated-window"
+        },
+        "sourceEventAt": "2000-01-01T00:00:00.000Z",
+        "observedAt": "2000-01-01T00:00:30.000Z",
+        "recordedAt": "2000-01-01T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 0,
+        "id": "episode:34dfa7d820d80f2566d6b3cb854cf19780b963a591096f9ad7558161a2ac3922"
+      },
+      {
+        "recordId": "generated-edges:record:1",
+        "effectiveAt": "2000-01-01T00:00:01.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "A",
+            "E"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "A",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "B",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "dictionary",
+                "payloadRef": "sha256:61b08f1b41ac9fd74fec319802a02686528530b58081a0463370ba88167d7720"
+              },
+              "id": "C",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "dictionary",
+                "payloadRef": "sha256:61b08f1b41ac9fd74fec319802a02686528530b58081a0463370ba88167d7720"
+              },
+              "id": "D",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "E",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "original-run",
+          "source_event_time": "2000-01-01T00:00:01.000Z",
+          "type": "trace_snapshot",
+          "window_id": "generated-window"
+        },
+        "sourceEventAt": "2000-01-01T00:00:01.000Z",
+        "observedAt": "2000-01-01T00:00:30.000Z",
+        "recordedAt": "2000-01-01T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 1,
+        "id": "episode:51004c0eb06166198c934ce0902d34c82524bdbaf559fe92ed2a985e5cf2a1bf"
+      },
+      {
+        "recordId": "generated-edges:record:2",
+        "effectiveAt": "2000-01-01T00:00:02.000Z",
+        "correctionAt": null,
+        "scopeRef": "scope:public-generated-fixture",
+        "rightsRef": "rights:public-generated-fixture",
+        "identity": "unresolved",
+        "content": {
+          "emitted_ids": [
+            "C"
+          ],
+          "objects": [
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "A",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "dictionary",
+                "payloadRef": "sha256:61b08f1b41ac9fd74fec319802a02686528530b58081a0463370ba88167d7720"
+              },
+              "id": "C",
+              "kind": "message",
+              "stableFields": {}
+            },
+            {
+              "content": {
+                "kind": "inline",
+                "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              "id": "E",
+              "kind": "message",
+              "stableFields": {}
+            }
+          ],
+          "origin": "generated-fixture",
+          "reset": false,
+          "run_id": "original-run",
+          "source_event_time": "2000-01-01T00:00:02.000Z",
+          "type": "trace_snapshot",
+          "window_id": "generated-window"
+        },
+        "sourceEventAt": "2000-01-01T00:00:02.000Z",
+        "observedAt": "2000-01-01T00:00:30.000Z",
+        "recordedAt": "2000-01-01T00:01:00.000Z",
+        "timeBasis": "fixture",
+        "sourceSequence": 2,
+        "id": "episode:26492df869fbdac12209860703bf5088711757886ccccb381bb21bf73d65356c"
+      }
+    ]
+  },
+  "derivation": {
+    "mode": "unavailable",
+    "graphitiVersion": "0.30.2",
+    "graphitiCommit": "eaa4128681bc53487138a4bbc22d58336ebe70d2",
+    "databaseVersion": null,
+    "provider": null,
+    "model": null,
+    "modelVersion": null,
+    "extractionConfig": {},
+    "embedder": null,
+    "reranker": null,
+    "adapterVersion": "1.0.0"
+  },
+  "artifacts": [],
+  "loss": [
+    "Live inference unavailable: missing OPENAI_API_KEY, TRACE_GRAPHITI_MODEL, TRACE_GRAPHITI_EMBEDDER, TRACE_GRAPHITI_RERANKER. Deterministic evidence retained."
+  ]
+}

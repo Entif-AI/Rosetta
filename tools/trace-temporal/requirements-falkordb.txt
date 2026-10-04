@@ -1,0 +1,5 @@
+# Apache-2.0 donor, tag commit eaa4128681bc53487138a4bbc22d58336ebe70d2.
+graphiti-core[falkordb]==0.30.2
+falkordb==1.7.1
+# Graphiti directly imports httpx; current OpenAI dependencies install httpx2 instead.
+httpx==0.28.1

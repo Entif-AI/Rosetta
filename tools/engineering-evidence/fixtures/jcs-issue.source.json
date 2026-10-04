@@ -1,0 +1,7 @@
+{
+  "createdAt": "2026-10-02T13:22:00Z",
+  "number": 1693,
+  "state": "OPEN",
+  "title": "JCS-001: Repair RFC 8785 canonical JSON ordering and add integer-key conformance vectors",
+  "url": "https://github.com/Entif-AI/Rosetta/issues/1693"
+}

@@ -1,8 +1,8 @@
 import process from 'node:process';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { buildTraceProjection, createTraceNeo4jDriver, importTraceProjection, resetTraceProjection, exportTraceProjection, measureTraceKinematics } from '../../packages/projection-adapters/dist/index.js';
-import { canonicalTraceJson, TRACE_PROJECTION_SCHEMA } from '../../packages/rosetta-schemas/dist/index.js';
+import { canonicalTraceJson } from '../../packages/rosetta-schemas/dist/index.js';
 import { createSourceRecordTile, createSourceManifestationTile } from '../../packages/source-substrate/dist/index.js';
 if (process.env.TRACE_GRAPH_ISOLATED !== 'true') throw new Error('Declare ownership of an isolated development database before proof/reset.');
 const database = createTraceNeo4jDriver({ uri: process.env.TRACE_NEO4J_URI ?? 'bolt://127.0.0.1:17687', user: 'neo4j', password: process.env.TRACE_NEO4J_PASSWORD ?? 'trace-fixture-development' });
@@ -78,7 +78,7 @@ try {
   for (const name of ['trace_record_sequence','trace_record_event','trace_object_kind']) assert.ok(indexes.includes(name));
   const constraints = (await session.run('SHOW CONSTRAINTS YIELD name RETURN name ORDER BY name')).records.map(r => r.get('name'));
   assert.equal(constraints.filter(n => n.startsWith('trace_')).length, 11);
-  writeFileSync('tools/trace-graph/evidence/neo4j-proof.json', canonicalTraceJson({ profile: 'trace-graph-proof-v1', evidence, constraints, indexes }) + '\n');
-  writeFileSync('packages/rosetta-schemas/docs/trace-projection-v1.schema.json', canonicalTraceJson(TRACE_PROJECTION_SCHEMA) + '\n');
+  mkdirSync('.axi', { recursive: true });
+  writeFileSync('.axi/neo4j-reference-replay.json', canonicalTraceJson({ profile: 'trace-graph-proof-v1', evidence, constraints, indexes }) + '\n');
   process.stdout.write('Real Neo4j proof: both fixtures, direct queries, idempotency, isolated reset and rebuild passed.\n');
 } finally { await session.close(); await database.close(); }

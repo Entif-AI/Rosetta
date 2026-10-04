@@ -18,5 +18,5 @@ describe('semantic/Profile admission #1699', () => {
     expect((await inspectPromotionCandidate(await load('promotion-pre-fix'))).ok).toBe(false);
     expect((await inspectPromotionCandidate(await load('promotion-state-valid'))).ok).toBe(true);
     expect(await runProfileAdmission()).toMatchObject({ preFix: 'fail', corrected: 'pass' });
-  });
+  }, 30_000); // Includes cold source loading and Nx project-graph construction on CI.
 });

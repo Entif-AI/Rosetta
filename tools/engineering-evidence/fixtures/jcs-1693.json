@@ -1,0 +1,237 @@
+{
+  "profile": {
+    "id": "engineering.lifecycle-source.v1",
+    "version": "1.0.0"
+  },
+  "bundleRef": "fixture:engineering-jcs-1693",
+  "capturedAt": "2026-10-04T06:26:05.188Z",
+  "workRef": "https://github.com/Entif-AI/Rosetta/issues/1693",
+  "sources": [
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/issues/1693",
+      "locator": "tools/engineering-evidence/fixtures/jcs-issue.source.json",
+      "sha256": "422804a9b55399d6c6af880a0f940489b169b2718df856a3b0f9653de936a904",
+      "role": "issue",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-02T13:22:00Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/pull/1725",
+      "locator": "tools/engineering-evidence/fixtures/jcs-pr.source.json",
+      "sha256": "8f4cce34631f743e69241387ed8c96bd325898eec992ab6a324cb5297f21c290",
+      "role": "pull-request",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T04:33:09Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/commit/81fee310b6a79aaebbfe4c1e46a90befab95fbaf",
+      "locator": "tools/engineering-evidence/fixtures/jcs-implementation.source.json",
+      "sha256": "d605db1f27e3b2d8a316dc2f7e0c4a114727f7ded7870a9183d73bc93b991e3c",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": "2026-10-04T00:44:09Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/commit/1117b9d44855d05e9c870e15838ccd8c7874237d",
+      "locator": "tools/engineering-evidence/fixtures/jcs-verified-head.source.json",
+      "sha256": "af045598ff705de9329068ea9b8c056143d0a88611e82044ef74a6690174ef35",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": "2026-10-04T04:11:34Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/commit/c9e01d2af352def5b841004de5d2ccfbfe49fa42",
+      "locator": "tools/engineering-evidence/fixtures/jcs-merge.source.json",
+      "sha256": "0758f68e2d697310af02ab593c7ed45b94d9a188cb9e0b1173b0e1fc5440463f",
+      "role": "integration",
+      "authorityClass": "integration-evidence",
+      "sourceTime": "2026-10-04T04:33:09Z"
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+      "locator": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+      "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+      "role": "authority",
+      "authorityClass": "governing-contract",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:specs/architecture.md",
+      "locator": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:specs/architecture.md",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7",
+      "role": "spec",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:plans/jcs-001.md",
+      "locator": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:plans/jcs-001.md",
+      "sha256": "a3f937702a9aba6d670a6a7fe1215559da608b51bc85ba276ffc035aa61a9e53",
+      "role": "plan",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/jcs-red-evidence.txt",
+      "locator": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/jcs-red-evidence.txt",
+      "sha256": "3334933ba77125ec68b618f7e7c7befc042e93de1c2ad2632845f92c39334022",
+      "role": "red",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/evidence/batch-validation.json",
+      "locator": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/evidence/batch-validation.json",
+      "sha256": "6c3c58693117cd764b201463aeea1b82ee0062d346ad25bb42dda075897ae4d4",
+      "role": "green",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37176291622/job/111359466860",
+      "locator": "tools/engineering-evidence/fixtures/jcs-check-0.source.json",
+      "sha256": "d911de5e547b8eb3b13140a17bf9f13636dd0d7826f0785af8c5a6f5bcb3d082",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T04:12:13Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37176291614/job/111359466740",
+      "locator": "tools/engineering-evidence/fixtures/jcs-check-1.source.json",
+      "sha256": "e3b971325c8172b9e092833375c0f38623e9f5bc2c9e30a59b95b9c703a4f5ef",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T04:17:33Z"
+    },
+    {
+      "ref": "unknown:historical-executor:jcs-1693",
+      "locator": null,
+      "sha256": null,
+      "role": "executor",
+      "authorityClass": "unknown",
+      "sourceTime": null
+    }
+  ],
+  "records": [
+    {
+      "recordId": "urn:rosetta:work-event:jcs-1693:declared",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1693",
+      "event": "declared",
+      "createdAt": "2026-10-04T06:26:05.188Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693",
+        "https://github.com/Entif-AI/Rosetta/pull/1725"
+      ],
+      "objectiveRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693"
+      ],
+      "acceptanceRefs": [
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+      ],
+      "contextRef": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:plans/jcs-001.md",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693",
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:specs/architecture.md",
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:plans/jcs-001.md"
+      ]
+    },
+    {
+      "recordId": "urn:rosetta:work-event:jcs-1693:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1693",
+      "event": "completed",
+      "createdAt": "2026-10-04T06:26:05.188Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693",
+        "https://github.com/Entif-AI/Rosetta/pull/1725"
+      ],
+      "executorRef": "unknown:historical-executor:jcs-1693",
+      "resultRef": "https://github.com/Entif-AI/Rosetta/commit/1117b9d44855d05e9c870e15838ccd8c7874237d",
+      "disposition": "completed",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/commit/81fee310b6a79aaebbfe4c1e46a90befab95fbaf",
+        "https://github.com/Entif-AI/Rosetta/commit/1117b9d44855d05e9c870e15838ccd8c7874237d",
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/jcs-red-evidence.txt",
+        "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/evidence/batch-validation.json"
+      ],
+      "priorRecordRef": "urn:rosetta:work-event:jcs-1693:declared"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:jcs-1693:verification_accepted",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1693",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T06:26:05.188Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693",
+        "https://github.com/Entif-AI/Rosetta/pull/1725"
+      ],
+      "executorRef": "unknown:historical-executor:jcs-1693",
+      "resultRef": "https://github.com/Entif-AI/Rosetta/commit/1117b9d44855d05e9c870e15838ccd8c7874237d",
+      "verifierRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37176291622/job/111359466860",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37176291614/job/111359466740"
+      ],
+      "disposition": "accepted",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37176291622/job/111359466860",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37176291614/job/111359466740"
+      ],
+      "priorRecordRef": "urn:rosetta:work-event:jcs-1693:completed"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:jcs-1693:integrated",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1693",
+      "event": "integrated",
+      "createdAt": "2026-10-04T06:26:05.188Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1693",
+        "https://github.com/Entif-AI/Rosetta/pull/1725"
+      ],
+      "verificationRef": "urn:rosetta:work-event:jcs-1693:verification_accepted",
+      "integrationRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1725",
+        "https://github.com/Entif-AI/Rosetta/commit/c9e01d2af352def5b841004de5d2ccfbfe49fa42"
+      ],
+      "disposition": "accepted",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/pull/1725",
+        "https://github.com/Entif-AI/Rosetta/commit/c9e01d2af352def5b841004de5d2ccfbfe49fa42"
+      ],
+      "priorRecordRef": "urn:rosetta:work-event:jcs-1693:verification_accepted"
+    }
+  ],
+  "validationRelations": [
+    {
+      "redRef": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/jcs-red-evidence.txt",
+      "greenRef": "git:Entif-AI/Rosetta@c9e01d2af352def5b841004de5d2ccfbfe49fa42:tools/trace-graph/evidence/batch-validation.json",
+      "implementationRef": "https://github.com/Entif-AI/Rosetta/commit/81fee310b6a79aaebbfe4c1e46a90befab95fbaf"
+    }
+  ],
+  "limitations": [
+    "Historical executor identity is not durably exposed.",
+    "Red/green timing and hidden model configuration are not reconstructed.",
+    "Local test evidence is externally attested by committed artifacts; hosted workflows verify the captured final head.",
+    "Adapter record createdAt is capture/materialization time, not inferred original work-event time.",
+    "PR integration is recorded; the captured issue remains open."
+  ]
+}

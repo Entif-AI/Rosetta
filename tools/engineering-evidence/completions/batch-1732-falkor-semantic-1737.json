@@ -1,0 +1,387 @@
+{
+  "profile": {
+    "id": "engineering.run-completion.v1",
+    "version": "1.0.0"
+  },
+  "runRef": "urn:rosetta:engineering:1732:falkor-semantic-1737",
+  "workRefs": [
+    "https://github.com/Entif-AI/Rosetta/issues/1737"
+  ],
+  "identityRefs": {
+    "issues": [
+      "https://github.com/Entif-AI/Rosetta/issues/1737"
+    ],
+    "specs": [
+      "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879:specs/architecture.md"
+    ],
+    "plans": [
+      "plan:1737-semantic-accepted"
+    ],
+    "prs": [
+      "https://github.com/Entif-AI/Rosetta/pull/1732"
+    ]
+  },
+  "createdAt": "2026-10-04T21:18:37.178829Z",
+  "terminalState": "completed",
+  "lifecycleRecords": [
+    {
+      "recordId": "urn:rosetta:work-event:1737:declared",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1737",
+      "event": "declared",
+      "createdAt": "2026-10-04T21:18:37.178829Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1737"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1737"
+      ]
+    },
+    {
+      "recordId": "urn:rosetta:work-event:1737:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1737",
+      "event": "completed",
+      "createdAt": "2026-10-04T21:18:37.178829Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1737"
+      ],
+      "executorRef": "executor:codex-desktop:1737",
+      "resultRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "evidenceRefs": [
+        "evidence:1737-semantic:2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11",
+        "urn:rosetta:engineering:1732:falkor-semantic-1737",
+        "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879"
+      ],
+      "disposition": "completed",
+      "priorRecordRef": "urn:rosetta:work-event:1737:declared"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:1737:verification_accepted",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1737",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T21:18:37.178829Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1737"
+      ],
+      "executorRef": "executor:codex-desktop:1737",
+      "resultRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "verifierRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "urn:rosetta:work-event:1737:completed"
+    }
+  ],
+  "observations": {
+    "executorSurface": {
+      "status": "observed",
+      "value": "Codex desktop on M3 Ultra",
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-semantic-1737"
+      ]
+    },
+    "provider": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "model": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "modelVersion": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "reasoning": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "compiledContext": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "tools": {
+      "status": "observed",
+      "value": [
+        "pnpm",
+        "Nx",
+        "Git",
+        "GitHub",
+        "Docker",
+        "FalkorDB RESP",
+        "SpecOps"
+      ],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-semantic-1737"
+      ]
+    },
+    "runtime": {
+      "status": "observed",
+      "value": [
+        "Semantic provider LM Studio 0.4.23+1; chat/reranker qwen3.8-27b-absolute-heresy-i1",
+        "Independent embedding model text-embedding-nomic-embed-text-v1.5; dimension 768",
+        "Operational FalkorDB 6.0.1 / JS client 6.8.0",
+        "Graphiti 0.30.2 / eaa4128681bc53487138a4bbc22d58336ebe70d2; semantic FalkorDB 4.20.7 / Python client 1.7.1",
+        "host:m3-ultra execution/inference/graphs; loopback; V0_VERSION_SPLIT_ACCEPTED_PENDING_UPSTREAM_COMPATIBILITY"
+      ],
+      "evidenceRefs": [
+        "evidence:1737-semantic:2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11"
+      ]
+    },
+    "repairs": {
+      "status": "observed",
+      "value": [
+        "Bounded 16k/single-slot/no-MTP load after original capability timeout.",
+        "Native json_schema/schema-in-prompt/reasoning_effort=none after actual extraction timeout; JSON-object mode rejected by provider.",
+        "Rejected first semantic candidate because indexed AND/OR admitted future history; real red/green CASE repair."
+      ],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-semantic-1737"
+      ]
+    },
+    "rework": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "discardedWork": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "startedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "endedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "delegation": {
+      "status": "observed",
+      "value": [],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-semantic-1737"
+      ]
+    },
+    "quota": {
+      "status": "unknown",
+      "reason": "No fresh provider quota measurement is attributed to this semantic tranche.",
+      "evidenceRefs": []
+    },
+    "duration": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "contextSize": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "cache": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "tokens": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "cost": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "retries": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    }
+  },
+  "validation": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "disposition": "passed",
+      "independence": "executor-attested",
+      "evidenceRefs": [
+        "evidence:1737-semantic:2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11",
+        "urn:rosetta:engineering:1732:falkor-semantic-1737"
+      ]
+    }
+  ],
+  "independentVerification": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "disposition": "passed",
+      "independence": "independent",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740"
+      ]
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "disposition": "passed",
+      "independence": "independent",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519"
+      ]
+    }
+  ],
+  "externalEffects": [
+    {
+      "effectRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "kind": "git-checkpoint",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879"
+      ]
+    },
+    {
+      "effectRef": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "kind": "push",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-semantic-1737",
+        "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879"
+      ]
+    }
+  ],
+  "result": {
+    "disposition": "verified",
+    "evidenceRefs": [
+      "evidence:1737-semantic:2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11",
+      "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519"
+    ]
+  },
+  "limitations": [
+    "Unmerged tranche; later integration and broad final verification remain separate facts.",
+    "Real model/database proof is executor-attested; hosted CI validates deterministic code/contracts, not inference.",
+    "Codex executor model, reasoning, tokens, cost and total-run timing remain unknown; extraction model/response usage are scoped semantic-provider observations.",
+    "Donor retraction, contradiction and identity behavior is retained literally, unresolved and conservatively supported by selected context.",
+    "SSPL public-service and G15/#361/#1222 promotion remain separate; V0_VERSION_SPLIT_ACCEPTED_PENDING_UPSTREAM_COMPATIBILITY."
+  ],
+  "continuation": {
+    "refs": [
+      "plan:1737-semantic-accepted"
+    ],
+    "nextSafeStep": "Execute #1738 forward migration reconciliation, preserving historical receipts and the accepted version split.",
+    "evidenceRefs": [
+      "plan:1737-semantic-accepted",
+      "https://github.com/Entif-AI/Rosetta/issues/1737"
+    ]
+  },
+  "sources": [
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/issues/1737",
+      "locator": "tools/engineering-evidence/completion-sources/issue-1737.json",
+      "sha256": "ecdcca8c86ecd35c216741a0e804f7a2c265b79f4136ee085785b25651ccbc21",
+      "role": "issue",
+      "authorityClass": "governing-contract",
+      "sourceTime": "2026-10-04T07:02:48Z"
+    },
+    {
+      "ref": "urn:rosetta:engineering:1732:falkor-semantic-1737",
+      "locator": "tools/engineering-evidence/completion-sources/semantic-1737-observations.json",
+      "sha256": "7fe692a31ad185d3a353bbcbc3851a9cc9c60905f14cce7b111e106cabdd07c9",
+      "role": "other",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T21:18:37.178829Z"
+    },
+    {
+      "ref": "executor:codex-desktop:1737",
+      "locator": "tools/engineering-evidence/completion-sources/semantic-1737-observations.json",
+      "sha256": "7fe692a31ad185d3a353bbcbc3851a9cc9c60905f14cce7b111e106cabdd07c9",
+      "role": "executor",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T21:18:37.178829Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/pull/1732",
+      "locator": "tools/engineering-evidence/completion-sources/semantic-1737-observations.json",
+      "sha256": "7fe692a31ad185d3a353bbcbc3851a9cc9c60905f14cce7b111e106cabdd07c9",
+      "role": "pull-request",
+      "authorityClass": "source-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "locator": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879",
+      "sha256": "a8e6631fcf749ceda1c48d8a836b7bb60f246b6d7cd75876d0a2990d37e6cda4",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "evidence:1737-semantic:2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11",
+      "locator": "tools/trace-temporal/evidence/falkordb-semantic-proof.json",
+      "sha256": "2fcb7bd5192f49f2e7f228fe64bbe955c9d8a724c7cc1bdf13a35c59eeab7d11",
+      "role": "green",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "plan:1737-semantic-accepted",
+      "locator": "plans/trace-temp-falkor.md",
+      "sha256": "ca4a6160dc49e4683276ab630c51b52a5cc86015322eed5221482dc4bc945c0c",
+      "role": "plan",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879:specs/architecture.md",
+      "locator": "git:Entif-AI/Rosetta@8912484aad2ab89745805c0989caec01d95b8879:specs/architecture.md",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7",
+      "role": "spec",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37235029390/job/111532314740",
+      "locator": "tools/engineering-evidence/completion-sources/checks-semantic-source-verified.json",
+      "sha256": "cd4beb5625d52c11621f34b2a76fd4831908b19d669a681880ed09d59f59cb6b",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T21:11:12Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37235029391/job/111532314519",
+      "locator": "tools/engineering-evidence/completion-sources/checks-semantic-source-verified.json",
+      "sha256": "cd4beb5625d52c11621f34b2a76fd4831908b19d669a681880ed09d59f59cb6b",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T21:16:56Z"
+    }
+  ],
+  "supersedesRefs": [],
+  "envelopeId": "sha256:dd3e3b133b9dc967172e40d3d5aa6e9938770d43dac0479bdbf1dff8181477d5"
+}

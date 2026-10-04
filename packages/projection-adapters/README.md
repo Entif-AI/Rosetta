@@ -26,7 +26,40 @@ Exposes constitutional artifacts to external sidecars and shells without giving 
 
 - connect these projection contracts to actual sidecar/shell integrations after the refinery and cache mature
 
-## Agent-trace Neo4j development proof (#1667)
+## Active agent-trace FalkorDB V0 proof (#1735/#1736/#1737)
+
+`buildTraceProjection` consumes canonical source/TRACE-NORM directly through the
+provider-neutral `trace.projection.v1` contract. Official JS Falkor client 6.8.0
+imports, inspects and rebuilds the operational graph on pinned FalkorDB 6.0.1.
+Direct Cypher, exact closure parity, repeat import, scoped reset, foreign-edge
+refusal and source/store independence are proven by the active fixture harness.
+Independent kinematics re-proof retains the same morphology criteria and results.
+
+Build the normal dependencies, start the owned loopback fixture and write fresh
+replay evidence:
+
+```sh
+NX_DAEMON=false pnpm exec nx run-many -t build -p source-substrate,ingress-refinery,projection-adapters,rosetta-store
+docker compose -f tools/trace-graph/docker-compose.yaml up -d
+TRACE_GRAPH_ISOLATED=true node tools/trace-graph/prove-falkordb.mjs --output .axi/falkor-operational-replay.json
+TRACE_GRAPH_ISOLATED=true node tools/trace-graph/prove-kinematics-falkordb.mjs --output .axi/falkor-kinematics-replay.json
+docker compose -f tools/trace-graph/docker-compose.yaml down
+```
+
+Existing output paths are refused before fixture mutation. See
+[trace-graph guidance](../../tools/trace-graph/README.md) for ownership/runtime pins
+and immutable historical receipts. No Neo4j service is needed for ordinary V0.
+The `neo4j-driver` dependency remains necessary for preserved reference exports;
+the reference harness is optional and is never migration input.
+
+Selected Graphiti interpretation uses unchanged first-party FalkorDriver on a
+separate pinned FalkorDB 4.20.7 fixture. Its accepted disposition is
+`V0_VERSION_SPLIT_ACCEPTED_PENDING_UPSTREAM_COMPATIBILITY`; see
+[temporal guidance](../../tools/trace-temporal/README.md). Source, deterministic
+structure and interpretation remain distinct. All paths remain fixture-backed;
+SSPL public-service review and G15/#361/#1222 promotion are separate gates.
+
+## Historical Neo4j reference proof (#1667)
 
 `planAgentTraceProjection` consumes verified TRACE-NORM output, checks its canonical
 content and blob integrity, and emits scoped deterministic nodes/edges. Every item
@@ -60,13 +93,13 @@ Reproduce with Node from `.nvmrc` and pnpm:
 
 ```sh
 pnpm exec nx run projection-adapters:build
-docker compose -f tools/trace-graph/docker-compose.yaml up -d
+docker compose -f tools/trace-graph/docker-compose.neo4j-reference.yaml up -d
 # Wait for Neo4j HTTP readiness, then import and leave the graph inspectable:
 node tools/trace-graph/prove-agent-trace.mjs --rebuild
 # Real database import/reimport/rebuild, bounded query and rollback proof:
 AKASHA_NEO4J_ENDPOINT=http://127.0.0.1:17474 pnpm exec nx run projection-adapters:test
 node tools/trace-graph/prove-agent-trace.mjs --reset
-docker compose -f tools/trace-graph/docker-compose.yaml down
+docker compose -f tools/trace-graph/docker-compose.neo4j-reference.yaml down
 ```
 
 The proof script prints exact Cypher statements and bounded result rows for version,

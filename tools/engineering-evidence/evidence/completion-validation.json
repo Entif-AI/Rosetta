@@ -1,0 +1,49 @@
+{
+  "issue": 1727,
+  "role": "bounded-executable-evidence",
+  "capturedAt": "2026-10-04T07:24:39.492Z",
+  "basis": {
+    "gitHead": "0adcdcbd030513552420ad8b347dafc887a7b014",
+    "implementation": "dirty working-tree source digests; not a claim of testing at the prior SHA"
+  },
+  "sources": [
+    {
+      "path": "packages/rosetta-schemas/src/lib/engineering-completion.ts",
+      "sha256": "fd44244431d2fbc3fed89eb458c78dcf7dc4d865690b94f853f6cb88d57d8af1"
+    },
+    {
+      "path": "packages/rosetta-schemas/src/lib/engineering-completion.spec.ts",
+      "sha256": "23b634ab09251372f4e962ef4e1743a37867a2a145c15df28a9a8fd76c4e6cc5"
+    },
+    {
+      "path": "tools/engineering-evidence/completions.mjs",
+      "sha256": "e3f150f0d64b66ba8e073f33d23ed2c748c5fc1dd625a26921cfca2b7e7589ce"
+    }
+  ],
+  "red": [
+    "Verified result without completed/accepted lifecycle subject was incorrectly admitted.",
+    "Later rejection incorrectly erased separately recorded integration acceptance."
+  ],
+  "green": {
+    "focusedTests": 9,
+    "ownerTests": 111,
+    "ownerTargets": [
+      "lint",
+      "typecheck",
+      "test",
+      "build"
+    ],
+    "specAdmission": "passed",
+    "schemaSync": "passed",
+    "immutableCompletionCheck": "passed"
+  },
+  "fixtures": [
+    "akasha-1725",
+    "specops-1723",
+    "batch-1732-lifecycle-1509"
+  ],
+  "limits": [
+    "Structural conformance does not authenticate evidence or establish actor independence.",
+    "The fresh completion is verified at repaired head 0adcdcbd, unmerged, with four failed CI checkpoints retained."
+  ]
+}

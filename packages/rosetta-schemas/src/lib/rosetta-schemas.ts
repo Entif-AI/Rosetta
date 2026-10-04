@@ -5,6 +5,7 @@ import type { TileEnvelope } from '@entif-ai/rosetta-core';
 
 import { isCounterfactualEvaluationProfile, validateCounterfactualEvaluation } from './counterfactual-profile.js';
 import { isSalienceEvaluationProfile, validateSalienceEvaluation } from './salience-profile.js';
+import { validateWorkLifecycle } from './work-lifecycle.js';
 
 export interface ValidationResult {
   errors: string[];
@@ -1319,6 +1320,7 @@ function validateDerivedArtifactPayload(payload: object, errors: string[]): void
 }
 
 export function validatePayload(kind: string, payload: object): ValidationResult {
+  if (kind === 'work.lifecycle.v1') return validateWorkLifecycle(payload);
   const errors = (REQUIRED_FIELDS[kind] ?? [])
     .filter((field) => !(field in payload))
     .map((field) => `Missing required field: ${field}`);

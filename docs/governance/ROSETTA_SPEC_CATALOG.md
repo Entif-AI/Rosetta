@@ -2,7 +2,7 @@
 
 Projection only. Regenerate with `pnpm exec nx sync`; validate with `pnpm exec nx sync:check`.
 
-9 suite documents, 4 checked-in Packs, 54 schema contracts.
+9 suite documents, 4 checked-in Packs, 63 schema contracts.
 
 - ROCK-3001: [Standards Track (Normative)](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) (3.0.0-suite-draft)
 - ROCK-3002: [Standards Track (Normative)](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) (3.0.0-suite-draft)

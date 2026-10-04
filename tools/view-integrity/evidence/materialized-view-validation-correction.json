@@ -1,0 +1,17 @@
+{
+  "profile": "validation-correction-v1",
+  "observedAt": "2026-10-04T15:02:11.431311+00:00",
+  "corrects": {
+    "commit": "33c30157684823b0da14af92d6061d71ce1ef78a",
+    "path": "tools/view-integrity/evidence/materialized-view-validation.json",
+    "sha256": "b6c3c32a19a3a473b8a9a6202938f79f3b1cee9bec824353f7c6d2bcfe39cb2a"
+  },
+  "field": "coreDescent",
+  "previousValue": "governed-extension",
+  "correctedValue": "derived-projection",
+  "authorityRefs": [
+    "packages/rosetta-schemas/src/lib/core-descent.ts",
+    "docs/governance/CORE_DESCENT_AUDIT.json"
+  ],
+  "reason": "The executable registry classifies materialized.view.v1 as derived-projection; earlier validation metadata used the wrong descriptive category. Test outcomes and original receipt bytes remain unchanged."
+}

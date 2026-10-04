@@ -1,0 +1,117 @@
+{
+  "profile": "trace-graphiti-falkordb6-incompatibility-v1",
+  "observedAt": "2026-10-04T16:20:30.540Z",
+  "status": "blocked",
+  "semanticAcceptance": false,
+  "graphitiVersion": "0.30.2",
+  "graphitiCommit": "eaa4128681bc53487138a4bbc22d58336ebe70d2",
+  "backend": {
+    "version": "6.0.1",
+    "image": "falkordb/falkordb:6.0.1@sha256:e2765e207e5ba4ee90e47ed31eb7491ad6dd3d42241c326e429375c02ad9882f",
+    "host": "127.0.0.1",
+    "port": 16379
+  },
+  "query": "CALL db.idx.fulltext.createNodeIndex({label:'Episodic',stopwords:[]}, 'content', 'source', 'source_description', 'group_id')",
+  "error": "Received 5 arguments to procedure 'db.idx.fulltext.createNodeIndex', expected at most 1",
+  "supportingIndexes": [
+    {
+      "label": "Community",
+      "properties": [
+        "uuid"
+      ],
+      "entitytype": "NODE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "Entity",
+      "properties": [
+        "uuid",
+        "group_id",
+        "name",
+        "created_at"
+      ],
+      "entitytype": "NODE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "Episodic",
+      "properties": [
+        "uuid",
+        "group_id",
+        "created_at",
+        "valid_at"
+      ],
+      "entitytype": "NODE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "Saga",
+      "properties": [
+        "uuid",
+        "group_id",
+        "name"
+      ],
+      "entitytype": "NODE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "HAS_EPISODE",
+      "properties": [
+        "uuid",
+        "group_id"
+      ],
+      "entitytype": "RELATIONSHIP",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "HAS_MEMBER",
+      "properties": [
+        "uuid"
+      ],
+      "entitytype": "RELATIONSHIP",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "MENTIONS",
+      "properties": [
+        "uuid",
+        "group_id"
+      ],
+      "entitytype": "RELATIONSHIP",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "NEXT_EPISODE",
+      "properties": [
+        "uuid",
+        "group_id"
+      ],
+      "entitytype": "RELATIONSHIP",
+      "status": "OPERATIONAL"
+    },
+    {
+      "label": "RELATES_TO",
+      "properties": [
+        "uuid",
+        "group_id",
+        "name",
+        "created_at",
+        "expired_at",
+        "valid_at",
+        "invalid_at"
+      ],
+      "entitytype": "RELATIONSHIP",
+      "status": "OPERATIONAL"
+    }
+  ],
+  "donorQuerySourceSha256": "295fc987f596ba8dce07937933fb723c10731bbbb0a371ce401f3e4adf231fb2",
+  "upstreamIssue": "https://github.com/getzep/graphiti/issues/1947",
+  "latestRelease": "https://github.com/getzep/graphiti/releases/tag/v0.30.2",
+  "queriedMainCommit": "5d47d4d0182aa6350edeb435b734837a88ed9738",
+  "sourceContractIncompatibility": false,
+  "loss": [
+    "Pinned donor full-text procedure is incompatible with FalkorDB 6.0.1. No custom driver or hidden dialect rewrite was installed.",
+    "The canonical projection contract and its independently proven operational adapter are unaffected."
+  ],
+  "failedScratchGraphsReconciledAndDropped": true
+}

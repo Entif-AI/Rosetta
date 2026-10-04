@@ -26,16 +26,29 @@
       }
     },
     {
+      "id": "entif:akasha-falkor-closeout",
+      "kind": "plan",
+      "title": "Reconcile the forward Akasha V0 backend path",
+      "status": "in-progress",
+      "task": "T1738",
+      "issues": [1738, 1734, 1664, 1667, 1668, 1669],
+      "pr": 1732,
+      "source": {
+        "path": "plans/akasha-falkor-closeout.md",
+        "sha256": "7aeb8f50584947b894c40c086a49c9438f419f0121808ce81104d412ccae3f34"
+      }
+    },
+    {
       "id": "entif:akasha-v0-acceptance",
       "kind": "plan",
       "title": "Close the integrated Akasha V0 proving slice",
       "status": "planned",
       "task": "T1664",
       "issues": [1664],
-      "pr": null,
+      "pr": 1732,
       "source": {
         "path": "plans/akasha-v0-acceptance.md",
-        "sha256": "9a0e158ef919518631accc82bddf7abcbaa24735960468fbaab6edd5c5d8425b"
+        "sha256": "a1956289fa86ff430c1dfea89b71a5b72ac9f1634addbd73e79b2bb25e01ef66"
       }
     },
     {
@@ -104,6 +117,58 @@
       }
     },
     {
+      "id": "entif:compiled-context",
+      "kind": "plan",
+      "title": "Public compiled-context output conformance",
+      "status": "in-progress",
+      "task": "T1729",
+      "issues": [1729, 1488],
+      "pr": 1732,
+      "source": {
+        "path": "plans/compiled-context.md",
+        "sha256": "9ee8efce1a9eae04f9ee22022384cb2c76d907881e64553107918872dab35584"
+      }
+    },
+    {
+      "id": "entif:engineering-akasha",
+      "kind": "plan",
+      "title": "Reconstruct JCS engineering work through Akasha evidence",
+      "status": "in-progress",
+      "task": "T1726",
+      "issues": [1726, 1693],
+      "pr": 1732,
+      "source": {
+        "path": "plans/engineering-akasha.md",
+        "sha256": "1c24f4b98f5ed58b5131fff4216dcbe2b3a024cba83ee4f789670bd16cf06ca4"
+      }
+    },
+    {
+      "id": "entif:graph-view",
+      "kind": "plan",
+      "title": "Bounded GraphView conformance",
+      "status": "in-progress",
+      "task": "T1728",
+      "issues": [1728, 1671],
+      "pr": 1732,
+      "source": {
+        "path": "plans/graph-view.md",
+        "sha256": "970c40c58cc1579fac89c84c8b88b90404a7ad37221f349d5065a09345d3a873"
+      }
+    },
+    {
+      "id": "entif:impact-revalidation",
+      "kind": "plan",
+      "title": "Dependency impact and revalidation",
+      "status": "in-progress",
+      "task": "T1730",
+      "issues": [1730],
+      "pr": 1732,
+      "source": {
+        "path": "plans/impact-revalidation.md",
+        "sha256": "725d8c1853add741aead7974aa5880e4bd12f54f21f3360575256556dd68e027"
+      }
+    },
+    {
       "id": "entif:jcs-001",
       "kind": "plan",
       "title": "Repair RFC 8785 canonical JSON ordering and conformance vectors",
@@ -117,16 +182,42 @@
       }
     },
     {
+      "id": "entif:materialized-view",
+      "kind": "plan",
+      "title": "Materialized view identity, frontier and currency",
+      "status": "in-progress",
+      "task": "T1731",
+      "issues": [1731, 1567],
+      "pr": 1732,
+      "source": {
+        "path": "plans/materialized-view.md",
+        "sha256": "9ebf249b4951c0b9223f2030b2b114f75c1d70042a4a70319dac9b427b29ab5f"
+      }
+    },
+    {
+      "id": "entif:run-completion",
+      "kind": "plan",
+      "title": "Terminal engineering-run completion evidence",
+      "status": "in-progress",
+      "task": "T1727",
+      "issues": [1727],
+      "pr": 1732,
+      "source": {
+        "path": "plans/run-completion.md",
+        "sha256": "6e40c08ded8c9261066942db9050e9031d3e5fb9890afe8c70f8f0c693cf6213"
+      }
+    },
+    {
       "id": "entif:salience-schema",
       "kind": "plan",
       "title": "Implement the public salience Profile/schema and conformance fixtures",
-      "status": "planned",
+      "status": "done",
       "task": "T1694",
       "issues": [1694, 1670, 1558, 1567],
-      "pr": null,
+      "pr": 1697,
       "source": {
         "path": "plans/salience-schema.md",
-        "sha256": "b81c51ff21d0bf84a0d04f8492c18c5ed697d4015f9e0efad4d3f1121ae6c7ee"
+        "sha256": "3323a112b61b5898f9251155fe73d2a006b8b88a50300bf7ca7c8912b18610bf"
       }
     },
     {
@@ -208,6 +299,19 @@
       }
     },
     {
+      "id": "entif:trace-graph-falkor",
+      "kind": "plan",
+      "title": "Re-prove the operational projection against FalkorDB",
+      "status": "in-progress",
+      "task": "T1735",
+      "issues": [1735, 1734, 1664],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-graph-falkor.md",
+        "sha256": "a3100c9ca8054b623890b187615bb3c0e419ed1b85b8a76bcd85084a4d68be5d"
+      }
+    },
+    {
       "id": "entif:trace-graph",
       "kind": "plan",
       "title": "Project TRACE-NORM into a real Neo4j operational graph",
@@ -218,6 +322,19 @@
       "source": {
         "path": "plans/trace-graph.md",
         "sha256": "1b074a72346c54cca1dea19ef3185b31d5f55465c79a4e9907192cae8a82da3e"
+      }
+    },
+    {
+      "id": "entif:trace-kin-falkor",
+      "kind": "plan",
+      "title": "Re-prove deterministic trace kinematics on FalkorDB",
+      "status": "in-progress",
+      "task": "T1736",
+      "issues": [1736, 1734, 1669],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-kin-falkor.md",
+        "sha256": "7c1e37fab5992f3c43bbb97c996e6176de97190a19e82cfdd38617f733cdf772"
       }
     },
     {
@@ -260,20 +377,66 @@
       }
     },
     {
+      "id": "entif:trace-temp-falkor",
+      "kind": "plan",
+      "title": "First-party Graphiti temporal bridge on FalkorDB",
+      "status": "in-progress",
+      "task": "T1737",
+      "issues": [1737, 1734, 1668, 1558],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-temp-falkor.md",
+        "sha256": "ca4a6160dc49e4683276ab630c51b52a5cc86015322eed5221482dc4bc945c0c"
+      }
+    },
+    {
       "id": "entif:trace-temp",
       "kind": "plan",
       "title": "Bridge selected normalized episodes into Graphiti temporal semantics",
-      "status": "planned",
+      "status": "blocked",
       "task": "T1668",
       "issues": [1668, 1664, 1558, 1567],
-      "pr": null,
+      "pr": 1732,
       "source": {
         "path": "plans/trace-temp.md",
-        "sha256": "24a5f45f3afff4dbda9699f06e39691c7c7a153054f6145d35420bd58bb421de"
+        "sha256": "37ec1a98761af5aec834a362713be78928bbe2a481e84a8ed669b29e2b8b8da3"
+      }
+    },
+    {
+      "id": "entif:work-lifecycle",
+      "kind": "plan",
+      "title": "Public bounded-work lifecycle representation",
+      "status": "in-progress",
+      "task": "T1509",
+      "issues": [1509],
+      "pr": 1732,
+      "source": {
+        "path": "plans/work-lifecycle.md",
+        "sha256": "0475a14a6e6d2ba7bfb10b5948f61a913bef84fcebafc8267f38adba5b316fb2"
       }
     }
   ],
   "relationships": [
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-kin-falkor"
+    },
+    {
+      "from": "entif:akasha-falkor-closeout",
+      "kind": "depends-on",
+      "to": "entif:trace-temp-falkor"
+    },
     {
       "from": "entif:akasha-v0-acceptance",
       "kind": "implements",
@@ -282,12 +445,7 @@
     {
       "from": "entif:akasha-v0-acceptance",
       "kind": "depends-on",
-      "to": "entif:trace-kin"
-    },
-    {
-      "from": "entif:akasha-v0-acceptance",
-      "kind": "depends-on",
-      "to": "entif:trace-temp"
+      "to": "entif:akasha-falkor-closeout"
     },
     {
       "from": "entif:axi-base",
@@ -335,9 +493,89 @@
       "to": "entif:specops-integrated"
     },
     {
+      "from": "entif:compiled-context",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:work-lifecycle"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-src"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-norm"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:engineering-akasha",
+      "kind": "depends-on",
+      "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "depends-on",
+      "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:graph-view",
+      "kind": "depends-on",
+      "to": "entif:materialized-view"
+    },
+    {
+      "from": "entif:impact-revalidation",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:jcs-001",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:materialized-view",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:materialized-view",
+      "kind": "depends-on",
+      "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "depends-on",
+      "to": "entif:work-lifecycle"
+    },
+    {
+      "from": "entif:run-completion",
+      "kind": "depends-on",
+      "to": "entif:engineering-akasha"
     },
     {
       "from": "entif:salience-schema",
@@ -405,6 +643,16 @@
       "to": "entif:specops-migrate"
     },
     {
+      "from": "entif:trace-graph-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-graph-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph"
+    },
+    {
       "from": "entif:trace-graph",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -413,6 +661,16 @@
       "from": "entif:trace-graph",
       "kind": "depends-on",
       "to": "entif:trace-norm"
+    },
+    {
+      "from": "entif:trace-kin-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-kin-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
     },
     {
       "from": "entif:trace-kin",
@@ -450,6 +708,16 @@
       "to": "entif:jcs-001"
     },
     {
+      "from": "entif:trace-temp-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-temp-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
+    },
+    {
       "from": "entif:trace-temp",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -458,6 +726,11 @@
       "from": "entif:trace-temp",
       "kind": "depends-on",
       "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:work-lifecycle",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:development-substrate",
