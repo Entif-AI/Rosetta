@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-04T05:38:20.359980Z",
+  "package_version": null,
+  "policy": {
+    "dirty_ceiling_minutes": 10,
+    "primary_channel": "github",
+    "remote_parent_ref": "https://github.com/Entif-AI/Rosetta",
+    "witness_interval_minutes": 10,
+    "witness_mode": "none",
+    "witness_recipient": null
+  },
+  "project_id": null,
+  "run_id": "engineering-evidence-2026-10-04",
+  "schema": "entif.run-durability/v1",
+  "scope_fingerprint": "1668,1664,1694,1695,1509,1726,1727,1730,1731,1728,1729",
+  "title": "Rosetta engineering evidence batch"
+}
