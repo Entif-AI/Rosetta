@@ -120,13 +120,13 @@
       "id": "entif:salience-schema",
       "kind": "plan",
       "title": "Implement the public salience Profile/schema and conformance fixtures",
-      "status": "planned",
+      "status": "done",
       "task": "T1694",
       "issues": [1694, 1670, 1558, 1567],
-      "pr": null,
+      "pr": 1697,
       "source": {
         "path": "plans/salience-schema.md",
-        "sha256": "b81c51ff21d0bf84a0d04f8492c18c5ed697d4015f9e0efad4d3f1121ae6c7ee"
+        "sha256": "3323a112b61b5898f9251155fe73d2a006b8b88a50300bf7ca7c8912b18610bf"
       }
     },
     {
@@ -263,13 +263,13 @@
       "id": "entif:trace-temp",
       "kind": "plan",
       "title": "Bridge selected normalized episodes into Graphiti temporal semantics",
-      "status": "planned",
+      "status": "blocked",
       "task": "T1668",
       "issues": [1668, 1664, 1558, 1567],
-      "pr": null,
+      "pr": 1732,
       "source": {
         "path": "plans/trace-temp.md",
-        "sha256": "24a5f45f3afff4dbda9699f06e39691c7c7a153054f6145d35420bd58bb421de"
+        "sha256": "37ec1a98761af5aec834a362713be78928bbe2a481e84a8ed669b29e2b8b8da3"
       }
     }
   ],
