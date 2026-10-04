@@ -16,7 +16,7 @@ Validate focused failing-before/passing-after fixtures, owner package checks, sc
 
 Starting quota-axi observation at 2026-10-04T05:38:20.875Z: fresh, five-hour remaining 47%, weekly 63%. Earlier desktop meter reported five-hour 81%; meters disagree, attribution and precision are not inferred. Raw seat telemetry remains outside Git. Provider/model/reasoning identity is not durably exposed and remains unknown. No implementation acceptance yet.
 
-Next safe step: selected-episode contract and adversarial red tests for #1668.
+Next safe step: #1726 engineering lifecycle source adapter, using merged #1693/#1725 durable evidence and the #1509 contract on this branch.
 
 ## TRACE-TEMP checkpoint
 
@@ -25,3 +25,9 @@ Public adapter and schemas implemented; 18 focused TypeScript fixtures and two P
 Review repaired independently admitted rights/source/time bindings, invalidation knowledge-time visibility, resolvable permitted support and linear supersession-cycle detection. The concrete invalidation red regression exposed a future end-date in an earlier permitted artifact; the green projection removes unseen/revoked invalidation metadata. Other first-pass boundary regressions initially failed schema admission because the new fields were absent; those are contract red evidence, not behavior-specific reproductions.
 
 #1694 and #1695 are already integrated through #1697 at the base. Fresh focused suites pass 16 tests and all four Packs pass. No duplicate implementation. Quota checkpoint at 2026-10-04T05:52:01.761Z reports 26% five-hour remaining; reset/window identity and weekly meter changed, so no per-run consumption is inferred.
+
+## Resumed execution and #1509
+
+Recovered remote head e7976f74e2bebbbf13babc4a7c024bd7839490d5; fetched main remains 6a9ddc28853ab519064b3216c2d98f55e3b34251. Isolated clean worktree, same integration branch and serialized writer. Original editorial checkout and its unresolved merge were left untouched. Quota-axi fresh observation at 2026-10-04T06:06:00.681Z: five-hour 92% remaining (reset 2026-10-04T11:02:46Z), weekly 75%; raw evidence is ignored local state. This is a different observed quota window from the original attempt; no per-run consumption inference.
+
+#1509 public work.lifecycle.v1 schema and bounded append-only history/materialized-state helpers implemented. No Core kind or IPR-0053 private policy was added. Five admission regressions failed before implementation; a sixth history regression exposed integration using superseded verification and was repaired. Nine public synthetic vectors and 18 focused cases pass. Owner lint/typecheck/test/build: 102 tests passed. Completion never implies verification/integration; recorded integration survives later rejection as an external fact. Evidence authentication and actual verifier independence remain the responsibility of referenced authorities. Plan is in-progress until integration.

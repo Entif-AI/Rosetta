@@ -86,6 +86,8 @@ catalog registration introduces a new Core kind.
 
 ### 3.3 Entif and project application contracts
 
+`work.lifecycle.v1` (#1509) is a public application contract composing references to existing execution, Evaluation and Receipt semantics. It is not a Core kind and grants no dispatch/write authority. Its separately materialized `work.lifecycle-state.v1` is a derived inspection view. Procedure/executor, completion/verification/integration and history/current-state distinctions remain explicit; private orchestration policy is outside this surface.
+
 The following families are application contracts unless a later accepted authority explicitly elevates them:
 
 - `entif.*`, including `entif.intake_envelope`, digest, postmortem, Agentic Messaging, domain-reference, and execution-admission schemas;

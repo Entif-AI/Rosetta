@@ -1,0 +1,71 @@
+{
+  "description": "Synthetic public conformance vector; no assertion that an external activity occurred.",
+  "expectOk": true,
+  "records": [
+    {
+      "recordId": "record:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "completed",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "executorRef": "executor:worker",
+      "resultRef": "result:attempt",
+      "disposition": "completed"
+    },
+    {
+      "recordId": "record:verification_rejected",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "verification_rejected",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "executorRef": "executor:worker",
+      "resultRef": "result:attempt",
+      "verifierRefs": [
+        "executor:reviewer"
+      ],
+      "disposition": "rejected"
+    }
+  ]
+}

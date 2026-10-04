@@ -271,6 +271,19 @@
         "path": "plans/trace-temp.md",
         "sha256": "37ec1a98761af5aec834a362713be78928bbe2a481e84a8ed669b29e2b8b8da3"
       }
+    },
+    {
+      "id": "entif:work-lifecycle",
+      "kind": "plan",
+      "title": "Public bounded-work lifecycle representation",
+      "status": "in-progress",
+      "task": "T1509",
+      "issues": [1509],
+      "pr": 1732,
+      "source": {
+        "path": "plans/work-lifecycle.md",
+        "sha256": "0475a14a6e6d2ba7bfb10b5948f61a913bef84fcebafc8267f38adba5b316fb2"
+      }
     }
   ],
   "relationships": [
@@ -458,6 +471,11 @@
       "from": "entif:trace-temp",
       "kind": "depends-on",
       "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:work-lifecycle",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:development-substrate",

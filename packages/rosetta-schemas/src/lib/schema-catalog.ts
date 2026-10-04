@@ -230,6 +230,19 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/work-lifecycle-v1.md', 'packages/rosetta-schemas/docs/work-lifecycle-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'work-lifecycle', knownGaps: ['Structural attribution and bounded history closure do not authenticate evidence, establish real-world verifier independence or grant operational authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'work.lifecycle.v1', sourceIssues: ['#1509'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts'], validator: 'validateWorkLifecycle'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'validation-entrypoint', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/work-lifecycle-v1.md'], exposureStatus: 'downstream-contract', family: 'work-lifecycle', knownGaps: ['Closed bounded history only; current state is an inspection projection, not scheduling or authorization.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'work.lifecycle-state.v1', sourceIssues: ['#1509'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts'], validator: 'materializeWorkLifecycle'
+  },
+  {
     authorityTier: 'core-spine',
     boundaryKind: 'owned-schema',
     consumerPackages: ['@entif-ai/rosetta-schemas', '@entif-ai/rosetta-core'],

@@ -93,6 +93,8 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 
 ## Trace derived Profile
 
+`work.lifecycle.v1` (#1509) is an application-level bounded-work contract; `work.lifecycle-state.v1` is its separate derived current-state view. See [work-lifecycle-v1.md](work-lifecycle-v1.md). Neither introduces a Core kind or grants operational authority.
+
 `trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
 
 `trace.projection.v1` owns graph exchange/identity/provenance for #1667. See [trace-projection-v1.md](trace-projection-v1.md). Neo4j implements a disposable development adapter, with explicit derived-projection descent.
