@@ -1,13 +1,13 @@
 ---
 id: entif:trace-src
 task: T1665
-status: planned
+status: done
 depends: [jcs-001]
 awaits: []
 specs:
   - specs/architecture.md
 issues: [1665, 1664]
-pr:
+pr: 1725
 ---
 # Establish immutable rights-safe TRACE-SRC fixture
 
@@ -15,13 +15,13 @@ Create the source-preserving TRACE-SRC fixture from an authorized captured ChatG
 
 ## Validation
 
-- [ ] Private source bytes remain unchanged and are never committed publicly.
-- [ ] Source metadata and raw digest are recorded in protected/durable provenance.
-- [ ] Same bounded source bytes plus `trace-src-redaction-v1` produce byte-identical fixture output.
-- [ ] Deterministic first-seen ordinal remapping preserves equality/parentage.
-- [ ] Secret scanner proves no resume/JWT/bearer token, raw message text, attachment id/name, private URL/host, or original conversation/request/turn/message identifier survives.
-- [ ] Public fixture declares itself a derived redacted manifestation, not pristine source evidence.
-- [ ] Fixture path runs offline without a model call.
+- [x] Private source bytes remain unchanged and are never committed publicly.
+- [x] Source metadata and raw digest are recorded in protected/durable provenance.
+- [x] Same bounded source bytes plus `trace-src-redaction-v1` produce byte-identical fixture output.
+- [x] Deterministic first-seen ordinal remapping preserves equality/parentage.
+- [x] Secret scanner proves no resume/JWT/bearer token, raw message text, attachment id/name, private URL/host, or original conversation/request/turn/message identifier survives.
+- [x] Public fixture declares itself a derived redacted manifestation, not pristine source evidence.
+- [x] Fixture path runs offline without a model call.
 
 ## External authorities
 

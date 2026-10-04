@@ -107,13 +107,13 @@
       "id": "entif:jcs-001",
       "kind": "plan",
       "title": "Repair RFC 8785 canonical JSON ordering and conformance vectors",
-      "status": "planned",
+      "status": "done",
       "task": "T1693",
       "issues": [1693, 528],
-      "pr": null,
+      "pr": 1725,
       "source": {
         "path": "plans/jcs-001.md",
-        "sha256": "b4e131a7508530379020c1f12bafb905aa8787a2d7544f69bd671a7db551115a"
+        "sha256": "a3f937702a9aba6d670a6a7fe1215559da608b51bc85ba276ffc035aa61a9e53"
       }
     },
     {
@@ -250,13 +250,13 @@
       "id": "entif:trace-src",
       "kind": "plan",
       "title": "Establish immutable rights-safe TRACE-SRC fixture",
-      "status": "planned",
+      "status": "done",
       "task": "T1665",
       "issues": [1665, 1664],
-      "pr": null,
+      "pr": 1725,
       "source": {
         "path": "plans/trace-src.md",
-        "sha256": "8650c8a159e6e4d4364ebf50faf81b4ddb1da3dda55cae2573f6c8b146a69571"
+        "sha256": "88f58955d6276e6b294485d7a45f01f15feb3bb8c817ac17f702e155b34f2834"
       }
     },
     {
