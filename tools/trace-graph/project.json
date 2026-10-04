@@ -2,6 +2,21 @@
   "name": "trace-graph",
   "projectType": "application",
   "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "source-substrate", "rosetta-store"], "target": "build" }],
+      "options": {
+        "command": "node --test tools/trace-graph/kinematics-proof.spec.mjs"
+      }
+    },
+    "prove-kinematics": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "source-substrate", "rosetta-store"], "target": "build" }],
+      "cache": false,
+      "options": {
+        "command": "node tools/trace-graph/prove-kinematics-falkordb.mjs"
+      }
+    },
     "prove": {
       "executor": "nx:run-commands",
       "dependsOn": [

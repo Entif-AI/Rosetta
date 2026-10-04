@@ -312,6 +312,19 @@
       }
     },
     {
+      "id": "entif:trace-kin-falkor",
+      "kind": "plan",
+      "title": "Re-prove deterministic trace kinematics on FalkorDB",
+      "status": "in-progress",
+      "task": "T1736",
+      "issues": [1736, 1734, 1669],
+      "pr": 1732,
+      "source": {
+        "path": "plans/trace-kin-falkor.md",
+        "sha256": "7c1e37fab5992f3c43bbb97c996e6176de97190a19e82cfdd38617f733cdf772"
+      }
+    },
+    {
       "id": "entif:trace-kin",
       "kind": "plan",
       "title": "Measure trace kinematics and conservative representation shrinkage",
@@ -607,6 +620,16 @@
       "from": "entif:trace-graph",
       "kind": "depends-on",
       "to": "entif:trace-norm"
+    },
+    {
+      "from": "entif:trace-kin-falkor",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:trace-kin-falkor",
+      "kind": "depends-on",
+      "to": "entif:trace-graph-falkor"
     },
     {
       "from": "entif:trace-kin",

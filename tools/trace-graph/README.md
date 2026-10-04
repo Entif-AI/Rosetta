@@ -24,3 +24,9 @@ Provider-neutral fixture tools remain:
 - `measure.mjs` regenerates deterministic trace-kin-v1 series/schema.
 
 Direct queries in `cypher/` preserve physical source order without promoting it into causality. Morphology and required neighborhoods are included here for parity. Independent TRACE-KIN acceptance (#1736), Graphiti/Falkor semantic proof (#1737), and final catalogs/roadmap/V0 reconciliation (#1738) retain their own acceptance boundaries. Generated S2 is an observable representation-shrink candidate; S4 is a reset; B reappears at S5. These measurements do not establish provider/model internal memory.
+
+## Active kinematics re-proof (#1736)
+
+For roadmap Step 7, start the pinned runtime above and run `TRACE_GRAPH_ISOLATED=true NX_DAEMON=false pnpm exec nx run trace-graph:prove-kinematics`. The independent harness uses scratch graph `entif_trace_1736`, refuses an existing graph until reconciled, compares both full metric reports and the unchanged morphology/lifecycle/neighborhood queries against historical literal results, then drops its graph. It preserves other graphs, source/store and existing proof bytes. Its new receipt is `evidence/falkordb-kinematics-proof.json`; it does not replace #1669 evidence.
+
+For Step 14 / TRACE-LIVE, re-run the active Falkor operational proof and this kinematics path on the separately admitted normalized live derivative, preserving the source/rights/temporal negative cases and the memory caveat. The current harness admits only the two checked-in fixtures; live derivative acceptance remains a separate outcome. Selected Graphiti/Falkor analysis is owned by #1737. #1738 owns final roadmap/V0 reconciliation after those actual proofs.
