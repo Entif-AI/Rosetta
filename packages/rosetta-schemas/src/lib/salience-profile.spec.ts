@@ -3,11 +3,13 @@ import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 import { Ajv2020 } from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
+import addFormatsModule from 'ajv-formats';
 import { validateSalienceEvaluation } from './salience-profile.js';
 
 import { validatePayload } from './rosetta-schemas.js';
 import { getSchemaCatalogEntry } from './schema-catalog.js';
+
+const addFormats = addFormatsModule.default ?? addFormatsModule;
 
 const ordinal = (level: 'low' | 'high') => ({
   allowedLevels: ['low', 'high'],

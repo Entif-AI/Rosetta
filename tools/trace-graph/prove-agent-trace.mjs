@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* global console, process */
 import { readFile } from 'node:fs/promises';
+import { URL } from 'node:url';
 import { normalizeAgentStreamSource } from '../../packages/ingress-refinery/dist/index.js';
 import { agentTraceTransitionQuery, analyzeAgentTraceKinematics, executeFixtureCypher, importAgentTraceProjection, planAgentTraceProjection, resetAgentTraceProjection } from '../../packages/projection-adapters/dist/index.js';
 

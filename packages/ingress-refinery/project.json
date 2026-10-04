@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run packages/ingress-refinery/src/lib/ingress-refinery.spec.ts packages/ingress-refinery/src/lib/agent-stream-normalization.spec.ts"
+        "command": "vitest run packages/ingress-refinery/src/lib/*.spec.ts"
       },
       "cache": true,
       "inputs": [

@@ -1,13 +1,15 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { Ajv2020 } from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
+import addFormatsModule from 'ajv-formats';
 import { validatePayload } from './rosetta-schemas.js';
 import { getSchemaCatalogEntry } from './schema-catalog.js';
 
 import { describe, expect, it } from 'vitest';
 
 import { COUNTERFACTUAL_PROFILE, validateCounterfactualEvaluation } from './counterfactual-profile.js';
+
+const addFormats = addFormatsModule.default ?? addFormatsModule;
 
 export function counterfactualFixture(): Record<string, unknown> {
   return {

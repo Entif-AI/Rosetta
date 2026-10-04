@@ -50,7 +50,7 @@ describe('agent-stream source profile and fixture', () => {
     expect(artifacts.episode.payload.mode).toBe('parse-only');
     expect(
       [artifacts.systemProfile, artifacts.record, artifacts.manifestation, artifacts.sourcePackage, artifacts.episode].every(
-        (artifact) => verifyTileIntegrity(artifact).ok
+        (artifact) => verifyTileIntegrity<unknown>(artifact).ok
       )
     ).toBe(true);
     expect(

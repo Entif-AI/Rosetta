@@ -1,0 +1,63 @@
+{
+  "formatVersion": 1,
+  "role": "public-fixture-conformance-evidence-not-semantic-or-workflow-authority",
+  "repository": "Entif-AI/Rosetta",
+  "baseHead": "88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9",
+  "draftPr": 1725,
+  "checkpointBinding": "The commit containing this receipt binds the validated final working tree; coordinator verifies its remote readback.",
+  "coordination": "user-authorized-single-writer-exception; missing lease tooling confirmed; no fabricated lease or force-push",
+  "acceptedLeaves": [
+    1693,
+    1665,
+    1666,
+    1667,
+    1669
+  ],
+  "deferredLeaves": [
+    1668,
+    1694
+  ],
+  "parentIssue": {
+    "number": 1664,
+    "state": "open",
+    "reason": "Graphiti acceptance remains outstanding"
+  },
+  "validation": [
+    "JCS integer-key regression red before repair; RFC key/primitive/Unicode and repeat-byte tests green",
+    "Bounded source derivation/replay, public secret/private-scalar scans and distinct original/derived manifestations",
+    "Schema/refinery/projection focused lint/typecheck/test/build",
+    "CRLF source-byte and graph namespace negative regressions red then green",
+    "Literal S0-S5 kinematics plus captured request recurrence and unchanged-result repetition",
+    "verify:full passed; final added query/test changes additionally proved and lint/typechecked",
+    "affected:verify passed",
+    "governance:admission passed (13 upstream collectors, pinned Spec Kit distribution runtime)",
+    "governance:spec passed",
+    "SpecOps plan tests/DAG/next passed; no downstream barrier crossed",
+    "Real Neo4j 5.26.0: both fixtures, constraints/indexes, literal Cypher, bounded/pre-post neighborhoods, idempotent import, scoped reset and identical rebuilt closure/query results"
+  ],
+  "proofPath": "tools/trace-graph/evidence/neo4j-proof.json",
+  "proofSha256": "a4e8f0679278b3e1e0c644433ee3219927b1f92e373ba2e52c9c2c2ea1133815",
+  "fixtures": [
+    {
+      "fixture": "captured-derived",
+      "normalizedDigest": "897a9a3c681e61746c07c87e653c7cd33b32d5dc446c022b4edef5e61bcaaa0f",
+      "closureDigest": "810a577308c828b0f642007fc841b985ca6d78109c7bd11747ca3154753287cd",
+      "kinematicsDigest": "590bcf16c39a03d1c566ca40f93567a49194953c853875c6b7aebe986b076b11",
+      "nodes": 243,
+      "edges": 1965
+    },
+    {
+      "fixture": "generated-edges",
+      "normalizedDigest": "1eba0b0c5d2bc7f8d6e6ba337665abb5d680e7349b59b39e6193362bb87c25fa",
+      "closureDigest": "04d9bd46cc557e2fb11a54ab7633d04172fd5164b67629916d105929f5ef84e2",
+      "kinematicsDigest": "6b5ef6079ee57b028aa14d73be2118abeda85957eda79eede8d9bf7661b621d1",
+      "nodes": 32,
+      "edges": 71
+    }
+  ],
+  "limits": [
+    "Fixture-backed development capability, no live capture or production pipeline",
+    "Client-visible representation dynamics only; no provider/model memory or causal claim",
+    "No Core kind/store authority change, protected policy, Graphiti, salience implementation, merge, release or automatic issue closure"
+  ]
+}

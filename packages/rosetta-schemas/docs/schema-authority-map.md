@@ -90,3 +90,11 @@ as `lifecycle-state`. Source packages compose membership related to Frame semant
 source receipt records and trust axes reference Core meaning without claiming
 structural equivalence. The named RRP promotion Profile is `core-tile-profile` of
 Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation record.
+
+## Trace derived Profile
+
+`trace.normalization.v1` is the public source-ingest derived Profile owned by #1666. See [trace-normalization-v1.md](trace-normalization-v1.md). It has explicit derived-projection descent and adds no Core kind.
+
+`trace.projection.v1` owns graph exchange/identity/provenance for #1667. See [trace-projection-v1.md](trace-projection-v1.md). Neo4j implements a disposable development adapter, with explicit derived-projection descent.
+
+`trace-kin-v1` owns public observable metric/result semantics for #1669. See [trace-kinematics-v1.md](trace-kinematics-v1.md). It has derived-projection descent and does not authorize hidden-memory interpretations or protected scoring.

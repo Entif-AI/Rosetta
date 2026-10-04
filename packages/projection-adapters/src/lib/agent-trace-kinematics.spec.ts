@@ -39,7 +39,7 @@ describe('observable agent-trace kinematics', () => {
     expect(report.objects.find((item: { objectId: string }) => item.objectId === 'object.synthetic.tool.001')).toMatchObject({ survivedTransitions: 1, disappearedAt: ['snapshot.synthetic.003'], reappearedAt: ['snapshot.synthetic.004'] });
     expect(report.objects.find((item: { objectId: string }) => item.objectId === 'object.synthetic.context.001')).toMatchObject({ survivedTransitions: 3, disappearedAt: [], reappearedAt: [] });
     expect(report.signatures.find((item: { kind: string }) => item.kind === 'payload')).toMatchObject({ occurrenceCount: 2 });
-    expect(report.signatures.find((item: { sourceName: string }) => item.sourceName === 'synthetic-tool')).toMatchObject({ occurrenceCount: 3 });
+    expect(report.signatures.find((item) => item.sourceName === 'synthetic-tool')).toMatchObject({ occurrenceCount: 3 });
     expect(report.signatures.find((item: { kind: string }) => item.kind === 'request')).toMatchObject({ occurrenceCount: 8 });
     expect(report.signatures.find((item: { kind: string }) => item.kind === 'result')).toMatchObject({ occurrenceCount: 5 });
   });

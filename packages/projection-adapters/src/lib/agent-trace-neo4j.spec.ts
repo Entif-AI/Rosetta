@@ -28,7 +28,7 @@ describe('fixture Neo4j projection', () => {
     expect(plan.edges.filter((edge: { kind: string }) => edge.kind === 'SOURCE_PARENT')).toHaveLength(8);
     expect(plan.edges.filter((edge: { kind: string }) => edge.kind === 'REQUEST_RESULT')).toHaveLength(1);
     expect(plan.edges.some((edge: { kind: string }) => edge.kind.includes('CAUS'))).toBe(false);
-    expect(plan.nodes.filter((node: { kind: string }) => node.kind === 'snapshot').map((node: { properties: { occurrenceCount: number } }) => node.properties.occurrenceCount)).toEqual([2, 4, 1, 2]);
+    expect(plan.nodes.filter((node: { kind: string }) => node.kind === 'snapshot').map((node) => node.properties.occurrenceCount)).toEqual([2, 4, 1, 2]);
   });
 
   it('rejects mutated normalized content before planning database writes', async () => {

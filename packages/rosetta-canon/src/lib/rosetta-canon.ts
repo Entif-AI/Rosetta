@@ -23,11 +23,11 @@ function assertWellFormedUnicode(value: string): void {
     if (codeUnit >= 0xd800 && codeUnit <= 0xdbff) {
       const nextCodeUnit = value.charCodeAt(index + 1);
       if (index + 1 === value.length || nextCodeUnit < 0xdc00 || nextCodeUnit > 0xdfff) {
-        throw new Error('JCS canonicalization does not accept lone surrogate code units.');
+        throw new Error('JCS canonicalization rejects lone Unicode surrogates.');
       }
       index += 1;
     } else if (codeUnit >= 0xdc00 && codeUnit <= 0xdfff) {
-      throw new Error('JCS canonicalization does not accept lone surrogate code units.');
+      throw new Error('JCS canonicalization rejects lone Unicode surrogates.');
     }
   }
 }

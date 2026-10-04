@@ -243,3 +243,11 @@ package-internal use is bounded and needs no breaking rename in this audit.
 with declared Observation descent and exact predecessor closure. General Profile
 negotiation remains #907. Source trust, lifecycle, and conformance execution remain
 with #803, #1211 and #240; the audit does not reopen those owners.
+
+## Deterministic trace normalization
+
+`trace.normalization.v1` (#1666) is a namespaced derived view over immutable source evidence. It introduces no Core kind or hidden provider-state claim. Object identity, time roles, loss and dictionary references remain observable source mechanics.
+
+The #1667 `trace.projection.v1` exchange Profile is a derived projection of normalized trace/source evidence. Neo4j runtime storage and indexes are adapter mechanics; no Core/store authority is replaced. Five lifecycle dispositions and shared explicit request IDs remain source mechanics, without inferred causal edges.
+
+The #1669 `trace-kin-v1` observable metrics Profile is a derived projection. Candidate labels are bounded to client-visible representation dynamics, with a required serialized caveat and explicit reset/run/window criteria; no protected scoring, causal ordering or provider-memory authority is created.
