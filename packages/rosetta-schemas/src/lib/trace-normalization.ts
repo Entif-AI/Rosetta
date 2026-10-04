@@ -70,14 +70,50 @@ export function parseTraceNormalization(value: unknown): TraceNormalizationRepor
   }
   const snapshotIds = new Set(value.snapshots.map(s => s.snapshotId));
   if (snapshotIds.size !== value.snapshots.length) throw new Error('Duplicate snapshot identity.');
-  for (const snapshot of value.snapshots) {
-    if (canonicalTraceJson(snapshot.objectIds) !== canonicalTraceJson(snapshot.objects.map(o => o.objectId).sort())) throw new Error('Snapshot membership mismatch.');
-    for (const state of snapshot.objects) if (state.content.kind === 'dictionary' && !refs.has(state.content.payloadRef)) throw new Error('Missing payload reference.');
+  for (const [index, snapshot] of value.snapshots.entries()) {
+    const objectIds = snapshot.objects.map(o => o.objectId);
+    if (canonicalTraceJson(snapshot.objectIds) !== canonicalTraceJson([...objectIds].sort()) || canonicalTraceJson(objectIds) !== canonicalTraceJson(snapshot.objectIds)) throw new Error('Snapshot membership mismatch.');
+    if (index > 0 && snapshot.sourceSequence <= value.snapshots[index - 1].sourceSequence) throw new Error('Unordered snapshots.');
+    if (snapshot.emittedIds.some(id => !snapshot.objectIds.includes(id))) throw new Error('Snapshot emission outside membership.');
+    const reconstructed = snapshot.objects.map(state => {
+      if (state.content.kind === 'inline') return { ...state, content: state.content.value };
+      const payload = refs.get(state.content.payloadRef);
+      if (!payload) throw new Error('Missing payload reference.');
+      return { ...state, content: payload.value };
+    });
+    if (Buffer.byteLength(canonicalTraceJson(reconstructed)) !== snapshot.normalizedBytes) throw new Error('Snapshot normalizedBytes mismatch.');
   }
   for (const delta of value.deltas) {
     if (!snapshotIds.has(delta.toSnapshotId) || (delta.fromSnapshotId !== null && !snapshotIds.has(delta.fromSnapshotId))) throw new Error('Missing snapshot reference.');
     const dispositions = [...delta.added, ...delta.changed, ...delta.removed, ...delta.repeated, ...delta.unchanged];
     if (new Set(dispositions).size !== dispositions.length) throw new Error('Overlapping delta dispositions.');
+  }
+  const deltaBySnapshot = new Map(value.deltas.map(d => [d.toSnapshotId, d]));
+  if (value.deltas.length !== value.snapshots.length || deltaBySnapshot.size !== value.deltas.length || new Set(value.deltas.map(d => d.deltaId)).size !== value.deltas.length) throw new Error('Delta coverage or identity mismatch.');
+  const snapshotsById = new Map(value.snapshots.map(s => [s.snapshotId, s]));
+  const lastByRun = new Map<string, TraceSnapshot>();
+  for (const [index, snapshot] of value.snapshots.entries()) {
+    const delta = deltaBySnapshot.get(snapshot.snapshotId);
+    if (!delta) throw new Error('Delta coverage mismatch.');
+    const predecessor = lastByRun.get(snapshot.runRef) ?? (snapshot.reset ? value.snapshots[index - 1] : undefined);
+    if (delta.fromSnapshotId !== (predecessor?.snapshotId ?? null)) throw new Error('Invalid delta predecessor.');
+    const before = new Map((delta.fromSnapshotId === null ? [] : snapshotsById.get(delta.fromSnapshotId)?.objects ?? []).map(state => [state.objectId, state]));
+    const after = new Map(snapshot.objects.map(state => [state.objectId, state]));
+    const emitted = new Set(snapshot.emittedIds);
+    const expected: Pick<TraceDelta, 'added' | 'changed' | 'removed' | 'repeated' | 'unchanged'> = { added: [], changed: [], removed: [], repeated: [], unchanged: [] };
+    for (const state of snapshot.objects) {
+      const prior = before.get(state.objectId);
+      if (!prior) expected.added.push(state.objectId);
+      else if (canonicalTraceJson(prior) !== canonicalTraceJson(state)) expected.changed.push(state.objectId);
+      else if (emitted.has(state.objectId)) expected.repeated.push(state.objectId);
+      else expected.unchanged.push(state.objectId);
+    }
+    expected.removed = [...before.keys()].filter(id => !after.has(id));
+    // Each set must equal the recomputed disposition, covering the full before/after union.
+    for (const kind of ['added', 'changed', 'removed', 'repeated', 'unchanged'] satisfies (keyof typeof expected)[]) {
+      if (canonicalTraceJson([...delta[kind]].sort()) !== canonicalTraceJson([...expected[kind]].sort())) throw new Error(`Delta disposition mismatch: ${kind}.`);
+    }
+    lastByRun.set(snapshot.runRef, snapshot);
   }
   for (const record of value.records) for (const field of record.inheritedFields) if (!Object.hasOwn(value.hoisted, field)) throw new Error('Missing hoisted field.');
   return value;

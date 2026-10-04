@@ -912,7 +912,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "packages/rosetta-schemas/docs/trace-normalization-v1.md",
-        "sha256": "bd0e2180a1cf942f1b2e7b64fc045351bd2fc5d819511d6bf3324fa9ccdec768"
+        "sha256": "7ea5aa9aa71a0301dacd564945ff7f31da3225a021050dc03a65b089c25128fd"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",

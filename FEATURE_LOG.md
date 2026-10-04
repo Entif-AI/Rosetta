@@ -7,7 +7,7 @@ Base: 88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9
 Coordination: user-authorized-single-writer-exception.
 Authorization: explicit current user launch turn, October 3, 2026.
 No force-push, merge, release or automatic issue closure. One mutable writer.
-Last acknowledged remote SHA: b3d3ec4dcd2a8d6b58ac36243f15dae5eb476e4b
+Last acknowledged remote SHA: d6bf19669fa9330514e3c6535ccdafafdc72e66e
 
 ## Authority preflight
 
@@ -28,6 +28,12 @@ Batch postflight passed: verify:full, affected:verify, governance:admission, gov
 - #1665: a5974f7a73e9d5eb60935cb77c4c54974eab18e4
 - #1666: 22c00847b21c34cef7547d256f0d1d312084711c
 - #1667: b3d3ec4dcd2a8d6b58ac36243f15dae5eb476e4b
-- #1669 and batch postflight: the commit containing this final log/evidence, with remote readback verified by the coordinator.
+- #1669 and batch postflight: d6bf19669fa9330514e3c6535ccdafafdc72e66e, with remote readback verified by the coordinator.
 
 Receipt: tools/trace-graph/evidence/batch-validation.json. Public runtime proof binds source/normalized/graph/kinematics artifacts. The private original and derivation receipt remain outside Git. The isolated development database may be stopped; all checked-in proof artifacts remain independently inspectable.
+
+## Scoped review follow-up
+
+Review question: https://github.com/Entif-AI/Rosetta/pull/1725#issuecomment-5975928228. User selected only trace.normalization.v1 independent self-validation. #1666 and the public Profile govern serialized admission; producer identity alone is insufficient. Preserve the accepted batch, serialized shape and fixture bytes/digests. Add rehashed negative lifecycle/byte-count/partition tests before parser changes, then run narrow schema/refinery/projection checks and final admission gates. One checkpoint; reply to the existing comment and mark ready only when green. No merge, Graphiti, salience or unrelated work.
+
+Scoped review disposition: independent serialized admission. Sixteen rehashed adversarial cases were accepted before the fix and rejected after it. Narrow schema/refinery/projection tests pass (68/22/9), with lint/typecheck/build. All 13 checked-in fixture/schema/evidence files remain byte-identical; normalized, kinematics and pure graph closure digests are unchanged. Final merge/spec admission and sync:check pass. Next safe step: push this single review checkpoint, verify current-head CI, reply to the existing review question, and mark ready without merge or issue closure.

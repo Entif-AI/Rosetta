@@ -4135,7 +4135,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/trace-normalization-v1.md",
-          "sha256": "bd0e2180a1cf942f1b2e7b64fc045351bd2fc5d819511d6bf3324fa9ccdec768",
+          "sha256": "7ea5aa9aa71a0301dacd564945ff7f31da3225a021050dc03a65b089c25128fd",
           "availability": "checked-in"
         }
       ],
@@ -4147,7 +4147,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/trace-normalization-v1.md",
-          "sha256": "bd0e2180a1cf942f1b2e7b64fc045351bd2fc5d819511d6bf3324fa9ccdec768",
+          "sha256": "7ea5aa9aa71a0301dacd564945ff7f31da3225a021050dc03a65b089c25128fd",
           "availability": "checked-in"
         },
         {
@@ -4159,7 +4159,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/trace-normalization.spec.ts",
-          "sha256": "18324d0edfc64fb71ba250608eb070b3b51843d4dd458772fb2de22e87d85e8a",
+          "sha256": "f58c82bb187d9fff78ebd4fc3284cd67b0608e31bea7bbd38d421c1d6f5fb2fb",
           "availability": "checked-in"
         },
         {
