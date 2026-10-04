@@ -117,6 +117,19 @@
       }
     },
     {
+      "id": "entif:impact-revalidation",
+      "kind": "plan",
+      "title": "Dependency impact and revalidation",
+      "status": "in-progress",
+      "task": "T1730",
+      "issues": [1730],
+      "pr": 1732,
+      "source": {
+        "path": "plans/impact-revalidation.md",
+        "sha256": "939d3add6d4dc2050ac53f357c1015e4eb7ecce77b2c1aae71891a9ffa518ce9"
+      }
+    },
+    {
       "id": "entif:jcs-001",
       "kind": "plan",
       "title": "Repair RFC 8785 canonical JSON ordering and conformance vectors",
@@ -415,6 +428,11 @@
       "from": "entif:engineering-akasha",
       "kind": "depends-on",
       "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:impact-revalidation",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:jcs-001",

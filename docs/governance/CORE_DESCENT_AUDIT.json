@@ -422,6 +422,19 @@
       ]
     },
     {
+      "schemaId": "impact.revalidation.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/impact-revalidation-v1.md",
+        "sha256": "21489fd83b67747ffb33de4241fcf3bf788b03b1a4d5946cceaa38bd2afea719"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural evidence admission does not authenticate support, discover dependencies, rank remediation or grant rollback/write/promotion authority."
+      ]
+    },
+    {
       "schemaId": "rosetta.action",
       "coreDescent": "core-primitive",
       "authority": {

@@ -230,6 +230,14 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
   {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/impact-revalidation-v1.md', 'packages/rosetta-schemas/docs/impact-revalidation-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Structural evidence admission does not authenticate support, discover dependencies, rank remediation or grant rollback/write/promotion authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'impact.revalidation.v1', sourceIssues: ['#1730', '#1560', '#1558', '#1557'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/impact-revalidation.spec.ts'], validator: 'parseImpactRevalidation'
+  },
+  {
     authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-completion-v1.md', 'packages/rosetta-schemas/docs/engineering-completion-v1.schema.json'], exposureStatus: 'downstream-contract', family: 'engineering-evidence',
     knownGaps: ['Source-linked observations and structural conformance only; no hidden telemetry reconstruction, evidence authentication, routing score or production promotion.'],
