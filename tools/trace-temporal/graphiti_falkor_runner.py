@@ -9,6 +9,7 @@ import subprocess
 from pathlib import Path
 
 from graphiti_support import PIN, COMMIT, base, extract_selected, EXTRACTION_LOSS
+from graphiti_provider import provider_settings, provider_client, probe_provider, graphiti_clients, public_config
 
 os.environ['GRAPHITI_TELEMETRY_ENABLED'] = 'false'
 GRAPH_NAME = 'entif_graphiti_1737'
@@ -106,36 +107,37 @@ async def run(selected, args):
     if not args.live:
         output['loss'] = ['Model-off requested. No donor extraction or graph mutation occurred.']
         return output
-    required = ['OPENAI_API_KEY', 'TRACE_GRAPHITI_MODEL', 'TRACE_GRAPHITI_EMBEDDER', 'TRACE_GRAPHITI_RERANKER']
-    missing = [name for name in required if not os.environ.get(name)]
-    if missing:
-        output['loss'] = ['Live inference unavailable: missing ' + ', '.join(missing) + '. Deterministic evidence retained.']
+    try:
+        settings = provider_settings()
+    except ValueError as exc:
+        output['loss'] = [str(exc) + '. Deterministic evidence retained.']
         return output
     if any(episode.get('effectiveAt') is None for episode in selected['episodes']):
         output['loss'] = ['Live donor requires an explicitly supplied effective time; no arrival-time fallback.']
         return output
-    driver = graphiti = None
+    driver = graphiti = client = None
     try:
+        receipts, phase = [], {'name': 'capability-probe'}
+        if settings['provider'] == 'lmstudio':
+            client = provider_client(settings, receipts, phase)
+            probe = await asyncio.wait_for(probe_provider(settings, client), 120)
         driver, backend, _ = await open_fixture_driver()
         from graphiti_core import Graphiti
-        from graphiti_core.llm_client.config import LLMConfig
-        from graphiti_core.llm_client.openai_client import OpenAIClient
-        from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
-        from graphiti_core.cross_encoder.openai_reranker_client import OpenAIRerankerClient
-        model = os.environ['TRACE_GRAPHITI_MODEL']
-        embedder = os.environ['TRACE_GRAPHITI_EMBEDDER']
-        reranker = os.environ['TRACE_GRAPHITI_RERANKER']
-        graphiti = Graphiti(graph_driver=driver,
-                            llm_client=OpenAIClient(config=LLMConfig(model=model, small_model=model, temperature=0)),
-                            embedder=OpenAIEmbedder(config=OpenAIEmbedderConfig(embedding_model=embedder)),
-                            cross_encoder=OpenAIRerankerClient(config=LLMConfig(model=reranker)))
+        if client is None:
+            client = provider_client(settings, receipts, phase)
+            probe = await asyncio.wait_for(probe_provider(settings, client), 120)
+        model, embedder, reranker = settings['model'], settings['embedder'], settings['reranker']
+        graphiti = Graphiti(graph_driver=driver, **graphiti_clients(settings, client, probe['embeddingDimension']))
+        phase['name'] = 'semantic-extraction'
         # Falkor group_id selects a physical graph. Keep it identical to driver.database.
         output['artifacts'] = await extract_selected(graphiti, selected, GRAPH_NAME)
-        output['derivation'].update(mode='model-backed', provider='openai', model=model,
+        output['derivation'].update(mode='model-backed', provider=settings['provider'], model=model,
                                     databaseVersion=backend['version'], embedder=embedder, reranker=reranker,
                                     extractionConfig=dict(temperature=0, smallModel=model, groupId=GRAPH_NAME,
                                                           updateCommunities=False, backend=backend,
-                                                          supportPolicy='conservative-cumulative-selected-context'))
+                                                          supportPolicy='conservative-cumulative-selected-context',
+                                                          provider=public_config(settings, probe['embeddingDimension']),
+                                                          capabilityProbe=probe, responseProvenance=receipts))
         output['loss'] = list(EXTRACTION_LOSS)
         return output
     except Exception as exc:
@@ -147,6 +149,8 @@ async def run(selected, args):
             await graphiti.close()
         elif driver is not None:
             await driver.close()
+        if client is not None:
+            await client.close()
 
 
 def main():

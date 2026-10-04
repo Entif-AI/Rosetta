@@ -18,6 +18,20 @@ class Item:
 
 
 class DonorMapping(unittest.TestCase):
+    def test_contradictory_donor_dates_preserve_raw_conflict_without_admitting_an_interval(self):
+        result = SimpleNamespace(episode=Item('donor-1'), nodes=[], episodic_edges=[],
+                                 edges=[Item('fact', episodes=['donor-1'], valid_at='2000-01-05T00:00:00Z',
+                                             invalid_at='2000-01-01T00:00:00Z')])
+        donor = SimpleNamespace(add_episode=AsyncMock(return_value=result))
+        with patch.dict(sys.modules, {'graphiti_core.nodes': SimpleNamespace(EpisodeType=SimpleNamespace(json='json'))}):
+            artifacts = asyncio.run(extract_selected(donor, {'episodes': [dict(id='selected-1', content='x', effectiveAt='2000-01-05T00:00:00.000Z')]}, 'entif_graphiti_1737'))
+        fact = next(a for a in artifacts if a['kind'] == 'fact')
+        self.assertIsNone(fact['validFrom'])
+        self.assertIsNone(fact['validUntil'])
+        self.assertIsNone(fact['validUntilKnownAt'])
+        self.assertEqual(fact['validUntilSupportEpisodeIds'], [])
+        self.assertEqual(json.loads(fact['interpretation'])['invalid_at'], '2000-01-01T00:00:00Z')
+
     def test_duplicate_delivery_and_invalidation_retain_selected_support(self):
         episodes = [dict(id='selected-1', content='first', effectiveAt='2000-01-01T00:00:00.000Z'),
                     dict(id='selected-2', content='change', effectiveAt='2000-01-03T00:00:00.000Z')]
