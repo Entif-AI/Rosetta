@@ -49,6 +49,32 @@
       ]
     },
     {
+      "schemaId": "compiled.context.block.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/compiled-context-v1.md",
+        "sha256": "94fa2c50cc552f021e38f67383661be1b888155b229c598338fa8e69daa7aded"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Observable packaging and current-rights admission do not authenticate source/rights decisions or implement private selection, ordering, compression, prefix/cache planning or effect authority."
+      ]
+    },
+    {
+      "schemaId": "compiled.context.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/compiled-context-v1.md",
+        "sha256": "94fa2c50cc552f021e38f67383661be1b888155b229c598338fa8e69daa7aded"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Observable packaging and current-rights admission do not authenticate source/rights decisions or implement private selection, ordering, compression, prefix/cache planning or effect authority."
+      ]
+    },
+    {
       "schemaId": "counterfactual.evaluation.v1",
       "coreDescent": "core-tile-profile",
       "authority": {

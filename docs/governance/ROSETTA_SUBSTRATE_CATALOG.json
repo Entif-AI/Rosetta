@@ -104,6 +104,19 @@
       }
     },
     {
+      "id": "entif:compiled-context",
+      "kind": "plan",
+      "title": "Public compiled-context output conformance",
+      "status": "in-progress",
+      "task": "T1729",
+      "issues": [1729, 1488],
+      "pr": 1732,
+      "source": {
+        "path": "plans/compiled-context.md",
+        "sha256": "9ee8efce1a9eae04f9ee22022384cb2c76d907881e64553107918872dab35584"
+      }
+    },
+    {
       "id": "entif:engineering-akasha",
       "kind": "plan",
       "title": "Reconstruct JCS engineering work through Akasha evidence",
@@ -424,6 +437,11 @@
       "from": "entif:badger-experiment",
       "kind": "depends-on",
       "to": "entif:specops-integrated"
+    },
+    {
+      "from": "entif:compiled-context",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:engineering-akasha",

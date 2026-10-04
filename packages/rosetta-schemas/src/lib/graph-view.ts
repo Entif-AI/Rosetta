@@ -1,7 +1,7 @@
 import { canonicalTraceJson, traceHash } from './trace-normalization.js';
 import { IMPACT_REVALIDATION_SCHEMA } from './impact-revalidation.js';
 import { MATERIALIZED_VIEW_SCHEMA, parseMaterializedView, admitMaterializedViewReuse, appendMaterializedView, type MaterializedView } from './materialized-view.js';
-import { compileEvidenceContract, evidenceRefSchema as ref, evidenceRefsSchema as refs, supportedEvidenceSchema as support, evidenceObjectSchema as object, evidenceProfileSchema as profile, evidenceIdentitySchema as identity, type EvidenceIdentity } from './evidence-contract-validation.js';
+import { compileEvidenceContract, collectEvidenceSourceLineages, evidenceRefSchema as ref, evidenceRefsSchema as refs, supportedEvidenceSchema as support, evidenceObjectSchema as object, evidenceProfileSchema as profile, evidenceIdentitySchema as identity, type EvidenceIdentity } from './evidence-contract-validation.js';
 
 export interface GraphViewSource {
   source: EvidenceIdentity;
@@ -76,19 +76,7 @@ export function admitGraphViewReuse(input: unknown, context: GraphViewReuseConte
 
 /** Count declared canonical lineages only after every view passes current-rights admission. */
 export function graphViewIndependentSourceLineages(inputs: { view: unknown; context: GraphViewReuseContext }[]): string[] {
-  const owners = new Map<string, string>();
-  const lineages = new Set<string>();
-  for (const input of inputs) {
-    const view = admitGraphViewReuse(input.view, input.context);
-    for (const source of view.sources) {
-      for (const key of [source.source.ref, source.source.cid].filter((key): key is string => key !== null)) {
-        if (owners.has(key) && owners.get(key) !== source.lineageRef) throw new Error('One canonical source cannot manufacture a second witness lineage.');
-        owners.set(key, source.lineageRef);
-      }
-      lineages.add(source.lineageRef);
-    }
-  }
-  return [...lineages].sort();
+  return collectEvidenceSourceLineages(inputs.flatMap(input => admitGraphViewReuse(input.view, input.context).sources));
 }
 
 export function appendGraphView(history: readonly GraphView[], next: GraphView): GraphView[] {

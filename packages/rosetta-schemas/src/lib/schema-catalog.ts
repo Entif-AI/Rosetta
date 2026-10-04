@@ -229,6 +229,14 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 );
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  ...(['compiled.context.v1', 'compiled.context.block.v1'] as const).map(schemaId => ({
+    authorityTier: 'memory-context-cache' as const, boundaryKind: 'owned-schema' as const, consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/compiled-context-v1.md', 'packages/rosetta-schemas/docs/compiled-context-v1.schema.json', 'packages/rosetta-schemas/docs/compiled-context-block-v1.schema.json'],
+    exposureStatus: 'downstream-contract' as const, family: 'compiled-context',
+    knownGaps: ['Observable packaging and current-rights admission do not authenticate source/rights decisions or implement private selection, ordering, compression, prefix/cache planning or effect authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId, sourceIssues: ['#1729', '#1488', '#1068', '#158', '#1056', '#994', '#1295', '#1296', '#793', '#1495'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/compiled-context.spec.ts'], validator: schemaId === 'compiled.context.v1' ? 'parseCompiledContext' : 'parseCompiledContextBlock'
+  })),
   {
     authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/graph-view-v1.md', 'packages/rosetta-schemas/docs/graph-view-v1.schema.json'],

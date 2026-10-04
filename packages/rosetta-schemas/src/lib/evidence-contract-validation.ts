@@ -12,6 +12,22 @@ export const evidenceProfileSchema = (id: string) => evidenceObjectSchema({ id: 
 export const evidenceIdentitySchema = evidenceObjectSchema({ ref: evidenceRefSchema, version: nullableEvidenceSchema(evidenceRefSchema), cid: nullableEvidenceSchema(evidenceRefSchema) });
 export interface EvidenceIdentity { ref: string; version: string | null; cid: string | null }
 
+/** Declared source aliases retain one witness lineage across derived representations. */
+export function collectEvidenceSourceLineages(sources: { source: EvidenceIdentity; lineageRef: string }[]): string[] {
+  const owners = new Map<string, string>();
+  const lineages = new Set<string>();
+  for (const source of sources) {
+    const keys = [`ref:${source.source.ref}`];
+    if (source.source.cid !== null) keys.push(`cid:${source.source.cid}`);
+    for (const key of keys) {
+      if (owners.has(key) && owners.get(key) !== source.lineageRef) throw new Error('One canonical source cannot manufacture a second witness lineage.');
+      owners.set(key, source.lineageRef);
+    }
+    lineages.add(source.lineageRef);
+  }
+  return [...lineages].sort();
+}
+
 /** Bounded structural admission; referenced evidence and rights still need their owning authorities. */
 export function compileEvidenceContract<T>(schema: object, dependencies: object[] = []): (input: unknown) => T {
   const ajv = new Ajv({ allErrors: true });
