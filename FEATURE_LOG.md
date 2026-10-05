@@ -17,14 +17,14 @@ lease:
   id: "b4c8633e-580a-49b0-b582-49d599dc4d52"
   holder: "codex"
   acquired_at: "2026-10-05T22:32:39.890Z"
-  heartbeat_at: "2026-10-05T22:54:32.351Z"
-  expires_at: "2026-10-05T23:24:32.352Z"
+  heartbeat_at: "2026-10-05T23:09:21.098Z"
+  expires_at: "2026-10-05T23:39:21.099Z"
   released_at: null
 focus:
-  summary: "Conformance lint repair green; rerun cold and hosted acceptance"
+  summary: "Conformance acceptance verified; prepare review-only finalization"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "bb938dabc04b23f2009daece0931b6eaa4d7e42e"
+  sha: "833db8e8ac8ad255077faf323217a6cebf057436"
   pushed_at: null
 state:
   status: "active"
