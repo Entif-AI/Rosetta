@@ -4,6 +4,7 @@ import {
   type AgenticMessageSchemaProfile
 } from './rosetta-schemas.js';
 import { getCoreDescent, type CoreDescentMetadata } from './core-descent.js';
+import { getAuthzCompatibilityMapping, type AuthzCompatibilityMapping } from './authz-compatibility.js';
 export type { CoreDescent, CoreDescentMetadata } from './core-descent.js';
 
 export type SchemaAuthorityTier =
@@ -44,6 +45,7 @@ interface SchemaCatalogSourceEntry {
   sourcePrs: string[];
   tests: string[];
   validator?: string;
+  compatibilityMapping?: AuthzCompatibilityMapping;
 }
 
 export interface RosettaSchemaCatalogEntry extends SchemaCatalogSourceEntry, CoreDescentMetadata {}
@@ -502,7 +504,8 @@ const MESSAGE_PROFILE_IDS = Object.values(AGENTIC_MESSAGE_TYPE_PROFILES).map((pr
 export const ROSETTA_SCHEMA_CATALOG = [...TILE_CATALOG_ENTRIES, ...AGENTIC_MESSAGE_CATALOG_ENTRIES, ...BOUNDARY_CATALOG_ENTRIES].map((entry) => {
   const descent = getCoreDescent(entry.schemaId, MESSAGE_PROFILE_IDS);
   if (!descent) throw new Error(`Schema requires an explicit core-descent review: ${entry.schemaId}`);
-  return { ...entry, ...descent };
+  const compatibilityMapping = getAuthzCompatibilityMapping(entry.schemaId === 'entif.iam.decision.ref' ? 'iam.decision' : entry.schemaId);
+  return { ...entry, ...descent, ...(compatibilityMapping ? { compatibilityMapping } : {}) };
 }).sort(
   (left, right) => left.schemaId.localeCompare(right.schemaId)
 ) satisfies RosettaSchemaCatalogEntry[];

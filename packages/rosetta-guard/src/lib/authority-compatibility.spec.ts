@@ -20,6 +20,7 @@ describe('versioned AuthZ compatibility #1748', () => {
   });
   it('distinguishes native, legacy-only, unsupported and insufficient evidence without rewriting history', () => {
     expect(inspectAuthzArtifact(fixture.envelope).posture).toBe('native');
+    expect(inspectAuthzArtifact(buildTile('authz.authority_envelope.v1', fixture.envelope)).posture).toBe('native');
     const artifact = legacy(), bytes = JSON.stringify(artifact);
     expect(inspectAuthzArtifact(artifact).posture).toBe('legacy-only');
     expect(inspectAuthzArtifact(buildTile('unknown.authz', {})).posture).toBe('unsupported');
@@ -45,7 +46,7 @@ describe('versioned AuthZ compatibility #1748', () => {
     if (kind === 'revoked') input.validation.revokedDecisions = [revokeIamDecision(input.legacyDecision.payload.decisionId, 'withdrawn', fixture.now)];
     if (kind === 'policy') input.validation.policyVersionSet = 'policy-set:2';
     if (kind === 'target') input.request.resource = input.validation.resource = 'urn:repo:other';
-    if (kind === 'denied') input.legacyDecision = issueIamDecision(iamRequest(), [], { policyVersionSet: 'policy-set:1' });
+    if (kind === 'denied') input.legacyDecision = issueIamDecision(iamRequest(), [{ actionPattern: 'read', resourcePattern: 'urn:repo:alpha', effect: 'deny', id: 'policy:deny' }], { policyVersionSet: 'policy-set:1' });
     if (kind === 'invalid-authority') { input.currentAuthority.sources[0].validity.state = 'invalid'; input.currentAuthority.sources[0].validity.invalidityRefs = ['urn:invalidity:current']; }
     const result = projectAuthorityDecisionForIam(input);
     expect(result.decision?.payload.effect ?? 'deny').toBe('deny');
@@ -62,6 +63,13 @@ describe('versioned AuthZ compatibility #1748', () => {
     expect(projectAuthorityDecisionForIam(input).decision?.payload.effect ?? 'deny').toBe('deny');
     const ceiling = projection(); ceiling.currentAuthority.sources[0].scope.operations = ['write'];
     expect(projectAuthorityDecisionForIam(ceiling).decision?.payload.effect).toBe('deny');
+  });
+  it('fails closed for an uninterpreted legacy constraint or malformed revocation evidence', () => {
+    const input = projection();
+    input.legacyDecision = buildTile('iam.decision', { ...input.legacyDecision.payload, constraints: { unknown: 'requires-extra-consent' } }, { createdAt: input.legacyDecision.createdAt, pack: input.legacyDecision.pack });
+    expect(projectAuthorityDecisionForIam(input).posture).toBe('insufficient-evidence');
+    const revocation = { ...projection(), validation: { ...validation(), revokedDecisions: [{}] } };
+    expect(projectAuthorityDecisionForIam(revocation as never).posture).toBe('insufficient-evidence');
   });
   it('requires an explicitly resolved legacy delegation source and preserves the native envelope exactly', () => {
     const artifact = buildTile('iam.delegation', { historical: 'bounded delegation record' });

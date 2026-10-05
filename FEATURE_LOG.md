@@ -17,14 +17,14 @@ lease:
   id: "91072a22-c3b6-48d7-80a3-31f5ebd903ed"
   holder: "codex"
   acquired_at: "2026-10-05T16:27:57.132Z"
-  heartbeat_at: "2026-10-05T16:31:28.383Z"
-  expires_at: "2026-10-05T17:01:28.383Z"
+  heartbeat_at: "2026-10-05T16:50:55.532Z"
+  expires_at: "2026-10-05T17:20:55.533Z"
   released_at: null
 focus:
-  summary: "Migration red proof committed; implement bounded adapters"
+  summary: "Migration adapters green; finish fixtures and consumer guidance"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "da8db2f893662950c26820e9e9d241e424e9d21b"
+  sha: "02f1c011a58d8f75bd3f1aadc7ee78459cdd7a77"
   pushed_at: null
 state:
   status: "active"
@@ -43,10 +43,10 @@ Red tests cover all seven dispositions, native/legacy/unsupported/insufficient s
 Expand/migrate/verify only; no destructive contraction. Existing artifacts/callers retain their meaning. iam.principal/delegation/cache_domain currently lack owned payload validators, so compatibility must not invent their payload schemas. Delegation projection requires current authority owner explicitly resolving the historical artifact CID; a bare record has no grant. WRAP_EXISTING_INTERFACE through Guard; no second authority store or broad AuthZ AXI.
 
 ## Validation
-Expected red: missing authority-compatibility module/export (2026-10-05T16-30-16-731Z-41105.log). Green implementation pending. Predecessors passed local and hosted admission.
+Red proof committed at 02f1c0. Focused compatibility tests: 14/14 passed, including fail-closed unknown constraints and malformed revocation evidence. Full-suite, build and affected admission will be refreshed after fixture/docs completion. Predecessors passed local and hosted admission.
 
 ## Next Safe Step
-Implement schema-owned mapping metadata and Guard adapters; validate old and new callers, negative cases, catalog/descent and affected checks.
+Complete fixture-driven migration states and downstream guidance; regenerate catalog/descent; run schema/Guard and affected admission; inspect recorded check statuses before finalization.
 
 ## Handoff Notes
-Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1748-MIGRATION; CP0007 exact-byte verified. Private journal cursor 3. No merge, promotion, issue closure or destructive migration authorized.
+Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1748-MIGRATION; CP0008 remote object recovered and SHA-256 verified. Private journal cursor 4; same active lease reconciled against remote 02f1c0. Recovery did not replay external writes. No merge, promotion, issue closure or destructive migration authorized.
