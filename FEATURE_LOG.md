@@ -17,14 +17,14 @@ lease:
   id: "ad0ef261-2acd-4fc4-b164-7d22f1505236"
   holder: "codex"
   acquired_at: "2026-10-05T16:17:19.835Z"
-  heartbeat_at: "2026-10-05T16:26:06.349Z"
-  expires_at: "2026-10-05T16:56:06.351Z"
+  heartbeat_at: "2026-10-05T16:27:39.253Z"
+  expires_at: "2026-10-05T16:57:39.254Z"
   released_at: null
 focus:
-  summary: "Evaluator hosted admission green; prepare compatibility successor"
+  summary: "Evaluator acceptance green; review candidate ready"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "9f441923e366e6c1c16c32a83b26ff02465ec763"
+  sha: "3b870ca2d61512e514cd9001e615fb2193a176dc"
   pushed_at: null
 state:
   status: "active"
@@ -43,7 +43,7 @@ Current source/lineage/target/policy/context/validity resolution, attenuation an
 WRAP_EXISTING_INTERFACE: internal Guard primitive consumed by existing Guard/AXI/runtime enforcement handlers. Trusted current resolver facts remain separate from intent/submitted projections; no authority store, Core kind or policy optimizer. Same-ref root/delegation alias fails schema admission.
 
 ## Validation
-205 schema + 35 Guard tests pass. Affected lint/typecheck/test/build passed across 17 projects; Core-descent audit and Nx sync checks pass. Recorded desired-state and spec-admission artifacts now pass after refreshing evidence without cache; the wrapper exit alone was insufficient proof. Hosted Semantic governance 37340008889 passed at 9f441923e366e6c1c16c32a83b26ff02465ec763. Site verification 37340008801 also passed. Cold local merge-admission rerun pending.
+205 schema + 35 Guard tests pass. Affected lint/typecheck/test/build passed across 17 projects; Core-descent audit and Nx sync checks pass. Recorded desired-state and spec-admission artifacts now pass after refreshing evidence without cache; the wrapper exit alone was insufficient proof. Hosted Semantic governance 37340008889 passed at 9f441923e366e6c1c16c32a83b26ff02465ec763. Site verification 37340008801 also passed. Cold local merge-admission rerun passed with all 13 recorded checks and no convergence findings.
 
 ## Context Map
 #630/#1746/#1747; effective-authority.ts/spec.ts; authz-evaluation-v1.json; authority-envelope.ts/spec.ts; effective-authority-v1.md. Repaired predecessor 075d48c merged normally; prior released lease preserved in Git.
