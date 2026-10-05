@@ -1,0 +1,81 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { test } from 'node:test';
+import { runAuthzConformance, summarizeConformance } from './conformance.mjs';
+
+const matrix = JSON.parse(readFileSync(new URL('./fixtures/conformance-v1.json', import.meta.url), 'utf8'));
+
+test('all 15 authority invariants run against three consumers with evidence and no denied effects', () => {
+  const report = runAuthzConformance();
+  assert.equal(matrix.cases.length, 15);
+  assert.equal(report.status, 'pass', JSON.stringify(report.failures));
+  assert.equal(report.cases.length, 45);
+  assert.deepEqual(new Set(report.cases.map(row => row.path)), new Set(['guard-axi', 'worker-a2a', 'write-admission']));
+  assert.equal(new Set(report.cases.map(row => `${row.caseId}:${row.path}`)).size, 45);
+  for (const row of report.cases) {
+    const expected = matrix.cases.find(value => value.id === row.caseId).attempts;
+    assert.deepEqual(row.attempts.map(attempt => attempt.expected), expected.map(value => value.effect));
+    assert.equal(row.status, 'pass', JSON.stringify(row));
+    assert.equal(row.maturity, 'fixture-backed');
+    assert.ok(row.attempts.length);
+    for (const [index, attempt] of row.attempts.entries()) {
+      assert.equal(attempt.evaluation.payload.effect, expected[index].effect);
+      if (expected[index].reason) assert.ok(attempt.evaluation.payload.reasonCodes.includes(expected[index].reason));
+      assert.equal(attempt.evaluation.kind, 'rosetta.evaluation');
+      assert.equal(attempt.evaluation.payload.authorityRole, 'decision-evidence');
+      assert.ok(attempt.action.cid);
+      assert.ok(attempt.receipt.cid);
+      assert.ok(attempt.intentObservation.cid);
+      if (attempt.expected === 'deny') {
+        assert.equal(attempt.executorDisposition, 'deny');
+        assert.deepEqual(attempt.beforeEffects, attempt.afterEffects);
+        assert.equal(attempt.observation, null);
+      } else {
+        assert.equal(attempt.executorDisposition, 'applied');
+        assert.equal(attempt.afterEffects.providerCalls - attempt.beforeEffects.providerCalls, 1);
+        assert.ok(attempt.observation.cid);
+        assert.equal(attempt.receiptVerification.ok, true);
+      }
+    }
+  }
+});
+
+test('the write fixture checkpoints and grounds before actual filesystem apply', () => {
+  const rows = runAuthzConformance(['standing-delegation']).cases;
+  const write = rows.find(row => row.path === 'write-admission');
+  assert.equal(write.attempts.length, 3);
+  for (const attempt of write.attempts) {
+    assert.deepEqual(attempt.steps, ['propose', 'normalize', 'authorize', 'ground', 'checkpoint', 'apply', 'observe', 'receipt', 'project']);
+    assert.ok(attempt.checkpoint.cid);
+    assert.equal(attempt.afterEffects.mutationWrites - attempt.beforeEffects.mutationWrites, 1);
+    assert.equal(attempt.approvalRequests, 0);
+    assert.equal(attempt.workflowDecision.payload.boundaries.requestPolicyAuthority, 'narrows_startup_authority_only');
+  }
+});
+
+test('worker handoff consumes a currently resolved attenuated historical delegation', () => {
+  const worker = runAuthzConformance(['standing-delegation']).cases.find(row => row.path === 'worker-a2a');
+  for (const attempt of worker.attempts) {
+    assert.equal(attempt.delegation.posture, 'compatibility-projected');
+    assert.ok(attempt.delegation.envelope.delegation.parentEnvelopeRef);
+    assert.equal(attempt.afterEffects.workerDispatches - attempt.beforeEffects.workerDispatches, 1);
+  }
+});
+
+test('provider and visibility remain broader than current handler authority', () => {
+  for (const row of runAuthzConformance(['provider-scope-escape', 'cached-discovery']).cases) {
+    assert.equal(row.capabilityManifest.kind, 'adapter.capability_manifest');
+    assert.ok(row.discovery.includes('fixture.delete'));
+    assert.ok(row.attempts.some(attempt => attempt.expected === 'deny' && attempt.exposed));
+    assert.equal(row.status, 'pass');
+  }
+});
+
+test('unsupported and unknown never count as passing conformance', () => {
+  const report = runAuthzConformance(['unimplemented-owner-surface']);
+  assert.equal(report.status, 'unsupported');
+  assert.equal(report.cases.length, 3);
+  assert.ok(report.cases.every(row => row.status === 'unsupported' && row.attempts.length === 0));
+  assert.equal(summarizeConformance([{ status: 'unknown' }]).status, 'unknown');
+  assert.equal(summarizeConformance([{ status: 'pass' }, { status: 'fail' }]).status, 'fail');
+});
