@@ -17,14 +17,14 @@ lease:
   id: "91072a22-c3b6-48d7-80a3-31f5ebd903ed"
   holder: "codex"
   acquired_at: "2026-10-05T16:27:57.132Z"
-  heartbeat_at: "2026-10-05T17:00:15.411Z"
-  expires_at: "2026-10-05T17:30:15.412Z"
+  heartbeat_at: "2026-10-05T17:01:58.110Z"
+  expires_at: "2026-10-05T17:31:58.111Z"
   released_at: null
 focus:
-  summary: "Migration fixtures/docs green; verify affected and hosted admission"
+  summary: "Migration catalog regenerated; cold admission replaces cached failures"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "96f2830346c85aff3e7391ad56e975335993c9c0"
+  sha: "931f9e8033e65102b4db589359d56a0b2d4bb105"
   pushed_at: null
 state:
   status: "active"
