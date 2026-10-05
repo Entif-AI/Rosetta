@@ -8,20 +8,20 @@ issue:
 branch:
   name: "codex/1749-authz-conformance"
   base_ref: "codex/1748-authz-migration"
-  base_sha: "6ba724eb7b6b46607dc5017a368ccc3815e367cc"
+  base_sha: "b9e17dcc09ae9bb3f552144c725592c6ea3f0514"
 initiator:
-  type: "automation"
+  type: "recovery"
   principal: "codex"
   run_id: "5bd7ac99-e188-4b52-a7a8-b5f19f45ba94"
 lease:
-  id: "9823531b-ede0-4b40-997f-fca0b6ab3825"
+  id: "b4c8633e-580a-49b0-b582-49d599dc4d52"
   holder: "codex"
-  acquired_at: "2026-10-05T17:12:25.326Z"
-  heartbeat_at: "2026-10-05T17:14:43.394Z"
-  expires_at: "2026-10-05T17:44:43.395Z"
+  acquired_at: "2026-10-05T22:32:39.890Z"
+  heartbeat_at: "2026-10-05T22:32:39.890Z"
+  expires_at: "2026-10-05T23:02:39.891Z"
   released_at: null
 focus:
-  summary: "Conformance red proof: 15 invariants across three bounded consumer paths"
+  summary: "Resume #1749 from rebased stack; repair integrity proof and complete acceptance"
   acceptance_refs: "[]"
 checkpoint:
   sha: "0e425c9f16aa30731f4183875969a7388c40c801"
@@ -50,3 +50,10 @@ Implement versioned fixture matrix and tools/authz/conformance.mjs with real own
 
 ## Handoff Notes
 Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1749-CONFORMANCE executing. CP0011 private exact-byte readback verified. Private journal cursor 3. Lease remotely acquired at 0e425c9. No merge, promotion, release or issue closure authorized.
+
+
+### Recovery 2026-10-05T22:32:39.890Z
+Recovered stale lease from prior branch state. Prior lease metadata remains available in Git history.
+
+## Resume reconciliation
+PR #1750 was explicitly merged by the user at 55013bb; current origin/main is d23d6ad3217bfbb992782d07f2d0d6ca77392736. Existing remote stack was rebased; AuthZ code/tests remain identical. Predecessors #1751/#1753 are unmerged and review-ready. #1754 is the active implementation frontier. Preserve the old local history and dirty implementation outside the public candidate. New lease replaces the expired prior epoch; no force push or integration is required.
