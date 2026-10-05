@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
+import { verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
+import { verifySignedReceipt, digestTile } from '../../packages/rosetta-receipts/dist/index.js';
+import { getSchemaCatalogEntry } from '../../packages/rosetta-schemas/dist/index.js';
 import { runAuthzConformance, summarizeConformance } from './conformance.mjs';
 
 const matrix = JSON.parse(readFileSync(new URL('./fixtures/conformance-v1.json', import.meta.url), 'utf8'));
@@ -78,4 +81,24 @@ test('unsupported and unknown never count as passing conformance', () => {
   assert.ok(report.cases.every(row => row.status === 'unsupported' && row.attempts.length === 0));
   assert.equal(summarizeConformance([{ status: 'unknown' }]).status, 'unknown');
   assert.equal(summarizeConformance([{ status: 'pass' }, { status: 'fail' }]).status, 'fail');
+});
+
+test('integrity-valid artifacts remain verifiable after current authority denies execution', () => {
+  for (const row of runAuthzConformance(['integrity-without-validity']).cases) {
+    const { integrity, evaluation } = row.attempts[0];
+    assert.equal(verifyTileIntegrity(integrity.envelope).ok, true, row.path);
+    assert.equal(verifySignedReceipt(integrity.signedReceipt).ok, true, row.path);
+    assert.deepEqual(integrity.signedReceipt.receipt.payload.digests, [digestTile(integrity.envelope, 'projection-bytes')]);
+    assert.equal(evaluation.payload.effect, 'deny');
+    assert.ok(evaluation.payload.reasonCodes.includes('AUTHORITY_REVOKED'));
+  }
+});
+
+test('capability manifests refer to registered input and output schemas', () => {
+  const [row] = runAuthzConformance(['standing-delegation']).cases;
+  for (const manifest of row.capabilityManifests) {
+    for (const ref of [manifest.payload.input_schema_ref, manifest.payload.output_schema_ref]) {
+      assert.ok(getSchemaCatalogEntry(ref), `Unregistered schema reference: ${ref}`);
+    }
+  }
 });
