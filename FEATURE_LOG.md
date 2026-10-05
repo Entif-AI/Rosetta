@@ -17,14 +17,14 @@ lease:
   id: "ad0ef261-2acd-4fc4-b164-7d22f1505236"
   holder: "codex"
   acquired_at: "2026-10-05T16:17:19.835Z"
-  heartbeat_at: "2026-10-05T16:19:50.785Z"
-  expires_at: "2026-10-05T16:49:50.785Z"
+  heartbeat_at: "2026-10-05T16:26:06.349Z"
+  expires_at: "2026-10-05T16:56:06.351Z"
   released_at: null
 focus:
-  summary: "Evaluator regression green; finish admission"
+  summary: "Evaluator hosted admission green; prepare compatibility successor"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "4131b50c534a9a1a2587ebafdb6e60f5b9f877ae"
+  sha: "9f441923e366e6c1c16c32a83b26ff02465ec763"
   pushed_at: null
 state:
   status: "active"
@@ -43,7 +43,7 @@ Current source/lineage/target/policy/context/validity resolution, attenuation an
 WRAP_EXISTING_INTERFACE: internal Guard primitive consumed by existing Guard/AXI/runtime enforcement handlers. Trusted current resolver facts remain separate from intent/submitted projections; no authority store, Core kind or policy optimizer. Same-ref root/delegation alias fails schema admission.
 
 ## Validation
-205 schema + 35 Guard tests pass. Affected lint/typecheck/test/build passed across 17 projects; Core-descent audit and Nx sync checks pass. Initial local spec admission reused failed desired-state evidence from before plugin build; targeted refresh in progress. Hosted evaluator confirmation pending checkpoint.
+205 schema + 35 Guard tests pass. Affected lint/typecheck/test/build passed across 17 projects; Core-descent audit and Nx sync checks pass. Recorded desired-state and spec-admission artifacts now pass after refreshing evidence without cache; the wrapper exit alone was insufficient proof. Hosted Semantic governance 37340008889 passed at 9f441923e366e6c1c16c32a83b26ff02465ec763. Site verification 37340008801 also passed. Cold local merge-admission rerun pending.
 
 ## Context Map
 #630/#1746/#1747; effective-authority.ts/spec.ts; authz-evaluation-v1.json; authority-envelope.ts/spec.ts; effective-authority-v1.md. Repaired predecessor 075d48c merged normally; prior released lease preserved in Git.
@@ -52,7 +52,7 @@ WRAP_EXISTING_INTERFACE: internal Guard primitive consumed by existing Guard/AXI
 Fixture-backed enforcement proof. Consumers must resolve fresh authoritative state and enforce decisions before side effects; no production identity/provider service claim.
 
 ## Next Safe Step
-Verify local admission, push evaluator checkpoint and inspect hosted CI; release/archive epoch after green acceptance, then take up #1748.
+Complete cold local admission, finalize this review candidate and take up #1748 from the exported schema/evaluator contracts.
 
 ## Handoff Notes
-Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1747-EVALUATOR. CP0006 exact-byte verified. No merge, promotion or issue closure. Private journals remain outside public merge candidates.
+Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1747-EVALUATOR. CP0007 exact-byte verified; private resume journal cursor 3. No merge, promotion or issue closure. Private journals remain outside public merge candidates.
