@@ -10,12 +10,12 @@
     },
     {
       "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-      "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+      "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
       "availability": "checked-in"
     },
     {
       "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-      "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+      "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
       "availability": "checked-in"
     },
     {
@@ -1043,12 +1043,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1060,12 +1060,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1088,6 +1088,79 @@
         {
           "path": "packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts",
           "sha256": "ea4dbb18e1eb05e53ed7aac4ebedb773670d67142fb923dba3b30d0e26e17f47",
+          "availability": "checked-in"
+        }
+      ]
+    },
+    {
+      "authorityTier": "governance-admission",
+      "boundaryKind": "owned-schema",
+      "consumerPackages": ["@entif-ai/rosetta-guard"],
+      "docs": [
+        "packages/rosetta-schemas/docs/schema-authority-map.md",
+        "packages/rosetta-schemas/docs/authority-envelope-v1.md",
+        "packages/rosetta-schemas/docs/authority-envelope-v1.schema.json"
+      ],
+      "exposureStatus": "downstream-contract",
+      "family": "authz",
+      "knownGaps": [
+        "Structural validity is not authorization; current source resolution and enforcement belong to Guard/consumers."
+      ],
+      "ownerPackage": "@entif-ai/rosetta-schemas",
+      "rfcPrdAnchors": ["docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"],
+      "schemaId": "authz.authority_envelope.v1",
+      "sourceIssues": ["#630", "#1746", "#711", "#1037", "#158"],
+      "sourcePrs": [],
+      "tests": ["packages/rosetta-schemas/src/lib/authority-envelope.spec.ts"],
+      "validator": "validateAuthorityEnvelope",
+      "coreDescent": "governed-extension",
+      "descentAuthority": "packages/rosetta-schemas/docs/authority-envelope-v1.md",
+      "relatedCoreKinds": ["rosetta.policy", "rosetta.receipt"],
+      "availability": "downstream-contract",
+      "publicAuthority": "see-owning-contract",
+      "provenance": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/authority-envelope-v1.md",
+          "sha256": "19779712e03b26fd7c8e408aeb01ab9b9d2c7030d1a0a4cc0a3cc06854d4718b",
+          "availability": "checked-in"
+        }
+      ],
+      "documentation": [
+        {
+          "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/authority-envelope-v1.md",
+          "sha256": "19779712e03b26fd7c8e408aeb01ab9b9d2c7030d1a0a4cc0a3cc06854d4718b",
+          "availability": "checked-in"
+        },
+        {
+          "path": "packages/rosetta-schemas/docs/authority-envelope-v1.schema.json",
+          "sha256": "b05540532ae0bbad8cdd9772c82b5069dff54d26f8eb3e97fea9ed1c611a5239",
+          "availability": "checked-in"
+        },
+        {
+          "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+          "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+          "availability": "checked-in"
+        }
+      ],
+      "conformanceRefs": [
+        {
+          "path": "packages/rosetta-schemas/src/lib/authority-envelope.spec.ts",
+          "sha256": "9b4aa3a9b432a9c3b1407044bd34d2faed2eba38b95caf91f7b8313953302778",
           "availability": "checked-in"
         }
       ]
@@ -1133,12 +1206,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1150,7 +1223,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1223,12 +1296,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1240,7 +1313,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1307,12 +1380,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1324,12 +1397,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1395,12 +1468,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1412,7 +1485,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1474,12 +1547,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1491,7 +1564,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -1549,12 +1622,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1566,7 +1639,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1614,12 +1687,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1631,7 +1704,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1679,12 +1752,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1696,7 +1769,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1744,12 +1817,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1761,7 +1834,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1809,12 +1882,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1826,7 +1899,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1873,12 +1946,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1890,7 +1963,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -1937,12 +2010,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -1954,7 +2027,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2002,12 +2075,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2019,7 +2092,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2067,12 +2140,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2084,7 +2157,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2132,12 +2205,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2149,7 +2222,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2197,12 +2270,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2214,7 +2287,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2262,12 +2335,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2279,7 +2352,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2324,12 +2397,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2341,7 +2414,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2393,12 +2466,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2410,12 +2483,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -2461,12 +2534,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2478,12 +2551,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -2526,12 +2599,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2543,12 +2616,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -2587,12 +2660,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2604,7 +2677,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2655,12 +2728,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2672,12 +2745,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -2716,12 +2789,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2733,7 +2806,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2797,12 +2870,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2814,7 +2887,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -2869,12 +2942,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2886,7 +2959,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -2942,12 +3015,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -2959,7 +3032,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -3019,12 +3092,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3036,7 +3109,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -3094,12 +3167,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3111,7 +3184,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3164,12 +3237,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3181,7 +3254,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3231,12 +3304,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3248,12 +3321,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -3301,12 +3374,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3318,7 +3391,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3371,12 +3444,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3388,7 +3461,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3444,12 +3517,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3461,7 +3534,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3514,12 +3587,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3531,7 +3604,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3581,12 +3654,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3598,12 +3671,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -3654,12 +3727,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3671,7 +3744,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3724,12 +3797,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3741,7 +3814,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3794,12 +3867,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3811,7 +3884,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -3864,12 +3937,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3943,12 +4016,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -3960,12 +4033,12 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -4021,12 +4094,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4038,7 +4111,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4100,12 +4173,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4117,7 +4190,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4174,12 +4247,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4191,7 +4264,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4248,12 +4321,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4265,7 +4338,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4322,12 +4395,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4339,7 +4412,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4396,12 +4469,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4413,7 +4486,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4470,12 +4543,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4487,7 +4560,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4544,12 +4617,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4561,7 +4634,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4618,12 +4691,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4635,7 +4708,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4692,12 +4765,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4709,7 +4782,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4766,12 +4839,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4783,7 +4856,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4840,12 +4913,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4857,7 +4930,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4914,12 +4987,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -4931,7 +5004,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -4988,12 +5061,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5005,7 +5078,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -5062,12 +5135,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5079,7 +5152,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -5136,12 +5209,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5153,7 +5226,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/README.md",
-          "sha256": "f7af204e2b5ff15541053478d04b6ebc691620ff435ff83350b6c3a58ad97af6",
+          "sha256": "5b25c6d00477d33076bb313f0140501b7ea0f2bafc98a99cc7053036c147464d",
           "availability": "checked-in"
         },
         {
@@ -5206,12 +5279,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5223,7 +5296,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -5284,12 +5357,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5301,7 +5374,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -5359,12 +5432,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5376,7 +5449,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -5431,12 +5504,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5448,7 +5521,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {
@@ -5503,12 +5576,12 @@
       "provenance": [
         {
           "path": "packages/rosetta-schemas/src/lib/schema-catalog.ts",
-          "sha256": "6b9714c8c9c447e60f59f9145303d7f2f53d51d8bab3078ddac2037b801e7ed3",
+          "sha256": "9ccb3de3dc92349547864e25324bb1c145a465fa481630dd3f24a1496b3ac0c6",
           "availability": "checked-in"
         },
         {
           "path": "packages/rosetta-schemas/src/lib/core-descent.ts",
-          "sha256": "1f01bf42c8e146992a92299012e91f211d271279037155e3ac53ff04c711fa85",
+          "sha256": "bfb89e718d4940f66f4d3188ddfdea365c1ddd948c62d3a325843953a050e629",
           "availability": "checked-in"
         },
         {
@@ -5520,7 +5593,7 @@
       "documentation": [
         {
           "path": "packages/rosetta-schemas/docs/schema-authority-map.md",
-          "sha256": "f07d577386c199ed8cbed167629eaecb11b0c689f1d83af805d744ae149e6d81",
+          "sha256": "34efdfc3d6f23176213984602a3dce1d63cf2ec27863071adba279731c55a33c",
           "availability": "checked-in"
         },
         {

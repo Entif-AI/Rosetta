@@ -132,6 +132,16 @@ function tileConsumerPackages(schemaId: string): string[] {
 }
 
 function tileCatalogEntry(schemaId: string): SchemaCatalogSourceEntry {
+  if (schemaId === 'authz.authority_envelope.v1') return {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-guard'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/authority-envelope-v1.md', 'packages/rosetta-schemas/docs/authority-envelope-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'authz',
+    knownGaps: ['Structural validity is not authorization; current source resolution and enforcement belong to Guard/consumers.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId, sourceIssues: ['#630', '#1746', '#711', '#1037', '#158'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/authority-envelope.spec.ts'], validator: 'validateAuthorityEnvelope'
+  };
   if (schemaId === 'adapter.capability_manifest') {
     return {
       authorityTier: 'governance-admission',
