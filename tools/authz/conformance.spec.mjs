@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import { verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
 import { verifySignedReceipt, digestTile } from '../../packages/rosetta-receipts/dist/index.js';
 import { getSchemaCatalogEntry } from '../../packages/rosetta-schemas/dist/index.js';
+import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
+import { buildReceiptBundle, verifyReceiptBundle } from '../../packages/rosetta-receipts/dist/index.js';
 import { runAuthzConformance, summarizeConformance } from './conformance.mjs';
 
 const matrix = JSON.parse(readFileSync(new URL('./fixtures/conformance-v1.json', import.meta.url), 'utf8'));
@@ -88,9 +90,31 @@ test('integrity-valid artifacts remain verifiable after current authority denies
     const { integrity, evaluation } = row.attempts[0];
     assert.equal(verifyTileIntegrity(integrity.envelope).ok, true, row.path);
     assert.equal(verifySignedReceipt(integrity.signedReceipt).ok, true, row.path);
+    assert.deepEqual(integrity.envelope.payload, row.attempts[0].currentAuthority.envelope, `Signed and evaluated projections differ: ${row.path}`);
     assert.deepEqual(integrity.signedReceipt.receipt.payload.digests, [digestTile(integrity.envelope, 'projection-bytes')]);
     assert.equal(evaluation.payload.effect, 'deny');
     assert.ok(evaluation.payload.reasonCodes.includes('AUTHORITY_REVOKED'));
+  }
+});
+
+test('reported artifacts independently close Receipts and standing authority needs no approval artifact', () => {
+  for (const row of runAuthzConformance(['standing-delegation', 'integrity-without-validity', 'receipt-decision-replay']).cases) {
+    const store = new InMemoryTileStore();
+    for (const attempt of row.attempts) {
+      assert.ok(Array.isArray(attempt.artifacts), `Evidence closure unavailable: ${row.path}`);
+      for (const tile of [...attempt.artifacts, attempt.receipt]) {
+        assert.equal(verifyTileIntegrity(tile).ok, true);
+        store.put(tile);
+      }
+      assert.equal(verifyReceiptBundle(buildReceiptBundle(attempt.receipt), store).ok, true);
+      if (row.caseId === 'standing-delegation') {
+        assert.equal(attempt.compatibilityDecision.payload.effect, 'allow');
+        assert.deepEqual(attempt.approvalHandoffRefs, []);
+        assert.ok(attempt.artifacts.every(tile => tile.kind !== 'iam.approval_handoff'));
+        assert.ok(attempt.observation.cid);
+      }
+    }
+    if (row.caseId === 'standing-delegation') assert.equal(new Set(row.attempts.map(attempt => attempt.action.cid)).size, 3);
   }
 });
 

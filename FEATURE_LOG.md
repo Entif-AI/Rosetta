@@ -17,14 +17,14 @@ lease:
   id: "b4c8633e-580a-49b0-b582-49d599dc4d52"
   holder: "codex"
   acquired_at: "2026-10-05T22:32:39.890Z"
-  heartbeat_at: "2026-10-05T22:37:13.221Z"
-  expires_at: "2026-10-05T23:07:13.222Z"
+  heartbeat_at: "2026-10-05T22:38:08.136Z"
+  expires_at: "2026-10-05T23:08:08.137Z"
   released_at: null
 focus:
-  summary: "Conformance green: 45 invariant/path combinations and fresh signed artifact verification"
+  summary: "Conformance red: signed worker projection equality and independently closable evidence"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "aa2cc14b5dbd6eb6a18da2f8b0f78538d1adda71"
+  sha: "dbfccb322dd297bec115025810add56068bb5635"
   pushed_at: null
 state:
   status: "active"
