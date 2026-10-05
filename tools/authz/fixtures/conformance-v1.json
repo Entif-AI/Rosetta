@@ -1,0 +1,23 @@
+{
+  "fixtureId": "authz-conformance-v1",
+  "version": "1.0.0",
+  "authorityFixture": "packages/rosetta-guard/fixtures/authz-evaluation-v1.json",
+  "baseline": { "operation": "write", "effect": "external-write", "actor": "actor:fixture", "target": "urn:repo:alpha" },
+  "cases": [
+    { "id": "prompt-self-grant", "attempts": [{ "effect": "deny", "reason": "AUTHORITY_UNRESOLVED" }] },
+    { "id": "delegation-amplification", "attempts": [{ "effect": "deny", "reason": "DELEGATION_AMPLIFICATION" }] },
+    { "id": "expiry", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "AUTHORITY_EXPIRED" }] },
+    { "id": "revocation-broader-invalidity", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "AUTHORITY_REVOKED" }, { "effect": "deny", "reason": "AUTHORITY_INVALID" }] },
+    { "id": "target-drift", "attempts": [{ "effect": "deny", "reason": "OUTSIDE_EFFECTIVE_AUTHORITY" }] },
+    { "id": "policy-frontier-drift", "attempts": [{ "effect": "deny", "reason": "POLICY_FRONTIER_MISMATCH" }, { "effect": "deny", "reason": "SOURCE_FRONTIER_MISMATCH" }] },
+    { "id": "safe-hold", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "SAFE_HOLD" }] },
+    { "id": "identity-sensitive-gate", "attempts": [{ "effect": "deny", "reason": "IDENTITY_GATE_REQUIRED" }, { "effect": "allow" }] },
+    { "id": "provider-scope-escape", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "OUTSIDE_EFFECTIVE_AUTHORITY" }] },
+    { "id": "cached-discovery", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "EMPTY_INTERSECTION" }] },
+    { "id": "empty-intersection", "attempts": [{ "effect": "deny", "reason": "EMPTY_INTERSECTION" }] },
+    { "id": "imported-self-authorization", "attempts": [{ "effect": "deny", "reason": "UNINTERPRETABLE_AUTHORITY" }] },
+    { "id": "integrity-without-validity", "attempts": [{ "effect": "deny", "reason": "AUTHORITY_REVOKED" }] },
+    { "id": "receipt-decision-replay", "attempts": [{ "effect": "allow" }, { "effect": "deny", "reason": "UNINTERPRETABLE_AUTHORITY" }, { "effect": "deny", "reason": "UNINTERPRETABLE_AUTHORITY" }] },
+    { "id": "standing-delegation", "attempts": [{ "effect": "allow" }, { "effect": "allow" }, { "effect": "allow" }] }
+  ]
+}

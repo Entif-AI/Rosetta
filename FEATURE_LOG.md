@@ -17,14 +17,14 @@ lease:
   id: "b4c8633e-580a-49b0-b582-49d599dc4d52"
   holder: "codex"
   acquired_at: "2026-10-05T22:32:39.890Z"
-  heartbeat_at: "2026-10-05T22:35:12.490Z"
-  expires_at: "2026-10-05T23:05:12.491Z"
+  heartbeat_at: "2026-10-05T22:37:13.221Z"
+  expires_at: "2026-10-05T23:07:13.222Z"
   released_at: null
 focus:
-  summary: "Conformance regression red: immutable signed projection and registered schema references"
+  summary: "Conformance green: 45 invariant/path combinations and fresh signed artifact verification"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "64274ac1a9af876bd935074f0a5d6de2d5fc690a"
+  sha: "aa2cc14b5dbd6eb6a18da2f8b0f78538d1adda71"
   pushed_at: null
 state:
   status: "active"
@@ -43,10 +43,10 @@ Committed red proof specifies 45 case/path combinations, current-state denial, p
 WRAP_EXISTING_INTERFACE at Guard; no universal AuthZ AXI. Reuse exported Core, schema, Guard, migration, receipt and store APIs. tools/authz owns the bounded conformance fixture adapter; #994/#1674/#1684/#1047/#1295/#1296 remain production owners. The in-memory store alone is not durable-write proof; add fsync/readback in isolated temporary files. No private policy or real privileged credential.
 
 ## Validation
-Original red: missing conformance.mjs. Resume regression red: 5 pass / 2 fail; returned signed projection fails fresh integrity verification and rrp-receipt-v1 is unregistered. Node test log 2026-10-05T22-34-38-181Z-22489.log. Live rebased predecessor #1748 b9e17dcc passes hosted admission 37377290999; #1747 04166bf1 passes 37377290315. Neither is merged.
+Original red: missing conformance.mjs. Resume regression red: 5 pass / 2 fail; returned signed projection fails fresh integrity verification and rrp-receipt-v1 is unregistered. Red committed at aa2cc14b. Green: all 7 focused Node tests pass, including the 45 case/path matrix and fresh integrity/signature/registry checks. Signed payload mutation removed; canonical rosetta.receipt output reference used. Nx sync passes with no generated drift. Live rebased predecessor #1748 b9e17dcc passes hosted admission 37377290999; #1747 04166bf1 passes 37377290315. Neither is merged.
 
 ## Next Safe Step
-Remove post-signing payload mutation, use the registered Receipt schema, strengthen observable approval/admission evidence, run the focused tests, and checkpoint the coherent green implementation. Then complete Nx conformance/report, affected checks, cold admission, hosted CI and review-only finalization.
+Finish adversarial evidence review: signed projection must match the evaluated worker projection, complete artifacts must allow independent receipt closure, and standing-delegation proof must inspect real approval/admission evidence. Then complete documentation, Nx conformance/report, affected checks, cold admission, hosted CI and review-only finalization.
 
 ## Handoff Notes
 Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1749-CONFORMANCE executing. AUTHZ-RESUME-20261005 and AUTHZ-PERSIST-CP0012 committed. CP0012 exact-byte private Drive readback verified; CP0011 reverified. New private recovery journal cursor 3; remote lease acquisition 64274ac1. User authorized the completed #1750 merge. Remaining merges, promotion, release and issue closure remain reserved.
