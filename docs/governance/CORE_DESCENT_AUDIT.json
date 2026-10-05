@@ -49,6 +49,19 @@
       ]
     },
     {
+      "schemaId": "authz.authority_envelope.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/authority-envelope-v1.md",
+        "sha256": "19779712e03b26fd7c8e408aeb01ab9b9d2c7030d1a0a4cc0a3cc06854d4718b"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Structural validity is not authorization; current source resolution and enforcement belong to Guard/consumers."
+      ]
+    },
+    {
       "schemaId": "compiled.context.block.v1",
       "coreDescent": "derived-projection",
       "authority": {
