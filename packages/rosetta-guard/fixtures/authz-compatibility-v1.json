@@ -1,0 +1,18 @@
+{
+  "fixtureId": "authz-compatibility-v1",
+  "version": "1.0.0",
+  "mappingVersion": "1.0.0",
+  "authorityFixture": "authz-evaluation-v1.json",
+  "cases": [
+    { "id": "native-new", "posture": "native" },
+    { "id": "compatibility-projected", "posture": "compatibility-projected", "effect": "allow" },
+    { "id": "legacy-only", "posture": "legacy-only" },
+    { "id": "malformed", "posture": "insufficient-evidence" },
+    { "id": "insufficient-evidence", "posture": "insufficient-evidence" },
+    { "id": "expired", "posture": "compatibility-projected", "effect": "deny", "reason": "DECISION_EXPIRED" },
+    { "id": "revoked", "posture": "compatibility-projected", "effect": "deny", "reason": "DECISION_REVOKED" },
+    { "id": "stale-policy", "posture": "compatibility-projected", "effect": "deny", "reason": "POLICY_VERSION_MISMATCH" },
+    { "id": "target-mismatch", "posture": "compatibility-projected", "effect": "deny", "reason": "REQUEST_BINDING_MISMATCH" },
+    { "id": "unsupported", "posture": "unsupported" }
+  ]
+}

@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { buildTile, verifyTileIntegrity } from '@entif-ai/rosetta-core';
 import { AUTHZ_COMPATIBILITY_MAPPINGS, getSchemaCatalogEntry } from '@entif-ai/rosetta-schemas';
-import { inspectAuthzArtifact, projectAuthorityDecisionForIam, projectLegacyAuthorityDelegation } from './authority-compatibility.js';
+import { inspectAuthzArtifact, projectAuthorityDecisionForIam, projectLegacyAuthorityDelegation, type AuthzCompatibilityPosture, type AuthorityDecisionCompatibilityResult } from './authority-compatibility.js';
 import { buildApprovalHandoff, evaluateWorkflowPolicyGate, issueIamDecision, revokeIamDecision, validateIamDecision } from './rosetta-guard.js';
 
 const fixture = JSON.parse(readFileSync('packages/rosetta-guard/fixtures/authz-evaluation-v1.json', 'utf8'));
@@ -11,8 +11,35 @@ const iamRequest = () => ({ action: 'read', actionId: 'action:one', principalId:
 const validation = () => ({ ...iamRequest(), now: fixture.now, policyVersionSet: 'policy-set:1', revokedDecisions: [] as ReturnType<typeof revokeIamDecision>[] });
 const legacy = () => issueIamDecision(iamRequest(), [{ actionPattern: 'read', resourcePattern: 'urn:repo:alpha', effect: 'allow', id: 'policy:fixture' }], { policyVersionSet: 'policy-set:1' });
 const projection = () => ({ currentAuthority: current(), request: iamRequest(), validation: validation(), legacyDecision: legacy() });
+const migrationFixture: {
+  mappingVersion: string;
+  cases: { id: string; posture: AuthzCompatibilityPosture; effect?: 'allow' | 'deny'; reason?: string }[];
+} = JSON.parse(readFileSync('packages/rosetta-guard/fixtures/authz-compatibility-v1.json', 'utf8'));
 
 describe('versioned AuthZ compatibility #1748', () => {
+  it.each(migrationFixture.cases)('runs migration fixture $id', scenario => {
+    const input = projection();
+    let result: AuthorityDecisionCompatibilityResult;
+    switch (scenario.id) {
+      case 'native-new': result = inspectAuthzArtifact(input.currentAuthority.envelope); break;
+      case 'legacy-only': result = inspectAuthzArtifact(input.legacyDecision); break;
+      case 'malformed': result = inspectAuthzArtifact({ kind: 'iam.decision' }); break;
+      case 'unsupported': result = inspectAuthzArtifact(buildTile('iam.decision', input.legacyDecision.payload, { version: '9.0.0' })); break;
+      default:
+        if (scenario.id === 'expired') input.currentAuthority.now = input.request.requestedAt = input.validation.now = '2026-10-05T12:06:00Z';
+        if (scenario.id === 'revoked') input.validation.revokedDecisions = [revokeIamDecision(input.legacyDecision.payload.decisionId, 'withdrawn', fixture.now)];
+        if (scenario.id === 'stale-policy') input.validation.policyVersionSet = 'policy-set:2';
+        if (scenario.id === 'target-mismatch') input.request.resource = input.validation.resource = 'urn:repo:other';
+        result = projectAuthorityDecisionForIam({ ...input, currentAuthority: scenario.id === 'insufficient-evidence' ? undefined : input.currentAuthority });
+    }
+    expect(result.mappingVersion).toBe(migrationFixture.mappingVersion);
+    expect(result.posture).toBe(scenario.posture);
+    if (scenario.reason) expect(result.reasonCodes).toContain(scenario.reason);
+    if (scenario.effect) {
+      expect(result.decision?.payload.effect).toBe(scenario.effect);
+      if (result.decision) expect(validateIamDecision(result.decision, input.validation).effect).toBe(scenario.effect);
+    }
+  });
   it('settles all seven historical kinds without promoting them to authority roots', () => {
     expect(AUTHZ_COMPATIBILITY_MAPPINGS.map(row => row.sourceKind).sort()).toEqual(['guard.decision_token', 'iam.approval_handoff', 'iam.cache_domain', 'iam.decision', 'iam.delegation', 'iam.principal', 'workflow.policy_decision']);
     expect(getSchemaCatalogEntry('guard.decision_token')?.compatibilityMapping?.mappingVersion).toBe('1.0.0');

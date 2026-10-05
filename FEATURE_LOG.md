@@ -17,14 +17,14 @@ lease:
   id: "91072a22-c3b6-48d7-80a3-31f5ebd903ed"
   holder: "codex"
   acquired_at: "2026-10-05T16:27:57.132Z"
-  heartbeat_at: "2026-10-05T16:50:55.532Z"
-  expires_at: "2026-10-05T17:20:55.533Z"
+  heartbeat_at: "2026-10-05T17:00:15.411Z"
+  expires_at: "2026-10-05T17:30:15.412Z"
   released_at: null
 focus:
-  summary: "Migration adapters green; finish fixtures and consumer guidance"
+  summary: "Migration fixtures/docs green; verify affected and hosted admission"
   acceptance_refs: "[]"
 checkpoint:
-  sha: "02f1c011a58d8f75bd3f1aadc7ee78459cdd7a77"
+  sha: "96f2830346c85aff3e7391ad56e975335993c9c0"
   pushed_at: null
 state:
   status: "active"
@@ -37,16 +37,16 @@ state:
 Implement #1748 additive, versioned compatibility under #630 using stable schema/evaluator predecessor fc79ed9.
 
 ## Acceptance Coverage
-Red tests cover all seven dispositions, native/legacy/unsupported/insufficient states, historical preservation, real legacy decision consumer, expiry/revocation/policy/target failures, source-bound delegation, restrictive workflow and optional approval handoff.
+All seven dispositions and ten migration fixture states implemented. Actual legacy consumer, historical preservation, invalidity, source-bound delegation, restrictive workflow and optional approval handoff tested. Catalog compatibility annotations and downstream owner guidance complete.
 
 ## Decisions
 Expand/migrate/verify only; no destructive contraction. Existing artifacts/callers retain their meaning. iam.principal/delegation/cache_domain currently lack owned payload validators, so compatibility must not invent their payload schemas. Delegation projection requires current authority owner explicitly resolving the historical artifact CID; a bare record has no grant. WRAP_EXISTING_INTERFACE through Guard; no second authority store or broad AuthZ AXI.
 
 ## Validation
-Red proof committed at 02f1c0. Focused compatibility tests: 14/14 passed, including fail-closed unknown constraints and malformed revocation evidence. Full-suite, build and affected admission will be refreshed after fixture/docs completion. Predecessors passed local and hosted admission.
+Red proof 02f1c0 -> green implementation 96f2830. Current fixture/catalog change set: 205 schema + 59 Guard tests passed; typecheck/lint/build passed (Nx cache 8/14 tasks). nx sync and sync:check passed. Affected regression running; admission/hosted proof pending. Initial full check exposed an additive catalog assertion and missing test-fixture typing; both repaired and owner suites green.
 
 ## Next Safe Step
-Complete fixture-driven migration states and downstream guidance; regenerate catalog/descent; run schema/Guard and affected admission; inspect recorded check statuses before finalization.
+Finish affected checks and cold merge admission; inspect all recorded statuses, obtain hosted admission, update PR/digest-bound delta, finalize exact log and release lease; then start #1749 from the stable branch.
 
 ## Handoff Notes
-Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1748-MIGRATION; CP0008 remote object recovered and SHA-256 verified. Private journal cursor 4; same active lease reconciled against remote 02f1c0. Recovery did not replay external writes. No merge, promotion, issue closure or destructive migration authorized.
+Work Stack 5bd7ac99-e188-4b52-a7a8-b5f19f45ba94 / AUTHZ-1748-MIGRATION; CP0009 exact-byte remote readback verified. Private journal cursor 4; active lease reconciled against remote 96f2830. Recovery did not replay external writes. No merge, promotion, issue closure or destructive migration authorized.

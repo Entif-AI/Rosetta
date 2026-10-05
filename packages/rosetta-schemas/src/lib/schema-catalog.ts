@@ -505,7 +505,12 @@ export const ROSETTA_SCHEMA_CATALOG = [...TILE_CATALOG_ENTRIES, ...AGENTIC_MESSA
   const descent = getCoreDescent(entry.schemaId, MESSAGE_PROFILE_IDS);
   if (!descent) throw new Error(`Schema requires an explicit core-descent review: ${entry.schemaId}`);
   const compatibilityMapping = getAuthzCompatibilityMapping(entry.schemaId === 'entif.iam.decision.ref' ? 'iam.decision' : entry.schemaId);
-  return { ...entry, ...descent, ...(compatibilityMapping ? { compatibilityMapping } : {}) };
+  return { ...entry, ...descent, ...(compatibilityMapping ? {
+    compatibilityMapping,
+    sourceIssues: [...new Set([...entry.sourceIssues, '#1748'])],
+    docs: [...new Set([...entry.docs, 'packages/rosetta-guard/docs/authz-compatibility-v1.md'])],
+    tests: [...new Set([...entry.tests, 'packages/rosetta-guard/src/lib/authority-compatibility.spec.ts'])]
+  } : {}) };
 }).sort(
   (left, right) => left.schemaId.localeCompare(right.schemaId)
 ) satisfies RosettaSchemaCatalogEntry[];

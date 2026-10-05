@@ -28,3 +28,7 @@ Provides the first minimal policy engine for parse-only safety decisions.
 # Agent-native authority
 
 Use the [current effective-authority evaluator](docs/effective-authority-v1.md) at execution boundaries. It consumes the shared Authority Envelope and current owner-supplied evidence, emits Core evaluation evidence, and preserves existing decision APIs as compatibility surfaces.
+
+The [versioned compatibility contract](docs/authz-compatibility-v1.md) documents all
+seven legacy IAM/Guard dispositions, current-authority decision projection, typed
+migration failures and downstream obligations. Historical artifacts remain intact.
