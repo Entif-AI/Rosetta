@@ -14,6 +14,9 @@
   "references": [
     {
       "path": "../rosetta-core/tsconfig.lib.json"
+    },
+    {
+      "path": "../rosetta-schemas/tsconfig.lib.json"
     }
   ]
 }

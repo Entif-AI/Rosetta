@@ -428,6 +428,12 @@ importers:
       '@entif-ai/rosetta-core':
         specifier: workspace:*
         version: link:../rosetta-core
+      '@entif-ai/rosetta-schemas':
+        specifier: workspace:*
+        version: link:../rosetta-schemas
+      ajv:
+        specifier: 8.17.1
+        version: 8.17.1
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -14275,7 +14281,7 @@ snapshots:
       '@jest/globals': 30.3.0
       '@vitest/expect': 4.1.4
       jest-snapshot: 30.3.0
-      vitest: 4.1.4(@opentelemetry/api@1.9.1)(@types/node@24.13.3)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@22.1.0)(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
+      vitest: 4.1.4(@opentelemetry/api@1.9.1)(@types/node@20.19.39)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@22.1.0)(vite@7.3.2(@types/node@20.19.39)(jiti@2.4.2)(lightningcss@1.33.0)(terser@5.46.1)(yaml@2.8.3))
 
   html-void-elements@3.0.0: {}
 

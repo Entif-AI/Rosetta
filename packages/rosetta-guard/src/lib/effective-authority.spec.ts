@@ -64,6 +64,14 @@ describe('effective authority #1747', () => {
     const value = request(); expect(evaluateEffectiveAuthority(value).payload.effect).toBe('allow');
     value.sources[0].scope.operations = ['write']; denied(value);
   });
+  it('rejects one source reference aliased as both a root and a delegation', () => {
+    const value = request();
+    const alias = { kind: 'authority-delegation', ref: value.envelope.authoritySources[0].ref };
+    value.envelope.authoritySources.push(alias);
+    value.currentEnvelopes[1].authoritySources.push(alias);
+    value.sources[0].source.kind = 'authority-delegation';
+    denied(value);
+  });
   it('fails closed for unresolved, malformed, ambiguous or unknown required evidence', () => {
     const missing = request(); missing.sources = [];
     const lineage = request(); lineage.currentEnvelopes = [lineage.envelope];

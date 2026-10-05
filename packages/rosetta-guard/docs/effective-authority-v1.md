@@ -1,0 +1,13 @@
+# Current effective authority
+
+`evaluateEffectiveAuthority` (#1747) is an internal Guard enforcement primitive implementing #630 and consuming the #1746 Authority Envelope schema. Agent Interface Gate: `WRAP_EXISTING_INTERFACE`; existing Guard/AXI/runtime handlers consume it. It is not a model-facing authority service or an authority store.
+
+The caller must obtain current envelopes, source state, policy/source frontiers, actor evidence, capability/exposure ceilings and independent safe-hold/identity gate facts from their authoritative owners at handler time. These trusted resolver inputs must not come from task prose, model output, cached discovery or a submitted envelope's self-description. The evaluator validates the complete input boundary against the exported schema before using it.
+
+Current source evidence reuses the Profile's scope, policy, context and validity shapes. Every referenced source and every parent must resolve uniquely. A projection cannot replace root/delegation evidence, exceed the current stored projection or its parent, drop constraints, expand delegation depth, or cross target/domain/frontier boundaries. Independent source and runtime ceilings intersect; provider capabilities are an outer mechanical limit. Multiple provider capabilities never union agent authority.
+
+The result is a standard Core `rosetta.evaluation` with decision-evidence posture, current request bindings, policy, source/intent/evidence references and explicit reason codes. Missing, malformed, ambiguous, invalid, expired or unresolved evidence denies. Intent references remain intent even when the envelope fails admission. An allow result attests one evaluation; consumers must evaluate again at the next action boundary. It grants nothing and cannot be replayed as a new root.
+
+Standing valid delegation supports repeated bounded evaluations. Approval handoff remains available when authority must be mutated/escalated; evaluation does not manufacture a per-action approval requirement. Existing #1029 `issueIamDecision`/validation/revocation and approval APIs remain supported legacy compatibility evidence; the new evaluator does not silently change their historical behavior. #1748 owns their deterministic migration.
+
+Tests use a synthetic provider scope supporting a second resource and destructive/payment operations beyond the agent's scope. They prove attenuation, current invalidity, policy/source drift, current context, empty intersection, independent gates, source-role alias rejection, replay non-grant and repeated standing-authority success. This is fixture-backed enforcement proof; durable effect admission and provider execution remain consumer responsibilities (#994/#1674/#1047/#1684).

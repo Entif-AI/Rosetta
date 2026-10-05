@@ -16,6 +16,8 @@
     }
   },
   "dependencies": {
+    "@entif-ai/rosetta-schemas": "workspace:*",
+    "ajv": "8.17.1",
     "@entif-ai/rosetta-core": "workspace:*",
     "tslib": "^2.3.0"
   }
