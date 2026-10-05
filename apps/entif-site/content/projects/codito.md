@@ -30,7 +30,7 @@ noindex: false
 
 ## The connective tissue of the Unified Cognitive Architecture
 
-> *Codito, ergo sum.*
+> _Codito, ergo sum._
 
 Codito is the experimental reference workspace for the **connective tissue** of Entif AI's Unified Cognitive Architecture.
 

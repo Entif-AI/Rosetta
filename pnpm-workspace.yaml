@@ -1,3 +1,8 @@
 packages:
   - "packages/*"
   - "apps/*"
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  nx: true
+  unrs-resolver: true
