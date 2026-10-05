@@ -16,9 +16,9 @@
       'agentic-systems',
       'orchestration',
       'model-architecture',
-      'bithkuil',
+      'bilqis',
     ],
-  'projects': ['rosetta', 'bithkuil'],
+  'projects': ['rosetta', 'bilqis'],
   'routeTag': 'rosetta',
   'related':
     [
@@ -81,15 +81,15 @@ The useful abstraction is that each can transform some bounded part of a task st
 
 The public Rosetta surface should make the resulting route intelligible enough to inspect and replay. It does not need to publish Entif's private scoring, ranking, tuning, or optimization machinery in order to do that. Public representation and private operation are different jobs.
 
-## Bithkuil changes what can be routed
+## Bilqis changes what can be routed
 
 OMoC becomes much more interesting if the task state is not merely a paragraph of prose.
 
-[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) asks whether a Bithkuil-derived semantic intermediate representation can reduce the cost of learning reusable relational and compositional structure. The proposal exposes semantic factors directly: identity, relation, scope, evidence status, temporal order, causality, intended purpose, actual application, quantity, uncertainty, and other distinctions that natural language often distributes across syntax, vocabulary, context, and pragmatics.
+[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) asks whether a Bilqis-derived semantic intermediate representation can reduce the cost of learning reusable relational and compositional structure. The proposal exposes semantic factors directly: identity, relation, scope, evidence status, temporal order, causality, intended purpose, actual application, quantity, uncertainty, and other distinctions that natural language often distributes across syntax, vocabulary, context, and pragmatics.
 
 That research must come first.
 
-If explicit semantic structure does not produce stable, useful operands, there is little scientific value in building a baroque router around them. OMoC should not receive credit for competence that Bithkuil has not demonstrated, and Bithkuil should not receive credit for orchestration that has not been tested.
+If explicit semantic structure does not produce stable, useful operands, there is little scientific value in building a baroque router around them. OMoC should not receive credit for competence that Bilqis has not demonstrated, and Bilqis should not receive credit for orchestration that has not been tested.
 
 If the representation work succeeds, however, routing gains a different kind of address.
 
@@ -203,7 +203,7 @@ The 2026 study [Kolmogorov-Arnold Networks for Small Language Models](https://ar
 
 So the interesting OMoC question is conditional:
 
-> If Bithkuil yields stable semantically typed operands, can some cognitive relations be implemented as small, inspectable, locally mutable learned functions?
+> If Bilqis yields stable semantically typed operands, can some cognitive relations be implemented as small, inspectable, locally mutable learned functions?
 
 The function might be a KAN.
 
@@ -307,13 +307,13 @@ The architecture needs opponents, not fans.
 
 Several results would weaken or kill major versions of the idea:
 
-- Bithkuil or another explicit semantic representation fails to produce stable useful factors.
+- Bilqis or another explicit semantic representation fails to produce stable useful factors.
 - A fixed dense model matches dynamic routing at lower total cost and latency.
 - A strong single specialist handles the target workload better than heterogeneous composition.
 - Parallel typed heads add little once a well-prompted generative model receives the same structure.
 - Routing overhead erases the compute saved through sparsity.
 - Learned routing becomes brittle under distribution shift or hides systematic errors behind confident scores.
-- A generic typed representation works as well as the Bithkuil-derived one, weakening the donor-language-specific claim while preserving the broader typed-state result.
+- A generic typed representation works as well as the Bilqis-derived one, weakening the donor-language-specific claim while preserving the broader typed-state result.
 - Semantically local functions still require globally entangled internal representations, making "local cognition" mostly a naming convenience.
 
 Those are useful losses.

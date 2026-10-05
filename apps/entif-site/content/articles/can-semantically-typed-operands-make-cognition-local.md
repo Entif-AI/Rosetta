@@ -16,7 +16,7 @@
       'agentic-systems',
       'model-architecture',
     ],
-  'projects': ['bithkuil', 'rosetta'],
+  'projects': ['bilqis', 'rosetta'],
   'routeTag': 'ai-research',
   'related':
     [
@@ -43,7 +43,7 @@
 }
 ---
 
-There is a sentence buried in our Bithkuil research that I originally treated as a downstream question:
+There is a sentence buried in our Bilqis research that I originally treated as a downstream question:
 
 **Can semantically typed operands make small, separable learned functions useful as local cognitive transformations?**
 
@@ -73,7 +73,7 @@ Excellent human interface.
 
 Possibly expensive machine intermediate representation.
 
-Bithkuil is our attempt to test that distinction without hiding the answer inside the intervention. The early representation is not surface Ithkuil with all of its human-facing morphology and phonology. It is closer to a semantic abstract syntax tree: stable machine identities for semantic factors, explicit defaults and nulls, structural scope, controlled composition, and a developmental traversal that can be tested against shuffled and deliberately bad alternatives.
+Bilqis is our attempt to test that distinction without hiding the answer inside the intervention. The early representation is not surface Ithkuil with all of its human-facing morphology and phonology. It is closer to a semantic abstract syntax tree: stable machine identities for semantic factors, explicit defaults and nulls, structural scope, controlled composition, and a developmental traversal that can be tested against shuffled and deliberately bad alternatives.
 
 The relevant idea is simple. A learner can infer from many sentences that:
 
@@ -114,7 +114,7 @@ I am not especially interested in replacing every transformer feed-forward block
 
 The cleaner question is conditional:
 
-> **If Bithkuil produces stable, semantically typed operands, can some relations be implemented as small, inspectable, locally mutable learned functions?**
+> **If Bilqis produces stable, semantically typed operands, can some relations be implemented as small, inspectable, locally mutable learned functions?**
 
 That is different.
 
@@ -232,7 +232,7 @@ Our existing [Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontologi
 
 I used to think of this primarily as smarter orchestration.
 
-With Bithkuil, KANs, Jev/Laya-style decision models, and explicit persistent cognitive state on the same table, OMoC starts looking more like a **runtime compiler for cognition**.
+With Bilqis, KANs, Jev/Laya-style decision models, and explicit persistent cognitive state on the same table, OMoC starts looking more like a **runtime compiler for cognition**.
 
 The compiler is not choosing one model.
 
@@ -482,7 +482,7 @@ This also changes where natural language belongs.
 
 Large Concept Models demonstrated that a generative model can operate autoregressively over [sentence-level semantic embeddings](https://arxiv.org/abs/2412.08821) rather than ordinary word or subword tokens. [Coconut](https://arxiv.org/abs/2412.06769) explores reasoning by feeding continuous hidden states back into the model without first serializing each intermediate step into language. Both are useful precedents for the broader claim that the token stream is not the only possible computational substrate.
 
-Bithkuil asks a different question.
+Bilqis asks a different question.
 
 What if the intermediate state is not merely latent or higher-level, but **explicitly typed enough to support stable composition, local operators, provenance, and external memory?**
 
@@ -570,7 +570,7 @@ PERSISTENT EVIDENCE + SEMANTIC STATE
 CONTEXT COMPILER
       │
       ▼
-BITHKUIL-LIKE SEMANTIC IR
+BILQIS-LIKE SEMANTIC IR
       │
       ▼
 OMoC COGNITIVE COMPILER
@@ -619,9 +619,9 @@ The research sequence matters.
 
 First, test representation.
 
-Does a Bithkuil-derived semantic substrate actually reduce sample, parameter, or compute requirements for relational and compositional competence against natural-language and generic typed controls?
+Does a Bilqis-derived semantic substrate actually reduce sample, parameter, or compute requirements for relational and compositional competence against natural-language and generic typed controls?
 
-If not, stop crediting Bithkuil with downstream miracles it never earned.
+If not, stop crediting Bilqis with downstream miracles it never earned.
 
 Second, separate representation from output architecture.
 
@@ -631,14 +631,14 @@ Compare:
 representation:
     natural language
     generic typed semantic IR
-    Bithkuil-derived IR
+    Bilqis-derived IR
 
 output:
     autoregressive generation
     parallel typed decision head
 ```
 
-If the typed representation helps only when the model also receives a convenient structured output format, that tells us something. If the parallel head erases the Bithkuil advantage, that tells us something else. If Bithkuil plus parallel decision computation produces a multiplicative gain, I will become considerably more annoying about this.
+If the typed representation helps only when the model also receives a convenient structured output format, that tells us something. If the parallel head erases the Bilqis advantage, that tells us something else. If Bilqis plus parallel decision computation produces a multiplicative gain, I will become considerably more annoying about this.
 
 Third, test local learned functions.
 
@@ -660,7 +660,7 @@ Only then do we earn the larger claim.
 
 I can already see several ways this architecture could fail.
 
-Bithkuil may simply move difficult semantic work into an expensive compiler without reducing total cost.
+Bilqis may simply move difficult semantic work into an expensive compiler without reducing total cost.
 
 Explicit factorization may destroy useful ambiguity or omit variables the learner would otherwise discover.
 
@@ -690,7 +690,7 @@ I still think that is the right question.
 
 I no longer think it is a small one.
 
-Jev and Laya suggest that many machine-useful judgments do not inherently need token-by-token language generation. KANs suggest that learned transformations can, in some settings, expose smaller inspectable functional joints, while the current evidence very helpfully refuses to promise that those joints automatically outperform MLPs. Bithkuil asks whether explicit semantic factorization can make those joints mean something stable. OMoC asks whether the useful ones can be conditionally assembled instead of activating everything. Forget Me Not asks how successful cognition survives across time without becoming immortal garbage. Rosetta asks whether the meaning, evidence, uncertainty, and lineage can remain inspectable while all of that machinery changes.
+Jev and Laya suggest that many machine-useful judgments do not inherently need token-by-token language generation. KANs suggest that learned transformations can, in some settings, expose smaller inspectable functional joints, while the current evidence very helpfully refuses to promise that those joints automatically outperform MLPs. Bilqis asks whether explicit semantic factorization can make those joints mean something stable. OMoC asks whether the useful ones can be conditionally assembled instead of activating everything. Forget Me Not asks how successful cognition survives across time without becoming immortal garbage. Rosetta asks whether the meaning, evidence, uncertainty, and lineage can remain inspectable while all of that machinery changes.
 
 Those are no longer independent curiosities.
 

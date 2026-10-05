@@ -10,7 +10,7 @@
   'authors': ['Crates McDade'],
   'tags':
     ['ai-research', 'governance', 'human-ai-collaboration', 'research-process'],
-  'projects': ['rosetta', 'bithkuil'],
+  'projects': ['rosetta', 'bilqis'],
   'routeTag': 'ai-research',
   'related':
     [
@@ -24,7 +24,7 @@
       'OpenAI - Research acceleration: The view inside OpenAI - 2026-09-06',
       'Jakub Pachocki - An Alien Mind - OpenAI - 2026-09-06',
       'entif-ai/rosetta - GitHub issue and publication history - inspected 2026-09-12',
-      'entif-ai/bithkuil - GitHub issue and repository bootstrap history - inspected 2026-09-12',
+      'entif-ai/bilqis - GitHub issue and repository bootstrap history - inspected 2026-09-12',
     ],
   'featured': true,
 }
@@ -60,23 +60,23 @@ This is where governance starts to affect research speed. A new objection does n
 
 Our recent work on ETR-2026-05, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), is a compact example.
 
-The paper asks whether a Bithkuil-derived semantic substrate can reduce the cost of learning relational and compositional structure. Before committing serious compute, we asked several independent model families to attack the paper and its experimental plan.
+The paper asks whether a Bilqis-derived semantic substrate can reduce the cost of learning relational and compositional structure. Before committing serious compute, we asked several independent model families to attack the paper and its experimental plan.
 
 Many criticisms repeated concerns we had already captured. Sequence length, compiler cost, synthetic-world bias, ambiguity, curriculum order, and architecture dependence all had owners. Repetition did not justify new work.
 
 Other criticisms exposed real gaps. We converted those gaps into bounded experiments rather than adding paragraphs of defensive prose.
 
-One review asked whether explicit semantics could destroy useful ambiguity. The roadmap gained a <a href="https://github.com/entif-ai/bithkuil/issues/44" rel="nofollow noreferrer noopener" target="_blank">delayed-commitment benchmark</a> that preserves several live interpretations and measures the cost of premature commitment.
+One review asked whether explicit semantics could destroy useful ambiguity. The roadmap gained a <a href="https://github.com/entif-ai/bilqis/issues/44" rel="nofollow noreferrer noopener" target="_blank">delayed-commitment benchmark</a> that preserves several live interpretations and measures the cost of premature commitment.
 
-Another raised the danger of a deterministic oracle that is consistently wrong. That became a <a href="https://github.com/entif-ai/bithkuil/issues/46" rel="nofollow noreferrer noopener" target="_blank">semantic fault-injection and lineage-taint test</a>, including rollback before the first confirmatory trial.
+Another raised the danger of a deterministic oracle that is consistently wrong. That became a <a href="https://github.com/entif-ai/bilqis/issues/46" rel="nofollow noreferrer noopener" target="_blank">semantic fault-injection and lineage-taint test</a>, including rollback before the first confirmatory trial.
 
-A debate showed that a null result could be almost as easy to over-interpret as a positive one. We added a <a href="https://github.com/entif-ai/bithkuil/issues/47" rel="nofollow noreferrer noopener" target="_blank">preregistered autopsy tree</a> that limits the follow-up experiments we permit after a null, reversal, ceiling, or integrity failure.
+A debate showed that a null result could be almost as easy to over-interpret as a positive one. We added a <a href="https://github.com/entif-ai/bilqis/issues/47" rel="nofollow noreferrer noopener" target="_blank">preregistered autopsy tree</a> that limits the follow-up experiments we permit after a null, reversal, ceiling, or integrity failure.
 
-A later critique asked a harder question. What happens when the ontology lacks a useful variable altogether? That became an <a href="https://github.com/entif-ai/bithkuil/issues/50" rel="nofollow noreferrer noopener" target="_blank">open-world schema-extension experiment</a> that separates an unknown value from an unknown variable.
+A later critique asked a harder question. What happens when the ontology lacks a useful variable altogether? That became an <a href="https://github.com/entif-ai/bilqis/issues/50" rel="nofollow noreferrer noopener" target="_blank">open-world schema-extension experiment</a> that separates an unknown value from an unknown variable.
 
-The same critique proposed that some reconstruction difficulty may act as useful regularization. We turned that into a <a href="https://github.com/entif-ai/bithkuil/issues/51" rel="nofollow noreferrer noopener" target="_blank">controlled study of clean, noisy, and mixed developmental inputs</a> while holding oracle truth fixed.
+The same critique proposed that some reconstruction difficulty may act as useful regularization. We turned that into a <a href="https://github.com/entif-ai/bilqis/issues/51" rel="nofollow noreferrer noopener" target="_blank">controlled study of clean, noisy, and mixed developmental inputs</a> while holding oracle truth fixed.
 
-The <a href="https://github.com/entif-ai/bithkuil/issues" rel="nofollow noreferrer noopener" target="_blank">Bithkuil repository now records 48 issues</a>. Their value here is that objections have become testable work with boundaries, dependencies, and stopping rules.
+The <a href="https://github.com/entif-ai/bilqis/issues" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository now records 48 issues</a>. Their value here is that objections have become testable work with boundaries, dependencies, and stopping rules.
 
 That review cycle happened over a few hours on September 12. The speed came from having a process that could absorb each critique without reopening the entire design.
 
@@ -84,15 +84,15 @@ This changes the role of AI in the process. A model can generate attack surfaces
 
 Human judgment still decides which questions matter, which claims are acceptable, and which changes enter the program. Model agreement does not create truth. Review only helps when evidence, authority, and decision state remain visible.
 
-We use a related rule inside the <a href="https://github.com/entif-ai/bithkuil/issues/5" rel="nofollow noreferrer noopener" target="_blank">Bithkuil plan</a>: "LLM proposes. Formal machinery disposes." The same rule works well for research operations. AI can propose. Sources, tests, governance, and human decisions determine what survives.
+We use a related rule inside the <a href="https://github.com/entif-ai/bilqis/issues/5" rel="nofollow noreferrer noopener" target="_blank">Bilqis plan</a>: "LLM proposes. Formal machinery disposes." The same rule works well for research operations. AI can propose. Sources, tests, governance, and human decisions determine what survives.
 
 ## Make disagreement productive before merge
 
-We used the same adversarial pattern when we created the <a href="https://github.com/entif-ai/bithkuil" rel="nofollow noreferrer noopener" target="_blank">Bithkuil repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/12/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
+We used the same adversarial pattern when we created the <a href="https://github.com/entif-ai/bilqis" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/12/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
 
 Two agents, each running a frontier model at its highest available reasoning setting, received the migration brief. Each treated its own branch as the base and built a competing implementation. Their approaches and contents differed enough to create a useful comparison.
 
-Each agent then reviewed the counterpart's pull request for code, structure, tests, or migration choices worth importing. After each round, both reassessed their own branch against the alternative. The loop continued until one agent said it preferred the other pull request over its own. The surviving migration became <a href="https://github.com/entif-ai/bithkuil/pull/39" rel="nofollow noreferrer noopener" target="_blank">Bithkuil PR #39</a>.
+Each agent then reviewed the counterpart's pull request for code, structure, tests, or migration choices worth importing. After each round, both reassessed their own branch against the alternative. The loop continued until one agent said it preferred the other pull request over its own. The surviving migration became <a href="https://github.com/entif-ai/bilqis/pull/39" rel="nofollow noreferrer noopener" target="_blank">Bilqis PR #39</a>.
 
 That concession did not certify the surviving branch. It supplied a strong convergence signal. One advocate had incorporated the best material it could find and still preferred the competing implementation.
 

@@ -15,10 +15,10 @@
       'semantic-representation',
       'context',
       'agentic-systems',
-      'bithkuil',
+      'bilqis',
       'provenance',
     ],
-  'projects': ['rosetta', 'bithkuil'],
+  'projects': ['rosetta', 'bilqis'],
   'routeTag': 'rosetta',
   'related':
     [
@@ -161,7 +161,7 @@ That is a terrible retirement plan.
 
 [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) changes the latticing question again.
 
-The original semantic-latticing work focused on concepts and relations outside the model. Bithkuil asks whether the machine's developmental representation can expose useful semantic factors directly rather than repeatedly reconstructing them from natural-language surface forms.
+The original semantic-latticing work focused on concepts and relations outside the model. Bilqis asks whether the machine's developmental representation can expose useful semantic factors directly rather than repeatedly reconstructing them from natural-language surface forms.
 
 If that signal survives its experiments, a Tapestry can become more than a curated bag of text.
 
@@ -203,7 +203,7 @@ Meta's [Large Concept Models](https://arxiv.org/abs/2412.08821) operate autoregr
 
 [Coconut](https://arxiv.org/abs/2412.06769) goes somewhere else: instead of decoding every intermediate reasoning state into language, it feeds hidden states back into the model as continuous thought. The authors report that this can represent multiple possible next reasoning steps and improve selected tasks involving search and backtracking.
 
-Neither system gives us Bithkuil.
+Neither system gives us Bilqis.
 
 That is precisely why they are useful neighbors.
 
@@ -211,7 +211,7 @@ LCM says: the modeling unit can be a higher-level semantic representation.
 
 Coconut says: intermediate reasoning need not be serialized through natural language.
 
-Bithkuil asks: can the intermediate state become **explicitly typed enough** that outside systems can address, preserve, compare, route, and govern its semantic parts?
+Bilqis asks: can the intermediate state become **explicitly typed enough** that outside systems can address, preserve, compare, route, and govern its semantic parts?
 
 That is a more demanding claim, and an unproven one.
 
