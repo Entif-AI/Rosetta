@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
+import { URL } from 'node:url';
 import { verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
 import { verifySignedReceipt, digestTile } from '../../packages/rosetta-receipts/dist/index.js';
 import { getSchemaCatalogEntry } from '../../packages/rosetta-schemas/dist/index.js';

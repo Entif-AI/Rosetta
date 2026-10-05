@@ -1,9 +1,11 @@
 import { closeSync, fsyncSync, mkdirSync, mkdtempSync, openSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import console from 'node:console';
+import process from 'node:process';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 import { canonicalizeJson } from '../../packages/rosetta-canon/dist/index.js';
 import { buildTile, createAction, createObservation, createPolicy, createRun, createToolCall, verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
 import { authorityScopeContains, validateAdapterCapabilityManifest } from '../../packages/rosetta-schemas/dist/index.js';
@@ -12,6 +14,7 @@ import { buildReceiptBundle, createReceipt, createSigningKeyPair, digestTile, si
 import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
+const { structuredClone } = globalThis;
 const matrix = JSON.parse(readFileSync(new URL('./fixtures/conformance-v1.json', import.meta.url), 'utf8'));
 const authorityFixture = readFileSync(join(root, matrix.authorityFixture));
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
