@@ -7,7 +7,7 @@ status: published
 published: 2026-10-05
 authors:
   - Entif AI
-description: Codito is Entif AI's experimental connective tissue for the Unified Cognitive Architecture: metacognitive mapping, dependency-aware orchestration, context compilation, and reusable cognition across heterogeneous cognitive operators.
+description: "Codito is Entif AI's experimental connective tissue for the Unified Cognitive Architecture: metacognitive mapping, dependency-aware orchestration, context compilation, and reusable cognition across heterogeneous cognitive operators."
 tags:
   - cognitive-architecture
   - orchestration
