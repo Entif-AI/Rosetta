@@ -17,17 +17,17 @@ lease:
   id: "317ff852-cff1-4f04-9ecd-3d9ade9e4e4a"
   holder: "codex"
   acquired_at: "2026-10-05T15:59:42.282Z"
-  heartbeat_at: "2026-10-05T16:14:06.683Z"
+  heartbeat_at: "2026-10-05T16:14:11.104Z"
   expires_at: "2026-10-05T16:44:06.684Z"
-  released_at: null
+  released_at: "2026-10-05T16:14:11.104Z"
 focus:
-  summary: "Schema admission green; prepare review candidate"
+  summary: "Schema contract and generated audit pass local affected checks and hosted admission 37338408371 at 9cbabb42a97385498dd9d496130f86e6008de8be. Repair epoch complete; predecessor ready for evaluator consumption."
   acceptance_refs: "[]"
 checkpoint:
   sha: "9cbabb42a97385498dd9d496130f86e6008de8be"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
