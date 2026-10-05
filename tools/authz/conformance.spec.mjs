@@ -53,7 +53,7 @@ test('the write fixture checkpoints and grounds before actual filesystem apply',
     assert.deepEqual(attempt.steps, ['propose', 'normalize', 'authorize', 'ground', 'checkpoint', 'apply', 'observe', 'receipt', 'project']);
     assert.ok(attempt.checkpoint.cid);
     assert.equal(attempt.afterEffects.mutationWrites - attempt.beforeEffects.mutationWrites, 1);
-    assert.equal(attempt.approvalRequests, 0);
+    assert.deepEqual(attempt.approvalHandoffRefs, []);
     assert.equal(attempt.workflowDecision.payload.boundaries.requestPolicyAuthority, 'narrows_startup_authority_only');
   }
 });
@@ -82,6 +82,9 @@ test('unsupported and unknown never count as passing conformance', () => {
   assert.equal(report.cases.length, 3);
   assert.ok(report.cases.every(row => row.status === 'unsupported' && row.attempts.length === 0));
   assert.equal(summarizeConformance([{ status: 'unknown' }]).status, 'unknown');
+  assert.deepEqual(summarizeConformance([{ status: 'pass' }, { status: 'unrecognized-consumer-result' }]), {
+    status: 'unknown', counts: { pass: 1, fail: 0, unsupported: 0, unknown: 1 }
+  });
   assert.equal(summarizeConformance([{ status: 'pass' }, { status: 'fail' }]).status, 'fail');
 });
 
@@ -98,7 +101,7 @@ test('integrity-valid artifacts remain verifiable after current authority denies
 });
 
 test('reported artifacts independently close Receipts and standing authority needs no approval artifact', () => {
-  for (const row of runAuthzConformance(['standing-delegation', 'integrity-without-validity', 'receipt-decision-replay']).cases) {
+  for (const row of runAuthzConformance().cases) {
     const store = new InMemoryTileStore();
     for (const attempt of row.attempts) {
       assert.ok(Array.isArray(attempt.artifacts), `Evidence closure unavailable: ${row.path}`);

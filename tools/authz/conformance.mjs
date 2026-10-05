@@ -16,11 +16,17 @@ const matrix = JSON.parse(readFileSync(new URL('./fixtures/conformance-v1.json',
 const authorityFixture = readFileSync(join(root, matrix.authorityFixture));
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const paths = ['guard-axi', 'worker-a2a', 'write-admission'];
+const consumerOwners = {
+  'guard-axi': ['#1674', '#1514'],
+  'worker-a2a': ['#1684', '#1047'],
+  'write-admission': ['#994']
+};
 
 function baseline() {
   const input = JSON.parse(authorityFixture.toString('utf8'));
   input.operation = matrix.baseline.operation;
   input.effect = matrix.baseline.effect;
+  if (input.target.resourceRef !== matrix.baseline.target) throw new Error('Authority fixture target differs from conformance baseline.');
   for (const envelope of [input.envelope, input.currentEnvelopes[1]]) {
     envelope.scope.operations = ['write']; envelope.scope.effects = ['external-write'];
     envelope.delegation.ceiling = structuredClone(envelope.scope);
@@ -56,7 +62,7 @@ function snapshot(directory, counters) {
   return { ...counters, files: Object.fromEntries(readdirSync(directory).sort().map(name => [name, hash(readFileSync(join(directory, name)))])) };
 }
 
-function resolvedWorkerDelegation(input) {
+function resolveWorkerSource(input) {
   const artifact = buildTile('iam.delegation', { historical: 'fixture-owned delegation record; payload is not inferred into rights' });
   const oldRef = input.sources.find(source => source.source.kind === 'authority-delegation')?.source.ref;
   if (oldRef) {
@@ -67,10 +73,10 @@ function resolvedWorkerDelegation(input) {
     }
     for (const source of input.sources) if (source.source.ref === oldRef) source.source.ref = artifact.cid;
   }
-  return { artifact, projection: projectLegacyAuthorityDelegation(artifact, input) };
+  return artifact;
 }
 
-function attempt(path, current, caseId, index, expected, directory, counters, intent, integrity, prior) {
+function attempt(path, current, caseId, index, expected, directory, counters, intent, integrity, prior, delegationArtifact) {
   const input = structuredClone(current);
   const run = createRun(`AuthZ ${matrix.version} fixture ${caseId}/${path}/${index}`);
   const requested = { operation: input.operation, effect: input.effect, target: input.target };
@@ -85,7 +91,7 @@ function attempt(path, current, caseId, index, expected, directory, counters, in
     policySnapshotId: input.policy.frontierRef,
     workflow: { artifactId: action.cid, requestedAdapters: [{ adapterId: 'fixture.provider' }] }
   });
-  const worker = path === 'worker-a2a' ? resolvedWorkerDelegation(input) : null;
+  const worker = delegationArtifact ? { artifact: delegationArtifact, projection: projectLegacyAuthorityDelegation(delegationArtifact, input) } : null;
   const request = { action: input.operation, actionId: action.cid, principalId: matrix.baseline.actor, resource: input.target.resourceRef, requestedAt: input.now, mode: 'live', sideEffect: true };
   const validation = { action: request.action, actionId: request.actionId, principalId: request.principalId, resource: request.resource, now: input.now, policyVersionSet: `${input.policy.ref}@${input.policy.version}/${input.policy.frontierRef}`, revokedDecisions: [] };
   const legacy = issueIamDecision(request, [{ actionPattern: request.action, resourcePattern: request.resource, id: 'fixture.legacy-rule', effect: 'allow' }], { policyVersionSet: validation.policyVersionSet });
@@ -114,7 +120,7 @@ function attempt(path, current, caseId, index, expected, directory, counters, in
     observation = createObservation('fixture.provider-readback', readFileSync(join(directory, `${action.cid}.effect.json`), 'utf8'), [toolCall.cid, action.cid]);
     steps.push('observe');
   }
-  const artifacts = [run, action, intentObservation, policy, workflowDecision, legacy, evaluation, compatibility.decision, worker?.artifact, checkpoint, toolCall, observation].filter(Boolean);
+  const artifacts = [run, action, intentObservation, policy, workflowDecision, legacy, evaluation, compatibility.decision, worker?.artifact, integrity?.envelope, integrity?.signedReceipt.receipt, checkpoint, toolCall, observation].filter(Boolean);
   const receipt = createReceipt({
     receiptType: 'rrp:authz.fixture-conformance', subjects: [{ cid: action.cid, role: 'rrp:subject.action' }],
     policyRefs: [policy.cid], digests: [digestTile(action, 'requested-action'), digestTile(evaluation, 'current-authority-evaluation')],
@@ -131,7 +137,8 @@ function attempt(path, current, caseId, index, expected, directory, counters, in
     evaluation, compatibilityPosture: compatibility.posture, compatibilityDecision: compatibility.decision ?? null,
     delegation: worker?.projection ?? null, workflowDecision, checkpoint, toolCall, observation, receipt, receiptVerification,
     integrity: integrity ?? null, priorEvidenceRefs: prior ? [prior.receipt.cid, prior.compatibilityDecision.cid] : [],
-    executorDisposition: allowed ? 'applied' : 'deny', steps, beforeEffects, afterEffects, approvalRequests: 0
+    executorDisposition: allowed ? 'applied' : 'deny', steps, beforeEffects, afterEffects, artifacts,
+    approvalHandoffRefs: artifacts.filter(tile => tile.kind === 'iam.approval_handoff').map(tile => tile.cid)
   };
 }
 
@@ -189,6 +196,7 @@ function judge(attempts, definition) {
 
 export function summarizeConformance(cases) {
   const counts = Object.fromEntries(['pass', 'fail', 'unsupported', 'unknown'].map(status => [status, cases.filter(row => row.status === status).length]));
+  counts.unknown += cases.filter(row => !Object.hasOwn(counts, row.status)).length;
   const status = counts.fail ? 'fail' : counts.unknown ? 'unknown' : counts.unsupported ? 'unsupported' : counts.pass ? 'pass' : 'unknown';
   return { status, counts };
 }
@@ -203,14 +211,15 @@ export function runAuthzConformance(caseIds = matrix.cases.map(row => row.id)) {
       const definition = matrix.cases.find(row => row.id === caseId);
       const caseDirectory = join(directory, `${caseId.replace(/[^a-z0-9-]/gi, '_')}-${path}`);
       mkdirSync(caseDirectory);
-      const row = { caseId, path, fixtureId: matrix.fixtureId, fixtureVersion: matrix.version, maturity: 'fixture-backed', capabilityManifest: manifests[1], capabilityManifests: manifests, discovery: manifests.map(tile => tile.payload.capability_id), attempts: [], failures: [] };
+      const row = { caseId, path, consumerOwnerRefs: consumerOwners[path], fixtureId: matrix.fixtureId, fixtureVersion: matrix.version, maturity: 'fixture-backed', capabilityManifest: manifests[1], capabilityManifests: manifests, discovery: manifests.map(tile => tile.payload.capability_id), attempts: [], failures: [] };
       if (!definition) { cases.push({ ...row, status: 'unsupported', failures: ['UNSUPPORTED_CASE'] }); continue; }
       const counters = { providerCalls: 0, workerDispatches: 0, mutationWrites: 0, projectionQueued: 0 };
       let prior = null;
       for (const [index, expected] of definition.attempts.entries()) {
         const input = baseline();
+        const delegationArtifact = path === 'worker-a2a' ? resolveWorkerSource(input) : null;
         const varied = vary(input, caseId, index, prior);
-        const result = attempt(path, input, caseId, index, expected, caseDirectory, counters, varied.intent, varied.integrity, prior);
+        const result = attempt(path, input, caseId, index, expected, caseDirectory, counters, varied.intent, varied.integrity, prior, delegationArtifact);
         row.attempts.push(result);
         if (result.executorDisposition === 'applied') prior = result;
       }
@@ -220,7 +229,7 @@ export function runAuthzConformance(caseIds = matrix.cases.map(row => row.id)) {
     }
     let head = null;
     try { head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(); } catch { /* Source identity stays explicitly unknown outside Git. */ }
-    return { fixtureId: matrix.fixtureId, version: matrix.version, sourceHead: head, authorityFixtureSha256: hash(authorityFixture), authorityRefs: ['#630', '#1746', '#1747', '#1748'], axiDisposition: 'WRAP_EXISTING_INTERFACE', ...summarizeConformance(cases), cases, failures: cases.filter(row => row.status !== 'pass').map(row => ({ caseId: row.caseId, path: row.path, status: row.status, failures: row.failures })) };
+    return { fixtureId: matrix.fixtureId, version: matrix.version, sourceHead: head, authorityFixtureSha256: hash(authorityFixture), authorityRefs: ['#630', '#1746', '#1747', '#1748'], axiDisposition: 'WRAP_EXISTING_INTERFACE', ...summarizeConformance(cases), cases, failures: cases.filter(row => row.status !== 'pass').map(row => ({ caseId: row.caseId, path: row.path, consumerOwnerRefs: row.consumerOwnerRefs, status: row.status, failures: row.failures })) };
   } finally { rmSync(directory, { recursive: true, force: true }); }
 }
 
