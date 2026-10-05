@@ -17,17 +17,17 @@ lease:
   id: "aa7ac511-2e27-4408-b87d-850e5500ad8c"
   holder: "codex"
   acquired_at: "2026-10-05T15:39:15.472Z"
-  heartbeat_at: "2026-10-05T15:55:46.712Z"
+  heartbeat_at: "2026-10-05T15:55:51.987Z"
   expires_at: "2026-10-05T16:25:46.712Z"
-  released_at: null
+  released_at: "2026-10-05T15:55:51.987Z"
 focus:
-  summary: "Evaluator owner proof green; predecessor hosted admission repair pending"
+  summary: "Resume after schema hosted admission repair; no downstream uptake yet"
   acceptance_refs: "[]"
 checkpoint:
   sha: "7bb76f68025eddbc770cd34bfb86832c8c352548"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
