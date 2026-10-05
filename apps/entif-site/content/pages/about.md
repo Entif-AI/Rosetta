@@ -12,6 +12,16 @@
 
 Entif AI develops open research, architecture, and experimental systems for making advanced AI more inspectable, semantically precise, governable, interoperable, and accountable. Its work spans provenance, semantic representation, agentic memory, context compilation, model architecture, AI governance, accessibility, and the institutional consequences of increasingly capable intelligence.
 
+## The Entif AI Foundation
+
+Entif AI is being organized toward a **public-benefit nonprofit foundation model**. The current charter and ethics work is being formalized around epistemic integrity, human duty of care, moral precaution under uncertainty, consent and sovereignty, provenance and accountability, reversibility and due process, anti-capture, non-extraction, attention sovereignty, human capability, substrate-neutral moral assessment, and responsibility proportional to power.
+
+Those are active governance commitments, not a claim that every candidate charter clause in the working evidence ledger has already become binding legal text. The ledger deliberately separates founder decisions, candidate clauses, adopted doctrine, architecture, observations, hypotheses, and external evidence so the Foundation's own history cannot be cleaned up retroactively into a story that was never actually decided.
+
+The technical projects reflect the same structure. **Rosetta** preserves interoperable meaning and lineage. **Bilqis** tests whether semantic structure can be prepaid during learning. **Codito** studies the connective tissue and orchestration of the Unified Cognitive Architecture. **IndraNet** connects independently bounded cognitive participants, or Jewels, while its current reference implementation specializes that relationship for qualified physical context and embodied interaction.
+
+The objective is not semantic monoculture. It is coherence through correspondence: enough shared structure for different systems and people to cooperate without pretending their representations, values, evidence, or authority are identical.
+
 That work is led by Crates McDade, whose background spans nearly three decades of software engineering, more than two decades of technical leadership, enterprise architecture, security, accessibility, product engineering, distributed systems, and applied AI.
 
 <figure>
@@ -43,7 +53,7 @@ Where did a claim come from? What transformed it? Which interpretation survived?
 
 Those questions sit underneath the [Rosetta Protocol](https://github.com/entif-ai/rosetta), which I created and architect as an open semantic and provenance substrate for inspectable AI receipts, transformation continuity, interoperability, attestation, and rights-aware evidence. The surrounding research program extends into governed persistent memory, semantic latticing and context compilation, Ontological Mixture of Concepts (OMoC), receipts-first agentic execution, and local cognitive operators over semantically typed state.
 
-My recent authored research includes [_The Cost of Learning Too Late_](/tags/research/2026/09/06/the-cost-of-learning-too-late/), on moral uncertainty, hidden machine communication, recursive AI development, and auditable intelligence; [_After the Inflection_](/tags/research/2026/09/07/after-the-inflection/), on recursive innovation and institutional disruption; [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), on semantic continuity, provenance, and compositional assurance; and [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), a falsifiable research program testing whether a Bithkuil-derived semantic substrate can reduce the learning burden of relational and compositional structure.
+My recent authored research includes [_The Cost of Learning Too Late_](/tags/research/2026/09/06/the-cost-of-learning-too-late/), on moral uncertainty, hidden machine communication, recursive AI development, and auditable intelligence; [_After the Inflection_](/tags/research/2026/09/07/after-the-inflection/), on recursive innovation and institutional disruption; [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), on semantic continuity, provenance, and compositional assurance; and [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), a falsifiable research program testing whether a Bilqis-derived semantic substrate can reduce the learning burden of relational and compositional structure.
 
 Recent technical essays extend that work into governed research workflows, semantically typed local cognition, institutional AI deployment, and the long-form [_Accelerating the Dystopia_](/tags/ai/) series on how increasingly capable intelligence interacts with existing economic and institutional incentives.
 
