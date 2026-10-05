@@ -17,17 +17,17 @@ lease:
   id: "b4c8633e-580a-49b0-b582-49d599dc4d52"
   holder: "codex"
   acquired_at: "2026-10-05T22:32:39.890Z"
-  heartbeat_at: "2026-10-05T23:10:19.016Z"
+  heartbeat_at: "2026-10-05T23:12:58.910Z"
   expires_at: "2026-10-05T23:40:19.016Z"
-  released_at: null
+  released_at: "2026-10-05T23:12:58.910Z"
 focus:
-  summary: "Conformance acceptance green; finalization pending"
+  summary: "Conformance acceptance verified at 833db8e: eight tests, 45 combinations, independently closed effect evidence, 13 cold checks and hosted 37385403068. Review-only finalization; final candidate CI remains required. No merge or issue closure."
   acceptance_refs: "[]"
 checkpoint:
   sha: "7c8edabc12f6203bfd10c04cb5b5888663d9fe7e"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
