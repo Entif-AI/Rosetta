@@ -43,7 +43,10 @@ describe('Authority Envelope Profile #1746', () => {
   it('retains target, policy and source frontier drift for explicit current-state evaluation', () => {
     for (const field of ['target', 'policy', 'source']) {
       const value = child();
-      if (field === 'target') value.scope.target.resourceRef = 'urn:repo:other';
+      if (field === 'target') {
+        value.scope.target.resourceRef = 'urn:repo:other';
+        value.delegation.ceiling.target.resourceRef = 'urn:repo:other';
+      }
       if (field === 'policy') value.policy.frontierRef = 'urn:policy-frontier:stale';
       if (field === 'source') value.provenance.sourceFrontierRef = 'urn:source-frontier:stale';
       expect(parseAuthorityEnvelope(value)).toEqual(value);

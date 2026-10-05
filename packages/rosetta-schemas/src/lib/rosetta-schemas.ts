@@ -6,6 +6,9 @@ import type { TileEnvelope } from '@entif-ai/rosetta-core';
 import { isCounterfactualEvaluationProfile, validateCounterfactualEvaluation } from './counterfactual-profile.js';
 import { isSalienceEvaluationProfile, validateSalienceEvaluation } from './salience-profile.js';
 import { validateWorkLifecycle } from './work-lifecycle.js';
+import { validateAuthorityEnvelope } from './authority-envelope.js';
+export { CAPABILITY_EFFECT_CLASSES, type CapabilityEffectClass } from './capability-effects.js';
+import { CAPABILITY_EFFECT_CLASSES, type CapabilityEffectClass } from './capability-effects.js';
 
 export interface ValidationResult {
   errors: string[];
@@ -278,7 +281,6 @@ export type CapabilityPrivilegeTier =
   | 'write-external'
   | 'write-local';
 
-export type CapabilityEffectClass = 'external-write' | 'local-write' | 'payment' | 'pure-transform' | 'source-read';
 export type CapabilityHintTreatment = 'advisory-only' | 'normalized' | 'rejected-inconsistent';
 export type CapabilityIdempotency = 'idempotent' | 'non-idempotent' | 'unknown';
 export type CapabilityReplaySafety = 'not-replay-safe' | 'replay-requires-guard' | 'replay-safe';
@@ -491,6 +493,7 @@ export interface ConformanceBundle {
 }
 
 const REQUIRED_FIELDS: Record<string, string[]> = {
+  'authz.authority_envelope.v1': ['envelopeRef', 'profile', 'authoritySources', 'scope', 'policy', 'validity', 'delegation', 'provenance'],
   'guard.decision_token': ['action', 'effect', 'expiresAt', 'policyIds', 'reason', 'resource', 'tokenId'],
   'rosetta.action': ['actionId', 'intent', 'runCid'],
   'rosetta.evaluation': ['evaluationId', 'summary', 'verdict'],
@@ -664,13 +667,6 @@ export const CAPABILITY_PRIVILEGE_TIERS = [
   'admin'
 ] as const satisfies readonly CapabilityPrivilegeTier[];
 
-export const CAPABILITY_EFFECT_CLASSES = [
-  'pure-transform',
-  'source-read',
-  'local-write',
-  'external-write',
-  'payment'
-] as const satisfies readonly CapabilityEffectClass[];
 
 export const CAPABILITY_HINT_TREATMENTS = [
   'advisory-only',
@@ -1320,6 +1316,7 @@ function validateDerivedArtifactPayload(payload: object, errors: string[]): void
 }
 
 export function validatePayload(kind: string, payload: object): ValidationResult {
+  if (kind === 'authz.authority_envelope.v1') return validateAuthorityEnvelope(payload);
   if (kind === 'work.lifecycle.v1') return validateWorkLifecycle(payload);
   const errors = (REQUIRED_FIELDS[kind] ?? [])
     .filter((field) => !(field in payload))

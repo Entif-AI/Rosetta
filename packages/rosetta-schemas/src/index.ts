@@ -13,4 +13,5 @@ export * from './lib/impact-revalidation.js';
 export * from './lib/materialized-view.js';
 export * from './lib/graph-view.js';
 export * from './lib/compiled-context.js';
+export * from './lib/authority-envelope.js';
 export type { JsonValue } from '@entif-ai/rosetta-canon';

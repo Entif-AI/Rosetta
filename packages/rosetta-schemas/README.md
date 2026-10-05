@@ -170,3 +170,6 @@ The completed #1179 ambiguity register is generated at
 Source receipt/matrix/package nouns are qualified domain records or compositions,
 not automatically structurally substitutable for Core artifacts. See the register
 for bounded remediation decisions and the Genesis audit for exposure constraints.
+# Agent-native authority
+
+The public [Authority Envelope Profile](docs/authority-envelope-v1.md) is a bounded projection using Core `TileEnvelope`; structural validity and integrity never grant authority. Guard consumes current authority state at execution boundaries.
