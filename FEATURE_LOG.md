@@ -17,17 +17,17 @@ lease:
   id: "059927d3-5a32-47be-8867-ed17f051c834"
   holder: "codex"
   acquired_at: "2026-10-05T15:16:48.413Z"
-  heartbeat_at: "2026-10-05T15:31:51.828Z"
+  heartbeat_at: "2026-10-05T15:33:42.648Z"
   expires_at: "2026-10-05T16:01:51.829Z"
-  released_at: null
+  released_at: "2026-10-05T15:33:42.648Z"
 focus:
-  summary: "Schema acceptance green; prepare #1747 dependent evaluator"
+  summary: "Schema complete locally; user review and integration remain reserved"
   acceptance_refs: "[]"
 checkpoint:
   sha: "d2f5dc8bd1bf855285a33e6d0b84ee97ad3f8452"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
@@ -43,7 +43,7 @@ Public TypeScript/JSON Schema exports; catalog/Core descent; exact bounded resou
 V1 supports exact resource references and finite conjunctive context values. Structural validation never returns an execution grant; current-state evaluation belongs to #1747. No Core kind or authority store introduced.
 
 ## Validation
-Red proof: absent schema surface. Green: schema/Guard build,test,typecheck: 205 schema + 15 existing Guard tests passed on the implementation tree following d2f5dc8. JSON projection parity and authority governance passed. Catalog edit required nx sync; regenerated projections and nx sync:check passed.
+Red proof: absent schema surface. Green: schema/Guard build,test,typecheck: 205 schema + 15 existing Guard tests passed at tested SHA efe12ec6df9fc5a61a9205b5d3bc7a1d457656d3. JSON projection parity and authority governance passed. Catalog edit required nx sync; regenerated projections and nx sync:check passed.
 
 ## Context Map
 Live #630/#1746; authority-envelope-v1.md; authority-envelope.ts/spec.ts; schema-catalog.ts/core-descent.ts; #711 domain comparison; #1037 effect vocabulary.
