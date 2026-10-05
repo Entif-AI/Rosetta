@@ -17,17 +17,17 @@ lease:
   id: "ad0ef261-2acd-4fc4-b164-7d22f1505236"
   holder: "codex"
   acquired_at: "2026-10-05T16:17:19.835Z"
-  heartbeat_at: "2026-10-05T16:27:39.253Z"
+  heartbeat_at: "2026-10-05T16:27:43.551Z"
   expires_at: "2026-10-05T16:57:39.254Z"
-  released_at: null
+  released_at: "2026-10-05T16:27:43.551Z"
 focus:
-  summary: "Evaluator acceptance green; review candidate ready"
+  summary: "Effective-authority evaluator acceptance green: 205 schema + 35 Guard tests, affected checks across 17 projects, cold local admission (13 recorded pass checks), hosted Semantic governance 37340008889 at 9f441923e366e6c1c16c32a83b26ff02465ec763 and site verification 37340008801. Ready for compatibility migration consumption."
   acceptance_refs: "[]"
 checkpoint:
   sha: "3b870ca2d61512e514cd9001e615fb2193a176dc"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
