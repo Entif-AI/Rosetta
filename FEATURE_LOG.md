@@ -17,17 +17,17 @@ lease:
   id: "91072a22-c3b6-48d7-80a3-31f5ebd903ed"
   holder: "codex"
   acquired_at: "2026-10-05T16:27:57.132Z"
-  heartbeat_at: "2026-10-05T17:08:49.117Z"
+  heartbeat_at: "2026-10-05T17:11:57.177Z"
   expires_at: "2026-10-05T17:38:49.118Z"
-  released_at: null
+  released_at: "2026-10-05T17:11:57.177Z"
 focus:
-  summary: "Migration acceptance green locally and hosted; finalize for review"
+  summary: "Migration acceptance verified: 205 schema + 59 Guard tests, 16 affected projects, 13 cold admission checks and hosted admission 37345382606 at dcdf23e. Ready for human review; proceed sequentially to #1749."
   acceptance_refs: "[]"
 checkpoint:
   sha: "dcdf23e9954ab28769e954a4967d949f07c49741"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
