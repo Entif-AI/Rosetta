@@ -47,3 +47,6 @@ Write focused red tests for #1765.
 
 ## Handoff
 Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-admission-contract; lease 8df05a96-2127-448d-9f76-f16b63ec105a; private journal and verified Drive checkpoints.
+
+## Acceptance / Validation
+Seven admission tests and all 79 Guard tests pass; Guard lint/typecheck/test/build and package runtime exports pass. The explicit contract includes independent startup/workflow narrowing, current IAM/Evaluation linkage, grounding, durable checkpoint, second current check, actual readback, canonical Receipt closure and observable projection failure. Lost acknowledgement and closure failure require reconciliation, never blind apply retry.
