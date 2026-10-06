@@ -17,17 +17,17 @@ lease:
   id: "f1d36d42-b149-4683-860f-3844b8c55f1b"
   holder: "codex-14427340"
   acquired_at: "2026-10-06T02:36:26.917Z"
-  heartbeat_at: "2026-10-06T02:36:26.917Z"
+  heartbeat_at: "2026-10-06T02:41:51.165Z"
   expires_at: "2026-10-06T03:36:26.922Z"
-  released_at: null
+  released_at: "2026-10-06T02:41:51.165Z"
 focus:
-  summary: "NOT_AGENT_FACING: bind pinned Ed25519 workload assertions using existing signed Receipt verification. Authentication supplies evidence and never grants authority; prove missing, untrusted, expired, revoked, subject/session mismatch and valid current evidence. Preserve #703/#1077/#96/#1296 owners."
+  summary: "#1759 implemented and tested; review hold"
   acceptance_refs: "[]"
 checkpoint:
   sha: "6929793379bda0294168223cbbf0772f6b6f8284"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
@@ -50,3 +50,8 @@ Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1759-actor; lease f1
 
 ## Acceptance / Validation
 Six actor tests and all 72 Guard tests pass. Guard and Receipt lint/typecheck/test/build pass; frozen install, Nx sync check and actual package runtime exports pass. Signed historical evidence never grants rights, and live actor/issuer revocation defeats replay. Registry persistence/distributed reconciliation remains with identity-source owners.
+
+## Pre-merge Verification
+Six actor tests and all 72 Guard tests pass. Guard and Receipt lint/typecheck/test/build, frozen-lockfile install, Nx sync check and actual package runtime exports pass. Public authority hook passes. Prior full state-stack admission passed; new hosted CI pending. Raw authenticated source is bounded/in-process, not production identity infrastructure.
+
+PR #1764. Implementation is held for user review. No merges or issue closure. Exact final log archive precedes removal.
