@@ -52,4 +52,4 @@ Red evidence: missing authority-state implementation. Seven state tests and all 
 Commit/push stable resolver, run exported consumer and admission checks, open owned stacked PR, release/archive for review, then acquire #1759 lease.
 
 ## Handoff Notes
-Root Work Stack/run 14427340-a050-4cea-aaab-9789f04948d2. AUTHZ-RECOVER and startup durability committed; AUTHZ-1758-STATE executing. Private journal cursor 3. Drive CP0001 archive exists; exact readback verification is being reconciled. Integration hold reserves all merges, issue closures, release, promotion and production deployment.
+Root Work Stack/run 14427340-a050-4cea-aaab-9789f04948d2. AUTHZ-RECOVER and startup durability committed; AUTHZ-1758-STATE executing. CP0001 exact remote bytes verified by SHA-256 after correcting a premature receipt. Integration hold reserves all merges, issue closures, release, promotion and production deployment.
