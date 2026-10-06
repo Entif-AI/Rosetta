@@ -17,6 +17,9 @@
     },
     {
       "path": "../rosetta-schemas/tsconfig.lib.json"
+    },
+    {
+      "path": "../rosetta-receipts/tsconfig.lib.json"
     }
   ]
 }

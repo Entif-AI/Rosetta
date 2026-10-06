@@ -428,6 +428,9 @@ importers:
       '@entif-ai/rosetta-core':
         specifier: workspace:*
         version: link:../rosetta-core
+      '@entif-ai/rosetta-receipts':
+        specifier: workspace:*
+        version: link:../rosetta-receipts
       '@entif-ai/rosetta-schemas':
         specifier: workspace:*
         version: link:../rosetta-schemas

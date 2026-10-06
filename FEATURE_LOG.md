@@ -47,3 +47,6 @@ Write focused red tests for #1759.
 
 ## Handoff
 Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1759-actor; lease f1d36d42-b149-4683-860f-3844b8c55f1b; private journal and verified Drive checkpoints.
+
+## Acceptance / Validation
+Six actor tests and all 72 Guard tests pass. Guard and Receipt lint/typecheck/test/build pass; frozen install, Nx sync check and actual package runtime exports pass. Signed historical evidence never grants rights, and live actor/issuer revocation defeats replay. Registry persistence/distributed reconciliation remains with identity-source owners.
