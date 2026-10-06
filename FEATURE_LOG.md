@@ -17,17 +17,17 @@ lease:
   id: "1f0dbff4-3a64-40a2-be52-83702af5fc7f"
   holder: "codex-14427340"
   acquired_at: "2026-10-06T02:18:50.225Z"
-  heartbeat_at: "2026-10-06T02:26:40.979Z"
+  heartbeat_at: "2026-10-06T02:35:41.235Z"
   expires_at: "2026-10-06T03:26:40.983Z"
-  released_at: null
+  released_at: "2026-10-06T02:35:41.235Z"
 focus:
-  summary: "State/resolver/compiler and handler adapter green; finalize stable contract"
+  summary: "#1758 implemented and tested; review hold"
   acceptance_refs: "[]"
 checkpoint:
   sha: "d71f5540932e04bd0a71069153f24c4092241c24"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
@@ -53,3 +53,8 @@ Commit/push stable resolver, run exported consumer and admission checks, open ow
 
 ## Handoff Notes
 Root Work Stack/run 14427340-a050-4cea-aaab-9789f04948d2. AUTHZ-RECOVER and startup durability committed; AUTHZ-1758-STATE executing. CP0001 exact remote bytes verified by SHA-256 after correcting a premature receipt. Integration hold reserves all merges, issue closures, release, promotion and production deployment.
+
+## Pre-merge Verification
+Seven current-state tests and all 66 Guard tests pass. Guard lint/typecheck/test/build, governance authority, and all 13 merge-admission prerequisites pass. Full admission rerun used prebuilt Nx governance and the existing pinned Spec Kit runtime via SPECIFY_BIN. Hosted CI is pending; no production or distributed consistency claim.
+
+PR #1763. Implementation is held for user review. No merges or issue closure. Exact final log archive precedes removal.
