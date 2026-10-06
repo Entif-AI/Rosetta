@@ -47,3 +47,6 @@ Write focused red tests for #1761.
 
 ## Handoff
 Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1761-mutate; lease 5fcb7f40-e8f5-40ec-9f4f-ab549854656b; private journal and verified Drive checkpoints.
+
+## Acceptance / Validation
+Nine mutation tests and all 88 Guard tests pass; Guard lint/typecheck/test/build and runtime exports pass. Non-amplification and checkpoint refusal preserve target revision. Real transport/Receipt-storage loss reconciles closure without another append. Expiry/supersession and revocation retain history; independent roots survive. Existing local-write effect vocabulary is used.

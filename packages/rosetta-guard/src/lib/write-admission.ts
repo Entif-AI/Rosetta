@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { closeSync, fsyncSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
+import { closeSync, fsyncSync, mkdirSync, openSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Ajv } from 'ajv';
 import { buildTile, createAction, createEvaluation, createObservation, createRun, verifyTileIntegrity, type ActionPayload, type ObservationPayload, type RunPayload, type TileEnvelope } from '@entif-ai/rosetta-core';
@@ -82,6 +82,12 @@ export class LocalAdmissionJournal {
     const bytes = readFileSync(this.file(cid)); if (bytes.length > 524_288) throw new Error('ADMISSION_ARTIFACT_BOUND_EXCEEDED');
     const tile = JSON.parse(bytes.toString()) as TileEnvelope;
     if (tile.cid !== cid || !validTile(tile)) throw new Error('ADMISSION_ARTIFACT_INVALID'); return tile;
+  }
+  all(): TileEnvelope[] {
+    const files = readdirSync(this.directory).filter(file => /^[a-f0-9]{64}\.json$/.test(file));
+    if (files.length > 10_000) throw new Error('ADMISSION_HISTORY_BOUND_EXCEEDED');
+    return files.map(file => { const bytes = readFileSync(join(this.directory, file)); if (bytes.length > 524_288) throw new Error('ADMISSION_ARTIFACT_BOUND_EXCEEDED');
+      const tile = JSON.parse(bytes.toString()) as TileEnvelope; return this.read(tile.cid); });
   }
   persist<T>(tile: TileEnvelope<T>): TileEnvelope<T> {
     if (!validTile(tile)) throw new Error('ADMISSION_ARTIFACT_INVALID');
