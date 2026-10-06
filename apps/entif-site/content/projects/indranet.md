@@ -7,7 +7,7 @@ status: published
 published: 2026-09-28
 authors:
   - Entif AI
-description: IndraNet is Entif AI's relational fabric for independently bounded cognitive participants, with a current reference specialization in qualified physical context, embodied systems, and evidence-preserving world interaction.
+description: "IndraNet: a relational fabric for tangible environment interactions, integrating human and digital cognition. Shared physical context, embodied systems and evidence-preserving world modeling."
 tags:
   - distributed-cognition
   - swarm-gnosis
