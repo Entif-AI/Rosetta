@@ -17,17 +17,17 @@ lease:
   id: "5fcb7f40-e8f5-40ec-9f4f-ab549854656b"
   holder: "codex-14427340"
   acquired_at: "2026-10-06T02:55:52.353Z"
-  heartbeat_at: "2026-10-06T02:55:52.353Z"
+  heartbeat_at: "2026-10-06T03:08:04.442Z"
   expires_at: "2026-10-06T03:55:52.354Z"
-  released_at: null
+  released_at: "2026-10-06T03:08:04.442Z"
 focus:
-  summary: "NOT_AGENT_FACING: configure a pinned independent operator root source, then admit policy/root establishment, bounded delegation, invalidity and supersession through #1765 before append. Prove non-amplification, deterministic identity conflicts/replay, lost-ack reconciliation, history retention and independent roots."
+  summary: "#1761 implemented and tested; review hold"
   acceptance_refs: "[]"
 checkpoint:
   sha: "6fec46150fc0c38a9b04c88c6fa0cbbff026a7a4"
   pushed_at: null
 state:
-  status: "active"
+  status: "available"
   blocked: false
 ---
 
@@ -50,3 +50,8 @@ Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1761-mutate; lease 5
 
 ## Acceptance / Validation
 Nine mutation tests and all 88 Guard tests pass; Guard lint/typecheck/test/build and runtime exports pass. Non-amplification and checkpoint refusal preserve target revision. Real transport/Receipt-storage loss reconciles closure without another append. Expiry/supersession and revocation retain history; independent roots survive. Existing local-write effect vocabulary is used.
+
+## Pre-merge Verification
+Nine mutation tests and all 88 Guard tests pass. Guard lint/typecheck/test/build, runtime exports and authority hook pass. Target effects are fenced/admitted; identical/reordered event replay is reconciled; identity conflict and amplification deny without append. Lost transport and Receipt storage recovery preserve one append. Expiry/supersession/history and independent-root survival pass. Hosted CI pending.
+
+PR #1767. Implementation is held for user review. No merges or issue closure. Exact final log archive precedes removal.
