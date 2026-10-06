@@ -135,7 +135,8 @@ export class GovernedAuthorityMutator {
             this.state.previewAppend(event, initial.revision);
             return auth;
           } catch (error) {
-            const code = error instanceof Error && /^[A-Z_]{3,80}$/.test(error.message) ? error.message : 'AUTHORITY_MUTATION_REFUSED'; return denied(auth, code);
+            const code = error instanceof Error && /^[A-Z_]{3,80}$/.test(error.message) ? error.message : 'AUTHORITY_MUTATION_REFUSED';
+            this.admission.journal.persist(auth.evaluation); return denied(auth, code);
           }
         },
         ground: (p, a) => {

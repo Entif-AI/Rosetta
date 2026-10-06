@@ -56,6 +56,7 @@ describe('governed authority mutation #1761', () => {
     const amplified = { ...r.child, scope: { ...r.child.scope, operations: ['B'] }, delegation: { ...r.child.delegation, ceiling: { ...r.child.scope, operations: ['B'] } } };
     const result = await r.service.mutate({ event: { id: 'amplify', type: 'fact', fact: amplified } });
     expect(result.status).toBe('deny'); expect(result.reasonCodes).toContain('AUTHORITY_AMPLIFICATION'); expect(r.state.inspect()).toEqual(before);
+    for (const tile of r.journal.all()) for (const parent of tile.parents) expect(() => r.journal.read(parent)).not.toThrow();
   });
   it('reconciles duplicate identity and rejects a different payload without duplicate authority', async () => {
     const r = rig(); await r.start(); const input = { event: { id: 'child', type: 'fact' as const, fact: r.child } };

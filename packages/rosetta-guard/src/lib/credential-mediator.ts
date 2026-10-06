@@ -85,8 +85,9 @@ export class LocalCredentialMediator {
       if (badSubmission) delete op.submittedEnvelope;
       const auth = resolveWriteAuthorization(this.state, op, p, this.options.workflow);
       if (auth.evaluation.payload.effect !== 'allow') return auth;
-      if (badSubmission) return refusal(auth, 'UNINTERPRETABLE_SUBMITTED_AUTHORITY');
-      const code = this.credentialStatus(meta); return code ? refusal(auth, code) : auth;
+      const code = badSubmission ? 'UNINTERPRETABLE_SUBMITTED_AUTHORITY' : this.credentialStatus(meta);
+      if (!code) return auth;
+      this.admission.journal.persist(auth.evaluation); return refusal(auth, code);
     };
     let result: WriteAdmissionResult;
     try {
