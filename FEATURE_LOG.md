@@ -47,3 +47,6 @@ Write focused red tests for #1760.
 
 ## Handoff
 Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1760-credential; lease 1e831f9d-cb40-4387-8d53-e6623f9f6847; private journal and verified Drive checkpoints.
+
+## Acceptance / Validation
+Six credential tests and all 94 Guard tests pass. Guard lint/typecheck/test/build, actual runtime exports and authority hook pass. A/A2 write measurable provider target files; denied B and post-revoke replay leave target count/hash unchanged. Provider scope/expiry/invalidity/account/auth failures are distinct. A revoke during credential selection is checked again before provider effect. Generated credentials stay in private runtime fields/callbacks.
