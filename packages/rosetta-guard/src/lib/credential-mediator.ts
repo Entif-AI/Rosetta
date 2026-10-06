@@ -52,6 +52,7 @@ export class LocalCredentialMediator {
     private readonly binding: CredentialProviderBinding, private readonly options: CredentialMediatorOptions) {
     if (!options.operations.length || options.operations.length > 16 || new Set(options.operations).size !== options.operations.length) throw new Error('UNBOUNDED_PROVIDER_INTERFACE');
   }
+  get subjectRef() { return this.options.subjectRef; }
   private metadata() {
     const value = this.binding.metadata(); if (!validMetadata(value)) throw new Error('PROVIDER_BINDING_MISMATCH'); return structuredClone(value);
   }

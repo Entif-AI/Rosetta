@@ -232,6 +232,9 @@ importers:
       '@entif-ai/ingress-refinery':
         specifier: workspace:*
         version: link:../../packages/ingress-refinery
+      '@entif-ai/rosetta-guard':
+        specifier: workspace:*
+        version: link:../../packages/rosetta-guard
       '@entif-ai/rosetta-schemas':
         specifier: workspace:*
         version: link:../../packages/rosetta-schemas

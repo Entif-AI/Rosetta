@@ -13,10 +13,13 @@
       "path": "../../packages/source-registry/tsconfig.lib.json"
     },
     {
+      "path": "../../packages/rosetta-schemas/tsconfig.lib.json"
+    },
+    {
       "path": "../../packages/ingress-refinery/tsconfig.lib.json"
     },
     {
-      "path": "../../packages/rosetta-schemas/tsconfig.lib.json"
+      "path": "../../packages/rosetta-guard/tsconfig.lib.json"
     }
   ]
 }
