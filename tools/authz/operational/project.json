@@ -1,0 +1,13 @@
+{
+  "name": "authz-operational",
+  "projectType": "library",
+  "implicitDependencies": ["rosetta-api", "rosetta-guard", "rosetta-schemas", "rosetta-core", "rosetta-receipts", "rosetta-store"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "target": "build", "projects": ["rosetta-api", "rosetta-guard", "rosetta-receipts", "rosetta-store"] }],
+      "cache": false,
+      "options": { "command": "node --test tools/authz/operational/proof.spec.mjs" }
+    }
+  }
+}

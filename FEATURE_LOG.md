@@ -47,3 +47,6 @@ Write focused red tests for #1762.
 
 ## Handoff
 Work Stack 14427340-a050-4cea-aaab-9789f04948d2; task authz-1762-e2e; lease cf80b156-9e6c-49f6-a088-4b7fa383b5d3; private journal and verified Drive checkpoints.
+
+## Integrated proof checkpoint
+The real exported state/actor/mutator/admission/credential/API/provider path passes. Three operational tests include missing/corrupt readback negatives. Guard 94, API 8, Core 16, schema 205, Receipt 40, CLI 5 and prior conformance 8 tests pass; owner lint/typecheck/build pass. New script globals initially failed lint and were corrected; both affected script lint targets now pass. Closure negatives identified and repaired missing initial Evaluation persistence for mutation/provider refusal; existing refusal effects are preserved. Full merge-admission, retained committed-head runtime proof and hosted CI are next. No merge or issue closure.
