@@ -10,8 +10,11 @@ and `journal-log` episodes, ingress-refinery TRACE-NORM, and trace projection.
 Source bytes remain authoritative. Normalization and FalkorDB are derived and
 rebuildable. `recorded-live` is a supplier declaration, never E2E acceptance.
 
-Input is bounded UTF-8 JSONL: at most 4 MiB, 1,000 nonempty event lines and 64 KiB
-per physical line. Every admitted event declares `family`, `eventType`, `eventId`,
+Input is bounded UTF-8 JSONL: at most 4 MiB, 1,000 nonempty event lines, 64 KiB
+per physical line and 64 distinct admitted events. The distinct-event bound limits
+the existing normalizer's cumulative snapshot expansion; producers segment longer
+source streams before admission. Overflow fails explicitly without truncating or
+overwriting the source. Every admitted event declares `family`, `eventType`, `eventId`,
 `producerId` and `producerVersion`:
 
 | Family | Event types |

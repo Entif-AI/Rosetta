@@ -65,6 +65,8 @@ export function deriveBoundaryTraceSource(raw: string, options: BoundarySourceOp
       if (prior.canonical !== canonical) throw new Error('Boundary event identity conflict; reconcile source evidence before ingestion.');
       prior.count++; duplicateBytes += Buffer.byteLength(line); continue;
     }
+    // TRACE-NORM keeps cumulative snapshots; cap distinct admissions before expansion.
+    if (seen.size >= 64) throw new Error('Boundary normalization event limit exceeded; segment source before ingestion.');
     seen.set(eventRef, { canonical, count: 1 });
     if (!profiles.has(producerRef)) profiles.set(producerRef, createSourceSystemProfileTile({
       sourceSystemId: producerRef, canonicalName: `Headless ${value.family} boundary`, sourceRoles: ['source-evidence'],

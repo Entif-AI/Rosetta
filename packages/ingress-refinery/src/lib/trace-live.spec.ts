@@ -73,6 +73,7 @@ describe('TRACE-LIVE bounded source adapter', () => {
   it('refuses conflicting event identities and bounded-input overflow', () => {
     expect(() => normalizeBoundaryTrace(encode([event(), event('mcp', 'mcp-request', 'event-1', { payload: { status: 'failed' } })]), options)).toThrow(/identity conflict/i);
     expect(() => normalizeBoundaryTrace('x'.repeat(4 * 1024 * 1024 + 1), options)).toThrow(/limit/i);
+    expect(() => normalizeBoundaryTrace(encode(Array.from({ length: 65 }, (_, i) => event('mcp', 'mcp-request', `bounded-${i}`))), options)).toThrow(/limit/i);
   });
   it('declares fixture maturity and preserves relative source time without promoting it to live proof', () => {
     const result = normalizeBoundaryTrace(encode([event(), event('device', 'device-observation', 'later', { observedAt: '2026-10-08T00:00:03.000Z' })]), options);

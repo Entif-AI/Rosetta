@@ -60,7 +60,9 @@ when the laptop loses the acknowledgement. `result.json` contains the
 orchestration/compute identities, revision, runtime, resource samples, timings,
 failure class and evidence manifest. Returned files live under `remote/`; each
 file's bytes and SHA-256 are independently verified before writing the bundle.
-Accepted historical receipts are never output targets. Evidence is bounded to
+Accepted historical receipts are never output targets. Each worker child command's
+stdout/stderr share a 1 MiB bound, including worker log files; overflow stops its
+owned process group with `OUTPUT_LIMIT`. Evidence transfer is bounded to
 16 MiB; credentials, user paths and raw operational evidence are not public Git
 artifacts. Keep local evidence private unless separately screened.
 
