@@ -74,8 +74,8 @@ outside this wrapper's ownership.
 
 Authentication/host-key/transport/tunnel errors, service loss, runtime mismatch,
 scratch collisions, inference unavailability and task failures remain distinct.
-The worker refuses any preexisting scratch graph before dispatch, uses a host-wide
-fixture lock, preserves source/accepted receipt hashes and removes only newly
+The worker refuses any preexisting scratch graph before dispatch, uses a fixture
+lock shared across checkouts under the compute account, preserves source/accepted receipt hashes and removes only newly
 owned scratch graphs. Interrupted or stale lock ownership requires reconciliation.
 No automatic takeover, blind replay or cleanup of preexisting graphs occurs.
 
