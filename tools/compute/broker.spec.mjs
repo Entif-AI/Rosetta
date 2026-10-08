@@ -40,6 +40,29 @@ test('unavailable remote target writes a blocked receipt without invoking a task
     assert.equal(JSON.parse(readFileSync(parent + '/blocked/result.json')).executionHostRef, 'host:m3-ultra');
   } finally { rmSync(parent, { recursive: true }); }
 });
+test('lost acknowledgement leaves the original request identity persisted before dispatch', async () => {
+  const parent = output(), directory = parent + '/interrupted', runId = 'crash-recovery-test';
+  let captured;
+  try {
+    const result = await invoke({ operation: 'run', job: 'akasha.operational.prove', output: directory, config, runId }, {
+      revision,
+      forward: async () => ({ assertAlive() {}, close: async () => {} }),
+      call: async (_target, _config, request) => {
+        if (request.operation === 'doctor') return { status: 'ok', snapshot: { revision: await revision(), dirty: false } };
+        if (existsSync(directory + '/request.json')) captured = JSON.parse(readFileSync(directory + '/request.json', 'utf8'));
+        throw new ComputeError('TRANSPORT', 'Acknowledgement lost; collect rather than replay.');
+      },
+    });
+    assert.equal(result.code, 'TRANSPORT');
+    assert.ok(captured, 'recoverable request must exist before the run is dispatched');
+    assert.deepEqual(captured, {
+      operation: 'run', target: 'm3-ultra', job: 'akasha.operational.prove', runId,
+      revision: await revision(), requestedAt: captured.requestedAt,
+    });
+    assert.ok(Number.isFinite(Date.parse(captured.requestedAt)));
+    assert.deepEqual(JSON.parse(readFileSync(directory + '/request.json', 'utf8')), captured);
+  } finally { rmSync(parent, { recursive: true }); }
+});
 test('evidence collision refuses dispatch and preserves the old bytes', async () => {
   const parent = output(); let calls = 0;
   try {

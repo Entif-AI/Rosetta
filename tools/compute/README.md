@@ -53,7 +53,9 @@ node tools/compute/run.mjs run --job akasha.semantic.prove --output .axi/compute
 node tools/compute/run.mjs run --job akasha.model-off --output .axi/compute-model-off-1
 ```
 
-Every output directory must be fresh and ignored. `result.json` contains the
+Every output directory must be fresh and ignored. A flushed `request.json`
+preserves the run identity and original revision before remote dispatch, even
+when the laptop loses the acknowledgement. `result.json` contains the
 orchestration/compute identities, revision, runtime, resource samples, timings,
 failure class and evidence manifest. Returned files live under `remote/`; each
 file's bytes and SHA-256 are independently verified before writing the bundle.
@@ -74,8 +76,8 @@ fixture lock, preserves source/accepted receipt hashes and removes only newly
 owned scratch graphs. Interrupted or stale lock ownership requires reconciliation.
 No automatic takeover, blind replay or cleanup of preexisting graphs occurs.
 
-After lost SSH acknowledgement, inspect the remote run/lock and collect surviving
-evidence rather than replaying a graph job:
+After lost SSH acknowledgement, read the local `request.json`, reconcile the
+remote run/lock and collect surviving evidence rather than replaying a graph job:
 
 ```sh
 node tools/compute/run.mjs collect --run-id RETURNED_RUN_ID --output .axi/compute-recovered-1

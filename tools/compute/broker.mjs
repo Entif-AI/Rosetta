@@ -107,6 +107,11 @@ export async function invoke(options, { call = remoteCall, forward = openForward
   try {
     const head = await revision();
     identity = { target, orchestrationHostRef: 'host:orchestration-laptop', executionHostRef: `host:${target}`, orchestrationArchitecture: arch(), orchestrationNodeVersion: process.version, revision: head, runId };
+    // Preserve replay identity before any remote acknowledgement can be lost.
+    if (directory) writeFileSync(path.join(directory, 'request.json'), JSON.stringify({
+      operation, target, ...(operation === 'run' ? { job } : {}), runId,
+      revision: head, requestedAt: new Date().toISOString(),
+    }, null, 2) + '\n', { flag: 'wx', mode: 0o600, flush: true });
     if (operation === 'collect') {
       const bundle = await call(target, config, { operation: 'collect', runId }, controller.signal);
       const manifest = writeBundle(bundle, directory, runId, head);
