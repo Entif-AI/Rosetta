@@ -1,5 +1,6 @@
 import { closeSync, fsyncSync, mkdirSync, openSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { Ajv } from 'ajv';
 import { buildTile, createEvaluation, verifyTileIntegrity, type ObservationPayload, type TileEnvelope } from '@entif-ai/rosetta-core';
 import {
@@ -60,8 +61,12 @@ const validQuery = ajv.compile<CurrentAuthorityQuery>({ type: 'object', addition
   authorityRefs: refs, subjectRef: ref, now: { type: 'string', format: 'date-time' }, minimumRevision: { type: 'integer', minimum: 0, maximum: Number.MAX_SAFE_INTEGER }, scope: shape('scope'), policy: shape('policy'), expectedFrontierRef: ref
 } });
 const bounded = (value: unknown) => Buffer.byteLength(JSON.stringify(value)) <= 262_144;
-const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+const same = isDeepStrictEqual;
 const EMPTY_FRONTIER = 'urn:rosetta:authz-state:empty';
+export function parseAuthorityStateEvent(input: unknown): AuthorityStateEvent {
+  if (!validEvent(input) || !bounded(input)) throw new Error('UNINTERPRETABLE_AUTHORITY_EVENT');
+  return structuredClone(input);
+}
 
 function envelopeFor(fact: AuthorityFact, chain: AuthorityFact[], frontierRef: string, now: string): AuthorityEnvelope {
   return parseAuthorityEnvelope({
@@ -165,6 +170,15 @@ export class LocalAuthorityState {
   findMutation(id: string): AuthorityAppendResult | null {
     const tile = this.history().find(value => value.payload.authorityState.event.id === id);
     return tile ? { revision: tile.payload.authorityState.revision, frontierRef: tile.cid, observation: tile } : null;
+  }
+  observations() { return structuredClone(this.history()); }
+  /** Validate a proposed transition against live state without admitting or persisting it. */
+  previewAppend(input: unknown, expectedRevision: number): void {
+    const event = parseAuthorityStateEvent(input); const history = this.history(); const view = this.materialize(history);
+    const prior = history.find(tile => tile.payload.authorityState.event.id === event.id);
+    if (prior) { if (!same(prior.payload.authorityState.event, event)) throw new Error('AUTHORITY_MUTATION_ID_CONFLICT'); return; }
+    if (expectedRevision !== view.revision) throw new Error('AUTHORITY_REVISION_CONFLICT');
+    transition(view, event);
   }
   append(input: unknown, expectedRevision: number): AuthorityAppendResult {
     if (!validEvent(input) || !bounded(input)) throw new Error('UNINTERPRETABLE_AUTHORITY_EVENT');
