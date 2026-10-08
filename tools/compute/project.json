@@ -2,7 +2,7 @@
   "name": "compute-broker",
   "projectType": "application",
   "targets": {
-    "test": { "executor": "nx:run-commands", "options": { "command": "node --test tools/compute/*.spec.mjs" } },
+    "test": { "executor": "nx:run-commands", "dependsOn": [{ "projects": ["ingress-refinery"], "target": "build" }], "options": { "command": "node --test tools/compute/*.spec.mjs tools/trace-live/*.spec.mjs" } },
     "doctor": { "executor": "nx:run-commands", "cache": false, "options": { "command": "node tools/compute/run.mjs doctor --target m3-ultra" } }
   }
 }

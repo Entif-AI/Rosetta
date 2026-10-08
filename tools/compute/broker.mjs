@@ -1,4 +1,7 @@
 import { spawn } from 'node:child_process';
+import process from 'node:process';
+import { Buffer } from 'node:buffer';
+import { setTimeout, clearTimeout } from 'node:timers';
 import { mkdirSync, writeFileSync, readFileSync, existsSync, lstatSync, realpathSync } from 'node:fs';
 import { randomUUID, createHash } from 'node:crypto';
 import { arch, homedir } from 'node:os';
@@ -23,7 +26,7 @@ export async function probeResp(port) {
   return new Promise((resolve, reject) => {
     const socket = net.createConnection({ host: '127.0.0.1', port });
     let response = '';
-    const done = error => { socket.destroy(); error ? reject(error) : resolve(); };
+    const done = error => { socket.destroy(); if (error) reject(error); else resolve(); };
     socket.setTimeout(1000, () => done(new Error('RESP timeout')));
     socket.on('error', done);
     socket.on('connect', () => socket.write('*1\r\n$4\r\nPING\r\n'));
@@ -51,7 +54,7 @@ export async function openForward(target, remotePort, { launch, probe = probeRes
   };
   try {
     const deadline = performance.now() + timeoutMs;
-    while (true) {
+    for (;;) {
       assertAlive();
       try { await probe(port); assertAlive(); return { port, assertAlive, close }; } catch (e) { if (e instanceof ComputeError) throw e; }
       if (performance.now() >= deadline) fail('TUNNEL', 'The owned loopback forward did not return RESP PONG.');
@@ -64,7 +67,7 @@ export function writeBundle(bundle, directory, runId, revision) {
   if (bundle?.manifest?.runId !== runId || bundle.manifest.revision !== revision || !Array.isArray(bundle.files) || JSON.stringify(bundle.files.map(({ ref, bytes, sha256 }) => ({ ref, bytes, sha256 }))) !== JSON.stringify(bundle.manifest.artifacts)) fail('EVIDENCE_INTEGRITY', 'Returned evidence identity differs from the requested run.');
   let total = 0; const refs = new Set(), admitted = [];
   for (const file of bundle.files) {
-    if (!/^[a-zA-Z0-9_.\/-]+$/.test(file.ref) || file.ref.startsWith('/') || file.ref.split('/').some(p => !p || p === '..' || p === '.') || refs.has(file.ref)) fail('EVIDENCE_INTEGRITY', 'Invalid or duplicate evidence reference.');
+    if (!/^[a-zA-Z0-9_./-]+$/.test(file.ref) || file.ref.startsWith('/') || file.ref.split('/').some(p => !p || p === '..' || p === '.') || refs.has(file.ref)) fail('EVIDENCE_INTEGRITY', 'Invalid or duplicate evidence reference.');
     refs.add(file.ref);
     const bytes = Buffer.from(file.base64, 'base64'); total += bytes.length;
     if (bytes.toString('base64') !== file.base64 || bytes.length !== file.bytes || total > MAX_EVIDENCE_BYTES || digest(bytes) !== file.sha256) fail('EVIDENCE_INTEGRITY', 'Returned evidence bytes failed integrity or size checks.');
@@ -101,7 +104,7 @@ export async function invoke(options, { call = remoteCall, forward = openForward
   if (!['doctor', 'run', 'collect'].includes(operation) || (operation === 'run' && !Object.hasOwn(JOBS, job))) fail('INVALID_REQUEST', 'Select doctor, collect or an allowlisted run job.');
   const directory = output ? freshEvidenceDirectory(output) : null;
   if (operation !== 'doctor' && !directory) fail('INVALID_REQUEST', 'Run/collect requires a fresh ignored output directory.');
-  const started = performance.now(), controller = new AbortController();
+  const started = performance.now(), controller = new globalThis.AbortController();
   const abort = () => controller.abort(); process.once('SIGINT', abort); process.once('SIGTERM', abort);
   let result, identity;
   try {

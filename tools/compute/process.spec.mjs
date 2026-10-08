@@ -1,4 +1,6 @@
 import test from 'node:test';
+import process from 'node:process';
+import { setTimeout } from 'node:timers';
 import assert from 'node:assert/strict';
 import { execute } from './process.mjs';
 import { shellQuote } from './broker.mjs';
@@ -9,7 +11,7 @@ test('timeout terminates a process group and returns a bounded failure', async (
   assert.equal(result.reason, 'TIMEOUT'); assert.equal(result.exitSignal, 'SIGTERM');
 });
 test('cancellation interrupts remote transport without hanging', async () => {
-  const controller = new AbortController();
+  const controller = new globalThis.AbortController();
   setTimeout(() => controller.abort(), 100);
   const result = await execute(process.execPath, ['-e', 'setInterval(()=>{},1000)'], { signal: controller.signal });
   assert.equal(result.reason, 'CANCELLED');

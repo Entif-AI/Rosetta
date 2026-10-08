@@ -1,4 +1,7 @@
 import test from 'node:test';
+import process from 'node:process';
+import { Buffer } from 'node:buffer';
+import { URL } from 'node:url';
 import assert from 'node:assert/strict';
 import { EventEmitter } from 'node:events';
 import { mkdtempSync, mkdirSync, symlinkSync, rmSync, readFileSync, existsSync } from 'node:fs';

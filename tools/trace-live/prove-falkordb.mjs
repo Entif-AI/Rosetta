@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import process from 'node:process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';

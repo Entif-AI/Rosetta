@@ -1,8 +1,9 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, lstatSync, openSync, closeSync, rmSync } from 'node:fs';
+import process from 'node:process';
 import { createHash } from 'node:crypto';
 import { homedir, arch, platform, release, cpus, totalmem } from 'node:os';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, URL } from 'node:url';
 import { performance } from 'node:perf_hooks';
 import { execute } from './process.mjs';
 import { VERSION, JOBS, SERVICES, MAX_EVIDENCE_BYTES, fail, validateRequest, validateRuntime, requireRevision, outcomeError } from './contract.mjs';
@@ -53,7 +54,7 @@ export async function inspect(config = readConfig()) {
   }
   if (config.inference) {
     try {
-      const response = await fetch(config.inference.baseUrl.replace(/\/$/, '') + '/models', { signal: AbortSignal.timeout(5000) });
+      const response = await globalThis.fetch(config.inference.baseUrl.replace(/\/$/, '') + '/models', { signal: globalThis.AbortSignal.timeout(5000) });
       const result = await response.json();
       inference = { configured: response.ok, models: result.data?.map(m => m.id) ?? [], model: config.inference.model, embedder: config.inference.embedder, reranker: config.inference.reranker };
     } catch { /* Explicit provider-unavailable result; no provider substitution. */ }
@@ -106,7 +107,7 @@ export async function handle(request, { config = readConfig(), inspectRuntime = 
     if (JSON.stringify(artifacts) !== JSON.stringify(manifest.artifacts)) fail('EVIDENCE_INTEGRITY', 'Remote evidence changed after its receipt.');
     return { manifest, files: artifacts.map(a => ({ ...a, base64: readFileSync(path.join(directory, a.ref)).toString('base64') })) };
   }
-  const spec = JOBS[request.job], env = environment(config), controller = new AbortController();
+  const spec = JOBS[request.job], env = environment(config), controller = new globalThis.AbortController();
   const lock = lockPath;
   mkdirSync(path.dirname(lock), { recursive: true });
   try { mkdirSync(lock); } catch (e) { if (e.code === 'EEXIST') fail('RESOURCE_BUSY', 'Another or interrupted compute worker owns the fixture lock; reconcile before retry.'); throw e; }

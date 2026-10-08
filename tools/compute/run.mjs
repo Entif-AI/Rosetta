@@ -1,4 +1,5 @@
 import { parseArgs } from 'node:util';
+import process from 'node:process';
 import { invoke, loadConfig } from './broker.mjs';
 import { VERSION, JOBS, outcomeError } from './contract.mjs';
 

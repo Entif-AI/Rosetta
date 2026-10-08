@@ -1,4 +1,6 @@
 import { spawn } from 'node:child_process';
+import process from 'node:process';
+import { setTimeout, clearTimeout } from 'node:timers';
 import { ComputeError } from './contract.mjs';
 import { writeSync } from 'node:fs';
 
