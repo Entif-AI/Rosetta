@@ -63,6 +63,7 @@ describe('bounded credential mediation #1760', () => {
       const r = rig(); change(r); const before = r.provider.inspect();
       expect((await r.mediator.execute({ id: code, operation: 'A' })).code).toBe(code); expect(r.provider.inspect()).toEqual(before);
       expect(JSON.stringify(r.journal.all())).not.toContain(secret);
+      for (const tile of r.journal.all()) for (const parent of tile.parents) expect(() => r.journal.read(parent)).not.toThrow();
     }
   });
   it('rejects raw credential fields and malformed intents before any effect', async () => {
