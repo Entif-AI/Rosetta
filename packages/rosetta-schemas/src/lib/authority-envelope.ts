@@ -85,6 +85,7 @@ export function authorityConstraintsContain(parent: AuthorityContextConstraints,
 
 export function parseAuthorityEnvelope(input: unknown): AuthorityEnvelope {
   const value = admit(input);
+  if (new Set(value.authoritySources.map(source => source.ref)).size !== value.authoritySources.length) throw new Error('One source reference cannot alias different authority roles.');
   if (Date.parse(value.validity.expiresAt) <= Date.parse(value.validity.notBefore)) throw new Error('Authority validity interval must be nonempty.');
   if (!value.authoritySources.some(source => source.kind === 'authority-root')) throw new Error('Authority projection requires an externally established root reference.');
   if (value.authoritySources.some(source => !value.provenance.sourceRefs.includes(source.ref))) throw new Error('Authority source must occur in the compilation source frontier.');
