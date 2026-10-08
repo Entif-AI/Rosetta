@@ -70,6 +70,11 @@ test('preexisting scratch graph is preserved, including operational runner which
   const value = runtime(); value.services.operational.graphs.push('entif_trace_1735');
   assert.throws(() => validateRuntime(value, 'akasha.operational.prove'), code('SCRATCH_COLLISION'));
 });
+test('live adapter proof uses a fixed fixture job and refuses an existing scratch graph', () => {
+  assert.equal(JOBS['akasha.live-fixture.prove']?.script, 'tools/trace-live/prove-falkordb.mjs');
+  const value = runtime(); value.services.operational.graphs.push('entif_trace_1685');
+  assert.throws(() => validateRuntime(value, 'akasha.live-fixture.prove'), code('SCRATCH_COLLISION'));
+});
 test('missing inference blocks semantic execution but permits deterministic and model-off jobs', () => {
   const value = runtime(); value.inference = { configured: false };
   assert.throws(() => validateRuntime(value, 'akasha.semantic.prove'), code('INFERENCE_UNAVAILABLE'));

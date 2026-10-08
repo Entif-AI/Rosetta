@@ -78,7 +78,7 @@ export function writeBundle(bundle, directory, runId, revision) {
   writeFileSync(path.join(directory, 'manifest.json'), JSON.stringify(bundle.manifest, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
   return bundle.manifest;
 }
-function freshDirectory(output) {
+export function freshEvidenceDirectory(output) {
   const axi = path.resolve('.axi'), target = path.resolve(output);
   if (!target.startsWith(axi + path.sep) || existsSync(target)) fail('EVIDENCE_EXISTS', 'Select a fresh ignored .axi/ evidence directory.');
   mkdirSync(axi, { recursive: true });
@@ -99,7 +99,7 @@ export async function invoke(options, { call = remoteCall, forward = openForward
   const { operation, target = 'm3-ultra', job, output, config = loadConfig(), runId = randomUUID() } = options;
   validateConfig(config, target);
   if (!['doctor', 'run', 'collect'].includes(operation) || (operation === 'run' && !Object.hasOwn(JOBS, job))) fail('INVALID_REQUEST', 'Select doctor, collect or an allowlisted run job.');
-  const directory = output ? freshDirectory(output) : null;
+  const directory = output ? freshEvidenceDirectory(output) : null;
   if (operation !== 'doctor' && !directory) fail('INVALID_REQUEST', 'Run/collect requires a fresh ignored output directory.');
   const started = performance.now(), controller = new AbortController();
   const abort = () => controller.abort(); process.once('SIGINT', abort); process.once('SIGTERM', abort);

@@ -14,6 +14,7 @@ export const JOBS = Object.freeze({
   'akasha.temporal.prove': { script: 'tools/trace-temporal/prove-falkordb.mjs', timeoutMs: 180000, services: ['semantic'], graphs: { semantic: ['entif_trace_1737_baseline', 'entif_graphiti_1737'] }, graphiti: true },
   'akasha.semantic.prove': { script: 'tools/trace-temporal/prove-semantic-falkordb.mjs', timeoutMs: 3900000, services: ['operational', 'semantic'], graphs: { operational: ['entif_trace_1737_baseline'], semantic: ['entif_graphiti_1737'] }, graphiti: true, inference: true },
   'akasha.model-off': { script: 'tools/trace-temporal/run.mjs', timeoutMs: 30000, services: [], graphs: {} },
+  'akasha.live-fixture.prove': { script: 'tools/trace-live/prove-falkordb.mjs', timeoutMs: 120000, services: ['operational'], graphs: { operational: ['entif_trace_1685'] } },
 });
 
 export class ComputeError extends Error {

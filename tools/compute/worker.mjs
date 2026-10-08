@@ -66,7 +66,7 @@ export async function inspect(config = readConfig()) {
   return { target: 'm3-ultra', hostRef: 'host:m3-ultra', revision, dirty, architecture: arch(), platform: platform(), osRelease: release(), cpuModel: cpus()[0]?.model, cpuCount: cpus().length, memoryBytes: totalmem(), nodeVersion: process.version, services, graphiti, inference, serviceResources, resourceScope: 'Samples of persistent containers; worker CPU excludes persistent graph/model process CPU.' };
 }
 function sourceHashes(workingRoot = root) {
-  const directories = ['packages/source-substrate/test-vectors/trace', 'packages/ingress-refinery/test-vectors/trace', 'tools/trace-graph/evidence', 'tools/trace-temporal/evidence', 'tools/trace-temporal/fixtures'];
+  const directories = ['packages/source-substrate/test-vectors/trace', 'packages/ingress-refinery/test-vectors/trace', 'tools/trace-graph/evidence', 'tools/trace-temporal/evidence', 'tools/trace-temporal/fixtures', 'tools/trace-live/fixtures'];
   const result = {};
   for (const directory of directories) for (const name of readdirSync(path.join(workingRoot, directory)).sort()) {
     const file = `${directory}/${name}`;

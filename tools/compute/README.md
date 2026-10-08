@@ -51,6 +51,7 @@ node tools/compute/run.mjs run --job akasha.kinematics.prove --output .axi/compu
 node tools/compute/run.mjs run --job akasha.temporal.prove --output .axi/compute-temporal-1
 node tools/compute/run.mjs run --job akasha.semantic.prove --output .axi/compute-semantic-1
 node tools/compute/run.mjs run --job akasha.model-off --output .axi/compute-model-off-1
+node tools/compute/run.mjs run --job akasha.live-fixture.prove --output .axi/compute-live-fixture-1
 ```
 
 Every output directory must be fresh and ignored. A flushed `request.json`
@@ -91,3 +92,8 @@ are development topology proof, not a blended performance benchmark or promotion
 ```sh
 node --test tools/compute/*.spec.mjs
 ```
+
+The TRACE-LIVE job admits three producer families through the source/normalization
+adapter and proves operational import/rebuild from a synthetic action fixture.
+It reports fixture maturity explicitly; it does not claim real producer or E2E
+acceptance. See [the adapter contract](../trace-live/README.md).
