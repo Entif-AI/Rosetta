@@ -14,5 +14,6 @@ export * from './lib/materialized-view.js';
 export * from './lib/graph-view.js';
 export * from './lib/compiled-context.js';
 export * from './lib/authority-envelope.js';
+export * from './lib/authz-compatibility.js';
 export { isProfileTimestamp } from './lib/evaluation-profile-validation.js';
 export type { JsonValue } from '@entif-ai/rosetta-canon';

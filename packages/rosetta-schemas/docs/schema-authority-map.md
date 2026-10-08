@@ -2,6 +2,12 @@
 
 `packages/rosetta-schemas/src/lib/schema-catalog.ts` is the package-local machine-readable catalog for schema families, validators, boundary contracts, consumers, tests, docs, and known gaps.
 
+Legacy IAM/Guard entries carry versioned `compatibilityMapping` metadata from
+`AUTHZ_COMPATIBILITY_MAPPINGS`. The [#1748 migration contract](../../rosetta-guard/docs/authz-compatibility-v1.md)
+distinguishes native projections, compatibility decisions, historical-only inputs,
+unsupported mappings and insufficient evidence. Catalog presence and compatibility
+markers do not authorize execution or supply an authority root.
+
 Its `authorityTier` field describes package ownership and admission lanes. It does not supersede the Rosetta v3 Terminology Lock or grant Rosetta core status.
 
 ## Core descent
