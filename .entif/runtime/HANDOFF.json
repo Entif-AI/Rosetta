@@ -1,0 +1,68 @@
+{
+  "schema": "entif.runtime.handoff/v1",
+  "handoff_id": "akasha-1744-1685-20261008",
+  "kind": "checkpoint",
+  "created_at": "2026-10-08T08:13:43.819005+00:00",
+  "runtime_surface": "codex",
+  "reason": "Authority and failing tests established before implementation",
+  "mission": "Repeatable source-preserving M3 compute path, then ready TRACE-LIVE slice",
+  "refs": {
+    "branch": "codex/1744-akasha-remote-compute",
+    "issues": [
+      1744,
+      1685
+    ],
+    "base": "c7dd87ea6ec66e399564a100d234dd3aecfbac64"
+  },
+  "work": {
+    "root": ".entif/runtime/work/akasha-1744-1685",
+    "active": [
+      "batch-a"
+    ]
+  },
+  "checkpoint": {
+    "status": "pending-push"
+  },
+  "completed": [
+    "Authority preflight",
+    "Strict SSH and matched main observation",
+    "Laptop dependency build",
+    "Failing new compute contract tests"
+  ],
+  "negative_knowledge": [
+    "Lease tooling absent at this base; remote SHA fence is not a distributed lease",
+    "Existing operational proof deletes its scratch graph; broker must refuse collision first",
+    "Unrelated legacy LAN-bound services are preserved"
+  ],
+  "unresolved": [
+    "All remote proof acceptance pending",
+    "Live producer prerequisites pending"
+  ],
+  "next_safe_operations": [
+    "Implement compute contract and process tests",
+    "Push checkpoint and provision revision-matched remote worktree",
+    "Run remote acceptance"
+  ],
+  "hydration": {
+    "read_first": [
+      "FEATURE_LOG.md",
+      "tools/compute/contract.spec.mjs"
+    ],
+    "read_if_needed": [
+      "tools/trace-graph/README.md",
+      "tools/trace-temporal/README.md"
+    ],
+    "read_if_condition": []
+  },
+  "verification": [
+    "node --test tools/compute/*.spec.mjs"
+  ],
+  "cleanup": {
+    "merge_authorized": false,
+    "runtime_tree": "remove before final review candidate"
+  },
+  "bios": {
+    "version": "0.2.0",
+    "lock": "18cba69bb716"
+  }
+}

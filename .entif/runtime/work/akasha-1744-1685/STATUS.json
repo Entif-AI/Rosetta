@@ -1,0 +1,20 @@
+{
+  "blocked": [
+    "batch-b"
+  ],
+  "parent_work_id": null,
+  "ready": [
+    "batch-a"
+  ],
+  "schema_version": "0.1",
+  "states": {
+    "planned": [
+      "batch-a",
+      "batch-b"
+    ]
+  },
+  "task_count": 2,
+  "title": "Akasha remote compute and TRACE-LIVE",
+  "updated_at": "2026-10-08T08:14:08.905614Z",
+  "work_id": "akasha-1744-1685"
+}

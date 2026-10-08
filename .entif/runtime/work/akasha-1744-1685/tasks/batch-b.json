@@ -1,0 +1,25 @@
+{
+  "attempt_count": 0,
+  "created_at": "2026-10-08T08:14:08.904948Z",
+  "depends_on": [
+    "batch-a"
+  ],
+  "failure_policy": "reconcile",
+  "idempotency_key": "akasha-1685-batch-b",
+  "input_files": [],
+  "input_refs": [],
+  "input_snapshot": {},
+  "latest_attempt_id": null,
+  "output_files": [],
+  "output_refs": [],
+  "output_snapshot": {},
+  "receipts": [],
+  "schema_version": "0.1",
+  "side_effect_class": "idempotent",
+  "state": "planned",
+  "success_predicate": "Adapter tests and separately attributed live proof pass",
+  "task_id": "batch-b",
+  "title": "Ready live-source adapter slice",
+  "updated_at": "2026-10-08T08:14:08.905088Z",
+  "work_id": "akasha-1744-1685"
+}
