@@ -32,16 +32,17 @@
   "negative_knowledge": [
     "Lease tooling absent at this base; remote SHA fence is not a distributed lease",
     "Existing operational proof deletes its scratch graph; broker must refuse collision first",
-    "Unrelated legacy LAN-bound services are preserved"
+    "Unrelated legacy LAN-bound services are preserved",
+    "User correction: BIOS reloaded to 0.4.1; durable worktree suppresses worker Minutes, Drive checkpoints, timer-driven Git churn and redundant bundles. No Drive write occurred."
   ],
   "unresolved": [
     "All remote proof acceptance pending",
     "Live producer prerequisites pending"
   ],
   "next_safe_operations": [
-    "Implement compute contract and process tests",
-    "Push checkpoint and provision revision-matched remote worktree",
-    "Run remote acceptance"
+    "Finish transport/process/evidence regression tests",
+    "Commit and push the coherent compute wrapper",
+    "Provision revision-matched Ultra worktree and run actual proofs"
   ],
   "hydration": {
     "read_first": [
@@ -62,7 +63,7 @@
     "runtime_tree": "remove before final review candidate"
   },
   "bios": {
-    "version": "0.2.0",
-    "lock": "18cba69bb716"
+    "version": "0.4.1",
+    "integrity": "minted artifact; boot selection observed"
   }
 }

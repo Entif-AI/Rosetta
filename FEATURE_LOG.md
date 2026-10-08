@@ -41,3 +41,13 @@ evidence readback and authority/diff review.
 Implement and test the compute wrapper. Push a verified checkpoint before setting
 up its revision-matched remote checkout. After remote acceptance passes, inspect
 the real TRACE-LIVE producer prerequisites and implement the ready adapter slice.
+
+## Compute wrapper checkpoint
+
+BIOS reloaded at user request to 0.4.1. Active substrate: LOCAL_DURABLE_WORKTREE;
+no worker Minutes, Drive writes, timer checkpoints or redundant bundles.
+Compute contracts/process/transport/evidence tests: 26 passed. Includes real
+local RESP protocol validation, tunnel death, timeout/cancellation, unavailable
+remote host, version/ownership/bind/collision/provider refusal and evidence
+integrity. Nx sync/check, governance authority and diff checks pass.
+Next: provision the revision-matched Ultra checkout, then doctor and all proofs.
