@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { EventEmitter } from 'node:events';
-import { mkdtempSync, rmSync, readFileSync, existsSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, symlinkSync, rmSync, readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { invoke, openForward, writeBundle, probeResp } from './broker.mjs';
 import { ComputeError } from './contract.mjs';
@@ -9,7 +9,7 @@ import net from 'node:net';
 
 const config = { targets: { 'm3-ultra': { checkout: '/test/revision-matched', node: '/test/node' } } };
 const revision = async () => 'a'.repeat(40);
-const output = () => mkdtempSync('.axi/compute-test-');
+const output = () => { mkdirSync('.axi', { recursive: true }); return mkdtempSync('.axi/compute-test-'); };
 const failure = expected => e => e.code === expected;
 function child() {
   const c = new EventEmitter(); c.pid = 2147483647; c.kill = () => { c.emit('exit'); c.emit('close'); }; return c;
@@ -46,6 +46,15 @@ test('evidence collision refuses dispatch and preserves the old bytes', async ()
     await assert.rejects(invoke({ operation: 'run', job: 'akasha.operational.prove', output: parent, config }, { call: async () => { calls++; }, revision }), failure('EVIDENCE_EXISTS'));
     assert.equal(calls, 0);
   } finally { rmSync(parent, { recursive: true }); }
+});
+test('a symlink ancestor cannot place evidence in a prefix-matching sibling directory', async () => {
+  const parent = output(), escaped = mkdtempSync('.axi-escape-');
+  try {
+    mkdirSync(escaped + '/nested');
+    symlinkSync(new URL('../../' + escaped, new URL(parent + '/', 'file://' + process.cwd() + '/')).pathname, parent + '/linked');
+    await assert.rejects(invoke({ operation: 'run', job: 'akasha.operational.prove', output: parent + '/linked/nested/out', config }, { revision, call: async () => ({ status: 'blocked' }) }), failure('EVIDENCE_INTEGRITY'));
+    assert.equal(existsSync(escaped + '/nested/out'), false);
+  } finally { rmSync(parent, { recursive: true }); rmSync(escaped, { recursive: true }); }
 });
 function bundle(ref = 'proof.json', bytes = Buffer.from('{"proven":true}\n')) {
   const item = { ref, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') };

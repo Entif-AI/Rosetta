@@ -136,6 +136,7 @@ export async function handle(request, { config = readConfig(), inspectRuntime = 
     result = { profile: 'rosetta-compute-result-v1', version: VERSION, status: 'ok', target: 'm3-ultra', job: request.job, runId: request.runId, revision: request.revision, remoteJobMs };
   } catch (error) { result = outcomeError(error, { target: 'm3-ultra', job: request.job, runId: request.runId, revision: request.revision }); }
   finally {
+    try {
     if (fd !== undefined) closeSync(fd);
     const cleanup = [];
     if (mutated) for (const [service, graphs] of Object.entries(spec.graphs)) for (const graph of graphs) {
@@ -158,8 +159,10 @@ export async function handle(request, { config = readConfig(), inspectRuntime = 
         result.evidence = manifest;
       }
     }
-    rmSync(lock, { recursive: true });
-    process.removeListener('SIGTERM', abort); process.removeListener('SIGHUP', abort); process.removeListener('SIGINT', abort);
+    } finally {
+      rmSync(lock, { recursive: true });
+      process.removeListener('SIGTERM', abort); process.removeListener('SIGHUP', abort); process.removeListener('SIGINT', abort);
+    }
   }
   return result;
 }

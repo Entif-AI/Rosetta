@@ -84,7 +84,8 @@ function freshDirectory(output) {
   mkdirSync(axi, { recursive: true });
   let current = path.dirname(target);
   while (!existsSync(current)) current = path.dirname(current);
-  if (!realpathSync(current).startsWith(realpathSync(axi)) || lstatSync(current).isSymbolicLink()) fail('EVIDENCE_INTEGRITY', 'Evidence parent escapes the ignored directory.');
+  const actual = realpathSync(current), boundary = realpathSync(axi);
+  if ((actual !== boundary && !actual.startsWith(boundary + path.sep)) || lstatSync(current).isSymbolicLink()) fail('EVIDENCE_INTEGRITY', 'Evidence parent escapes the ignored directory.');
   mkdirSync(path.dirname(target), { recursive: true }); mkdirSync(target);
   return target;
 }

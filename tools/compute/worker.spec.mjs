@@ -4,6 +4,7 @@ import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync
 import { handle } from './worker.mjs';
 
 test('worker version failure cannot dispatch a task and leaves source evidence untouched', async () => {
+  mkdirSync('.axi', { recursive: true });
   const root = mkdtempSync('.axi/worker-test-'); let invoked = false;
   for (const dir of ['packages/source-substrate/test-vectors/trace','packages/ingress-refinery/test-vectors/trace','tools/trace-graph/evidence','tools/trace-temporal/evidence','tools/trace-temporal/fixtures']) mkdirSync(root + '/' + dir, { recursive: true });
   const source = root + '/packages/source-substrate/test-vectors/trace/source.sse'; writeFileSync(source, 'immutable-source');

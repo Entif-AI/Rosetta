@@ -51,3 +51,9 @@ local RESP protocol validation, tunnel death, timeout/cancellation, unavailable
 remote host, version/ownership/bind/collision/provider refusal and evidence
 integrity. Nx sync/check, governance authority and diff checks pass.
 Next: provision the revision-matched Ultra checkout, then doctor and all proofs.
+
+Live doctor passed at 3a5e4b8: Graphiti 0.30.2, Python Falkor client 1.7.1,
+Python 3.13.12, both configured local models, owned RESP forward/PONG and cleanup.
+Evidence: .axi/1744/doctor-1/result.json (private local run evidence).
+Added a red/green symlink-ancestor escape regression; 27 compute tests pass.
+Remote build and proof execution remain pending.
