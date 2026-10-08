@@ -68,8 +68,6 @@ The intended contribution is not a claim of demonstrated efficiency, but a preci
 
 This revision preserves the executed finite-world reference and unrun core SYS experiment while adding a downstream research extension. It distinguishes the semantic reconstruction tax from a later residual interpretation cost, introduces sparse semantic addressing as a testable retrieval mechanism, extends codec transfer to synthetic unseen formal notations, specifies a cheap-to-expensive decision ladder, and adds P7 for lossless structural residualization before expensive inference. The extension is explicitly governed against novelty loss, exception suppression, hidden preprocessing cost and self-ratifying fast paths. No new Bilqis learning advantage, residualized-ingress advantage, independent replication or later-language transfer is reported.
 
-##  
-
 ## 1. Introduction
 
 Contemporary language models are trained on a representational bargain inherited from human communication. Natural language is extraordinarily expressive, socially adaptive, redundant where humans need redundancy, elliptical where shared context permits ellipsis, irregular where history has accumulated irregularity, and ambiguous where people tolerate ambiguity because pragmatic inference usually resolves it. Those properties make natural language an excellent human interface. They do not imply that it is the cheapest possible developmental substrate for an artificial learner.
@@ -105,8 +103,6 @@ This paper is a position paper and experimental specification. It makes no claim
 5.  a two-lane experimental program: a deliberately integrated systems demonstration followed by causal attribution and scaling work with explicit outcomes that would weaken or kill each major claim;
 
 6.  a capability- and disclosure-routed model-assistance methodology that separates exploratory research cognition from matched experimental intervention, records reproducible model-assisted procedures, and uses cross-model review to generate discriminating tests rather than pseudo-independent votes.
-
-##  
 
 ## 2. Representation Is an Upstream Systems Variable
 
@@ -166,8 +162,6 @@ A stronger Bilqis hypothesis is almost the opposite. Superposition can be useful
 
 This motivates a mechanistic chain to instrument rather than assume: input factor accessibility -\> learned representational geometry -\> interference under finite width -\> competence and learning cost. The chain is schematic. A positive Bilqis result need not move every link, and a geometry result does not by itself establish causation. It does, however, turn representation matters into a richer set of measurements capable of proving the proposed mechanism wrong.
 
-##  
-
 ## 3. Why New Ithkuil Is an Interesting Donor Language
 
 New Ithkuil was designed for unusually dense and explicit semantic expression. For our purposes, the attraction is not linguistic exoticism. It is factorization.
@@ -220,8 +214,6 @@ The detailed map also records source questions rather than inventing a repair. C
 
 The engineering sequence is consequently semantic before phonological: define exact world types and operators; cross-check the oracle; freeze the token allocation; implement reversible renderers; test defaults, nulls and scope; introduce the student and developmental teacher; then implement broader donor morphology and later language codecs. The map preserves deferred grammar instead of pretending the first two families are the entire project.
 
-##  
-
 ## 4. Bilqis: A Small Model Trained on an Explicit Semantic Substrate
 
 **Bilqis names the small model and reproducible public research line described by this paper. Its developmental substrate is an experimental machine semantic pasigraphy: a surface-language-independent inventory of stable semantic identities and composition rules intended to support a scratch-trained ternary learner and carry reusable meaning across later codecs. Bilqis is not an official variant of New Ithkuil, and the substrate should not be confused with New Ithkuil as a human constructed language. Nor should Bilqis's developmental pasigraphy be confused with the Rosetta Pasigraphy Protocol. Rosetta supplies semantic continuity, provenance, interoperability, epistemic separation, and governed transformation; Bilqis is the learner that is educated against an explicit semantic world. The larger future research concept named Sheba is intentionally separate: Sheba denotes a hypothesized higher-capacity synthesis tier discussed only as downstream architecture, not the model, code release, or reproducibility target introduced here.**
@@ -239,8 +231,6 @@ The narrative association adds a second layer of resonance. The Queen of Sheba i
 The older project name overemphasized the donor language and invited an inference the experiment does not intend: that this is simply "machine Ithkuil" or an official variant of New Ithkuil. Bilqis better names the independent experimental object. New Ithkuil remains a major donor of candidate semantic factors, but those factors are subjected to controls, decomposition, formal supplementation, rejection, and falsification rather than inherited as an oracle.
 
 In that sense the name also aligns with the wider Rosetta program. One semantic identity can survive multiple representations without requiring the representations to become identical. The nomenclature is now deliberately asymmetric rather than familial in the product sense: Bilqis is the small model and public experimental line; Sheba is reserved for a much later, larger synthesis architecture hypothesized as a replacement for portions of today's datacenter-centered cognitive stack. They are related research names, not two interchangeable sizes of one currently available model. The experiments still have to do all the scientific work.
-
-### 
 
 ### 4.1 Morpheme-addressed identity
 
@@ -423,8 +413,6 @@ This control also locates an important negative outcome. If aligned factor visib
 
 *Figure 02. Renaming symbols is not hiding their factors. The mixed control changes local factor access without deleting information. A learning advantage under this transformation is not assumed.*
 
-##  
-
 ## 5. The Semantic Reconstruction Tax Hypothesis
 
 The strongest version of the thesis can be stated compactly:
@@ -461,8 +449,6 @@ If a positive semantic reconstruction tax exists in the tested regime, at least 
 A stronger downstream prediction is cumulative-constraint efficiency: once relevant factors, relations and reusable structures are mastered, later structures constrained by that knowledge should require less new evidence or expensive inference to identify or acquire. The relevant curve is not merely competence versus compute at one endpoint, but marginal acquisition or interpretation cost as organized prior knowledge increases. This prediction must control for cumulative exposure, hidden preprocessing, retrieval overhead and missed novelty; it is not established by the present Stage 2 trial.
 
 ### 5.2 What would count against it
-
-### 
 
 The thesis should lose force if, under strong controls:
 
@@ -511,8 +497,6 @@ This mechanism makes edge-rich semantic resources interesting without treating a
 No experiment here identifies a unique intrinsic quantity called semantic tax independently of its learner, representation, task distribution and budget. Define it operationally as a contrast in resources required to reach a fixed competence criterion under a declared matched design. Different criteria can yield different contrasts. A codec may help short-range factual queries while harming ambiguity-sensitive reasoning; a curriculum may help small models while offering little benefit once a larger model has learned the factors implicitly.
 
 This does not reduce the thesis to the generic statement that representation matters. The specific hypothesis is that externally specified factor identity, scope, within-object dependency traversal and cross-example prerequisites jointly lower the developmental cost of acquiring reusable operators, with later transfer retaining enough of the saving to pay for construction. Each part has a discriminating test. What is refused is only an unmeasurable claim that a particular percentage of a network's parameters must be devoted to an identifiable linguistic tax.
-
-##  
 
 ## 6. Prior Art and the Novelty Boundary
 
@@ -595,8 +579,6 @@ Recent work on compositionality also distinguishes structure in inputs from stru
 The updated continuous-reasoning literature reinforces the difference between a suggestive mechanism and a dependable interface. Coconut's current revision remains a precedent for hidden-state reasoning rather than explicit typed semantics [17]. Wang and colleagues' published 2026 analysis reports that available diverse trajectories do not straightforwardly become gains under process/outcome reward selection in continuous space [19]. Bilqis's exact algebra and oracle are a different proposed intervention on that bottleneck, not a demonstrated solution to it.
 
 Finally, automated curriculum and curriculum refinement are established neighboring research programs [35-38]. Bilqis's novelty cannot be a scheduler that selects lessons from a graph. The candidate contribution is the coherent coupling of a donor-informed semantic ABI, accessible factor structure, two distinct ordering mechanisms, a truth-constrained adaptive teacher, checkpoint-local experimental branching and a reproducible systems test. Whether that coupling creates unusual capability per resource remains open to the experiments below.
-
-##  
 
 ## 7. Experimental Program
 
@@ -1049,8 +1031,6 @@ For any transformation claimed to be lossless, require exact reconstruction on t
 
 The primary outcome is total interpretation cost at matched correctness, novelty sensitivity, and exception recall. Record raw and residual bytes/tokens, preprocessing CPU and latency, template/index lookup cost, reconstruction cost, the fraction of cases resolved at each rung, expensive-model calls per unit of matched novel input, false-fast-path rate, anomaly recall, and the cost of verification. A reduction in model calls is not sufficient if equivalent expense is merely displaced into a constantly rebuilt index or if the system becomes less sensitive to rare exceptions. The stronger flywheel hypothesis is supported only if accumulated relevant structure reduces marginal interpretation cost while held-out novelty and exception performance remain intact.
 
-##  
-
 ## 8. Downstream Architecture: What Becomes Interesting Only If the Core Signal Exists
 
 Bilqis arose inside a larger Entif research lineage concerned with explicit semantic objects, content-addressed cognition, modular computation, memory, and orchestration. Those ideas are relevant motivation and downstream design space, but they must not become circular evidence for the representation thesis.
@@ -1116,8 +1096,6 @@ This paper uses \*\*Sheba\*\* only for a downstream research concept: a substant
 In that future architecture, larger synthesis does not imply centralized epistemic sovereignty. Sheba may integrate wider corpora, expensive specialists, OMoC routes, and cross-node evidence to mint broader Episteme or Tapestry artifacts; Jewels remain first-class sources of observation and local cognition. Competing syntheses may coexist. Correlated descendants of one source must not be counted as independent witnesses. New evidence produces a successor artifact with explicit lineage rather than rewriting the prior state.
 
 The structural wager is implementation-independent: put useful cognition on the edge; keep durable meaning and provenance outside any one model's hidden state; transmit compact referential knowledge when doing so is cheaper than recomputation; escalate only unresolved or capability-mismatched work; and let higher-capacity synthesis feed reusable knowledge back to the swarm. EG2 may be replaced, visual Tapestries may lose to another codec, and the eventual peer transport may not resemble any one current network. Those substitutions do not change the architecture being tested [61].
-
-##  
 
 ## 9. Limitations and Failure Modes
 
@@ -1207,8 +1185,6 @@ A domain-adapted multimodal embedder can make relevant semantic neighborhoods ch
 
 Content addressing, signatures, peer distribution, and provenance make artifacts easier to identify and trace; they do not make the artifacts correct. A poisoned, correlated, stale, or badly synthesized package can propagate cheaply too. Swarm experiments must therefore measure source independence, revocation/supersession latency, stale-package use, challenge propagation, rights leakage, and the cost of revalidation. If the federation economics work only by lowering scrutiny as distribution grows, the architecture has optimized the wrong variable.
 
-##  
-
 ## 10. Implementation Roadmap and Conclusion
 
 Stage 2 begins by building the **teacher before asking the student to impress us**.
@@ -1279,13 +1255,9 @@ Sixth, the downstream architecture now has explicit names and separation of conc
 
 The strongest new conjecture is cumulative-constraint efficiency: correctly organized prior structure may lower the marginal cost of acquiring and interpreting later structure. That claim is deliberately downstream of the present SYS experiment. The immediate next scientific result remains execution of the existing Stage 2 core trial; P5B and P7 become high-value follow-ons only if reusable semantic competence survives the earlier gates.
 
-##  
-
 ## Project-lineage note
 
 References [26]-[28], [56], and [61] document antecedent Entif/Rosetta design, governance, and unified-architecture lineage. They are included to prevent project-lineage drift and clarify downstream controls, not counted as independent scientific evidence for Bilqis. References [57]-[60] are external technical inputs to the newly separated multimodal-projection and optical-codec research branches; they do not validate the Bilqis training hypothesis.
-
-##  
 
 ## References
 
