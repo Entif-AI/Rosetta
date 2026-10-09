@@ -1,0 +1,50 @@
+{
+  "formatVersion": 1,
+  "issue": 1711,
+  "mode": "orientation-only",
+  "variant": "A",
+  "startingCommit": null,
+  "startingTree": null,
+  "taskIssue": null,
+  "model": null,
+  "reasoning": null,
+  "skillRuntimeSurface": [],
+  "root": null,
+  "projectionAuthority": false,
+  "acceptanceCriteria": [],
+  "validationCommands": [],
+  "quotaCapturePoints": ["before", "after-orientation", "after-quality-review"],
+  "qualityReviewMethod": "Independent reviewer blinded to variant; verify six fields against controlling source locators; record missing/false claims and actionable plan quality. Include reviewer quota separately.",
+  "stopConditions": [
+    "quota remaining <=7%",
+    "window reset or stale/unavailable quota",
+    "authority conflict",
+    "unexpected mutation",
+    "context bound exceeded",
+    "D lacks A/B/C evidence"
+  ],
+  "contextByteLimit": 32768,
+  "dGateEvidence": null,
+  "treatments": {
+    "A": "Task + common authority packet; native exploration, no Badger output.",
+    "B": "Same common packet + one pinned bounded topology; native tools remain available.",
+    "C": "B topology compressed once by separately costed Chat/control plane; preserve source locators, uncertainty and omitted material; coding agent receives compact packet.",
+    "D": "Only after recorded A/B/C quality-adjusted results justify it: bounded composite of Badger + Nx + SpecOps/catalog + Git/issue projections; no authority promotion."
+  },
+  "telemetry": [
+    "wallSeconds",
+    "quotaFiveHourDelta",
+    "quotaWeeklyDelta",
+    "modelReentries",
+    "toolCalls",
+    "fileReads",
+    "repeatedReads",
+    "toolOutputBytes",
+    "tokensWhenObservable",
+    "compactions",
+    "repairLoops",
+    "validationResults",
+    "qualityReview",
+    "compressionCostSeparate"
+  ]
+}
