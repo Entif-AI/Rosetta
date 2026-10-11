@@ -1,5 +1,6 @@
 export default {
   extends: ['stylelint-config-standard-scss'],
+  referenceFiles: ['src/styles/settings/_tokens.scss'],
   ignoreFiles: ['src/styles/editorial/**', 'dist/**'],
   reportDescriptionlessDisables: true,
   reportInvalidScopeDisables: true,
@@ -16,6 +17,7 @@ export default {
     'selector-class-pattern': null,
     'scss/dollar-variable-pattern': null,
     'scss/operator-no-unspaced': null,
+    'no-unknown-custom-properties': true,
     'declaration-property-value-no-unknown': [
       true,
       {
@@ -24,7 +26,10 @@ export default {
         },
       },
     ],
-    'property-no-vendor-prefix': [true, { ignoreProperties: ['user-select'] }],
+    'property-no-vendor-prefix': [
+      true,
+      { ignoreProperties: [/^(?:-webkit-|-ms-)?user-select$/] },
+    ],
     'selector-no-vendor-prefix': [
       true,
       { ignoreSelectors: ['::-webkit-details-marker'] },

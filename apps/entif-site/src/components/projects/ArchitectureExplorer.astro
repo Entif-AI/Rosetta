@@ -32,11 +32,17 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
           </span>
           <span>
             <>
-              <strong>{system.name}</strong>
+              <strong data-test-id={`uca-system-name-${system.id}`}>
+                {system.name}
+              </strong>
               <span class="uca-system-promise">{system.promise}</span>
             </>
           </span>
-          <span class="uca-selection-mark" aria-hidden="true">
+          <span
+            class="uca-selection-mark"
+            aria-hidden="true"
+            data-test-id={`uca-selection-mark-${system.id}`}
+          >
             →
           </span>
         </a>
