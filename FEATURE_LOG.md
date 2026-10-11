@@ -29,6 +29,8 @@ Focused commands: `pnpm exec nx test packs-rrp --skip-nx-cache` passed 9/9 acros
 
 Full requested `pnpm verify` passed at review handoff, including registry generation/check/tests, authority governance, semantic governance, affected lint/typecheck/tests/build, and the 9/9 `packs-rrp` suite with the RRP vector file actually executed. No composed merge-admission command was run locally.
 
+Hosted admission run `38177105996` later failed at `pnpm exec nx sync:check`, not at receipt semantics. The authoritative `NX_DAEMON=false pnpm exec nx sync` repair changes only `docs/governance/ROSETTA_SPEC_CATALOG.json` and `docs/governance/ROSETTA_SUBSTRATE_CATALOG.json`: the spec projection had stale RRP Pack ID/source/test-vector hashes, and the substrate projection lacked the new `T1118` plan node. The same failed CI batch also reported a missing root TypeScript reference to `apps/entif-site/tsconfig.json`; that reference is not emitted by canonical `nx sync`. After applying the generated governance projections, resetting Nx state, and running under the workflow-pinned Node `24.14.1`, `NX_DAEMON=false pnpm exec nx sync:check` passes with the original root `tsconfig.json`. No TypeScript-reference workaround is committed.
+
 ## Next safe step
 
-Draft PR #1825 is open. Checkpoint/push the final verified handoff, then publish the bounded #1118 implementation receipt without closing the parent issue.
+Draft PR #1825 is open. Regenerate projections after this plan update, rerun exact sync and repository verification gates, checkpoint/push, and publish a delta receipt for the hosted-admission repair without closing the parent issue.

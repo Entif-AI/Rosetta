@@ -195,6 +195,19 @@
       }
     },
     {
+      "id": "entif:rrp-receipt-vectors",
+      "kind": "plan",
+      "title": "Execute RRP receipt pass/tamper vectors",
+      "status": "in-progress",
+      "task": "T1118",
+      "issues": [1118, 790, 158],
+      "pr": 1825,
+      "source": {
+        "path": "plans/rrp-receipt-vectors.md",
+        "sha256": "96346c33bc480d71bb9d9c03d942d0adea851cd6519cf1c54b7dbf1204f91620"
+      }
+    },
+    {
       "id": "entif:run-completion",
       "kind": "plan",
       "title": "Terminal engineering-run completion evidence",
