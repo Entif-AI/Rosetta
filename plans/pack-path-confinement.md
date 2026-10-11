@@ -23,11 +23,12 @@ This branch is stacked on `codex/790-pack-schema-entrypoints` (draft PR #1824). 
 - [x] Direct symbolic links, symbolic-link parent directories and in-root symbolic links fail before asset reads.
 - [x] Repeated declarations of one safe missing asset deduplicate by normalized asset identity; Profile-only absence retains `profile-path-missing`.
 - [x] A direct symbolic-link Pack root and workspace Packs root fail before manifest discovery, hashing or Pack-ID repair; symbolic-link ancestors remain allowed.
+- [x] A trailing path separator cannot turn the exact-root `lstat` check into a symbolic-link dereference.
 - [x] A regular nested declared file remains valid.
 - [x] External target mutation leaves `rosetta-pack-id-v1` unchanged, while the escaped declaration remains non-conformant.
 - [x] Red-before-green reviewer follow-up: duplicate missing declarations and both exact-root symlink bypasses failed four focused fixtures before the fix.
 - [x] Focused Pack tests pass with 33 fixture cases, and all four current Pack roots remain conformant.
-- [ ] Focused RRP aliases, `pnpm verify`, `git diff --check`, Nx sync and SpecOps admission pass again on the reviewer-follow-up head.
+- [x] Focused RRP aliases, `pnpm verify`, `git diff --check`, Nx sync and SpecOps admission pass again on the reviewer-follow-up head.
 - [x] GitHub readback confirms draft stacked PR #1826 with the intended base, head and review-only state.
 - [ ] Human source-owner acceptance and merge remain separate.
 
