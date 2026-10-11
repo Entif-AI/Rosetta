@@ -212,10 +212,10 @@
       "status": "planned",
       "task": "T1790",
       "issues": [1790, 1559],
-      "pr": null,
+      "pr": 1814,
       "source": {
         "path": "plans/pack-lock-spec.md",
-        "sha256": "5558ad96ee377e48093283a66996ebd25b87eb1d106cd2b015ab6da80b3cd118"
+        "sha256": "920fa50b6d73d9c643bfadd9c9c4a7d4ccfeb1ca7df593048a96a7a7d7f74d51"
       }
     },
     {
