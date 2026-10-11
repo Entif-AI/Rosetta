@@ -1,0 +1,22 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  pageClass?: string;
+}
+
+const { title, description, noindex, pageClass } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noindex={noindex}>
+  <slot name="head" slot="head" />
+  <div
+    class:list={['full-width-page', pageClass]}
+    data-test-id="full-width-page"
+  >
+    <slot />
+  </div>
+</BaseLayout>

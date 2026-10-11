@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phases A–C implemented; Phase D / #1804 begins next. Final behavior/style audits remain intentionally deferred.
+Phases A–D implemented; Phase E / #1805 begins next. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -30,6 +30,8 @@ Phases A–C implemented; Phase D / #1804 begins next. Final behavior/style audi
 6. Record unavailable real assistive-technology checks as `NOT_EVALUATED` with exact procedures. Hold design/content/accessibility/publication approval for the author.
 
 ## Completed outcomes and evidence
+
+- #1804: thin FullWidthPageLayout forwards metadata/head/default slots into BaseLayout; shared padded stage/reading boundaries use canonical tokens. Editorial now composes it mechanically with all article structure, chapter styles and citation behavior retained. Projects will adopt it in #1805. Regression proof is deferred.
 
 - #1803: Design.MD 1.2.0 specifies inherited serif, page-scoped palette, generic full-width composition, 80rem padded stage boundaries/46rem reading measure, responsive rail, no-JS/print/motion/forced-color behavior and approval limits. Computed-style comparison is deferred to the planned visual pass.
 
@@ -43,4 +45,4 @@ Phases A–C implemented; Phase D / #1804 begins next. Final behavior/style audi
 
 ## Next exact step
 
-Read #1804, create the thin BaseLayout composition and shared content boundary, then mechanically adapt EditorialSeriesLayout.
+Read #1805, render the seven static stages and all system content, then begin #1806 enhancement.

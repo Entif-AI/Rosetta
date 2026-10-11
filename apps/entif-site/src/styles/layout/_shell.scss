@@ -1,6 +1,21 @@
 @use '../tools';
 
 @layer layout {
+  .full-width-page {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .stage-shell {
+    @include tools.content-boundary;
+    min-width: 0;
+  }
+
+  .reading-measure {
+    width: 100%;
+    max-width: var(--reading);
+  }
+
   .shell {
     width: var(--shell);
     margin-inline: auto;

@@ -31,10 +31,10 @@
 }
 
 // Width includes the gutters; a full-bleed parent remains unbounded.
-@mixin content-boundary($measure: 80rem) {
+@mixin content-boundary($measure: var(--stage-width)) {
   box-sizing: border-box;
   width: 100%;
   max-width: $measure;
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 4.5rem);
+  padding-inline: var(--stage-gutter);
 }

@@ -1,6 +1,6 @@
 ---
 import { render } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
+import FullWidthPageLayout from './FullWidthPageLayout.astro';
 import EditorialChapterNav from '../components/EditorialChapterNav.astro';
 import { getContentPath, joinBasePath } from '../lib/content';
 import { toSummary, type SiteEntry } from '../lib/site-data';
@@ -39,7 +39,7 @@ const href = (item: SiteEntry) =>
   joinBasePath(import.meta.env.BASE_URL, getContentPath(toSummary(item)));
 ---
 
-<BaseLayout
+<FullWidthPageLayout
   title={`${entry.data.title} · ${metadata.title}`}
   description={entry.data.description}
   noindex={entry.data.noindex}
@@ -140,7 +140,7 @@ const href = (item: SiteEntry) =>
       }
     </nav>
   </article>
-</BaseLayout>
+</FullWidthPageLayout>
 <script>
   import { enhanceCitations } from '../scripts/editorial-citations';
   enhanceCitations();
