@@ -143,6 +143,19 @@
       }
     },
     {
+      "id": "entif:envelope-crosswalk",
+      "kind": "plan",
+      "title": "Prove envelope family boundaries",
+      "status": "in-progress",
+      "task": "T1799",
+      "issues": [1799, 630, 220],
+      "pr": null,
+      "source": {
+        "path": "plans/envelope-crosswalk.md",
+        "sha256": "d410b13baac256a7cd5fac3e146241812e8399d1e536b4e024c561f611b1bb1b"
+      }
+    },
+    {
       "id": "entif:graph-view",
       "kind": "plan",
       "title": "Bounded GraphView conformance",
@@ -526,6 +539,11 @@
       "from": "entif:engineering-akasha",
       "kind": "depends-on",
       "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:envelope-crosswalk",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:graph-view",
