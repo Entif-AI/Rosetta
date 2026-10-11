@@ -25,7 +25,7 @@ This branch is stacked on `codex/790-pack-schema-entrypoints` (draft PR #1824). 
 - [x] A regular nested declared file remains valid.
 - [x] External target mutation leaves `rosetta-pack-id-v1` unchanged, while the escaped declaration remains non-conformant.
 - [x] Focused Pack and RRP tests pass with 27 fixture cases, and all four current Pack roots remain conformant.
-- [ ] Focused RRP aliases, `pnpm verify`, `git diff --check` and SpecOps admission pass at the final source checkpoint.
+- [x] Focused RRP aliases, `pnpm verify`, `git diff --check`, Nx sync and SpecOps admission pass at the source checkpoint.
 - [ ] GitHub verifies the final branch SHA, draft stacked PR and public-safe #790 receipt.
 - [ ] Human source-owner acceptance and merge remain separate.
 
