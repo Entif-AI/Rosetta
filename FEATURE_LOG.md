@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phases A–F implemented and compiled. Delayed unit tests pass; focused Playwright encountered an upstream harness startup defect, now being repaired. Responsive/performance refinement and #1807 final accessibility/W3C/evidence remain. Final behavior/style audits remain intentionally deferred.
+Phases A–F implemented and compiled. Delayed unit tests pass; focused Playwright: five tests passed initially; the unchanged resize/focus regression passes after its repair. Responsive/performance and final #1807 audits are next. Responsive/performance refinement and #1807 final accessibility/W3C/evidence remain. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -30,6 +30,10 @@ Phases A–F implemented and compiled. Delayed unit tests pass; focused Playwrig
 6. Record unavailable real assistive-technology checks as `NOT_EVALUATED` with exact procedures. Hold design/content/accessibility/publication approval for the author.
 
 ## Completed outcomes and evidence
+
+- Focused resize/focus regression passed (1 test, 2.5s): `/tmp/rosetta-uca/focus-e2e.log`. Earlier five functional tests passed in `/tmp/rosetta-uca/functional-e2e.log`; the complete six will rerun in final acceptance. Preview ownership fixed via public Astro API.
+
+- Functional defect: the horizontal rail scrolled internally but preventScroll left a focused control below the viewport after desktop→mobile reflow. Keep the focused control vertically visible on activation/orientation changes, then adjust only the rail horizontally. The focused keyboard regression test remains unchanged.
 
 - Focused Playwright initially could not start: Astro 7 auto-detects agent execution and daemonizes preview, causing `Process from config.webServer exited early`. Use the public Astro preview API in tools/preview.mjs as a foreground test server; keep server ownership/reuse strict. No browser test result is claimed from that failed attempt.
 
@@ -55,7 +59,7 @@ Phases A–F implemented and compiled. Delayed unit tests pass; focused Playwrig
 
 ## Next exact step
 
-Read `/tmp/rosetta-uca/functional-e2e.log` (Nx e2e filter `projects.spec.ts`, workers=2). Fix only observed functional defects, then do the responsive/performance pass. Final audit has not begun; do not claim axe, Nu, visual equivalence or Lighthouse success yet.
+Begin responsive/performance pass. Start `node tools/preview.mjs` in apps/entif-site; wait for HTTP readiness. Adapt `/tmp/rosetta-uca/baseline.mjs` to capture actual Projects at 320/390/768/844-landscape/1024/1366/1536/wide/short sizes and before/after home/Editorial at 1440/390. Inspect images, measure document overflow/gutters/root font; test enlarged text/spacing and rail clipping. Add Projects plus optional route/category filtering to existing tools/lighthouse.mjs to permit Projects-only performance audits now and full mobile/desktop categories in final phase. Only then read #1807, add axe/reflow/contrast/forced-colors/print coverage, run built HTML+Nu, final Nx verify/e2e/Lighthouse, write honest manual AT procedures, update draft PR. Final audit has not begun; do not claim axe, Nu, visual equivalence or Lighthouse success yet.
 
 Recovery map: mission is the attachment `/Users/cr8s/.codex/attachments/709f1405-ddaf-44b3-a03d-04d851fa51e7/Pasted text.txt` (duplicated; first 463 lines suffice). Primary/selected child bodies are cached in `/tmp/rosetta-uca/`; #1807 has intentionally not yet been read. Original eight screenshots and metrics are under `apps/entif-site/test-results/uca/baseline/`; baseline script `/tmp/rosetta-uca/baseline.mjs` can be adapted for comparison. Current source: projects.md, lib/showcase.ts, components/projects, scripts/uca-explorer.ts, pages/\_projects.scss. Tests are tests/unit/{showcase,uca-explorer}.test.ts and tests/features/projects.spec.ts. Existing full e2e contains per-route axe checks; defer until visual/performance pass is complete. Astro 7 preview runs a daemon and supports `pnpm exec astro preview stop`; stop any manually started preview before Playwright. Sass/CSS query comes from tools.breakpoint into `--uca-compact-query`, read by script. No Drive/Minutes or Work Stack. Manual AT remains unperformed.
 

@@ -73,8 +73,11 @@ export function enhanceArchitecture(root: HTMLElement): boolean {
       root.dataset.selected = chosen.dataset.systemId;
       if (focus) {
         chosen.focus({ preventScroll: true });
-        if (!narrow.matches)
-          chosen.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        chosen.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest',
+          behavior: 'instant',
+        });
       }
       revealTab(chosen);
     };
@@ -84,7 +87,14 @@ export function enhanceArchitecture(root: HTMLElement): boolean {
         narrow.matches ? 'horizontal' : 'vertical'
       );
       const current = tabs[selected];
-      if (current && current === document.activeElement) revealTab(current);
+      if (current && current === document.activeElement) {
+        current.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest',
+          behavior: 'instant',
+        });
+        revealTab(current);
+      }
     };
     const followFragment = () => {
       const index = panels.findIndex(
