@@ -112,6 +112,7 @@ export const showcaseSchema = z
               id: systemId,
               name: copy,
               promise: copy,
+              headline: copy,
               category: copy,
               detail: copy,
               principle: copy,

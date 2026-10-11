@@ -75,6 +75,7 @@
                 'detail': 'Rosetta gives knowledge and action a common language. It keeps observations separate from interpretations, preserves origin and rights, and makes transformations traceable as systems change.',
                 'principle': 'The source remains visible. The interpretation stays accountable.',
                 'projectSlug': 'rosetta',
+                'headline': 'Meaning that lasts.',
               },
               {
                 'id': 'bilqis',
@@ -84,6 +85,7 @@
                 'detail': 'Bilqis investigates explicit semantic relationships and a developmental learning curriculum. Its ambition is to spend less intelligence reconstructing meaning and more using it.',
                 'principle': 'Meaning becomes a starting resource rather than a tax paid repeatedly.',
                 'projectSlug': 'bilqis',
+                'headline': 'Teach the structure of thought.',
               },
               {
                 'id': 'gnosis',
@@ -92,6 +94,7 @@
                 'category': 'The compounding cognitive runtime',
                 'detail': 'GNOSIS is designed around a graph of reusable computations. When conditions change, the aim is to find the affected dependencies instead of repeating the entire reasoning process.',
                 'principle': 'Useful work becomes cognitive capital with the conditions of reuse attached.',
+                'headline': 'Make a good thought worth keeping.',
               },
               {
                 'id': 'akasha',
@@ -100,6 +103,7 @@
                 'category': 'The persistent cognitive substrate',
                 'detail': 'Akasha is designed to give knowledge a life beyond a single prompt, agent, or model: source-linked state, corrections, and learned procedures that remain open to reconsideration.',
                 'principle': 'Memory is valuable because it remains correctable.',
+                'headline': 'Remember. Repair. Evolve.',
               },
               {
                 'id': 'codito',
@@ -109,6 +113,7 @@
                 'detail': 'Codito makes ideas, decisions, disagreements, and relationships across the architecture navigable. Its goal is to let people inspect and guide how accumulated cognitive structures fit together.',
                 'principle': 'Complexity becomes legible without flattening different viewpoints.',
                 'projectSlug': 'codito',
+                'headline': 'Turn correspondence into coherence.',
               },
               {
                 'id': 'indranet',
@@ -118,6 +123,7 @@
                 'detail': 'IndraNet connects independently bounded participants called Jewels. Its design lets them exchange qualified knowledge and cooperate across digital and physical contexts while retaining their local rights and identity.',
                 'principle': 'Cooperation does not require a single mind or a single owner.',
                 'projectSlug': 'indranet',
+                'headline': 'Many participants. A shared world.',
               },
               {
                 'id': 'guard-tripwire',
@@ -126,6 +132,7 @@
                 'category': 'The authority and interruption boundary',
                 'detail': 'Guard separates reasoning from the authority to act. TripWire provides an independently scoped path for intervention, escalation, and oversight when ordinary self-checks are insufficient.',
                 'principle': 'An excellent recommendation remains a recommendation until authorized.',
+                'headline': 'Capability is not permission.',
               },
             ],
         },
