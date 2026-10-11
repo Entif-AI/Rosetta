@@ -6,6 +6,7 @@ depends: []
 awaits: []
 specs: []
 issues: [1118, 790, 158]
+pr: 1825
 ---
 # Execute RRP receipt pass/tamper vectors
 

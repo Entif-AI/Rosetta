@@ -3,6 +3,7 @@
 Branch: `codex/1118-rrp-receipt-vectors`
 Base: `origin/main` at `2a8f98fccec7c413e0786e923853c383f61861e8`
 Issue: #1118
+Draft PR: #1825
 
 ## Authority and scope
 
@@ -28,4 +29,4 @@ Focused commands: `pnpm exec nx test packs-rrp --skip-nx-cache` passed 9/9 acros
 
 ## Next safe step
 
-Checkpoint the focused green implementation, then run `pnpm verify` and final diff/status checks before opening the draft PR.
+Draft PR #1825 is open. Run final-head `pnpm verify`, record the result in the T1118 validation checklist, checkpoint/push, then publish the bounded #1118 implementation receipt without closing the parent issue.
