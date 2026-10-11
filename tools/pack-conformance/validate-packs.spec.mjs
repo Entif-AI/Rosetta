@@ -4,10 +4,6 @@ import { tmpdir } from 'node:os';
 
 import { describe, expect, it } from 'vitest';
 
-import { verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
-import { buildReceiptBundle, verifyReceiptBundle, verifySignedReceipt } from '../../packages/rosetta-receipts/dist/index.js';
-import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
-
 import {
   computePackId,
   computePackIdFromHashInput,
@@ -18,26 +14,6 @@ import {
 
 async function writeJson(filePath, value) {
   await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`);
-}
-
-async function readReceiptVector(name) {
-  return JSON.parse(await readFile(`packs/rrp/test-vectors/${name}.json`, 'utf8'));
-}
-
-function executeReceiptVector(vector) {
-  expect(vector.signedReceipt).toBeDefined();
-  expect(Array.isArray(vector.closureTiles)).toBe(true);
-  for (const tile of vector.closureTiles) expect(verifyTileIntegrity(tile).ok).toBe(true);
-  expect(verifyTileIntegrity(vector.signedReceipt.receipt).ok).toBe(vector.expectation === 'verify');
-
-  const store = new InMemoryTileStore();
-  for (const tile of vector.closureTiles) store.put(tile);
-  store.put(vector.signedReceipt.receipt);
-
-  return {
-    bundle: verifyReceiptBundle(buildReceiptBundle(vector.signedReceipt.receipt), store),
-    signature: verifySignedReceipt(vector.signedReceipt)
-  };
 }
 
 async function writePack(root, manifest, files = {}) {
@@ -80,23 +56,6 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
-  it('executes the declared RRP positive and tamper-negative receipt vectors', async () => {
-    const pass = executeReceiptVector(await readReceiptVector('receipt-pass'));
-    expect(pass.signature).toEqual({ errors: [], ok: true });
-    expect(pass.bundle).toEqual({ errors: [], ok: true });
-
-    const tampered = executeReceiptVector(await readReceiptVector('receipt-tampered'));
-    expect(tampered.signature.ok).toBe(false);
-    expect(tampered.signature.errors).toEqual([
-      'Tile canonical representation drifted from payload.',
-      'Tile CID no longer matches canonical payload.'
-    ]);
-    expect(tampered.bundle.ok).toBe(false);
-    expect(tampered.bundle.errors).toEqual([
-      'Missing closure member: cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f'
-    ]);
-  });
-
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {

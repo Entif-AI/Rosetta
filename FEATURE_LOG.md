@@ -22,7 +22,9 @@ Red proof: `pnpm exec nx test packs-rrp --skip-nx-cache` first built the Core/st
 
 Green focused proof: the two declared vectors now serialize actual existing Core Tile / signed `rosetta.receipt` evidence. The positive vector passes Tile integrity, Ed25519 signature verification and receipt-bundle closure. The tamper vector changes the signed receipt payload while preserving its CID/signature and omits the subject closure Tile; existing verifiers return exactly `Tile canonical representation drifted from payload.`, `Tile CID no longer matches canonical payload.`, and `Missing closure member: cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f`.
 
-Focused commands: `pnpm exec nx test packs-rrp --skip-nx-cache` passed 8/8 after cold-building six dependency targets; `pnpm exec nx run packs-rrp:conformance --skip-nx-cache` passed all four Pack roots; `pnpm exec nx test rosetta-receipts --skip-nx-cache` passed 40/40. RRP Pack ID recomputed through the existing algorithm to `cidv1-sha256-90708ee8a5f04d470e24af36eec1e51731358c2a0a6a3cdb68899cfa25827186`. `git diff --check` passed.
+Final test placement avoids draft #1824's generic validator-spec file: RRP receipt execution lives in `tools/pack-conformance/rrp-receipt-vectors.spec.mjs`, while the existing `packs-rrp:test` target runs both the generic Pack suite and the RRP-specific evidence suite. This also avoids Vitest's repo include silently skipping a spec under `packs/`.
+
+Focused commands: `pnpm exec nx test packs-rrp --skip-nx-cache` passed 9/9 across two files after cold-building six dependency targets; `pnpm exec nx run packs-rrp:conformance --skip-nx-cache` passed all four Pack roots; `pnpm exec nx test rosetta-receipts --skip-nx-cache` passed 40/40. RRP Pack ID recomputed through the existing algorithm to `cidv1-sha256-0a9eab0fc5de79b2a03c8fabae24a1009eb3c2930feddfd9a31326b1648f1c89`. `git diff --check` passed.
 
 ## Next safe step
 
