@@ -15,6 +15,17 @@
       }
     },
     {
+      "id": "rosetta:behavioral-compatibility-v1",
+      "kind": "behavior",
+      "title": "Bounded behavioral compatibility (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta interoperability/compatibility maintainers",
+      "source": {
+        "path": "specs/behavioral-compatibility-v1.md",
+        "sha256": "9ffbe0fa33b76d5aa400dee2faa6e77b3f95b3d11af27156465072ab63954477"
+      }
+    },
+    {
       "id": "entif:substrate-principles",
       "kind": "principles",
       "title": "Substrate principles",
@@ -114,6 +125,19 @@
       "source": {
         "path": "plans/badger-experiment.md",
         "sha256": "0ab74071d92422fafdd68dabf45f021d52991a87e4bad63c9de7b72bed96c947"
+      }
+    },
+    {
+      "id": "entif:behavioral-compatibility",
+      "kind": "plan",
+      "title": "Behavioral interoperability Profile and deterministic proof",
+      "status": "in-progress",
+      "task": "T1556",
+      "issues": [1556, 1553],
+      "pr": null,
+      "source": {
+        "path": "plans/behavioral-compatibility.md",
+        "sha256": "d708f8017cd99140eda123d409629d033889a9d75e62ac95a4b3dce7a591735e"
       }
     },
     {
@@ -493,6 +517,11 @@
       "to": "entif:specops-integrated"
     },
     {
+      "from": "entif:behavioral-compatibility",
+      "kind": "implements",
+      "to": "rosetta:behavioral-compatibility-v1"
+    },
+    {
       "from": "entif:compiled-context",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -734,6 +763,11 @@
     },
     {
       "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:behavioral-compatibility-v1",
       "kind": "governed-by",
       "to": "entif:substrate-principles"
     }
