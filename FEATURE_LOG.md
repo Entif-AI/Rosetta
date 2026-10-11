@@ -18,6 +18,8 @@ The repository currently has no native feature lease/acquire/checkpoint tooling.
 
 Red proof first, then focused Pack/RRP/receipt tests, `pnpm verify`, and `git diff --check`. Record exact command results here before PR creation.
 
+Red proof: `pnpm exec nx test packs-rrp --skip-nx-cache` first built the Core/store/schema/receipt dependency chain from this cold worktree, then ran 8 Pack tests. Existing tests passed 7/7; the new RRP vector execution test failed because the checked-in note stub has no `signedReceipt`. This proves the declared vector path is currently hollow without depending on a missing build artifact.
+
 ## Next safe step
 
-Commit/push this branch scaffold, verify the remote SHA, then add a red test proving the declared vector stubs are not executable evidence.
+Checkpoint the red test and cold-build dependency wiring, then replace only the two note stubs with fixture data serialized from existing Core/receipt/store primitives and make the test green.

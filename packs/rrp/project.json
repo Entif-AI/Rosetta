@@ -22,6 +22,12 @@
     },
     "test": {
       "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": ["rosetta-core", "rosetta-store", "rosetta-receipts"]
+        }
+      ],
       "options": {
         "cwd": ".",
         "command": "vitest run tools/pack-conformance/validate-packs.spec.mjs"

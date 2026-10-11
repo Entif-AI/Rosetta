@@ -4,8 +4,7 @@ task: T1118
 status: in-progress
 depends: []
 awaits: []
-specs:
-  - docs/RFCs/ROCK-3111-C-RRP-Pack-Filesystem-Contract-v0.2.0.md
+specs: []
 issues: [1118, 790, 158]
 ---
 # Execute RRP receipt pass/tamper vectors
@@ -16,7 +15,7 @@ Source-owner authority: #1118 owner comments dated 2026-06-06, 2026-06-12, and 2
 
 ## Validation
 
-- [ ] Pre-fix proof shows the declared receipt vector files are not executable receipt evidence.
+- [x] Pre-fix proof shows the declared receipt vector files are not executable receipt evidence.
 - [ ] Positive vector constructs, signs, verifies, closes, and verifies through existing exported receipt/Core/store primitives.
 - [ ] Tamper vector fails for the declared existing verifier reason without a custom receipt dialect.
 - [ ] `pnpm exec nx test packs-rrp` passes from the branch worktree.

@@ -4,6 +4,10 @@ import { tmpdir } from 'node:os';
 
 import { describe, expect, it } from 'vitest';
 
+import { verifyTileIntegrity } from '../../packages/rosetta-core/dist/index.js';
+import { buildReceiptBundle, verifyReceiptBundle, verifySignedReceipt } from '../../packages/rosetta-receipts/dist/index.js';
+import { InMemoryTileStore } from '../../packages/rosetta-store/dist/index.js';
+
 import {
   computePackId,
   computePackIdFromHashInput,
@@ -14,6 +18,25 @@ import {
 
 async function writeJson(filePath, value) {
   await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+async function readReceiptVector(name) {
+  return JSON.parse(await readFile(`packs/rrp/test-vectors/${name}.json`, 'utf8'));
+}
+
+function executeReceiptVector(vector) {
+  expect(vector.signedReceipt).toBeDefined();
+  expect(Array.isArray(vector.closureTiles)).toBe(true);
+  expect(verifyTileIntegrity(vector.signedReceipt.receipt).ok).toBe(vector.expectation === 'verify');
+
+  const store = new InMemoryTileStore();
+  for (const tile of vector.closureTiles) store.put(tile);
+  store.put(vector.signedReceipt.receipt);
+
+  return {
+    bundle: verifyReceiptBundle(buildReceiptBundle(vector.signedReceipt.receipt), store),
+    signature: verifySignedReceipt(vector.signedReceipt)
+  };
 }
 
 async function writePack(root, manifest, files = {}) {
@@ -56,6 +79,16 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
+  it('executes the declared RRP positive and tamper-negative receipt vectors', async () => {
+    const pass = executeReceiptVector(await readReceiptVector('receipt-pass'));
+    expect(pass.signature).toEqual({ errors: [], ok: true });
+    expect(pass.bundle).toEqual({ errors: [], ok: true });
+
+    const tampered = executeReceiptVector(await readReceiptVector('receipt-tampered'));
+    expect(tampered.signature.ok).toBe(false);
+    expect(tampered.bundle.ok).toBe(false);
+  });
+
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {
