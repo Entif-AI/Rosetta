@@ -2,7 +2,7 @@
 /* global console, process */
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { lstat, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
@@ -152,6 +152,50 @@ async function fileExists(filePath) {
   }
 }
 
+async function inspectDeclaredFile(packRoot, declaredPath) {
+  const root = path.resolve(packRoot);
+  const segments = declaredPath.split(/[\\/]+/);
+  if (
+    path.isAbsolute(declaredPath) ||
+    path.posix.isAbsolute(declaredPath) ||
+    path.win32.isAbsolute(declaredPath) ||
+    segments.includes('..')
+  ) {
+    return { status: 'unsafe' };
+  }
+
+  const absolutePath = path.resolve(root, declaredPath);
+  const relativePath = path.relative(root, absolutePath);
+  if (
+    relativePath === '' ||
+    relativePath === '..' ||
+    relativePath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativePath)
+  ) {
+    return { status: 'unsafe' };
+  }
+
+  let current = root;
+  let info;
+  for (const segment of relativePath.split(path.sep)) {
+    current = path.join(current, segment);
+    try {
+      info = await lstat(current);
+    } catch (error) {
+      if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+        return { status: 'missing' };
+      }
+      throw error;
+    }
+
+    if (info.isSymbolicLink()) {
+      return { status: 'unsafe' };
+    }
+  }
+
+  return info?.isFile() ? { status: 'ok', path: absolutePath } : { status: 'missing' };
+}
+
 export async function validatePackRoot(packRoot) {
   const errors = [];
   const manifestPath = path.join(packRoot, 'pack.json');
@@ -179,6 +223,13 @@ export async function validatePackRoot(packRoot) {
   }
   const declaredPackId = manifest.pack_id;
   const computedPackId = await computePackId(packRoot);
+  const declaredFiles = new Map();
+  const inspect = async (relativePath) => {
+    if (!declaredFiles.has(relativePath)) {
+      declaredFiles.set(relativePath, await inspectDeclaredFile(packRoot, relativePath));
+    }
+    return declaredFiles.get(relativePath);
+  };
 
   if (typeof declaredPackId !== 'string' || declaredPackId.length === 0) {
     errors.push(validationError('pack-id-missing', packRoot, 'pack.json must declare pack_id'));
@@ -193,18 +244,21 @@ export async function validatePackRoot(packRoot) {
   }
 
   for (const relativePath of [...entriesFromEntrypoints(manifest.entrypoints), ...entriesFromExports(manifest.exports)]) {
-    if (!(await fileExists(path.join(packRoot, relativePath)))) {
+    const declaredFile = await inspect(relativePath);
+    if (declaredFile.status === 'unsafe') {
+      errors.push(validationError('declared-path-unsafe', packRoot, relativePath));
+    } else if (declaredFile.status === 'missing') {
       errors.push(validationError('declared-path-missing', packRoot, relativePath));
     }
   }
 
   for (const relativePath of manifest.entrypoints.schema ?? []) {
-    const schemaPath = path.join(packRoot, relativePath);
-    if (!(await fileExists(schemaPath))) continue; // Already reported as a missing declared path.
+    const declaredFile = await inspect(relativePath);
+    if (declaredFile.status !== 'ok') continue; // Already reported as missing or unsafe above.
 
     let schema;
     try {
-      schema = await readJson(schemaPath);
+      schema = await readJson(declaredFile.path);
     } catch (error) {
       errors.push(validationError('schema-json-invalid', packRoot, `${relativePath}: ${error.message}`));
       continue;
@@ -235,11 +289,20 @@ export async function validatePackRoot(packRoot) {
   for (const profile of manifest.profiles ?? []) {
     if (profileNames.has(profile.name)) errors.push(validationError('profile-duplicate', packRoot, profile.name));
     profileNames.add(profile.name);
-    if (!profile.path || !(await fileExists(path.join(packRoot, profile.path)))) {
+    if (!profile.path) {
       errors.push(validationError('profile-path-missing', packRoot, profile.name));
       continue;
     }
-    const schema = await readJson(path.join(packRoot, profile.path));
+    const declaredFile = await inspect(profile.path);
+    if (declaredFile.status === 'unsafe') {
+      errors.push(validationError('profile-path-unsafe', packRoot, `${profile.name}: ${profile.path}`));
+      continue;
+    }
+    if (declaredFile.status === 'missing') {
+      errors.push(validationError('profile-path-missing', packRoot, profile.name));
+      continue;
+    }
+    const schema = await readJson(declaredFile.path);
     const descent = schema['x-rosetta'];
     const profileId = schema.properties?.profile?.const ?? schema.properties?.profile?.properties?.id?.const;
     if (typeof schema.$id !== 'string' || !schema.$id.trim() || (schema.$id !== profile.name && profileId !== profile.name) || descent?.coreDescent !== 'core-tile-profile' || !descent?.coreKind?.startsWith('rosetta.') || descent?.pack !== manifest.id || !descent?.authority) {
