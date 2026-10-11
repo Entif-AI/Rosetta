@@ -1,4 +1,4 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -56,6 +56,13 @@ function baseManifest(overrides = {}) {
     },
     ...overrides
   };
+}
+
+async function writePackWithCurrentId(root, manifest, files = {}) {
+  await writePack(root, manifest, files);
+  const current = { ...manifest, pack_id: await computePackId(root) };
+  await writeJson(path.join(root, 'pack.json'), current);
+  return current;
 }
 
 describe('pack conformance', () => {
@@ -206,6 +213,142 @@ describe('pack conformance', () => {
         detail: 'schema/absent.schema.json'
       }));
       expect(result.errors.some((error) => error.code.startsWith('schema-'))).toBe(false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['parent traversal', '../outside.md'],
+    ['absolute path', path.join(path.parse(process.cwd()).root, 'tmp', 'outside.md')]
+  ])('rejects an entrypoint declared with %s before reading outside the Pack root', async (_title, declaredPath) => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-entrypoint-'));
+    const root = path.join(tempDir, 'pack');
+    try {
+      await mkdir(root, { recursive: true });
+      await writeFile(path.join(tempDir, 'outside.md'), 'outside\n');
+      await writePackWithCurrentId(root, baseManifest({ entrypoints: { examples: [declaredPath] } }));
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-unsafe',
+        detail: declaredPath
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects an export path that escapes the Pack root', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-export-'));
+    const root = path.join(tempDir, 'pack');
+    try {
+      await mkdir(root, { recursive: true });
+      await writeFile(path.join(tempDir, 'outside.json'), '{}\n');
+      const manifest = baseManifest({
+        entrypoints: {},
+        exports: [{ kind: 'json', id: 'outside', path: '../outside.json', version: '0.1.0' }]
+      });
+      await writePackWithCurrentId(root, manifest);
+      expect((await validatePackRoot(root)).errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-unsafe',
+        detail: '../outside.json'
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a Profile path that escapes before reading the outside JSON', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-profile-'));
+    const root = path.join(tempDir, 'pack');
+    try {
+      await mkdir(root, { recursive: true });
+      await writeFile(path.join(tempDir, 'profile.json'), '{not-json\n');
+      const manifest = baseManifest({
+        entrypoints: {},
+        profiles: [{ name: 'outside-profile', path: '../profile.json' }]
+      });
+      await writePackWithCurrentId(root, manifest);
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'profile-path-unsafe',
+        detail: expect.stringContaining('../profile.json')
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['direct outside symlink', 'links/example.md', 'outside'],
+    ['symlinked parent directory', 'linked/example.md', 'parent'],
+    ['in-root symlink', 'links/example.md', 'inside']
+  ])('rejects a declared path containing a %s', async (_title, declaredPath, mode) => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-symlink-'));
+    const root = path.join(tempDir, 'pack');
+    try {
+      await mkdir(path.join(root, 'links'), { recursive: true });
+      const outsideDir = path.join(tempDir, 'outside');
+      await mkdir(outsideDir, { recursive: true });
+      await writeFile(path.join(outsideDir, 'example.md'), 'outside\n');
+      await mkdir(path.join(root, 'real'), { recursive: true });
+      await writeFile(path.join(root, 'real', 'example.md'), 'inside\n');
+
+      if (mode === 'parent') {
+        await symlink(outsideDir, path.join(root, 'linked'));
+      } else {
+        const target = mode === 'inside' ? path.join(root, 'real', 'example.md') : path.join(outsideDir, 'example.md');
+        await symlink(target, path.join(root, 'links', 'example.md'));
+      }
+
+      await writePackWithCurrentId(root, baseManifest({ entrypoints: { examples: [declaredPath] } }));
+      expect((await validatePackRoot(root)).errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-unsafe',
+        detail: declaredPath
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps outside mutations outside Pack identity while refusing the escaped declaration', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-mutation-'));
+    const root = path.join(tempDir, 'pack');
+    const outside = path.join(tempDir, 'outside.md');
+    try {
+      await mkdir(root, { recursive: true });
+      await writeFile(outside, 'first\n');
+      const manifest = await writePackWithCurrentId(root, baseManifest({ entrypoints: { examples: ['../outside.md'] } }));
+      expect((await validatePackRoot(root)).errors).toContainEqual(expect.objectContaining({ code: 'declared-path-unsafe' }));
+
+      await writeFile(outside, 'second\n');
+      expect(await computePackId(root)).toBe(manifest.pack_id);
+      expect((await validatePackRoot(root)).errors).toContainEqual(expect.objectContaining({ code: 'declared-path-unsafe' }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a regular nested declared path inside the Pack root', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-path-nested-'));
+    try {
+      const manifest = baseManifest({ entrypoints: { examples: ['examples/nested/example.md'] } });
+      await writePackWithCurrentId(root, manifest, { 'examples/nested/example.md': 'inside\n' });
+      expect((await validatePackRoot(root)).errors).toEqual([]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reports one missing-file error for a safe absent declared path', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-path-missing-'));
+    try {
+      const missingPath = 'examples/missing.md';
+      await writePackWithCurrentId(root, baseManifest({ entrypoints: { examples: [missingPath] } }));
+      const result = await validatePackRoot(root);
+      expect(result.errors.filter((error) => error.detail === missingPath)).toEqual([
+        expect.objectContaining({ code: 'declared-path-missing' })
+      ]);
     } finally {
       await rm(root, { recursive: true, force: true });
     }
