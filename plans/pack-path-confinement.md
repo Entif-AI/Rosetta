@@ -6,7 +6,7 @@ depends: [pack-schema-entrypoint-conformance]
 awaits: []
 specs: [specs/architecture.md]
 issues: [790]
-pr: null
+pr: 1826
 ---
 # Confine declared Pack paths to Pack identity
 
@@ -26,7 +26,7 @@ This branch is stacked on `codex/790-pack-schema-entrypoints` (draft PR #1824). 
 - [x] External target mutation leaves `rosetta-pack-id-v1` unchanged, while the escaped declaration remains non-conformant.
 - [x] Focused Pack and RRP tests pass with 27 fixture cases, and all four current Pack roots remain conformant.
 - [x] Focused RRP aliases, `pnpm verify`, `git diff --check`, Nx sync and SpecOps admission pass at the source checkpoint.
-- [ ] GitHub verifies the final branch SHA, draft stacked PR and public-safe #790 receipt.
+- [x] GitHub readback confirms draft stacked PR #1826 with the intended base, head and review-only state.
 - [ ] Human source-owner acceptance and merge remain separate.
 
 ## Run policy

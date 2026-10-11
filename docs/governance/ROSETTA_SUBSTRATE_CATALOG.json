@@ -214,10 +214,10 @@
       "status": "in-progress",
       "task": "T7903",
       "issues": [790],
-      "pr": null,
+      "pr": 1826,
       "source": {
         "path": "plans/pack-path-confinement.md",
-        "sha256": "f25518cede4e7583998b3f481956c7620c55698911c7da0d3efc0db5ad1e2493"
+        "sha256": "a996d29c8fd6bfacf26ad41b66aa5fe9e1d639f2ff346055d0a06c82589cb003"
       }
     },
     {
