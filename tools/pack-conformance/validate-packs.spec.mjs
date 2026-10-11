@@ -29,7 +29,10 @@ async function writePack(root, manifest, files = {}) {
 
 function baseManifest(overrides = {}) {
   return {
-    pack_id: 'cidv1-sha256-placeholder',
+    id: 'example',
+    pack_id: `cidv1-sha256-${'0'.repeat(64)}`,
+    kind: 'stdpack',
+    title: 'Example Pack',
     name: 'Example Pack',
     doc_id: 'EXAMPLE-1',
     category: 'StdPack',
@@ -56,6 +59,63 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
+  it('rejects unsupported manifest shape before claiming a pack root is conformant', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'manifest-schema-negative-'));
+    try {
+      const manifest = baseManifest({ id: 'example', kind: 'stdpack', title: 'Example Pack', unexpected_grant: true });
+      await writePack(root, manifest, { 'examples/example.md': 'fixture\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid' }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('requires Pack Core compatibility and dependencies before validating paths and IDs', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'manifest-missing-contract-'));
+    try {
+      const incomplete = baseManifest({ id: 'example', kind: 'stdpack', title: 'Example Pack' });
+      delete incomplete.compatible_core;
+      delete incomplete.depends_on;
+      await writePack(root, incomplete, { 'examples/example.md': 'fixture\n' });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid' }));
+      expect(result.errors.map((error) => error.code)).not.toContain('pack-id-mismatch');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects the historical primary_schema entrypoint instead of accepting a path-only false green', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'entrypoint-schema-negative-'));
+    try {
+      const manifest = baseManifest({ entrypoints: { primary_schema: 'schema/source.schema.json' } });
+      await writePack(root, manifest, { 'schema/source.schema.json': '{}\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid', detail: expect.stringContaining('additional properties') }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects malformed Pack IDs as schema errors before integrity and path checks', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-id-schema-negative-'));
+    try {
+      await writePack(root, baseManifest({ pack_id: 'not-a-content-id' }), { 'examples/example.md': 'fixture\n' });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid', detail: expect.stringContaining('/pack_id') }));
+      expect(result.errors.map((error) => error.code)).not.toContain('pack-id-mismatch');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {

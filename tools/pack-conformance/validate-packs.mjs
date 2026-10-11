@@ -1,12 +1,26 @@
 #!/usr/bin/env node
 /* global console, process */
 import { createHash } from 'node:crypto';
+import { createRequire } from 'node:module';
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 
 const PACK_ID_ALGORITHM = 'rosetta-pack-id-v1';
 const DEFAULT_PACKS_ROOT = 'packs';
+const require = createRequire(import.meta.url);
+const Ajv2020 = require('ajv/dist/2020.js');
+let manifestValidator;
+
+async function validateManifest(manifest) {
+  if (!manifestValidator) {
+    const schema = JSON.parse(await readFile(new URL('../../packs/_schemas/pack-manifest.schema.json', import.meta.url), 'utf8'));
+    manifestValidator = new Ajv2020({ allErrors: true }).compile(schema);
+  }
+  return manifestValidator(manifest)
+    ? []
+    : (manifestValidator.errors ?? []).map((error) => `${error.instancePath || '/'} ${error.message}`);
+}
 
 function canonicalizeJson(value) {
   if (Array.isArray(value)) {
@@ -139,7 +153,28 @@ async function fileExists(filePath) {
 export async function validatePackRoot(packRoot) {
   const errors = [];
   const manifestPath = path.join(packRoot, 'pack.json');
-  const manifest = await readJson(manifestPath);
+  let manifest;
+  try {
+    manifest = await readJson(manifestPath);
+  } catch (error) {
+    return {
+      computedPackId: null,
+      errors: [validationError('manifest-json-invalid', packRoot, error.message)],
+      manifest: null,
+      ok: false,
+      root: packRoot
+    };
+  }
+  const manifestErrors = await validateManifest(manifest);
+  if (manifestErrors.length) {
+    return {
+      computedPackId: null,
+      errors: manifestErrors.map((detail) => validationError('manifest-schema-invalid', packRoot, detail)),
+      manifest,
+      ok: false,
+      root: packRoot
+    };
+  }
   const declaredPackId = manifest.pack_id;
   const computedPackId = await computePackId(packRoot);
 
@@ -297,7 +332,8 @@ export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
 export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
   const roots = await findPackRoots(packsRoot);
   const packResults = await Promise.all(roots.map((root) => validatePackRoot(root)));
-  const graphResult = validatePackGraph(packResults);
+  const allManifestsValid = packResults.every((result) => result.manifest && !result.errors.some((error) => error.code.startsWith('manifest-')));
+  const graphResult = allManifestsValid ? validatePackGraph(packResults) : { errors: [], ok: false };
   const errors = [...packResults.flatMap((result) => result.errors), ...graphResult.errors];
 
   return {

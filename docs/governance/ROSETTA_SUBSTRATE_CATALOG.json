@@ -195,6 +195,19 @@
       }
     },
     {
+      "id": "entif:pack-manifest-schema-gate",
+      "kind": "plan",
+      "title": "Validate Pack manifests before integrity and path claims",
+      "status": "in-progress",
+      "task": "T790",
+      "issues": [790],
+      "pr": null,
+      "source": {
+        "path": "plans/pack-manifest-schema-gate.md",
+        "sha256": "97679477bf92aa575991ab508766b0434a3b80a32839ce59e4267c60f9eaa3ea"
+      }
+    },
+    {
       "id": "entif:run-completion",
       "kind": "plan",
       "title": "Terminal engineering-run completion evidence",
@@ -561,6 +574,11 @@
       "from": "entif:materialized-view",
       "kind": "depends-on",
       "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:pack-manifest-schema-gate",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:run-completion",
