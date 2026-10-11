@@ -16,10 +16,10 @@ Source-owner authority: #1118 owner comments dated 2026-06-06, 2026-06-12, and 2
 ## Validation
 
 - [x] Pre-fix proof shows the declared receipt vector files are not executable receipt evidence.
-- [ ] Positive vector constructs, signs, verifies, closes, and verifies through existing exported receipt/Core/store primitives.
-- [ ] Tamper vector fails for the declared existing verifier reason without a custom receipt dialect.
-- [ ] `pnpm exec nx test packs-rrp` passes from the branch worktree.
-- [ ] `pnpm exec nx run packs-rrp:conformance` passes with recomputed RRP `pack_id`.
-- [ ] `pnpm exec nx test rosetta-receipts` passes.
+- [x] Positive vector constructs, signs, verifies, closes, and verifies through existing exported receipt/Core/store primitives.
+- [x] Tamper vector fails for the declared existing verifier reason without a custom receipt dialect.
+- [x] `pnpm exec nx test packs-rrp` passes from the branch worktree.
+- [x] `pnpm exec nx run packs-rrp:conformance` passes with recomputed RRP `pack_id`.
+- [x] `pnpm exec nx test rosetta-receipts` passes.
 - [ ] `pnpm verify` passes.
-- [ ] `git diff --check` passes.
+- [x] `git diff --check` passes.

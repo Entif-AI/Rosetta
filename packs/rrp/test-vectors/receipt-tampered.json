@@ -2,7 +2,56 @@
   "name": "receipt-tampered",
   "expectation": "reject",
   "notes": [
-    "Tampered or incomplete bundles should fail closure checks.",
-    "Missing policy artifacts are treated as verification failures."
-  ]
+    "The receipt payload is changed after signing while the original CID/signature are retained.",
+    "The subject closure tile is also omitted so the existing bundle verifier reports the missing closure member."
+  ],
+  "closureTiles": [],
+  "signedReceipt": {
+    "receipt": {
+      "kind": "rosetta.receipt",
+      "pack": "rrp",
+      "parents": [],
+      "payload": {
+        "claims": [
+          {
+            "claimType": "rrp:claim.fixture-verification",
+            "evidence": [
+              {
+                "cid": "cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f"
+              }
+            ],
+            "statement": "Tampered statement that no longer matches the signed receipt CID.",
+            "verdict": "pass"
+          }
+        ],
+        "digests": [
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f",
+            "digest": "939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f",
+            "of": "rosetta.run"
+          }
+        ],
+        "policyRefs": [],
+        "receiptType": "rrp:conformance.fixture",
+        "subjects": [
+          {
+            "cid": "cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f",
+            "role": "rrp:subject.run"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.receipt\",\"pack\":\"rrp\",\"parents\":[],\"payload\":{\"claims\":[{\"claimType\":\"rrp:claim.fixture-verification\",\"evidence\":[{\"cid\":\"cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f\"}],\"statement\":\"The declared RRP positive vector closes over its subject evidence.\",\"verdict\":\"pass\"}],\"digests\":[{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f\",\"digest\":\"939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f\",\"of\":\"rosetta.run\"}],\"policyRefs\":[],\"receiptType\":\"rrp:conformance.fixture\",\"subjects\":[{\"cid\":\"cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f\",\"role\":\"rrp:subject.run\"}]},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-3812074d628eaf7e9b6e6960186ba70d88e93fe2d51a43c8729511edeba31c56",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    "signature": {
+      "algorithm": "ed25519",
+      "keyId": "rrp.fixture.ed25519",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAck+LUiuZB0CFwv5xWoZpwcRju1pbu8XVjtNwHCHoIuE=\n-----END PUBLIC KEY-----\n",
+      "signatureBase64": "Yq2hTTlhfYu6+Q1YXhDPS9tuFeXxAEh4TjYKzgaVAW5vPLhmJOZu6vKHPRahJ2CKQzYflSeC28mTM/YzRebVDg==",
+      "signedCid": "cidv1-sha256-3812074d628eaf7e9b6e6960186ba70d88e93fe2d51a43c8729511edeba31c56"
+    }
+  }
 }

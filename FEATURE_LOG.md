@@ -20,6 +20,10 @@ Red proof first, then focused Pack/RRP/receipt tests, `pnpm verify`, and `git di
 
 Red proof: `pnpm exec nx test packs-rrp --skip-nx-cache` first built the Core/store/schema/receipt dependency chain from this cold worktree, then ran 8 Pack tests. Existing tests passed 7/7; the new RRP vector execution test failed because the checked-in note stub has no `signedReceipt`. This proves the declared vector path is currently hollow without depending on a missing build artifact.
 
+Green focused proof: the two declared vectors now serialize actual existing Core Tile / signed `rosetta.receipt` evidence. The positive vector passes Tile integrity, Ed25519 signature verification and receipt-bundle closure. The tamper vector changes the signed receipt payload while preserving its CID/signature and omits the subject closure Tile; existing verifiers return exactly `Tile canonical representation drifted from payload.`, `Tile CID no longer matches canonical payload.`, and `Missing closure member: cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f`.
+
+Focused commands: `pnpm exec nx test packs-rrp --skip-nx-cache` passed 8/8 after cold-building six dependency targets; `pnpm exec nx run packs-rrp:conformance --skip-nx-cache` passed all four Pack roots; `pnpm exec nx test rosetta-receipts --skip-nx-cache` passed 40/40. RRP Pack ID recomputed through the existing algorithm to `cidv1-sha256-90708ee8a5f04d470e24af36eec1e51731358c2a0a6a3cdb68899cfa25827186`. `git diff --check` passed.
+
 ## Next safe step
 
-Checkpoint the red test and cold-build dependency wiring, then replace only the two note stubs with fixture data serialized from existing Core/receipt/store primitives and make the test green.
+Checkpoint the focused green implementation, then run `pnpm verify` and final diff/status checks before opening the draft PR.

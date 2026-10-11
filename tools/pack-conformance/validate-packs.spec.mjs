@@ -27,6 +27,7 @@ async function readReceiptVector(name) {
 function executeReceiptVector(vector) {
   expect(vector.signedReceipt).toBeDefined();
   expect(Array.isArray(vector.closureTiles)).toBe(true);
+  for (const tile of vector.closureTiles) expect(verifyTileIntegrity(tile).ok).toBe(true);
   expect(verifyTileIntegrity(vector.signedReceipt.receipt).ok).toBe(vector.expectation === 'verify');
 
   const store = new InMemoryTileStore();
@@ -86,7 +87,14 @@ describe('pack conformance', () => {
 
     const tampered = executeReceiptVector(await readReceiptVector('receipt-tampered'));
     expect(tampered.signature.ok).toBe(false);
+    expect(tampered.signature.errors).toEqual([
+      'Tile canonical representation drifted from payload.',
+      'Tile CID no longer matches canonical payload.'
+    ]);
     expect(tampered.bundle.ok).toBe(false);
+    expect(tampered.bundle.errors).toEqual([
+      'Missing closure member: cidv1-sha256-939e5dd363c7391c50121935e2d3441f2cd36f0959fb0014787fe9dfa400032f'
+    ]);
   });
 
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
