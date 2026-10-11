@@ -6,6 +6,7 @@ depends: []
 awaits: []
 specs: [specs/architecture.md]
 issues: [790]
+pr: 1823
 ---
 # Include bootstrap Pack evidence in merge admission
 
@@ -20,12 +21,18 @@ This is a repository-local bootstrap-presence check, not an independently certif
 - [x] Before change, Nx creates `evidence-packs` but no `evidence-pack-bootstrap` target; confirmed in the unmodified #1816 worktree.
 - [x] Existing two bootstrap-workspace tests pass when invoked as the new merge-stage check.
 - [x] Generated `rosetta-governance:evidence-pack-bootstrap` yields a successful real evidence JSON record.
-- [ ] Composed `merge-admission.json` contains both `packs` and `pack-bootstrap` checks with passing results, using the existing report schema and GitHub CI workflow.
+- [x] Composed `merge-admission.json` contains both `packs` and `pack-bootstrap` checks with passing results, using the existing report schema and GitHub CI workflow.
+- [ ] Overall final-head hosted merge-admission check is successful. Local composed runs were blocked by the missing and then relative-path `specify` CLI in an isolated worktree; the existing pinned CLI's focused distribution test subsequently passed with an absolute path.
 - [x] Existing focused Pack conformance and Nx governance tests remain green; four Pack roots pass and Nx sync:check passes.
 - [x] `pnpm verify` and `git diff --check` pass.
-- [ ] Remote feature branch SHA is read back after push.
-- [ ] Review-only PR and #790 issue receipt identify remaining release-gate limitations. No automated merge.
+- [x] First pushed remote feature branch SHA `e74e43034d6f008e2c5927522dd4793c4c259f17` matches the local checkpoint.
+- [x] Review-only draft PR #1823 opened; no automatic merge.
+- [ ] #790 owner issue receipt and final plan checkpoint are read back.
 
 ## Run constraints
 
 Use `pnpm verify` and focused targets, not repeated full merge/distribution matrices. Keep verbose logs local and ignored. Commit and push coherent deltas to GitHub with remote SHA verification. Keep the original checkout and draft PR #1816 unchanged. Public-only conformance/configuration work uses accepted public Pack and repository governance; no protected operating mechanism is introduced.
+
+## Handoff
+
+Draft PR: https://github.com/Entif-AI/Rosetta/pull/1823. The bootstrap evidence record is `dist/governance/rosetta-governance/pack-bootstrap.json`, and the existing composed merge report is `dist/governance/rosetta-governance/merge-admission.json`. Both Pack checks passed. The first complete local composition was blocked on the isolated worktree's absent pinned Spec Kit CLI; a second attempt exposed a relative path problem in the test's temporary consumer. The focused distribution E2E then passed with the existing pinned Spec Kit CLI from a sibling ignored virtual environment using an absolute path, without repository dependency changes. Hosted admission at the exact final PR head remains the controlling end-to-end check. No full release certification, write/promotion authority, or merge is claimed. Further #790 obligations include ROCK-3111-C required-file/example/vector/changelog conformance, with RRP-specific cases owned by #1118.

@@ -201,10 +201,10 @@
       "status": "in-progress",
       "task": "T790",
       "issues": [790],
-      "pr": null,
+      "pr": 1823,
       "source": {
         "path": "plans/pack-bootstrap-admission.md",
-        "sha256": "3fd6de6d0d47459f96dc8fed8448c6886e69a1e6a546564093d18cfdbfc81600"
+        "sha256": "1f185b21cb2bb114aa91331f955704d5dc0db5fda2ac8bac4e9962fe5cced4ce"
       }
     },
     {
