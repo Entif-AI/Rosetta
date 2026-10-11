@@ -6,6 +6,7 @@ depends: [pack-path-confinement]
 awaits: []
 specs: [specs/architecture.md]
 issues: [790]
+pr: 1827
 ---
 # Compose the Pack release-gate report
 
@@ -26,10 +27,10 @@ Local execution uses `pnpm run packs:release-gate`. Nx exposes `pack-release-gat
 - [x] Active #790 PRs and current open-PR file overlap were inspected before edits.
 - [x] Base is draft #1826 head `9233b1841242a524c4ab2b461f38812db8207ef0`; draft #1826 remains unmodified.
 - [x] Red-before-green fixture run failed because `release-gate.mjs` did not yet exist after local dependencies were installed.
-- [ ] Positive and negative report fixtures pass with deterministic stage ordering.
-- [ ] Current workspace Pack gate passes and writes stable JSON.
-- [ ] Existing Pack conformance and bootstrap proof remain green.
-- [ ] Nx affected/spec-admission reaches the new gate in CI-equivalent execution.
-- [ ] `pnpm verify`, governance checks, SpecOps/Nx sync, and `git diff --check` pass.
+- [x] Positive and negative report fixtures pass with deterministic stage ordering.
+- [x] Current workspace Pack gate passes and writes stable JSON; two runs produced SHA-256 `090bb76dc3fc255e018adf73a09229bb807bbe4f10faf7580dd8c06a711c0b55`.
+- [x] Existing Pack conformance and bootstrap proof remain green.
+- [x] Nx affected/spec-admission reaches the new gate in CI-equivalent execution.
+- [x] `pnpm verify`, governance checks, SpecOps/Nx sync, and `git diff --check` pass before the PR-identity checkpoint.
 - [ ] Remote feature SHA, draft PR, #790 receipt, and hosted admission are read back.
 - [ ] Human source-owner acceptance and merge remain separate.
