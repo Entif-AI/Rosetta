@@ -6,6 +6,7 @@ depends: []
 awaits: [source-owner-behavioral-contract-acceptance]
 specs: [specs/behavioral-compatibility-v1.md]
 issues: [1556, 1553]
+pr: 1822
 ---
 # Behavioral interoperability Profile and deterministic proof
 
@@ -17,7 +18,7 @@ Implement the bounded issue #1556 contract as **one review unit**: proposed desi
 - [x] Eight issue-mandated and additional adversarial scenarios pass via exported APIs (19 focused tests; 224 schema-package tests).
 - [x] Three portable JSON Schemas match source objects byte-for-semantics through executable tests; catalog/Core-descent and generated projections are synchronized.
 - [x] `pnpm verify` passed, including governance and Nx affected lint/typecheck/tests/build. No full-project matrix or distribution rerun.
-- [ ] A review-only PR is pushed to GitHub and issue #1556 receives an exact verification receipt.
+- [x] Draft PR #1822 is pushed to GitHub at the verified initial head `81aab4e272750b5dab771690a6d2ac90700440a5`, and issue #1556 has a read-back proof receipt.
 - [ ] Source-owner resolves in-development semantic choices before implementation is treated as accepted.
 - [ ] Human-governed merge only. No agent merge or main push.
 
@@ -27,4 +28,4 @@ Isolated worktree: `rosetta-1556-behavioral`; branch: `codex/1556-behavioral-com
 
 ## Handoff
 
-Proposed and fixture-backed, not yet an accepted standard. Contract decisions still require source-owner review of strict equality-only comparison, evidence sufficiency, exact dimension value domains, normative-only posture when observation is not required, and binding of the eventual #1553 compatibility graph consumer. A compatible result is **not** an execution/retry/write grant. The original source issue #1556 is preserved; PR review and merge are separately governed. Next, reconcile live branch/PR SHA and GitHub CI before any new push; do not bypass unresolved semantic review.
+Proposed and fixture-backed, not yet an accepted standard. Draft PR: https://github.com/Entif-AI/Rosetta/pull/1822. Verified source-owner issue receipt: https://github.com/Entif-AI/Rosetta/issues/1556#issuecomment-6113671665. Contract decisions still require source-owner review of strict equality-only comparison, evidence sufficiency, exact dimension value domains, normative-only posture when observation is not required, and binding of the eventual #1553 compatibility graph consumer. A compatible result is **not** an execution/retry/write grant. The original source issue #1556 is preserved; PR review and merge are separately governed. Next, reconcile live branch/PR SHA and GitHub CI before any new push; do not bypass unresolved semantic review.
