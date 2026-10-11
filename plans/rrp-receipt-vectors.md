@@ -22,5 +22,5 @@ Source-owner authority: #1118 owner comments dated 2026-06-06, 2026-06-12, and 2
 - [x] `pnpm exec nx test packs-rrp` passes from the branch worktree.
 - [x] `pnpm exec nx run packs-rrp:conformance` passes with recomputed RRP `pack_id`.
 - [x] `pnpm exec nx test rosetta-receipts` passes.
-- [ ] `pnpm verify` passes.
+- [x] `pnpm verify` passes.
 - [x] `git diff --check` passes.
