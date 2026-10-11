@@ -120,6 +120,10 @@ describe('GitHub issue REST source admission', () => {
     expect(first.canonicalArtifact.payload.rightsScopes).toEqual([
       'project:alpha',
     ]);
+    expect(first.fetchReceipt.payload.fetchedAt).toBe('2026-10-01T12:05:00Z');
+    expect(first.evaluationReceipt.payload.evaluatedAt).toBe(
+      '2026-10-01T12:05:00Z'
+    );
     expect(first.canonicalArtifact.payload.normalizedText).toContain(
       'development-stage graph view'
     );
@@ -146,6 +150,10 @@ describe('GitHub issue REST source admission', () => {
         throw new Error('Invalid tile fixture.');
       expect(verifyTileIntegrity(tile).ok).toBe(true);
       expect(validatePayload(tile.kind, tile.payload).ok).toBe(true);
+      expect(tile.createdAt).toBe(first.record.createdAt);
+      expect(Date.parse(tile.createdAt)).toBeGreaterThanOrEqual(
+        Date.parse('2026-10-01T12:05:00Z')
+      );
     }
   });
 
@@ -243,6 +251,32 @@ describe('GitHub issue REST source admission', () => {
     expect(v2.manifestation.parents).toContain(v1.manifestation.cid);
     expect(v1.canonicalArtifact.payload.normalizedText).toContain('proposes');
     expect(v2.canonicalArtifact.payload.normalizedText).toContain('Corrected');
+  });
+
+  it('links a later rights recheck even when source JSON and its revision are unchanged', () => {
+    const firstRequest = specimen();
+    const first = acquireGitHubIssueThroughRefinery(firstRequest);
+    const next = specimen();
+    next.readDecision.rightsScopes = ['project:beta'];
+    next.readDecision.decisionRef = 'fixture.read.decision.2';
+    next.readDecision.checkedAt = '2026-10-02T12:00:00Z';
+    next.capturedAt = '2026-10-02T12:05:00Z';
+    next.previous = {
+      capturedAt: firstRequest.capturedAt,
+      manifestation: first.manifestation,
+      record: first.record,
+    };
+    const second = acquireGitHubIssueThroughRefinery(next);
+    expect(second.manifestation.payload.byteHashes.sha256).toBe(
+      first.manifestation.payload.byteHashes.sha256
+    );
+    expect(second.manifestation.payload.accessRequirements).toEqual([
+      'project:beta',
+    ]);
+    expect(second.record.payload.lineageRefs).toContain(first.record.cid);
+    expect(second.manifestation.parents).toContain(first.manifestation.cid);
+    expect(second.record.cid).not.toBe(first.record.cid);
+    expect(second.manifestation.cid).not.toBe(first.manifestation.cid);
   });
 
   it('refuses denied external authorization before touching an inaccessible source', () => {
@@ -366,6 +400,12 @@ describe('GitHub issue REST source admission', () => {
       },
     ],
     [
+      'normalized impossible calendar date',
+      (r: GitHubIssueAcquisitionRequest) => {
+        r.capturedAt = '2026-02-30T12:05:00Z';
+      },
+    ],
+    [
       'private source marked public',
       (r: GitHubIssueAcquisitionRequest) => {
         repoObject(r).private = true;
@@ -442,6 +482,21 @@ describe('GitHub issue REST source admission', () => {
     };
     expect(() => acquireGitHubIssueThroughRefinery(tampered)).toThrow(
       /tampered/iu
+    );
+  });
+
+  it('bounds nested source JSON before canonicalization instead of recursing indefinitely', () => {
+    const request = specimen();
+    const root: Record<string, unknown> = {};
+    let cursor = root;
+    for (let index = 0; index < 100; index++) {
+      const nested: Record<string, unknown> = {};
+      cursor['nested'] = nested;
+      cursor = nested;
+    }
+    issueObject(request)['unbounded'] = root;
+    expect(() => acquireGitHubIssueThroughRefinery(request)).toThrow(
+      /over-bounded/u
     );
   });
 });

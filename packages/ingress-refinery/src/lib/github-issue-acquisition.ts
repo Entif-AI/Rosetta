@@ -18,6 +18,8 @@ import {
 
 export type GitHubIssueAcquisitionMode = 'fixture' | 'local';
 const MAX_ISSUE_SNAPSHOT_BYTES = 1_000_000;
+const MAX_JSON_ITEMS = 25_000;
+const MAX_JSON_DEPTH = 64;
 
 /**
  * The provider client owns authentication and transport. This parse-only adapter
@@ -69,11 +71,50 @@ export interface GitHubIssueAcquisitionResult {
 }
 
 function isJson(value: unknown): value is JsonValue {
-  if (value === null || typeof value === 'string' || typeof value === 'boolean')
-    return true;
-  if (typeof value === 'number') return Number.isFinite(value);
-  if (Array.isArray(value)) return value.every(isJson);
-  return isJsonObject(value);
+  const pending: { value: unknown; depth: number }[] = [{ value, depth: 0 }];
+  const visited = new Set<object>();
+  let itemCount = 0;
+  let byteCount = 0;
+  while (pending.length) {
+    const entry = pending.pop();
+    if (!entry) break;
+    if (++itemCount > MAX_JSON_ITEMS || entry.depth > MAX_JSON_DEPTH) {
+      throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+    }
+    const current = entry.value;
+    if (current === null || typeof current === 'boolean') continue;
+    if (typeof current === 'number') {
+      if (!Number.isFinite(current)) return false;
+      continue;
+    }
+    if (typeof current === 'string') {
+      byteCount += Buffer.byteLength(current, 'utf8');
+      if (byteCount > MAX_ISSUE_SNAPSHOT_BYTES) {
+        throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+      }
+      continue;
+    }
+    if (!current || typeof current !== 'object') return false;
+    if (visited.has(current)) return false;
+    visited.add(current);
+    const isArray = Array.isArray(current);
+    if (!isArray && Object.getPrototypeOf(current) !== Object.prototype)
+      return false;
+    const keys = Object.keys(current);
+    if (keys.length + itemCount > MAX_JSON_ITEMS) {
+      throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+    }
+    for (const key of keys) {
+      if (!isArray) byteCount += Buffer.byteLength(key, 'utf8');
+      if (byteCount > MAX_ISSUE_SNAPSHOT_BYTES) {
+        throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+      }
+      const descriptor = Object.getOwnPropertyDescriptor(current, key);
+      if (!descriptor || !('value' in descriptor)) return false;
+      pending.push({ value: descriptor.value, depth: entry.depth + 1 });
+    }
+  }
+  return true;
 }
 
 function isJsonObject(value: unknown): value is Record<string, JsonValue> {
@@ -85,7 +126,16 @@ function isJsonObject(value: unknown): value is Record<string, JsonValue> {
   ) {
     return false;
   }
-  return Object.values(value).every(isJson);
+  return isJson(value);
+}
+
+// Envelope creation time is when this process minted the tile, distinct from
+// source update/capture time. It is deliberately outside the content CID.
+function withMintTime<P>(
+  tile: TileEnvelope<P>,
+  mintedAt: string
+): TileEnvelope<P> {
+  return { ...tile, createdAt: mintedAt };
 }
 
 function jsonObject(value: unknown, label: string): Record<string, JsonValue> {
@@ -128,7 +178,9 @@ function instant(value: string, field: string): string {
   const time = Date.parse(value);
   if (
     !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/u.test(value) ||
-    !Number.isFinite(time)
+    !Number.isFinite(time) ||
+    // Date.parse silently normalizes impossible calendar dates on some runtimes.
+    new Date(time).toISOString().slice(0, 19) !== value.slice(0, 19)
   ) {
     throw new Error(
       'GitHub issue snapshot requires UTC instant ' + field + '.'
@@ -145,6 +197,7 @@ function instant(value: string, field: string): string {
 export function acquireGitHubIssueThroughRefinery(
   request: GitHubIssueAcquisitionRequest
 ): GitHubIssueAcquisitionResult {
+  const mintedAt = new Date().toISOString();
   const decision = request.readDecision;
   // Check supplied authorization before inspecting any potentially protected source data.
   if (
@@ -256,7 +309,6 @@ export function acquireGitHubIssueThroughRefinery(
   const snapshotHash = sha256Hex(snapshotJson);
   const sourceId = 'github.issue:' + repositoryId + ':' + issueId;
   const previous = request.previous;
-  let supersedes = false;
   if (previous) {
     if (
       previous.record.kind !== 'source.record' ||
@@ -305,7 +357,6 @@ export function acquireGitHubIssueThroughRefinery(
     ) {
       throw new Error('GitHub issue correction is stale or nonmonotonic.');
     }
-    supersedes = snapshotHash !== previousHash;
   }
 
   const sourceProfile = bootstrapSourceProfiles.find(
@@ -317,7 +368,10 @@ export function acquireGitHubIssueThroughRefinery(
   const record = createSourceRecordTile(
     {
       claimedVersion: updatedAt,
-      lineageRefs: supersedes && previous ? [previous.record.cid] : [],
+      // Even an unchanged provider revision can be re-observed under changed
+      // rights/policies. Preserve that temporal lineage rather than silently
+      // forking the new access context from its verified predecessor.
+      lineageRefs: previous ? [previous.record.cid] : [],
       metadataBlob: {
         authorizationBasis: 'caller-supplied-attestation',
         captureCoverage: 'issue-object-only',
@@ -342,7 +396,7 @@ export function acquireGitHubIssueThroughRefinery(
       sourceSystemId: 'github',
       stableLocators: [htmlUrl],
     },
-    [sourceSystem.cid, ...(supersedes && previous ? [previous.record.cid] : [])]
+    [sourceSystem.cid, ...(previous ? [previous.record.cid] : [])]
   );
   const manifestation = createSourceManifestationTile(
     {
@@ -361,10 +415,7 @@ export function acquireGitHubIssueThroughRefinery(
       sourceRecordCid: record.cid,
       structureProfile: 'github.issue-object-only.v1',
     },
-    [
-      record.cid,
-      ...(supersedes && previous ? [previous.manifestation.cid] : []),
-    ]
+    [record.cid, ...(previous ? [previous.manifestation.cid] : [])]
   );
   const episode = createParseOnlySourceEpisode(record, manifestation, {
     chronology: {
@@ -413,6 +464,7 @@ export function acquireGitHubIssueThroughRefinery(
     snapshotJson,
     decision.policyRefs,
     {
+      evaluatedAt: capturedAt,
       fetchedAt: capturedAt,
       fetchMethod: 'github-' + request.acquisitionMode + '-issue-snapshot',
       requestedLocator: apiUrl,
@@ -424,11 +476,16 @@ export function acquireGitHubIssueThroughRefinery(
     authorizationBasis: 'caller-supplied-attestation',
     canonicalSourceJson: snapshotJson,
     captureCoverage: 'issue-object-only',
-    episode,
-    ingressJob,
-    manifestation,
-    record,
-    sourceSystem,
     ...refined,
+    canonicalArtifact: withMintTime(refined.canonicalArtifact, mintedAt),
+    episode: withMintTime(episode, mintedAt),
+    evaluationReceipt: withMintTime(refined.evaluationReceipt, mintedAt),
+    fetchReceipt: withMintTime(refined.fetchReceipt, mintedAt),
+    ingressJob: withMintTime(ingressJob, mintedAt),
+    manifestation: withMintTime(manifestation, mintedAt),
+    normalizationReceipt: withMintTime(refined.normalizationReceipt, mintedAt),
+    record: withMintTime(record, mintedAt),
+    sourceSystem: withMintTime(sourceSystem, mintedAt),
+    trustMatrix: withMintTime(refined.trustMatrix, mintedAt),
   };
 }

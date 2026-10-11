@@ -162,6 +162,7 @@ export interface SourceObservationArtifacts {
 }
 
 export interface RefineryLineageOptions {
+  evaluatedAt?: string;
   fetchedAt?: string;
   fetchMethod?: string;
   requestedLocator?: string;
@@ -718,7 +719,7 @@ export function refineTextArtifact(
   const evaluationReceipt = buildTile(
     'source.evaluation_receipt',
     {
-      evaluatedAt: new Date('2026-04-13T00:20:00.000Z').toISOString(),
+      evaluatedAt: lineage.evaluatedAt ?? new Date('2026-04-13T00:20:00.000Z').toISOString(),
       policyRefs,
       subjectCid: manifestation.cid,
       ...(lineage.sourcePackageCid ? { sourcePackageCid: lineage.sourcePackageCid } : {}),
