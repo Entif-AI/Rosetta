@@ -64,8 +64,21 @@ export function inspectCloseout({
   files = [],
   commitMessages = [],
   requireOnRefs = true,
+  candidateHead,
 } = {}) {
   const errors = [];
+  // Refuse tracked root worklogs even on PRs without issue references.
+  if (
+    files.some(
+      (file) =>
+        (file.filename ?? file.path) === 'FEATURE_LOG.md' &&
+        file.status !== 'removed'
+    )
+  ) {
+    errors.push(
+      'Tracked root FEATURE_LOG.md cannot be added or modified by a merge candidate; use issue-backed checkpoints.'
+    );
+  }
   if (
     [...body.matchAll(REFERENCE_GROUP)].some((match) =>
       /[\w.-]+\/[\w.-]+#\d+/.test(match[1])
@@ -219,29 +232,32 @@ export function inspectCloseout({
   for (const number of refs)
     if (!seen.has(number))
       errors.push(`Missing disposition for referenced issue #${number}.`);
-  for (const file of files) {
-    if (
-      (file.filename ?? file.path) === 'FEATURE_LOG.md' &&
-      file.status !== 'removed'
-    ) {
-      errors.push(
-        'A PR adding/modifying FEATURE_LOG.md must archive and remove it from the merge candidate.'
-      );
-    }
-  }
   if (
     contract.program === 'core-engineering' ||
-    contract.worklog !== undefined
+    contract.worklog !== undefined ||
+    contract.checkpoint !== undefined
   ) {
     const log = contract.worklog;
-    if (
-      !isObject(log) ||
-      log.status !== 'archived' ||
-      !validUrl(log.archiveUrl) ||
-      !HEX.test(log.sha256 ?? '')
-    ) {
+    const checkpoint = contract.checkpoint;
+    const legacy =
+      isObject(log) &&
+      log.status === 'archived' &&
+      validUrl(log.archiveUrl) &&
+      HEX.test(log.sha256 ?? '');
+    const v2 =
+      isObject(checkpoint) &&
+      checkpoint.status === 'issue-backed' &&
+      validUrl(checkpoint.commentUrl) &&
+      HEX.test(checkpoint.sha256 ?? '') &&
+      /^[a-f0-9]{40}$/.test(checkpoint.head ?? '');
+    if (legacy === v2) {
       errors.push(
-        'Core-engineering work requires an exact archived worklog URL and SHA-256 before merge.'
+        'Core-engineering work requires exactly one valid final issue-backed checkpoint or historical archived worklog.'
+      );
+    }
+    if (v2 && candidateHead && checkpoint.head !== candidateHead) {
+      errors.push(
+        'Final issue-backed checkpoint is not bound to this exact PR head.'
       );
     }
   }
@@ -292,6 +308,7 @@ export async function publishAdmission({
     body: pull.body ?? '',
     files,
     commitMessages: commits.map((item) => item.commit?.message ?? ''),
+    candidateHead: sha,
   });
   // Metadata can change without a head commit. Never bless a stale PR body.
   const { data: latest } = await api.pulls.get(request);
@@ -355,6 +372,7 @@ export async function reconcileMerge({
     body: pull.body ?? '',
     files,
     commitMessages,
+    candidateHead: pull.head?.sha,
   });
   if (audit.errors.length)
     throw new Error(`Closeout contract invalid: ${audit.errors.join(' ')}`);
@@ -503,6 +521,15 @@ export async function reconcileMerge({
             tag,
             `Accepted implementation closeout for [PR #${pull.number}](${url}) at merge \`${pull.merge_commit_sha}\`.`,
             ...entry.evidence.map((item) => `- Evidence: ${item}`),
+            audit.contract.checkpoint
+              ? '- Final issue checkpoint: ' +
+                audit.contract.checkpoint.commentUrl +
+                ' (SHA-256 ' +
+                audit.contract.checkpoint.sha256 +
+                ', candidate ' +
+                audit.contract.checkpoint.head +
+                ').'
+              : '',
             audit.contract.worklog
               ? `- Exact worklog archive: ${audit.contract.worklog.archiveUrl} (SHA-256 \`${audit.contract.worklog.sha256}\`).`
               : '',

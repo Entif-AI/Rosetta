@@ -28,11 +28,12 @@ authorities to their own domains.
    `tools/semantic-governance/governance.config.json`. Reuse that proof,
    not a second Pack validator. Mere schema validity, a green Nx run, or a
    passing demo is not a promotion receipt.
-5. Worklog archive, branch ownership, runtime-cleanliness and release signoff
-   still follow their governing workflows. This GitHub mechanism checks the
-   **declared** archive link/digest, not the historical exact bytes themselves.
-   A changed root `FEATURE_LOG.md` must not survive the PR's candidate diff;
-   a different already-existing root log is **not** automatically stale.
+5. For new feature work, the working checkpoint belongs in an originating
+   GitHub issue comment, scoped to branch, execution epoch and exact pushed
+   SHA. No agent may add or modify a tracked root `FEATURE_LOG.md`. This
+   repository gate rejects changed root logs **even when the PR has no issue
+   references**; an unrelated already-existing root log is not automatically
+   stale. Branch ownership and human release signoff remain separate.
 6. Do not merge or close on behalf of the maintainer without that operation's
    authority. A PR's explicit `closureAuthority` disposition reviewed during
    human integration is a scope-specific **proposal**, not a permission grant.
@@ -91,7 +92,20 @@ Example: an accepted child with a human-gated parent:
 The URLs above illustrate structure, **not evidence for a real PR**. For work
 in the central Rosetta Core Engineering Loop set `"program": "core-engineering"`
 and give every accepted issue an `authorityUrl` for its governing accepted
-contract, then add:
+contract, then add a **v2 issue-backed final checkpoint** bound to the exact
+candidate head:
+
+```json
+"checkpoint": {
+  "status": "issue-backed",
+  "commentUrl": "https://github.com/Entif-AI/Rosetta/issues/EXAMPLE#issuecomment-EXAMPLE",
+  "sha256": "<64 actual lowercase hex digits>",
+  "head": "<exact 40-character feature HEAD>"
+}
+```
+
+The following historical v1 form remains accepted **only as a migration
+fallback** for branches finalized under the old worklog contract:
 
 ```json
 "worklog": {
@@ -100,6 +114,10 @@ contract, then add:
   "sha256": "<64 actual lowercase hex digits>"
 }
 ```
+
+The two forms are mutually exclusive. The structural checker validates the
+receipt and candidate head, not the authenticity of arbitrary linked content.
+Human approval and the protected v2 Skill/BIOS adoption remain separate gates.
 
 An `accepted` disposition in a change touching `packs/` or normative Core
 documents also requires:

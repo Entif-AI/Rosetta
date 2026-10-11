@@ -254,7 +254,14 @@ test('rejects modified worklog and requires Core program archival without blocki
       body: standard,
       files: [{ filename: 'FEATURE_LOG.md', status: 'added' }],
     }).errors.join(' '),
-    /archive and remove/
+    /issue-backed checkpoints/
+  );
+  assert.match(
+    inspectCloseout({
+      body: 'No issue references at all.',
+      files: [{ filename: 'FEATURE_LOG.md', status: 'modified' }],
+    }).errors.join(' '),
+    /issue-backed checkpoints/
   );
   assert.deepEqual(
     inspectCloseout({
@@ -266,7 +273,7 @@ test('rejects modified worklog and requires Core program archival without blocki
   const core = { ...contract(), program: 'core-engineering' };
   assert.match(
     inspectCloseout({ body: body(core) }).errors.join(' '),
-    /exact archived worklog/
+    /final issue-backed checkpoint/
   );
   core.worklog = {
     status: 'archived',
@@ -279,6 +286,34 @@ test('rejects modified worklog and requires Core program archival without blocki
   );
   core.issues[0].authorityUrl = evidence;
   assert.deepEqual(inspectCloseout({ body: body(core) }).errors, []);
+  const v2 = {
+    ...core,
+    worklog: undefined,
+    checkpoint: {
+      status: 'issue-backed',
+      commentUrl:
+        'https://github.com/Entif-AI/Rosetta/issues/1802#issuecomment-123',
+      sha256: 'a'.repeat(64),
+      head: pull.head.sha,
+    },
+  };
+  assert.deepEqual(
+    inspectCloseout({ body: body(v2), candidateHead: pull.head.sha }).errors,
+    []
+  );
+  assert.match(
+    inspectCloseout({
+      body: body(v2),
+      candidateHead: 'c'.repeat(40),
+    }).errors.join(' '),
+    /exact PR head/
+  );
+  assert.match(
+    inspectCloseout({
+      body: body({ ...v2, worklog: core.worklog }),
+    }).errors.join(' '),
+    /exactly one/
+  );
 });
 
 test('post-merge first run closes child, retains human gate, and appends one-hop synopsis; retries are idempotent', async () => {
