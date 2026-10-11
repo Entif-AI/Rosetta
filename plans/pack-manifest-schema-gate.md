@@ -6,6 +6,7 @@ depends: []
 awaits: []
 specs: [specs/architecture.md]
 issues: [790]
+pr: 1816
 ---
 # Validate Pack manifests before integrity and path claims
 
@@ -25,7 +26,7 @@ The remaining #790 work includes the composed local/CI release gate, bootstrap w
 - [x] Local manifest schema runs first; malformed keys/fields yield typed errors; valid workspace Packs still pass.
 - [x] Focused vectors preserve Pack-ID, Profile descent and dependency-cycle behavior.
 - [x] `pnpm verify`, targeted Pack/RRP tests, authority/semantic/SpecOps admission, Nx sync and diff checks passed. The full local composed admission also passed before the run policy was narrowed.
-- [ ] Review-only PR opened with exact current head and issue receipt.
+- [x] Draft review-only PR #1816 opened; first pushed head `53fa57d59e3f7b7ad5496c4146fc1cd0cc210900` verified through GitHub and `git ls-remote`.
 - [ ] Integrated only by separately authorized human action; parent #790 stays open for remaining release-gate work.
 
 ## Run and recovery policy
@@ -33,3 +34,7 @@ The remaining #790 work includes the composed local/CI release gate, bootstrap w
 The maintainer requires `pnpm verify` for normal checks, with targeted regression reruns after changes. Avoid repeating the full merge-admission/distribution suite for every feature. Keep verbose command output in ignored local logs and inspect exit status plus relevant failures. Preserve feature deltas through regular GitHub branch commits/pushes every few minutes of dirty work; verify the remote SHA and reconcile before retrying after a crash. GitHub issues, branch history and PRs are this engineering run's durable channels; do not create a Google Drive mirror. Leave PRs in human review and never merge automatically.
 
 This base checkout inherited an unrelated `FEATURE_LOG.md` from main; preserve its history. No native branch-lease tooling exists in this checkout's documented location. This plan and live Git/PR receipts provide bounded recovery without claiming a lease that was never acquired.
+
+## Handoff
+
+Draft PR https://github.com/Entif-AI/Rosetta/pull/1816 is open and unmerged. The verified public issue receipt is https://github.com/Entif-AI/Rosetta/issues/790#issuecomment-6113083579. Before resuming, re-fetch its head and GitHub admission status, reconcile reviewers' obligations, then apply any bounded revisions in the same isolated branch. The next independent #790 leaf should compose validated manifest shape, Pack integrity/graph checks and workspace bootstrap into a deterministic release report and CI surface; it must preserve the #994 write-admission and #1295 safe-hold rules and avoid claiming that evidence alone grants promotion. #1118 owns the separate RRP-specific example/vector/changelog closure. No automatic merge is authorized.

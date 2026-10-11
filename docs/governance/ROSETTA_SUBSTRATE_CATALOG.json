@@ -201,10 +201,10 @@
       "status": "in-progress",
       "task": "T790",
       "issues": [790],
-      "pr": null,
+      "pr": 1816,
       "source": {
         "path": "plans/pack-manifest-schema-gate.md",
-        "sha256": "97679477bf92aa575991ab508766b0434a3b80a32839ce59e4267c60f9eaa3ea"
+        "sha256": "4e441cdfe4cf2082a3f4ad63132082ab8a7509256d7d99fa6d4f221a595fa2ba"
       }
     },
     {
