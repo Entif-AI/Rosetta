@@ -258,6 +258,25 @@ describe('pack conformance', () => {
     }
   });
 
+  it('rejects an escaped schema path before reading the outside document', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-schema-'));
+    const root = path.join(tempDir, 'pack');
+    try {
+      await mkdir(root, { recursive: true });
+      await writeFile(path.join(tempDir, 'outside.schema.json'), '{not-json\n');
+      const manifest = baseManifest({ entrypoints: { schema: ['../outside.schema.json'] } });
+      await writePackWithCurrentId(root, manifest);
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-unsafe',
+        detail: '../outside.schema.json'
+      }));
+      expect(result.errors.some((error) => error.code === 'schema-json-invalid')).toBe(false);
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
   it('rejects a Profile path that escapes before reading the outside JSON', async () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-profile-'));
     const root = path.join(tempDir, 'pack');
