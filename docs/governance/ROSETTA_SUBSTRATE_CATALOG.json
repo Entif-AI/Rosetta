@@ -214,10 +214,10 @@
       "status": "in-progress",
       "task": "T7902",
       "issues": [790],
-      "pr": null,
+      "pr": 1824,
       "source": {
         "path": "plans/pack-schema-entrypoint-conformance.md",
-        "sha256": "39e566a9e2d5ccfe930832e9d41b2666916118ae359eee4205965b141c82633a"
+        "sha256": "389000ed0c58f070b47e457db6c2f0f2ec74e4b227fc34bab0d54fe03f866c36"
       }
     },
     {

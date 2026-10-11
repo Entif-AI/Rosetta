@@ -6,6 +6,7 @@ depends: [pack-manifest-schema-gate]
 awaits: []
 specs: [specs/architecture.md]
 issues: [790]
+pr: 1824
 ---
 # Validate declared Pack JSON Schema entrypoints
 
@@ -23,10 +24,15 @@ The branch is intentionally stacked on `codex/790-pack-release-gate` (PR #1816) 
 - [x] Missing declared schema paths retain the existing single `declared-path-missing` error; no extra schema error is invented.
 - [x] All four current Pack roots, including RRP and source-substrate JSON Schemas, remain green.
 - [x] `pack-conformance:test`, `pack-conformance:conformance`, `packs-rrp:test`, and `packs-rrp:conformance` pass (16 focused fixture cases).
-- [ ] The normal `pnpm verify` and `git diff --check` pass at the final source checkpoint.
-- [ ] GitHub branch SHA, draft PR, public-safe issue receipt, and final handoff checkpoint are read back.
+- [x] `pnpm verify`, `nx sync:check`, and `git diff --check` passed on the initial published source commit.
+- [x] GitHub verified the first pushed commit `c2c2ae7b840581a8e53fc4f5462be649075d6a88`; review-only stacked PR #1824 is open and draft.
+- [ ] The final plan checkpoint SHA, #790 public issue receipt, and hosted admission check are read back.
 - [ ] Human source-owner acceptance/merge is separate. The issue #790 release gate remains open for remaining required-file, example/vector, changelog and wider conformance work.
 
 ## Run policy
 
 Run focused tests and `pnpm verify` instead of repeated full admission/distribution suites. Keep logs ignored and local. Commit and push coherent checkpoints with remote SHA verification to GitHub, not Google Drive. Preserve the main checkout, draft #1816 and draft #1823. Do not merge, deploy, promote, or assert runtime execution authority.
+
+## Handoff
+
+Review-only stacked PR: https://github.com/Entif-AI/Rosetta/pull/1824, based on `codex/790-pack-release-gate` (draft PR #1816). The source-owner issue #790 remains open and authorizes only this narrow already-specified schema parse/meta-validation requirement. Do not retarget the PR to `main` until #1816 is separately accepted and integrated. The separately open #1823 bootstrap proof requires its own review and has task identity `T7901`; #1816 remains `T790`; this plan is `T7902`. All current Pack roots and focused tests passed before publishing. Hosted CI on the final PR head remains independent evidence. Further Pack file/example/vector/changelog and #1118 RRP conformance claims are not delivered in this PR; it does not change Core or release/promotion authority.
