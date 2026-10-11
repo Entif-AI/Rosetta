@@ -316,10 +316,10 @@
       "status": "planned",
       "task": "T1558",
       "issues": [1558, 1791],
-      "pr": null,
+      "pr": 1818,
       "source": {
         "path": "plans/temporal-evidence-spec.md",
-        "sha256": "178a6fd534282b908c765dda2af05c4cbd1a81e55d63b564d585613bc9683566"
+        "sha256": "4a1d53f96b532799444ffefb849b03c491c274fd40abce7480b92d865498aa61"
       }
     },
     {
