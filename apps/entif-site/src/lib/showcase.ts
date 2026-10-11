@@ -244,12 +244,21 @@ export interface PublicLink {
   readonly href: string;
 }
 
+export interface ShowcaseLinks {
+  readonly projects: ReadonlyMap<SystemId, PublicLink>;
+  readonly responses: ReadonlyMap<
+    (typeof responseIds)[number],
+    readonly { readonly id: string; readonly link?: PublicLink }[]
+  >;
+  readonly research: readonly PublicLink[];
+}
+
 // A manuscript identifier is an attribution, never proof of a published route.
 export function resolveShowcaseLinks(
   showcase: Showcase,
   entries: readonly PublicEntry[],
   base: string
-) {
+): ShowcaseLinks {
   const published = entries.filter(
     (e) => e.status === 'published' && !e.noindex
   );

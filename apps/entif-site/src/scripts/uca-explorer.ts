@@ -65,7 +65,8 @@ export function enhanceArchitecture(root: HTMLElement): boolean {
         const active = i === selected;
         tab.setAttribute('aria-selected', String(active));
         tab.tabIndex = active ? 0 : -1;
-        const panel = panels[i]!;
+        const panel = panels[i];
+        if (!panel) return;
         panel.hidden = !active;
         panel.tabIndex = active ? 0 : -1;
       });
@@ -82,7 +83,8 @@ export function enhanceArchitecture(root: HTMLElement): boolean {
         'aria-orientation',
         narrow.matches ? 'horizontal' : 'vertical'
       );
-      if (tabs[selected] === document.activeElement) revealTab(tabs[selected]!);
+      const current = tabs[selected];
+      if (current && current === document.activeElement) revealTab(current);
     };
     const followFragment = () => {
       const index = panels.findIndex(
@@ -128,10 +130,12 @@ export function enhanceArchitecture(root: HTMLElement): boolean {
     // Bind every handler before switching semantics or hiding source content.
     list.setAttribute('role', 'tablist');
     tabs.forEach((tab, index) => {
+      const panel = panels[index];
+      if (!panel) return;
       tab.setAttribute('role', 'tab');
-      tab.setAttribute('aria-controls', panels[index]!.id);
-      panels[index]!.setAttribute('role', 'tabpanel');
-      panels[index]!.setAttribute('aria-labelledby', tab.id);
+      tab.setAttribute('aria-controls', panel.id);
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
     });
     root.dataset.enhanced = 'true';
     orient();

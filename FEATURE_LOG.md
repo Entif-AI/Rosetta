@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phases A–F implemented. Beginning delayed schema/functional tests; responsive/performance pass then #1807 remain. Final behavior/style audits remain intentionally deferred.
+Phases A–F implemented and compiled. Delayed unit tests pass; focused Playwright is running. Responsive/performance refinement and #1807 final accessibility/W3C/evidence remain. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -30,6 +30,9 @@ Phases A–F implemented. Beginning delayed schema/functional tests; responsive/
 6. Record unavailable real assistive-technology checks as `NOT_EVALUATED` with exact procedures. Hold design/content/accessibility/publication approval for the author.
 
 ## Completed outcomes and evidence
+
+- Delayed verification: 22 focused unit tests passed; integrated Astro typecheck has 0 errors/warnings/hints; build renders 252 routes. Logs: `/tmp/rosetta-uca/{unit-focused,functional-typecheck,functional-build}.log`.
+- Semantic implementation commits: 248b5bc feat(site): progressively enhance the seven-system explorer; ca29036 feat(site): render the complete static UCA showcase; 85be08a feat(site): compose a reusable full-width page layout; 5c4ff77 docs(site): lock the serif full-width showcase design contract; 1f84b17 feat(site): validate the public UCA narrative and source links; e9e3b79 refactor(site): establish modular SCSS cascade foundation
 
 - #1806: automatic-activation tabs reuse SSR sections; roving focus, coherent ARIA/visibility, pointer/touch, orientation-specific wrapping arrows/Home/End/Enter/Space, responsive selection retention and init rollback implemented. Sass emits the matchMedia query from the shared map. Rosetta is default; explicit panel fragments reveal their targets. No runtime framework or Zod is shipped to the browser.
 - First integrated typecheck caught an optional noindex forwarding mismatch; resolved with the existing false default. No behavior was loosened.
@@ -50,4 +53,8 @@ Phases A–F implemented. Beginning delayed schema/functional tests; responsive/
 
 ## Next exact step
 
-Write schema/link/initialization-failure unit tests and stable-selector Playwright behavior tests; build/typecheck and run only the focused functional suite before visual refinement.
+Read `/tmp/rosetta-uca/functional-e2e.log` (Nx e2e filter `projects.spec.ts`, workers=2). Fix only observed functional defects, then do the responsive/performance pass. Final audit has not begun; do not claim axe, Nu, visual equivalence or Lighthouse success yet.
+
+Recovery map: mission is the attachment `/Users/cr8s/.codex/attachments/709f1405-ddaf-44b3-a03d-04d851fa51e7/Pasted text.txt` (duplicated; first 463 lines suffice). Primary/selected child bodies are cached in `/tmp/rosetta-uca/`; #1807 has intentionally not yet been read. Original eight screenshots and metrics are under `apps/entif-site/test-results/uca/baseline/`; baseline script `/tmp/rosetta-uca/baseline.mjs` can be adapted for comparison. Current source: projects.md, lib/showcase.ts, components/projects, scripts/uca-explorer.ts, pages/\_projects.scss. Tests are tests/unit/{showcase,uca-explorer}.test.ts and tests/features/projects.spec.ts. Existing full e2e contains per-route axe checks; defer until visual/performance pass is complete. Astro 7 preview runs a daemon and supports `pnpm exec astro preview stop`; stop any manually started preview before Playwright. Sass/CSS query comes from tools.breakpoint into `--uca-compact-query`, read by script. No Drive/Minutes or Work Stack. Manual AT remains unperformed.
+
+Memory used only for historical branch-fencing guidance, reverified here: MEMORY.md:421-421 (rollout 01a10437-9627-7102-bc4c-d65f1c00a3c9). Include exactly one memory citation block at the end of the eventual final answer. As of 2026-10-11, previous remote branch receipt is e9e3b79ba8cecefd9bc29ed5b1ce9c1e52a29d95. Native leases are absent; do not invent one. No PR yet. No merge/deploy/closeout authority.
