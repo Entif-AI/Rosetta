@@ -220,7 +220,7 @@ describe('pack conformance', () => {
 
   it.each([
     ['parent traversal', '../outside.md'],
-    ['absolute path', path.join(path.parse(process.cwd()).root, 'tmp', 'outside.md')]
+    ['absolute path', path.join(path.parse(tmpdir()).root, 'tmp', 'outside.md')]
   ])('rejects an entrypoint declared with %s before reading outside the Pack root', async (_title, declaredPath) => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-path-entrypoint-'));
     const root = path.join(tempDir, 'pack');
