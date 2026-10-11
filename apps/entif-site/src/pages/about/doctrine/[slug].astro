@@ -1,0 +1,212 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import AboutPageLayout from '../../../layouts/AboutPageLayout.astro';
+import AboutHero from '../../../components/about/AboutHero.astro';
+import AboutIcon from '../../../components/about/AboutIcon.astro';
+import { getAboutArtwork } from '../../../lib/about-art';
+import {
+  getDoctrinePath,
+  resolveDoctrineNavigation,
+} from '../../../lib/doctrine';
+import { joinBasePath } from '../../../lib/content';
+import { copy } from '../../../lib/copy';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('doctrine');
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry, entries },
+  }));
+}
+interface Props {
+  entry: CollectionEntry<'doctrine'>;
+  entries: CollectionEntry<'doctrine'>[];
+}
+const { entry, entries } = Astro.props;
+const data = entry.data;
+const { Content, headings } = await render(entry);
+const nav = resolveDoctrineNavigation(
+  entries.map((e) => e.data),
+  data.id,
+  import.meta.env.BASE_URL
+);
+const words = (entry.body ?? '').trim().split(/\s+/).length;
+const readingMinutes = Math.max(1, Math.ceil(words / 220));
+const aboutPath = joinBasePath(import.meta.env.BASE_URL, 'about/');
+const ui = copy.doctrine;
+const related = entries
+  .filter((e) => e.data.id !== data.id && data.sourceRefs.includes(e.data.id))
+  .sort((a, b) => a.data.id.localeCompare(b.data.id))
+  .slice(0, 4);
+const contents = headings.filter((h) => h.depth === 2);
+---
+
+<AboutPageLayout title={data.title} description={data.description}>
+  <AboutHero
+    title={data.title}
+    description={data.description}
+    eyebrow={`${data.id} · ${ui.eyebrow}`}
+    image={getAboutArtwork(data.heroImage)}
+    headingId="doctrine-heading"
+    doctrine
+  >
+    <nav
+      slot="breadcrumb"
+      aria-label={copy.breadcrumb}
+      class="about-breadcrumb"
+    >
+      <a href={aboutPath}>{copy.about}</a><span aria-hidden="true">/</span><a
+        href={`${aboutPath}#doctrine`}>{ui.library}</a
+      ><span aria-hidden="true">/</span><span aria-current="page"
+        >{data.id}</span
+      >
+    </nav>
+    <div class="about-actions">
+      <a class="about-action" href="#doctrine-text"
+        >{
+          data.documentState === 'public-overview'
+            ? ui.readOverview
+            : ui.readDraft
+        }<span aria-hidden="true">↓</span></a
+      >
+      <a class="about-action about-action-quiet" href={`${aboutPath}#doctrine`}
+        >{ui.allDocuments}<span aria-hidden="true">→</span></a
+      >
+    </div>
+  </AboutHero>
+
+  <section
+    class="about-stage about-light doctrine-introduction"
+    aria-labelledby="doctrine-takeaway"
+  >
+    <div class="stage-shell about-split">
+      <div>
+        <p class="about-eyebrow">{ui.guidingIdea}</p>
+        <h2 id="doctrine-takeaway">{data.takeaway}</h2>
+        <p class="doctrine-status-note" data-test-id="doctrine-status">
+          {
+            data.documentState === 'public-overview'
+              ? ui.overviewNote
+              : ui.draftNote
+          }
+        </p>
+      </div>
+      <dl class="doctrine-metadata" data-test-id="doctrine-metadata">
+        <div>
+          <dt><AboutIcon name="evidence" />{ui.version}</dt><dd>
+            {data.id} · v{data.version}
+          </dd>
+        </div>
+        <div>
+          <dt><AboutIcon name="shield" />{ui.documentState}</dt><dd>
+            {
+              data.documentState === 'public-overview'
+                ? ui.overviewState
+                : ui.draftState
+            }
+          </dd>
+        </div>
+        <div>
+          <dt><AboutIcon name="agency" />{ui.readingTime}</dt><dd>
+            {`${readingMinutes} ${ui.minutes}`}
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="about-stage about-reading" id="doctrine-text">
+    <div class="stage-shell doctrine-reading-grid">
+      <aside class="doctrine-aside">
+        <nav
+          aria-label={ui.contents}
+          class="doctrine-contents"
+          data-test-id="doctrine-contents"
+        >
+          <p class="about-eyebrow">{ui.contents}</p>
+          <ol>
+            {
+              contents.map((h) => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))
+            }
+          </ol>
+          <a class="doctrine-back" href={`${aboutPath}#doctrine`}
+            >{ui.backToAbout}<span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </aside>
+      <article
+        class="doctrine-body"
+        aria-labelledby="doctrine-heading"
+        data-test-id="doctrine-body"
+      >
+        <Content />
+      </article>
+    </div>
+  </div>
+
+  <section
+    class="about-stage doctrine-context"
+    aria-labelledby="doctrine-context-heading"
+  >
+    <div class="stage-shell">
+      <p class="about-eyebrow">{ui.readInContext}</p>
+      <h2 id="doctrine-context-heading">{ui.continueReading}</h2>
+      <nav
+        class="doctrine-neighbors"
+        aria-label={ui.continueReading}
+        data-test-id="doctrine-neighbors"
+      >
+        {
+          nav.previous && (
+            <a class="doctrine-neighbor" href={nav.previous.href}>
+              <strong>{nav.previous.shortTitle}</strong>
+              <>
+                <span>
+                  {ui.previous} · {nav.previous.id}
+                </span>
+                <span aria-hidden="true">←</span>
+              </>
+            </a>
+          )
+        }
+        {
+          nav.next && (
+            <a class="doctrine-neighbor" href={nav.next.href}>
+              <strong>{nav.next.shortTitle}</strong>
+              <>
+                <span>
+                  {ui.next} · {nav.next.id}
+                </span>
+                <span aria-hidden="true">→</span>
+              </>
+            </a>
+          )
+        }
+      </nav>
+      {
+        related.length > 0 && (
+          <ul class="doctrine-related" aria-label={ui.relatedDocuments}>
+            {related.map((e) => (
+              <li>
+                <a
+                  href={getDoctrinePath(e.data.slug, import.meta.env.BASE_URL)}
+                >
+                  {e.data.id} · {e.data.shortTitle}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      <p class="doctrine-source-note">
+        {ui.sourceNote}
+        {data.sourceTitle}. {ui.snapshotLabel}
+        <time datetime={data.snapshotDate}>{data.snapshotDate}</time>.
+      </p>
+    </div>
+  </section>
+</AboutPageLayout>

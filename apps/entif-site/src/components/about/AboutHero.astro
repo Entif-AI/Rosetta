@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+interface Props {
+  title: string;
+  eyebrow: string;
+  description: string;
+  image: ImageMetadata;
+  headingId?: string;
+  doctrine?: boolean;
+}
+const {
+  title,
+  eyebrow,
+  description,
+  image,
+  headingId = 'content-page-heading',
+  doctrine = false,
+} = Astro.props;
+---
+
+<section
+  class:list={['about-hero', { 'about-hero-doctrine': doctrine }]}
+  aria-labelledby={headingId}
+  data-test-id="about-hero"
+>
+  <Image
+    src={image}
+    alt=""
+    aria-hidden="true"
+    widths={[640, 960, 1280, 1672]}
+    sizes="100vw"
+    format="webp"
+    quality={85}
+    loading="eager"
+    fetchpriority="high"
+    class="about-hero-image"
+    data-test-id="about-hero-image"
+  />
+  <div class="stage-shell about-hero-shell">
+    <div class="about-hero-copy">
+      <slot name="breadcrumb" />
+      <p class="about-eyebrow">{eyebrow}</p>
+      <h1 id={headingId} data-test-id={headingId}>{title}</h1>
+      <p class="about-lead">{description}</p>
+      <slot />
+    </div>
+  </div>
+</section>

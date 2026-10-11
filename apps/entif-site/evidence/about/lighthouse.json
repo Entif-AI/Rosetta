@@ -1,0 +1,157 @@
+{
+  "method": "Local static build; Lighthouse simulated mobile and desktop; all four categories. These are lab measurements, not field data.",
+  "results": [
+    {
+      "case": "about-desktop",
+      "url": "/about/",
+      "testedAt": "2026-10-11T18:25:59.122Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1058.8339,
+        "largestContentfulPaintMs": 1658.8339,
+        "totalBlockingTimeMs": 31.5,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1058.8339
+      }
+    },
+    {
+      "case": "about-mobile",
+      "url": "/about/",
+      "testedAt": "2026-10-11T18:25:52.249Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1053.7594,
+        "largestContentfulPaintMs": 1578.7594,
+        "totalBlockingTimeMs": 34,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1053.7594
+      }
+    },
+    {
+      "case": "doctrine-authority-desktop",
+      "url": "/about/doctrine/delegated-authority/",
+      "testedAt": "2026-10-11T18:26:31.343Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1052.3815,
+        "largestContentfulPaintMs": 1802.3815,
+        "totalBlockingTimeMs": 15.5,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1052.3815
+      }
+    },
+    {
+      "case": "doctrine-authority-mobile",
+      "url": "/about/doctrine/delegated-authority/",
+      "testedAt": "2026-10-11T18:26:24.491Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1051.6204000000002,
+        "largestContentfulPaintMs": 1801.6464,
+        "totalBlockingTimeMs": 19.5,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1051.6204000000002
+      }
+    },
+    {
+      "case": "doctrine-criteria-desktop",
+      "url": "/about/doctrine/governance-criteria/",
+      "testedAt": "2026-10-11T18:26:45.393Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1500.7507744318536,
+        "largestContentfulPaintMs": 2175.752105255744,
+        "totalBlockingTimeMs": 16.5,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1500.7507744318536
+      }
+    },
+    {
+      "case": "doctrine-criteria-mobile",
+      "url": "/about/doctrine/governance-criteria/",
+      "testedAt": "2026-10-11T18:26:38.379Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1502.3308,
+        "largestContentfulPaintMs": 2252.3307999999997,
+        "totalBlockingTimeMs": 14,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1502.3308
+      }
+    },
+    {
+      "case": "doctrine-founding-desktop",
+      "url": "/about/doctrine/why-nonprofit/",
+      "testedAt": "2026-10-11T18:26:17.889Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1054.3943,
+        "largestContentfulPaintMs": 1804.4497999999999,
+        "totalBlockingTimeMs": 9.5,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1054.3943
+      }
+    },
+    {
+      "case": "doctrine-founding-mobile",
+      "url": "/about/doctrine/why-nonprofit/",
+      "testedAt": "2026-10-11T18:26:08.224Z",
+      "lighthouseVersion": "13.4.1",
+      "categories": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "firstContentfulPaintMs": 1053.4779,
+        "largestContentfulPaintMs": 1803.5894,
+        "totalBlockingTimeMs": 35,
+        "cumulativeLayoutShift": 0,
+        "speedIndexMs": 1053.4779
+      }
+    }
+  ]
+}

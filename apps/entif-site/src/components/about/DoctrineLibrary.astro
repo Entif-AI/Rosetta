@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import type { Doctrine } from '../../lib/doctrine';
+import { getDoctrinePath } from '../../lib/doctrine';
+import { getAboutArtwork } from '../../lib/about-art';
+import type { About } from '../../lib/about';
+import { copy } from '../../lib/copy';
+interface Props {
+  entries: readonly Doctrine[];
+  content: About['doctrine'];
+}
+const { entries, content } = Astro.props;
+const ordered = [...entries].sort((a, b) => a.id.localeCompare(b.id));
+const groups = ['foundations', 'standards', 'research'] as const;
+---
+
+<section
+  id="doctrine"
+  class="about-stage about-library"
+  aria-labelledby="about-doctrine-heading"
+  data-test-id="doctrine-library"
+>
+  <div class="stage-shell">
+    <p class="about-eyebrow">{content.eyebrow}</p>
+    <h2 id="about-doctrine-heading">{content.title}</h2>
+    <p class="about-lead reading-measure">{content.description}</p>
+    {
+      groups.map((group) => (
+        <section
+          class="about-library-group"
+          aria-labelledby={`doctrine-group-${group}`}
+        >
+          <h3 id={`doctrine-group-${group}`} class="about-group-heading">
+            {content.groups[group]}
+          </h3>
+          <ol class="about-document-grid">
+            {ordered
+              .filter((e) => e.group === group)
+              .map((entry) => (
+                <li>
+                  <a
+                    class="about-document-card"
+                    href={getDoctrinePath(entry.slug, import.meta.env.BASE_URL)}
+                    data-test-id={`doctrine-card-${entry.id}`}
+                  >
+                    <Image
+                      src={getAboutArtwork(entry.heroImage)}
+                      alt=""
+                      widths={[320, 640]}
+                      sizes="(min-width: 48rem) 30vw, 100vw"
+                      format="webp"
+                      quality={80}
+                      loading="lazy"
+                      class="about-card-image"
+                    />
+                    <div class="about-document-copy">
+                      <p class="about-document-number">
+                        {entry.id}
+                        <span>
+                          {entry.documentState === 'public-overview'
+                            ? copy.doctrine.overviewBadge
+                            : `${copy.doctrine.draftBadge} v${entry.version}`}
+                        </span>
+                      </p>
+                      <h4>{entry.shortTitle}</h4>
+                      <p>{entry.description}</p>
+                      <span class="about-card-action">
+                        {content.readLabel}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+          </ol>
+        </section>
+      ))
+    }
+  </div>
+</section>

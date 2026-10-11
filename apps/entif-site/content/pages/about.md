@@ -1,10 +1,117 @@
 ---
 {
   'slug': 'about',
-  'title': 'Architecting Advanced, Accountable, Auditable, Accessible, Aspirational Aligned AI',
+  'title': 'A More Truthful Intelligence Layer for a More Human Future',
   'eyebrow': 'About Entif AI',
-  'description': 'Entif AI connects open research, semantic infrastructure, and accountable engineering for institutions navigating the development of advanced intelligence.',
+  'description': 'An independent research and development initiative building open cognitive infrastructure for verifiable, auditable and human-aligned AI systems.',
   'status': 'published',
+  'sourceRefs': ['D01', 'D02', 'D04', 'D06', 'D07', 'D08', 'D10', 'D16'],
+  'about':
+    {
+      'heroImage': 'about-hero',
+      'heroAction': 'Our guiding doctrine',
+      'heroSecondaryAction': 'Read our mission',
+      'mission':
+        {
+          'eyebrow': 'Our mission',
+          'title': 'Open Infrastructure for Trustworthy AI',
+          'description': 'Entif AI develops open cognitive infrastructure, tools and research for AI systems that can reason with evidence, retain their provenance and remain answerable to human values. The work connects semantic representation, governed memory and accountable action across systems that can cooperate without becoming identical.',
+          'note': 'Entif is being organized toward a public-benefit nonprofit foundation model. The doctrine below is being formalized; these working drafts do not claim incorporation, legal adoption or verified institutional conformance.',
+          'values':
+            [
+              {
+                'icon': 'evidence',
+                'title': 'Evidence-driven',
+                'description': 'Claims stay attached to their sources.',
+              },
+              {
+                'icon': 'agency',
+                'title': 'Human agency',
+                'description': 'Expand capability and preserve meaningful choice.',
+              },
+              {
+                'icon': 'network',
+                'title': 'Open infrastructure',
+                'description': 'Shared meaning, portable work, inspectable methods.',
+              },
+              {
+                'icon': 'shield',
+                'title': 'Accountable by design',
+                'description': 'Power requires boundaries, oversight and recourse.',
+              },
+            ],
+        },
+      'principles':
+        {
+          'eyebrow': 'Our foundational commitments',
+          'title': 'Principles for a Better Intelligence Layer',
+          'description': 'The doctrine turns broad intentions into questions that research, architecture and governance must be able to answer. These four threads connect the full document suite.',
+          'items':
+            [
+              {
+                'icon': 'evidence',
+                'title': 'Truth & verifiability',
+                'description': 'Preserve evidence, uncertainty and correction history. Make material claims inspectable and contestable.',
+                'document': 'D07',
+              },
+              {
+                'icon': 'agency',
+                'title': 'Human agency & flourishing',
+                'description': 'Protect consent, attention and durable human capability alongside immediate output.',
+                'document': 'D08',
+              },
+              {
+                'icon': 'network',
+                'title': 'Open & interoperable',
+                'description': 'Keep meaning portable and work open where rights, privacy and safety permit.',
+                'document': 'D02',
+              },
+              {
+                'icon': 'shield',
+                'title': 'Resilient governance',
+                'description': 'Constrain concentrated power, preserve dissent and repair the mechanisms behind recurring failures.',
+                'document': 'D04',
+              },
+            ],
+        },
+      'founder':
+        {
+          'eyebrow': 'Founder & researcher',
+          'name': 'Crates McDade',
+          'role': 'Founder · Researcher · Systems architect',
+          'description': 'Crates McDade is an independent researcher, systems architect and builder focused on cognitive architectures, AI governance and verifiable knowledge systems. His experience spans nearly three decades of software engineering and more than two decades of technical leadership, connecting ambitious research with the discipline needed to make real systems work.',
+          'quote': 'Fancy architecture that cannot survive contact with reality is just an expensive diagram.',
+          'quoteCredit': 'Crates McDade · Research & architecture',
+          'bioLabel': 'Full bio, experience & research',
+          'skills':
+            [
+              { 'icon': 'architecture', 'title': 'Systems architecture' },
+              { 'icon': 'code', 'title': 'AI & software engineering' },
+              { 'icon': 'people', 'title': 'Research & leadership' },
+            ],
+        },
+      'doctrine':
+        {
+          'eyebrow': 'The guiding doctrine',
+          'title': 'A Mission You Can Read, Question and Inspect',
+          'description': 'Start with the founding rationale and covenant, then follow the standards into consent, memory, research and measurable governance. Public availability is distinct from adoption: the documents retain their source versions and candidate status.',
+          'readLabel': 'Read document',
+          'groups':
+            {
+              'foundations': '01 / Foundations & institutional design',
+              'standards': '02 / Standards for accountable systems',
+              'research': '03 / Research, uncertainty & assurance',
+            },
+        },
+      'closing':
+        {
+          'eyebrow': 'A larger purpose',
+          'title': 'Building the Foundations for What Comes Next',
+          'description': 'A more capable future should also be more truthful, more governable and more human. Entif’s research joins open semantic infrastructure, evidence-aware cognition and accountable institutions—with people’s agency at the center.',
+          'heroImage': 'closing-purpose',
+          'action': 'Explore the architecture',
+        },
+    },
 }
 ---
 

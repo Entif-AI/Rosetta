@@ -1,4 +1,5 @@
 import { z } from 'astro/zod';
+import { aboutSchema } from './about';
 import { getContentPath, joinBasePath, type ContentSummary } from './content';
 
 export const systemIds = [
@@ -225,6 +226,7 @@ export const pageSchema = z
     status: z.enum(['draft', 'published']),
     sourceRefs: z.array(z.string().min(1)).default([]),
     showcase: showcaseSchema.optional(),
+    about: aboutSchema.optional(),
   })
   .superRefine((page, ctx) => {
     if (page.slug === 'projects' && !page.showcase)

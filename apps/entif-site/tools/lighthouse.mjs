@@ -15,6 +15,10 @@ const root = resolve('dist');
 const routes = [
   ['home', '/'],
   ['projects', '/projects/'],
+  ['about', '/about/'],
+  ['doctrine-founding', '/about/doctrine/why-nonprofit/'],
+  ['doctrine-authority', '/about/doctrine/delegated-authority/'],
+  ['doctrine-criteria', '/about/doctrine/governance-criteria/'],
   ['cost', '/tags/research/2026/09/06/the-cost-of-learning-too-late/'],
   ['inflection', '/tags/research/2026/09/07/after-the-inflection/'],
   [
