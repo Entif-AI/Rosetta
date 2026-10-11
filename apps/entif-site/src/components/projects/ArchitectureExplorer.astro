@@ -10,11 +10,12 @@ const { architecture, projects } = Astro.props;
 const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
 ---
 
-<div class="uca-explorer" data-test-id="uca-explorer">
+<div class="uca-explorer" data-test-id="uca-explorer" data-uca-explorer>
   <nav
     class="uca-system-list"
     aria-labelledby="uca-architecture-heading"
     data-test-id="uca-system-list"
+    data-uca-tablist
   >
     {
       architecture.systems.map((system, index) => (
@@ -23,6 +24,7 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
           class="uca-system-link"
           href={`#uca-panel-${system.id}`}
           data-system-id={system.id}
+          data-uca-tab
           data-test-id={`uca-system-tab-${system.id}`}
         >
           <span class="uca-number" aria-hidden="true">
@@ -49,6 +51,7 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
           class="uca-system-panel"
           aria-labelledby={`uca-heading-${system.id}`}
           data-system-id={system.id}
+          data-uca-panel
           data-test-id={`uca-system-panel-${system.id}`}
         >
           <p class="uca-eyebrow">{system.category}</p>
@@ -83,3 +86,9 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
     }
   </div>
 </div>
+<script>
+  import { enhanceArchitecture } from '../../scripts/uca-explorer';
+  document
+    .querySelectorAll<HTMLElement>('[data-uca-explorer]')
+    .forEach(enhanceArchitecture);
+</script>

@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phases A–E implemented; Phase F / #1806 begins next. Final behavior/style audits remain intentionally deferred.
+Phases A–F implemented. Beginning delayed schema/functional tests; responsive/performance pass then #1807 remain. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -30,6 +30,9 @@ Phases A–E implemented; Phase F / #1806 begins next. Final behavior/style audi
 6. Record unavailable real assistive-technology checks as `NOT_EVALUATED` with exact procedures. Hold design/content/accessibility/publication approval for the author.
 
 ## Completed outcomes and evidence
+
+- #1806: automatic-activation tabs reuse SSR sections; roving focus, coherent ARIA/visibility, pointer/touch, orientation-specific wrapping arrows/Home/End/Enter/Space, responsive selection retention and init rollback implemented. Sass emits the matchMedia query from the shared map. Rosetta is default; explicit panel fragments reveal their targets. No runtime framework or Zod is shipped to the browser.
+- First integrated typecheck caught an optional noindex forwarding mismatch; resolved with the existing false default. No behavior was loosened.
 
 - #1805: native Astro seven-stage narrative, decorative human-agency orbit, five failure modes, seven fully expanded system sections/anchors, six metadata-resolved essay responses and seven future steps. Four published project links remain; old card grid removed. Scoped SCSS uses the accepted palette and shared content boundaries. Source-only system headlines added to retain the prototype’s panel copy.
 
@@ -47,4 +50,4 @@ Phases A–E implemented; Phase F / #1806 begins next. Final behavior/style audi
 
 ## Next exact step
 
-Read #1806 and progressively enhance the complete static explorer; then write tests before functional verification.
+Write schema/link/initialization-failure unit tests and stable-selector Playwright behavior tests; build/typecheck and run only the focused functional suite before visual refinement.

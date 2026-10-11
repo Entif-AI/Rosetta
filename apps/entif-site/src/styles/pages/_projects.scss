@@ -272,11 +272,41 @@
       white-space: pre-line;
     }
     .uca-explorer {
+      --uca-compact-query: "(max-width: #{tools.breakpoint('compact')})";
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
       gap: 1.5rem;
       margin-top: 3.5rem;
       align-items: start;
+    }
+
+    .uca-explorer[data-enhanced='true'] {
+      .uca-system-link {
+        border-inline-start: 3px solid transparent;
+      }
+      .uca-selection-mark {
+        visibility: hidden;
+      }
+      .uca-system-link[aria-selected='true'] {
+        border-inline-start-color: var(--uca-highlight);
+        background: #f4cb8813;
+      }
+      .uca-system-link[aria-selected='true'] strong {
+        text-decoration: underline;
+        text-underline-offset: 0.25em;
+      }
+      .uca-system-link[aria-selected='true'] .uca-selection-mark {
+        visibility: visible;
+      }
+      .uca-system-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 33rem;
+      }
+      .uca-system-panel[hidden] {
+        display: none;
+      }
     }
     .uca-system-list {
       display: flex;
@@ -493,6 +523,21 @@
       .uca-scenario-steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .uca-explorer[data-enhanced='true'] .uca-system-list {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--uca-highlight);
+        scrollbar-width: thin;
+        scrollbar-color: var(--uca-highlight) var(--uca-panel);
+        overscroll-behavior-inline: contain;
+      }
+      .uca-explorer[data-enhanced='true'] .uca-system-link {
+        flex: 0 0 auto;
+        width: min(18rem, calc(100% - 2rem));
+        border-top: 0;
+      }
     }
     @media (forced-colors: active) {
       .uca-action,
@@ -509,8 +554,17 @@
       .uca-number {
         color: CanvasText;
       }
+      .uca-explorer[data-enhanced='true']
+        .uca-system-link[aria-selected='true'] {
+        border-color: Highlight;
+      }
     }
     @media print {
+      --uca-muted: #000;
+      --uca-highlight: #000;
+      --uca-focus: #000;
+      --uca-light-muted: #000;
+      --uca-light-accent: #000;
       color: #000;
       background: #fff;
       .uca-stage,
@@ -530,6 +584,12 @@
       }
       .uca-orbit {
         display: none;
+      }
+      .uca-explorer[data-enhanced='true'] .uca-system-panel[hidden] {
+        display: block;
+      }
+      .uca-explorer[data-enhanced='true'] .uca-system-panel {
+        min-height: 0;
       }
       .uca-stage li,
       .uca-system-panel {

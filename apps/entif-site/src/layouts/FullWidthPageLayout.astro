@@ -8,7 +8,7 @@ interface Props {
   pageClass?: string;
 }
 
-const { title, description, noindex, pageClass } = Astro.props;
+const { title, description, noindex = false, pageClass } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} noindex={noindex}>
