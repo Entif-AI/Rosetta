@@ -74,12 +74,14 @@ function provider(
     deniedPath?: string;
     tamperedPr?: boolean;
     foreignComment?: boolean;
+    idlessTimeline?: boolean;
+    foreignCrossReference?: boolean;
   } = {}
 ) {
   const calls: Array<{
     url: string;
     authorization: string | null;
-    redirect: RequestRedirect | undefined;
+    redirect: string | undefined;
   }> = [];
   const nativeIssue = {
     ...issue,
@@ -113,7 +115,26 @@ function provider(
     ],
     [
       root + '/issues/42/timeline?per_page=2&page=1',
-      [{ id: 11, event: 'labeled' }],
+      options.idlessTimeline || options.foreignCrossReference
+        ? [
+            {
+              event: 'cross-referenced',
+              created_at: '2026-10-01T11:01:00Z',
+              source: {
+                type: 'issue',
+                issue: {
+                  repository_url: options.foreignCrossReference
+                    ? api + '/repos/other/repo'
+                    : api + root,
+                  number: 7,
+                  body: options.foreignCrossReference
+                    ? 'cross-resource content must not escape'
+                    : 'same-source reference',
+                },
+              },
+            },
+          ]
+        : [{ id: 11, event: 'labeled' }],
     ],
     [
       root + '/pulls/42/reviews?per_page=2&page=1',
@@ -246,7 +267,7 @@ describe('authenticated native GitHub issue and PR source acquisition', () => {
       result.normalizationReceipt,
       result.evaluationReceipt,
     ]) {
-      expect(verifyTileIntegrity(tile).ok).toBe(true);
+      expect(verifyTileIntegrity<unknown>(tile).ok).toBe(true);
       expect(validatePayload(tile.kind, tile.payload).ok).toBe(true);
     }
   });
@@ -345,6 +366,40 @@ describe('authenticated native GitHub issue and PR source acquisition', () => {
         perPage: 2,
       })
     ).rejects.toThrow(/belongs to a different issue/u);
+  });
+
+  it('admits a real-shaped ID-less cross-reference timeline occurrence without inventing a native event ID', async () => {
+    const source = await acquireGitHubNativeSource({
+      ...fixture(),
+      fetchImpl: provider({ idlessTimeline: true }).fetchImpl,
+      perPage: 2,
+    });
+    expect(source.captureCoverage.timeline).toMatchObject({
+      included: true,
+      complete: true,
+      itemCount: 1,
+    });
+    const timeline = (
+      JSON.parse(source.canonicalSourceJson) as {
+        timeline: { event: string; id?: number }[];
+      }
+    ).timeline;
+    expect(timeline).toHaveLength(1);
+    expect(timeline[0].event).toBe('cross-referenced');
+    expect(Object.hasOwn(timeline[0], 'id')).toBe(false);
+    expect(
+      source.rawResponses.some((entry) => entry.resource === 'timeline')
+    ).toBe(true);
+  });
+
+  it('does not ingest cross-repository content embedded in an otherwise authorized timeline response', async () => {
+    await expect(
+      acquireGitHubNativeSource({
+        ...fixture(),
+        fetchImpl: provider({ foreignCrossReference: true }).fetchImpl,
+        perPage: 2,
+      })
+    ).rejects.toThrow(/outside the authorized grant/u);
   });
 
   it('refuses stale visibility when the repository changes rights during paging', async () => {

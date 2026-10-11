@@ -66,6 +66,18 @@ source episode, ingress job, receipts, and canonical artifact. Native contents
 remain source evidence; they are not a validated dependency graph, accepted
 review decision, or permission to publish.
 
+The GitHub timeline contains heterogeneous event shapes. In particular,
+`cross-referenced` entries may have no native numeric event ID. These are
+preserved at their page/array position in original response bytes and the
+canonical snapshot, never assigned a fabricated provider event ID. Some
+cross-references embed **another repository's issue contents**. Without an
+independently authorized grant for that repository, this adapter rejects the
+entire capture before returning the embedded payload. A caller may explicitly
+omit timeline capture to admit the remaining authorized issue/PR objects,
+but the resulting overall coverage is then **incomplete**, not empty or
+complete. No cross-repository grant inference or implicit follow-up fetch is
+performed.
+
 Defaults are 50 items/page, 2 pages per collection, 100 items per collection,
 3 MB overall response/canonical snapshot, 1 MB per HTTP response, and a 15 s
 per-request deadline. These

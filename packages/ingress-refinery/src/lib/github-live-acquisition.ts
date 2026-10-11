@@ -268,7 +268,10 @@ export async function acquireGitHubNativeSource(
   }
   // Freeze request primitives and scope at preflight. A host's transport must
   // not be able to switch repositories or grant scope during awaited reads.
-  const grant = { ...suppliedGrant, rightsScopes: [...suppliedGrant.rightsScopes] };
+  const grant = {
+    ...suppliedGrant,
+    rightsScopes: [...suppliedGrant.rightsScopes],
+  };
   request = { ...request, readGrant: grant };
   if (
     !/^[a-zA-Z0-9-]+$/u.test(request.owner) ||
@@ -359,7 +362,7 @@ export async function acquireGitHubNativeSource(
         throw new Error('GitHub provider returned empty response stream.');
       const reader = response.body.getReader();
       try {
-        while (true) {
+        for (;;) {
           const next = await reader.read();
           if (next.done) break;
           count += next.value.byteLength;
@@ -454,7 +457,29 @@ export async function acquireGitHubNativeSource(
       }
       for (const item of response.value) {
         const native = object(item, resource + ' item');
-        positiveInt(native.id, resource + '.id');
+        if (resource === 'timeline') {
+          // GitHub's timeline is heterogeneous. Cross-referenced events may
+          // have no provider event ID; preserve their page/array occurrence
+          // in the original response bytes rather than inventing one.
+          const event = string(native.event, 'timeline.event');
+          if (native.id !== undefined) positiveInt(native.id, 'timeline.id');
+          if (event === 'cross-referenced') {
+            const linkedIssue = object(
+              object(native.source, 'timeline.cross-reference.source').issue,
+              'timeline.cross-reference.source.issue'
+            );
+            // The source issue object can embed private content from another
+            // repository. A grant for this issue is not permission to ingest
+            // the embedded object, even when the bearer can read both.
+            if (linkedIssue.repository_url !== API + prefix) {
+              throw new Error(
+                'GitHub timeline embeds a cross-repository source outside the authorized grant.'
+              );
+            }
+          }
+        } else {
+          positiveInt(native.id, resource + '.id');
+        }
         if (native.node_id !== undefined)
           string(native.node_id, resource + '.node_id');
         if (
