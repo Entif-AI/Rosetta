@@ -218,7 +218,7 @@ The engineering sequence is consequently semantic before phonological: define ex
 
 **Bilqis names the small model and reproducible public research line described by this paper. Its developmental substrate is an experimental machine semantic pasigraphy: a surface-language-independent inventory of stable semantic identities and composition rules intended to support a scratch-trained ternary learner and carry reusable meaning across later codecs. Bilqis is not an official variant of New Ithkuil, and the substrate should not be confused with New Ithkuil as a human constructed language. Nor should Bilqis's developmental pasigraphy be confused with the Rosetta Pasigraphy Protocol. Rosetta supplies semantic continuity, provenance, interoperability, epistemic separation, and governed transformation; Bilqis is the learner that is educated against an explicit semantic world. The larger future research concept named Sheba is intentionally separate: Sheba denotes a hypothesized higher-capacity synthesis tier discussed only as downstream architecture, not the model, code release, or reproducibility target introduced here.**
 
-#### Why the name Bilqis?
+### Why the name Bilqis?
 
 The name is deliberate, but it is not part of the scientific treatment and carries no evidentiary weight for the representation hypothesis.
 
