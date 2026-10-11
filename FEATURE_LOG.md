@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phase A implementation complete; Phase B / #1802 begins next. Final behavior/style audits remain intentionally deferred.
+Phases A–B implemented; Phase C / #1803 begins next. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -31,6 +31,9 @@ Phase A implementation complete; Phase B / #1802 begins next. Final behavior/sty
 
 ## Completed outcomes and evidence
 
+- Foundation checkpoint: `e9e3b79ba8cecefd9bc29ed5b1ce9c1e52a29d95`, remote SHA readback matched.
+- #1802: seven-stage narrative now lives in projects.md; schema enforces required keys, unique ordered systems/stakes/responses/scenario steps, safe fragments and published project identities. Intro/agency/supporting fields preserve the prototype’s substantive copy omitted from its proposed minimal shape. Link resolution uses published/non-noindex metadata and never invents missing essay/project publications.
+
 - #1657: Dart Sass, shared modules, central runtime layer order, deduplicated responsive rules, named thresholds, Stylelint/Nx wiring, SCSS formatting and legacy Editorial boundary implemented. Design authority corrected to the accepted serif stack.
 - Baseline: eight views at 1440/390px for home, Projects and Editorial opening/references; `apps/entif-site/test-results/uca/baseline/`.
 - Original build and post-migration compiler build both passed (252 routes); logs in `/tmp/rosetta-uca/`. Functional, visual-regression, Stylelint and accessibility acceptance are deferred, not claimed.
@@ -38,4 +41,4 @@ Phase A implementation complete; Phase B / #1802 begins next. Final behavior/sty
 
 ## Next exact step
 
-Read #1802 once; implement its schema and publication-safe `projects.md` showcase contract.
+Finalize the full-width/showcase design contract in Design.MD, then read #1804 and compose the generic layout.
