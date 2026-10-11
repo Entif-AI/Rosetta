@@ -55,9 +55,9 @@ data shape. The version-1 validator supports these dispositions:
 - `blocked`: unmet dependency or authority. Remains open.
 - `reference_only`: informational relationship; no lifecycle mutation.
 
-Use **Refs**, not GitHub's native auto-closing keywords, for
-`pending_human`, `blocked`, and `reference_only` issues.
-GitHub's native closing parser does not understand a deferred parent gate.
+Use **Refs for all issue relationships**, including `accepted`. Do not use
+GitHub's native auto-closing keywords for any disposition. GitHub may close an
+issue before the reconciler checks its specific authorization and receipts.
 The checker recognizes `close/closes/closed`, `fix/fixes/fixed`, and
 `resolve/resolves/resolved`, with optional colons, and refuses native closing
 keywords in PR commit messages. GitHub's manually chosen squash/merge commit

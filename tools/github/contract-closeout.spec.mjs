@@ -171,6 +171,12 @@ test('information-only references do not authorize closure', () => {
     /native GitHub closing keyword/
   );
   assert.match(
+    inspectCloseout({
+      body: body(contract([accepted()]), 'Closes #1802'),
+    }).errors.join(' '),
+    /PR bodies must use Refs/
+  );
+  assert.match(
     inspectCloseout({ body: 'Resolved: #1801' }).errors.join(' '),
     /require a closeout-contract/
   );
@@ -310,12 +316,10 @@ test('requires merger-signed exact-head contract approval, not a contributor dec
     /No authenticated merger approval/
   );
   assert.equal(api.counts.close, 0);
-  api.comments
-    .get(1808)
-    .push({
-      body: approvalMarker(pull, contract()),
-      user: { login: 'untrusted-contributor', type: 'User' },
-    });
+  api.comments.get(1808).push({
+    body: approvalMarker(pull, contract()),
+    user: { login: 'untrusted-contributor', type: 'User' },
+  });
   await assert.rejects(
     reconcileMerge({
       owner: 'Entif-AI',

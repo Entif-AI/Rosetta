@@ -80,6 +80,11 @@ export function inspectCloseout({
       'Commit messages must use non-closing issue references; native GitHub close/fix/resolve keywords bypass issue dispositions.'
     );
   }
+  if (nativeClosingIssues(body).size) {
+    errors.push(
+      'PR bodies must use Refs instead of native GitHub closing keywords; automated reconciliation owns all issue closure transitions.'
+    );
+  }
   const refs = referencedIssues(body);
   let contract;
   try {
@@ -121,7 +126,6 @@ export function inspectCloseout({
     errors.push('At most 100 issue dispositions are permitted.');
   const seen = new Set();
   const semantic = requiresSemanticGate(files);
-  const nativeClosings = nativeClosingIssues(body);
   for (const issue of contract.issues) {
     if (
       !isObject(issue) ||
@@ -137,10 +141,6 @@ export function inspectCloseout({
     if (seen.has(issue.number))
       errors.push(`Duplicate issue #${issue.number}.`);
     seen.add(issue.number);
-    if (issue.disposition !== 'accepted' && nativeClosings.has(issue.number))
-      errors.push(
-        `#${issue.number} is ${issue.disposition} but has a native GitHub closing keyword; use Refs instead.`
-      );
     if (!refs.includes(issue.number))
       errors.push(
         `Issue #${issue.number} has no matching Refs/Closes/Fixes/Resolves reference in the PR body.`
