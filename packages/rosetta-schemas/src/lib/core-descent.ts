@@ -50,6 +50,9 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'behavioral.requirement.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt']),
+  'behavioral.capability.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt']),
+  'behavioral.comparison.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.evaluation', 'rosetta.receipt']),
   'compiled.context.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/compiled-context-v1.md', ['rosetta.observation', 'rosetta.receipt']),
   'compiled.context.block.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/compiled-context-v1.md', ['rosetta.observation', 'rosetta.receipt']),
   'graph.view.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/graph-view-v1.md', ['rosetta.observation', 'rosetta.lattice_edge', 'rosetta.receipt']),

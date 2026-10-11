@@ -1,5 +1,7 @@
 # rosetta-schemas
 
+Behavioral interoperability issue #1556 has a **proposed**, fixture-backed `behavioral.*.v1` request, capability and comparison family in `src/lib/behavioral-compatibility.ts`. Portable, checked JSON Schemas are in `docs/behavioral-{requirement,capability,comparison}-v1.schema.json`; their source constants are verified by tests. Its authority and acceptance questions are in [`specs/behavioral-compatibility-v1.md`](../../specs/behavioral-compatibility-v1.md). Structural or behavioral compatibility is never permission to retry, mutate or execute.
+
 Catalog entries distinguish core descent from operational ownership and exposure.
 See [schema authority and descent](docs/schema-authority-map.md#core-descent).
 New supported kinds need an explicit classification in `src/lib/core-descent.ts`;

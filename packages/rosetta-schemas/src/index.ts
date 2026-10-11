@@ -10,6 +10,7 @@ export * from './lib/work-lifecycle.js';
 export * from './lib/engineering-lifecycle.js';
 export * from './lib/engineering-completion.js';
 export * from './lib/impact-revalidation.js';
+export * from './lib/behavioral-compatibility.js';
 export * from './lib/materialized-view.js';
 export * from './lib/graph-view.js';
 export * from './lib/compiled-context.js';

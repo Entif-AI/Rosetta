@@ -241,6 +241,22 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 );
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  ...(['behavioral.requirement.v1', 'behavioral.capability.v1', 'behavioral.comparison.v1'] as const).map(schemaId => ({
+    authorityTier: 'governance-admission' as const,
+    boundaryKind: 'owned-schema' as const,
+    consumerPackages: ['@entif-ai/rosetta-schemas', 'integration-compatibility-graph'],
+    docs: [SCHEMA_README, AUTHORITY_MAP, 'specs/behavioral-compatibility-v1.md', `packages/rosetta-schemas/docs/behavioral-${schemaId.split('.')[1]}-v1.schema.json`],
+    exposureStatus: 'downstream-contract' as const,
+    family: 'behavioral-compatibility',
+    knownGaps: ['Proposed and fixture-backed only; result is compatibility evidence, not execution/retry, write, compensation or authorization permission.'],
+    ownerPackage: '@entif-ai/rosetta-schemas',
+    rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId,
+    sourceIssues: ['#1556', '#1553', '#1037', '#994', '#1295'],
+    sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/behavioral-compatibility.spec.ts'],
+    validator: schemaId === 'behavioral.requirement.v1' ? 'parseBehavioralRequirement' : schemaId === 'behavioral.capability.v1' ? 'parseBehavioralCapability' : 'parseBehavioralComparison'
+  })),
   ...(['compiled.context.v1', 'compiled.context.block.v1'] as const).map(schemaId => ({
     authorityTier: 'memory-context-cache' as const, boundaryKind: 'owned-schema' as const, consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/compiled-context-v1.md', 'packages/rosetta-schemas/docs/compiled-context-v1.schema.json', 'packages/rosetta-schemas/docs/compiled-context-block-v1.schema.json'],
