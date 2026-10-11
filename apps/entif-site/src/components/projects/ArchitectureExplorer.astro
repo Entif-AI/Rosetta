@@ -1,0 +1,100 @@
+---
+import type { Showcase, PublicLink, SystemId } from '../../lib/showcase';
+import { copy } from '../../lib/copy';
+
+interface Props {
+  architecture: Showcase['architecture'];
+  projects: ReadonlyMap<SystemId, PublicLink>;
+}
+const { architecture, projects } = Astro.props;
+const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
+---
+
+<div class="uca-explorer" data-test-id="uca-explorer" data-uca-explorer>
+  <nav
+    class="uca-system-list"
+    aria-labelledby="uca-architecture-heading"
+    data-test-id="uca-system-list"
+    data-uca-tablist
+  >
+    {
+      architecture.systems.map((system, index) => (
+        <a
+          id={`uca-tab-${system.id}`}
+          class="uca-system-link"
+          href={`#uca-panel-${system.id}`}
+          data-system-id={system.id}
+          data-uca-tab
+          data-test-id={`uca-system-tab-${system.id}`}
+        >
+          <span class="uca-number" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span>
+            <>
+              <strong data-test-id={`uca-system-name-${system.id}`}>
+                {system.name}
+              </strong>
+              <span class="uca-system-promise">{system.promise}</span>
+            </>
+          </span>
+          <span
+            class="uca-selection-mark"
+            aria-hidden="true"
+            data-test-id={`uca-selection-mark-${system.id}`}
+          >
+            →
+          </span>
+        </a>
+      ))
+    }
+  </nav>
+  <div class="uca-system-panels">
+    {
+      architecture.systems.map((system, index) => (
+        <section
+          id={`uca-panel-${system.id}`}
+          class="uca-system-panel"
+          aria-labelledby={`uca-heading-${system.id}`}
+          data-system-id={system.id}
+          data-uca-panel
+          data-test-id={`uca-system-panel-${system.id}`}
+        >
+          <p class="uca-eyebrow">{system.category}</p>
+          <span class="uca-emblem" aria-hidden="true">
+            {emblems[index]}
+          </span>
+          <div>
+            <h3 id={`uca-heading-${system.id}`}>
+              <span class="uca-panel-name">{system.name}</span>
+              {system.headline}
+            </h3>
+            <p
+              class="uca-system-detail"
+              data-test-id={`uca-system-detail-${system.id}`}
+            >
+              {system.detail}
+            </p>
+            <p class="uca-system-principle">{system.principle}</p>
+            {projects.has(system.id) && (
+              <a
+                class="uca-source-link"
+                href={projects.get(system.id)!.href}
+                data-test-id={`uca-project-link-${system.id}`}
+              >
+                {copy.projects}: {projects.get(system.id)!.label}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            )}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</div>
+<script>
+  import { enhanceArchitecture } from '../../scripts/uca-explorer';
+  document
+    .querySelectorAll<HTMLElement>('[data-uca-explorer]')
+    .forEach(enhanceArchitecture);
+</script>

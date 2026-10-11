@@ -1,0 +1,683 @@
+{
+  "command": "LIGHTHOUSE_OUTPUT=/tmp/entif-uca-lighthouse NX_DAEMON=false pnpm exec nx run entif-site:lighthouse",
+  "scope": "Six configured routes, both modes, all four categories, local lab with analytics enabled",
+  "earlierProjectsPerformanceOnlyDiagnostic": {
+    "mobile": 90,
+    "desktop": 100,
+    "cumulativeLayoutShift": 0
+  },
+  "reports": [
+    {
+      "routeName": "home",
+      "path": "/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:25:21.782Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 902.4626000000001,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 2671.8566499999997,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 25.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 902.4626000000001,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "1f659b23544664d0539fd1c8d080656eb7c43717bb9ced89deeb2d447664d46f"
+    },
+    {
+      "routeName": "home",
+      "path": "/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:25:27.784Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 900.777,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 975.777,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 4.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 900.777,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "11beebca02da742af7161b6281bf52300642f7036757120ae170a4f29a403f42"
+    },
+    {
+      "routeName": "projects",
+      "path": "/projects/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:25:33.435Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1051.8316,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1201.8316,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 5.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1051.8316,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "ec8047a3f3fee6afadd2d592c4b2ff3f8ff65c395dd136a4eca9d327360adcef"
+    },
+    {
+      "routeName": "projects",
+      "path": "/projects/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:25:39.146Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1050.77725,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1125.7777250000001,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 4.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1050.77725,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "1ba79ff7799251899cd85e5bd4a2db9a90491bf65d17ff108d0326290b40478e"
+    },
+    {
+      "routeName": "cost",
+      "path": "/tags/research/2026/09/06/the-cost-of-learning-too-late/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:25:45.001Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1501.0483,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1576.048525,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 7.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1501.0483,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "ec3c62d072930e870ec60d8d58782e8a92f4a7a500d7cccf8c724d2044f1bc93"
+    },
+    {
+      "routeName": "cost",
+      "path": "/tags/research/2026/09/06/the-cost-of-learning-too-late/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:25:51.191Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1500.6094,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1575.6094000000003,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 4.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1500.6094,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "cddf05a4fc6fd8f9cc9c426c6c694f392d7c193d8c67c04c66d219f6611f3ad4"
+    },
+    {
+      "routeName": "inflection",
+      "path": "/tags/research/2026/09/07/after-the-inflection/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:25:57.252Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1350.6621999999998,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1425.6621999999998,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 4.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1350.6621999999998,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "d9d5778d6e470200db4a34d49364840a40e6cb4ffaa426592d8c77f5ab1e43c7"
+    },
+    {
+      "routeName": "inflection",
+      "path": "/tags/research/2026/09/07/after-the-inflection/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:26:03.921Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1353.2318,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1503.2318,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 16.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1353.2318,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "7a8a15ce4f25c37d992df0a0f4736f9e9eb7e2be33af8eef83d0e4b654578d2a"
+    },
+    {
+      "routeName": "etr-opening",
+      "path": "/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:26:10.181Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1351.5989000000002,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1351.5989000000002,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 3,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1351.5989000000002,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "a34852fcfc05f44d16b6e39645ab36b9ca1e44b4db133af06e7d6fb81d4d2d4c"
+    },
+    {
+      "routeName": "etr-opening",
+      "path": "/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:26:16.005Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1350.9075,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1425.9075,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 44,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1350.9075,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "9c48d0b6691d4488becea81fd17f405c6c19e66e72c2247eae9c7fabfd2d9881"
+    },
+    {
+      "routeName": "etr-references",
+      "path": "/articles/accelerating-the-dystopia/17-citations/",
+      "mode": "mobile",
+      "fetchTime": "2026-10-11T10:26:22.128Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1500.6376,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1500.6376,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 4.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1500.6376,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "39acc9bb3d37acd2cb5c60cbed02beb27e08372d5a102e8b639f8eae7f2690de"
+    },
+    {
+      "routeName": "etr-references",
+      "path": "/articles/accelerating-the-dystopia/17-citations/",
+      "mode": "desktop",
+      "fetchTime": "2026-10-11T10:26:28.315Z",
+      "lighthouseVersion": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        }
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1500.7695,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1500.7695,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 6.5,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 1500.7695,
+          "unit": "millisecond"
+        }
+      },
+      "originalReportSha256": "88f98d1529e2dc4687c1ba1a48bc225c4c7091ec212d2f10224e9fdc616b8104"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm exec astro preview --host 127.0.0.1 --port 4322',
+    command: 'node tools/preview.mjs',
     port: 4322,
     reuseExistingServer: false,
   },

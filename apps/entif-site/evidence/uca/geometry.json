@@ -1,0 +1,1533 @@
+[
+  {
+    "name": "projects-320",
+    "path": "/projects/",
+    "width": 320,
+    "height": 568,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 10836.359375,
+        "width": 320,
+        "height": 136.171875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 20,
+        "y": 337.875,
+        "width": 280,
+        "height": 147.796875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "44px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 320,
+      "document": 320,
+      "height": 10973,
+      "containers": [
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "20px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-390",
+    "path": "/projects/",
+    "width": 390,
+    "height": 844,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 9467.453125,
+        "width": 390,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 20,
+        "y": 316.4375,
+        "width": 350,
+        "height": 98.53125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "44px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 390,
+      "document": 390,
+      "height": 9581,
+      "containers": [
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        },
+        {
+          "x": 0,
+          "width": 390,
+          "padding": "20px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-tablet",
+    "path": "/projects/",
+    "width": 768,
+    "height": 1024,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 108,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 8287.671875,
+        "width": 768,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 30.71875,
+        "y": 225.4375,
+        "width": 569.6875,
+        "height": 131.5,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "58.72px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 768,
+      "document": 768,
+      "height": 8401,
+      "containers": [
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        },
+        {
+          "x": 0,
+          "width": 768,
+          "padding": "30.72px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-landscape",
+    "path": "/projects/",
+    "width": 844,
+    "height": 390,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 108,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7272.5,
+        "width": 844,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 33.75,
+        "y": 225.4375,
+        "width": 599.1875,
+        "height": 138.34375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "61.76px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 844,
+      "document": 844,
+      "height": 7368,
+      "containers": [
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        },
+        {
+          "x": 0,
+          "width": 844,
+          "padding": "33.76px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-1024",
+    "path": "/projects/",
+    "width": 1024,
+    "height": 768,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 108,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7403.921875,
+        "width": 1024,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 40.953125,
+        "y": 235.34375,
+        "width": 669.046875,
+        "height": 154.4375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "68.96px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1024,
+      "document": 1024,
+      "height": 7499,
+      "containers": [
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        },
+        {
+          "x": 0,
+          "width": 1024,
+          "padding": "40.96px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-1366",
+    "path": "/projects/",
+    "width": 1366,
+    "height": 768,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7074.890625,
+        "width": 1366,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 97.625,
+        "y": 219.703125,
+        "width": 579.046875,
+        "height": 277.640625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "82.64px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1366,
+      "document": 1366,
+      "height": 7170,
+      "containers": [
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-1536",
+    "path": "/projects/",
+    "width": 1536,
+    "height": 1024,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1536,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7354.03125,
+        "width": 1536,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 189.4375,
+        "y": 230.4375,
+        "width": 597.640625,
+        "height": 300.46875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "89.44px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1536,
+      "document": 1536,
+      "height": 7449,
+      "containers": [
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        },
+        {
+          "x": 128,
+          "width": 1280,
+          "padding": "61.44px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-wide",
+    "path": "/projects/",
+    "width": 2560,
+    "height": 1080,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 2560,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7402.5,
+        "width": 2560,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 712,
+        "y": 230.4375,
+        "width": 584.71875,
+        "height": 322.546875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "96px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 2560,
+      "document": 2560,
+      "height": 7498,
+      "containers": [
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        },
+        {
+          "x": 640,
+          "width": 1280,
+          "padding": "72px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-short",
+    "path": "/projects/",
+    "width": 1366,
+    "height": 400,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 7074.890625,
+        "width": 1366,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 97.625,
+        "y": 219.703125,
+        "width": 579.046875,
+        "height": 277.640625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "82.64px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1366,
+      "document": 1366,
+      "height": 7170,
+      "containers": [
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        },
+        {
+          "x": 43,
+          "width": 1280,
+          "padding": "54.64px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "projects-200-text",
+    "path": "/projects/",
+    "width": 320,
+    "height": 800,
+    "enlarged": true,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 811.578125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "32px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 47083.890625,
+        "width": 320,
+        "height": 380.984375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "32px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 24px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 40,
+        "y": 1175.140625,
+        "width": 240,
+        "height": 788.375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "88px",
+        "color": "rgb(244, 203, 136)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 320,
+      "document": 320,
+      "height": 47465,
+      "containers": [
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        },
+        {
+          "x": 0,
+          "width": 320,
+          "padding": "40px"
+        }
+      ],
+      "overflow": []
+    }
+  },
+  {
+    "name": "home-1440",
+    "path": "/",
+    "width": 1440,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 2212.078125,
+        "width": 1440,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 64,
+        "y": 153.421875,
+        "width": 310.453125,
+        "height": 76.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "32px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "20px 0px 0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": {
+        "x": 64,
+        "y": 65,
+        "width": 1312,
+        "height": 454.421875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "48px 0px",
+        "margin": "0px 64px",
+        "display": "grid",
+        "gridTemplateColumns": "417.344px 878.656px"
+      },
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": {
+        "x": 497.34375,
+        "y": 113,
+        "width": 201.65625,
+        "height": 280,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      }
+    },
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "height": 2307,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "home-390",
+    "path": "/",
+    "width": 390,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 4775.28125,
+        "width": 390,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 16,
+        "y": 279.421875,
+        "width": 358,
+        "height": 24,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "20px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "20px 0px 0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": {
+        "x": 16,
+        "y": 199,
+        "width": 358,
+        "height": 1557.21875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "40px 0px 48px",
+        "margin": "0px 16px",
+        "display": "grid",
+        "gridTemplateColumns": "358px"
+      },
+      ".editorial-series": null,
+      ".article-grid": null,
+      ".claim-card": {
+        "x": 16,
+        "y": 537.375,
+        "width": 358,
+        "height": 256,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      }
+    },
+    "geometry": {
+      "viewport": 390,
+      "document": 390,
+      "height": 4889,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "editorial-opening-1440",
+    "path": "/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/",
+    "width": 1440,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 20277.015625,
+        "width": 1440,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 144,
+        "y": 672,
+        "width": 1152,
+        "height": 67.96875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "57.12px",
+        "color": "rgb(97, 53, 53)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": {
+        "x": 32,
+        "y": 65,
+        "width": 1376,
+        "height": 20212.015625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "48px 0px",
+        "margin": "0px 32px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "height": 20372,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "editorial-opening-390",
+    "path": "/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/",
+    "width": 390,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 24264.078125,
+        "width": 390,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 16,
+        "y": 679.328125,
+        "width": 358,
+        "height": 25.84375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "21.712px",
+        "color": "rgb(97, 53, 53)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": {
+        "x": 16,
+        "y": 199,
+        "width": 358,
+        "height": 24065.078125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "48px 0px",
+        "margin": "0px 16px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 390,
+      "document": 390,
+      "height": 24378,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "editorial-references-1440",
+    "path": "/articles/accelerating-the-dystopia/17-citations/",
+    "width": 1440,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 65,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 43230.5625,
+        "width": 1440,
+        "height": 95.390625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 144,
+        "y": 672,
+        "width": 1152,
+        "height": 67.96875,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "57.12px",
+        "color": "rgb(97, 53, 53)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": {
+        "x": 32,
+        "y": 65,
+        "width": 1376,
+        "height": 43165.5625,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "48px 0px",
+        "margin": "0px 32px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "height": 43326,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "editorial-references-390",
+    "path": "/articles/accelerating-the-dystopia/17-citations/",
+    "width": 390,
+    "height": 960,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 58097.109375,
+        "width": 390,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 16,
+        "y": 700.203125,
+        "width": 358,
+        "height": 25.84375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "21.712px",
+        "color": "rgb(97, 53, 53)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": {
+        "x": 16,
+        "y": 199,
+        "width": 358,
+        "height": 57898.109375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "48px 0px",
+        "margin": "0px 16px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".article-grid": null,
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 390,
+      "document": 390,
+      "height": 58211,
+      "containers": [],
+      "overflow": []
+    }
+  },
+  {
+    "name": "research-390",
+    "path": "/tags/research/2026/09/06/the-cost-of-learning-too-late/",
+    "width": 390,
+    "height": 844,
+    "enlarged": false,
+    "values": {
+      ".site-header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253)) repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".site-footer": {
+        "x": 0,
+        "y": 82064.671875,
+        "width": 390,
+        "height": 113.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(83, 99, 131)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px 0px 12px",
+        "margin": "0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      "h1": {
+        "x": 16,
+        "y": 335.84375,
+        "width": 358,
+        "height": 76.78125,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "32px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "0px",
+        "margin": "16px 0px 0px",
+        "display": "block",
+        "gridTemplateColumns": "none"
+      },
+      ".hero": null,
+      ".editorial-series": null,
+      ".article-grid": {
+        "x": 16,
+        "y": 616.78125,
+        "width": 358,
+        "height": 79798.34375,
+        "fontFamily": "\"Plantagenet Cherokee\", \"Palatino Linotype\", Palatino, Georgia, \"Times New Roman\", Times, serif",
+        "fontSize": "16px",
+        "color": "rgb(1, 38, 100)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "padding": "40px 0px 0px",
+        "margin": "0px",
+        "display": "grid",
+        "gridTemplateColumns": "358px"
+      },
+      ".claim-card": null
+    },
+    "geometry": {
+      "viewport": 390,
+      "document": 390,
+      "height": 82178,
+      "containers": [],
+      "overflow": []
+    }
+  }
+]

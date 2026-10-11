@@ -1,0 +1,24 @@
+@use '../tools';
+
+@layer pages {
+  .principles-band {
+    background: radial-gradient(
+      var(--surface) 57%,
+      var(--canvas) 84%,
+      var(--line)
+    );
+    border-block: 1px solid var(--line);
+  }
+
+  .principles-band .section-heading {
+    display: block;
+  }
+
+  .home-principles-body {
+    max-width: var(--reading);
+  }
+
+  .hero + .section {
+    padding-top: 2rem;
+  }
+}

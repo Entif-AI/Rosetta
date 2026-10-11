@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { pageSchema } from './lib/showcase';
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const identifierPattern = /^entif\.[a-z0-9.-]+$/;
@@ -60,15 +61,6 @@ const siteSchema = z
       });
     }
   });
-
-const pageSchema = z.object({
-  slug: z.string().regex(slugPattern),
-  title: z.string().min(3).max(100),
-  eyebrow: z.string().min(2).max(60),
-  description: z.string().min(20).max(280),
-  status: z.enum(['draft', 'published']),
-  sourceRefs: z.array(z.string().min(1)).default([]),
-});
 
 const site = defineCollection({
   loader: glob({

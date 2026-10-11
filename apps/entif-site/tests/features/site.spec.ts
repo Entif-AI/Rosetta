@@ -121,6 +121,7 @@ test('old URLs and date archives remain available; drafts stay private', async (
 
 const reflowRoutes = [
   ['/', 'home-hero-heading'],
+  ['/projects/', 'uca-hero-heading'],
   ...reports.map((path) => [path, 'published-entry-heading'] as const),
   ['/about/', 'content-page-heading'],
 ] as const;

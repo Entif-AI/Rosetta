@@ -1,0 +1,85 @@
+@use '../tools';
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: 'Plantagenet Cherokee', 'Palatino Linotype', Palatino, Georgia,
+      'Times New Roman', Times, serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.4;
+  }
+
+  body {
+    overflow-wrap: break-word;
+  }
+
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.08em;
+  }
+
+  a:hover {
+    text-decoration-thickness: 0.14em;
+  }
+
+  :focus-visible {
+    @include tools.focus-ring;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 650;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--h1);
+  }
+
+  h2 {
+    font-size: var(--h2);
+  }
+
+  h3,
+  h4 {
+    font-size: var(--h3);
+  }
+
+  small,
+  code,
+  pre,
+  sup,
+  sub {
+    font-size: var(--small);
+  }
+
+  sup,
+  sub {
+    line-height: 1;
+  }
+
+  #main-content p {
+    letter-spacing: 0.02em;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: var(--small);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .lede {
+    font-size: var(--lead);
+    color: var(--muted);
+    max-width: 43rem;
+    margin-top: 1.5rem;
+  }
+}

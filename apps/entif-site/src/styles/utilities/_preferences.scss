@@ -1,0 +1,54 @@
+@use '../tools';
+
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .claim-card,
+    .button,
+    .content-card {
+      border: 1px solid CanvasText;
+    }
+
+    :focus-visible {
+      outline-color: Highlight;
+    }
+  }
+
+  @media print {
+    .site-header,
+    .site-footer,
+    .hero-actions,
+    .related-section {
+      display: none;
+    }
+
+    .article-grid {
+      display: block;
+    }
+
+    .article-aside {
+      margin-block: 2rem;
+    }
+
+    .shell {
+      width: 100%;
+    }
+
+    body {
+      background: white;
+    }
+
+    .scroll-top {
+      display: none;
+    }
+  }
+}
