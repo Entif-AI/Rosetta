@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import {
   computePackId,
   computePackIdFromHashInput,
+  updateWorkspacePackIds,
   validatePackGraph,
   validatePackRoot,
   validateWorkspacePacks
@@ -370,6 +371,128 @@ describe('pack conformance', () => {
       ]);
     } finally {
       await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('deduplicates one missing asset declared through schema, export and Profile surfaces', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-path-missing-dedupe-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { schema: ['schema/missing.json'] },
+        exports: [{ kind: 'json-schema', id: 'missing', path: 'schema/./missing.json', version: '0.1.0' }],
+        profiles: [{ name: 'missing-profile', path: 'schema/missing.json' }]
+      });
+      await writePackWithCurrentId(root, manifest);
+      const result = await validatePackRoot(root);
+      const missingErrors = result.errors.filter((error) =>
+        error.code === 'declared-path-missing' || error.code === 'profile-path-missing'
+      );
+      expect(missingErrors).toEqual([
+        expect.objectContaining({ code: 'declared-path-missing', detail: 'schema/missing.json' })
+      ]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the Profile-specific missing-path reason when only a Profile declares the absent asset', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-profile-missing-only-'));
+    try {
+      await writePackWithCurrentId(root, baseManifest({
+        entrypoints: {},
+        profiles: [{ name: 'missing-profile', path: 'schema/missing.json' }]
+      }));
+      expect((await validatePackRoot(root)).errors).toEqual([
+        expect.objectContaining({ code: 'profile-path-missing', detail: 'missing-profile' })
+      ]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses a symlink Pack root before following it to external Pack contents', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-root-symlink-'));
+    const outsideRoot = path.join(tempDir, 'outside-pack');
+    const linkedRoot = path.join(tempDir, 'linked-pack');
+    try {
+      await writePackWithCurrentId(outsideRoot, baseManifest(), { 'examples/example.md': 'outside\n' });
+      await symlink(outsideRoot, linkedRoot);
+
+      expect((await validatePackRoot(linkedRoot)).errors).toEqual([
+        expect.objectContaining({ code: 'pack-root-unsafe' })
+      ]);
+
+      await rm(outsideRoot, { recursive: true, force: true });
+      expect((await validatePackRoot(linkedRoot)).errors).toEqual([
+        expect.objectContaining({ code: 'pack-root-unsafe' })
+      ]);
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses a symlink workspace Packs root before discovering or reading external Packs', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-root-symlink-'));
+    const outsidePacks = path.join(tempDir, 'outside-packs');
+    const packRoot = path.join(outsidePacks, 'example');
+    const linkedPacks = path.join(tempDir, 'linked-packs');
+    try {
+      await writePackWithCurrentId(packRoot, baseManifest(), { 'examples/example.md': 'outside\n' });
+      await symlink(outsidePacks, linkedPacks);
+
+      expect(await validateWorkspacePacks(linkedPacks)).toEqual(expect.objectContaining({
+        ok: false,
+        packs: [],
+        errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
+      }));
+
+      await rm(outsidePacks, { recursive: true, force: true });
+      expect(await validateWorkspacePacks(linkedPacks)).toEqual(expect.objectContaining({
+        ok: false,
+        packs: [],
+        errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses Pack-ID repair through a symlink workspace Packs root before external writes', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-root-fix-symlink-'));
+    const outsidePacks = path.join(tempDir, 'outside-packs');
+    const packRoot = path.join(outsidePacks, 'example');
+    const linkedPacks = path.join(tempDir, 'linked-packs');
+    try {
+      await writePack(packRoot, baseManifest(), { 'examples/example.md': 'outside\n' });
+      const manifestPath = path.join(packRoot, 'pack.json');
+      const before = await readFile(manifestPath, 'utf8');
+      await symlink(outsidePacks, linkedPacks);
+
+      await expect(updateWorkspacePackIds(linkedPacks)).rejects.toEqual(expect.objectContaining({
+        code: 'packs-root-unsafe'
+      }));
+      expect(await readFile(manifestPath, 'utf8')).toBe(before);
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('allows Pack roots reached through a symlink ancestor when the supplied roots are direct directories', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-root-ancestor-symlink-'));
+    const realParent = path.join(tempDir, 'real-parent');
+    const packsRoot = path.join(realParent, 'packs');
+    const packRoot = path.join(packsRoot, 'example');
+    const linkedParent = path.join(tempDir, 'linked-parent');
+    try {
+      await writePackWithCurrentId(packRoot, baseManifest(), { 'examples/example.md': 'inside\n' });
+      await symlink(realParent, linkedParent);
+      const linkedPacksRoot = path.join(linkedParent, 'packs');
+      const linkedPackRoot = path.join(linkedPacksRoot, 'example');
+
+      expect((await validatePackRoot(linkedPackRoot)).errors).toEqual([]);
+      expect(await validateWorkspacePacks(linkedPacksRoot)).toEqual(expect.objectContaining({ ok: true }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
     }
   });
 

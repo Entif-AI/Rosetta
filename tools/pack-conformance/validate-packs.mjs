@@ -114,6 +114,13 @@ function validationError(code, root, detail) {
   return { code, root, detail };
 }
 
+function rootBoundaryError(code, root, detail) {
+  const error = new Error(detail);
+  error.code = code;
+  error.root = root;
+  return error;
+}
+
 function entriesFromEntrypoints(entrypoints) {
   if (!entrypoints || typeof entrypoints !== 'object' || Array.isArray(entrypoints)) {
     return [];
@@ -174,6 +181,7 @@ async function inspectDeclaredFile(packRoot, declaredPath) {
   ) {
     return { status: 'unsafe' };
   }
+  const identity = relativePath.split(path.sep).join('/');
 
   let current = root;
   let info;
@@ -183,7 +191,7 @@ async function inspectDeclaredFile(packRoot, declaredPath) {
       info = await lstat(current);
     } catch (error) {
       if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
-        return { status: 'missing' };
+        return { identity, status: 'missing' };
       }
       throw error;
     }
@@ -193,11 +201,37 @@ async function inspectDeclaredFile(packRoot, declaredPath) {
     }
   }
 
-  return info?.isFile() ? { status: 'ok', path: absolutePath } : { status: 'missing' };
+  return info?.isFile() ? { identity, status: 'ok', path: absolutePath } : { identity, status: 'missing' };
+}
+
+async function assertDirectRoot(root, code, label) {
+  let info;
+  try {
+    info = await lstat(root);
+  } catch (error) {
+    if (error?.code === 'ENOENT') return;
+    throw error;
+  }
+
+  if (info.isSymbolicLink()) {
+    throw rootBoundaryError(code, root, `${label} must not be a symbolic link`);
+  }
 }
 
 export async function validatePackRoot(packRoot) {
   const errors = [];
+  try {
+    await assertDirectRoot(packRoot, 'pack-root-unsafe', 'Pack root');
+  } catch (error) {
+    if (error?.code !== 'pack-root-unsafe') throw error;
+    return {
+      computedPackId: null,
+      errors: [validationError(error.code, packRoot, error.message)],
+      manifest: null,
+      ok: false,
+      root: packRoot
+    };
+  }
   const manifestPath = path.join(packRoot, 'pack.json');
   let manifest;
   try {
@@ -224,6 +258,7 @@ export async function validatePackRoot(packRoot) {
   const declaredPackId = manifest.pack_id;
   const computedPackId = await computePackId(packRoot);
   const declaredFiles = new Map();
+  const reportedMissingAssets = new Set();
   const inspect = async (relativePath) => {
     if (!declaredFiles.has(relativePath)) {
       declaredFiles.set(relativePath, await inspectDeclaredFile(packRoot, relativePath));
@@ -247,8 +282,9 @@ export async function validatePackRoot(packRoot) {
     const declaredFile = await inspect(relativePath);
     if (declaredFile.status === 'unsafe') {
       errors.push(validationError('declared-path-unsafe', packRoot, relativePath));
-    } else if (declaredFile.status === 'missing') {
+    } else if (declaredFile.status === 'missing' && !reportedMissingAssets.has(declaredFile.identity)) {
       errors.push(validationError('declared-path-missing', packRoot, relativePath));
+      reportedMissingAssets.add(declaredFile.identity);
     }
   }
 
@@ -299,7 +335,10 @@ export async function validatePackRoot(packRoot) {
       continue;
     }
     if (declaredFile.status === 'missing') {
-      errors.push(validationError('profile-path-missing', packRoot, profile.name));
+      if (!reportedMissingAssets.has(declaredFile.identity)) {
+        errors.push(validationError('profile-path-missing', packRoot, profile.name));
+        reportedMissingAssets.add(declaredFile.identity);
+      }
       continue;
     }
     const schema = await readJson(declaredFile.path);
@@ -410,6 +449,7 @@ export function validatePackGraph(packResults) {
 }
 
 export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
+  await assertDirectRoot(packsRoot, 'packs-root-unsafe', 'Packs root');
   const entries = await readdir(packsRoot, { withFileTypes: true });
   const roots = [];
 
@@ -428,7 +468,17 @@ export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
 }
 
 export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
-  const roots = await findPackRoots(packsRoot);
+  let roots;
+  try {
+    roots = await findPackRoots(packsRoot);
+  } catch (error) {
+    if (error?.code !== 'packs-root-unsafe') throw error;
+    return {
+      errors: [validationError(error.code, packsRoot, error.message)],
+      ok: false,
+      packs: []
+    };
+  }
   const packResults = await Promise.all(roots.map((root) => validatePackRoot(root)));
   const allManifestsValid = packResults.every((result) => result.manifest && !result.errors.some((error) => error.code.startsWith('manifest-')));
   const graphResult = allManifestsValid ? validatePackGraph(packResults) : { errors: [], ok: false };
@@ -471,7 +521,14 @@ export async function cli(argv = process.argv.slice(2), { log = console.log, err
     packsRootFlagIndex >= 0 && argv[packsRootFlagIndex + 1] ? argv[packsRootFlagIndex + 1] : DEFAULT_PACKS_ROOT;
 
   if (shouldFix) {
-    const updated = await updateWorkspacePackIds(packsRoot);
+    let updated;
+    try {
+      updated = await updateWorkspacePackIds(packsRoot);
+    } catch (caught) {
+      if (caught?.code !== 'packs-root-unsafe') throw caught;
+      error(`${caught.root}: ${caught.code}: ${caught.message}`);
+      return 1;
+    }
     for (const entry of updated) {
       log(`${entry.root}: pack_id -> ${entry.pack_id}`);
     }
