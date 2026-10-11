@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  approvalMarker,
   inspectCloseout,
+  publishAdmission,
   readContract,
   reconcileMerge,
   referencedIssues,
@@ -35,6 +37,7 @@ const pull = {
   merged: true,
   merged_by: { type: 'User', login: 'Entif-AI' },
   merge_commit_sha: sha,
+  head: { sha: 'a'.repeat(40) },
   base: { ref: 'main' },
   body: body(contract()),
 };
@@ -54,12 +57,23 @@ function mockApi() {
   const comments = new Map([
     [1801, []],
     [1802, []],
+    [
+      1808,
+      [
+        {
+          body: approvalMarker(pull, contract()),
+          user: { login: 'Entif-AI', type: 'User' },
+        },
+      ],
+    ],
   ]);
+  const subIssues = new Map();
   const counts = { close: 0, comments: 0 };
   return {
     counts,
     entries,
     comments,
+    subIssues,
     issues: {
       get: async ({ issue_number }) => {
         if (!entries.has(issue_number)) throw new Error('Unknown issue.');
@@ -69,17 +83,23 @@ function mockApi() {
         throw new Error('Use paginate.');
       },
       createComment: async ({ issue_number, body }) => {
-        comments.get(issue_number).push({ body });
+        comments
+          .get(issue_number)
+          .push({ body, user: { login: 'github-actions[bot]', type: 'Bot' } });
         counts.comments++;
         return { data: { body } };
       },
       update: async ({ issue_number, state }) => {
         counts.close++;
         entries.get(issue_number).state = state;
+        entries.get(issue_number).state_reason = 'completed';
         return { data: entries.get(issue_number) };
       },
     },
-    paginate: async (_fn, { issue_number }) => comments.get(issue_number),
+    paginate: async (fn, { issue_number }) =>
+      typeof fn === 'string'
+        ? subIssues.get(issue_number) ?? []
+        : comments.get(issue_number),
   };
 }
 
@@ -87,6 +107,10 @@ test('multiple issue references and exactly one typed contract', () => {
   assert.deepEqual(
     referencedIssues('Refs #1802, #1801; #1807. Fixes #1657.'),
     [1657, 1801, 1802, 1807]
+  );
+  assert.deepEqual(
+    referencedIssues('Closed #1801. Fixed: #1802. RESOLVED #1807.'),
+    [1801, 1802, 1807]
   );
   assert.equal(readContract(body(contract())).version, 1);
   assert.deepEqual(inspectCloseout({ body: body(contract()) }).errors, []);
@@ -145,6 +169,28 @@ test('information-only references do not authorize closure', () => {
       body: body(contract(), 'Closes #1802, #1801'),
     }).errors.join(' '),
     /native GitHub closing keyword/
+  );
+  assert.match(
+    inspectCloseout({ body: 'Resolved: #1801' }).errors.join(' '),
+    /require a closeout-contract/
+  );
+  assert.match(
+    inspectCloseout({
+      body: body(contract()),
+      commitMessages: ['Update. Fixed #1801'],
+    }).errors.join(' '),
+    /Commit messages must use non-closing/
+  );
+  assert.match(
+    inspectCloseout({ body: 'Fixes: Entif-AI/Rosetta#1801' }).errors.join(' '),
+    /Qualified owner\/repo#issue/
+  );
+  assert.match(
+    inspectCloseout({
+      body: body(contract()),
+      commitMessages: ['Fixes Entif-AI/Rosetta#1801'],
+    }).errors.join(' '),
+    /Commit messages must use non-closing/
   );
 });
 
@@ -248,6 +294,145 @@ test('post-merge first run closes child, retains human gate, and appends one-hop
   await reconcileMerge(input);
   assert.equal(api.counts.close, 1);
   assert.equal(api.counts.comments, 3);
+});
+
+test('requires merger-signed exact-head contract approval, not a contributor declaration', async () => {
+  const api = mockApi();
+  api.comments.get(1808).length = 0;
+  await assert.rejects(
+    reconcileMerge({
+      owner: 'Entif-AI',
+      repo: 'Rosetta',
+      pull,
+      files: [],
+      api,
+    }),
+    /No authenticated merger approval/
+  );
+  assert.equal(api.counts.close, 0);
+  api.comments
+    .get(1808)
+    .push({
+      body: approvalMarker(pull, contract()),
+      user: { login: 'untrusted-contributor', type: 'User' },
+    });
+  await assert.rejects(
+    reconcileMerge({
+      owner: 'Entif-AI',
+      repo: 'Rosetta',
+      pull,
+      files: [],
+      api,
+    }),
+    /No authenticated merger approval/
+  );
+  assert.equal(api.counts.comments, 0);
+});
+
+test('untrusted comment cannot counterfeit the automation closeout receipt', async () => {
+  const api = mockApi();
+  api.comments.get(1802).push({
+    body: `<!-- entif-closeout:v1 kind=accepted pr=1808 issue=1802 merge=${sha} -->`,
+    user: { login: 'random-author', type: 'User' },
+  });
+  await reconcileMerge({
+    owner: 'Entif-AI',
+    repo: 'Rosetta',
+    pull,
+    files: [],
+    api,
+  });
+  assert.equal(api.counts.comments, 3);
+  assert.equal(
+    api.comments
+      .get(1802)
+      .filter((c) => c.user?.login === 'github-actions[bot]').length,
+    1
+  );
+});
+
+test('rejects an unrelated earlier close even when the new PR claims acceptance', async () => {
+  const api = mockApi();
+  api.entries.get(1802).state = 'closed';
+  api.entries.get(1802).state_reason = 'not_planned';
+  await assert.rejects(
+    reconcileMerge({
+      owner: 'Entif-AI',
+      repo: 'Rosetta',
+      pull,
+      files: [],
+      api,
+    }),
+    /previously closed without a matching trusted completion receipt/
+  );
+  assert.equal(api.counts.comments, 0);
+});
+
+test('does not close an accepted parent while a declared child or native subissue remains open', async () => {
+  const api = mockApi();
+  api.subIssues.set(1802, [{ number: 999, state: 'open' }]);
+  await assert.rejects(
+    reconcileMerge({
+      owner: 'Entif-AI',
+      repo: 'Rosetta',
+      pull,
+      files: [],
+      api,
+    }),
+    /open native sub-issues/
+  );
+  assert.equal(api.counts.close, 0);
+});
+
+test('admission publishes candidate-head status and fails closed on body drift', async () => {
+  const statuses = [];
+  const source = { ...pull, state: 'open' };
+  const api = {
+    pulls: {
+      get: async () => ({ data: { ...source } }),
+      listFiles: () => {},
+      listCommits: () => {},
+    },
+    repos: {
+      createCommitStatus: async (req) => {
+        statuses.push(req);
+      },
+    },
+    paginate: async (fn) =>
+      fn === api.pulls.listFiles
+        ? []
+        : [{ commit: { message: 'Normal implementation' } }],
+  };
+  const good = await publishAdmission({
+    owner: 'Entif-AI',
+    repo: 'Rosetta',
+    pullNumber: 1808,
+    api,
+    runUrl: evidence,
+  });
+  assert.deepEqual(good.errors, []);
+  assert.deepEqual(
+    statuses.map((x) => x.state),
+    ['pending', 'success']
+  );
+  assert.ok(statuses.every((x) => x.sha === pull.head.sha));
+  statuses.length = 0;
+  let reads = 0;
+  api.pulls.get = async () => ({
+    data: { ...source, body: ++reads === 1 ? source.body : 'Refs #123' },
+  });
+  const drift = await publishAdmission({
+    owner: 'Entif-AI',
+    repo: 'Rosetta',
+    pullNumber: 1808,
+    api,
+    runUrl: evidence,
+  });
+  assert.match(drift.errors.join(' '), /changed during validation/);
+  assert.deepEqual(
+    statuses.map((x) => x.state),
+    ['pending', 'failure']
+  );
 });
 
 test('refuses unchecked default-branch, unmerged, bot, and malformed merge identities', async () => {

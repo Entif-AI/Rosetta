@@ -9,9 +9,9 @@ export const DISPOSITIONS = [
 ];
 const CONTRACT_BLOCK = /```closeout-contract\s*\n([\s\S]*?)\n```/g;
 const REFERENCE_GROUP =
-  /\b(?:Refs?|Closes?|Fixes?|Resolves?)\s+((?:#\d+[\s,;]*)+)/gi;
+  /\b(?:Refs?|Close(?:s|d)?|Fix(?:es|ed)?|Resolve(?:s|d)?)\s*:?\s+((?:(?:[\w.-]+\/[\w.-]+)?#\d+[\s,;]*)+)/gi;
 const NATIVE_CLOSE_GROUP =
-  /\b(?:Closes?|Fixes?|Resolves?)\s+((?:#\d+[\s,;]*)+)/gi;
+  /\b(?:Close(?:s|d)?|Fix(?:es|ed)?|Resolve(?:s|d)?)\s*:?\s+((?:(?:[\w.-]+\/[\w.-]+)?#\d+[\s,;]*)+)/gi;
 const PACK_PATH =
   /^(?:packs\/|docs\/RFCs\/(?:ROCK-|Rosetta v3\.0\.0 Core Spine Specification\.md))/;
 const HEX = /^[a-f0-9]{64}$/;
@@ -62,9 +62,24 @@ export function requiresSemanticGate(files = []) {
 export function inspectCloseout({
   body = '',
   files = [],
+  commitMessages = [],
   requireOnRefs = true,
 } = {}) {
   const errors = [];
+  if (
+    [...body.matchAll(REFERENCE_GROUP)].some((match) =>
+      /[\w.-]+\/[\w.-]+#\d+/.test(match[1])
+    )
+  ) {
+    errors.push(
+      'Qualified owner/repo#issue references are not supported by this repository-local contract; use unqualified #issue references and track cross-repository work separately.'
+    );
+  }
+  if (commitMessages.some((message) => nativeClosingIssues(message).size)) {
+    errors.push(
+      'Commit messages must use non-closing issue references; native GitHub close/fix/resolve keywords bypass issue dispositions.'
+    );
+  }
   const refs = referencedIssues(body);
   let contract;
   try {
@@ -233,16 +248,96 @@ export function inspectCloseout({
   return { errors, refs, contract, semanticGateRequired: semantic };
 }
 
+export const ADMISSION_CONTEXT = 'rosetta/contract-closeout';
+
+// pull_request_target checks execute against the trusted default-branch SHA,
+// not the PR candidate. Publish an explicit candidate-head commit status so
+// branch protection can actually enforce this independent metadata gate.
+export async function publishAdmission({
+  owner,
+  repo,
+  pullNumber,
+  api,
+  runUrl,
+}) {
+  const request = { owner, repo, pull_number: pullNumber };
+  const { data: pull } = await api.pulls.get(request);
+  if (pull.state !== 'open' || !/^[a-f0-9]{40}$/i.test(pull.head?.sha ?? '')) {
+    throw new Error('Admission requires an open PR with a concrete head SHA.');
+  }
+  const sha = pull.head.sha;
+  const setStatus = (state, description) =>
+    api.repos.createCommitStatus({
+      owner,
+      repo,
+      sha,
+      context: ADMISSION_CONTEXT,
+      state,
+      description: description.slice(0, 140),
+      target_url: runUrl,
+    });
+  await setStatus(
+    'pending',
+    'Validating the current PR issue closeout contract.'
+  );
+  const files = await api.paginate(api.pulls.listFiles, {
+    ...request,
+    per_page: 100,
+  });
+  const commits = await api.paginate(api.pulls.listCommits, {
+    ...request,
+    per_page: 100,
+  });
+  const result = inspectCloseout({
+    body: pull.body ?? '',
+    files,
+    commitMessages: commits.map((item) => item.commit?.message ?? ''),
+  });
+  // Metadata can change without a head commit. Never bless a stale PR body.
+  const { data: latest } = await api.pulls.get(request);
+  if (
+    latest.head?.sha !== sha ||
+    latest.body !== pull.body ||
+    latest.state !== 'open'
+  ) {
+    result.errors.push(
+      'PR head/body changed during validation; rerun admission on the new state.'
+    );
+  }
+  await setStatus(
+    result.errors.length ? 'failure' : 'success',
+    result.errors.length
+      ? `Closeout contract: ${result.errors.length} admission error(s).`
+      : 'Issue dispositions admitted; no semantic approval implied.'
+  );
+  return result;
+}
+
 const marker = (kind, pr, issue, sha) =>
   `<!-- entif-closeout:v1 kind=${kind} pr=${pr} issue=${issue} merge=${sha} -->`;
 const hasMarker = (comments, target) =>
-  comments.some((comment) => comment.body?.includes(target));
+  comments.some(
+    (comment) =>
+      comment.user?.login === 'github-actions[bot]' &&
+      comment.user?.type === 'Bot' &&
+      comment.body?.split('\n').some((line) => line.trim() === target)
+  );
+
+export function approvalMarker(pull, contract) {
+  if (!/^[a-f0-9]{40}$/i.test(pull.head?.sha ?? ''))
+    throw new Error('Closeout approval requires the exact PR head.');
+  const digest = createHash('sha256')
+    .update(JSON.stringify(contract))
+    .digest('hex');
+  return `<!-- entif-closeout-approval:v1 head=${pull.head.sha} contract=${digest} -->`;
+}
 
 export async function reconcileMerge({
   owner,
   repo,
   pull,
   files,
+  commitMessages = [],
   api,
   defaultBranch = 'main',
 }) {
@@ -252,11 +347,15 @@ export async function reconcileMerge({
     !/^[a-f0-9]{40}$/i.test(pull.merge_commit_sha ?? '')
   )
     throw new Error('Not a verified merged default-branch PR.');
-  if (!pull.merged_by?.login || pull.merged_by.type === 'Bot')
+  if (!pull.merged_by?.login || pull.merged_by.type !== 'User')
     throw new Error(
       'A human merger must be identified; bot/unknown merge needs separately verified delegated closeout authority.'
     );
-  const audit = inspectCloseout({ body: pull.body ?? '', files });
+  const audit = inspectCloseout({
+    body: pull.body ?? '',
+    files,
+    commitMessages,
+  });
   if (audit.errors.length)
     throw new Error(`Closeout contract invalid: ${audit.errors.join(' ')}`);
   if (!audit.contract)
@@ -265,6 +364,33 @@ export async function reconcileMerge({
       reason: 'No issue references or closeout contract.',
       outcomes: [],
     };
+  // An arbitrary PR author can type closureAuthority into an untrusted PR
+  // body. Only the authenticated human who actually merged this exact PR may
+  // separately approve closing the exact contract at the exact feature head.
+  if (
+    audit.contract.issues.some(({ disposition }) => disposition === 'accepted')
+  ) {
+    const approval = approvalMarker(pull, audit.contract);
+    const comments = await api.paginate(api.issues.listComments, {
+      owner,
+      repo,
+      issue_number: pull.number,
+      per_page: 100,
+    });
+    if (
+      !comments.some(
+        (comment) =>
+          comment.user?.login === pull.merged_by.login &&
+          comment.user?.type === 'User' &&
+          comment.body?.includes(approval)
+      )
+    ) {
+      throw new Error(
+        `No authenticated merger approval for accepted issues at ${pull.head.sha}. ` +
+          `The merger must post the exact approval marker on PR #${pull.number}; no issue states were changed.`
+      );
+    }
+  }
   const outcomes = [];
   // Resolve the full issue/parent perimeter and every blocking disposition before writes.
   // Otherwise an invalid second issue could leave a first child prematurely closed.
@@ -279,6 +405,53 @@ export async function reconcileMerge({
     const issue = response.data;
     if (issue.pull_request)
       throw new Error(`#${number} is a PR, not an issue.`);
+    if (entry.disposition === 'accepted' && issue.state === 'closed') {
+      const prior = await api.paginate(api.issues.listComments, {
+        owner,
+        repo,
+        issue_number: number,
+        per_page: 100,
+      });
+      const receipt = marker(
+        'accepted',
+        pull.number,
+        number,
+        pull.merge_commit_sha
+      );
+      if (issue.state_reason !== 'completed' || !hasMarker(prior, receipt)) {
+        throw new Error(
+          `#${number} was previously closed without a matching trusted completion receipt; manual reconciliation required.`
+        );
+      }
+    }
+    if (entry.disposition === 'accepted') {
+      const heldChildren = audit.contract.issues.filter(
+        (child) => child.parent === number && child.disposition !== 'accepted'
+      );
+      if (heldChildren.length) {
+        throw new Error(
+          `#${number} has unresolved children in this contract: ${heldChildren
+            .map((child) => `#${child.number}`)
+            .join(', ')}.`
+        );
+      }
+      // Native GitHub sub-issues are independent acceptance contracts. A
+      // parent cannot close while any of its recorded sub-issues is open.
+      const subIssues = await api.paginate(
+        'GET /repos/{owner}/{repo}/issues/{issue_number}/sub_issues',
+        { owner, repo, issue_number: number, per_page: 100 }
+      );
+      const openSubIssues = subIssues.filter(
+        (child) => child.state !== 'closed'
+      );
+      if (openSubIssues.length) {
+        throw new Error(
+          `#${number} has open native sub-issues: ${openSubIssues
+            .map((child) => `#${child.number}`)
+            .join(', ')}.`
+        );
+      }
+    }
     if (
       (entry.disposition === 'pending_human' ||
         entry.disposition === 'blocked') &&

@@ -35,8 +35,10 @@ authorities to their own domains.
    a different already-existing root log is **not** automatically stale.
 6. Do not merge or close on behalf of the maintainer without that operation's
    authority. A PR's explicit `closureAuthority` disposition reviewed during
-   human integration is a scope-specific declaration, not generic merge power.
-   Bot merges require separately verified delegated closeout authority.
+   human integration is a scope-specific **proposal**, not a permission grant.
+   To automate issue closure, the actual human merger must additionally post
+   an authenticated, exact-head and exact-contract approval comment on the PR.
+   Bot/unknown merges are held for separate authorized reconciliation.
 
 ## PR issue disposition contract
 
@@ -56,6 +58,11 @@ data shape. The version-1 validator supports these dispositions:
 Use **Refs**, not GitHub's native auto-closing keywords, for
 `pending_human`, `blocked`, and `reference_only` issues.
 GitHub's native closing parser does not understand a deferred parent gate.
+The checker recognizes `close/closes/closed`, `fix/fixes/fixed`, and
+`resolve/resolves/resolved`, with optional colons, and refuses native closing
+keywords in PR commit messages. GitHub's manually chosen squash/merge commit
+message is a separate merge-time risk; the maintainer must preserve the same
+non-closing disposition there.
 
 Example: an accepted child with a human-gated parent:
 
@@ -115,13 +122,42 @@ truth.
 
 ## Enforcement and limits
 
+### Explicit merger approval for accepted issue closure
+
+Before merging a PR with any `accepted` issues, the _intended merger_ must
+post an authenticated PR comment containing exactly the marker printed by:
+
+````sh
+gh pr view <PR-NUMBER> --repo Entif-AI/Rosetta --json body,headRefOid > /tmp/pr-closeout.json
+node --input-type=module -e '
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+const pr = JSON.parse(readFileSync("/tmp/pr-closeout.json", "utf8"));
+const blocks = [...pr.body.matchAll(/```closeout-contract\s*\n([\s\S]*?)\n```/g)];
+if (blocks.length !== 1) throw Error("Exactly one closeout contract required");
+const contract = JSON.parse(blocks[0][1]);
+const digest = createHash("sha256").update(JSON.stringify(contract)).digest("hex");
+console.log(`<!-- entif-closeout-approval:v1 head=${pr.headRefOid} contract=${digest} -->`);
+'
+````
+
+Review the issue disposition list, relevant acceptance evidence, unresolved
+parent/Pack requirements and the exact commit before posting this comment.
+The marker alone is **not** authorization to merge. The post-merge worker
+independently checks its author against GitHub's recorded merger identity.
+Without this comment, no `accepted` issue is automatically closed. A status
+check passing does not substitute for this authorization.
+
 - [`tools/github/contract-closeout.mjs`](../../../tools/github/contract-closeout.mjs)
   validates the finite issue-to-disposition crosswalk and implements an
   idempotent, bounded post-merge reconciler.
 - [`.github/workflows/pr-closeout.yml`](../../../.github/workflows/pr-closeout.yml)
   uses `pull_request_target` but checks out and runs **only trusted default
-  branch code**. Its admission job has read-only permissions; its post-merge
-  job gets narrowly scoped issue write access.
+  branch event-SHA code**, never the PR head. Its admission job can publish only a commit status to the
+  **actual PR head**; its post-merge job gets narrowly scoped issue write
+  access. The admission check's default-branch job SHA is not the PR head.
+  Admission is serialized per PR; issue mutation is serialized per repository
+  with GitHub Actions `queue: max` to avoid losing pending closeout jobs.
 - An actual default-branch merge with an admitted contract can add a
   deterministic completion receipt, close accepted issues and add one
   `CHILD_SYNOPSIS` only to each immediate parent. Replays suppress duplicate
@@ -130,9 +166,19 @@ truth.
 - A missing or conflicting contract **fails** the workflow. It never guesses
   that `Refs` means completion. GitHub-reported merge metadata and the event
   payload must be verified, and no PR-head code is executed with write tokens.
-- Enable **required status check** `contract-admission` in repository branch
-  protection before claiming the pre-merge gate is mandatory. A YAML file alone
-  is not a protected merge gate; maintainers must deliberately configure rules.
+  Same-repository `#number` references are supported; qualified `owner/repo#number`
+  closers are rejected rather than silently misclassified. Existing native
+  sub-issues and closed-without-receipt state block automatic parent closeout.
+- Enable **required commit status** `rosetta/contract-closeout`, supplied by
+  GitHub Actions, in repository branch protection before claiming the pre-merge
+  gate is mandatory. **Do not require the `contract-admission` job**: its
+  `pull_request_target` workflow runs on the default branch SHA rather than
+  the candidate. A YAML file alone is not a protected merge gate.
+- GitHub's default `pull_request_target` restriction for public repositories
+  is scheduled for enforcement on **November 2, 2026**. The maintainer must
+  inspect the repository/organization Actions event policy and explicitly
+  permit this carefully scoped event if the default restriction would block
+  it. Do not assume a successful run today means future activation is safe.
 - The validator proves structural obligations and idempotent operations.
   It cannot independently authenticate a human's interpretation of Pack
   semantics, prove every evidence URL's claims, or certify WCAG/release readiness.
