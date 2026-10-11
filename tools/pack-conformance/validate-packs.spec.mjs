@@ -418,14 +418,18 @@ describe('pack conformance', () => {
       await writePackWithCurrentId(outsideRoot, baseManifest(), { 'examples/example.md': 'outside\n' });
       await symlink(outsideRoot, linkedRoot);
 
-      expect((await validatePackRoot(linkedRoot)).errors).toEqual([
-        expect.objectContaining({ code: 'pack-root-unsafe' })
-      ]);
+      for (const suppliedRoot of [linkedRoot, `${linkedRoot}${path.sep}`]) {
+        expect((await validatePackRoot(suppliedRoot)).errors).toEqual([
+          expect.objectContaining({ code: 'pack-root-unsafe' })
+        ]);
+      }
 
       await rm(outsideRoot, { recursive: true, force: true });
-      expect((await validatePackRoot(linkedRoot)).errors).toEqual([
-        expect.objectContaining({ code: 'pack-root-unsafe' })
-      ]);
+      for (const suppliedRoot of [linkedRoot, `${linkedRoot}${path.sep}`]) {
+        expect((await validatePackRoot(suppliedRoot)).errors).toEqual([
+          expect.objectContaining({ code: 'pack-root-unsafe' })
+        ]);
+      }
     } finally {
       await rm(tempDir, { recursive: true, force: true });
     }
@@ -440,18 +444,22 @@ describe('pack conformance', () => {
       await writePackWithCurrentId(packRoot, baseManifest(), { 'examples/example.md': 'outside\n' });
       await symlink(outsidePacks, linkedPacks);
 
-      expect(await validateWorkspacePacks(linkedPacks)).toEqual(expect.objectContaining({
-        ok: false,
-        packs: [],
-        errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
-      }));
+      for (const suppliedRoot of [linkedPacks, `${linkedPacks}${path.sep}`]) {
+        expect(await validateWorkspacePacks(suppliedRoot)).toEqual(expect.objectContaining({
+          ok: false,
+          packs: [],
+          errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
+        }));
+      }
 
       await rm(outsidePacks, { recursive: true, force: true });
-      expect(await validateWorkspacePacks(linkedPacks)).toEqual(expect.objectContaining({
-        ok: false,
-        packs: [],
-        errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
-      }));
+      for (const suppliedRoot of [linkedPacks, `${linkedPacks}${path.sep}`]) {
+        expect(await validateWorkspacePacks(suppliedRoot)).toEqual(expect.objectContaining({
+          ok: false,
+          packs: [],
+          errors: [expect.objectContaining({ code: 'packs-root-unsafe' })]
+        }));
+      }
     } finally {
       await rm(tempDir, { recursive: true, force: true });
     }
@@ -468,9 +476,11 @@ describe('pack conformance', () => {
       const before = await readFile(manifestPath, 'utf8');
       await symlink(outsidePacks, linkedPacks);
 
-      await expect(updateWorkspacePackIds(linkedPacks)).rejects.toEqual(expect.objectContaining({
-        code: 'packs-root-unsafe'
-      }));
+      for (const suppliedRoot of [linkedPacks, `${linkedPacks}${path.sep}`]) {
+        await expect(updateWorkspacePackIds(suppliedRoot)).rejects.toEqual(expect.objectContaining({
+          code: 'packs-root-unsafe'
+        }));
+      }
       expect(await readFile(manifestPath, 'utf8')).toBe(before);
     } finally {
       await rm(tempDir, { recursive: true, force: true });

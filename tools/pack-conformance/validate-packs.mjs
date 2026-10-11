@@ -205,9 +205,15 @@ async function inspectDeclaredFile(packRoot, declaredPath) {
 }
 
 async function assertDirectRoot(root, code, label) {
+  const rootPrefix = path.parse(root).root;
+  let directRoot = root;
+  while (directRoot.length > rootPrefix.length && /[\\/]$/u.test(directRoot)) {
+    directRoot = directRoot.slice(0, -1);
+  }
+
   let info;
   try {
-    info = await lstat(root);
+    info = await lstat(directRoot);
   } catch (error) {
     if (error?.code === 'ENOENT') return;
     throw error;
