@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { pageSchema } from './lib/showcase';
+import { doctrineSchema } from './lib/doctrine';
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const identifierPattern = /^entif\.[a-z0-9.-]+$/;
@@ -75,9 +76,42 @@ const pages = defineCollection({
   schema: pageSchema,
 });
 
+const doctrine = defineCollection({
+  loader: glob({ pattern: '*.md', base: './content/doctrine' }),
+  schema: doctrineSchema,
+});
+
 const ui = defineCollection({
   loader: glob({ pattern: '*.md', base: './content/ui' }),
   schema: z.object({
+    doctrine: z.object({
+      eyebrow: z.string().min(1),
+      library: z.string().min(1),
+      allDocuments: z.string().min(1),
+      guidingIdea: z.string().min(1),
+      version: z.string().min(1),
+      documentState: z.string().min(1),
+      readingTime: z.string().min(1),
+      minutes: z.string().min(1),
+      contents: z.string().min(1),
+      backToAbout: z.string().min(1),
+      readDraft: z.string().min(1),
+      readOverview: z.string().min(1),
+      readInContext: z.string().min(1),
+      continueReading: z.string().min(1),
+      previous: z.string().min(1),
+      next: z.string().min(1),
+      relatedDocuments: z.string().min(1),
+      draftState: z.string().min(1),
+      overviewState: z.string().min(1),
+      overviewBadge: z.string().min(1),
+      draftBadge: z.string().min(1),
+      draftNote: z.string().min(1),
+      overviewNote: z.string().min(1),
+      sourceNote: z.string().min(1),
+      snapshotLabel: z.string().min(1),
+      illustration: z.string().min(1),
+    }),
     breadcrumb: z.string().min(1),
     brandTagline: z.string().min(1),
     logoAlt: z.string().min(1),
@@ -170,4 +204,4 @@ const editorial = defineCollection({
     families: z.string(),
   }),
 });
-export const collections = { site, pages, ui, editorial };
+export const collections = { site, pages, ui, editorial, doctrine };

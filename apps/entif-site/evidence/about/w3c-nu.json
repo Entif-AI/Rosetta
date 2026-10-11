@@ -1,0 +1,182 @@
+{
+  "checker": "https://validator.w3.org/nu/?out=json",
+  "method": "HTTP POST actual generated HTML bytes; Content-Type text/html; charset=utf-8",
+  "results": [
+    {
+      "input": "dist/about/doctrine/attention-sovereignty/index.html",
+      "sha256": "e7a6b56f46e9d0655b97f60598b4d18cb998bc3796257dc084be0416e08f105d",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/code-of-ethics/index.html",
+      "sha256": "6b9ded636933eaca35faef507c36c7330597e65660d9e01b8a024f7b6a507ea4",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/consent-and-agency/index.html",
+      "sha256": "ebfe565a9067a911c3ccb0578dc6752cc21092c494f712221994072011190fae",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/constitutional-commentary/index.html",
+      "sha256": "7fe34d22e4a9a6424b1e608675abc7fd34d138acf4006553fb129e38008c3169",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:23 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/data-and-memory/index.html",
+      "sha256": "c8a5b367445d3488dd17e946aa4f916e53cc716eb1354b1dcb65a6991c1b0185",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/delegated-authority/index.html",
+      "sha256": "955fe63f60c154ccce569e12624714af98751a2b8826b38614883551d27669c9",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/epistemic-integrity/index.html",
+      "sha256": "c03ef804f46505d0fdadef6f087b53d40087eba01e2a297bbf4b7120fd65050e",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/founding-charter/index.html",
+      "sha256": "2ab4b434cf975f1a50fbfcff2fcbd6516c178e957768f0e876574d51c8e6cf19",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:23 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/governance-constitution/index.html",
+      "sha256": "868573652ec774dfaa52f8962413d3cc9b99c36d07293b8ba59b15dca5ae4749",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/governance-criteria/index.html",
+      "sha256": "ac97fbbf35a10d3459aa745713985c796c30e7b807ea7f8213a87f59499cc604",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/human-ai-apprenticeship/index.html",
+      "sha256": "558c3781d4f5a76775e20cf00e2e3f37580246697c8a4089ef82316a019bfc76",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/legal-design/index.html",
+      "sha256": "c9f453ecf7ae82dc70ad989fa799c194518f5b773379bb578226e2e92cec9315",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/moral-uncertainty/index.html",
+      "sha256": "a91fb121edad8ba586c2322a4a3c5572da1a3ee5dbb695c6788c44b17901b340",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/research-ethics/index.html",
+      "sha256": "df8fc3fa70f2acae1d0f08315617ce8302e30cb6f1aab3a0263a79710d6f937a",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:24 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/doctrine/why-nonprofit/index.html",
+      "sha256": "fa8546181bf0b68883037a3d2999839b833c50a4369dcb1553241c4e618d1060",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:23 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    },
+    {
+      "input": "dist/about/index.html",
+      "sha256": "f1dc5c742d24734ec23aa19e5309a2f7892c3a7271ca3473ba7b246d4f471aaa",
+      "httpStatus": 200,
+      "responseDate": "Sun, 11 Oct 2026 18:16:23 GMT",
+      "response": {
+        "version": "26.10.11",
+        "messages": [],
+        "language": "en"
+      }
+    }
+  ]
+}

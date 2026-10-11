@@ -1,6 +1,6 @@
 # Entif AI design system
 
-Version: 1.2.0 · October 11, 2026
+Version: 1.3.0 · October 11, 2026
 
 ## Intent and authority
 
@@ -77,6 +77,20 @@ All seven system sections and working fragment links are server-rendered. Only s
 The showcase inherits the canonical serif for all narrative and controls; no new font exception is necessary. Existing Editorial sans-serif exceptions remain local. Essential content never depends on animation; reduced motion removes transitions and smooth scrolling. Do not lock scrolling, orientation or zoom. The future scenario has one concise visible illustrative label. Preserve the final proposition: **Let knowledge grow. Keep people in control.**
 
 This revision records the author's accepted direction. Implementation evidence does not confer design/content approval, complete manual WCAG conformance or permission to publish. Record unavailable desktop/mobile assistive-technology evaluation as `NOT_EVALUATED` with a repeatable procedure before release.
+
+## About and guiding doctrine
+
+About and its doctrine children compose `FullWidthPageLayout` through a small shared `AboutPageLayout`. Preserve the live site header, brand lockup, navigation, social controls and footer. The author's About reference controls the new page aesthetic: cinematic navy/blue artwork, restrained amber accents, inherited serif narrative, pale blue mission/reading stages and dark illustrated doctrine cards. These are page-scoped choices in the `pages` layer, not changes to the shared site palette.
+
+About has an illustrated hero, mission and four supporting commitments, four linked principles, founder and native full-biography disclosure, a grouped doctrine library, and a globe-led closing. Preserve the approved biography and research links. The founder quotation comes from the existing authored About copy; do not invent a colleague testimonial. The hero portrait is visibly identified as conceptual illustration.
+
+The child suite is D01–D14 and D16. The author excluded D15's research agenda after supplying the existing publication atlas. Each included document has a distinct thematic raster hero, the same breadcrumb/action structure, a guiding idea, honest source version/status, a reading-time estimate, native contents links, full reading section and previous/next/context navigation. Derive routes and neighbors from admitted content and honor deployment base paths. No client framework is needed.
+
+D05 is internal in the supplied publication register. Publish only its public legal-design objectives as an explicitly labeled overview. The other public documents preserve their first-draft text, opaque evidence references and native dates. Omit private link destinations. Publication is not adoption, incorporation, tax recognition, operational implementation or conformance. Source snapshots and hashes describe content custody, not verified institutional outcomes. Do not treat research self-reports as consciousness findings.
+
+The full-width stages retain the shared 80rem padded boundary and 46rem reading measure. At the compact threshold, artwork and hero copy stack, the reading contents precede the article, and grids become a single column. Never fix an essential text region's height. On wide screens the article contents may stick and scroll within their own column. Native disclosure, all article text and all navigation work without JavaScript. Preserve visible focus, enlarged text, forced colors and print reading. Artwork is decorative; the accompanying text supplies the meaning.
+
+Optimize the separate generated artwork as local WebP assets with intrinsic dimensions and responsive image candidates. Load the hero eagerly and thumbnails/closing artwork lazily; add no external runtime or web fonts. Record the prompt set and inspect every image. Check all child routes for complete text, working contents/neighbors, distinct loaded heroes, reflow and automated accessibility. Compare the About header against the pre-change baseline at desktop and phone widths. Automated proof remains distinct from physical assistive-technology evaluation and author approval.
 
 ## Stylesheet ownership and cascade
 
