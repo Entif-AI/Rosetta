@@ -195,6 +195,19 @@
       }
     },
     {
+      "id": "entif:pack-bootstrap-admission",
+      "kind": "plan",
+      "title": "Include bootstrap Pack evidence in merge admission",
+      "status": "in-progress",
+      "task": "T790",
+      "issues": [790],
+      "pr": null,
+      "source": {
+        "path": "plans/pack-bootstrap-admission.md",
+        "sha256": "3fd6de6d0d47459f96dc8fed8448c6886e69a1e6a546564093d18cfdbfc81600"
+      }
+    },
+    {
       "id": "entif:run-completion",
       "kind": "plan",
       "title": "Terminal engineering-run completion evidence",
@@ -561,6 +574,11 @@
       "from": "entif:materialized-view",
       "kind": "depends-on",
       "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:pack-bootstrap-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:run-completion",
