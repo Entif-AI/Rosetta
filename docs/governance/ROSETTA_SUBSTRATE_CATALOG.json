@@ -26,6 +26,17 @@
       }
     },
     {
+      "id": "rosetta:temporal-evidence-v1",
+      "kind": "behavior",
+      "title": "Federated temporal and causal evidence (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta temporal/provenance maintainers",
+      "source": {
+        "path": "specs/temporal-evidence-v1.md",
+        "sha256": "2cbc3bd0460e4d0f8f3bc6e1da67930c5870ff77443801118936dea8e1ab6171"
+      }
+    },
+    {
       "id": "entif:akasha-falkor-closeout",
       "kind": "plan",
       "title": "Reconcile the forward Akasha V0 backend path",
@@ -296,6 +307,19 @@
       "source": {
         "path": "plans/specops-plans.md",
         "sha256": "71a3ac5aab8fa4cc69da0d68d9fe4a17cfb415bdcbc4bc89644fb55cddb4101c"
+      }
+    },
+    {
+      "id": "entif:temporal-evidence-spec",
+      "kind": "plan",
+      "title": "Agree temporal/causal evidence semantics before runtime behavior",
+      "status": "planned",
+      "task": "T1558",
+      "issues": [1558, 1791],
+      "pr": null,
+      "source": {
+        "path": "plans/temporal-evidence-spec.md",
+        "sha256": "178a6fd534282b908c765dda2af05c4cbd1a81e55d63b564d585613bc9683566"
       }
     },
     {
@@ -643,6 +667,11 @@
       "to": "entif:specops-migrate"
     },
     {
+      "from": "entif:temporal-evidence-spec",
+      "kind": "implements",
+      "to": "rosetta:temporal-evidence-v1"
+    },
+    {
       "from": "entif:trace-graph-falkor",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -734,6 +763,11 @@
     },
     {
       "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:temporal-evidence-v1",
       "kind": "governed-by",
       "to": "entif:substrate-principles"
     }
