@@ -72,7 +72,7 @@ This revision preserves the executed finite-world reference and unrun core SYS e
 
 Contemporary language models are trained on a representational bargain inherited from human communication. Natural language is extraordinarily expressive, socially adaptive, redundant where humans need redundancy, elliptical where shared context permits ellipsis, irregular where history has accumulated irregularity, and ambiguous where people tolerate ambiguity because pragmatic inference usually resolves it. Those properties make natural language an excellent human interface. They do not imply that it is the cheapest possible developmental substrate for an artificial learner.
 
-The distinction matters because a model trained on text must learn at least two overlapping things. It must learn useful structure about the world and about reasoning, and it must learn how that structure is scattered across lexical choices, syntax, morphology, discourse convention, pragmatics, metaphor, omission, and context. A capable transformer demonstrably *can* induce substantial hidden structure from strings. Allen-Zhu and Li, for example, show GPT-style models learning synthetic recursive context-free grammars whose hidden states recover hierarchical structure and whose attention patterns resemble dynamic-programming information flow [15]. The scientific question here is therefore not whether neural language models are capable of discovering structure implicitly. They plainly are.
+The distinction matters because a model trained on text must learn at least two overlapping things. It must learn useful structure about the world and about reasoning, and it must learn how that structure is scattered across lexical choices, syntax, morphology, discourse convention, pragmatics, metaphor, omission, and context. A capable transformer demonstrably _can_ induce substantial hidden structure from strings. Allen-Zhu and Li, for example, show GPT-style models learning synthetic recursive context-free grammars whose hidden states recover hierarchical structure and whose attention patterns resemble dynamic-programming information flow [15]. The scientific question here is therefore not whether neural language models are capable of discovering structure implicitly. They plainly are.
 
 The question is what that discovery costs.
 
@@ -112,11 +112,11 @@ Consider a simple abstract relation such as evidential status. Human languages c
 
 The important claim is not that explicit representation always wins. Explicit structure can also be wrong, brittle, expensive to construct, or mismatched to the task. A hand-designed ontology can inject the designer's blind spots. A semantic parser can leak labels. A compact representation can erase ambiguity that the model would otherwise exploit. These risks are reasons for matched controls and ablation, not reasons to leave representation unexamined.
 
-Recent work makes the broader research direction difficult to dismiss. Large Concept Models (LCMs) operate autoregressively in a higher-level semantic representation where a "concept" is instantiated as a sentence embedding in the multilingual SONAR space [16]. This demonstrates that a generative model need not use ordinary word/subword tokens as its only modeling unit. Coconut instead feeds continuous hidden states back as subsequent reasoning inputs and reports advantages on selected logical tasks requiring search and backtracking [17]. These systems are not Bilqis. Their representations are learned dense vectors rather than an explicit typed semantic algebra. Precisely because they differ, they help isolate the research question: perhaps moving above surface language matters, and perhaps the *kind* of structure supplied above language matters too.
+Recent work makes the broader research direction difficult to dismiss. Large Concept Models (LCMs) operate autoregressively in a higher-level semantic representation where a "concept" is instantiated as a sentence embedding in the multilingual SONAR space [16]. This demonstrates that a generative model need not use ordinary word/subword tokens as its only modeling unit. Coconut instead feeds continuous hidden states back as subsequent reasoning inputs and reports advantages on selected logical tasks requiring search and backtracking [17]. These systems are not Bilqis. Their representations are learned dense vectors rather than an explicit typed semantic algebra. Precisely because they differ, they help isolate the research question: perhaps moving above surface language matters, and perhaps the _kind_ of structure supplied above language matters too.
 
 Follow-up latent-reasoning work supplies a useful warning. Ozeren and Assenmacher report that latent-space methods can be sensitive to design choices and still lag language-space chain-of-thought on mathematical reasoning [18]. Wang and colleagues find that inference-time scaling recipes transfer only weakly to continuous reasoning and argue that current continuous thought representations lack useful inductive biases for discriminating correct and incorrect trajectories [19]. This suggests a productive possibility without proving it: a machine semantic language may need more than compression. It may need explicit structure that exposes distinctions useful to learning, evaluation, and controlled composition.
 
-A related author-originated hypothesis predating this paper concerns structure *inside* representational units. Chinese orthography offers a natural motivating case because many characters contain reusable sub-character components, including semantic radicals. Si et al. explicitly exploit glyph- and pronunciation-derived sub-character structure in Chinese pretraining and report competitive downstream performance together with substantial sequence compression in some settings [33]. Haslett later reports that token boundaries misaligned with Chinese semantic radicals systematically distort model representations, and that single-token characters can perform worse than multi-token characters when the latter expose useful sub-character structure [34]. These results do not imply that Chinese is intrinsically a superior language for AI, and they do not explain the efficiency of Chinese AI laboratories. They establish a narrower methodological point: compression and factor visibility are not the same objective. A shorter or more atomic encoding can hide reusable structure that a learner could otherwise exploit.
+A related author-originated hypothesis predating this paper concerns structure _inside_ representational units. Chinese orthography offers a natural motivating case because many characters contain reusable sub-character components, including semantic radicals. Si et al. explicitly exploit glyph- and pronunciation-derived sub-character structure in Chinese pretraining and report competitive downstream performance together with substantial sequence compression in some settings [33]. Haslett later reports that token boundaries misaligned with Chinese semantic radicals systematically distort model representations, and that single-token characters can perform worse than multi-token characters when the latter expose useful sub-character structure [34]. These results do not imply that Chinese is intrinsically a superior language for AI, and they do not explain the efficiency of Chinese AI laboratories. They establish a narrower methodological point: compression and factor visibility are not the same objective. A shorter or more atomic encoding can hide reusable structure that a learner could otherwise exploit.
 
 We reserve **H132, the Visible Subsymbol Semantic Structure Hypothesis**, for the corresponding Bilqis experiment: holding underlying semantics and component statistics constant, a representation whose visible sub-symbol components consistently expose reusable semantic factors may improve sample efficiency or held-out composition relative to an opaque or semantically permuted encoding. The effect may be absent, reversed, or tokenizer-dependent.
 
@@ -126,7 +126,7 @@ The economic motivation is upstream of accelerator choice. Bilqis is not primari
 
 A lossless representation cannot manufacture task information. Let W be a finite world and query, Y its oracle answer, and R_B and R_C two invertible encodings on the supported domain. Because each encoding determines W, an unrestricted decision rule has the same Bayes-optimal risk from either encoding. This follows by composing any decision rule with the inverse codec. It does not follow that a bounded neural learner, a finite dataset or a fixed optimizer can find those equivalent rules at equal cost.
 
-That distinction is the central mechanism, rather than an embarrassment to it. The compiler may move a relation from a distant, irregular dependency into a stable local coordinate. A bounded model class need not be closed under arbitrary input recoding: a compact function of R_B can correspond to a cumbersome function of R_C. Training also depends on which functions are easy for the optimizer to reach, not merely on which exist in the parameterized class. Bilqis's proposed advantage is therefore a reduction in the cost of *accessing and reusing* available information. It is not an increase in Shannon information that was absent from the underlying world.
+That distinction is the central mechanism, rather than an embarrassment to it. The compiler may move a relation from a distant, irregular dependency into a stable local coordinate. A bounded model class need not be closed under arbitrary input recoding: a compact function of R_B can correspond to a cumbersome function of R_C. Training also depends on which functions are easy for the optimizer to reach, not merely on which exist in the parameterized class. Bilqis's proposed advantage is therefore a reduction in the cost of _accessing and reusing_ available information. It is not an increase in Shannon information that was absent from the underlying world.
 
 This formulation distinguishes three transfers of burden. A semantic compiler can perform work that the learner would otherwise discover. A curriculum can supply examples in an order that makes a compact rule discoverable. A factorized interface can make a learned rule reusable across combinations. These mechanisms can coexist, but their costs belong to different ledger entries. A system that saves learner compute by spending an unreported fortune on parsing has shifted the bill, not established a total-cost advantage.
 
@@ -254,12 +254,13 @@ CONFIGURATION: \<value\>
 EXTENSION: \<value\>  
 PERSPECTIVE: \<value\>  
 ESSENCE: \<value\>  
-AFFIXES:  
+AFFIXES:
+
 - TYPE: \<semantic operator\>  
-DEGREE: \<value\>  
-SCOPE: \<target\>  
-CASE_OR_ILLOCUTION: \<value\>  
-VALIDATION: \<value\>
+  DEGREE: \<value\>  
+  SCOPE: \<target\>  
+  CASE_OR_ILLOCUTION: \<value\>  
+  VALIDATION: \<value\>
 
 This is schematic. The experimental compiler must follow the current New Ithkuil grammar rather than this illustrative layout when exact morphology matters.
 
@@ -369,7 +370,7 @@ This is the central reason "grammar before lexicon" is interesting experimentall
 
 For Stage 2, the canonical training artifact is therefore not one enormous training-data.txt. It is a **versioned teacher program**: semantic specification + curriculum topology + scenario generators + answer oracles + representation codecs + evaluation families + checkpoint/promotion policy. Concrete examples are generated products of that program. This matters scientifically because the experiment can reproduce not only the bytes a student saw, but the rule system that created those bytes and the rule system that judged the student's response.
 
-The teacher program also distinguishes *who may propose work* from *which execution lane should perform it*. Exact computation should remain code/solver work; high-volume bounded pedagogy can use a local or lower-cost model; difficult research synthesis can escalate to a stronger human-in-the-loop model; and calls that become part of the experimental intervention should be frozen into a reproducible model-assistance contract. The routing policy is not itself a cognitive hypothesis. It is an experimental-control mechanism intended to spend strong model cognition where it has leverage without allowing unequal teacher strength to masquerade as a representation effect.
+The teacher program also distinguishes _who may propose work_ from _which execution lane should perform it_. Exact computation should remain code/solver work; high-volume bounded pedagogy can use a local or lower-cost model; difficult research synthesis can escalate to a stronger human-in-the-loop model; and calls that become part of the experimental intervention should be frozen into a reproducible model-assistance contract. The routing policy is not itself a cognitive hypothesis. It is an experimental-control mechanism intended to spend strong model cognition where it has leverage without allowing unequal teacher strength to masquerade as a representation effect.
 
 The teacher program should separate proposal from authority. A local general-purpose model can be useful as a curriculum author, adversarial fuzzer, paraphrase generator, translation critic, difficulty designer, and failure-clustering assistant. But whenever a task admits exact evaluation, the authoritative answer should come from executable semantics. Arithmetic can be evaluated arithmetically; Boolean cases can be exhaustively checked or solver-validated; graph relations can be computed from the generated graph; Bilqis/AST codecs can be subjected to semantic round-trip and property tests. Important generator/oracle pairs should use independent implementations or cross-checks where feasible so that one deterministic bug cannot both create a problem and certify the same wrong answer.
 
@@ -399,7 +400,7 @@ The implemented controls are reversible compact Bilqis-inspired serialization, c
 
 ![Donor facts motivate a representation. Only specified formal semantics determine gold answers. Later natural-language transfer remains a hypothesis.](/research-assets/prepaying-semantics/graphics/F01.svg)
 
-*Figure 01. One world, several surfaces, one truth authority. Donor facts motivate a representation. Only specified formal semantics determine gold answers. Later natural-language transfer remains a hypothesis.*
+_Figure 01. One world, several surfaces, one truth authority. Donor facts motivate a representation. Only specified formal semantics determine gold answers. Later natural-language transfer remains a hypothesis._
 
 ### 4.8 A control that changes factor access without deleting information
 
@@ -411,7 +412,7 @@ This control also locates an important negative outcome. If aligned factor visib
 
 ![The mixed control changes local factor access without deleting information. A learning advantage under this transformation is not assumed.](/research-assets/prepaying-semantics/graphics/F02.svg)
 
-*Figure 02. Renaming symbols is not hiding their factors. The mixed control changes local factor access without deleting information. A learning advantage under this transformation is not assumed.*
+_Figure 02. Renaming symbols is not hiding their factors. The mixed control changes local factor access without deleting information. A learning advantage under this transformation is not assumed._
 
 ## 5. The Semantic Reconstruction Tax Hypothesis
 
@@ -421,10 +422,11 @@ A language model trained from surface text must devote learning capacity to reco
 
 We can express the intuition schematically, without pretending the terms are currently measurable as cleanly separable physical quantities:
 
-training burden ~= world/reasoning structure  
-+ surface-language structure  
-+ inference needed to align the two  
-+ irreducible noise/optimization cost
+training burden ~= world/reasoning structure
+
+- surface-language structure
+- inference needed to align the two
+- irreducible noise/optimization cost
 
 Bilqis attempts to reduce the third term during early development and perhaps part of the second. This does not imply that natural-language knowledge disappears. A useful system still has to learn languages, culture, idiom, factual knowledge, and domain-specific information. The proposed gain is that those later inputs arrive to a model that already possesses more of the relational machinery needed to integrate them.
 
@@ -478,7 +480,7 @@ The ambitious version of the thesis concerns combinatorial reuse. A domain with 
 
 This is a mechanism for potentially large savings, not a theorem that Bilqis converts exponential sample complexity into polynomial sample complexity on every task. The unrestricted lookup-table class and the compositional rule class are different hypothesis classes. A fair experimental comparison gives both arms the same actual task-generating process and measures whether the interface makes its shared structure easier to learn. It must also count the prior work supplied by the designer. Otherwise the experiment gives one arm the solution class and congratulates it for not searching everywhere else.
 
-The strongest developmental prediction is consequently not simply that compact inputs train faster. It is that early mastery of stable operators changes the *marginal cost* of acquiring later compositions: a newly introduced combination becomes learnable from substantially fewer examples because its components are already operational. Measure this with held-out operator combinations, interference branches and transfer to independently rendered descriptions. A collection of isolated field classifiers cannot establish that prediction.
+The strongest developmental prediction is consequently not simply that compact inputs train faster. It is that early mastery of stable operators changes the _marginal cost_ of acquiring later compositions: a newly introduced combination becomes learnable from substantially fewer examples because its components are already operational. Measure this with held-out operator combinations, interference branches and transfer to independently rendered descriptions. A collection of isolated field classifiers cannot establish that prediction.
 
 A second route to large gains is reuse across descendants. If one validated developmental substrate and one competent small checkpoint are used in many later tasks, fixed compiler and curriculum costs can be amortized. Let F_B and F_C be one-time construction costs and r_B and r_C the measured per-descendant costs. B becomes cheaper only when F_B + N r_B is below F_C + N r_C. When r_C exceeds r_B, the break-even N is (F_B-F_C)/(r_C-r_B), subject to the chosen accounting units and maintenance costs. There is no break-even advantage from repetition when the recurring B cost is higher and its fixed cost is not lower.
 
@@ -490,7 +492,7 @@ This mechanism makes edge-rich semantic resources interesting without treating a
 
 ![Conceptual accounting identity, not an empirical curve. Unknown energy and costs remain unknown. Token savings alone do not pay the complete bill.](/research-assets/prepaying-semantics/graphics/F08.svg)
 
-*Figure 08. Efficiency has a first-use bill. Conceptual accounting identity, not an empirical curve. Unknown energy and costs remain unknown. Token savings alone do not pay the complete bill.*
+_Figure 08. Efficiency has a first-use bill. Conceptual accounting identity, not an empirical curve. Unknown energy and costs remain unknown. Token savings alone do not pay the complete bill._
 
 ### 5.4 The tax is a contrast, not a hidden organ
 
@@ -522,7 +524,7 @@ This motivates, but does not establish, the Bilqis wager: perhaps escaping natur
 
 TinyStories is unusually important here because it attacks a variable upstream of model size. Its motivating question is whether small-model incoherence reflects an intrinsic scale requirement or the excessive breadth and diversity of ordinary corpora [8]. Its intervention is deliberately developmental: synthesize a much narrower English world with a roughly 1,500-word child-oriented vocabulary while forcing diversity through randomized lexical combinations and story features. The resulting models show coherent constrained-domain language and some reasoning/instruction behavior at sizes far below the regimes that motivated the paper, with the 1M-35M experimental family trainable on one V100 within at most 30 hours [8].
 
-That makes TinyStories a stronger ancestor than a generic \`\`small model'' citation, but not evidence for Bilqis's central mechanism. TinyStories still asks the learner to acquire cognition-like regularities through ordinary English strings; it reduces environmental breadth without explicitly supplying semantic roles, scope, epistemic status, formal relations, or prerequisite structure. Bilqis asks whether reducing *representational reconstruction* after already controlling environmental complexity moves the curve again.
+That makes TinyStories a stronger ancestor than a generic \`\`small model'' citation, but not evidence for Bilqis's central mechanism. TinyStories still asks the learner to acquire cognition-like regularities through ordinary English strings; it reduces environmental breadth without explicitly supplying semantic roles, scope, epistemic status, formal relations, or prerequisite structure. Bilqis asks whether reducing _representational reconstruction_ after already controlling environmental complexity moves the curve again.
 
 TinyStories therefore becomes both a calibration target and a hard baseline. Before interpreting a Bilqis failure, the implementation should demonstrate that its small-model harness can reproduce a known constrained-development regime. In the causal experiment, TinyStories-style restricted natural language should sit below the same deterministic semantic worlds used by structured-English and semantic-IR conditions. If Bilqis beats only a broad or badly matched language baseline but not a TinyStories-style restricted one, the result is primarily an environmental-simplification effect.
 
@@ -532,7 +534,7 @@ There is also an accounting distinction. TinyStories used GPT-3.5 and GPT-4 to m
 
 The Phi family and TinyStories demonstrate that data selection and pedagogical structure can radically change what small models learn at a given parameter budget [7,8]. Formal work provides an even cleaner warning against conflating representation with curriculum. Abbe, Bengio, Lotfi, and Rizk show that a degree-ordered curriculum can improve learning of Boolean monomials in their generalization-on-the-unseen setting [23]. More broadly, Bengio and colleagues formalized curriculum learning as meaningful ordering of training examples and reported generalization improvements in the studied neural-learning settings [29]. Dekker, Otto, and Summerfield later found that human compositional generalization depends on training organization and showed that a modified neural model could reproduce sensitivity to those curricula in their experimental paradigm [30].
 
-Accordingly, Bilqis cannot compare a carefully staged semantic curriculum against an ordinary shuffled web-text baseline and attribute the full difference to representation. Content-matched curriculum controls are mandatory. The experiment must cross *what is represented* with *the order and supervision through which it is learned*.
+Accordingly, Bilqis cannot compare a carefully staged semantic curriculum against an ordinary shuffled web-text baseline and attribute the full difference to representation. Content-matched curriculum controls are mandatory. The experiment must cross _what is represented_ with _the order and supervision through which it is learned_.
 
 There are two ordering variables here, and they must not be collapsed: the order in which concepts/examples enter the curriculum, and the order in which factors of one semantic object are exposed or constructed. The first is developmental sequencing across training experience; the second changes the local conditioning structure of each training item. Bilqis now treats both as experimental variables.
 
@@ -568,7 +570,7 @@ Even this conjunction is presented as a proposed experimental object, not as an 
 
 ### 6.7 Current competitors sharpen the mechanism
 
-Shai and colleagues' 2026 work on factored representations is particularly relevant counterpressure. Their transformer experiments study learning latent factor structure, and their analysis distinguishes compact factored predictive representations from a larger joint space. This establishes a competing route: a learner can discover factors without receiving a Bilqis-like explicit interface. It also exposes a condition under which forced factorization is inappropriate, because dependencies can require joint information [39]. Bilqis therefore predicts an advantage in *cost or robustness under specified conditions*, not an exclusive ability to represent factors.
+Shai and colleagues' 2026 work on factored representations is particularly relevant counterpressure. Their transformer experiments study learning latent factor structure, and their analysis distinguishes compact factored predictive representations from a larger joint space. This establishes a competing route: a learner can discover factors without receiving a Bilqis-like explicit interface. It also exposes a condition under which forced factorization is inappropriate, because dependencies can require joint information [39]. Bilqis therefore predicts an advantage in _cost or robustness under specified conditions_, not an exclusive ability to represent factors.
 
 The correct response is a correlation stress test. Train on varying degrees of factor dependence while holding the oracle task fixed. Compare independent-factor assumptions, explicit joint relations and the generic typed control. If a factorized substrate systematically suppresses dependencies the task needs, that is a design failure, not an anomalous data point to exclude. A successful substrate should make both factors and their relations available, rather than confuse decomposability of representation with statistical independence of the world.
 
@@ -775,7 +777,7 @@ The fixed prerequisite curriculum is only the first H019 test. A later gated bra
 
 ### 7.4 P1C: visible sub-symbol semantic structure
 
-H132 tests whether reusable structure exposed *inside* representational units changes learning. Use the same generated semantic worlds and compare at least five renderings:
+H132 tests whether reusable structure exposed _inside_ representational units changes learning. Use the same generated semantic worlds and compare at least five renderings:
 
 1.  opaque atomic symbols whose internal form carries no reusable semantics;
 
@@ -983,7 +985,7 @@ Teacher responses can diverge because the two representations produce different 
 
 ![S0 unlocks S1, S2 and S4; S1 plus S2 unlock S3. Mastery, retention and transfer gates are curriculum decisions, not efficacy tests.](/research-assets/prepaying-semantics/graphics/F03.svg)
 
-*Figure 03. Development is a checkpointed state machine. S0 unlocks S1, S2 and S4; S1 plus S2 unlock S3. Mastery, retention and transfer gates are curriculum decisions, not efficacy tests.*
+_Figure 03. Development is a checkpointed state machine. S0 unlocks S1, S2 and S4; S1 plus S2 unlock S3. Mastery, retention and transfer gates are curriculum decisions, not efficacy tests._
 
 ### 7.15 World-sensitive counterfactual pairs
 
@@ -997,7 +999,7 @@ The design uses 512 ordinary cases in each of ten family-by-stage cells, totalin
 
 ![A deterministic query-only rule cannot answer both members correctly. Witness discovery is bounded; failure to find one is not an impossibility proof.](/research-assets/prepaying-semantics/graphics/F04.svg)
 
-*Figure 04. A world-sensitive pair keeps the query fixed. A deterministic query-only rule cannot answer both members correctly. Witness discovery is bounded; failure to find one is not an impossibility proof.*
+_Figure 04. A world-sensitive pair keeps the query fixed. A deterministic query-only rule cannot answer both members correctly. Witness discovery is bounded; failure to find one is not an impossibility proof._
 
 ### 7.16 Engineering evidence obtained in this revision
 
@@ -1011,11 +1013,11 @@ The code supplies a loopback-only local-model adapter with append-only proposal 
 
 ![A positive SYS result is a total adaptive-system effect. Matched replay and component interventions follow; no scientific SYS run is reported here.](/research-assets/prepaying-semantics/graphics/F05.svg)
 
-*Figure 05. Test the integrated system before attribution. A positive SYS result is a total adaptive-system effect. Matched replay and component interventions follow; no scientific SYS run is reported here.*
+_Figure 05. Test the integrated system before attribution. A positive SYS result is a total adaptive-system effect. Matched replay and component interventions follow; no scientific SYS run is reported here._
 
 ![Executed on the recorded CPU environment. These receipts validate a small implementation path, not comparative efficacy, native low-bit efficiency or independent replication.](/research-assets/prepaying-semantics/graphics/F07.svg)
 
-*Figure 07. What was actually executed. Executed on the recorded CPU environment. These receipts validate a small implementation path, not comparative efficacy, native low-bit efficiency or independent replication.*
+_Figure 07. What was actually executed. Executed on the recorded CPU environment. These receipts validate a small implementation path, not comparative efficacy, native low-bit efficiency or independent replication._
 
 ### 7.17 Reproducibility as a tested transfer of competence
 
@@ -1135,7 +1137,7 @@ A transformer may benefit from one serialization while a recurrent, state-space,
 
 ### 9.7 Defining cognition operationally
 
-The word *cognition* can become an escape hatch for vague claims. Here it should be operationalized as families of measurable competence: relational composition, systematic generalization, inference under explicit uncertainty, causal/temporal transformation, proof-like manipulation, transfer, and efficient acquisition. Fluency, factual recall, and benchmark scores can be measured too, but none is allowed to stand in for the whole construct.
+The word _cognition_ can become an escape hatch for vague claims. Here it should be operationalized as families of measurable competence: relational composition, systematic generalization, inference under explicit uncertainty, causal/temporal transformation, proof-like manipulation, transfer, and efficient acquisition. Fluency, factual recall, and benchmark scores can be measured too, but none is allowed to stand in for the whole construct.
 
 ### 9.8 The strongest efficiency claims may fail
 
@@ -1175,7 +1177,7 @@ The strongest efficiency hypothesis is not protected by endless relabeling. If c
 
 ![The thesis contains distinct bridges. A negative result narrows the bridge it tests rather than silently erasing independent findings.](/research-assets/prepaying-semantics/graphics/F06.svg)
 
-*Figure 06. A local falsifier should cause a local revision. The thesis contains distinct bridges. A negative result narrows the bridge it tests rather than silently erasing independent findings.*
+_Figure 06. A local falsifier should cause a local revision. The thesis contains distinct bridges. A negative result narrows the bridge it tests rather than silently erasing independent findings._
 
 ### 9.15 Embedding proximity is not semantic identity
 
@@ -1261,17 +1263,17 @@ References [26]-[28], [56], and [61] document antecedent Entif/Rosetta design, g
 
 ## References
 
-[1] John Quijada. *A Grammar of New Ithkuil, Chapter 3: Basic Morphology*. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_03_morphology.htm</u>](https://www.ithkuil.net/newithkuil_03_morphology.htm) Inspection: Official grammar relevant sections read live.
+[1] John Quijada. _A Grammar of New Ithkuil, Chapter 3: Basic Morphology_. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_03_morphology.htm</u>](https://www.ithkuil.net/newithkuil_03_morphology.htm) Inspection: Official grammar relevant sections read live.
 
-[2] John Quijada. *A Grammar of New Ithkuil, Chapter 4: Case Morphology*. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_04_case.htm</u>](https://www.ithkuil.net/newithkuil_04_case.htm) Inspection: Official grammar relevant sections read live.
+[2] John Quijada. _A Grammar of New Ithkuil, Chapter 4: Case Morphology_. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_04_case.htm</u>](https://www.ithkuil.net/newithkuil_04_case.htm) Inspection: Official grammar relevant sections read live.
 
-[3] John Quijada. *A Grammar of New Ithkuil, Chapter 5: Verb Morphology*. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_05_verbs.htm</u>](https://www.ithkuil.net/newithkuil_05_verbs.htm) Inspection: Official grammar relevant sections read live.
+[3] John Quijada. _A Grammar of New Ithkuil, Chapter 5: Verb Morphology_. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_05_verbs.htm</u>](https://www.ithkuil.net/newithkuil_05_verbs.htm) Inspection: Official grammar relevant sections read live.
 
-[4] John Quijada. *New Ithkuil Affix Inventory* and *Chapter 7: Affixes*. Official New Ithkuil materials. Source: [<u>https://www.ithkuil.net/newithkuil_07_affixes.htm</u>](https://www.ithkuil.net/newithkuil_07_affixes.htm) Inspection: Official grammar relevant sections read live.
+[4] John Quijada. _New Ithkuil Affix Inventory_ and _Chapter 7: Affixes_. Official New Ithkuil materials. Source: [<u>https://www.ithkuil.net/newithkuil_07_affixes.htm</u>](https://www.ithkuil.net/newithkuil_07_affixes.htm) Inspection: Official grammar relevant sections read live.
 
-[5] John Quijada. *A Grammar of New Ithkuil, Chapter 8: Adjuncts*. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_08_adjuncts.htm</u>](https://www.ithkuil.net/newithkuil_08_adjuncts.htm) Inspection: Official grammar relevant sections read live.
+[5] John Quijada. _A Grammar of New Ithkuil, Chapter 8: Adjuncts_. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_08_adjuncts.htm</u>](https://www.ithkuil.net/newithkuil_08_adjuncts.htm) Inspection: Official grammar relevant sections read live.
 
-[6] John Quijada. *A Grammar of New Ithkuil, Chapter 11: Syntax*. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_11_syntax.htm</u>](https://www.ithkuil.net/newithkuil_11_syntax.htm) Inspection: Official grammar relevant sections read live.
+[6] John Quijada. _A Grammar of New Ithkuil, Chapter 11: Syntax_. Official New Ithkuil grammar. Source: [<u>https://www.ithkuil.net/newithkuil_11_syntax.htm</u>](https://www.ithkuil.net/newithkuil_11_syntax.htm) Inspection: Official grammar relevant sections read live.
 
 [7] Suriya Gunasekar et al. "Textbooks Are All You Need." arXiv:2306.11644, 2023. Source: [<u>https://arxiv.org/abs/2306.11644</u>](https://arxiv.org/abs/2306.11644) Inspection: Primary landing/abstract checked; no independent replication.
 
@@ -1299,41 +1301,41 @@ References [26]-[28], [56], and [61] document antecedent Entif/Rosetta design, g
 
 [19] Minghan Wang, Thuy-Trang Vu, Ehsan Shareghi, and Gholamreza Haffari. Towards Inference-time Scaling for Continuous Space Reasoning. Findings of ACL 2026, 26842-26856. DOI: 10.18653/v1/2026.findings-acl.1338. Source: [<u>https://aclanthology.org/2026.findings-acl.1338/</u>](https://aclanthology.org/2026.findings-acl.1338/) Inspection: Official ACL abstract and publication metadata read; arXiv precursor same lineage.
 
-[20] Xuefeng Bai, Yulong Chen, and Yue Zhang. "Graph Pre-training for AMR Parsing and Generation." *Proceedings of ACL 2022*, pp. 6001-6015. DOI: 10.18653/v1/2022.acl-long.415. Source: [<u>https://aclanthology.org/2022.acl-long.415/</u>](https://aclanthology.org/2022.acl-long.415/) Inspection: Official ACL abstract and metadata read.
+[20] Xuefeng Bai, Yulong Chen, and Yue Zhang. "Graph Pre-training for AMR Parsing and Generation." _Proceedings of ACL 2022_, pp. 6001-6015. DOI: 10.18653/v1/2022.acl-long.415. Source: [<u>https://aclanthology.org/2022.acl-long.415/</u>](https://aclanthology.org/2022.acl-long.415/) Inspection: Official ACL abstract and metadata read.
 
-[21] Valerie Hajdik, Jan Buys, Michael Wayne Goodman, and Emily M. Bender. "Neural Text Generation from Rich Semantic Representations." *NAACL-HLT 2019*, pp. 2259-2266. DOI: 10.18653/v1/N19-1235. Source: [<u>https://aclanthology.org/N19-1235/</u>](https://aclanthology.org/N19-1235/) Inspection: Official NAACL abstract and metadata read.
+[21] Valerie Hajdik, Jan Buys, Michael Wayne Goodman, and Emily M. Bender. "Neural Text Generation from Rich Semantic Representations." _NAACL-HLT 2019_, pp. 2259-2266. DOI: 10.18653/v1/N19-1235. Source: [<u>https://aclanthology.org/N19-1235/</u>](https://aclanthology.org/N19-1235/) Inspection: Official NAACL abstract and metadata read.
 
-[22] Jiahuan Zhang et al. "SR-LLM: Rethinking the Structured Representation in Large Language Model." *ACL 2025*. Source: [<u>https://aclanthology.org/2025.acl-long.172/</u>](https://aclanthology.org/2025.acl-long.172/) Inspection: Primary landing/abstract checked; no independent replication.
+[22] Jiahuan Zhang et al. "SR-LLM: Rethinking the Structured Representation in Large Language Model." _ACL 2025_. Source: [<u>https://aclanthology.org/2025.acl-long.172/</u>](https://aclanthology.org/2025.acl-long.172/) Inspection: Primary landing/abstract checked; no independent replication.
 
-[23] Emmanuel Abbe, Samy Bengio, Aryo Lotfi, and Kevin Rizk. "Generalization on the Unseen, Logic Reasoning and Degree Curriculum." *Journal of Machine Learning Research* 25(331):1-58, 2024. Source: [<u>https://www.jmlr.org/papers/v25/24-0220.html</u>](https://www.jmlr.org/papers/v25/24-0220.html) Inspection: Primary landing/abstract checked; no independent replication.
+[23] Emmanuel Abbe, Samy Bengio, Aryo Lotfi, and Kevin Rizk. "Generalization on the Unseen, Logic Reasoning and Degree Curriculum." _Journal of Machine Learning Research_ 25(331):1-58, 2024. Source: [<u>https://www.jmlr.org/papers/v25/24-0220.html</u>](https://www.jmlr.org/papers/v25/24-0220.html) Inspection: Primary landing/abstract checked; no independent replication.
 
 [24] Kazuki Yano et al. "Efficient Construction of Model Family through Progressive Training Using Model Expansion." arXiv:2504.00623, 2025. Source: [<u>https://arxiv.org/abs/2504.00623</u>](https://arxiv.org/abs/2504.00623) Inspection: Primary landing/abstract checked; no independent replication.
 
-[25] Judea Pearl. *Causality: Models, Reasoning and Inference*. 2nd ed., Cambridge University Press, 2009. Source: [<u>https://doi.org/10.1017/CBO9780511803161</u>](https://doi.org/10.1017/CBO9780511803161) Inspection: Cambridge publisher search metadata checked; book not reread; direct page fetch failed.
+[25] Judea Pearl. _Causality: Models, Reasoning and Inference_. 2nd ed., Cambridge University Press, 2009. Source: [<u>https://doi.org/10.1017/CBO9780511803161</u>](https://doi.org/10.1017/CBO9780511803161) Inspection: Cambridge publisher search metadata checked; book not reread; direct page fetch failed.
 
-[26] Entif.ai. *Cognitive Tiles and Swarm Gnosis: A Tile-First Knowledge Framework*. Internal project design artifact, 2025. Project-lineage/provenance reference only. Inspection: Supplied project-lineage citation; not independent evidence.
+[26] Entif.ai. _Cognitive Tiles and Swarm Gnosis: A Tile-First Knowledge Framework_. Internal project design artifact, 2025. Project-lineage/provenance reference only. Inspection: Supplied project-lineage citation; not independent evidence.
 
-[27] Entif.ai. *RFC ENTIF-0001: Rosetta 2.0 Unified Protocol and Architecture Specification*, v2.0.2. Internal/historical Rosetta specification, 2025. Project-lineage/provenance reference only; current Rosetta authority supersedes historical semantics where applicable. Inspection: Supplied project-lineage citation; not independent evidence.
+[27] Entif.ai. _RFC ENTIF-0001: Rosetta 2.0 Unified Protocol and Architecture Specification_, v2.0.2. Internal/historical Rosetta specification, 2025. Project-lineage/provenance reference only; current Rosetta authority supersedes historical semantics where applicable. Inspection: Supplied project-lineage citation; not independent evidence.
 
-[28] Entif.ai. *Entif.ai 2.0 Architecture & Roadmap Blueprint*. Internal project design artifact, 2025. Project-lineage/provenance reference for representation-first architecture and pre-existing downstream orchestration concepts only. Inspection: Supplied project-lineage citation; not independent evidence.
+[28] Entif.ai. _Entif.ai 2.0 Architecture & Roadmap Blueprint_. Internal project design artifact, 2025. Project-lineage/provenance reference for representation-first architecture and pre-existing downstream orchestration concepts only. Inspection: Supplied project-lineage citation; not independent evidence.
 
-[29] Yoshua Bengio, Jerome Louradour, Ronan Collobert, and Jason Weston. "Curriculum Learning." *Proceedings of ICML 2009*, pp. 41-48. DOI: 10.1145/1553374.1553380. Source: [<u>https://ronan.collobert.com/</u>](https://ronan.collobert.com/) Inspection: Coauthor publication page abstract and metadata read; ACM direct fetch failed.
+[29] Yoshua Bengio, Jerome Louradour, Ronan Collobert, and Jason Weston. "Curriculum Learning." _Proceedings of ICML 2009_, pp. 41-48. DOI: 10.1145/1553374.1553380. Source: [<u>https://ronan.collobert.com/</u>](https://ronan.collobert.com/) Inspection: Coauthor publication page abstract and metadata read; ACM direct fetch failed.
 
-[30] Ronald B. Dekker, Fabian Otto, and Christopher Summerfield. "Curriculum learning for human compositional generalization." *Proceedings of the National Academy of Sciences* 119(41):e2205582119, 2022. DOI: 10.1073/pnas.2205582119. Source: [<u>https://pmc.ncbi.nlm.nih.gov/articles/PMC9564093/</u>](https://pmc.ncbi.nlm.nih.gov/articles/PMC9564093/) Inspection: Primary article abstract and full-text navigation consulted; no human-study replication.
+[30] Ronald B. Dekker, Fabian Otto, and Christopher Summerfield. "Curriculum learning for human compositional generalization." _Proceedings of the National Academy of Sciences_ 119(41):e2205582119, 2022. DOI: 10.1073/pnas.2205582119. Source: [<u>https://pmc.ncbi.nlm.nih.gov/articles/PMC9564093/</u>](https://pmc.ncbi.nlm.nih.gov/articles/PMC9564093/) Inspection: Primary article abstract and full-text navigation consulted; no human-study replication.
 
-[31] Justin DeBenedetto. "Linearization Order Matters for AMR-to-Text Generation Input." *Proceedings of the 2024 UMR Parsing Workshop*, pp. 1-7, 2024. Source: [<u>https://aclanthology.org/2024.umrpw-1.1/</u>](https://aclanthology.org/2024.umrpw-1.1/) Inspection: Primary landing/abstract checked; no independent replication.
+[31] Justin DeBenedetto. "Linearization Order Matters for AMR-to-Text Generation Input." _Proceedings of the 2024 UMR Parsing Workshop_, pp. 1-7, 2024. Source: [<u>https://aclanthology.org/2024.umrpw-1.1/</u>](https://aclanthology.org/2024.umrpw-1.1/) Inspection: Primary landing/abstract checked; no independent replication.
 
-[32] Bofei Gao, Liang Chen, Peiyi Wang, Zhifang Sui, and Baobao Chang. "Guiding AMR Parsing with Reverse Graph Linearization." *Findings of EMNLP 2023*, pp. 13-26. DOI: 10.18653/v1/2023.findings-emnlp.2. Source: [<u>https://aclanthology.org/2023.findings-emnlp.2/</u>](https://aclanthology.org/2023.findings-emnlp.2/) Inspection: Official ACL abstract and metadata read.
+[32] Bofei Gao, Liang Chen, Peiyi Wang, Zhifang Sui, and Baobao Chang. "Guiding AMR Parsing with Reverse Graph Linearization." _Findings of EMNLP 2023_, pp. 13-26. DOI: 10.18653/v1/2023.findings-emnlp.2. Source: [<u>https://aclanthology.org/2023.findings-emnlp.2/</u>](https://aclanthology.org/2023.findings-emnlp.2/) Inspection: Official ACL abstract and metadata read.
 
-[33] Chenglei Si, Zhengyan Zhang, Yingfa Chen, Fanchao Qi, Xiaozhi Wang, Zhiyuan Liu, Yasheng Wang, Qun Liu, and Maosong Sun. "Sub-Character Tokenization for Chinese Pretrained Language Models." *Transactions of the Association for Computational Linguistics* 11:469-487, 2023. DOI: 10.1162/tacl_a_00560. Source: [<u>https://aclanthology.org/2023.tacl-1.28/</u>](https://aclanthology.org/2023.tacl-1.28/) Inspection: Official TACL abstract and metadata read.
+[33] Chenglei Si, Zhengyan Zhang, Yingfa Chen, Fanchao Qi, Xiaozhi Wang, Zhiyuan Liu, Yasheng Wang, Qun Liu, and Maosong Sun. "Sub-Character Tokenization for Chinese Pretrained Language Models." _Transactions of the Association for Computational Linguistics_ 11:469-487, 2023. DOI: 10.1162/tacl_a_00560. Source: [<u>https://aclanthology.org/2023.tacl-1.28/</u>](https://aclanthology.org/2023.tacl-1.28/) Inspection: Official TACL abstract and metadata read.
 
-[34] David A. Haslett. "Tokenization Changes Meaning in Large Language Models: Evidence from Chinese." *Computational Linguistics* 51(3):785-814, 2025. DOI: 10.1162/coli_a_00557. Source: [<u>https://aclanthology.org/2025.cl-3.3/</u>](https://aclanthology.org/2025.cl-3.3/) Inspection: Primary landing/abstract checked; no independent replication.
+[34] David A. Haslett. "Tokenization Changes Meaning in Large Language Models: Evidence from Chinese." _Computational Linguistics_ 51(3):785-814, 2025. DOI: 10.1162/coli_a_00557. Source: [<u>https://aclanthology.org/2025.cl-3.3/</u>](https://aclanthology.org/2025.cl-3.3/) Inspection: Primary landing/abstract checked; no independent replication.
 
-[35] Alex Graves, Marc G. Bellemare, Jacob Menick, Rémi Munos, and Koray Kavukcuoglu. "Automated Curriculum Learning for Neural Networks." *Proceedings of ICML 2017*, PMLR 70:1311-1320. Source: [<u>https://proceedings.mlr.press/v70/graves17a.html</u>](https://proceedings.mlr.press/v70/graves17a.html) Inspection: Official PMLR abstract and metadata read.
+[35] Alex Graves, Marc G. Bellemare, Jacob Menick, Rémi Munos, and Koray Kavukcuoglu. "Automated Curriculum Learning for Neural Networks." _Proceedings of ICML 2017_, PMLR 70:1311-1320. Source: [<u>https://proceedings.mlr.press/v70/graves17a.html</u>](https://proceedings.mlr.press/v70/graves17a.html) Inspection: Official PMLR abstract and metadata read.
 
-[36] Tambet Matiisen, Avital Oliver, Taco Cohen, and John Schulman. "Teacher-Student Curriculum Learning." *IEEE Transactions on Neural Networks and Learning Systems* 31(9):3732-3740, 2020. DOI: 10.1109/TNNLS.2019.2934906. Source: [<u>https://arxiv.org/abs/1707.00183</u>](https://arxiv.org/abs/1707.00183) Inspection: Official original preprint abstract and metadata read; IEEE publication is same lineage.
+[36] Tambet Matiisen, Avital Oliver, Taco Cohen, and John Schulman. "Teacher-Student Curriculum Learning." _IEEE Transactions on Neural Networks and Learning Systems_ 31(9):3732-3740, 2020. DOI: 10.1109/TNNLS.2019.2934906. Source: [<u>https://arxiv.org/abs/1707.00183</u>](https://arxiv.org/abs/1707.00183) Inspection: Official original preprint abstract and metadata read; IEEE publication is same lineage.
 
-[37] Nidhi Vakil and Hadi Amiri. "Curriculum Learning for Graph Neural Networks: A Multiview Competence-based Approach." *Proceedings of ACL 2023*, pp. 7036-7051. DOI: 10.18653/v1/2023.acl-long.389. Source: [<u>https://aclanthology.org/2023.acl-long.389/</u>](https://aclanthology.org/2023.acl-long.389/) Inspection: Official ACL abstract and metadata read.
+[37] Nidhi Vakil and Hadi Amiri. "Curriculum Learning for Graph Neural Networks: A Multiview Competence-based Approach." _Proceedings of ACL 2023_, pp. 7036-7051. DOI: 10.18653/v1/2023.acl-long.389. Source: [<u>https://aclanthology.org/2023.acl-long.389/</u>](https://aclanthology.org/2023.acl-long.389/) Inspection: Official ACL abstract and metadata read.
 
 [38] Zhenya Liu and Yuxin Chen. "Active Curriculum Refinement for Reinforcement Learning." arXiv:2608.26469, 2026. Source: [<u>https://arxiv.org/abs/2608.26469</u>](https://arxiv.org/abs/2608.26469) Inspection: Primary full-text relevant methods/results/limitations sections read.
 
