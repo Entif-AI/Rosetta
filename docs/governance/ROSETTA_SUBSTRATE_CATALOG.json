@@ -208,6 +208,19 @@
       }
     },
     {
+      "id": "entif:pack-schema-entrypoint-conformance",
+      "kind": "plan",
+      "title": "Validate declared Pack JSON Schema entrypoints",
+      "status": "in-progress",
+      "task": "T7902",
+      "issues": [790],
+      "pr": null,
+      "source": {
+        "path": "plans/pack-schema-entrypoint-conformance.md",
+        "sha256": "39e566a9e2d5ccfe930832e9d41b2666916118ae359eee4205965b141c82633a"
+      }
+    },
+    {
       "id": "entif:run-completion",
       "kind": "plan",
       "title": "Terminal engineering-run completion evidence",
@@ -579,6 +592,16 @@
       "from": "entif:pack-manifest-schema-gate",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-schema-entrypoint-conformance",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-schema-entrypoint-conformance",
+      "kind": "depends-on",
+      "to": "entif:pack-manifest-schema-gate"
     },
     {
       "from": "entif:run-completion",
