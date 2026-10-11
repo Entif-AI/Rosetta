@@ -199,12 +199,12 @@
       "kind": "plan",
       "title": "Include bootstrap Pack evidence in merge admission",
       "status": "in-progress",
-      "task": "T790",
+      "task": "T7901",
       "issues": [790],
       "pr": 1823,
       "source": {
         "path": "plans/pack-bootstrap-admission.md",
-        "sha256": "1f185b21cb2bb114aa91331f955704d5dc0db5fda2ac8bac4e9962fe5cced4ce"
+        "sha256": "11f90ebac1a3784ffd2135d9191e3b9dcdf7485fdcbd7c1f525a2e9459a4be87"
       }
     },
     {
