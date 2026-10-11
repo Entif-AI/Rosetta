@@ -1,0 +1,33 @@
+@use '../tools';
+
+@layer components {
+  .scroll-top {
+    position: fixed;
+    right: 3rem;
+    bottom: 5rem;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    box-shadow: 0 3px 12px #01266420;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0.15s;
+  }
+
+  .scroll-top svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

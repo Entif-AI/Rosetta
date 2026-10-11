@@ -1,0 +1,104 @@
+@use '../tools';
+
+@layer layout {
+  .article-shell {
+    padding-block: 3rem;
+  }
+
+  .article-header {
+    max-width: 65rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .article-header h1 {
+    margin-top: 1rem;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: var(--small);
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: minmax(0, var(--reading)) minmax(15rem, 1fr);
+    gap: 3rem;
+    align-items: start;
+    padding-top: 2.5rem;
+  }
+
+  .article-aside {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    font-size: var(--small);
+  }
+
+  .article-aside dl > div {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .article-aside dt {
+    font-weight: 600;
+  }
+
+  .article-aside dd {
+    margin-top: 0.3rem;
+    overflow-wrap: anywhere;
+    color: var(--muted);
+  }
+
+  .toc {
+    padding-left: 1.25rem;
+  }
+
+  .toc li {
+    margin-top: 0.6rem;
+  }
+
+  .toc a {
+    display: inline-block;
+    padding-block: 0.15rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .related-section {
+    padding-top: 1rem;
+  }
+
+  .article-body,
+  .article-aside,
+  .article-grid > *,
+  .hero > * {
+    min-width: 0;
+  }
+  @include tools.down('hero') {
+    .article-grid {
+      grid-template-columns: minmax(0, 1fr) 16rem;
+      gap: 2rem;
+    }
+  }
+  @include tools.down('compact') {
+    .article-aside {
+      grid-row: 1;
+      position: static;
+      max-height: none;
+    }
+
+    .article-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}

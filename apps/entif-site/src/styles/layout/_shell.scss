@@ -1,0 +1,65 @@
+@use '../tools';
+
+@layer layout {
+  .shell {
+    width: var(--shell);
+    margin-inline: auto;
+  }
+
+  #main-content {
+    background: linear-gradient(
+      0deg,
+      var(--line),
+      #fafbfe 19%,
+      var(--canvas) 90%,
+      transparent
+    );
+  }
+
+  .section {
+    padding-block: 4rem;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading h2 {
+    margin-top: 0.6rem;
+    letter-spacing: -0.035em;
+    font-weight: 780;
+  }
+
+  .section-heading > p {
+    color: var(--muted);
+    max-width: 42rem;
+  }
+
+  .section-heading > *,
+  .card-grid > *,
+  .explorer-grid > *,
+  .claim-card summary > * {
+    min-width: 0;
+  }
+  @include tools.down('compact') {
+    .section-heading,
+    .article-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section {
+      padding-block: 2.5rem;
+    }
+
+    .section-heading,
+    .card-grid,
+    .explorer-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
