@@ -588,6 +588,14 @@ function classifySourceFamily(record: TileEnvelope<SourceRecord>, manifestation:
   const metadataText = JSON.stringify(record.payload.metadataBlob).toLowerCase();
   const structureProfile = manifestation.payload.structureProfile.toLowerCase();
 
+  if (sourceSystemId === 'github' && recordType === 'github-issue') {
+    return {
+      confidence: 1,
+      family: 'github-issue',
+      reasons: ['The admitted source record is explicitly a GitHub issue REST object, not a Git blob.']
+    };
+  }
+
   if (recordType.includes('chat') || metadataText.includes('chatgpt') || structureProfile.includes('chat')) {
     return {
       confidence: 0.95,
