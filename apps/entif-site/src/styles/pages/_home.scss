@@ -1,24 +1,96 @@
 @use '../tools';
 
 @layer pages {
-  .principles-band {
-    background: radial-gradient(
-      var(--surface) 57%,
-      var(--canvas) 84%,
-      var(--line)
-    );
-    border-block: 1px solid var(--line);
+  .entif-home {
+    --home-navy: #061c30;
+    --home-navy-2: #09283f;
+    --home-paper: #f4f1eb;
+    --home-ink: #102a42;
+    --home-white: #edf4fa;
+    --home-muted: #bdccda;
+    --home-orange: #f18a35;
+    --home-rule: #31526a;
+    background: var(--home-navy);
+    color: var(--home-white);
   }
+  .entif-home .home-container { width: min(80rem, calc(100% - 2 * clamp(1.25rem, 4vw, 4.5rem))); margin-inline: auto; }
+  .entif-home .home-stage { padding-block: clamp(6rem, 8vw, 9rem); }
+  .entif-home .home-dark { background: var(--home-navy); color: var(--home-white); }
+  .entif-home .home-light { background: var(--home-paper); color: var(--home-ink); }
+  .entif-home .home-kicker { font: 700 0.76rem/1.5 system-ui, sans-serif; letter-spacing: 0.15em; text-transform: uppercase; color: var(--home-orange); }
+  .entif-home h1, .entif-home h2 { font-weight: 450; letter-spacing: -0.045em; line-height: 1.08; }
+  .entif-home h1 { font-size: clamp(3rem, 5.6vw, 5.5rem); max-width: 12ch; margin-block: 1.35rem 2rem; }
+  .entif-home h1 em { color: var(--home-orange); font-style: normal; }
+  .entif-home h2 { font-size: clamp(2.4rem, 4vw, 4.3rem); max-width: 17ch; margin-top: 0.75rem; }
+  .entif-home h3 { font-size: clamp(1.3rem, 1.7vw, 1.65rem); font-weight: 550; }
+  .entif-home .home-intro { color: var(--home-muted); max-width: 38rem; font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1.55; }
+  .entif-home .home-section-intro { font-size: clamp(1.15rem, 1.5vw, 1.4rem); line-height: 1.55; max-width: 35rem; }
+  .entif-home .home-dark .home-section-intro { color: var(--home-muted); }
+  .entif-home .home-light .home-section-intro { color: #3c5267; }
+  .entif-home .home-lead-grid { display: grid; grid-template-columns: 1fr minmax(16rem, 0.75fr); align-items: end; gap: clamp(2rem, 7vw, 7rem); margin-bottom: clamp(3.5rem, 6vw, 6rem); }
+  .entif-home .home-hero-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 6vw, 7rem); }
+  .entif-home .home-opening { background: radial-gradient(ellipse at 74% 23%, #103b5b 0, transparent 54%), var(--home-navy); }
+  .entif-home .home-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+  .entif-home .home-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.6rem; min-height: 3.2rem; padding: 0.8rem 1.2rem; border: 1px solid currentColor; border-radius: 0.3rem; font: 650 0.92rem system-ui, sans-serif; text-decoration: none; }
+  .entif-home .home-action-primary { background: var(--home-orange); border-color: var(--home-orange); color: #182638; }
+  .entif-home .home-action-secondary { color: var(--home-white); border-color: #a6bbce; }
+  .entif-home .home-action:hover { text-decoration: underline; text-underline-offset: 0.35em; }
+  .entif-home .home-hero-aside { margin-top: 4rem; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--home-muted); }
+  .entif-home .home-proof { min-width: 0; }
+  .entif-home .home-proof-intro { margin-bottom: 2rem; }
+  .entif-home .home-proof-intro > p { margin-top: 0.6rem; color: var(--home-white); font-size: 1.55rem; }
+  .entif-home .journey-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .entif-home .journey-track > li + li::before { display: none; }
+  .entif-home .claim-journey > ol.journey-track > li { background: transparent; }
+  .entif-home .claim-card { border: 1px solid var(--home-rule); background: #0c304a; box-shadow: none; height: 13.5rem; }
+  .entif-home .claim-card summary { color: var(--home-white); padding-top: 2rem; }
+  .entif-home .claim-card summary::after { display: none; }
+  .entif-home .claim-card .stage-title { color: var(--home-white); }
+  .entif-home .claim-card summary > .eyebrow { color: var(--home-muted); }
+  .entif-home .claim-card .stage-icon { top: 75px; }
+  .entif-home .claim-card .stage-icon svg { width: 5rem; height: 5rem; color: #7ec8ef; }
+  .entif-home .demo-note { color: var(--home-muted); }
+  .entif-home .home-research-grid, .entif-home .home-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); }
+  .entif-home .home-light .content-card { background: #fffcf8; border: 1px solid #d1d8dd; }
+  .entif-home .home-light .content-card h3 a, .entif-home .home-light .content-card h2 a { color: var(--home-ink); }
+  .entif-home .home-dark .content-card { background: #0c304a; border: 1px solid var(--home-rule); }
+  .entif-home .home-dark .content-card h3 a, .entif-home .home-dark .content-card h2 a { color: var(--home-white); }
+  .entif-home .home-dark .content-card p, .entif-home .home-dark .card-meta { color: var(--home-muted); }
+  .entif-home .home-inline-link { display: inline-flex; gap: 1rem; align-items: center; color: inherit; margin-top: 2.5rem; font: 650 0.95rem system-ui, sans-serif; text-decoration-color: var(--home-orange); text-underline-offset: 0.35em; }
+  .entif-home .home-inline-link:hover { color: var(--home-orange); }
+  .entif-home .home-method { background: linear-gradient(150deg, var(--home-navy-2), var(--home-navy) 65%); }
+  .entif-home .home-method-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+  .entif-home .home-method-steps li { padding-top: 1.5rem; border-top: 1px solid var(--home-rule); }
+  .entif-home .home-step-number { display: block; color: var(--home-orange); font: 700 0.85rem system-ui, sans-serif; margin-bottom: 2.2rem; }
+  .entif-home .home-method-steps p { margin-top: 1rem; color: var(--home-muted); line-height: 1.6; }
+  .entif-home .home-conviction-layout { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: clamp(3rem, 9vw, 10rem); }
+  .entif-home .home-conviction .home-section-intro { margin-top: 2rem; }
+  .entif-home .home-principles-body { max-width: 42rem; }
+  .entif-home .home-principles-body :is(h3, h4) { color: var(--home-ink); margin-top: 2rem; }
+  .entif-home .home-principles-body p { color: #344c60; }
+  .entif-home .home-closing { background: #0e334c; }
+  .entif-home .home-closing-layout { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .entif-home .home-closing h2 { max-width: 23ch; }
+  @media (max-width: 64rem) {
+    .entif-home .home-stage { padding-block: clamp(4.5rem, 7vw, 6rem); }
+    .entif-home .home-hero-layout, .entif-home .home-conviction-layout { grid-template-columns: 1fr; }
+    .entif-home .home-hero-layout { gap: 4rem; }
+    .entif-home .home-method-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 42rem) {
+    .entif-home .home-stage { padding-block: clamp(3rem, 9vw, 4.5rem); }
+    .entif-home .home-lead-grid, .entif-home .home-research-grid, .entif-home .home-project-grid { grid-template-columns: minmax(0, 1fr); }
+    .entif-home .home-lead-grid { gap: 1.5rem; }
+    .entif-home .home-method-steps { grid-template-columns: minmax(0, 1fr); }
+    .entif-home .home-closing-layout { align-items: flex-start; flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .entif-home *, .entif-home *::before, .entif-home *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+  }
+}
 
-  .principles-band .section-heading {
-    display: block;
-  }
-
-  .home-principles-body {
-    max-width: var(--reading);
-  }
-
-  .hero + .section {
-    padding-top: 2rem;
-  }
+@layer pages {
+  .entif-home .claim-card .stage-number { color: #cfdeeb; }
+  .entif-home .home-light .home-kicker { color: #88420e; }
+  .entif-home .home-dark .content-card .eyebrow { color: #ffc18f; }
 }

@@ -6,62 +6,220 @@ import ContentCard from '../components/ContentCard.astro';
 import { getPublishedEntries, toSummary } from '../lib/site-data';
 import { joinBasePath, toContentCard } from '../lib/content';
 import { copy } from '../lib/copy';
+
 const base = import.meta.env.BASE_URL;
-const entries = (await getPublishedEntries())
+const published = await getPublishedEntries();
+const research = published
   .filter((entry) => entry.data.kind === 'research')
   .slice(0, 3);
+const featured = ['rosetta', 'indranet', 'bilqis']
+  .map((slug) =>
+    published.find(
+      (entry) => entry.data.kind === 'project' && entry.data.slug === slug
+    )
+  )
+  .filter((entry) => entry !== undefined);
 const home = await getEntry('pages', 'home');
 if (!home) throw new Error('Missing home copy');
 const { Content } = await render(home);
+const steps = [
+  {
+    number: '01',
+    title: 'Open research',
+    description: 'Questions, methods and results that remain open to scrutiny.',
+  },
+  {
+    number: '02',
+    title: 'Verifiable knowledge',
+    description:
+      'Follow claims back to evidence, context and competing interpretations.',
+  },
+  {
+    number: '03',
+    title: 'Tools & frameworks',
+    description:
+      'Build portable semantic infrastructure that systems can inspect and reuse.',
+  },
+  {
+    number: '04',
+    title: 'Human governance',
+    description:
+      'Keep authority, accountability and correction in human hands.',
+  },
+];
 ---
 
 <BaseLayout title={copy.brandTagline} description={copy.heroDescription}>
-  <section class="hero shell" data-test-id="home-hero">
-    <div class="hero-copy">
-      <p class="eyebrow">{copy.heroEyebrow}</p><h1
-        data-test-id="home-hero-heading"
-      >
-        {copy.heroTitle}
-      </h1><p class="lede">{copy.heroDescription}</p><div class="hero-actions">
-        <a class="button primary" href={joinBasePath(base, 'projects/rosetta/')}
-          >{copy.explore}</a
-        ><a class="button secondary" href="#claim-journey">{copy.trace}</a>
-      </div>
-    </div><ClaimJourney />
-  </section>
-  <section class="section shell" id="research">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">{copy.researchEyebrow}</p><h2>
-          {copy.researchTitle}
-        </h2>
-      </div><p>{copy.researchDescription}</p>
-    </div><div class="card-grid">
-      {
-        entries.map((entry) => (
-          <ContentCard card={toContentCard(toSummary(entry), base)} />
-        ))
-      }
-    </div><a class="text-link" href={joinBasePath(base, 'research/')}
-      >{copy.allResearch} <span aria-hidden="true">→</span></a
+  <div class="entif-home" data-test-id="entif-home">
+    <section
+      class="home-stage home-dark home-opening"
+      data-test-id="home-hero"
+      aria-labelledby="home-hero-heading"
     >
-  </section>
-  <section class="principles-band">
-    <div class="section shell">
-      <div class="section-heading">
+      <div class="home-container home-hero-layout">
+        <div class="home-hero-copy">
+          <p class="home-kicker">{copy.heroEyebrow}</p>
+          <h1 id="home-hero-heading" data-test-id="home-hero-heading">
+            Open infrastructure for <em>trustworthy intelligence.</em>
+          </h1>
+          <p class="home-intro">{copy.heroDescription}</p>
+          <div class="home-actions">
+            <a
+              class="home-action home-action-primary"
+              href={joinBasePath(base, 'projects/rosetta/')}
+              >{copy.explore}<span aria-hidden="true">↗</span></a
+            >
+            <a class="home-action home-action-secondary" href="#claim-journey"
+              >{copy.trace}<span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <p class="home-hero-aside">{copy.heroTitle}</p>
+        </div>
+        <div class="home-proof" aria-label="Provenance process demonstration">
+          <div class="home-proof-intro">
+            <span class="home-kicker">The anatomy of a claim</span><p>
+              Every conclusion has a history.
+            </p>
+          </div>
+          <ClaimJourney />
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="home-stage home-light home-research"
+      id="research"
+      aria-labelledby="home-research-heading"
+    >
+      <div class="home-container">
+        <div class="home-lead-grid">
+          <div>
+            <p class="home-kicker">{copy.researchEyebrow}</p><h2
+              id="home-research-heading"
+            >
+              {copy.researchTitle}
+            </h2>
+          </div>
+          <p class="home-section-intro">{copy.researchDescription}</p>
+        </div>
+        <div class="home-research-grid">
+          {
+            research.map((entry) => (
+              <ContentCard card={toContentCard(toSummary(entry), base)} />
+            ))
+          }
+        </div>
+        <a class="home-inline-link" href={joinBasePath(base, 'research/')}
+          >{copy.allResearch}<span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </section>
+
+    <section
+      class="home-stage home-dark home-method"
+      id="how-it-works"
+      aria-labelledby="home-method-heading"
+    >
+      <div class="home-container">
+        <div class="home-lead-grid">
+          <div>
+            <p class="home-kicker">How Entif works</p><h2
+              id="home-method-heading"
+            >
+              Better questions.<br />More verifiable answers.
+            </h2>
+          </div>
+          <p class="home-section-intro">
+            A research, verification and collaboration layer for an open
+            intelligence ecosystem. Evidence and interpretation stay distinct so
+            reasoning can be challenged and corrected.
+          </p>
+        </div>
+        <ol class="home-method-steps">
+          {
+            steps.map((step) => (
+              <li>
+                <h3>{step.title}</h3>
+                <>
+                  <span class="home-step-number">{step.number}</span>
+                  <p>{step.description}</p>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="home-stage home-light home-conviction"
+      id="principles"
+      aria-labelledby="home-philosophy-heading"
+    >
+      <div class="home-container home-conviction-layout">
         <div>
-          <p class="eyebrow">{copy.principlesEyebrow}</p><h2
+          <p class="home-kicker">{copy.principlesEyebrow}</p><h2
+            id="home-philosophy-heading"
             data-test-id="home-philosophy-heading"
           >
             {copy.principlesTitle}
-          </h2>
-        </div><p>{copy.principlesDescription}</p>
-      </div><div
-        class="prose home-principles-body"
-        data-test-id="home-philosophy-body"
-      >
-        <Content />
+          </h2><p class="home-section-intro">{copy.principlesDescription}</p>
+        </div>
+        <div
+          class="prose home-principles-body"
+          data-test-id="home-philosophy-body"
+        >
+          <Content />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section
+      class="home-stage home-dark home-projects"
+      id="featured-projects"
+      aria-labelledby="home-projects-heading"
+    >
+      <div class="home-container">
+        <div class="home-lead-grid">
+          <div>
+            <p class="home-kicker">Featured projects</p><h2
+              id="home-projects-heading"
+            >
+              From research to working foundations.
+            </h2>
+          </div><p class="home-section-intro">
+            Explore public projects, protocols and research programs. Each has
+            its own scope and stage of development.
+          </p>
+        </div>
+        <div class="home-project-grid">
+          {
+            featured.map((entry) => (
+              <ContentCard card={toContentCard(toSummary(entry), base)} />
+            ))
+          }
+        </div>
+        <a class="home-inline-link" href={joinBasePath(base, 'projects/')}
+          >View all projects<span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </section>
+    <section
+      class="home-stage home-closing"
+      aria-labelledby="home-closing-heading"
+    >
+      <div class="home-container home-closing-layout">
+        <div>
+          <p class="home-kicker">Open questions. Public work.</p><h2
+            id="home-closing-heading"
+          >
+            Intelligence should remain answerable to people.
+          </h2>
+        </div><a
+          class="home-action home-action-primary"
+          href={joinBasePath(base, 'about/')}
+          >About our approach<span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>

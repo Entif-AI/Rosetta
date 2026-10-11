@@ -257,12 +257,12 @@ test('cards retain their geometry and hero position when opened', async ({
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
   const cards = page.locator('.claim-card');
-  const hero = await page.locator('.hero-copy').boundingBox();
+  const hero = await page.getByTestId('home-hero-heading').boundingBox();
   for (const card of await cards.all()) {
     const before = await card.boundingBox();
     await card.locator('summary').click();
     expect((await card.boundingBox())?.height).toBe(before?.height);
-    expect((await page.locator('.hero-copy').boundingBox())?.y).toBe(hero?.y);
+    expect((await page.getByTestId('home-hero-heading').boundingBox())?.y).toBe(hero?.y);
   }
 });
 test('tag date archives and scroll to top work', async ({ page }) => {
