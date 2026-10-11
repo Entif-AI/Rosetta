@@ -89,6 +89,7 @@
   .tag-list li {
     overflow-wrap: anywhere;
   }
+
   @include tools.down('compact') {
     .card-grid,
     .explorer-grid {

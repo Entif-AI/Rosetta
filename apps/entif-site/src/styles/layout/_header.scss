@@ -127,6 +127,7 @@
   .header-inner > * {
     max-width: 100%;
   }
+
   @include tools.down('hero') {
     .header-inner {
       gap: 1rem;
@@ -142,6 +143,7 @@
       justify-content: center;
     }
   }
+
   @include tools.down('compact') {
     .nav-list {
       gap: 0.25rem 1rem;
@@ -155,16 +157,19 @@
       flex-shrink: 0;
     }
   }
+
   @include tools.below('tagline') {
     .brand > span {
       font-size: var(--h3);
     }
   }
+
   @include tools.down('tagline-small') {
     .brand > span {
       font-size: var(--lead);
     }
   }
+
   @include tools.down('navigation') {
     .header-inner {
       flex-wrap: wrap;

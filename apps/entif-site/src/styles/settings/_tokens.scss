@@ -22,6 +22,7 @@
     --h1: 2.5rem;
     --radius: 0.875rem;
   }
+
   @include tools.down('compact') {
     :root {
       --shell: calc(100% - 2rem);

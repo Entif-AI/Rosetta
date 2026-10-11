@@ -84,12 +84,14 @@
   .hero > * {
     min-width: 0;
   }
+
   @include tools.down('hero') {
     .article-grid {
       grid-template-columns: minmax(0, 1fr) 16rem;
       gap: 2rem;
     }
   }
+
   @include tools.down('compact') {
     .article-aside {
       grid-row: 1;

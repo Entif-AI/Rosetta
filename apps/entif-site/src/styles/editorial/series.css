@@ -2,8 +2,13 @@
 .editorial-series {
   --editorial-measure: 44rem;
   --editorial-nav-height: 4.5rem;
-  padding-top: 0;
+  /* Preserve the original article-shell spacing across the shared layer migration. */
+  padding-top: 3rem;
   overflow-wrap: anywhere;
+}
+/* Preserve the former global paragraph cascade while Editorial remains unlayered. */
+#main-content .editorial-series p {
+  letter-spacing: 0.02em;
 }
 .editorial-masthead {
   max-width: 72rem;

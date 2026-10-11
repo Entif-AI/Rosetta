@@ -62,8 +62,7 @@ const names = new Map(
             >{hero.ctaLabel}<span aria-hidden="true">→</span></a
           >
           <p class="uca-agency-note">
-            {hero.agencyLabel}
-            {hero.agencyCaption}.
+            {hero.agencyLabel}{' '}{hero.agencyCaption}.
           </p>
         </div>
         <HumanAgencyOrbit hero={hero} systems={architecture.systems} />
@@ -79,7 +78,7 @@ const names = new Map(
         <div>
           <p class="uca-eyebrow">{stakesIntro.eyebrow}</p>
           <h2 id="uca-stakes-heading">
-            {stakesIntro.headline}
+            {stakesIntro.headline}{' '}
             <span class="uca-highlight">{stakesIntro.emphasis}</span>
           </h2>
           <p class="uca-introduction">{stakesIntro.description}</p>
@@ -112,7 +111,7 @@ const names = new Map(
       <div class="stage-shell">
         <p class="uca-eyebrow">{pivot.eyebrow}</p>
         <h2 id="uca-pivot-heading">
-          {pivot.headline}
+          {pivot.headline}{' '}
           <em>{pivot.emphasis}</em>
         </h2>
         <p class="uca-introduction reading-measure">{pivot.description}</p>
@@ -245,7 +244,8 @@ const names = new Map(
         <p class="uca-eyebrow">{closing.eyebrow}</p>
         <h2 id="uca-closing-heading">
           {closing.headline}<br /><span class="uca-highlight"
-            >{closing.emphasis}</span>
+            >{closing.emphasis}</span
+          >
         </h2>
         <p class="uca-introduction reading-measure">{closing.description}</p>
         <p class="uca-supporting">{closing.supportingText}</p>

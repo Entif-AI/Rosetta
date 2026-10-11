@@ -214,16 +214,19 @@
     100% {
       transform: translate(100%, -100%);
     }
+
     40%,
     60% {
       transform: translate(0, 0);
     }
   }
+
   @media (hover: hover) {
     .claim-card summary:hover::after {
       transform: translate(0, 0);
     }
   }
+
   @include tools.down('hero') {
     .journey-track {
       gap: 1.5rem;
@@ -233,6 +236,7 @@
       top: 8rem;
     }
   }
+
   @include tools.down('compact') {
     .journey-track {
       grid-template-columns: 1fr;

@@ -10,6 +10,7 @@
       scroll-behavior: auto !important;
     }
   }
+
   @media (forced-colors: active) {
     .claim-card,
     .button,
@@ -21,6 +22,7 @@
       outline-color: Highlight;
     }
   }
+
   @media print {
     .site-header,
     .site-footer,

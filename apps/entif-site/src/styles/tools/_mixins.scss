@@ -5,6 +5,7 @@
   @if not map.has-key(breakpoints.$breakpoints, $name) {
     @error 'Unknown responsive threshold: #{$name}';
   }
+
   @return map.get(breakpoints.$breakpoints, $name);
 }
 
@@ -13,11 +14,13 @@
     @content;
   }
 }
+
 @mixin below($name) {
   @media (width < breakpoint($name)) {
     @content;
   }
 }
+
 @mixin up($name) {
   @media (min-width: breakpoint($name)) {
     @content;

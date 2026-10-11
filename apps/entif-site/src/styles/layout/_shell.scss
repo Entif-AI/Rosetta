@@ -8,6 +8,7 @@
 
   .stage-shell {
     @include tools.content-boundary;
+
     min-width: 0;
   }
 
@@ -60,6 +61,7 @@
   .claim-card summary > * {
     min-width: 0;
   }
+
   @include tools.down('compact') {
     .section-heading,
     .article-grid {
