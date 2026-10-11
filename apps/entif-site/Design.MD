@@ -46,6 +46,38 @@ Use the shared site header, footer, and content-page layout. Center content with
 
 At 85rem, navigation uses its own row; at 70rem the hero stacks. At 48rem, content grids become a single column and provenance cards become a vertical thread. Publication metadata precedes the body on narrow screens, with a table of contents for long reports. Tables may scroll within their own container; the document must not overflow. Test portrait and landscape at 320, 390, 768, 844, 1024, 1366, and 1536px widths, plus reflow and user spacing overrides.
 
+## Full-width composition and Projects showcase
+
+`FullWidthPageLayout` composes `BaseLayout`, forwarding title, description, noindex and the named head slot. BaseLayout retains sole ownership of the document, metadata, analytics, skip link, main landmark, header and footer. The full-width root has no maximum width. Projects uses it for immersive stages; Editorial may compose it mechanically while retaining its existing article shell, navigation, citations and local styling. No chapter redesign is authorized here.
+
+The shared `.stage-shell` content boundary is centered, at most **80rem including gutters**, with `padding-inline: clamp(1.25rem, 4vw, 4.5rem)`. At a default 16px root and 320px viewport this preserves at least **20 CSS px on each side**. The existing `.shell` remains the ordinary site geometry. `.reading-measure` bounds long prose to **46rem** inside an already padded boundary. Heading compositions may occupy up to 72rem; display sizes use rem-based fluid bounds that honor enlarged default text. Never clip essential content into fixed viewport heights or conceal overflow to mask reflow defects.
+
+Projects has exactly seven beats: dark hero, five failure modes, cream pivot, seven-system architecture, six essay responses, seven-step illustrative city/storm scenario, and optimistic closing. The existing Projects card grid is replaced. The hero centers human agency in a decorative orbital composition; equivalent identities remain in the text. The single H1 and ordered H2/H3 sections establish the reading order.
+
+These **page-scoped semantic tokens** implement the accepted prototype; they do not change the site palette:
+
+| Role                             | Token                    | Value     |
+| -------------------------------- | ------------------------ | --------- |
+| Dark stage                       | `--uca-surface`          | `#0a0d14` |
+| Dark panel                       | `--uca-panel`            | `#151d2b` |
+| Dark primary text                | `--uca-text`             | `#ffffff` |
+| Dark secondary text              | `--uca-muted`            | `#b5bfce` |
+| Dark highlight / action          | `--uca-highlight`        | `#f4cb88` |
+| Dark supporting emphasis / focus | `--uca-focus`            | `#9fe4cf` |
+| Cream stage                      | `--uca-light-surface`    | `#f4f0e8` |
+| Light primary text               | `--uca-light-text`       | `#151922` |
+| Light secondary text             | `--uca-light-muted`      | `#45494d` |
+| Light emphasis / focus           | `--uca-light-accent`     | `#73522b` |
+| Scenario stage                   | `--uca-scenario-surface` | `#eae6df` |
+
+Measure all rendered text, focus, selected, hover and visited combinations. Use `#73522b` for scenario numbering on `#eae6df`; retire the prototype's insufficient `#967344` pairing. Interactive links are underlined or have a clear action shape. Selected tabs carry an arrow and programmatic state as well as color; targets are at least 44 CSS px. Forced colors preserve borders, selection and visible focus.
+
+All seven system sections and working fragment links are server-rendered. Only successful client initialization applies automatic-activation WAI-ARIA tabs: a vertical rail with Up/Down on wide screens, a horizontally scrolling internal rail with Left/Right below the compact threshold. Home/End wrap to the bounds; Enter/Space and pointer/touch activate. Selection survives orientation changes. Focused destinations remain visible; no sticky showcase controls obscure them. Without JavaScript every system remains readable in source order; print reveals all systems even after enhancement.
+
+The showcase inherits the canonical serif for all narrative and controls; no new font exception is necessary. Existing Editorial sans-serif exceptions remain local. Essential content never depends on animation; reduced motion removes transitions and smooth scrolling. Do not lock scrolling, orientation or zoom. The future scenario has one concise visible illustrative label. Preserve the final proposition: **Let knowledge grow. Keep people in control.**
+
+This revision records the author's accepted direction. Implementation evidence does not confer design/content approval, complete manual WCAG conformance or permission to publish. Record unavailable desktop/mobile assistive-technology evaluation as `NOT_EVALUATED` with a repeatable procedure before release.
+
 ## Stylesheet ownership and cascade
 
 `src/styles/global.scss` is the shared entrypoint. It consumes responsibility-oriented settings, base, layout, components, patterns, pages and utilities modules with Sass `@use`; curated settings/tools entrypoints use `@forward`. Do not use Sass `@import`.
@@ -84,7 +116,7 @@ Primary standards: [WCAG 2.2](https://www.w3.org/TR/WCAG22/), [reflow](https://w
 
 ## Performance and builds
 
-Static HTML and CSS first. Homepage JavaScript is progressive enhancement; no React hydration, web fonts or image hero. BaseLayout owns the existing Google Analytics script; new presentations add no third-party runtime. SVG research figures are lazy-loaded with intrinsic dimensions. Record mobile and desktop Lighthouse results for the homepage and both long reports; aim for 100 in each category and investigate regressions.
+Static HTML and CSS first. Homepage JavaScript is progressive enhancement; no React hydration, web fonts or image hero. BaseLayout owns the existing Google Analytics script; new presentations add no third-party runtime. The Projects explorer uses a small Astro-built enhancement script and no runtime framework. SVG research figures are lazy-loaded with intrinsic dimensions. Record mobile and desktop Lighthouse results for Projects, the homepage, long reports and representative Editorial routes; aim for 100 in each category and investigate regressions.
 
 Nx build caching includes source, dependency inputs, Node version, `ENTIF_SITE_URL`, and `ENTIF_SITE_BASE`. Deployment uses GitHub Pages as before. Workflow path filters and Nx affected-project checks prevent unrelated source changes from rebuilding the website. Dependency-affect analysis uses Nx's `auto` lockfile policy. See [Nx affected](https://nx.dev/docs/features/ci-features/affected) and [inputs](https://nx.dev/docs/reference/inputs).
 

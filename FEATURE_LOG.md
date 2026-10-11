@@ -18,7 +18,7 @@
 
 ## Current frontier
 
-Phases A–B implemented; Phase C / #1803 begins next. Final behavior/style audits remain intentionally deferred.
+Phases A–C implemented; Phase D / #1804 begins next. Final behavior/style audits remain intentionally deferred.
 
 ## Validation plan
 
@@ -31,6 +31,8 @@ Phases A–B implemented; Phase C / #1803 begins next. Final behavior/style audi
 
 ## Completed outcomes and evidence
 
+- #1803: Design.MD 1.2.0 specifies inherited serif, page-scoped palette, generic full-width composition, 80rem padded stage boundaries/46rem reading measure, responsive rail, no-JS/print/motion/forced-color behavior and approval limits. Computed-style comparison is deferred to the planned visual pass.
+
 - Foundation checkpoint: `e9e3b79ba8cecefd9bc29ed5b1ce9c1e52a29d95`, remote SHA readback matched.
 - #1802: seven-stage narrative now lives in projects.md; schema enforces required keys, unique ordered systems/stakes/responses/scenario steps, safe fragments and published project identities. Intro/agency/supporting fields preserve the prototype’s substantive copy omitted from its proposed minimal shape. Link resolution uses published/non-noindex metadata and never invents missing essay/project publications.
 
@@ -41,4 +43,4 @@ Phases A–B implemented; Phase C / #1803 begins next. Final behavior/style audi
 
 ## Next exact step
 
-Finalize the full-width/showcase design contract in Design.MD, then read #1804 and compose the generic layout.
+Read #1804, create the thin BaseLayout composition and shared content boundary, then mechanically adapt EditorialSeriesLayout.
