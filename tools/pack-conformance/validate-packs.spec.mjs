@@ -465,6 +465,25 @@ describe('pack conformance', () => {
     }
   });
 
+  it('fails closed when a direct workspace Packs root contains a symlink Pack child', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-child-symlink-'));
+    const packsRoot = path.join(tempDir, 'packs');
+    const outsidePack = path.join(tempDir, 'outside-pack');
+    const linkedPack = path.join(packsRoot, 'linked-pack');
+    try {
+      await mkdir(packsRoot, { recursive: true });
+      await writePackWithCurrentId(outsidePack, baseManifest(), { 'examples/example.md': 'outside\n' });
+      await symlink(outsidePack, linkedPack);
+
+      expect(await validateWorkspacePacks(packsRoot)).toEqual(expect.objectContaining({
+        ok: false,
+        errors: [expect.objectContaining({ code: 'pack-root-unsafe', root: linkedPack })]
+      }));
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
   it('refuses Pack-ID repair through a symlink workspace Packs root before external writes', async () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-root-fix-symlink-'));
     const outsidePacks = path.join(tempDir, 'outside-packs');

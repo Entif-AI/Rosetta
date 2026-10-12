@@ -468,11 +468,17 @@ export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
   const roots = [];
 
   for (const entry of entries) {
-    if (!entry.isDirectory() || entry.name.startsWith('_')) {
+    if (entry.name.startsWith('_')) {
       continue;
     }
 
     const root = path.join(packsRoot, entry.name);
+    if (entry.isSymbolicLink()) {
+      throw rootBoundaryError('pack-root-unsafe', root, 'Pack root must not be a symbolic link');
+    }
+    if (!entry.isDirectory()) {
+      continue;
+    }
     roots.push(root);
   }
 
@@ -484,9 +490,9 @@ export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
   try {
     roots = await findPackRoots(packsRoot);
   } catch (error) {
-    if (error?.code !== 'packs-root-unsafe') throw error;
+    if (!['packs-root-unsafe', 'pack-root-unsafe'].includes(error?.code)) throw error;
     return {
-      errors: [validationError(error.code, packsRoot, error.message)],
+      errors: [validationError(error.code, error.root ?? packsRoot, error.message)],
       ok: false,
       packs: []
     };
@@ -542,7 +548,7 @@ export async function cli(argv = process.argv.slice(2), { log = console.log, err
     try {
       updated = await updateWorkspacePackIds(packsRoot);
     } catch (caught) {
-      if (!['packs-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(caught?.code)) throw caught;
+      if (!['packs-root-unsafe', 'pack-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(caught?.code)) throw caught;
       error(`${caught.root}: ${caught.code}: ${caught.message}`);
       return 1;
     }
