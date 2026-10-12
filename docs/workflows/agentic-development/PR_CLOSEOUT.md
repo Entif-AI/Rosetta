@@ -30,10 +30,13 @@ authorities to their own domains.
    passing demo is not a promotion receipt.
 5. For new feature work, the working checkpoint belongs in an originating
    GitHub issue comment, scoped to branch, execution epoch and exact pushed
-   SHA. No agent may add or modify a tracked root `FEATURE_LOG.md`. This
-   repository gate rejects changed root logs **even when the PR has no issue
-   references**; an unrelated already-existing root log is not automatically
-   stale. Branch ownership and human release signoff remain separate.
+   SHA. The former root `FEATURE_LOG.md` and `FEATURE_MAP.md` conventions
+   are retired: both names are ignored at repository root, and no agent may
+   add or modify either file in a merge candidate. The repository gate rejects
+   changed legacy root worklogs **even when the PR has no issue references**.
+   Historical state must be preserved on its owning GitHub issue (or, when no
+   issue exists, the owning PR) before a tracked legacy file is removed. Branch
+   ownership and human release signoff remain separate.
 6. Do not merge or close on behalf of the maintainer without that operation's
    authority. A PR's explicit `closureAuthority` disposition reviewed during
    human integration is a scope-specific **proposal**, not a permission grant.

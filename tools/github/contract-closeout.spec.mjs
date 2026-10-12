@@ -240,7 +240,7 @@ test('requires distinct Core/Pack authority, conformance and acceptance evidence
   );
 });
 
-test('rejects modified worklog and requires Core program archival without blocking an unrelated historic root log', () => {
+test('rejects legacy root worklogs and requires Core program archival while allowing their removal', () => {
   const standard = body(contract());
   assert.deepEqual(
     inspectCloseout({
@@ -263,10 +263,24 @@ test('rejects modified worklog and requires Core program archival without blocki
     }).errors.join(' '),
     /issue-backed checkpoints/
   );
+  assert.match(
+    inspectCloseout({
+      body: 'No issue references at all.',
+      files: [{ filename: 'FEATURE_MAP.md', status: 'modified' }],
+    }).errors.join(' '),
+    /issue-backed checkpoints/
+  );
   assert.deepEqual(
     inspectCloseout({
       body: standard,
       files: [{ filename: 'FEATURE_LOG.md', status: 'removed' }],
+    }).errors,
+    []
+  );
+  assert.deepEqual(
+    inspectCloseout({
+      body: standard,
+      files: [{ filename: 'FEATURE_MAP.md', status: 'removed' }],
     }).errors,
     []
   );

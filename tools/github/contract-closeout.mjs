@@ -15,6 +15,7 @@ const NATIVE_CLOSE_GROUP =
 const PACK_PATH =
   /^(?:packs\/|docs\/RFCs\/(?:ROCK-|Rosetta v3\.0\.0 Core Spine Specification\.md))/;
 const HEX = /^[a-f0-9]{64}$/;
+const LEGACY_ROOT_WORKLOGS = new Set(['FEATURE_LOG.md', 'FEATURE_MAP.md']);
 
 const isObject = (value) =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -67,16 +68,16 @@ export function inspectCloseout({
   candidateHead,
 } = {}) {
   const errors = [];
-  // Refuse tracked root worklogs even on PRs without issue references.
+  // Refuse legacy tracked root worklogs even on PRs without issue references.
   if (
     files.some(
       (file) =>
-        (file.filename ?? file.path) === 'FEATURE_LOG.md' &&
+        LEGACY_ROOT_WORKLOGS.has(file.filename ?? file.path) &&
         file.status !== 'removed'
     )
   ) {
     errors.push(
-      'Tracked root FEATURE_LOG.md cannot be added or modified by a merge candidate; use issue-backed checkpoints.'
+      'Legacy root FEATURE_LOG.md/FEATURE_MAP.md cannot be added or modified by a merge candidate; use issue-backed checkpoints.'
     );
   }
   if (
