@@ -2,7 +2,7 @@
 /* global console, process */
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { lstat, readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { lstat, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
@@ -95,7 +95,8 @@ async function listPackFiles(root, current = root) {
 }
 
 export async function computePackId(packRoot) {
-  const manifest = await readJson(path.join(packRoot, 'pack.json'));
+  await assertDirectRoot(packRoot, 'pack-root-unsafe', 'Pack root');
+  const manifest = await readJson(await assertPackManifest(packRoot));
   const fileManifest = await listPackFiles(packRoot);
   const idInput = {
     algorithm: PACK_ID_ALGORITHM,
@@ -145,18 +146,6 @@ function entriesFromExports(exportsValue) {
   }
 
   return exportsValue.map((entry) => entry?.path).filter((entry) => typeof entry === 'string');
-}
-
-async function fileExists(filePath) {
-  try {
-    return (await stat(filePath)).isFile();
-  } catch (error) {
-    if (error?.code === 'ENOENT') {
-      return false;
-    }
-
-    throw error;
-  }
 }
 
 async function inspectDeclaredFile(packRoot, declaredPath) {
@@ -224,12 +213,32 @@ async function assertDirectRoot(root, code, label) {
   }
 }
 
+async function assertPackManifest(packRoot) {
+  const manifestPath = path.join(packRoot, 'pack.json');
+  let info;
+  try {
+    info = await lstat(manifestPath);
+  } catch (error) {
+    if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+      throw rootBoundaryError('manifest-missing', packRoot, 'Pack root must contain pack.json');
+    }
+    throw error;
+  }
+
+  if (!info.isFile()) {
+    throw rootBoundaryError('manifest-unsafe', packRoot, 'pack.json must be a regular file, not a symbolic link');
+  }
+  return manifestPath;
+}
+
 export async function validatePackRoot(packRoot) {
   const errors = [];
+  let manifestPath;
   try {
     await assertDirectRoot(packRoot, 'pack-root-unsafe', 'Pack root');
+    manifestPath = await assertPackManifest(packRoot);
   } catch (error) {
-    if (error?.code !== 'pack-root-unsafe') throw error;
+    if (!['pack-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(error?.code)) throw error;
     return {
       computedPackId: null,
       errors: [validationError(error.code, packRoot, error.message)],
@@ -238,7 +247,6 @@ export async function validatePackRoot(packRoot) {
       root: packRoot
     };
   }
-  const manifestPath = path.join(packRoot, 'pack.json');
   let manifest;
   try {
     manifest = await readJson(manifestPath);
@@ -465,9 +473,7 @@ export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
     }
 
     const root = path.join(packsRoot, entry.name);
-    if (await fileExists(path.join(root, 'pack.json'))) {
-      roots.push(root);
-    }
+    roots.push(root);
   }
 
   return roots.sort((left, right) => left.localeCompare(right));
@@ -499,10 +505,15 @@ export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
 
 export async function updateWorkspacePackIds(packsRoot = DEFAULT_PACKS_ROOT) {
   const roots = await findPackRoots(packsRoot);
+  // Validate every candidate before any repair write, so one missing/linked
+  // manifest cannot leave earlier Pack IDs partially updated.
+  const manifests = await Promise.all(roots.map(async (root) => ({
+    root,
+    manifestPath: await assertPackManifest(root)
+  })));
   const updated = [];
 
-  for (const root of roots) {
-    const manifestPath = path.join(root, 'pack.json');
+  for (const { root, manifestPath } of manifests) {
     const manifest = await readJson(manifestPath);
     const computedPackId = await computePackId(root);
     if (manifest.pack_id === computedPackId) {
@@ -531,7 +542,7 @@ export async function cli(argv = process.argv.slice(2), { log = console.log, err
     try {
       updated = await updateWorkspacePackIds(packsRoot);
     } catch (caught) {
-      if (caught?.code !== 'packs-root-unsafe') throw caught;
+      if (!['packs-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(caught?.code)) throw caught;
       error(`${caught.root}: ${caught.code}: ${caught.message}`);
       return 1;
     }
