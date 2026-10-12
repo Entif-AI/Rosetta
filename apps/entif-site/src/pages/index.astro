@@ -66,11 +66,13 @@ const steps = [
           <div class="home-actions">
             <a
               class="home-action home-action-primary"
-              href={joinBasePath(base, 'projects/rosetta/')}
-              >{copy.explore}<span aria-hidden="true">↗</span></a
+              href={joinBasePath(base, 'research/')}
+              >Explore research<span aria-hidden="true">↗</span></a
             >
-            <a class="home-action home-action-secondary" href="#claim-journey"
-              >{copy.trace}<span aria-hidden="true">↓</span></a
+            <a
+              class="home-action home-action-secondary"
+              href={joinBasePath(base, 'about/')}
+              >About Entif<span aria-hidden="true">↗</span></a
             >
           </div>
           <p class="home-hero-aside">{copy.heroTitle}</p>
@@ -218,7 +220,8 @@ const steps = [
         </div><a
           class="home-action home-action-primary"
           href={joinBasePath(base, 'about/')}
-          >About our approach<span aria-hidden="true">↗</span></a>
+          >About our approach<span aria-hidden="true">↗</span></a
+        >
       </div>
     </section>
   </div>

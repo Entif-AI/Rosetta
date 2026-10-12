@@ -41,6 +41,46 @@ test('navigation, social destinations, and card keyboard disclosure', async ({
   await expect(summaries.nth(0)).toBeFocused();
 });
 
+test('homepage hero links and claim disclosures are legible without a disclaimer banner', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const actions = page.locator('.home-hero-copy .home-actions a');
+  await expect(actions).toHaveCount(2);
+  await expect(actions.nth(0)).toHaveAttribute('href', '/research/');
+  await expect(actions.nth(0)).toContainText('Explore research');
+  await expect(actions.nth(1)).toHaveAttribute('href', '/about/');
+  await expect(actions.nth(1)).toContainText('About Entif');
+  await expect(page.locator('.demo-note')).toHaveCount(0);
+  await expect(page.locator('.entif-home')).not.toContainText(
+    'Traceability is not proof of truth'
+  );
+
+  expect(
+    await page.locator('.home-hero-aside').evaluate((aside) => {
+      const rootSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      return parseFloat(getComputedStyle(aside).fontSize) / rootSize;
+    })
+  ).toBeCloseTo(1.45, 2);
+
+  const card = page.locator('.claim-card').nth(2);
+  await card.locator('summary').click();
+  await expect(card).toHaveAttribute('open', '');
+  await expect(card.locator('.claim-text')).toBeVisible();
+  const receiptWithinCard = await card.evaluate((element) => {
+    const outer = element.getBoundingClientRect();
+    const inner = element
+      .querySelector('.claim-receipt')
+      ?.getBoundingClientRect();
+    return Boolean(
+      inner && inner.top >= outer.top && inner.bottom <= outer.bottom + 1
+    );
+  });
+  expect(receiptWithinCard).toBe(true);
+});
+
 test('published manuscripts retain scientific status and working figures', async ({
   page,
 }) => {
@@ -262,7 +302,9 @@ test('cards retain their geometry and hero position when opened', async ({
     const before = await card.boundingBox();
     await card.locator('summary').click();
     expect((await card.boundingBox())?.height).toBe(before?.height);
-    expect((await page.getByTestId('home-hero-heading').boundingBox())?.y).toBe(hero?.y);
+    expect((await page.getByTestId('home-hero-heading').boundingBox())?.y).toBe(
+      hero?.y
+    );
   }
 });
 test('tag date archives and scroll to top work', async ({ page }) => {

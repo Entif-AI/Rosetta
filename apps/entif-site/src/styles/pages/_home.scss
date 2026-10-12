@@ -17,7 +17,7 @@
   .entif-home .home-stage { padding-block: clamp(6rem, 8vw, 9rem); }
   .entif-home .home-dark { background: var(--home-navy); color: var(--home-white); }
   .entif-home .home-light { background: var(--home-paper); color: var(--home-ink); }
-  .entif-home .home-kicker { font: 700 0.76rem/1.5 system-ui, sans-serif; letter-spacing: 0.15em; text-transform: uppercase; color: var(--home-orange); }
+  .entif-home .home-kicker { font: 700 0.94rem/1.5 system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--home-orange); }
   .entif-home h1, .entif-home h2 { font-weight: 450; letter-spacing: -0.045em; line-height: 1.08; }
   .entif-home h1 { font-size: clamp(3rem, 5.6vw, 5.5rem); max-width: 12ch; margin-block: 1.35rem 2rem; }
   .entif-home h1 em { color: var(--home-orange); font-style: normal; }
@@ -31,25 +31,37 @@
   .entif-home .home-hero-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 6vw, 7rem); }
   .entif-home .home-opening { background: radial-gradient(ellipse at 74% 23%, #103b5b 0, transparent 54%), var(--home-navy); }
   .entif-home .home-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
-  .entif-home .home-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.6rem; min-height: 3.2rem; padding: 0.8rem 1.2rem; border: 1px solid currentColor; border-radius: 0.3rem; font: 650 0.92rem system-ui, sans-serif; text-decoration: none; }
-  .entif-home .home-action-primary { background: var(--home-orange); border-color: var(--home-orange); color: #182638; }
-  .entif-home .home-action-secondary { color: var(--home-white); border-color: #a6bbce; }
-  .entif-home .home-action:hover { text-decoration: underline; text-underline-offset: 0.35em; }
-  .entif-home .home-hero-aside { margin-top: 4rem; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--home-muted); }
+  .entif-home .home-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; min-height: 3.75rem; padding: 0.9rem 1.5rem; border: 1px solid currentColor; border-radius: 0.55rem; font: 650 1.075rem/1.3 system-ui, sans-serif; letter-spacing: 0.005em; text-decoration: none; transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+  .entif-home .home-action span { font-size: 1.3rem; line-height: 1; }
+  .entif-home .home-action-primary { background: var(--home-orange); border-color: var(--home-orange); color: #182638; box-shadow: 0 8px 24px #00000025; }
+  .entif-home .home-action-secondary { color: var(--home-white); border-color: #9db7ca; background: #ffffff0b; }
+  .entif-home .home-action-primary:hover { background: #ffac60; border-color: #ffac60; box-shadow: 0 12px 30px #00000030; }
+  .entif-home .home-action-secondary:hover { background: #ffffff18; border-color: #e2eff8; }
+  .entif-home .home-action:hover { transform: translateY(-2px); }
+  .entif-home .home-action:focus-visible { outline: 3px solid #8bdbff; outline-offset: 4px; }
+  .entif-home .home-hero-aside { margin-top: 4rem; font-size: 1.45rem; line-height: 1.4; letter-spacing: 0.02em; color: var(--home-muted); }
   .entif-home .home-proof { min-width: 0; }
   .entif-home .home-proof-intro { margin-bottom: 2rem; }
   .entif-home .home-proof-intro > p { margin-top: 0.6rem; color: var(--home-white); font-size: 1.55rem; }
   .entif-home .journey-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
   .entif-home .journey-track > li + li::before { display: none; }
   .entif-home .claim-journey > ol.journey-track > li { background: transparent; }
-  .entif-home .claim-card { border: 1px solid var(--home-rule); background: #0c304a; box-shadow: none; height: 13.5rem; }
+  .entif-home .claim-card { border: 1px solid #43677e; background: #0c304a; box-shadow: none; height: 16rem; overflow: hidden; }
   .entif-home .claim-card summary { color: var(--home-white); padding-top: 2rem; }
   .entif-home .claim-card summary::after { display: none; }
-  .entif-home .claim-card .stage-title { color: var(--home-white); }
-  .entif-home .claim-card summary > .eyebrow { color: var(--home-muted); }
-  .entif-home .claim-card .stage-icon { top: 75px; }
+  .entif-home .claim-card .stage-title { color: var(--home-white); font-size: 1.1rem; font-weight: 700; left: 3.2rem; top: 1.15rem; }
+  .entif-home .claim-card summary > .eyebrow { color: var(--home-muted); font-size: 0.91rem; font-weight: 550; left: 3.2rem; top: 2.65rem; }
+  .entif-home .claim-card .stage-number { color: #cfdeeb; font-size: 1rem; top: 1.25rem; }
+  .entif-home .claim-card .info-icon { color: #bfd2e1; }
+  .entif-home .claim-card .stage-icon { top: 95px; }
   .entif-home .claim-card .stage-icon svg { width: 5rem; height: 5rem; color: #7ec8ef; }
-  .entif-home .demo-note { color: var(--home-muted); }
+  .entif-home .claim-card[open] { background: #123a53; }
+  .entif-home .claim-card[open] summary { position: relative; height: 4.85rem; padding: 0; }
+  .entif-home .claim-card[open] summary > .eyebrow { display: block; }
+  .entif-home .claim-card .claim-receipt { position: absolute; inset: 4.85rem 0 0; width: 100%; height: auto; margin-top: 0; padding: 0.25rem 1.2rem 0.9rem; overflow-y: auto; background: #123a53; color: #ebf4fc; font-size: 1rem; line-height: 1.5; }
+  .entif-home .claim-card .claim-text { color: #ffffff; font-size: 1.075rem; font-weight: 650; line-height: 1.4; }
+  .entif-home .claim-card .claim-text + p { margin-top: 0.7rem; line-height: 1.5; }
+  .entif-home .claim-card .receipt-id { border-color: #63849b; color: #d7e6f2; margin-top: 0.8rem; padding-top: 0.55rem; }
   .entif-home .home-research-grid, .entif-home .home-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); }
   .entif-home .home-light .content-card { background: #fffcf8; border: 1px solid #d1d8dd; }
   .entif-home .home-light .content-card h3 a, .entif-home .home-light .content-card h2 a { color: var(--home-ink); }
@@ -86,11 +98,11 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .entif-home *, .entif-home *::before, .entif-home *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    .entif-home .home-action:hover { transform: none; }
   }
 }
 
 @layer pages {
-  .entif-home .claim-card .stage-number { color: #cfdeeb; }
   .entif-home .home-light .home-kicker { color: #88420e; }
   .entif-home .home-dark .content-card .eyebrow { color: #ffc18f; }
 }
