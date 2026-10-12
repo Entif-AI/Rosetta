@@ -130,6 +130,19 @@
       }
     },
     {
+      "id": "entif:contract-aware-pr-closeout",
+      "kind": "plan",
+      "title": "Enforce contract-aware issue closeout and retire shared root worklogs",
+      "status": "done",
+      "task": "T1815",
+      "issues": [1815],
+      "pr": 1817,
+      "source": {
+        "path": "plans/contract-aware-closeout.md",
+        "sha256": "8d92e843cdf9ae6e3235efc7d7f863be052fc66ba20f40445c86bba141d6f2df"
+      }
+    },
+    {
       "id": "entif:engineering-akasha",
       "kind": "plan",
       "title": "Reconstruct JCS engineering work through Akasha evidence",
@@ -494,6 +507,11 @@
     },
     {
       "from": "entif:compiled-context",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:contract-aware-pr-closeout",
       "kind": "implements",
       "to": "entif:development-substrate"
     },
