@@ -110,6 +110,17 @@ export interface GitHubLiveAcquisitionResult {
   /** Exact HTTP entity bytes, indexed by SHA-256. The consumer owns durable persistence. */
   rawResponses: GitHubRawResponse[];
   canonicalSourceJson: string;
+  publicationProjection:
+    | {
+        status: 'available';
+        profile: 'github.native-public-core.v1';
+        canonicalJson: string;
+        sha256: string;
+      }
+    | {
+        status: 'unavailable';
+        reason: 'private-repository';
+      };
   sourcePackage: ReturnType<typeof createSourcePackageTile>;
   sourceSystem: ReturnType<typeof createSourceSystemProfileTile>;
   record: ReturnType<typeof createSourceRecordTile>;
@@ -202,6 +213,107 @@ function requireLimit(
   if (!Number.isSafeInteger(result) || result < 1 || result > ceiling)
     throw new Error('Invalid GitHub ' + label + ' bound.');
   return result;
+}
+
+function createPublicationProjection(input: {
+  kind: GitHubNativeSourceKind;
+  repositoryId: number;
+  repositoryNodeId: string;
+  fullName: string;
+  isPrivate: boolean;
+  issueId: number;
+  issueNodeId: string;
+  issueNumber: number;
+  issueTitle: string;
+  issueBody: string | null;
+  issueState: 'open' | 'closed';
+  createdAt: string;
+  issueUpdatedAt: string;
+  apiIssueUrl: string;
+  htmlIssueUrl: string;
+  pullRequest?: {
+    id: number;
+    nodeId: string;
+    updatedAt: string;
+    apiUrl: string;
+  };
+  coverage: GitHubLiveAcquisitionResult['captureCoverage'];
+}): GitHubLiveAcquisitionResult['publicationProjection'] {
+  if (input.isPrivate) {
+    return { status: 'unavailable', reason: 'private-repository' };
+  }
+  const canonicalJson = canonicalizeJson({
+    profile: 'github.native-public-core.v1',
+    kind: input.kind,
+    repository: {
+      id: input.repositoryId,
+      node_id: input.repositoryNodeId,
+      full_name: input.fullName,
+      private: false,
+    },
+    issue: {
+      id: input.issueId,
+      node_id: input.issueNodeId,
+      number: input.issueNumber,
+      title: input.issueTitle,
+      body: input.issueBody,
+      state: input.issueState,
+      created_at: input.createdAt,
+      updated_at: input.issueUpdatedAt,
+      url: input.apiIssueUrl,
+      html_url: input.htmlIssueUrl,
+      repository_url: API + '/repos/' + input.fullName,
+    },
+    ...(input.pullRequest
+      ? {
+          pullRequest: {
+            id: input.pullRequest.id,
+            node_id: input.pullRequest.nodeId,
+            number: input.issueNumber,
+            updated_at: input.pullRequest.updatedAt,
+            url: input.pullRequest.apiUrl,
+            issue_url: input.apiIssueUrl,
+          },
+        }
+      : {}),
+    coverage: {
+      complete: input.coverage.complete,
+      comments: {
+        included: input.coverage.comments.included,
+        complete: input.coverage.comments.complete,
+        itemCount: input.coverage.comments.itemCount,
+        pagesFetched: input.coverage.comments.pagesFetched,
+        nextPage: input.coverage.comments.nextPage,
+      },
+      timeline: {
+        included: input.coverage.timeline.included,
+        complete: input.coverage.timeline.complete,
+        itemCount: input.coverage.timeline.itemCount,
+        pagesFetched: input.coverage.timeline.pagesFetched,
+        nextPage: input.coverage.timeline.nextPage,
+      },
+      reviews: {
+        included: input.coverage.reviews.included,
+        complete: input.coverage.reviews.complete,
+        itemCount: input.coverage.reviews.itemCount,
+        pagesFetched: input.coverage.reviews.pagesFetched,
+        nextPage: input.coverage.reviews.nextPage,
+      },
+      reviewComments: {
+        included: input.coverage.reviewComments.included,
+        complete: input.coverage.reviewComments.complete,
+        itemCount: input.coverage.reviewComments.itemCount,
+        pagesFetched: input.coverage.reviewComments.pagesFetched,
+        nextPage: input.coverage.reviewComments.nextPage,
+      },
+    },
+  });
+  return {
+    status: 'available',
+    profile: 'github.native-public-core.v1',
+    canonicalJson,
+    sha256: sha256Hex(canonicalJson),
+  };
 }
 
 function verifyCollectionNext(
@@ -581,10 +693,12 @@ export async function acquireGitHubNativeSource(
       'GitHub issue PR reference disagrees with requested native PR.'
     );
   }
-  string(issue.title, 'issue.title');
-  if (issue.body !== null && typeof issue.body !== 'string')
+  const issueTitle = string(issue.title, 'issue.title');
+  const issueBody = issue.body;
+  if (issueBody !== null && typeof issueBody !== 'string')
     throw new Error('GitHub issue body must be text or null.');
-  if (issue.state !== 'open' && issue.state !== 'closed')
+  const issueState = issue.state;
+  if (issueState !== 'open' && issueState !== 'closed')
     throw new Error('GitHub issue has unsupported native state.');
   const createdAt = instant(issue.created_at, 'issue.created_at');
   const issueUpdatedAt = instant(issue.updated_at, 'issue.updated_at');
@@ -751,6 +865,40 @@ export async function acquireGitHubNativeSource(
       : string(pullRequest!.node_id, 'pull_request.node_id');
   const sourceId =
     'github.' + request.kind + ':' + repositoryId + ':' + nativeId;
+  const publicationProjection = createPublicationProjection({
+    kind: request.kind,
+    repositoryId,
+    repositoryNodeId,
+    fullName,
+    isPrivate: repo.private,
+    issueId,
+    issueNodeId,
+    issueNumber: request.number,
+    issueTitle,
+    issueBody,
+    issueState,
+    createdAt,
+    issueUpdatedAt,
+    apiIssueUrl,
+    htmlIssueUrl:
+      'https://github.com/' +
+      fullName +
+      '/' +
+      (request.kind === 'issue' ? 'issues' : 'pull') +
+      '/' +
+      request.number,
+    ...(pullRequest
+      ? {
+          pullRequest: {
+            id: nativeId,
+            nodeId: nativeNodeId,
+            updatedAt: pullUpdatedAt,
+            apiUrl: API + prPath,
+          },
+        }
+      : {}),
+    coverage,
+  });
   const prior = request.previous;
   if (prior) {
     if (
@@ -782,8 +930,7 @@ export async function acquireGitHubNativeSource(
   const sameSource =
     !!prior &&
     prior.manifestation.payload.byteHashes.sha256 === snapshotHash &&
-    prior.record.payload.publicationStatus ===
-      (repo.private ? 'restricted' : 'published') &&
+    prior.record.payload.publicationStatus === 'restricted' &&
     JSON.stringify(prior.manifestation.payload.accessRequirements) ===
       JSON.stringify(scopes);
   const record = sameSource
@@ -799,7 +946,7 @@ export async function acquireGitHubNativeSource(
               : 'https://github.com/' + fullName + '/pull/' + request.number,
           ],
           claimedVersion: updatedAt,
-          publicationStatus: repo.private ? 'restricted' : 'published',
+          publicationStatus: 'restricted',
           lineageRefs: prior ? [prior.record.cid] : [],
           metadataBlob: {
             authorizationBasis: 'github-bearer-and-caller-scoped-grant',
@@ -809,6 +956,11 @@ export async function acquireGitHubNativeSource(
             repositoryId,
             repositoryNodeId,
             repositoryNameAtCapture: fullName,
+            providerVisibility: repo.private ? 'private' : 'public',
+            publicationProjectionHash:
+              publicationProjection.status === 'available'
+                ? publicationProjection.sha256
+                : null,
             issueId,
             issueNodeId,
             nativeId,
@@ -940,6 +1092,7 @@ export async function acquireGitHubNativeSource(
     captureCoverage: coverage,
     rawResponses,
     canonicalSourceJson: snapshotJson,
+    publicationProjection,
     sourceSystem: minted(sourceSystem),
     record: sameSource ? record : minted(record),
     manifestation: sameSource ? manifestation : minted(manifestation),

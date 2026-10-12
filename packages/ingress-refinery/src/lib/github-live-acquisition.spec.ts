@@ -76,6 +76,7 @@ function provider(
     foreignComment?: boolean;
     idlessTimeline?: boolean;
     foreignCrossReference?: boolean;
+    callerSpecificMetadata?: boolean;
   } = {}
 ) {
   const calls: Array<{
@@ -86,6 +87,13 @@ function provider(
   const nativeIssue = {
     ...issue,
     comments: options.pageLink ? 2 : 1,
+    ...(options.callerSpecificMetadata
+      ? {
+          performed_via_github_app: {
+            permissions: { issues: 'write' },
+          },
+        }
+      : {}),
     ...(options.pr
       ? {
           html_url: 'https://github.com/alpha/project/pull/42',
@@ -94,7 +102,21 @@ function provider(
       : {}),
   };
   const routes = new Map<string, unknown>([
-    [root, { ...repo, private: options.private ?? false }],
+    [
+      root,
+      {
+        ...repo,
+        private: options.private ?? false,
+        ...(options.callerSpecificMetadata
+          ? {
+              permissions: { pull: true, push: true, admin: false },
+              security_and_analysis: {
+                secret_scanning: { status: 'enabled' },
+              },
+            }
+          : {}),
+      },
+    ],
     [root + '/issues/42', nativeIssue],
     [
       root + '/pulls/42',
@@ -203,6 +225,40 @@ function provider(
 }
 
 describe('authenticated native GitHub issue and PR source acquisition', () => {
+  it('keeps authenticated provider objects restricted and exposes only an allowlisted public projection', async () => {
+    const source = await acquireGitHubNativeSource({
+      ...fixture(),
+      fetchImpl: provider({ callerSpecificMetadata: true }).fetchImpl,
+      perPage: 2,
+    });
+
+    expect(source.record.payload.publicationStatus).toBe('restricted');
+    expect(source.canonicalSourceJson).toContain('"permissions"');
+    expect(source.canonicalSourceJson).toContain('security_and_analysis');
+    expect(source.canonicalSourceJson).toContain('performed_via_github_app');
+    expect(source.publicationProjection.status).toBe('available');
+    if (source.publicationProjection.status !== 'available') {
+      throw new Error('Expected an allowlisted public projection.');
+    }
+    expect(source.publicationProjection.canonicalJson).toContain(
+      'Native issue'
+    );
+    expect(source.publicationProjection.canonicalJson).not.toContain(
+      '"permissions"'
+    );
+    expect(source.publicationProjection.canonicalJson).not.toContain(
+      'security_and_analysis'
+    );
+    expect(source.publicationProjection.canonicalJson).not.toContain(
+      'performed_via_github_app'
+    );
+    expect(source.publicationProjection.sha256).toBe(
+      createHash('sha256')
+        .update(source.publicationProjection.canonicalJson)
+        .digest('hex')
+    );
+  });
+
   it('checks the provider with a bearer token, retains exact raw bytes and closes source/refinery lineage', async () => {
     const server = provider();
     const result = await acquireGitHubNativeSource({
