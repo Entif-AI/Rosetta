@@ -18,6 +18,7 @@
     color: var(--uca-text);
     background: var(--uca-surface);
     overflow-wrap: anywhere;
+    font-size: 1rem;
     line-height: 1.65;
 
     h1,
@@ -59,7 +60,7 @@
 
     .uca-eyebrow {
       color: var(--uca-highlight);
-      font-size: 0.8125rem;
+      font-size: 1rem;
       font-weight: 650;
       letter-spacing: 0.13em;
       text-transform: uppercase;
@@ -140,7 +141,7 @@
 
     .uca-agency-note {
       color: var(--uca-muted);
-      font-size: 0.875rem;
+      font-size: 1rem;
       margin-top: 2rem;
     }
 
@@ -178,7 +179,7 @@
 
     .uca-orbit-center {
       position: absolute;
-      inset: 31%;
+      inset: 27%;
       border: 1px solid #f4cb8880;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 30%, #38536c, #162132 65%);
@@ -192,13 +193,13 @@
     }
 
     .uca-orbit-center strong {
-      font-size: 7cqi;
+      font-size: max(1rem, 7cqi);
       line-height: 1.1;
     }
 
     .uca-orbit-center > span {
       color: var(--uca-focus);
-      font-size: 2.3cqi;
+      font-size: 1rem;
       margin-top: 2cqi;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -209,7 +210,8 @@
       transform: translate(-50%, -50%);
       white-space: nowrap;
       font-weight: 650;
-      font-size: 2.8cqi;
+      font-size: 1.5rem;
+      line-height: 1.25;
     }
 
     .uca-orbit-node::before {
@@ -221,6 +223,17 @@
       border-radius: 50%;
       background: var(--uca-highlight);
       box-shadow: 0 0 1rem #f4cb8880;
+    }
+
+    a.uca-orbit-node {
+      color: var(--uca-text);
+      text-decoration: none;
+      transition: color 200ms ease-in-out, transform 200ms ease-in-out;
+    }
+
+    a.uca-orbit-node:is(:hover, :focus-visible, :active) {
+      color: #ffe1a3;
+      transform: translate(-50%, -50%) scale(1.06);
     }
 
     .uca-orbit-node-rosetta {
@@ -399,7 +412,7 @@
     .uca-system-promise {
       display: block;
       color: var(--uca-muted);
-      font-size: 0.9375rem;
+      font-size: 1rem;
       margin-top: 0.25rem;
     }
 
@@ -511,7 +524,7 @@
     .uca-contributors {
       color: var(--uca-focus);
       margin-bottom: 0.5rem;
-      font-size: 0.875rem;
+      font-size: 1rem;
       font-weight: 650;
     }
 
@@ -522,20 +535,19 @@
       flex-wrap: wrap;
       gap: 0.25rem 1rem;
       margin-top: 1rem;
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--uca-muted);
       align-items: center;
     }
 
-    .uca-scenario {
-      background: var(--uca-scenario-surface);
+    .uca-response .uca-source-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
     }
 
-    .uca-illustrative {
-      color: var(--uca-muted);
-      font-size: 0.9375rem;
-      margin-top: 1rem;
-      font-style: italic;
+    .uca-scenario {
+      background: var(--uca-scenario-surface);
     }
 
     .uca-scenario-steps {
@@ -552,6 +564,29 @@
       min-width: 0;
     }
 
+    .uca-scenario-tile {
+      display: block;
+      height: 100%;
+      border-radius: 0.625rem;
+      padding: 0.75rem;
+    }
+
+    a.uca-scenario-tile {
+      color: var(--uca-text);
+      text-decoration: none;
+      transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+
+    a.uca-scenario-tile:is(:hover, :focus-visible, :active) {
+      background-color: #73522b12;
+      color: var(--uca-light-accent);
+    }
+
+    a.uca-scenario-tile:is(:hover, :focus-visible, :active) h3 {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
     .uca-scenario-steps h3 {
       font-size: 1.125rem;
       margin-block: 1rem 0.75rem;
@@ -559,7 +594,7 @@
 
     .uca-scenario-steps p {
       color: var(--uca-muted);
-      font-size: 0.9375rem;
+      font-size: 1rem;
     }
 
     .uca-scenario-conclusion {
@@ -619,6 +654,32 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
+      .uca-orbit {
+        display: grid;
+        width: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .uca-orbit svg,
+      .uca-orbit-center {
+        display: none;
+      }
+
+      .uca-orbit-node {
+        position: static;
+        transform: none;
+        white-space: normal;
+        text-align: center;
+        padding: 0.5rem;
+      }
+
+      a.uca-orbit-node:is(:hover, :focus-visible, :active) {
+        transform: scale(1.06);
+      }
+
       .uca-scenario-steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -638,6 +699,13 @@
         flex: 0 0 auto;
         width: min(18rem, calc(100% - 2rem));
         border-top: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      a.uca-orbit-node,
+      a.uca-scenario-tile {
+        transition: none;
       }
     }
 

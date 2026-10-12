@@ -265,6 +265,58 @@ test('published detail/research routes, fragments, metadata and skip navigation 
   await selected(page, 'gnosis');
 });
 
+test('orbit and scenario tiles expose only public projects and published titles', async ({
+  page,
+}) => {
+  await page.goto('/projects/');
+  for (const id of ['rosetta', 'bilqis', 'codito', 'indranet']) {
+    await expect(page.getByTestId(`uca-orbit-project-${id}`)).toHaveAttribute(
+      'href',
+      `/projects/${id}/`
+    );
+    await expect(
+      page.getByTestId(`uca-scenario-project-${id}`)
+    ).toHaveAttribute('href', `/projects/${id}/`);
+  }
+  await expect(page.locator('.uca-orbit-node[href]')).toHaveCount(4);
+  await expect(page.locator('.uca-scenario-tile[href]')).toHaveCount(4);
+  const rosettaOrbit = page.getByTestId('uca-orbit-project-rosetta');
+  await expect(rosettaOrbit).toHaveCSS('font-size', '24px');
+  await expect(rosettaOrbit).toHaveCSS('transition-duration', '0.2s, 0.2s');
+  await rosettaOrbit.hover();
+  await expect(rosettaOrbit).toHaveCSS('color', 'rgb(255, 225, 163)');
+  await expect(page.getByTestId('uca-scenario-label')).toHaveCount(0);
+  await expect(page.getByTestId('uca-research-link-ETR-2026-01')).toContainText(
+    'We Had the Seeds of a Babel Fish'
+  );
+  await expect(page.getByTestId('uca-research-link-ETR-2026-04')).toContainText(
+    'Meaning That Survives Change'
+  );
+  await expect(page.getByTestId('uca-research-link-ETR-2026-02')).toContainText(
+    'The Cost of Learning Too Late'
+  );
+  await expect(page.getByTestId('uca-research-link-ETR-2026-07')).toContainText(
+    'Accelerating the Dystopia: Why Artificial Intelligence Cannot Save a System We Refuse to Fix'
+  );
+  const sourceList = page.getByTestId('uca-response-sources-meaning');
+  await expect(sourceList).toHaveCSS('flex-direction', 'column');
+  for (const id of ['16', '08', '09', '10', '12']) {
+    await expect(page.getByTestId('uca-page')).not.toContainText(
+      `ETR-2026-${id}`
+    );
+  }
+  const smallestText = await page.getByTestId('uca-page').evaluate((root) =>
+    Math.min(
+      ...Array.from(root.querySelectorAll<HTMLElement>('*'))
+        .filter(
+          (el) => el.getClientRects().length > 0 && el.textContent?.trim()
+        )
+        .map((el) => Number.parseFloat(getComputedStyle(el).fontSize))
+    )
+  );
+  expect(smallestText).toBeGreaterThanOrEqual(16);
+});
+
 for (const width of [1366, 390]) {
   test(`WCAG axe checks every active system at ${width}px`, async ({
     page,
@@ -448,7 +500,11 @@ test('focus, non-color selection, forced colors, reduced motion and print retain
     expect(cue.animation).toBe('none');
     await expect(tab(page, id)).toBeInViewport();
   }
-  await expect(page.getByTestId('uca-orbit')).toHaveAttribute(
+  await expect(page.getByTestId('uca-orbit')).not.toHaveAttribute(
+    'aria-hidden',
+    'true'
+  );
+  await expect(page.getByTestId('uca-orbit').locator('svg')).toHaveAttribute(
     'aria-hidden',
     'true'
   );
