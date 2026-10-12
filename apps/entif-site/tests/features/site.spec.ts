@@ -119,6 +119,113 @@ test('homepage text inherits the site typeface and never falls below 1rem', asyn
   }
 });
 
+test('portrait header groups logo and socials above an unbroken tagline and navigation', async ({
+  page,
+}) => {
+  for (const width of [320, 350, 360, 390, 708, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+
+    const geometry = await page.evaluate(() => {
+      const bounds = (element: Element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          x: rect.x,
+          y: rect.y,
+          width: rect.width,
+          height: rect.height,
+          bottom: rect.bottom,
+        };
+      };
+      const element = (id: string) => {
+        const target = document.querySelector(`[data-test-id="${id}"]`);
+        if (!target) throw new Error(`Missing header or hero target: ${id}`);
+        return target;
+      };
+      const tagline = element('site-brand-tagline');
+      const navLinks = [
+        'research',
+        'articles',
+        'projects',
+        'about',
+        'contact',
+      ].map((name) => element(`site-nav-${name}`));
+      const firstLink = navLinks[0];
+      if (!firstLink) throw new Error('Missing primary navigation links');
+      const socials = Array.from(
+        element('site-social-nav').querySelectorAll('a')
+      );
+      const buttons = ['home-hero-research', 'home-hero-about'].map(element);
+      const rootSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      return {
+        viewport: document.documentElement.clientWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        logo: bounds(element('site-brand-logo')),
+        tagline: bounds(tagline),
+        taglineLines:
+          bounds(tagline).height /
+          parseFloat(getComputedStyle(tagline).lineHeight),
+        navRows: navLinks.map((link) => Math.round(bounds(link).y)),
+        navFont: getComputedStyle(firstLink).fontVariantCaps,
+        navFontSize: getComputedStyle(firstLink).fontSize,
+        socialButtons: socials.map(bounds),
+        actionArea: bounds(element('home-hero-actions')),
+        actions: buttons.map((button) => ({
+          ...bounds(button),
+          remSize: parseFloat(getComputedStyle(button).fontSize) / rootSize,
+        })),
+      };
+    });
+
+    expect(geometry.scrollWidth).toBe(geometry.viewport);
+    expect(geometry.tagline.y).toBeGreaterThan(geometry.logo.bottom);
+    expect(Math.min(...geometry.navRows)).toBeGreaterThan(
+      geometry.tagline.bottom
+    );
+    expect(geometry.navFont).toBe('all-small-caps');
+    expect(geometry.navFontSize).toBe('17px');
+    expect(geometry.socialButtons).toHaveLength(3);
+    for (const icon of geometry.socialButtons) {
+      expect(icon.y).toBeCloseTo(geometry.logo.y, 0);
+      expect(icon.width).toBeCloseTo(geometry.logo.width, 0);
+      expect(icon.height).toBeCloseTo(geometry.logo.height, 0);
+    }
+    if (width <= 350) {
+      expect(geometry.navRows.slice(0, 3)).toEqual([
+        geometry.navRows[0],
+        geometry.navRows[0],
+        geometry.navRows[0],
+      ]);
+      expect(geometry.navRows[3]).toBe(geometry.navRows[4]);
+      expect(geometry.navRows[3]).toBeGreaterThan(geometry.navRows[0] ?? -1);
+    } else {
+      expect(new Set(geometry.navRows).size).toBe(1);
+      expect(geometry.taglineLines).toBeCloseTo(1, 0);
+    }
+    for (const button of geometry.actions) {
+      expect(button.width).toBeCloseTo(geometry.actionArea.width, 0);
+      expect(button.height).toBeGreaterThanOrEqual(68);
+      expect(button.remSize).toBeGreaterThanOrEqual(1.25);
+    }
+  }
+});
+
+test('desktop header and hero actions retain their inline layout', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const logo = await page.getByTestId('site-brand-logo').boundingBox();
+  const tagline = await page.getByTestId('site-brand-tagline').boundingBox();
+  const research = await page.getByTestId('home-hero-research').boundingBox();
+  const about = await page.getByTestId('home-hero-about').boundingBox();
+  expect(tagline?.x).toBeGreaterThan((logo?.x ?? 0) + (logo?.width ?? 0));
+  expect(research?.y).toBeCloseTo(about?.y ?? -1, 0);
+  expect((research?.width ?? 0) + (about?.width ?? 0)).toBeLessThan(800);
+});
+
 test('published manuscripts retain scientific status and working figures', async ({
   page,
 }) => {

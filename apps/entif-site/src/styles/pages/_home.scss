@@ -97,6 +97,10 @@
     .entif-home .home-method-steps { grid-template-columns: minmax(0, 1fr); }
     .entif-home .home-closing-layout { align-items: flex-start; flex-direction: column; }
   }
+  @media (max-width: 48rem) {
+    .entif-home .home-actions { flex-direction: column; align-items: stretch; }
+    .entif-home .home-actions .home-action { width: 100%; min-height: 4.25rem; padding: 1rem 1.4rem; font-size: 1.25rem; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .entif-home *, .entif-home *::before, .entif-home *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
     .entif-home .home-action:hover { transform: none; }

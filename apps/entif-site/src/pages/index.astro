@@ -63,15 +63,17 @@ const steps = [
             Open infrastructure for <em>trustworthy intelligence.</em>
           </h1>
           <p class="home-intro">{copy.heroDescription}</p>
-          <div class="home-actions">
+          <div class="home-actions" data-test-id="home-hero-actions">
             <a
               class="home-action home-action-primary"
               href={joinBasePath(base, 'research/')}
+              data-test-id="home-hero-research"
               >Explore research<span aria-hidden="true">↗</span></a
             >
             <a
               class="home-action home-action-secondary"
               href={joinBasePath(base, 'about/')}
+              data-test-id="home-hero-about"
               >About Entif<span aria-hidden="true">↗</span></a
             >
           </div>

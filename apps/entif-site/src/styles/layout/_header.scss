@@ -144,20 +144,6 @@
     }
   }
 
-  @include tools.down('compact') {
-    .nav-list {
-      gap: 0.25rem 1rem;
-    }
-
-    .nav-list a {
-      font-size: 19px;
-    }
-
-    .brand img {
-      flex-shrink: 0;
-    }
-  }
-
   @include tools.below('tagline') {
     .brand > span {
       font-size: var(--h3);
@@ -183,6 +169,91 @@
     .header-inner > nav:not(.social-links) {
       order: 3;
       width: 100%;
+    }
+  }
+
+  @include tools.down('compact') {
+    .header-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 0.875rem;
+      padding-block: 0.75rem 1rem;
+      left: 0;
+    }
+
+    .header-inner > a {
+      min-width: 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.65rem;
+      width: 100%;
+    }
+
+    .brand > span {
+      width: 100%;
+      font-size: clamp(1rem, 4.3vw, 1.875rem);
+      line-height: 1.2;
+      overflow-wrap: normal;
+      text-wrap: balance;
+    }
+
+    .social-links {
+      position: absolute;
+      top: 0.75rem;
+      right: 0;
+      gap: 0.5rem;
+      flex-wrap: nowrap;
+    }
+
+    .social-links a {
+      width: 3.5rem;
+      height: 3.5rem;
+      min-width: 3.5rem;
+      min-height: 3.5rem;
+    }
+
+    .social-links svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .header-inner > nav:not(.social-links) {
+      order: initial;
+      width: 100%;
+    }
+
+    .nav-list {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 0.375rem;
+    }
+
+    .nav-list a {
+      font-size: 17px;
+      font-variant: all-small-caps;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 22rem) {
+    .nav-list {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      justify-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-list li:nth-child(-n + 3) {
+      grid-column: span 2;
+    }
+
+    .nav-list li:nth-child(n + 4) {
+      grid-column: span 3;
     }
   }
 }
