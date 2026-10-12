@@ -46,9 +46,9 @@ Yes, but not as "the next everything-app town square" on day one.
 
 There?s clear demand for **provenance and verifiability** right now, but it shows up in wedges and workflows more than in "everybody please migrate here" fantasies:
 
-*   **News and media provenance is already a serious initiative**, just not at the "ordinary post" layer. C2PA (Content Credentials) and initiatives like Project Origin exist precisely to cryptographically carry origin/edit history for media, largely aimed at disinformation pressure. [c2pa.org+2spec.c2pa.org+2](https://c2pa.org/?utm_source=chatgpt.com)
-*   **Decentralized social has real momentum**, which matters because provenance tooling plugs into open protocols better than into a single locked platform. Bluesky?s AT Protocol is explicitly built around authenticated, portable identity and interoperable social data. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto?utm_source=chatgpt.com)
-*   **Most people do not fact-check before posting**, which is both the problem and the market obstacle. The appetite exists, but the product has to make "checking" feel like spellcheck, not homework. [UNESCO](https://www.unesco.org/en/articles/2/3-digital-content-creators-do-not-check-their-facts-sharing-want-learn-how-do-so-unesco-survey?utm_source=chatgpt.com)
+*   **News and media provenance is already a serious initiative**, just not at the "ordinary post" layer. C2PA (Content Credentials) and initiatives like Project Origin exist precisely to cryptographically carry origin/edit history for media, largely aimed at disinformation pressure. [c2pa.org+2spec.c2pa.org+2](https://c2pa.org/)
+*   **Decentralized social has real momentum**, which matters because provenance tooling plugs into open protocols better than into a single locked platform. Bluesky?s AT Protocol is explicitly built around authenticated, portable identity and interoperable social data. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto)
+*   **Most people do not fact-check before posting**, which is both the problem and the market obstacle. The appetite exists, but the product has to make "checking" feel like spellcheck, not homework. [UNESCO](https://www.unesco.org/en/articles/2/3-digital-content-creators-do-not-check-their-facts-sharing-want-learn-how-do-so-unesco-survey)
 
 So: appetite is strongest in segments where trust has immediate value and liability, like journalism, public agencies, science/medicine, finance, and "operators" who hate being wrong in public.
 
@@ -56,7 +56,7 @@ So: appetite is strongest in segments where trust has immediate value and liabil
 
 You?re describing **claim provenance**, not just content provenance.
 
-C2PA helps answer "where did this image/video come from and how was it edited?" [c2pa.org+1](https://c2pa.org/?utm_source=chatgpt.com)  
+C2PA helps answer "where did this image/video come from and how was it edited?" [c2pa.org+1](https://c2pa.org/)  
 But your idea answers "what assumptions and sources must be true for this _sentence_ to be defensible?"
 
 That?s novel, and it pairs well with Rosetta Pasigraphy Protocol because RPP can do the thing social platforms refuse to do: **force the author to confront the implied worldview of their own statement before shipping it**.
@@ -65,8 +65,8 @@ That?s novel, and it pairs well with Rosetta Pasigraphy Protocol because RPP can
 
 **Network effects** killed most Twitter clones. The ones that survived did so by changing a fundamental axis:
 
-*   Mastodon: decentralization and community hosting (ActivityPub ecosystem). [W3C](https://www.w3.org/TR/activitypub/?utm_source=chatgpt.com)
-*   Bluesky: decentralization + portability + algorithm/moderation choice, with serious scale now. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto?utm_source=chatgpt.com)
+*   Mastodon: decentralization and community hosting (ActivityPub ecosystem). [W3C](https://www.w3.org/TR/activitypub/)
+*   Bluesky: decentralization + portability + algorithm/moderation choice, with serious scale now. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto)
 
 A provenance-first network won?t win by shouting "we?re nicer." It wins by being **useful before it is popular**.
 
@@ -102,12 +102,12 @@ Key requirements:
 *   **Gish-gallop resistance:** impose a "claim budget" per post. If you assert 19 facts, you owe 19 provenance hooks.
 *   **Clear separation of claim types:** factual claims vs value judgments vs predictions vs satire. A lot of toxicity comes from type confusion.
 *   **Transparent scoring:** if you score credibility, show _why_.
-*   **Composable identity:** optional strong identity for institutions, pseudonymity for individuals, but always cryptographic continuity. This aligns with DID/Verifiable Credentials patterns if you want standards support. [W3C+1](https://www.w3.org/TR/did-1.0/?utm_source=chatgpt.com)
-*   **Interoperability hooks:** AT Protocol / ActivityPub bridges, because portability is the antidote to billionaire capture. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto?utm_source=chatgpt.com)
+*   **Composable identity:** optional strong identity for institutions, pseudonymity for individuals, but always cryptographic continuity. This aligns with DID/Verifiable Credentials patterns if you want standards support. [W3C+1](https://www.w3.org/TR/did-1.0/)
+*   **Interoperability hooks:** AT Protocol / ActivityPub bridges, because portability is the antidote to billionaire capture. [docs.bsky.app+1](https://docs.bsky.app/docs/advanced-guides/atproto)
 
 ### The "Ground News but for statements" differentiation
 
-Ground News is fundamentally about _coverage distribution and outlet bias_. [Ground News+1](https://ground.news/rating-system?utm_source=chatgpt.com)  
+Ground News is fundamentally about _coverage distribution and outlet bias_. [Ground News+1](https://ground.news/rating-system)  
 Your idea is about _claim mechanics_:
 
 *   "Here?s what must be true for this to be accurate."
@@ -138,7 +138,7 @@ Does Big Tech actually care about fighting AI slop?
 
 Today
 
-](https://www.theverge.com/ai-artificial-intelligence/882956/ai-deepfake-detection-labels-c2pa-instagram-youtube?utm_source=chatgpt.com)
+](https://www.theverge.com/ai-artificial-intelligence/882956/ai-deepfake-detection-labels-c2pa-instagram-youtube)
 
 [
 
@@ -152,7 +152,7 @@ Bluesky is testing 'live' features to take on X
 
 26 days ago
 
-](https://www.theverge.com/news/869235/bluesky-roadmap-2026-feeds-live-event-features?utm_source=chatgpt.com)
+](https://www.theverge.com/news/869235/bluesky-roadmap-2026-feeds-live-event-features)
 
 [
 
@@ -168,7 +168,7 @@ Bounce lets you move from Bluesky to Mastodon without losing followers
 
 Jun 5, 2025
 
-](https://www.theverge.com/news/678928/bounce-bluesky-mastodon-bridgy-fed-tool-followers?utm_source=chatgpt.com)
+](https://www.theverge.com/news/678928/bounce-bluesky-mastodon-bridgy-fed-tool-followers)
 
 [
 
@@ -182,7 +182,7 @@ X's new feature raises questions about the foreign origins of some popular US po
 
 Nov 25, 2025
 
-](https://apnews.com/article/251894a9a5d2290503ce5d726322470d?utm_source=chatgpt.com)
+](https://apnews.com/article/251894a9a5d2290503ce5d726322470d)
 
 ## Prompt:
 Sure, if you think anyone actually cares anymore about truth, justice and Superman's version of the American Way, go for it. But I gotta be honest, these days I do have my doubts... lol
@@ -205,11 +205,11 @@ But they _do_ care in three very monetizable situations:
 2.  **When reputation or liability is on the line**  
     Journalists, institutions, scientists, finance folks, corporate comms.
 3.  **When they?re exhausted and want shortcuts**  
-    Reuters Institute reports declining trust and rising news avoidance, which is exactly the "I want a trust prosthetic" market. [Reuters Institute+1](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary?utm_source=chatgpt.com)
+    Reuters Institute reports declining trust and rising news avoidance, which is exactly the "I want a trust prosthetic" market. [Reuters Institute+1](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary)
 
-Also: trust isn?t gone, it?s uneven. Pew finds trust in _local_ news is materially higher than national news. That?s important because it implies people can still value credible sources when they feel proximate and accountable. [Pew Research Center](https://www.pewresearch.org/short-reads/2025/10/29/how-americans-trust-in-information-from-news-organizations-and-social-media-sites-has-changed-over-time/?utm_source=chatgpt.com)
+Also: trust isn?t gone, it?s uneven. Pew finds trust in _local_ news is materially higher than national news. That?s important because it implies people can still value credible sources when they feel proximate and accountable. [Pew Research Center](https://www.pewresearch.org/short-reads/2025/10/29/how-americans-trust-in-information-from-news-organizations-and-social-media-sites-has-changed-over-time/)
 
-And Edelman?s 2026 work is basically screaming "insularity" and widening divides. That?s a demand signal for tools that can bridge reality gaps without requiring everyone to become a librarian. [Edelman+2PR Newswire+2](https://www.edelman.com/trust/2026/trust-barometer?utm_source=chatgpt.com)
+And Edelman?s 2026 work is basically screaming "insularity" and widening divides. That?s a demand signal for tools that can bridge reality gaps without requiring everyone to become a librarian. [Edelman+2PR Newswire+2](https://www.edelman.com/trust/2026/trust-barometer)
 
 ### The product has to assume people are lazy, tribal, and busy
 
@@ -272,7 +272,7 @@ But plenty of people and orgs will pay for:
 *   fewer lawsuits,
 *   fewer "we amplified a fake thing and now we?re on fire."
 
-Plus, alternative social platforms that emphasize openness and portability are still growing and iterating, which is exactly where a provenance layer can hitch a ride. [The Verge+1](https://www.theverge.com/news/869235/bluesky-roadmap-2026-feeds-live-event-features?utm_source=chatgpt.com)
+Plus, alternative social platforms that emphasize openness and portability are still growing and iterating, which is exactly where a provenance layer can hitch a ride. [The Verge+1](https://www.theverge.com/news/869235/bluesky-roadmap-2026-feeds-live-event-features)
 
 If you want, I?ll write the tight PRD for MVP1 (TruthLint composer + proof bundle schema + minimal verifier + integration targets), and I?ll keep it grounded in "what ships" instead of utopia. ^\_^
 
@@ -696,7 +696,7 @@ What follows is the architecture I?d treat as the _real_ MVP: a Rosetta-native p
 ### Content provenance
 
 "Where did this media/data come from and how was it altered?"  
-C2PA is a strong example for media assets: a signed manifest binds assertions and hashes into a verifiable unit. [C2PA](https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html?utm_source=chatgpt.com)
+C2PA is a strong example for media assets: a signed manifest binds assertions and hashes into a verifiable unit. [C2PA](https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html)
 
 ### Cognitive provenance (what you?re proposing)
 
@@ -753,7 +753,7 @@ Receipts go into an append-only log that can provide:
 *   **inclusion proofs**: this receipt exists in the log
 *   **consistency proofs**: the log hasn?t been rewritten, only appended
 
-Certificate Transparency is the canonical pattern: Merkle-tree append-only logs with verifiable proofs. [RFC Editor+1](https://www.rfc-editor.org/rfc/rfc6962.html?utm_source=chatgpt.com)
+Certificate Transparency is the canonical pattern: Merkle-tree append-only logs with verifiable proofs. [RFC Editor+1](https://www.rfc-editor.org/rfc/rfc6962.html)
 
 This is your anti-tamper backbone.
 
@@ -777,7 +777,7 @@ If these invariants hold, the system survives bureaucracy, turnover, and platfor
 5.  **Separation of secrecy from integrity**
     *   You can redact content while preserving integrity via commitments (hashes) and selective disclosure.
 
-This is where W3C Verifiable Credentials become useful as a standardized way to represent attestations and signatures, including modern data integrity suites. [W3C+1](https://www.w3.org/news/2025/the-verifiable-credentials-2-0-family-of-specifications-is-now-a-w3c-recommendation/?utm_source=chatgpt.com)
+This is where W3C Verifiable Credentials become useful as a standardized way to represent attestations and signatures, including modern data integrity suites. [W3C+1](https://www.w3.org/news/2025/the-verifiable-credentials-2-0-family-of-specifications-is-now-a-w3c-recommendation/)
 
 * * *
 
@@ -861,7 +861,7 @@ A provenance-first receipt system:
 
 This directly addresses the "we?re handcuffing ourselves more than regulators are" dynamic: you can keep your conservative posture while moving faster because every move leaves a verifiable trail.
 
-And yes, the macro pressure is real: exposure to AI is notably high in knowledge-work categories, including legal and business/financial job families, which is exactly where compliance friction is worst. [Pew Research Center+2Pew Research Center+2](https://www.pewresearch.org/social-trends/wp-content/uploads/sites/3/2023/07/st_2023.07.26_ai-and-jobs.pdf?utm_source=chatgpt.com)
+And yes, the macro pressure is real: exposure to AI is notably high in knowledge-work categories, including legal and business/financial job families, which is exactly where compliance friction is worst. [Pew Research Center+2Pew Research Center+2](https://www.pewresearch.org/social-trends/wp-content/uploads/sites/3/2023/07/st_2023.07.26_ai-and-jobs.pdf)
 
 * * *
 

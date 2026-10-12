@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">Two paths to the cost of learning too late</title><desc id="desc">Moral uncertainty and control risk need different evidence</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">Two paths to the cost of learning too late</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Moral uncertainty and control risk need different evidence</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<text x="80" y="221" font-family="DejaVu Sans, sans-serif" font-size="33" font-weight="700" fill="#285f82" text-anchor="start">WELFARE PATH</text>
+<text x="885" y="221" font-family="DejaVu Sans, sans-serif" font-size="33" font-weight="700" fill="#285f82" text-anchor="start">CONTROL PATH</text>
+<rect x="65" y="265" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="311" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Possible moral patienthood</text>
+<text x="89" y="364" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Not established here</text>
+<line x1="398" y1="425" x2="398" y2="445" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<rect x="65" y="456" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="502" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Potentially harmful practice</text>
+<text x="89" y="555" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Requires a welfare account</text>
+<line x1="398" y1="616" x2="398" y2="636" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<rect x="65" y="647" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="693" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Irrecoverable welfare loss</text>
+<text x="89" y="746" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Conditional moral concern</text>
+<rect x="870" y="265" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="894" y="311" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Consequential capability</text>
+<text x="894" y="364" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Can exist without consciousness</text>
+<line x1="1203" y1="425" x2="1203" y2="445" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<rect x="870" y="456" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="894" y="502" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Oversight or authority failure</text>
+<text x="894" y="555" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Requires exposure and opportunity</text>
+<line x1="1203" y1="616" x2="1203" y2="636" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<rect x="870" y="647" width="665" height="151" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="894" y="693" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Costly loss of control</text>
+<text x="894" y="746" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Conditional security concern</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Conceptual causal paths. Consciousness is not required for harmful behavior; a security incident does not</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">establish moral patienthood.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

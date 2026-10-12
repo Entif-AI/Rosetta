@@ -1,0 +1,64 @@
+/* Inline source markers and viewport-bounded native popovers. */
+.editorial-citation {
+  white-space: normal;
+}
+.editorial-citation > a,
+.editorial-citation > button {
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 0;
+  background: transparent;
+  padding: 0.375rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.editorial-citation-panel {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  box-sizing: border-box;
+  width: min(28rem, calc(100vw - 2rem));
+  max-height: min(28rem, calc(100dvh - 2rem));
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 0.375rem;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 0.5rem 2rem rgb(0 0 0 / 15%);
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.editorial-citation-source {
+  display: block;
+  margin-bottom: 1rem;
+}
+.editorial-citation-source > span {
+  display: block;
+  margin-top: 0.25rem;
+}
+.editorial-citation-panel button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: var(--surface);
+  cursor: pointer;
+}
+@media print {
+  .editorial-citation > button,
+  .editorial-citation-panel {
+    display: none !important;
+  }
+  .editorial-citation > a[hidden] {
+    display: inline !important;
+  }
+}

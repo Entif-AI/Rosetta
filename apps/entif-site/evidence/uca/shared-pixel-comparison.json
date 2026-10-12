@@ -1,0 +1,63 @@
+{
+  "baselineProvenance": {
+    "startingCommit": "65937be5391c2b66f9e2da0096e72f6f109bba52",
+    "method": "Regenerated from temporary Git archive with unchanged runtime dependencies after initial captures were deleted by Playwright cleanup"
+  },
+  "method": "Pillow ImageChops.difference on same-size RGB screenshots; count pixels with any changed channel",
+  "comparisons": [
+    {
+      "view": "home-1440",
+      "changedPixels": 0,
+      "pixels": 1382400,
+      "baseline": "screenshots/baseline/home-1440.png",
+      "current": "screenshots/current/home-1440.png",
+      "baselineSha256": "b2635799b9495d7a18b2f55ce9dfce4e580b3420cb6cd8aa68dcbb09beff983c",
+      "currentSha256": "b2635799b9495d7a18b2f55ce9dfce4e580b3420cb6cd8aa68dcbb09beff983c"
+    },
+    {
+      "view": "home-390",
+      "changedPixels": 0,
+      "pixels": 374400,
+      "baseline": "screenshots/baseline/home-390.png",
+      "current": "screenshots/current/home-390.png",
+      "baselineSha256": "ab6eaa155107a618c0541c38efb662875f448a04b0764774dae3181e0431eb7e",
+      "currentSha256": "ab6eaa155107a618c0541c38efb662875f448a04b0764774dae3181e0431eb7e"
+    },
+    {
+      "view": "editorial-opening-1440",
+      "changedPixels": 0,
+      "pixels": 1382400,
+      "baseline": "screenshots/baseline/editorial-opening-1440.png",
+      "current": "screenshots/current/editorial-opening-1440.png",
+      "baselineSha256": "35c184a6a4b6d02d381e00b3e5b610dca99da2bf8769bb0f41e0f483c2bf5d29",
+      "currentSha256": "35c184a6a4b6d02d381e00b3e5b610dca99da2bf8769bb0f41e0f483c2bf5d29"
+    },
+    {
+      "view": "editorial-opening-390",
+      "changedPixels": 0,
+      "pixels": 374400,
+      "baseline": "screenshots/baseline/editorial-opening-390.png",
+      "current": "screenshots/current/editorial-opening-390.png",
+      "baselineSha256": "70184e97c6ec5239ce0b781fb7849eda390cde69dd015b11bcab55436621cd04",
+      "currentSha256": "70184e97c6ec5239ce0b781fb7849eda390cde69dd015b11bcab55436621cd04"
+    },
+    {
+      "view": "editorial-references-1440",
+      "changedPixels": 0,
+      "pixels": 1382400,
+      "baseline": "screenshots/baseline/editorial-references-1440.png",
+      "current": "screenshots/current/editorial-references-1440.png",
+      "baselineSha256": "164c0ed02d47b7bc5697882f1bb36c5d504d600bb466de24070df4ffe846f942",
+      "currentSha256": "164c0ed02d47b7bc5697882f1bb36c5d504d600bb466de24070df4ffe846f942"
+    },
+    {
+      "view": "editorial-references-390",
+      "changedPixels": 0,
+      "pixels": 374400,
+      "baseline": "screenshots/baseline/editorial-references-390.png",
+      "current": "screenshots/current/editorial-references-390.png",
+      "baselineSha256": "5b4418196e660123fe009ecf68ae302459fe3327301ee184de0a0b84e291a2e1",
+      "currentSha256": "5b4418196e660123fe009ecf68ae302459fe3327301ee184de0a0b84e291a2e1"
+    }
+  ]
+}

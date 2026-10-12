@@ -1,0 +1,77 @@
+installed:
+- rosetta-governance
+settings:
+  auto_execute_hooks: true
+hooks:
+  after_specify:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.admit
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.admit?
+    description: Run owning deterministic Nx gates
+    condition: null
+  before_plan:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.admit
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.admit?
+    description: Run owning deterministic Nx gates
+    condition: null
+  after_plan:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.admit
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.admit?
+    description: Run owning deterministic Nx gates
+    condition: null
+  after_tasks:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.admit
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.admit?
+    description: Run owning deterministic Nx gates
+    condition: null
+  before_implement:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.admit
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.admit?
+    description: Run owning deterministic Nx gates
+    condition: null
+  after_implement:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.verify
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.verify?
+    description: Run owning deterministic Nx gates
+    condition: null
+  before_converge:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.verify
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.verify?
+    description: Compose final Nx merge evidence
+    condition: null
+  after_converge:
+  - extension: rosetta-governance
+    command: speckit.rosetta-governance.verify
+    enabled: true
+    optional: false
+    priority: 10
+    prompt: Execute speckit.rosetta-governance.verify?
+    description: Compose final Nx merge evidence
+    condition: null

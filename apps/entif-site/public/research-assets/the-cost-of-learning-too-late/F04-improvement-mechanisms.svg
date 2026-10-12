@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">Improvement is not one ladder</title><desc id="desc">Temporary adaptation, persistent reuse, and successor development differ</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">Improvement is not one ladder</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Temporary adaptation, persistent reuse, and successor development differ</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="65" y="225" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="271" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Within-task adaptation</text>
+<text x="89" y="324" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Changes plans or</text>
+<text x="89" y="359" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">strategy</text>
+<rect x="570" y="225" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="594" y="271" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Persistent reuse</text>
+<text x="594" y="324" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Memory or stored</text>
+<text x="594" y="359" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">procedures</text>
+<rect x="1075" y="225" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1099" y="271" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Training adaptation</text>
+<text x="1099" y="324" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Changes learned</text>
+<text x="1099" y="359" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">parameters</text>
+<rect x="65" y="530" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="576" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Research assistance</text>
+<text x="89" y="629" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Humans direct useful</text>
+<text x="89" y="664" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">work</text>
+<rect x="570" y="530" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="594" y="576" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Bounded research loop</text>
+<text x="594" y="629" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Search, train, evaluate</text>
+<rect x="1075" y="530" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1099" y="576" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Successor improvement</text>
+<text x="1099" y="629" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Repeated validated</text>
+<text x="1099" y="664" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">gains</text>
+<line x1="540" y1="320" x2="555" y2="320" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1045" y1="320" x2="1060" y2="320" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="540" y1="625" x2="555" y2="625" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1045" y1="625" x2="1060" y2="625" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1305" y1="430" x2="1305" y2="510" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<line x1="800" y1="430" x2="800" y2="510" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<text x="72" y="794" font-family="DejaVu Sans, sans-serif" font-size="30" font-weight="400" fill="#172533" text-anchor="start">Dashed links require separate evidence. Mechanisms can coexist; neither this layout nor</text>
+<text x="72" y="836" font-family="DejaVu Sans, sans-serif" font-size="30" font-weight="400" fill="#172533" text-anchor="start">elapsed time proves a closed loop.</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Conceptual map [14,15,22-25]. Human contribution and persistence must be recorded; adaptation is not</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">automatically recursive improvement.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

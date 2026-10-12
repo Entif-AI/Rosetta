@@ -1,0 +1,21 @@
+{
+  "role": "bounded-executable-evidence",
+  "issue": 1509,
+  "recoveredHead": "e7976f74e2bebbbf13babc4a7c024bd7839490d5",
+  "profile": "work.lifecycle.v1",
+  "red": {
+    "command": "pnpm exec vitest run packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts",
+    "passed": 3,
+    "failed": 5,
+    "failure": "Existing generic payload admission accepted invalid completion/verification, missing integration attribution, conflated dispatch, authority/private-policy fields and invalid identity/version/provenance.",
+    "historyRegression": "Integration citing an accepted verification after a later rejection did not throw; latest-verification resolution repaired it."
+  },
+  "green": {
+    "focusedTests": 18,
+    "publicVectors": 9,
+    "ownerCommand": "pnpm exec nx run-many -t lint,typecheck,test,build --projects rosetta-schemas --parallel=1",
+    "ownerTests": 102,
+    "result": "passed"
+  },
+  "scope": "Public structural conformance and closed-history reference validation; no evidence authentication or policy execution."
+}

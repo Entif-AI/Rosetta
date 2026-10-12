@@ -1,0 +1,103 @@
+@use '../tools';
+
+@layer components {
+  .card-grid,
+  .explorer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .content-card {
+    height: 100%;
+    text-decoration: none;
+    padding: 1.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    position: relative;
+  }
+
+  .content-card h3 {
+    font-weight: 570;
+    letter-spacing: normal;
+  }
+
+  .content-card:hover {
+    border-color: #8580c5;
+    text-decoration: none;
+  }
+
+  .content-card h2 a::after,
+  .content-card h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: var(--small);
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .content-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .content-card h3 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .content-card p {
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+
+  .empty-state {
+    padding: 2rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  .content-card h2 {
+    font-size: var(--h3);
+  }
+
+  .content-card h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .content-card h2 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .content-card,
+  .section-heading,
+  .stage-title,
+  .tag-list li {
+    overflow-wrap: anywhere;
+  }
+
+  @include tools.down('compact') {
+    .card-grid,
+    .explorer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .content-card {
+      padding: 1.25rem;
+    }
+  }
+}

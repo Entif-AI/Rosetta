@@ -17,9 +17,14 @@
   },
   "dependencies": {
     "@entif-ai/ingress-refinery": "workspace:*",
+    "@entif-ai/rosetta-canon": "workspace:*",
     "@entif-ai/rosetta-core": "workspace:*",
     "@entif-ai/rosetta-receipts": "workspace:*",
+    "@entif-ai/rosetta-schemas": "workspace:*",
     "@entif-ai/source-substrate": "workspace:*",
+    "ajv": "8.17.1",
+    "falkordb": "6.8.0",
+    "neo4j-driver": "5.28.3",
     "tslib": "^2.3.0"
   }
 }

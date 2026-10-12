@@ -1,0 +1,56 @@
+{
+  "profile": "materialized-view-validation-v1",
+  "observedAt": "2026-10-04T08:49:16.932799+00:00",
+  "baseCommit": "08e6be2f6e8c15c66e51607dc72e499933e097d8",
+  "posture": "working-tree-source-digests",
+  "sourceDigests": {
+    "packages/rosetta-schemas/src/lib/materialized-view.ts": "1d008f59df002a71375b2d12c10bd323befbb0dbcd7427736413850aa1aef784",
+    "packages/rosetta-schemas/src/lib/materialized-view.spec.ts": "1433263c04842e1de8788883df16986808375f65b1bc58a23768b99e92f2b220",
+    "packages/rosetta-schemas/src/lib/impact-revalidation.ts": "8c7a0a8d09599c60a241f6e7205e39fff85d93db963addcd55601569d6b8b2a2",
+    "packages/rosetta-schemas/src/lib/evidence-contract-validation.ts": "b854b3243da37600a0715d78ad1b769573a9df5ed8469dfe85ad1943cc9114c5",
+    "packages/rosetta-schemas/docs/materialized-view-v1.schema.json": "a98467f6e4d7958b9836cb2cf641ff92595c4ee74ffcb0e0fc344061c56da7fe"
+  },
+  "focusedTests": {
+    "passed": 16,
+    "failed": 0,
+    "requiredScenarios": 12
+  },
+  "ownerChecks": {
+    "command": "NX_DAEMON=false pnpm exec nx run-many -p rosetta-schemas -t lint,typecheck,test,build --parallel=1",
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "test": {
+      "passed": 142,
+      "failed": 0
+    },
+    "cache": "10 of 10 task results reused by Nx for matching inputs"
+  },
+  "specAdmission": {
+    "command": "pnpm run governance:spec",
+    "status": "passed",
+    "tasks": 10,
+    "cachedTasks": 2
+  },
+  "semanticOwnerIssue": 1567,
+  "consumesImpactIssue": 1730,
+  "coreDescent": "governed-extension",
+  "noOperationalAuthorityGranted": true,
+  "closeoutChecks": {
+    "schemaSync": "passed",
+    "completionEnvelopes": {
+      "passed": 4,
+      "failed": 0
+    },
+    "nxSyncCheck": "passed",
+    "authority": "passed",
+    "mergeAdmission": {
+      "status": "failed",
+      "failedGate": "distribution",
+      "command": "pnpm exec nx run dev-bundle:e2e",
+      "diagnostic": "AssertionError: specify version; subprocess status null != 0",
+      "logRef": "dist/governance/rosetta-governance/distribution.log"
+    },
+    "fullVerification": "not-run"
+  }
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">ARC-AGI-3: compare like with like</title><desc id="desc">Semi-Private scores; each pair holds the reasoning setting fixed</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">ARC-AGI-3: compare like with like</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Semi-Private scores; each pair holds the reasoning setting fixed</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="965" y="176" width="24" height="24" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1003" y="198" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#172533" text-anchor="start">Provider Adapter</text>
+<rect x="1280" y="176" width="24" height="24" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="1318" y="198" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#172533" text-anchor="start">Standard</text>
+<text x="90" y="284" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">max</text>
+<rect x="280" y="255" width="677.1600000000001" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="973.1600000000001" y="276" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">62.7%</text>
+<rect x="280" y="290" width="1064.88" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1360.88" y="311" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">98.6%</text>
+<text x="90" y="376" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">xhigh</text>
+<rect x="280" y="347" width="640.44" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="936.44" y="368" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">59.3%</text>
+<rect x="280" y="382" width="1062.72" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1358.72" y="403" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">98.4%</text>
+<text x="90" y="468" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">high</text>
+<rect x="280" y="439" width="591.84" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="887.84" y="460" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">54.8%</text>
+<rect x="280" y="474" width="1078.92" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1374.92" y="495" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">99.9%</text>
+<text x="90" y="560" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">medium</text>
+<rect x="280" y="531" width="416.88000000000005" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="712.8800000000001" y="552" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">38.6%</text>
+<rect x="280" y="566" width="1062.72" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1358.72" y="587" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">98.4%</text>
+<text x="90" y="652" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">low</text>
+<rect x="280" y="623" width="189.0" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="485.0" y="644" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">17.5%</text>
+<rect x="280" y="658" width="1058.4" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1354.4" y="679" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">98.0%</text>
+<text x="90" y="744" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">none</text>
+<rect x="280" y="715" width="380.1600000000001" height="25" rx="0" fill="#687986" stroke="#687986" stroke-width="2"/>
+<text x="676.1600000000001" y="736" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">35.2%</text>
+<rect x="280" y="750" width="1044.3600000000001" height="25" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1340.3600000000001" y="771" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="start">96.7%</text>
+<line x1="280.0" y1="809" x2="280.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="280.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">0</text>
+<line x1="496.0" y1="809" x2="496.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="496.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">20</text>
+<line x1="712.0" y1="809" x2="712.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="712.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">40</text>
+<line x1="928.0" y1="809" x2="928.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="928.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">60</text>
+<line x1="1144.0" y1="809" x2="1144.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1144.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">80</text>
+<line x1="1360.0" y1="809" x2="1360.0" y2="819" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1360.0" y="853" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="400" fill="#172533" text-anchor="middle">100</text>
+<line x1="280" y1="809" x2="1360" y2="809" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1510" y="853" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#172533" text-anchor="end">Score (%)</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Source [10]. 99.9% uses high; the matched max comparison is 62.7% vs 98.6%. Not a general-intelligence</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">percentage.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

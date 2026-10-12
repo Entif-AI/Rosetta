@@ -1,23 +1,27 @@
 ---
+import { copy } from '../lib/copy';
 import type { ContentCardData } from '../lib/content';
 
 interface Props {
   card: ContentCardData;
+  headingLevel?: 2 | 3;
 }
 
-const { card } = Astro.props;
+const { card, headingLevel = 3 } = Astro.props;
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+const testId = `content-card-${encodeURIComponent(card.id)}`;
 ---
 
-<article class="content-card">
+<article class="content-card" data-test-id={testId}>
   <div class="card-meta">
     <span class="eyebrow">{card.kind}</span>
     {card.projects.length > 0 && <span>{card.projects.join(' · ')}</span>}
   </div>
-  <h3><a href={card.href}>{card.title}</a></h3>
+  <Heading><a href={card.href}>{card.title}</a></Heading>
   <p>{card.description}</p>
   {
     card.tags.length > 0 && (
-      <ul class="tag-list" aria-label="Topics">
+      <ul class="tag-list" aria-label={copy.topics}>
         {card.tags.slice(0, 4).map((tag) => (
           <li>{tag}</li>
         ))}

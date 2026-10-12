@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">Governance lag: a diagnostic, not a forecast</title><desc id="desc">GLR = effective response interval / material-change interval</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">Governance lag: a diagnostic, not a forecast</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">GLR = effective response interval / material-change interval</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<text x="70" y="270" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" fill="#172533" text-anchor="start">Slower response</text>
+<text x="70" y="316" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="400" fill="#687986" text-anchor="start">90 days / 30 days</text>
+<rect x="565" y="233" width="810.0" height="58" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="1400.0" y="276" font-family="DejaVu Sans, sans-serif" font-size="35" font-weight="700" fill="#172533" text-anchor="start">3</text>
+<text x="70" y="450" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" fill="#172533" text-anchor="start">Matched intervals</text>
+<text x="70" y="496" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="400" fill="#687986" text-anchor="start">30 days / 30 days</text>
+<rect x="565" y="413" width="270.0" height="58" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="860.0" y="456" font-family="DejaVu Sans, sans-serif" font-size="35" font-weight="700" fill="#172533" text-anchor="start">1</text>
+<text x="70" y="630" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" fill="#172533" text-anchor="start">Faster response</text>
+<text x="70" y="676" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="400" fill="#687986" text-anchor="start">15 days / 30 days</text>
+<rect x="565" y="593" width="135.0" height="58" rx="0" fill="#285f82" stroke="#285f82" stroke-width="2"/>
+<text x="725.0" y="636" font-family="DejaVu Sans, sans-serif" font-size="35" font-weight="700" fill="#172533" text-anchor="start">0.5</text>
+<line x1="565" y1="770" x2="1420" y2="770" stroke="#cbd5dc" stroke-width="2"/>
+<text x="565" y="817" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#172533" text-anchor="middle">0</text>
+<text x="835" y="817" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#172533" text-anchor="middle">1</text>
+<text x="1105" y="817" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#172533" text-anchor="middle">2</text>
+<text x="1375" y="817" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#172533" text-anchor="middle">3</text>
+<text x="1500" y="817" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="400" fill="#172533" text-anchor="end">GLR</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Illustrative inputs only. A ratio above one does not prove failed control; overlapping response,</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">isolation and existing safeguards matter.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

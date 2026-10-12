@@ -1,4 +1,5 @@
 ---
+import { copy } from '../lib/copy';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentCard from './ContentCard.astro';
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const { entry, allEntries } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const summary = toSummary(entry);
 const related = rankRelatedContent(summary, allEntries.map(toSummary));
 const baseUrl = import.meta.env.BASE_URL;
@@ -35,19 +36,26 @@ const isProject = entry.data.kind === 'project';
   description={entry.data.description}
   noindex={entry.data.noindex}
 >
-  <article class="article-shell shell">
+  <article
+    class="article-shell shell"
+    data-test-id="published-entry"
+    data-content-id={entry.data.id}
+  >
     <header class="article-header">
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href={joinBasePath(baseUrl, '')}>Entif AI</a>
+      <nav class="breadcrumbs" aria-label={copy.breadcrumb}>
+        <a href={joinBasePath(baseUrl, '')}>{copy.brand}</a>
         <span aria-hidden="true">/</span>
         {
           isProject ? (
-            <a href={joinBasePath(baseUrl, 'projects/')}>Projects</a>
+            <a href={joinBasePath(baseUrl, 'projects/')}>{copy.projects}</a>
           ) : (
             <>
-              <a href={joinBasePath(baseUrl, 'tags/')}>Tags</a>
+              <a href={joinBasePath(baseUrl, 'tags/')}>{copy.tags}</a>
               <span aria-hidden="true">/</span>
-              <a href={joinBasePath(baseUrl, `tags/${summary.routeTag}/`)}>
+              <a
+                href={joinBasePath(baseUrl, `tags/${summary.routeTag}/`)}
+                data-test-id="published-entry-route-tag"
+              >
                 {summary.routeTag}
               </a>
             </>
@@ -55,11 +63,11 @@ const isProject = entry.data.kind === 'project';
         }
       </nav>
       <p class="eyebrow">{entry.data.kind} · {publishedLabel}</p>
-      <h1>{entry.data.title}</h1>
+      <h1 data-test-id="published-entry-heading">{entry.data.title}</h1>
       <p class="lede">{entry.data.description}</p>
       {
         taxonomyTerms.length > 0 && (
-          <ul class="tag-list article-tags" aria-label="Topics and projects">
+          <ul class="tag-list article-tags" aria-label={copy.topics}>
             {taxonomyTerms.map((term) => (
               <li>
                 <a href={joinBasePath(baseUrl, `tags/${term}/`)}>{term}</a>
@@ -71,20 +79,96 @@ const isProject = entry.data.kind === 'project';
     </header>
 
     <div class="article-grid">
-      <div class="article-body prose">
+      <div class="article-body prose" data-test-id="published-entry-body">
         <Content />
       </div>
-      <aside class="article-aside" aria-label="Article metadata">
-        <p class="eyebrow">Repository-native</p>
-        <p>
-          This page is generated from reviewed Markdown. Its public history
-          travels with the Rosetta repository.
-        </p>
+      <aside
+        class="article-aside"
+        aria-label={copy.metadata}
+        data-test-id="published-entry-metadata"
+      >
+        <p class="eyebrow">{copy.metadata}</p>
         <dl>
-          <div><dt>Content ID</dt><dd>{entry.data.id}</dd></div>
-          <div><dt>Status</dt><dd>{entry.data.status}</dd></div>
-          <div><dt>Authors</dt><dd>{entry.data.authors.join(', ')}</dd></div>
+          <div>
+            <dt>{copy.contentId}</dt>
+            <dd data-test-id="published-entry-content-id">{entry.data.id}</dd>
+          </div>
+          <div><dt>{copy.status}</dt><dd>{entry.data.status}</dd></div>
+          <div>
+            <dt>{copy.authors}</dt><dd>{entry.data.authors.join(', ')}</dd>
+          </div>
+          {
+            entry.data.report && (
+              <div>
+                <>
+                  <dt>{copy.report}</dt>
+                  <dd>{entry.data.report}</dd>
+                </>
+              </div>
+            )
+          }
+          {
+            entry.data.version && (
+              <div>
+                <>
+                  <dt>{copy.version}</dt>
+                  <dd>{entry.data.version}</dd>
+                </>
+              </div>
+            )
+          }
+          {
+            entry.data.review && (
+              <div>
+                <>
+                  <dt>{copy.review}</dt>
+                  <dd>{entry.data.review}</dd>
+                </>
+              </div>
+            )
+          }
+          {
+            entry.data.evidenceCutoff && (
+              <div>
+                <>
+                  <dt>{copy.cutoff}</dt>
+                  <dd>{entry.data.evidenceCutoff}</dd>
+                </>
+              </div>
+            )
+          }
         </dl>
+        {
+          entry.data.manuscript && (
+            <a
+              class="text-link"
+              href={joinBasePath(baseUrl, entry.data.manuscript)}
+              download
+            >
+              {copy.download}
+            </a>
+          )
+        }
+        {
+          headings.length > 0 && (
+            <nav aria-label={copy.contents}>
+              <>
+                <details class="contents-disclosure">
+                  <summary class="eyebrow">{copy.contents}</summary>
+                  <ol class="toc">
+                    {headings
+                      .filter((h) => h.depth === 2)
+                      .map((h) => (
+                        <li>
+                          <a href={`#${h.slug}`}>{h.text}</a>
+                        </li>
+                      ))}
+                  </ol>
+                </details>
+              </>
+            </nav>
+          )
+        }
       </aside>
     </div>
   </article>
@@ -94,11 +178,12 @@ const isProject = entry.data.kind === 'project';
       <section
         class="section shell related-section"
         aria-labelledby="related-heading"
+        data-test-id="related-content"
       >
         <div class="section-heading narrow">
           <div>
-            <p class="eyebrow">Semantic neighbors</p>
-            <h2 id="related-heading">Continue through the lattice.</h2>
+            <p class="eyebrow">{copy.relatedEyebrow}</p>
+            <h2 id="related-heading">{copy.relatedTitle}</h2>
           </div>
         </div>
         <div class="card-grid">

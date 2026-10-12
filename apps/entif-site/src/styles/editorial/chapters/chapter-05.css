@@ -1,0 +1,41 @@
+.story-scene.productivity-evidence-scene {
+  background: var(--scene-paper);
+}
+.productivity-evidence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-block: 3rem;
+}
+.productivity-evidence .evidence-number {
+  font-size: clamp(5rem, 12vw, 10rem);
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.07em;
+}
+.evidence-number span {
+  font-size: 0.5em;
+}
+.productivity-evidence h2 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+}
+.evidence-boundary {
+  border: 1px solid var(--accent);
+  padding: 2rem;
+}
+.evidence-boundary strong {
+  font-size: 2.5rem;
+}
+.evidence-open-question {
+  border-top: 1px dashed var(--accent);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+@media (max-width: 50rem) {
+  .productivity-evidence {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

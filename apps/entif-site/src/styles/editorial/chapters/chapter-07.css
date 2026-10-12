@@ -1,0 +1,113 @@
+.story-scene.balance-sheet-scene {
+  background: var(--scene-night);
+  color: var(--scene-paper);
+}
+.story-scene.balance-sheet-scene figcaption {
+  color: var(--canvas);
+}
+.balance-lanes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0 1rem;
+}
+.balance-lane {
+  border-top: 3px solid var(--scene-signal);
+  padding-top: 1rem;
+}
+.balance-transfer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 10rem;
+}
+.balance-transfer strong {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.balance-transfer > span {
+  font-size: 2rem;
+  color: var(--scene-signal);
+}
+.balance-lane > p {
+  font-size: 1rem;
+}
+.balance-lane details {
+  border-block: 1px solid var(--scene-rule);
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+}
+.balance-lane summary {
+  cursor: pointer;
+  min-height: 2.75rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.balance-lane details p {
+  font-size: 1rem;
+}
+.balance-common {
+  text-align: center;
+  max-width: 40rem;
+  margin: 2rem auto 0;
+}
+.balance-common > span {
+  font-size: 3rem;
+  color: var(--scene-signal);
+}
+.balance-common p {
+  font-size: clamp(1.5rem, 3vw, 2.75rem);
+  line-height: 1.2;
+}
+.balance-sheet-scene a {
+  color: var(--scene-signal);
+}
+.story-scene.fiscal-scene {
+  background: var(--scene-paper);
+}
+.fiscal-table {
+  margin: 3rem 0 1rem;
+}
+.fiscal-table > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--scene-rule);
+  align-items: center;
+}
+.fiscal-table > div > strong {
+  font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.fiscal-table .fiscal-years > strong {
+  font-size: 1.25rem;
+  letter-spacing: 0;
+}
+.fiscal-years {
+  font-family: system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.fiscal-table small {
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+}
+@media (max-width: 50rem) {
+  .balance-lanes {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .fiscal-table > div {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .fiscal-table > div > span {
+    font-size: 0.875rem;
+  }
+  .fiscal-table > div > strong {
+    font-size: 1.5rem;
+  }
+}

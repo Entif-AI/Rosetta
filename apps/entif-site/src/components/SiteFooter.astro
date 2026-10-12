@@ -1,10 +1,17 @@
 ---
-const year = new Date().getUTCFullYear();
+import { copy } from '../lib/copy';
+import { joinBasePath } from '../lib/content';
+const base = import.meta.env.BASE_URL;
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" data-test-id="site-footer">
   <div class="shell footer-inner">
-    <p><strong>Entif AI</strong> · Open research, inspectable systems.</p>
-    <p>© {year} Entif AI. Built from the Rosetta repository.</p>
+    <p><strong>{copy.brand}</strong> · {copy.footer}</p><nav
+      aria-label={copy.archive}
+    >
+      <a href={joinBasePath(base, 'tags/')}>{copy.tags}</a><a
+        href={joinBasePath(base, 'archive/')}>{copy.archive}</a
+      >
+    </nav><p>© {new Date().getUTCFullYear()} {copy.copyright}</p>
   </div>
 </footer>

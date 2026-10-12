@@ -24,8 +24,8 @@ export default tseslint.config(
       'packages/**/dist/**',
       'tmp/**',
       '**/tmp/**',
-      'vitest.config.ts'
-    ]
+      'vitest.config.ts',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -35,33 +35,77 @@ export default tseslint.config(
     files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
     languageOptions: {
       parserOptions: {
-        projectService: true
-      }
+        projectService: true,
+      },
     },
     rules: {
-      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports' },
+      ],
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off'
-    }
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
   },
   {
     files: ['apps/entif-site/**/*.{ts,tsx}'],
     plugins: {
       'jsx-a11y': jsxA11y,
-      'react-hooks': reactHooks
+      'react-hooks': reactHooks,
     },
     rules: {
       ...jsxA11y.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/explicit-module-boundary-types': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-non-null-assertion': 'error'
-    }
+      '@typescript-eslint/no-non-null-assertion': 'error',
+    },
+  },
+  {
+    files: ['apps/entif-site/tests/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-properties': [
+        'error',
+        ...[
+          'getByText',
+          'getAllByText',
+          'queryByText',
+          'queryAllByText',
+          'findByText',
+          'findAllByText',
+          'getByRole',
+          'getAllByRole',
+          'queryByRole',
+          'queryAllByRole',
+          'findByRole',
+          'findAllByRole',
+          'getByLabelText',
+          'getAllByLabelText',
+          'queryByLabelText',
+          'queryAllByLabelText',
+          'findByLabelText',
+          'findAllByLabelText',
+          'getByPlaceholderText',
+          'queryByPlaceholderText',
+          'findByPlaceholderText',
+          'getByAltText',
+          'queryByAltText',
+          'findByAltText',
+          'getByTitle',
+          'queryByTitle',
+          'findByTitle',
+        ].map((property) => ({
+          property,
+          message:
+            'Locate project-owned UI through a stable data-test-id contract instead of user-facing or accessibility text.',
+        })),
+      ],
+    },
   },
   {
     files: ['apps/entif-site/**/*.astro'],
     rules: {
-      'astro/no-set-html-directive': 'error'
-    }
+      'astro/no-set-html-directive': 'error',
+    },
   }
 );

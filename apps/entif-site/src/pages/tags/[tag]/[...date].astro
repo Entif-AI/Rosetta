@@ -1,0 +1,58 @@
+---
+import ContentPageLayout from '../../../layouts/ContentPageLayout.astro';
+import ContentCard from '../../../components/ContentCard.astro';
+import { getPublishedEntries, toSummary } from '../../../lib/site-data';
+import { getTaxonomyTerms, toContentCard } from '../../../lib/content';
+import { copy, formatCopy } from '../../../lib/copy';
+export async function getStaticPaths() {
+  const entries = (await getPublishedEntries())
+    .filter((e) => e.data.kind !== 'project')
+    .map(toSummary);
+  const routes = new Map<string, { tag: string; date: string }>();
+  for (const entry of entries) {
+    const date = entry.published
+      .toISOString()
+      .slice(0, 10)
+      .replaceAll('-', '/');
+    for (const tag of getTaxonomyTerms(entry))
+      for (const prefix of [date.slice(0, 4), date.slice(0, 7), date])
+        routes.set(`${tag}/${prefix}`, { tag, date: prefix });
+  }
+  return [...routes.values()].map(({ tag, date }) => ({
+    params: { tag, date },
+    props: {
+      tag,
+      date,
+      entries: entries.filter(
+        (entry) =>
+          getTaxonomyTerms(entry).includes(tag) &&
+          entry.published
+            .toISOString()
+            .slice(0, 10)
+            .replaceAll('-', '/')
+            .startsWith(date)
+      ),
+    },
+  }));
+}
+const { tag, date, entries } = Astro.props;
+---
+
+<ContentPageLayout
+  title={`${tag} · ${date}`}
+  description={formatCopy(copy.archiveDescription, { date })}
+  eyebrow={copy.tags}
+  heading={`${tag} · ${date}`}
+  lede={formatCopy(copy.tagCount, { count: entries.length })}
+>
+  <div class="card-grid">
+    {
+      entries.map((entry) => (
+        <ContentCard
+          headingLevel={2}
+          card={toContentCard(entry, import.meta.env.BASE_URL)}
+        />
+      ))
+    }
+  </div>
+</ContentPageLayout>

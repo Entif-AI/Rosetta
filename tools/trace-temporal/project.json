@@ -1,0 +1,29 @@
+{
+  "name": "trace-temporal",
+  "projectType": "application",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "ingress-refinery", "source-substrate"], "target": "build" }],
+      "options": { "command": "python3 -m unittest discover -s tools/trace-temporal -p 'test_*.py' && node --test tools/trace-temporal/*.spec.mjs" }
+    },
+    "model-off": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "ingress-refinery", "source-substrate"], "target": "build" }],
+      "cache": false,
+      "options": { "command": "node tools/trace-temporal/run.mjs" }
+    },
+    "prove-backend": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "ingress-refinery", "source-substrate", "rosetta-store"], "target": "build" }],
+      "cache": false,
+      "options": { "command": "node tools/trace-temporal/prove-falkordb.mjs" }
+    },
+    "prove-semantic": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "projects": ["projection-adapters", "ingress-refinery", "source-substrate", "rosetta-store"], "target": "build" }],
+      "cache": false,
+      "options": { "command": "node tools/trace-temporal/prove-semantic-falkordb.mjs" }
+    }
+  }
+}

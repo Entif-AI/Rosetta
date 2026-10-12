@@ -1,0 +1,1906 @@
+{
+  "source_ids": ["P-GEM-190", "P-GEM-FULL-MD"],
+  "ordinal_map_is_derived_not_original_metadata": true,
+  "records": [
+    {
+      "record_id": "google_398",
+      "rendering_turn": 399,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 812137,
+      "rendering_char_end": 812531
+    },
+    {
+      "record_id": "google_399",
+      "rendering_turn": 400,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 812531,
+      "rendering_char_end": 816742
+    },
+    {
+      "record_id": "google_400",
+      "rendering_turn": 401,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 816742,
+      "rendering_char_end": 817136
+    },
+    {
+      "record_id": "google_401",
+      "rendering_turn": 402,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 817136,
+      "rendering_char_end": 822468
+    },
+    {
+      "record_id": "google_402",
+      "rendering_turn": 403,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 822468,
+      "rendering_char_end": 822996
+    },
+    {
+      "record_id": "google_403",
+      "rendering_turn": 404,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 822996,
+      "rendering_char_end": 827835
+    },
+    {
+      "record_id": "google_404",
+      "rendering_turn": 405,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 827835,
+      "rendering_char_end": 829202
+    },
+    {
+      "record_id": "google_405",
+      "rendering_turn": 406,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 829202,
+      "rendering_char_end": 834809
+    },
+    {
+      "record_id": "google_406",
+      "rendering_turn": 407,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 834809,
+      "rendering_char_end": 837078
+    },
+    {
+      "record_id": "google_407",
+      "rendering_turn": 408,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 837078,
+      "rendering_char_end": 845246
+    },
+    {
+      "record_id": "google_408",
+      "rendering_turn": 409,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 845246,
+      "rendering_char_end": 846095
+    },
+    {
+      "record_id": "google_409",
+      "rendering_turn": 410,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 846095,
+      "rendering_char_end": 852125
+    },
+    {
+      "record_id": "google_410",
+      "rendering_turn": 411,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 852125,
+      "rendering_char_end": 852372
+    },
+    {
+      "record_id": "google_411",
+      "rendering_turn": 412,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 852372,
+      "rendering_char_end": 856316
+    },
+    {
+      "record_id": "google_412",
+      "rendering_turn": 413,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 856316,
+      "rendering_char_end": 856452
+    },
+    {
+      "record_id": "google_413",
+      "rendering_turn": 414,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 856452,
+      "rendering_char_end": 859543
+    },
+    {
+      "record_id": "google_414",
+      "rendering_turn": 415,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 859543,
+      "rendering_char_end": 859577
+    },
+    {
+      "record_id": "google_415",
+      "rendering_turn": 416,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 859577,
+      "rendering_char_end": 860082
+    },
+    {
+      "record_id": "google_416",
+      "rendering_turn": 417,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 860082,
+      "rendering_char_end": 864336
+    },
+    {
+      "record_id": "google_417",
+      "rendering_turn": 418,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 864336,
+      "rendering_char_end": 864599
+    },
+    {
+      "record_id": "google_418",
+      "rendering_turn": 419,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 864599,
+      "rendering_char_end": 869430
+    },
+    {
+      "record_id": "google_419",
+      "rendering_turn": 420,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 869430,
+      "rendering_char_end": 869726
+    },
+    {
+      "record_id": "google_420",
+      "rendering_turn": 421,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 869726,
+      "rendering_char_end": 873528
+    },
+    {
+      "record_id": "google_421",
+      "rendering_turn": 422,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 873528,
+      "rendering_char_end": 873673
+    },
+    {
+      "record_id": "google_422",
+      "rendering_turn": 423,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 873673,
+      "rendering_char_end": 877635
+    },
+    {
+      "record_id": "google_423",
+      "rendering_turn": 424,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 877635,
+      "rendering_char_end": 878590
+    },
+    {
+      "record_id": "google_424",
+      "rendering_turn": 425,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 878590,
+      "rendering_char_end": 882630
+    },
+    {
+      "record_id": "google_425",
+      "rendering_turn": 426,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 882630,
+      "rendering_char_end": 883367
+    },
+    {
+      "record_id": "google_426",
+      "rendering_turn": 427,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 883367,
+      "rendering_char_end": 890358
+    },
+    {
+      "record_id": "google_427",
+      "rendering_turn": 428,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 890358,
+      "rendering_char_end": 893513
+    },
+    {
+      "record_id": "google_428",
+      "rendering_turn": 429,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 893513,
+      "rendering_char_end": 903601
+    },
+    {
+      "record_id": "google_429",
+      "rendering_turn": 430,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 903601,
+      "rendering_char_end": 903648
+    },
+    {
+      "record_id": "google_430",
+      "rendering_turn": 431,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 903648,
+      "rendering_char_end": 911162
+    },
+    {
+      "record_id": "google_431",
+      "rendering_turn": 432,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 911162,
+      "rendering_char_end": 911923
+    },
+    {
+      "record_id": "google_432",
+      "rendering_turn": 433,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 911923,
+      "rendering_char_end": 917588
+    },
+    {
+      "record_id": "google_433",
+      "rendering_turn": 434,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 917588,
+      "rendering_char_end": 917622
+    },
+    {
+      "record_id": "google_434",
+      "rendering_turn": 435,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 917622,
+      "rendering_char_end": 917656
+    },
+    {
+      "record_id": "google_435",
+      "rendering_turn": 436,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 917656,
+      "rendering_char_end": 917690
+    },
+    {
+      "record_id": "google_436",
+      "rendering_turn": 437,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 917690,
+      "rendering_char_end": 918186
+    },
+    {
+      "record_id": "google_437",
+      "rendering_turn": 438,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 918186,
+      "rendering_char_end": 924455
+    },
+    {
+      "record_id": "google_438",
+      "rendering_turn": 439,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 924455,
+      "rendering_char_end": 924489
+    },
+    {
+      "record_id": "google_439",
+      "rendering_turn": 440,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 924489,
+      "rendering_char_end": 925004
+    },
+    {
+      "record_id": "google_440",
+      "rendering_turn": 441,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 925004,
+      "rendering_char_end": 931212
+    },
+    {
+      "record_id": "google_441",
+      "rendering_turn": 442,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 931212,
+      "rendering_char_end": 931246
+    },
+    {
+      "record_id": "google_442",
+      "rendering_turn": 443,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 931246,
+      "rendering_char_end": 931660
+    },
+    {
+      "record_id": "google_443",
+      "rendering_turn": 444,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 931660,
+      "rendering_char_end": 936674
+    },
+    {
+      "record_id": "google_444",
+      "rendering_turn": 445,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 936674,
+      "rendering_char_end": 937478
+    },
+    {
+      "record_id": "google_445",
+      "rendering_turn": 446,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 937478,
+      "rendering_char_end": 941481
+    },
+    {
+      "record_id": "google_446",
+      "rendering_turn": 447,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 941481,
+      "rendering_char_end": 942456
+    },
+    {
+      "record_id": "google_447",
+      "rendering_turn": 448,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 942456,
+      "rendering_char_end": 949849
+    },
+    {
+      "record_id": "google_448",
+      "rendering_turn": 449,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 949849,
+      "rendering_char_end": 950303
+    },
+    {
+      "record_id": "google_449",
+      "rendering_turn": 450,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 950303,
+      "rendering_char_end": 954068
+    },
+    {
+      "record_id": "google_450",
+      "rendering_turn": 451,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 954068,
+      "rendering_char_end": 954102
+    },
+    {
+      "record_id": "google_451",
+      "rendering_turn": 452,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 954102,
+      "rendering_char_end": 954136
+    },
+    {
+      "record_id": "google_452",
+      "rendering_turn": 453,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 954136,
+      "rendering_char_end": 954170
+    },
+    {
+      "record_id": "google_453",
+      "rendering_turn": 454,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 954170,
+      "rendering_char_end": 954422
+    },
+    {
+      "record_id": "google_454",
+      "rendering_turn": 455,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 954422,
+      "rendering_char_end": 960530
+    },
+    {
+      "record_id": "google_455",
+      "rendering_turn": 456,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 960530,
+      "rendering_char_end": 960564
+    },
+    {
+      "record_id": "google_456",
+      "rendering_turn": 457,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 960564,
+      "rendering_char_end": 960870
+    },
+    {
+      "record_id": "google_457",
+      "rendering_turn": 458,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 960870,
+      "rendering_char_end": 965590
+    },
+    {
+      "record_id": "google_458",
+      "rendering_turn": 459,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 965590,
+      "rendering_char_end": 966123
+    },
+    {
+      "record_id": "google_459",
+      "rendering_turn": 460,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 966123,
+      "rendering_char_end": 969795
+    },
+    {
+      "record_id": "google_460",
+      "rendering_turn": 461,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 969795,
+      "rendering_char_end": 969829
+    },
+    {
+      "record_id": "google_461",
+      "rendering_turn": 462,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 969829,
+      "rendering_char_end": 970063
+    },
+    {
+      "record_id": "google_462",
+      "rendering_turn": 463,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 970063,
+      "rendering_char_end": 974050
+    },
+    {
+      "record_id": "google_463",
+      "rendering_turn": 464,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 974050,
+      "rendering_char_end": 974194
+    },
+    {
+      "record_id": "google_464",
+      "rendering_turn": 465,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 974194,
+      "rendering_char_end": 977964
+    },
+    {
+      "record_id": "google_465",
+      "rendering_turn": 466,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 977964,
+      "rendering_char_end": 978260
+    },
+    {
+      "record_id": "google_466",
+      "rendering_turn": 467,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 978260,
+      "rendering_char_end": 982406
+    },
+    {
+      "record_id": "google_467",
+      "rendering_turn": 468,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 982406,
+      "rendering_char_end": 982440
+    },
+    {
+      "record_id": "google_468",
+      "rendering_turn": 469,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 982440,
+      "rendering_char_end": 982878
+    },
+    {
+      "record_id": "google_469",
+      "rendering_turn": 470,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 982878,
+      "rendering_char_end": 987551
+    },
+    {
+      "record_id": "google_470",
+      "rendering_turn": 471,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 987551,
+      "rendering_char_end": 988067
+    },
+    {
+      "record_id": "google_471",
+      "rendering_turn": 472,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 988067,
+      "rendering_char_end": 992951
+    },
+    {
+      "record_id": "google_472",
+      "rendering_turn": 473,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 992951,
+      "rendering_char_end": 993603
+    },
+    {
+      "record_id": "google_473",
+      "rendering_turn": 474,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 993603,
+      "rendering_char_end": 997126
+    },
+    {
+      "record_id": "google_474",
+      "rendering_turn": 475,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 997126,
+      "rendering_char_end": 997160
+    },
+    {
+      "record_id": "google_475",
+      "rendering_turn": 476,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 997160,
+      "rendering_char_end": 997543
+    },
+    {
+      "record_id": "google_476",
+      "rendering_turn": 477,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 997543,
+      "rendering_char_end": 1004329
+    },
+    {
+      "record_id": "google_477",
+      "rendering_turn": 478,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1004329,
+      "rendering_char_end": 1004851
+    },
+    {
+      "record_id": "google_478",
+      "rendering_turn": 479,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1004851,
+      "rendering_char_end": 1009125
+    },
+    {
+      "record_id": "google_479",
+      "rendering_turn": 480,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1009125,
+      "rendering_char_end": 1009159
+    },
+    {
+      "record_id": "google_480",
+      "rendering_turn": 481,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1009159,
+      "rendering_char_end": 1009193
+    },
+    {
+      "record_id": "google_481",
+      "rendering_turn": 482,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1009193,
+      "rendering_char_end": 1009387
+    },
+    {
+      "record_id": "google_482",
+      "rendering_turn": 483,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1009387,
+      "rendering_char_end": 1014634
+    },
+    {
+      "record_id": "google_483",
+      "rendering_turn": 484,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1014634,
+      "rendering_char_end": 1014668
+    },
+    {
+      "record_id": "google_484",
+      "rendering_turn": 485,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1014668,
+      "rendering_char_end": 1014702
+    },
+    {
+      "record_id": "google_485",
+      "rendering_turn": 486,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1014702,
+      "rendering_char_end": 1014724
+    },
+    {
+      "record_id": "google_486",
+      "rendering_turn": 487,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1014724,
+      "rendering_char_end": 1018862
+    },
+    {
+      "record_id": "google_487",
+      "rendering_turn": 488,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1018862,
+      "rendering_char_end": 1018896
+    },
+    {
+      "record_id": "google_488",
+      "rendering_turn": 489,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1018896,
+      "rendering_char_end": 1018961
+    },
+    {
+      "record_id": "google_489",
+      "rendering_turn": 490,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1018961,
+      "rendering_char_end": 1021507
+    },
+    {
+      "record_id": "google_490",
+      "rendering_turn": 491,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1021507,
+      "rendering_char_end": 1022146
+    },
+    {
+      "record_id": "google_491",
+      "rendering_turn": 492,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1022146,
+      "rendering_char_end": 1024145
+    },
+    {
+      "record_id": "google_492",
+      "rendering_turn": 493,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1024145,
+      "rendering_char_end": 1024698
+    },
+    {
+      "record_id": "google_493",
+      "rendering_turn": 494,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1024698,
+      "rendering_char_end": 1027384
+    },
+    {
+      "record_id": "google_494",
+      "rendering_turn": 495,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1027384,
+      "rendering_char_end": 1028319
+    },
+    {
+      "record_id": "google_495",
+      "rendering_turn": 496,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1028319,
+      "rendering_char_end": 1030980
+    },
+    {
+      "record_id": "google_496",
+      "rendering_turn": 497,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1030980,
+      "rendering_char_end": 1031286
+    },
+    {
+      "record_id": "google_497",
+      "rendering_turn": 498,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1031286,
+      "rendering_char_end": 1034533
+    },
+    {
+      "record_id": "google_498",
+      "rendering_turn": 499,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034533,
+      "rendering_char_end": 1034567
+    },
+    {
+      "record_id": "google_499",
+      "rendering_turn": 500,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034567,
+      "rendering_char_end": 1034601
+    },
+    {
+      "record_id": "google_500",
+      "rendering_turn": 501,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034601,
+      "rendering_char_end": 1034635
+    },
+    {
+      "record_id": "google_501",
+      "rendering_turn": 502,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034635,
+      "rendering_char_end": 1034669
+    },
+    {
+      "record_id": "google_502",
+      "rendering_turn": 503,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034669,
+      "rendering_char_end": 1034703
+    },
+    {
+      "record_id": "google_503",
+      "rendering_turn": 504,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034703,
+      "rendering_char_end": 1034737
+    },
+    {
+      "record_id": "google_504",
+      "rendering_turn": 505,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1034737,
+      "rendering_char_end": 1035097
+    },
+    {
+      "record_id": "google_505",
+      "rendering_turn": 506,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1035097,
+      "rendering_char_end": 1042278
+    },
+    {
+      "record_id": "google_506",
+      "rendering_turn": 507,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1042278,
+      "rendering_char_end": 1043448
+    },
+    {
+      "record_id": "google_507",
+      "rendering_turn": 508,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1043448,
+      "rendering_char_end": 1048266
+    },
+    {
+      "record_id": "google_508",
+      "rendering_turn": 509,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1048266,
+      "rendering_char_end": 1048300
+    },
+    {
+      "record_id": "google_509",
+      "rendering_turn": 510,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1048300,
+      "rendering_char_end": 1048334
+    },
+    {
+      "record_id": "google_510",
+      "rendering_turn": 511,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1048334,
+      "rendering_char_end": 1049319
+    },
+    {
+      "record_id": "google_511",
+      "rendering_turn": 512,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1049319,
+      "rendering_char_end": 1053889
+    },
+    {
+      "record_id": "google_512",
+      "rendering_turn": 513,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1053889,
+      "rendering_char_end": 1054238
+    },
+    {
+      "record_id": "google_513",
+      "rendering_turn": 514,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1054238,
+      "rendering_char_end": 1060125
+    },
+    {
+      "record_id": "google_514",
+      "rendering_turn": 515,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1060125,
+      "rendering_char_end": 1060707
+    },
+    {
+      "record_id": "google_515",
+      "rendering_turn": 516,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1060707,
+      "rendering_char_end": 1063689
+    },
+    {
+      "record_id": "google_516",
+      "rendering_turn": 517,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1063689,
+      "rendering_char_end": 1064266
+    },
+    {
+      "record_id": "google_517",
+      "rendering_turn": 518,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1064266,
+      "rendering_char_end": 1068833
+    },
+    {
+      "record_id": "google_518",
+      "rendering_turn": 519,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1068833,
+      "rendering_char_end": 1069206
+    },
+    {
+      "record_id": "google_519",
+      "rendering_turn": 520,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1069206,
+      "rendering_char_end": 1071096
+    },
+    {
+      "record_id": "google_520",
+      "rendering_turn": 521,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1071096,
+      "rendering_char_end": 1071359
+    },
+    {
+      "record_id": "google_521",
+      "rendering_turn": 522,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1071359,
+      "rendering_char_end": 1073274
+    },
+    {
+      "record_id": "google_522",
+      "rendering_turn": 523,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1073274,
+      "rendering_char_end": 1073554
+    },
+    {
+      "record_id": "google_523",
+      "rendering_turn": 524,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1073554,
+      "rendering_char_end": 1076417
+    },
+    {
+      "record_id": "google_524",
+      "rendering_turn": 525,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1076417,
+      "rendering_char_end": 1076646
+    },
+    {
+      "record_id": "google_525",
+      "rendering_turn": 526,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1076646,
+      "rendering_char_end": 1079124
+    },
+    {
+      "record_id": "google_526",
+      "rendering_turn": 527,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1079124,
+      "rendering_char_end": 1079648
+    },
+    {
+      "record_id": "google_527",
+      "rendering_turn": 528,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1079648,
+      "rendering_char_end": 1084685
+    },
+    {
+      "record_id": "google_528",
+      "rendering_turn": 529,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1084685,
+      "rendering_char_end": 1085790
+    },
+    {
+      "record_id": "google_529",
+      "rendering_turn": 530,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1085790,
+      "rendering_char_end": 1090386
+    },
+    {
+      "record_id": "google_530",
+      "rendering_turn": 531,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090386,
+      "rendering_char_end": 1090420
+    },
+    {
+      "record_id": "google_531",
+      "rendering_turn": 532,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090420,
+      "rendering_char_end": 1090454
+    },
+    {
+      "record_id": "google_532",
+      "rendering_turn": 533,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090454,
+      "rendering_char_end": 1090488
+    },
+    {
+      "record_id": "google_533",
+      "rendering_turn": 534,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090488,
+      "rendering_char_end": 1090522
+    },
+    {
+      "record_id": "google_534",
+      "rendering_turn": 535,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090522,
+      "rendering_char_end": 1090556
+    },
+    {
+      "record_id": "google_535",
+      "rendering_turn": 536,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090556,
+      "rendering_char_end": 1090590
+    },
+    {
+      "record_id": "google_536",
+      "rendering_turn": 537,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090590,
+      "rendering_char_end": 1090624
+    },
+    {
+      "record_id": "google_537",
+      "rendering_turn": 538,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1090624,
+      "rendering_char_end": 1091246
+    },
+    {
+      "record_id": "google_538",
+      "rendering_turn": 539,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1091246,
+      "rendering_char_end": 1095146
+    },
+    {
+      "record_id": "google_539",
+      "rendering_turn": 540,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1095146,
+      "rendering_char_end": 1095319
+    },
+    {
+      "record_id": "google_540",
+      "rendering_turn": 541,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1095319,
+      "rendering_char_end": 1099693
+    },
+    {
+      "record_id": "google_541",
+      "rendering_turn": 542,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1099693,
+      "rendering_char_end": 1099842
+    },
+    {
+      "record_id": "google_542",
+      "rendering_turn": 543,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1099842,
+      "rendering_char_end": 1102216
+    },
+    {
+      "record_id": "google_543",
+      "rendering_turn": 544,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1102216,
+      "rendering_char_end": 1102250
+    },
+    {
+      "record_id": "google_544",
+      "rendering_turn": 545,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1102250,
+      "rendering_char_end": 1102741
+    },
+    {
+      "record_id": "google_545",
+      "rendering_turn": 546,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1102741,
+      "rendering_char_end": 1105137
+    },
+    {
+      "record_id": "google_546",
+      "rendering_turn": 547,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1105137,
+      "rendering_char_end": 1105380
+    },
+    {
+      "record_id": "google_547",
+      "rendering_turn": 548,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1105380,
+      "rendering_char_end": 1107094
+    },
+    {
+      "record_id": "google_548",
+      "rendering_turn": 549,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1107094,
+      "rendering_char_end": 1107985
+    },
+    {
+      "record_id": "google_549",
+      "rendering_turn": 550,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1107985,
+      "rendering_char_end": 1114788
+    },
+    {
+      "record_id": "google_550",
+      "rendering_turn": 551,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1114788,
+      "rendering_char_end": 1115172
+    },
+    {
+      "record_id": "google_551",
+      "rendering_turn": 552,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1115172,
+      "rendering_char_end": 1119491
+    },
+    {
+      "record_id": "google_552",
+      "rendering_turn": 553,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1119491,
+      "rendering_char_end": 1120139
+    },
+    {
+      "record_id": "google_553",
+      "rendering_turn": 554,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1120139,
+      "rendering_char_end": 1128376
+    },
+    {
+      "record_id": "google_554",
+      "rendering_turn": 555,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1128376,
+      "rendering_char_end": 1131342
+    },
+    {
+      "record_id": "google_555",
+      "rendering_turn": 556,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1131342,
+      "rendering_char_end": 1135600
+    },
+    {
+      "record_id": "google_556",
+      "rendering_turn": 557,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1135600,
+      "rendering_char_end": 1135634
+    },
+    {
+      "record_id": "google_557",
+      "rendering_turn": 558,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1135634,
+      "rendering_char_end": 1135908
+    },
+    {
+      "record_id": "google_558",
+      "rendering_turn": 559,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1135908,
+      "rendering_char_end": 1142962
+    },
+    {
+      "record_id": "google_559",
+      "rendering_turn": 560,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1142962,
+      "rendering_char_end": 1143558
+    },
+    {
+      "record_id": "google_560",
+      "rendering_turn": 561,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1143558,
+      "rendering_char_end": 1148922
+    },
+    {
+      "record_id": "google_561",
+      "rendering_turn": 562,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1148922,
+      "rendering_char_end": 1149066
+    },
+    {
+      "record_id": "google_562",
+      "rendering_turn": 563,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1149066,
+      "rendering_char_end": 1155729
+    },
+    {
+      "record_id": "google_563",
+      "rendering_turn": 564,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1155729,
+      "rendering_char_end": 1156042
+    },
+    {
+      "record_id": "google_564",
+      "rendering_turn": 565,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1156042,
+      "rendering_char_end": 1161481
+    },
+    {
+      "record_id": "google_565",
+      "rendering_turn": 566,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1161481,
+      "rendering_char_end": 1162286
+    },
+    {
+      "record_id": "google_566",
+      "rendering_turn": 567,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1162286,
+      "rendering_char_end": 1171540
+    },
+    {
+      "record_id": "google_567",
+      "rendering_turn": 568,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1171540,
+      "rendering_char_end": 1171931
+    },
+    {
+      "record_id": "google_568",
+      "rendering_turn": 569,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1171931,
+      "rendering_char_end": 1180927
+    },
+    {
+      "record_id": "google_569",
+      "rendering_turn": 570,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1180927,
+      "rendering_char_end": 1181666
+    },
+    {
+      "record_id": "google_570",
+      "rendering_turn": 571,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1181666,
+      "rendering_char_end": 1190936
+    },
+    {
+      "record_id": "google_571",
+      "rendering_turn": 572,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1190936,
+      "rendering_char_end": 1191184
+    },
+    {
+      "record_id": "google_572",
+      "rendering_turn": 573,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1191184,
+      "rendering_char_end": 1197289
+    },
+    {
+      "record_id": "google_573",
+      "rendering_turn": 574,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1197289,
+      "rendering_char_end": 1200064
+    },
+    {
+      "record_id": "google_574",
+      "rendering_turn": 575,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1200064,
+      "rendering_char_end": 1205186
+    },
+    {
+      "record_id": "google_575",
+      "rendering_turn": 576,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1205186,
+      "rendering_char_end": 1205332
+    },
+    {
+      "record_id": "google_576",
+      "rendering_turn": 577,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1205332,
+      "rendering_char_end": 1216068
+    },
+    {
+      "record_id": "google_577",
+      "rendering_turn": 578,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1216068,
+      "rendering_char_end": 1216218
+    },
+    {
+      "record_id": "google_578",
+      "rendering_turn": 579,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1216218,
+      "rendering_char_end": 1222227
+    },
+    {
+      "record_id": "google_579",
+      "rendering_turn": 580,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1222227,
+      "rendering_char_end": 1222460
+    },
+    {
+      "record_id": "google_580",
+      "rendering_turn": 581,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1222460,
+      "rendering_char_end": 1227767
+    },
+    {
+      "record_id": "google_581",
+      "rendering_turn": 582,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1227767,
+      "rendering_char_end": 1227992
+    },
+    {
+      "record_id": "google_582",
+      "rendering_turn": 583,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1227992,
+      "rendering_char_end": 1233198
+    },
+    {
+      "record_id": "google_583",
+      "rendering_turn": 584,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1233198,
+      "rendering_char_end": 1234116
+    },
+    {
+      "record_id": "google_584",
+      "rendering_turn": 585,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1234116,
+      "rendering_char_end": 1239136
+    },
+    {
+      "record_id": "google_585",
+      "rendering_turn": 586,
+      "role_match": true,
+      "nonempty": false,
+      "final_verbatim_in_rendering": false,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1239136,
+      "rendering_char_end": 1239170
+    },
+    {
+      "record_id": "google_586",
+      "rendering_turn": 587,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1239170,
+      "rendering_char_end": 1239507
+    },
+    {
+      "record_id": "google_587",
+      "rendering_turn": 588,
+      "role_match": true,
+      "nonempty": true,
+      "final_verbatim_in_rendering": true,
+      "thinking_verbatim_in_rendering": true,
+      "rendering_char_start": 1239507,
+      "rendering_char_end": 1243213
+    }
+  ]
+}

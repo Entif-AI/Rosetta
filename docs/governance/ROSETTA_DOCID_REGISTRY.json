@@ -1,0 +1,136 @@
+{
+  "formatVersion": 1,
+  "scope": "core-suite",
+  "source": {
+    "path": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+    "sha256": "3851486fb6ae22420fe65341c645ef5044ed5a027e86eb11c8dc5dce187d91aa",
+    "ledgerPath": null
+  },
+  "documents": [
+    {
+      "docId": "ROCK-3001",
+      "title": "Rosetta 3.0 Core Spine Specification",
+      "type": "Standards Track (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [],
+      "availability": "checked-in",
+      "canonicalPath": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md",
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3002",
+      "title": "Rosetta 3.0 Data Model & Semantics Reference",
+      "type": "Standards Track (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3003",
+      "title": "Rosetta 3.0 Standard Packs Specification",
+      "type": "Standards Track (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3004",
+      "title": "Rosetta 3.0 Vocabulary Packs and Lexicon Guide",
+      "type": "Standards Track (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3005",
+      "title": "Rosetta 3.0 Conformance & Compliance Profiles",
+      "type": "Standards Track (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3006",
+      "title": "Rosetta 3.0 Implementation Guide (Informative)",
+      "type": "Informative Note",
+      "authority": "informative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001",
+        "ROCK-3002"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3007",
+      "title": "Rosetta 3.0 Use Case Compendium (Informative)",
+      "type": "Informative Note",
+      "authority": "informative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3010",
+      "title": "Rosetta 3.0 Schema Pack (Machine-Readable)",
+      "type": "Artifact (Normative)",
+      "authority": "normative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3002"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    },
+    {
+      "docId": "ROCK-3099",
+      "title": "Rosetta 3.x Patch Ledger and Change Log",
+      "type": "Informative (process)",
+      "authority": "informative",
+      "versionPosture": "3.0.0-suite-draft",
+      "dependsOn": [
+        "ROCK-3001"
+      ],
+      "availability": "declared-only",
+      "canonicalPath": null,
+      "canonicalUri": null,
+      "declaredIn": "docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# Terminal engineering completion envelope v1
+
+Authority: #1727, #1509, #1726 and the Rosetta v3 Core Spine. Publication posture: public evidence contract. `engineering.run-completion.v1` is an application-level composition, not a new Core kind, verdict, model score, routing policy or production-frontier decision.
+
+Each envelope has a run/work identity, issue/spec/plan/PR references, terminal execution state, separate lifecycle/verification/integration evidence, reconciled external effects, result, limitations, continuation and source table. The `sha256:` identity hashes the shared JCS canonical body without `envelopeId`; parsing checks it rather than trusting a caller-supplied digest.
+
+All configuration and telemetry fields explicitly declare `observed`, `unknown` or `unavailable`. Observed values require source references. Unknown/unavailable fields require a reason and prohibit a value. Executor surface, provider/model/version/effort, delegation, context, cache, tools/runtime, start/end/duration, quota, tokens/cost, retries, repairs/rework and discarded work remain separately addressable. No hidden reasoning or raw chat/log payload is admitted.
+
+Quota windows carry meter/window identity, observation time and phase, known/null percentages/reset, source status and shared-seat or unknown attribution. V1 does not support per-run attribution claims. A checkpoint interval is explicitly distinct from total runtime. Cache observations describe their measured cache family and unit, without implying quota savings or truth authority.
+
+Source-table resolution and #1509 history validation are mandatory companions to JSON Schema shape validation. Terminal completion requires recorded execution completion. Verified results require passed independent checks of the currently accepted lifecycle subject; integrated results instead bind checks to the acceptance referenced by recorded integration, which remains an external fact after later rejection. Known failure/block/cancellation cannot become successful completion. Structural independence does not authenticate a source or establish actual actor independence by itself.
+
+`createEngineeringCompletion` creates a canonical envelope; `renderEngineeringCompletion` derives a compact Markdown projection from that same envelope. `appendEngineeringCompletion` retains prior immutable envelopes, accepts exact duplicate delivery, and rejects cross-run or unresolved supersession. Corrections use a new identity and explicit `supersedesRefs`; canonical JSON is never overwritten by the fixture generator. Explicit `--write` may regenerate derived Markdown from the same admitted envelope.
+
+Real fixtures and renderings are in `tools/engineering-evidence/completions/`: merged deterministic Akasha #1725, merged AXI/SpecOps #1723, and a current #1509 tranche on unmerged PR #1732. Historical exact primary model/effort stays unknown. The SpecOps review-agent configuration and checkpoint duration are represented only because its committed evidence records them. Failed hosted checks and repair history remain available when a later checkpoint is verified.
+
+Build `rosetta-schemas`, then run `node tools/engineering-evidence/completions.mjs --write` once for new fixtures and without `--write` to verify immutable outputs. Published schemas are generated from runtime constants with `schema-sync.mjs`; supply the Work Lifecycle schema for its external reference. Admission and rendering establish no effect/write/promotion authority.

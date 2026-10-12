@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">From capability to dependence</title><desc id="desc">Every step asks a different empirical question</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">From capability to dependence</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Every step asks a different empirical question</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="65" y="270" width="270" height="220" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="316" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Capability</text>
+<text x="89" y="369" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Can it do the</text>
+<text x="89" y="404" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">task?</text>
+<line x1="341" y1="380" x2="352" y2="380" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="362" y="270" width="270" height="220" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="386" y="316" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Access</text>
+<text x="386" y="369" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Who can use</text>
+<text x="386" y="404" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">it?</text>
+<line x1="638" y1="380" x2="649" y2="380" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="659" y="270" width="270" height="220" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="683" y="316" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Use</text>
+<text x="683" y="369" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Who actually</text>
+<text x="683" y="404" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">uses it?</text>
+<line x1="935" y1="380" x2="946" y2="380" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="956" y="270" width="270" height="220" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="980" y="316" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Integration</text>
+<text x="980" y="369" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Which workflow</text>
+<text x="980" y="404" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">relies on it?</text>
+<line x1="1232" y1="380" x2="1243" y2="380" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1253" y="270" width="270" height="220" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1277" y="316" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Dependence</text>
+<text x="1277" y="369" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">What breaks if</text>
+<text x="1277" y="404" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">it stops?</text>
+<rect x="65" y="600" width="1470" height="190" rx="10" fill="#f4f7f9" stroke="#f4f7f9" stroke-width="2"/>
+<text x="95" y="654" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" fill="#172533" text-anchor="start">USAGE IS NOT A WITHDRAWAL TEST</text>
+<text x="95" y="709" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="400" fill="#172533" text-anchor="start">Measure lost function, fallback quality, recovery time and affected people before</text>
+<text x="95" y="753" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="400" fill="#172533" text-anchor="start">claiming institutional dependence.</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Conceptual distinction. Runtime and code-volume reports demonstrate use, not automatically labor</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">equivalence or civilization-wide dependence.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

@@ -1,32 +1,274 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ContentCard from '../../components/ContentCard.astro';
-import { toContentCard } from '../../lib/content';
+import { getEntry } from 'astro:content';
+import FullWidthPageLayout from '../../layouts/FullWidthPageLayout.astro';
+import HumanAgencyOrbit from '../../components/projects/HumanAgencyOrbit.astro';
+import ArchitectureExplorer from '../../components/projects/ArchitectureExplorer.astro';
 import { getPublishedEntries, toSummary } from '../../lib/site-data';
+import { resolveShowcaseLinks } from '../../lib/showcase';
+import { copy } from '../../lib/copy';
+import '../../styles/pages/_projects.scss';
 
-const baseUrl = import.meta.env.BASE_URL;
-const projects = (await getPublishedEntries())
-  .filter(({ data }) => data.kind === 'project')
-  .map(toSummary);
+const page = await getEntry('pages', 'projects');
+if (!page?.data.showcase)
+  throw new Error('Missing validated Projects showcase');
+const {
+  hero,
+  stakesIntro,
+  stakes,
+  pivot,
+  architecture,
+  responsesIntro,
+  responses,
+  scenario,
+  closing,
+} = page.data.showcase;
+const entries = (await getPublishedEntries()).map((entry) => ({
+  ...toSummary(entry),
+  ...(entry.data.report ? { report: entry.data.report } : {}),
+}));
+const links = resolveShowcaseLinks(
+  page.data.showcase,
+  entries,
+  import.meta.env.BASE_URL
+);
+const names = new Map(
+  architecture.systems.map((system) => [system.id, system.name])
+);
 ---
 
-<BaseLayout
-  title="Projects"
-  description="Browse Entif AI projects and the research programs organized around them."
+<FullWidthPageLayout
+  title={page.data.title}
+  description={page.data.description}
 >
-  <section class="section shell topic-page">
-    <p class="eyebrow">Programs</p>
-    <h1>Projects</h1>
-    <p class="lede">
-      Project pages provide stable homes for Entif research and engineering
-      programs.
-    </p>
-    <div class="card-grid">
-      {
-        projects.map((item) => (
-          <ContentCard card={toContentCard(item, baseUrl)} />
-        ))
-      }
-    </div>
-  </section>
-</BaseLayout>
+  <div class="uca-page" data-test-id="uca-page">
+    <section
+      id="uca-hero"
+      class="uca-stage uca-hero"
+      aria-labelledby="uca-hero-heading"
+      data-test-id="uca-stage-hero"
+    >
+      <div class="stage-shell uca-hero-grid">
+        <div>
+          <p class="uca-eyebrow">{hero.eyebrow}</p>
+          <h1 id="uca-hero-heading" data-test-id="uca-hero-heading">
+            {hero.title}
+          </h1>
+          <p class="uca-introduction">{hero.description}</p>
+          <p class="uca-supporting">{hero.supportingText}</p>
+          <a
+            class="uca-action"
+            href={hero.ctaTarget}
+            data-test-id="uca-hero-action"
+            >{hero.ctaLabel}<span aria-hidden="true">→</span></a
+          >
+          <p class="uca-agency-note">
+            {hero.agencyLabel}{' '}{hero.agencyCaption}.
+          </p>
+        </div>
+        <HumanAgencyOrbit hero={hero} systems={architecture.systems} />
+      </div>
+    </section>
+
+    <section
+      class="uca-stage uca-stakes"
+      aria-labelledby="uca-stakes-heading"
+      data-test-id="uca-stage-stakes"
+    >
+      <div class="stage-shell uca-split">
+        <div>
+          <p class="uca-eyebrow">{stakesIntro.eyebrow}</p>
+          <h2 id="uca-stakes-heading">
+            {stakesIntro.headline}{' '}
+            <span class="uca-highlight">{stakesIntro.emphasis}</span>
+          </h2>
+          <p class="uca-introduction">{stakesIntro.description}</p>
+        </div>
+        <ol class="uca-stakes-list" data-test-id="uca-stakes">
+          {
+            stakes.map((stake, index) => (
+              <li data-test-id={`uca-stake-${stake.id}`}>
+                <span class="uca-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <>
+                    <h3>{stake.headline}</h3>
+                    <p>{stake.description}</p>
+                  </>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="uca-stage uca-light uca-pivot"
+      aria-labelledby="uca-pivot-heading"
+      data-test-id="uca-stage-pivot"
+    >
+      <div class="stage-shell">
+        <p class="uca-eyebrow">{pivot.eyebrow}</p>
+        <h2 id="uca-pivot-heading">
+          {pivot.headline}{' '}
+          <em>{pivot.emphasis}</em>
+        </h2>
+        <p class="uca-introduction reading-measure">{pivot.description}</p>
+      </div>
+    </section>
+
+    <section
+      id="uca-architecture"
+      class="uca-stage uca-architecture"
+      aria-labelledby="uca-architecture-heading"
+      data-test-id="uca-architecture"
+    >
+      <div class="stage-shell">
+        <p class="uca-eyebrow">{architecture.eyebrow}</p>
+        <h2 id="uca-architecture-heading">{architecture.headline}</h2>
+        <p class="uca-introduction reading-measure">
+          {architecture.description}
+        </p>
+        <ArchitectureExplorer
+          architecture={architecture}
+          projects={links.projects}
+        />
+      </div>
+    </section>
+
+    <section
+      class="uca-stage uca-responses"
+      aria-labelledby="uca-responses-heading"
+      data-test-id="uca-research-responses"
+    >
+      <div class="stage-shell">
+        <p class="uca-eyebrow">{responsesIntro.eyebrow}</p>
+        <h2 id="uca-responses-heading">{responsesIntro.headline}</h2>
+        <p class="uca-introduction reading-measure">
+          {responsesIntro.description}
+        </p>
+        <ol class="uca-response-grid">
+          {
+            responses.map((response, index) => (
+              <li data-test-id={`uca-response-${response.id}`}>
+                <article
+                  class="uca-response"
+                  aria-labelledby={`uca-response-heading-${response.id}`}
+                >
+                  <p class="uca-eyebrow">
+                    <span aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')} /{' '}
+                    </span>
+                    {response.id}
+                  </p>
+                  <h3 id={`uca-response-heading-${response.id}`}>
+                    {response.question}
+                  </h3>
+                  <p>{response.concern}</p>
+                  <div class="uca-answer">
+                    <>
+                      <p class="uca-contributors">
+                        {response.contributors.join(' + ')}
+                      </p>
+                      <p>{response.response}</p>
+                    </>
+                  </div>
+                  <ul
+                    class="uca-source-list"
+                    aria-label={copy.source}
+                    data-test-id={`uca-response-sources-${response.id}`}
+                  >
+                    {links.responses.get(response.id)!.map((source) => (
+                      <li>
+                        {source.link ? (
+                          <a
+                            class="uca-source-link"
+                            href={source.link.href}
+                            data-test-id={`uca-research-link-${source.id}`}
+                          >
+                            {source.id}
+                            <span aria-hidden="true"> ↗</span>
+                          </a>
+                        ) : (
+                          <span>{source.id}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section
+      class="uca-stage uca-light uca-scenario"
+      aria-labelledby="uca-scenario-heading"
+      data-test-id="uca-future-scenario"
+    >
+      <div class="stage-shell">
+        <p class="uca-eyebrow">{scenario.eyebrow}</p>
+        <h2 id="uca-scenario-heading">{scenario.headline}</h2>
+        <p class="uca-introduction reading-measure">{scenario.description}</p>
+        <p class="uca-illustrative" data-test-id="uca-scenario-label">
+          {scenario.illustrativeLabel}
+        </p>
+        <ol class="uca-scenario-steps">
+          {
+            scenario.steps.map((step, index) => (
+              <li data-test-id={`uca-scenario-step-${step.systemId}`}>
+                <span class="uca-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <>
+                  <h3>{names.get(step.systemId)}</h3>
+                  <p>{step.description}</p>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="uca-scenario-conclusion">{scenario.conclusion}</p>
+      </div>
+    </section>
+
+    <section
+      class="uca-stage uca-closing"
+      aria-labelledby="uca-closing-heading"
+      data-test-id="uca-closing"
+    >
+      <div class="stage-shell">
+        <p class="uca-eyebrow">{closing.eyebrow}</p>
+        <h2 id="uca-closing-heading">
+          {closing.headline}<br /><span class="uca-highlight"
+            >{closing.emphasis}</span
+          >
+        </h2>
+        <p class="uca-introduction reading-measure">{closing.description}</p>
+        <p class="uca-supporting">{closing.supportingText}</p>
+        <a
+          class="uca-action"
+          href={closing.ctaTarget}
+          data-test-id="uca-closing-action"
+          >{closing.ctaLabel}<span aria-hidden="true">↑</span></a
+        >
+        {
+          links.research.length > 0 && (
+            <ul class="uca-source-list" aria-label={copy.research}>
+              {links.research.map((source) => (
+                <li>
+                  <a class="uca-source-link" href={source.href}>
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+    </section>
+  </div>
+</FullWidthPageLayout>

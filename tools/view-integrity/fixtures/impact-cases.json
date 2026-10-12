@@ -1,0 +1,1186 @@
+{
+  "posture": "public synthetic conformance vectors; no operational policy",
+  "valid": [
+    {
+      "name": "defective translator affects several projections and a decision",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-1",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-a",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          },
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-b",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          },
+          {
+            "subject": {
+              "ref": "urn:synthetic:decision",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:projection-a",
+            "urn:synthetic:projection-b",
+            "urn:synthetic:decision"
+          ],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "source correction affects one derivative while another is independently unaffected",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-2",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "source-correction",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-a",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          },
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-b",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "PROVEN_UNAFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": {
+              "methodRef": "urn:synthetic:independent-method",
+              "profile": {
+                "id": "synthetic.validation.v1",
+                "version": "1.0.0"
+              },
+              "executorRef": "urn:synthetic:verifier",
+              "kind": "validation",
+              "evidenceRefs": [
+                "urn:synthetic:validation-proof"
+              ]
+            },
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:projection-a"
+          ],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "revoked Pack invalidates prior compatibility results",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-3",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "pack-profile-revocation",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:compatibility",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "REVALIDATION_REQUIRED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:compatibility"
+          ],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "corrected identity association leaves graph claims awaiting revalidation",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-4",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "identity-correction",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:graph-claim",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "REVALIDATION_REQUIRED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:graph-claim"
+          ],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "irreversible external effect remains an external fact",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-5",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:settlement",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "EXTERNAL_EFFECT_IRREVERSIBLE",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": [
+              "urn:synthetic:settlement-effect"
+            ]
+          }
+        ],
+        "externalEffects": [
+          {
+            "effectRef": "urn:synthetic:settlement-effect",
+            "evidenceRefs": [
+              "urn:synthetic:effect-proof"
+            ],
+            "compensationRefs": []
+          }
+        ],
+        "closure": {
+          "state": "closed",
+          "unresolvedRefs": [],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "incomplete reverse dependencies preserve unknown unresolved frontier",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-6",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "unknown",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": []
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:unknown-derivative",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "UNKNOWN",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:unknown-derivative"
+          ],
+          "unresolvedFrontierRef": "urn:synthetic:unknown-dependency-frontier"
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "replacement translator rebuilds and explicit revalidation closes valid",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-7",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-a",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "REVALIDATED_VALID",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": {
+              "methodRef": "urn:synthetic:independent-method",
+              "profile": {
+                "id": "synthetic.validation.v1",
+                "version": "1.0.0"
+              },
+              "executorRef": "urn:synthetic:verifier",
+              "kind": "validation",
+              "evidenceRefs": [
+                "urn:synthetic:validation-proof"
+              ]
+            },
+            "replacementRefs": [
+              "urn:synthetic:replacement-translator"
+            ],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "closed",
+          "unresolvedRefs": [],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "reference to invalid input does not outweigh independently proven unaffected conclusion",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-8",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:decision",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "PROVEN_UNAFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": {
+              "methodRef": "urn:synthetic:independent-method",
+              "profile": {
+                "id": "synthetic.validation.v1",
+                "version": "1.0.0"
+              },
+              "executorRef": "urn:synthetic:verifier",
+              "kind": "validation",
+              "evidenceRefs": [
+                "urn:synthetic:validation-proof"
+              ]
+            },
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "closed",
+          "unresolvedRefs": [],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "rebuild is falsely treated as revalidation",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-7",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-a",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "REVALIDATED_VALID",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": {
+              "methodRef": "urn:synthetic:independent-method",
+              "profile": {
+                "id": "synthetic.validation.v1",
+                "version": "1.0.0"
+              },
+              "executorRef": "urn:synthetic:verifier",
+              "kind": "rebuild-only",
+              "evidenceRefs": [
+                "urn:synthetic:validation-proof"
+              ]
+            },
+            "replacementRefs": [
+              "urn:synthetic:replacement-translator"
+            ],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "closed",
+          "unresolvedRefs": [],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "missing dependency evidence is coerced to unaffected closure",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-6",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "unknown",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": []
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:unknown-derivative",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "PROVEN_UNAFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "closed",
+          "unresolvedRefs": [],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    },
+    {
+      "name": "historical decision is rewritten with later invalidation evidence",
+      "value": {
+        "profile": {
+          "id": "impact.revalidation.v1",
+          "version": "1.0.0"
+        },
+        "recordId": "urn:synthetic:case-1",
+        "invalidationRef": "urn:synthetic:defective-translator",
+        "invalidatedSubjects": [
+          {
+            "ref": "urn:synthetic:translator",
+            "version": "1.0.0",
+            "cid": null
+          }
+        ],
+        "invalidationClass": "defective-translator",
+        "reasonRefs": [
+          "urn:synthetic:reason"
+        ],
+        "evidenceRefs": [
+          "urn:synthetic:invalidation-proof"
+        ],
+        "candidateScope": {
+          "status": "complete",
+          "edgeClasses": [
+            "derived_from",
+            "uses"
+          ],
+          "queryRefs": [
+            "urn:synthetic:bounded-impact-query"
+          ],
+          "evidenceRefs": [
+            "urn:synthetic:dependency-closure"
+          ]
+        },
+        "subjects": [
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-a",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          },
+          {
+            "subject": {
+              "ref": "urn:synthetic:projection-b",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          },
+          {
+            "subject": {
+              "ref": "urn:synthetic:decision",
+              "version": "1.0.0",
+              "cid": null
+            },
+            "disposition": "AFFECTED",
+            "rationaleRefs": [
+              "urn:synthetic:rationale"
+            ],
+            "dependencyRefs": [
+              "urn:synthetic:dependency"
+            ],
+            "affectednessEvidenceRefs": [
+              "urn:synthetic:impact-proof"
+            ],
+            "revalidation": null,
+            "replacementRefs": [],
+            "externalEffectRefs": []
+          }
+        ],
+        "externalEffects": [],
+        "closure": {
+          "state": "open",
+          "unresolvedRefs": [
+            "urn:synthetic:projection-a",
+            "urn:synthetic:projection-b",
+            "urn:synthetic:decision"
+          ],
+          "unresolvedFrontierRef": null
+        },
+        "temporal": {
+          "effectiveTimeRef": "urn:synthetic:effective-time",
+          "observationTimeRef": "urn:synthetic:observation-time",
+          "recordedAt": "2026-10-04T07:00:00Z",
+          "correctionTimeRef": "urn:synthetic:correction-time",
+          "knowledgeFrontierRef": "urn:synthetic:current-frontier",
+          "causalPredecessorRefs": []
+        },
+        "historicalContexts": [
+          {
+            "actorRef": "urn:synthetic:earlier-actor",
+            "decisionRef": "urn:synthetic:earlier-decision",
+            "knowledgeFrontierRef": "urn:synthetic:earlier-frontier",
+            "knownEvidenceRefs": [
+              "urn:synthetic:earlier-evidence",
+              "urn:synthetic:invalidation-proof"
+            ],
+            "laterEvidenceRefs": [
+              "urn:synthetic:invalidation-proof"
+            ]
+          }
+        ],
+        "receiptRefs": [],
+        "provenanceRefs": [
+          "urn:synthetic:source-lineage"
+        ],
+        "supersedesRefs": []
+      }
+    }
+  ]
+}

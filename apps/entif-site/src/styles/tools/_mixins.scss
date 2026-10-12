@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../settings/breakpoints';
+
+@function breakpoint($name) {
+  @if not map.has-key(breakpoints.$breakpoints, $name) {
+    @error 'Unknown responsive threshold: #{$name}';
+  }
+
+  @return map.get(breakpoints.$breakpoints, $name);
+}
+
+@mixin down($name) {
+  @media (max-width: breakpoint($name)) {
+    @content;
+  }
+}
+
+@mixin below($name) {
+  @media (width < breakpoint($name)) {
+    @content;
+  }
+}
+
+@mixin up($name) {
+  @media (min-width: breakpoint($name)) {
+    @content;
+  }
+}
+
+// An explicit outline survives backgrounds, zoom and forced colors.
+@mixin focus-ring($color: var(--accent)) {
+  outline: 3px solid $color;
+  outline-offset: 4px;
+}
+
+// Width includes the gutters; a full-bleed parent remains unbounded.
+@mixin content-boundary($measure: var(--stage-width)) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $measure;
+  margin-inline: auto;
+  padding-inline: var(--stage-gutter);
+}

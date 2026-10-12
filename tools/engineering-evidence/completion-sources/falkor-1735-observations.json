@@ -1,0 +1,58 @@
+{
+  "capturedAt": "2026-10-04T08:21:38.749637+00:00",
+  "runRef": "urn:rosetta:engineering:1732:falkor-1735",
+  "checkpoint": "eef561dceb6aac5fb78b4b0ffb062d1a8bd8c3ab",
+  "remoteReadback": "eef561dceb6aac5fb78b4b0ffb062d1a8bd8c3ab",
+  "executorSurface": "Codex desktop",
+  "delegation": [],
+  "localChecks": {
+    "focusedTests": 15,
+    "ownerTests": 48,
+    "skipped": 1,
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "authority": "passed",
+    "specAdmission": "passed",
+    "realFalkorProof": "passed"
+  },
+  "repairs": [
+    "Real foreign-edge red exposed destructive reset; foreign ownership check and strict DELETE protect reset.",
+    "Generic mock type erasure repaired without weakening adapter types.",
+    "Hosted d10e336 lint failed on two useless quote escapes; named red/green repair and real proof replay passed."
+  ],
+  "limits": [
+    "Real database proof is executor-attested; hosted CI checks code and deterministic fixtures without independently rerunning FalkorDB.",
+    "Unmerged; no release, publication or issue closure.",
+    "Actual model/reasoning/token/cost/full-run timing remains unknown."
+  ],
+  "quota": [
+    {
+      "provider": "codex",
+      "observedAt": "2026-10-04T08:13:39.112Z",
+      "status": "fresh",
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 82,
+          "remainingPercent": 18,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T11:02:46.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 37,
+          "remainingPercent": 63,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ]
+    }
+  ]
+}

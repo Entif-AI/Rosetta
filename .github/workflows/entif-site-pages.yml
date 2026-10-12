@@ -8,6 +8,10 @@ on:
       - 'apps/entif-site/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
+      - 'nx.json'
+      - 'tsconfig.base.json'
+      - 'pnpm-workspace.yaml'
+      - '.nvmrc'
       - '.github/workflows/entif-site-pages.yml'
   workflow_dispatch:
 
@@ -22,10 +26,14 @@ concurrency:
 
 jobs:
   build:
+    outputs:
+      site: ${{ steps.affected.outputs.site }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
@@ -40,15 +48,45 @@ jobs:
           cache: pnpm
 
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check whether the site is affected
+        id: affected
+        env:
+          NX_DAEMON: 'false'
+          NX_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          NX_HEAD: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        shell: bash
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || -z "$NX_BASE" || "$NX_BASE" =~ ^0+$ ]]; then
+            echo "site=true" >> "$GITHUB_OUTPUT"
+          else
+            pnpm exec nx show projects --affected --json > /tmp/affected-projects.json
+            node -e 'const fs = require("node:fs"); const projects = JSON.parse(fs.readFileSync("/tmp/affected-projects.json", "utf8")); fs.appendFileSync(process.env.GITHUB_OUTPUT, `site=${projects.includes("entif-site")}\n`);'
+          fi
+
+      - name: Restore site build cache
+        if: steps.affected.outputs.site == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: entif-site-${{ runner.os }}-${{ github.sha }}
+          restore-keys: entif-site-${{ runner.os }}-
+
       - name: Build site
+        if: steps.affected.outputs.site == 'true'
+        env:
+          ENTIF_SITE_URL: ${{ steps.pages.outputs.origin }}
+          ENTIF_SITE_BASE: ${{ steps.pages.outputs.base_path }}
         run: pnpm exec nx run entif-site:build
 
       - name: Upload Pages artifact
+        if: steps.affected.outputs.site == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: apps/entif-site/dist
@@ -59,6 +97,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    if: needs.build.outputs.site == 'true'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

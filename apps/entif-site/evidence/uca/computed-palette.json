@@ -1,0 +1,146 @@
+[
+  {
+    "class": "site-header",
+    "color": "rgb(1, 38, 100)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(90deg, rgb(246, 247, 253), rgb(255, 255, 255) 11%, rgb(246, 247, 253) 19%, rgb(255, 255, 255) 72%, rgb(246, 247, 253))"
+  },
+  {
+    "class": "uca-page",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(10, 13, 20)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-stage uca-hero",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(10, 13, 20)",
+    "backgroundImage": "radial-gradient(at 80% 50%, rgb(25, 52, 70), rgba(0, 0, 0, 0) 60%), none"
+  },
+  {
+    "class": "uca-stage uca-stakes",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(12, 17, 27)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-stage uca-light uca-pivot",
+    "color": "rgb(21, 25, 34)",
+    "backgroundColor": "rgb(244, 240, 232)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-stage uca-architecture",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(13, 18, 29)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(244, 203, 136, 0.075)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-link",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-system-panel",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(21, 29, 43)",
+    "backgroundImage": "radial-gradient(at 80% 20%, rgba(43, 63, 75, 0.44), rgba(0, 0, 0, 0) 58%), none"
+  },
+  {
+    "class": "uca-stage uca-responses",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-response",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "linear-gradient(145deg, rgb(24, 33, 49), rgb(16, 23, 34))"
+  },
+  {
+    "class": "uca-stage uca-light uca-scenario",
+    "color": "rgb(21, 25, 34)",
+    "backgroundColor": "rgb(234, 230, 223)",
+    "backgroundImage": "none"
+  },
+  {
+    "class": "uca-stage uca-closing",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(10, 13, 20)",
+    "backgroundImage": "radial-gradient(at 50% 110%, rgb(28, 75, 85), rgba(0, 0, 0, 0) 65%), none"
+  },
+  {
+    "class": "site-footer",
+    "color": "rgb(83, 99, 131)",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "backgroundImage": "none"
+  }
+]

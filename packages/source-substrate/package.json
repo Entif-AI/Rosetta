@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@entif-ai/rosetta-core": "workspace:*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@entif-ai/rosetta-canon": "workspace:*"
   }
 }

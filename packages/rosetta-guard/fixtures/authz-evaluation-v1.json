@@ -1,0 +1,433 @@
+{
+  "envelope": {
+    "envelopeRef": "urn:authz:child",
+    "profile": {
+      "id": "authz.authority_envelope.v1",
+      "version": "1.0.0"
+    },
+    "authoritySources": [
+      {
+        "kind": "authority-root",
+        "ref": "urn:authority:root"
+      },
+      {
+        "kind": "authority-delegation",
+        "ref": "urn:delegation:child"
+      }
+    ],
+    "actorEvidenceRefs": [],
+    "scope": {
+      "target": {
+        "resourceRef": "urn:repo:alpha",
+        "domainRef": {
+          "tenantId": "tenant-a",
+          "classification": "internal",
+          "abacLabels": []
+        }
+      },
+      "operations": [
+        "read"
+      ],
+      "effects": [
+        "source-read"
+      ]
+    },
+    "policy": {
+      "ref": "urn:policy:repo",
+      "version": "1",
+      "frontierRef": "urn:policy-frontier:1"
+    },
+    "contextConstraints": {
+      "branch": [
+        "feature"
+      ]
+    },
+    "validity": {
+      "notBefore": "2026-10-05T00:00:00Z",
+      "expiresAt": "2026-10-06T00:00:00Z",
+      "state": "valid",
+      "revocationRefs": [],
+      "invalidityRefs": [],
+      "supersededByRefs": []
+    },
+    "delegation": {
+      "parentEnvelopeRef": "urn:authz:root-envelope",
+      "lineageRefs": [
+        "urn:authz:root-envelope"
+      ],
+      "ceiling": {
+        "target": {
+          "resourceRef": "urn:repo:alpha",
+          "domainRef": {
+            "tenantId": "tenant-a",
+            "classification": "internal",
+            "abacLabels": []
+          }
+        },
+        "operations": [
+          "read"
+        ],
+        "effects": [
+          "source-read"
+        ]
+      },
+      "furtherDelegation": true,
+      "depthRemaining": 1
+    },
+    "provenance": {
+      "compiledAt": "2026-10-05T00:00:00Z",
+      "compilerRef": "urn:compiler:fixture",
+      "sourceFrontierRef": "urn:source-frontier:1",
+      "sourceRefs": [
+        "urn:authority:root",
+        "urn:delegation:child"
+      ]
+    },
+    "integrityRefs": [],
+    "receiptRefs": []
+  },
+  "operation": "read",
+  "effect": "source-read",
+  "target": {
+    "resourceRef": "urn:repo:alpha",
+    "domainRef": {
+      "tenantId": "tenant-a",
+      "classification": "internal",
+      "abacLabels": []
+    }
+  },
+  "now": "2026-10-05T12:00:00Z",
+  "policy": {
+    "ref": "urn:policy:repo",
+    "version": "1",
+    "frontierRef": "urn:policy-frontier:1"
+  },
+  "sourceFrontierRef": "urn:source-frontier:1",
+  "currentEnvelopes": [
+    {
+      "envelopeRef": "urn:authz:root-envelope",
+      "profile": {
+        "id": "authz.authority_envelope.v1",
+        "version": "1.0.0"
+      },
+      "authoritySources": [
+        {
+          "kind": "authority-root",
+          "ref": "urn:authority:root"
+        }
+      ],
+      "actorEvidenceRefs": [],
+      "scope": {
+        "target": {
+          "resourceRef": "urn:repo:alpha",
+          "domainRef": {
+            "tenantId": "tenant-a",
+            "classification": "internal",
+            "abacLabels": []
+          }
+        },
+        "operations": [
+          "read",
+          "write"
+        ],
+        "effects": [
+          "source-read",
+          "external-write"
+        ]
+      },
+      "policy": {
+        "ref": "urn:policy:repo",
+        "version": "1",
+        "frontierRef": "urn:policy-frontier:1"
+      },
+      "contextConstraints": {
+        "branch": [
+          "feature"
+        ]
+      },
+      "validity": {
+        "notBefore": "2026-10-05T00:00:00Z",
+        "expiresAt": "2026-10-06T00:00:00Z",
+        "state": "valid",
+        "revocationRefs": [],
+        "invalidityRefs": [],
+        "supersededByRefs": []
+      },
+      "delegation": {
+        "parentEnvelopeRef": null,
+        "lineageRefs": [],
+        "ceiling": {
+          "target": {
+            "resourceRef": "urn:repo:alpha",
+            "domainRef": {
+              "tenantId": "tenant-a",
+              "classification": "internal",
+              "abacLabels": []
+            }
+          },
+          "operations": [
+            "read",
+            "write"
+          ],
+          "effects": [
+            "source-read",
+            "external-write"
+          ]
+        },
+        "furtherDelegation": true,
+        "depthRemaining": 2
+      },
+      "provenance": {
+        "compiledAt": "2026-10-05T00:00:00Z",
+        "compilerRef": "urn:compiler:fixture",
+        "sourceFrontierRef": "urn:source-frontier:1",
+        "sourceRefs": [
+          "urn:authority:root"
+        ]
+      },
+      "integrityRefs": [],
+      "receiptRefs": []
+    },
+    {
+      "envelopeRef": "urn:authz:child",
+      "profile": {
+        "id": "authz.authority_envelope.v1",
+        "version": "1.0.0"
+      },
+      "authoritySources": [
+        {
+          "kind": "authority-root",
+          "ref": "urn:authority:root"
+        },
+        {
+          "kind": "authority-delegation",
+          "ref": "urn:delegation:child"
+        }
+      ],
+      "actorEvidenceRefs": [],
+      "scope": {
+        "target": {
+          "resourceRef": "urn:repo:alpha",
+          "domainRef": {
+            "tenantId": "tenant-a",
+            "classification": "internal",
+            "abacLabels": []
+          }
+        },
+        "operations": [
+          "read"
+        ],
+        "effects": [
+          "source-read"
+        ]
+      },
+      "policy": {
+        "ref": "urn:policy:repo",
+        "version": "1",
+        "frontierRef": "urn:policy-frontier:1"
+      },
+      "contextConstraints": {
+        "branch": [
+          "feature"
+        ]
+      },
+      "validity": {
+        "notBefore": "2026-10-05T00:00:00Z",
+        "expiresAt": "2026-10-06T00:00:00Z",
+        "state": "valid",
+        "revocationRefs": [],
+        "invalidityRefs": [],
+        "supersededByRefs": []
+      },
+      "delegation": {
+        "parentEnvelopeRef": "urn:authz:root-envelope",
+        "lineageRefs": [
+          "urn:authz:root-envelope"
+        ],
+        "ceiling": {
+          "target": {
+            "resourceRef": "urn:repo:alpha",
+            "domainRef": {
+              "tenantId": "tenant-a",
+              "classification": "internal",
+              "abacLabels": []
+            }
+          },
+          "operations": [
+            "read"
+          ],
+          "effects": [
+            "source-read"
+          ]
+        },
+        "furtherDelegation": true,
+        "depthRemaining": 1
+      },
+      "provenance": {
+        "compiledAt": "2026-10-05T00:00:00Z",
+        "compilerRef": "urn:compiler:fixture",
+        "sourceFrontierRef": "urn:source-frontier:1",
+        "sourceRefs": [
+          "urn:authority:root",
+          "urn:delegation:child"
+        ]
+      },
+      "integrityRefs": [],
+      "receiptRefs": []
+    }
+  ],
+  "sources": [
+    {
+      "source": {
+        "kind": "authority-root",
+        "ref": "urn:authority:root"
+      },
+      "scope": {
+        "target": {
+          "resourceRef": "urn:repo:alpha",
+          "domainRef": {
+            "tenantId": "tenant-a",
+            "classification": "internal",
+            "abacLabels": []
+          }
+        },
+        "operations": [
+          "read",
+          "write"
+        ],
+        "effects": [
+          "source-read",
+          "external-write"
+        ]
+      },
+      "policy": {
+        "ref": "urn:policy:repo",
+        "version": "1",
+        "frontierRef": "urn:policy-frontier:1"
+      },
+      "validity": {
+        "notBefore": "2026-10-05T00:00:00Z",
+        "expiresAt": "2026-10-06T00:00:00Z",
+        "state": "valid",
+        "revocationRefs": [],
+        "invalidityRefs": [],
+        "supersededByRefs": []
+      },
+      "contextConstraints": {
+        "branch": [
+          "feature"
+        ]
+      },
+      "sourceFrontierRef": "urn:source-frontier:1",
+      "evidenceRefs": [
+        "urn:evidence:authority-root"
+      ]
+    },
+    {
+      "source": {
+        "kind": "authority-delegation",
+        "ref": "urn:delegation:child"
+      },
+      "scope": {
+        "target": {
+          "resourceRef": "urn:repo:alpha",
+          "domainRef": {
+            "tenantId": "tenant-a",
+            "classification": "internal",
+            "abacLabels": []
+          }
+        },
+        "operations": [
+          "read"
+        ],
+        "effects": [
+          "source-read"
+        ]
+      },
+      "policy": {
+        "ref": "urn:policy:repo",
+        "version": "1",
+        "frontierRef": "urn:policy-frontier:1"
+      },
+      "validity": {
+        "notBefore": "2026-10-05T00:00:00Z",
+        "expiresAt": "2026-10-06T00:00:00Z",
+        "state": "valid",
+        "revocationRefs": [],
+        "invalidityRefs": [],
+        "supersededByRefs": []
+      },
+      "contextConstraints": {
+        "branch": [
+          "feature"
+        ]
+      },
+      "sourceFrontierRef": "urn:source-frontier:1",
+      "evidenceRefs": [
+        "urn:evidence:authority-delegation"
+      ]
+    }
+  ],
+  "providerCapabilities": [
+    {
+      "target": {
+        "resourceRef": "urn:repo:alpha",
+        "domainRef": {
+          "tenantId": "tenant-a",
+          "classification": "internal",
+          "abacLabels": []
+        }
+      },
+      "operations": [
+        "read",
+        "write",
+        "delete"
+      ],
+      "effects": [
+        "source-read",
+        "external-write",
+        "payment"
+      ]
+    },
+    {
+      "target": {
+        "resourceRef": "urn:repo:other",
+        "domainRef": {
+          "tenantId": "tenant-a",
+          "classification": "internal",
+          "abacLabels": []
+        }
+      },
+      "operations": [
+        "read",
+        "write",
+        "delete"
+      ],
+      "effects": [
+        "source-read",
+        "external-write",
+        "payment"
+      ]
+    }
+  ],
+  "ceilings": [],
+  "context": {
+    "branch": "feature"
+  },
+  "requiredActorEvidenceRefs": [],
+  "actorEvidenceRefs": [],
+  "gates": {
+    "safeHold": {
+      "active": false,
+      "evidenceRef": "urn:gate:no-hold"
+    },
+    "identitySensitive": {
+      "required": false,
+      "satisfied": false,
+      "evidenceRef": "urn:gate:identity-classification"
+    }
+  },
+  "intentRefs": [
+    "urn:intent:read"
+  ]
+}

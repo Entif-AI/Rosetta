@@ -5,6 +5,7 @@ dist
 build
 tmp
 out-tsc
+test-results
 
 # dependencies
 node_modules
@@ -45,6 +46,11 @@ apps/entif-site/e2e-debug.log
 apps/entif-site/playwright-report/
 apps/entif-site/test-results/
 
+# generated docs-intelligence aggregate views
+# Canonical inputs remain tracked; regenerate these through the Nx doc-intake:intelligence target.
+docs/intake/docs-intelligence/CONCEPT_INDEX.json
+docs/intake/docs-intelligence/CYCLE_SUMMARY.md
+
 # System Files
 .DS_Store
 Thumbs.db
@@ -57,3 +63,23 @@ vitest.config.*.timestamp*
 .claude/worktrees
 .claude/settings.local.json
 Code
+
+# Installed Spec Kit payloads are materialized from the pinned development bundle.
+/.agents/skills/speckit-*
+/.specify/extensions/
+/.specify/presets/
+/.specify/workflows/
+/.specify/integrations/
+/.specify/scripts/
+/.specify/templates/
+/.specify/bundle-records.json
+/.specify/.workflow-install.lock
+/.specify/init-options.json
+
+# Checked-in derived constitution: nx sync:check must work in a fresh checkout.
+!/.specify/memory/
+!/.specify/memory/constitution.json
+!/.specify/memory/constitution.md
+
+# Pinned local tool sources and private run telemetry
+/.axi/

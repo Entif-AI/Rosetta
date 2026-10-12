@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-04T21:18:37.178829Z",
+  "runRef": "urn:rosetta:engineering:1732:falkor-semantic-1737",
+  "checkpoint": "8912484aad2ab89745805c0989caec01d95b8879",
+  "remoteReadback": "8912484aad2ab89745805c0989caec01d95b8879",
+  "executorSurface": "Codex desktop on M3 Ultra",
+  "delegation": [],
+  "localChecks": {
+    "pythonCases": 16,
+    "indexedTemporalRegression": "red/green on real pinned runtime",
+    "semanticProof": "passed",
+    "initialArtifacts": 31,
+    "rebuiltArtifacts": 31,
+    "rightsVisibleCounts": [
+      20,
+      0,
+      0
+    ]
+  },
+  "repairs": [
+    "Bounded 16k/single-slot/no-MTP load after original capability timeout.",
+    "Native json_schema/schema-in-prompt/reasoning_effort=none after actual extraction timeout; JSON-object mode rejected by provider.",
+    "Rejected first semantic candidate because indexed AND/OR admitted future history; real red/green CASE repair."
+  ],
+  "limits": [
+    "Unmerged tranche; later integration and broad final verification remain separate facts.",
+    "Real model/database proof is executor-attested; hosted CI validates deterministic code/contracts, not inference.",
+    "Codex executor model, reasoning, tokens, cost and total-run timing remain unknown; extraction model/response usage are scoped semantic-provider observations.",
+    "Donor retraction, contradiction and identity behavior is retained literally, unresolved and conservatively supported by selected context.",
+    "SSPL public-service and G15/#361/#1222 promotion remain separate; V0_VERSION_SPLIT_ACCEPTED_PENDING_UPSTREAM_COMPATIBILITY."
+  ]
+}

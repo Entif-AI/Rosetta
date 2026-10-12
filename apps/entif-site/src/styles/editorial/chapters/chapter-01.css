@@ -1,0 +1,438 @@
+/* Chapter 1: an institutional machine, incompatible measures, and the human bargain. */
+.story-scene.category-scene figcaption,
+.story-scene.substrate-scene figcaption,
+.story-scene.resolution-scene figcaption,
+.story-scene.bargain-scene figcaption {
+  color: var(--ink);
+}
+.story-scene.optimizer-scene {
+  background: var(--scene-night);
+  color: var(--scene-paper);
+  overflow: clip;
+}
+.story-scene.optimizer-scene figcaption {
+  color: var(--canvas);
+}
+.optimizer-heading {
+  padding-top: 1.5rem;
+}
+.optimizer-heading h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+.optimizer-heading .scene-kicker {
+  color: var(--scene-signal);
+}
+.optimizer-drawing {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) minmax(0, 3fr) minmax(9rem, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 2rem;
+}
+.optimizer-machine {
+  width: 100%;
+  height: auto;
+  color: var(--scene-signal);
+  overflow: visible;
+}
+.optimizer-input ul {
+  padding: 1rem 0;
+  list-style: none;
+}
+.optimizer-input li {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--scene-rule);
+}
+.machine-footnote {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+.optimizer-output strong {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  margin-top: 1rem;
+}
+.story-scene.optimizer-scene figcaption {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.scene-question {
+  font-family: inherit;
+  font-weight: 650;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--scene-signal);
+}
+.story-scene.substrate-scene {
+  background: var(--scene-paper);
+}
+.substrate-measures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.substrate-measure {
+  border-top: 3px solid var(--ink);
+  padding-top: 1rem;
+}
+.substrate-measure .measure-name {
+  font-size: 1.1rem;
+  min-height: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.substrate-measure .measure-value {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin: 1rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.measure-value > span {
+  font-size: 0.9rem;
+  margin-left: 0.1em;
+}
+.measure-track {
+  height: 0.9rem;
+  background: var(--surface);
+  margin: 1rem 0;
+}
+.measure-track > span {
+  display: block;
+  width: var(--share);
+  background: var(--accent);
+  height: 100%;
+}
+.wealth-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+}
+.wealth-row strong {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+.wealth-row .measure-track {
+  grid-column: 1 / -1;
+  margin: 0.25rem 0 0.75rem;
+}
+.substrate-measure p,
+.substrate-measure a {
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+.substrate-measure strong {
+  font-weight: 600;
+}
+.substrate-measure .measure-note {
+  font-style: italic;
+}
+.income-arrow {
+  color: var(--accent);
+  font-size: 2rem;
+  line-height: 1;
+}
+.story-scene.resolution-scene {
+  background: var(--surface);
+  border-block: 1px solid var(--ink);
+  padding-inline: 0;
+}
+.resolution-view {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5rem minmax(0, 1fr);
+  align-items: center;
+  margin-top: 3rem;
+}
+.resolution-ticket,
+.resolution-person {
+  align-self: stretch;
+  padding: 2rem;
+  background: var(--canvas);
+}
+.resolution-person {
+  background: var(--scene-paper);
+}
+.resolution-ticket > strong {
+  display: block;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.ticket-stamp {
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+.resolution-join {
+  display: flex;
+  align-items: center;
+}
+.resolution-join span {
+  height: 1px;
+  flex: 1;
+  background: var(--ink);
+}
+.resolution-join b {
+  font-size: 3rem;
+  padding: 0.25rem;
+  font-weight: 400;
+}
+.bill-sheet {
+  width: min(15rem, 100%);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  transform: rotate(-3deg);
+  box-shadow: 0.5rem 0.5rem 0 var(--scene-rule);
+}
+.bill-sheet > span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+.bill-sheet > i {
+  display: block;
+  height: 1px;
+  background: var(--line);
+  margin: 1rem 0;
+}
+
+.bill-sheet strong {
+  display: block;
+  font-size: 0.9rem;
+  border: 2px solid var(--accent);
+  padding: 0.5rem;
+  color: var(--accent);
+  text-align: center;
+}
+.story-scene.resolution-scene .resolution-repair {
+  display: none;
+}
+.story-scene.resolution-scene:has([value='repair']:checked)
+  .resolution-closure {
+  display: none;
+}
+.story-scene.resolution-scene:has([value='repair']:checked) .resolution-repair {
+  display: block;
+}
+.story-scene.resolution-scene:has([value='repair']:checked) .resolution-join b {
+  font-size: 0;
+}
+.story-scene.resolution-scene:has([value='repair']:checked)
+  .resolution-join
+  b::after {
+  content: '=';
+  font-size: 3rem;
+}
+.story-scene.bargain-scene {
+  background: var(--scene-paper);
+}
+.bargain-baseline {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr) 12rem;
+  align-items: center;
+  gap: 1rem 2rem;
+  max-width: 60rem;
+  padding-block: 2rem;
+  border-block: 1px solid var(--scene-rule);
+}
+.bargain-baseline > span {
+  font-size: 1.1rem;
+}
+.task-baseline,
+.task-improved {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+  height: 2rem;
+}
+.task-baseline {
+  grid-column: 2;
+  grid-row: 1;
+}
+.task-improved {
+  grid-column: 2;
+  grid-row: 2;
+}
+.task-baseline i,
+.task-improved i {
+  background: var(--ink);
+}
+.task-improved i:nth-child(n + 3) {
+  background: transparent;
+  border: 1px dashed var(--accent);
+}
+.bargain-baseline > strong {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.bargain-outcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding-block: 2rem;
+}
+.bargain-art {
+  min-height: 15rem;
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+.bargain-art > span {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+}
+.task-block {
+  background: var(--ink);
+  color: var(--surface);
+}
+.returned-time {
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+}
+.roles-art {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.roles-art .role-outline {
+  min-height: 5rem;
+  border: 1px solid var(--ink);
+}
+.roles-art .role-merge {
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  padding: 0;
+}
+.roles-art .task-block {
+  grid-column: 1 / -1;
+}
+.bargain-outcome h3 {
+  margin-top: 1rem;
+}
+.bargain-work,
+.bargain-roles {
+  display: none;
+}
+.story-scene.bargain-scene:has([value='work']:checked) .bargain-time,
+.story-scene.bargain-scene:has([value='roles']:checked) .bargain-time {
+  display: none;
+}
+.story-scene.bargain-scene:has([value='work']:checked) .bargain-work,
+.story-scene.bargain-scene:has([value='roles']:checked) .bargain-roles {
+  display: grid;
+}
+@media (max-width: 55rem) {
+  .optimizer-drawing {
+    grid-template-columns: 1fr 1fr;
+  }
+  .optimizer-machine {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .optimizer-input,
+  .optimizer-output {
+    align-self: start;
+  }
+  .story-scene.optimizer-scene figcaption {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .substrate-measures {
+    grid-template-columns: 1fr;
+  }
+  .substrate-measure .measure-name {
+    min-height: 0;
+  }
+  .substrate-measure .measure-value {
+    font-size: 4.5rem;
+  }
+  .resolution-view {
+    grid-template-columns: 1fr;
+  }
+  .resolution-join {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .resolution-join span {
+    flex: 0 1 2rem;
+  }
+  .resolution-ticket,
+  .resolution-person {
+    padding: 1.5rem;
+  }
+  .bargain-baseline {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .bargain-baseline > strong {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  .bargain-outcome {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .bargain-art {
+    min-height: 10rem;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bill-sheet {
+    transition: transform 350ms;
+  }
+  .story-scene.resolution-scene:has([value='repair']:checked) .bill-sheet {
+    transform: rotate(0);
+  }
+  @supports (animation-timeline: view()) {
+    .machine-rotor {
+      transform-origin: 300px 180px;
+      animation: optimizer-turn linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes optimizer-turn {
+      to {
+        transform: rotate(60deg);
+      }
+    }
+  }
+}
+@media print {
+  .story-scene.optimizer-scene {
+    --scene-signal: var(--ink);
+  }
+  .story-scene.resolution-scene .resolution-closure,
+  .story-scene.resolution-scene .resolution-repair {
+    display: block !important;
+  }
+  .story-scene.bargain-scene .bargain-outcome {
+    display: grid !important;
+    break-inside: avoid;
+  }
+}

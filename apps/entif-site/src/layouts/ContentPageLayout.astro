@@ -1,0 +1,32 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  lede?: string;
+  pageClass?: string;
+}
+
+const { title, description, eyebrow, heading, lede, pageClass } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section
+    class:list={['section', 'shell', 'topic-page', pageClass]}
+    data-test-id="content-page-shell"
+  >
+    <p class="eyebrow" data-test-id="content-page-eyebrow">{eyebrow}</p>
+    <h1 data-test-id="content-page-heading">{heading}</h1>
+    {
+      lede && (
+        <p class="lede" data-test-id="content-page-lede">
+          {lede}
+        </p>
+      )
+    }
+    <slot />
+  </section>
+</BaseLayout>

@@ -1,133 +1,67 @@
 ---
+import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { TopicExplorer } from '../components/TopicExplorer';
-import { getContentPath, joinBasePath, toContentCard } from '../lib/content';
+import ClaimJourney from '../components/ClaimJourney.astro';
+import ContentCard from '../components/ContentCard.astro';
 import { getPublishedEntries, toSummary } from '../lib/site-data';
-
-const entries = await getPublishedEntries();
-const summaries = entries.map(toSummary);
-const baseUrl = import.meta.env.BASE_URL;
-const cards = summaries.map((item) => toContentCard(item, baseUrl));
-const featured = entries.find(({ data }) => data.featured) ?? entries[0];
-const featuredSummary =
-  featured === undefined ? undefined : toSummary(featured);
+import { joinBasePath, toContentCard } from '../lib/content';
+import { copy } from '../lib/copy';
+const base = import.meta.env.BASE_URL;
+const entries = (await getPublishedEntries())
+  .filter((entry) => entry.data.kind === 'research')
+  .slice(0, 3);
+const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing home copy');
+const { Content } = await render(home);
 ---
 
-<BaseLayout
-  title="Entif AI"
-  description="Entif AI develops Rosetta: open research into machine-readable meaning, provenance, memory, and governed agentic systems."
->
-  <section class="hero shell">
+<BaseLayout title={copy.brandTagline} description={copy.heroDescription}>
+  <section class="hero shell" data-test-id="home-hero">
     <div class="hero-copy">
-      <p class="eyebrow">Entif AI · Open research</p>
-      <h1>Meaning should survive the machine that reasons over it.</h1>
-      <p class="lede">
-        Entif AI develops Rosetta, an open research and engineering program for
-        semantic representation, provenance, memory, and governed agentic
-        systems.
-      </p>
-      <div class="hero-actions">
-        <a class="button primary" href="#research">Explore the research</a>
-        <a
-          class="button secondary"
-          href={joinBasePath(baseUrl, 'projects/rosetta/')}>Meet Rosetta</a
-        >
+      <p class="eyebrow">{copy.heroEyebrow}</p><h1
+        data-test-id="home-hero-heading"
+      >
+        {copy.heroTitle}
+      </h1><p class="lede">{copy.heroDescription}</p><div class="hero-actions">
+        <a class="button primary" href={joinBasePath(base, 'projects/rosetta/')}
+          >{copy.explore}</a
+        ><a class="button secondary" href="#claim-journey">{copy.trace}</a>
       </div>
-    </div>
-    <div class="hero-mark" aria-hidden="true">
-      <div class="logo-frame">
-        <img
-          src={joinBasePath(baseUrl, 'brand/entif-logo.webp')}
-          width="320"
-          height="320"
-          alt=""
-          decoding="async"
-          fetchpriority="high"
-        />
-      </div>
-      <span class="signal signal-a"></span>
-      <span class="signal signal-b"></span>
-      <span class="signal signal-c"></span>
-    </div>
+    </div><ClaimJourney />
   </section>
-
-  <section class="signal-strip" aria-label="Entif research focus">
-    <div class="shell signal-grid">
-      <p><strong>Represent</strong><span>meaning explicitly</span></p>
-      <p><strong>Remember</strong><span>with provenance</span></p>
-      <p><strong>Reason</strong><span>across bounded context</span></p>
-      <p><strong>Govern</strong><span>before mutation</span></p>
-    </div>
-  </section>
-
   <section class="section shell" id="research">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Research lattice</p>
-        <h2 id="research-heading">Ideas that connect instead of pile up.</h2>
-      </div>
-      <p>
-        Public pages are compiled from Markdown in the Rosetta repository and
-        linked by shared projects and topics at build time.
-      </p>
-    </div>
-    <TopicExplorer cards={cards} client:load />
+        <p class="eyebrow">{copy.researchEyebrow}</p><h2>
+          {copy.researchTitle}
+        </h2>
+      </div><p>{copy.researchDescription}</p>
+    </div><div class="card-grid">
+      {
+        entries.map((entry) => (
+          <ContentCard card={toContentCard(toSummary(entry), base)} />
+        ))
+      }
+    </div><a class="text-link" href={joinBasePath(base, 'research/')}
+      >{copy.allResearch} <span aria-hidden="true">→</span></a
+    >
   </section>
-
-  {
-    featured && featuredSummary && (
-      <section class="feature-band">
-        <div class="shell feature-layout">
-          <div>
-            <p class="eyebrow">Current thread</p>
-            <h2>{featured.data.title}</h2>
-          </div>
-          <div>
-            <p>{featured.data.description}</p>
-            <a
-              class="text-link"
-              href={joinBasePath(baseUrl, getContentPath(featuredSummary))}
-            >
-              Read the work <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <section class="section shell" id="principles">
-    <div class="section-heading narrow">
-      <div>
-        <p class="eyebrow">Operating principles</p>
-        <h2>Build the proof into the shape of the system.</h2>
+  <section class="principles-band">
+    <div class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">{copy.principlesEyebrow}</p><h2
+            data-test-id="home-philosophy-heading"
+          >
+            {copy.principlesTitle}
+          </h2>
+        </div><p>{copy.principlesDescription}</p>
+      </div><div
+        class="prose home-principles-body"
+        data-test-id="home-philosophy-body"
+      >
+        <Content />
       </div>
-    </div>
-    <div class="principle-grid">
-      <article>
-        <span>01</span>
-        <h3>Receipts before rhetoric</h3>
-        <p>
-          Claims should remain traceable to evidence, decisions, and the
-          artifacts that produced them.
-        </p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>Static where possible</h3>
-        <p>
-          The public surface ships as durable HTML. JavaScript earns its place
-          only when interaction needs it.
-        </p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>Humans own publication</h3>
-        <p>
-          Automation may discover, draft, verify, and propose. Public truth
-          changes only through reviewable repository history.
-        </p>
-      </article>
     </div>
   </section>
 </BaseLayout>

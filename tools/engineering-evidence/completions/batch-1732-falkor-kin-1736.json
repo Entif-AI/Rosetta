@@ -1,0 +1,408 @@
+{
+  "profile": {
+    "id": "engineering.run-completion.v1",
+    "version": "1.0.0"
+  },
+  "runRef": "urn:rosetta:engineering:1732:falkor-kin-1736",
+  "workRefs": [
+    "https://github.com/Entif-AI/Rosetta/issues/1736"
+  ],
+  "identityRefs": {
+    "issues": [
+      "https://github.com/Entif-AI/Rosetta/issues/1736"
+    ],
+    "specs": [
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:specs/architecture.md"
+    ],
+    "plans": [
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:plans/trace-kin-falkor.md"
+    ],
+    "prs": [
+      "https://github.com/Entif-AI/Rosetta/pull/1732"
+    ]
+  },
+  "createdAt": "2026-10-04T16:31:43.263Z",
+  "terminalState": "completed",
+  "lifecycleRecords": [
+    {
+      "recordId": "urn:rosetta:work-event:1736:declared",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1736",
+      "event": "declared",
+      "createdAt": "2026-10-04T16:31:43.263Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1736"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1736"
+      ]
+    },
+    {
+      "recordId": "urn:rosetta:work-event:1736:completed",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1736",
+      "event": "completed",
+      "createdAt": "2026-10-04T16:31:43.263Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1736"
+      ],
+      "executorRef": "executor:codex-desktop:1736",
+      "resultRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json",
+        "urn:rosetta:engineering:1732:falkor-kin-1736",
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689"
+      ],
+      "disposition": "completed",
+      "priorRecordRef": "urn:rosetta:work-event:1736:declared"
+    },
+    {
+      "recordId": "urn:rosetta:work-event:1736:verification_accepted",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "https://github.com/Entif-AI/Rosetta/issues/1736",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T16:31:43.263Z",
+      "receiptRefs": [],
+      "provenanceRefs": [
+        "https://github.com/Entif-AI/Rosetta/issues/1736"
+      ],
+      "executorRef": "executor:codex-desktop:1736",
+      "resultRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "verifierRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321206/job/111474526651",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321172/job/111474526629"
+      ],
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321206/job/111474526651",
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321172/job/111474526629"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "urn:rosetta:work-event:1736:completed"
+    }
+  ],
+  "observations": {
+    "executorSurface": {
+      "status": "observed",
+      "value": "Codex desktop",
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    },
+    "provider": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "model": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "modelVersion": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "reasoning": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "compiledContext": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "tools": {
+      "status": "observed",
+      "value": [
+        "pnpm",
+        "Nx",
+        "Git",
+        "GitHub",
+        "Docker",
+        "FalkorDB RESP",
+        "SpecOps"
+      ],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    },
+    "runtime": {
+      "status": "observed",
+      "value": [
+        "FalkorDB 6.0.1; official falkordb 6.8.0; local/private fixture"
+      ],
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json"
+      ]
+    },
+    "repairs": {
+      "status": "observed",
+      "value": [
+        "Lint identified missing node:process import in ownership regression; repaired without changing the proven harness."
+      ],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    },
+    "rework": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "discardedWork": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "startedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "endedAt": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "delegation": {
+      "status": "observed",
+      "value": [],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    },
+    "quota": {
+      "status": "observed",
+      "value": [
+        {
+          "meterRef": "urn:rosetta:engineering:1732:falkor-kin-1736",
+          "windowRef": "five_hour",
+          "windowKind": "five_hour",
+          "observedAt": "2026-10-04T16:01:52.627Z",
+          "phase": "checkpoint",
+          "usedPercent": 32,
+          "remainingPercent": 68,
+          "resetAt": "2026-10-04T19:44:34.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        },
+        {
+          "meterRef": "urn:rosetta:engineering:1732:falkor-kin-1736",
+          "windowRef": "weekly",
+          "windowKind": "weekly",
+          "observedAt": "2026-10-04T16:01:52.627Z",
+          "phase": "checkpoint",
+          "usedPercent": 45,
+          "remainingPercent": 55,
+          "resetAt": "2026-10-10T09:17:53.000Z",
+          "attribution": "shared-seat-unattributed",
+          "sourceStatus": "fresh"
+        }
+      ],
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    },
+    "duration": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "contextSize": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "cache": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "tokens": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "cost": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    },
+    "retries": {
+      "status": "unknown",
+      "reason": "Not durably exposed for this tranche.",
+      "evidenceRefs": []
+    }
+  },
+  "validation": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "disposition": "passed",
+      "independence": "executor-attested",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json",
+        "urn:rosetta:engineering:1732:falkor-kin-1736"
+      ]
+    }
+  ],
+  "independentVerification": [
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "disposition": "passed",
+      "independence": "independent",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321206/job/111474526651"
+      ]
+    },
+    {
+      "subjectRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "disposition": "passed",
+      "independence": "independent",
+      "evidenceRefs": [
+        "https://github.com/Entif-AI/Rosetta/actions/runs/37215321172/job/111474526629"
+      ]
+    }
+  ],
+  "externalEffects": [
+    {
+      "effectRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "kind": "git-checkpoint",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689"
+      ]
+    },
+    {
+      "effectRef": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "kind": "push",
+      "reconciliation": "verified",
+      "evidenceRefs": [
+        "urn:rosetta:engineering:1732:falkor-kin-1736",
+        "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689"
+      ]
+    }
+  ],
+  "result": {
+    "disposition": "verified",
+    "evidenceRefs": [
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json",
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37215321206/job/111474526651",
+      "https://github.com/Entif-AI/Rosetta/actions/runs/37215321172/job/111474526629"
+    ]
+  },
+  "limitations": [
+    "Real database proof is executor-attested; hosted CI does not independently rerun the real Falkor fixture.",
+    "Unmerged; no release or issue closure.",
+    "Actual model/reasoning/token/cost/full-run timing remains unknown.",
+    "Provider-neutral metric parity does not establish provider/model internal memory compaction.",
+    "Graphiti successor #1737 and final #1738/V0 reconciliation retain independent acceptance boundaries."
+  ],
+  "continuation": {
+    "refs": [
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:plans/trace-kin-falkor.md"
+    ],
+    "nextSafeStep": "Continue independent #1737 live semantic proof before #1738/V0 reconciliation; preserve #1735/#1736 evidence.",
+    "evidenceRefs": [
+      "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:plans/trace-kin-falkor.md",
+      "https://github.com/Entif-AI/Rosetta/issues/1736"
+    ]
+  },
+  "sources": [
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/issues/1736",
+      "locator": "tools/engineering-evidence/completion-sources/issue-1736.json",
+      "sha256": "b8a03ff9985eb549573252e9aad9fa3b64bde6ad402205477f2103d0c68a6dd2",
+      "role": "issue",
+      "authorityClass": "governing-contract",
+      "sourceTime": "2026-10-04T07:02:35Z"
+    },
+    {
+      "ref": "urn:rosetta:engineering:1732:falkor-kin-1736",
+      "locator": "tools/engineering-evidence/completion-sources/kin-falkor-1736-observations.json",
+      "sha256": "e26eac9e30def5162e5ff152ad7d5e29656f2e0d63e38a37fe2e2fa51fa24f7d",
+      "role": "other",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T16:31:43.263Z"
+    },
+    {
+      "ref": "executor:codex-desktop:1736",
+      "locator": "tools/engineering-evidence/completion-sources/kin-falkor-1736-observations.json",
+      "sha256": "e26eac9e30def5162e5ff152ad7d5e29656f2e0d63e38a37fe2e2fa51fa24f7d",
+      "role": "executor",
+      "authorityClass": "source-evidence",
+      "sourceTime": "2026-10-04T16:31:43.263Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/pull/1732",
+      "locator": "tools/engineering-evidence/completion-sources/kin-falkor-1736-observations.json",
+      "sha256": "e26eac9e30def5162e5ff152ad7d5e29656f2e0d63e38a37fe2e2fa51fa24f7d",
+      "role": "pull-request",
+      "authorityClass": "source-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "locator": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+      "sha256": "134f8f7e443df979e08401bccb20001f66d4e31212fe9204e561ecd05b7da3d8",
+      "role": "checkpoint",
+      "authorityClass": "implementation-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json",
+      "locator": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:tools/trace-graph/evidence/falkordb-kinematics-proof.json",
+      "sha256": "df4a04540de98bfe535fb07e82b4ecef524e2bb6d48ca445692d0eb2e31002d1",
+      "role": "green",
+      "authorityClass": "verification-evidence",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:plans/trace-kin-falkor.md",
+      "locator": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:plans/trace-kin-falkor.md",
+      "sha256": "7c1e37fab5992f3c43bbb97c996e6176de97190a19e82cfdd38617f733cdf772",
+      "role": "plan",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:specs/architecture.md",
+      "locator": "git:Entif-AI/Rosetta@cdc0672bffe3f063a0e24036b56b0bf2e4f41689:specs/architecture.md",
+      "sha256": "624c6e44fa65b1539ce7a66936e2dcb833344bb7e11dd8f7dcef45494d3cc5d7",
+      "role": "spec",
+      "authorityClass": "desired-state",
+      "sourceTime": null
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37215321206/job/111474526651",
+      "locator": "tools/engineering-evidence/completion-sources/checks-kin-falkor-verified.json",
+      "sha256": "c2c3ff4ef9e90cc08b2c884ff4a14a49ed0091caf71320e9fceff22be5e781f0",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T16:08:43Z"
+    },
+    {
+      "ref": "https://github.com/Entif-AI/Rosetta/actions/runs/37215321172/job/111474526629",
+      "locator": "tools/engineering-evidence/completion-sources/checks-kin-falkor-verified.json",
+      "sha256": "c2c3ff4ef9e90cc08b2c884ff4a14a49ed0091caf71320e9fceff22be5e781f0",
+      "role": "hosted-verification",
+      "authorityClass": "verification-evidence",
+      "sourceTime": "2026-10-04T16:03:37Z"
+    }
+  ],
+  "supersedesRefs": [],
+  "envelopeId": "sha256:25f1692f0197b712eae599ad282ac32b7fc7344edf6a369010725516aed4678a"
+}

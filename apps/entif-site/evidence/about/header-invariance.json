@@ -1,0 +1,36 @@
+{
+  "route": "/about/",
+  "method": "Fresh Chromium contexts; exact native header HTML, geometry and decoded RGBA pixel comparison against pre-change captures.",
+  "comparisons": [
+    {
+      "width": 1440,
+      "pixelDimensionsEqual": true,
+      "changedPixels": 0,
+      "geometryUnchanged": true,
+      "htmlUnchanged": true,
+      "beforeHtmlSha256": "86d99e6ecd7c2d78d2ee509a0b74b73a97e16c2375d0dec8ece95e8e99bb176a",
+      "afterHtmlSha256": "86d99e6ecd7c2d78d2ee509a0b74b73a97e16c2375d0dec8ece95e8e99bb176a",
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 65
+      }
+    },
+    {
+      "width": 390,
+      "pixelDimensionsEqual": true,
+      "changedPixels": 0,
+      "geometryUnchanged": true,
+      "htmlUnchanged": true,
+      "beforeHtmlSha256": "86d99e6ecd7c2d78d2ee509a0b74b73a97e16c2375d0dec8ece95e8e99bb176a",
+      "afterHtmlSha256": "86d99e6ecd7c2d78d2ee509a0b74b73a97e16c2375d0dec8ece95e8e99bb176a",
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 199
+      }
+    }
+  ]
+}

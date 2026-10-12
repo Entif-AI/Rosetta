@@ -1,0 +1,16 @@
+{
+  "formatVersion": 1,
+  "baselineId": "promotion-pre-fix",
+  "scope": ["packs/rrp/test-vectors/promotion-pre-fix.json"],
+  "observations": [{
+    "key": "prose-only-state",
+    "kind": "direct",
+    "claim": "The frozen pre-fix Observation carries state in prose without the declared promotion Profile fields.",
+    "confidence": 1,
+    "evidenceRefs": [{"path": "packs/rrp/test-vectors/promotion-pre-fix.json", "start": 1, "end": 9}],
+    "authorityRefs": [{"path": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md", "start": 116, "end": 131}],
+    "conflictRefs": [],
+    "disposition": "drift",
+    "rationale": "This historical negative vector intentionally disagrees with #1698; preserve it as a negative fixture, not a new requirement or current implementation defect."
+  }]
+}

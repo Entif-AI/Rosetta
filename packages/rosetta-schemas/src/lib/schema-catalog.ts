@@ -3,6 +3,9 @@ import {
   SUPPORTED_TILE_KIND_REQUIRED_FIELDS,
   type AgenticMessageSchemaProfile
 } from './rosetta-schemas.js';
+import { getCoreDescent, type CoreDescentMetadata } from './core-descent.js';
+import { getAuthzCompatibilityMapping, type AuthzCompatibilityMapping } from './authz-compatibility.js';
+export type { CoreDescent, CoreDescentMetadata } from './core-descent.js';
 
 export type SchemaAuthorityTier =
   | 'core-spine'
@@ -27,7 +30,7 @@ export type SchemaBoundaryKind =
   | 'referenced-external-contract'
   | 'validation-entrypoint';
 
-export interface RosettaSchemaCatalogEntry {
+interface SchemaCatalogSourceEntry {
   authorityTier: SchemaAuthorityTier;
   boundaryKind: SchemaBoundaryKind;
   consumerPackages: string[];
@@ -42,7 +45,10 @@ export interface RosettaSchemaCatalogEntry {
   sourcePrs: string[];
   tests: string[];
   validator?: string;
+  compatibilityMapping?: AuthzCompatibilityMapping;
 }
+
+export interface RosettaSchemaCatalogEntry extends SchemaCatalogSourceEntry, CoreDescentMetadata {}
 
 const SCHEMA_README = 'packages/rosetta-schemas/README.md';
 const SCHEMA_SPEC = 'packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts';
@@ -51,6 +57,8 @@ const AGENTIC_MESSAGING_RFC = 'docs/RFCs/20260228 - Entif v0 - Spec Proposal - A
 const ROSETTA_CORE_SPEC = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md';
 const ENTIF_ROSETTA_PRD = 'docs/PRDs/20260426 - Entif and Rosetta PRD.md';
 const ROSETTA_GUARD_README = 'packages/rosetta-guard/README.md';
+const SALIENCE_PACK_SCHEMA = 'packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json';
+const SALIENCE_PACK_TESTS = 'packs/schema-pack-evaluation-profiles/tests/README.md';
 const SKILL_LIBRARY_DESIGN = 'docs/chats/20260323 - Chat GPT - Entif Skill Library Design.md';
 const PROGRESSIVE_DISCLOSURE_SKILLS = 'docs/chats/20260323 - Chat GPT - Progressive-Disclosure Skill System.md';
 
@@ -125,7 +133,17 @@ function tileConsumerPackages(schemaId: string): string[] {
   return ['@entif-ai/rosetta-schemas'];
 }
 
-function tileCatalogEntry(schemaId: string): RosettaSchemaCatalogEntry {
+function tileCatalogEntry(schemaId: string): SchemaCatalogSourceEntry {
+  if (schemaId === 'authz.authority_envelope.v1') return {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-guard'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/authority-envelope-v1.md', 'packages/rosetta-schemas/docs/authority-envelope-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'authz',
+    knownGaps: ['Structural validity is not authorization; current source resolution and enforcement belong to Guard/consumers.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId, sourceIssues: ['#630', '#1746', '#711', '#1037', '#158'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/authority-envelope.spec.ts'], validator: 'validateAuthorityEnvelope'
+  };
   if (schemaId === 'adapter.capability_manifest') {
     return {
       authorityTier: 'governance-admission',
@@ -149,7 +167,7 @@ function tileCatalogEntry(schemaId: string): RosettaSchemaCatalogEntry {
 
   if (schemaId === 'skill.card') {
     return {
-      authorityTier: 'core-spine',
+      authorityTier: 'governance-admission',
       boundaryKind: 'owned-schema',
       consumerPackages: tileConsumerPackages(schemaId),
       docs: tileDocs(schemaId),
@@ -175,7 +193,7 @@ function tileCatalogEntry(schemaId: string): RosettaSchemaCatalogEntry {
     docs: tileDocs(schemaId),
     exposureStatus: tileExposureStatus(schemaId),
     family: schemaId.split('.')[0] ?? 'unknown',
-    knownGaps: ['Lightweight required-field validation only; full SHACL/RDF execution is not implemented.'],
+    knownGaps: schemaId.startsWith('source.') ? ['Pack/domain records are not structurally substitutable for canonical Core artifacts; full SHACL execution is not implemented.'] : ['Structural validation only; full SHACL/RDF execution is not implemented.'],
     ownerPackage: '@entif-ai/rosetta-schemas',
     rfcPrdAnchors: [ROSETTA_CORE_SPEC, ENTIF_ROSETTA_PRD],
     schemaId,
@@ -186,7 +204,7 @@ function tileCatalogEntry(schemaId: string): RosettaSchemaCatalogEntry {
   };
 }
 
-function agenticMessageCatalogEntry(msgType: string, profile: AgenticMessageSchemaProfile): RosettaSchemaCatalogEntry {
+function agenticMessageCatalogEntry(msgType: string, profile: AgenticMessageSchemaProfile): SchemaCatalogSourceEntry {
   return {
     authorityTier: 'governance-admission',
     boundaryKind: 'owned-schema',
@@ -209,12 +227,129 @@ function agenticMessageCatalogEntry(msgType: string, profile: AgenticMessageSche
 }
 
 const TILE_CATALOG_ENTRIES = Object.keys(SUPPORTED_TILE_KIND_REQUIRED_FIELDS).map(tileCatalogEntry);
+TILE_CATALOG_ENTRIES.push({
+  ...tileCatalogEntry('rosetta.observation'), schemaId: 'rrp.promotion-state.v1',
+  authorityTier: 'governance-admission', family: 'promotion-state',
+  ownerPackage: '@entif-ai/rosetta-receipts', consumerPackages: ['@entif-ai/rosetta-receipts'],
+  docs: ['docs/spec/PROMOTION_TRANSITION_CONTRACT.md', 'packs/rrp/schema/promotion-state.schema.json'],
+  sourceIssues: ['#10', '#1698'], knownGaps: ['Profile validation does not authorize execution or select a current state in storage.'],
+  tests: ['packages/rosetta-receipts/src/lib/promotion-profile.spec.ts'], validator: 'validatePromotionStatePayload'
+});
 
 const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROFILES).map(([msgType, profile]) =>
   agenticMessageCatalogEntry(msgType, profile)
 );
 
-const BOUNDARY_CATALOG_ENTRIES: RosettaSchemaCatalogEntry[] = [
+const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  ...(['compiled.context.v1', 'compiled.context.block.v1'] as const).map(schemaId => ({
+    authorityTier: 'memory-context-cache' as const, boundaryKind: 'owned-schema' as const, consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/compiled-context-v1.md', 'packages/rosetta-schemas/docs/compiled-context-v1.schema.json', 'packages/rosetta-schemas/docs/compiled-context-block-v1.schema.json'],
+    exposureStatus: 'downstream-contract' as const, family: 'compiled-context',
+    knownGaps: ['Observable packaging and current-rights admission do not authenticate source/rights decisions or implement private selection, ordering, compression, prefix/cache planning or effect authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId, sourceIssues: ['#1729', '#1488', '#1068', '#158', '#1056', '#994', '#1295', '#1296', '#793', '#1495'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/compiled-context.spec.ts'], validator: schemaId === 'compiled.context.v1' ? 'parseCompiledContext' : 'parseCompiledContextBlock'
+  })),
+  {
+    authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/graph-view-v1.md', 'packages/rosetta-schemas/docs/graph-view-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Declared projection/source closure and rights admission do not authenticate evidence, resolve permissions, select membership or implement graph federation.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'graph.view.v1', sourceIssues: ['#1728', '#1671', '#1731', '#1730', '#1558', '#315', '#1219', '#1221'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/graph-view.spec.ts'], validator: 'parseGraphView'
+  },
+  {
+    authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/materialized-view-v1.md', 'packages/rosetta-schemas/docs/materialized-view-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Metadata identity and explicit currency admission do not authenticate artifacts, resolve current rights or implement cache/query/refresh policy.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'materialized.view.v1', sourceIssues: ['#1731', '#1567', '#1730', '#1558', '#1559'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/materialized-view.spec.ts'], validator: 'parseMaterializedView'
+  },
+  {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/impact-revalidation-v1.md', 'packages/rosetta-schemas/docs/impact-revalidation-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'view-integrity',
+    knownGaps: ['Structural evidence admission does not authenticate support, discover dependencies, rank remediation or grant rollback/write/promotion authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'impact.revalidation.v1', sourceIssues: ['#1730', '#1560', '#1558', '#1557'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/impact-revalidation.spec.ts'], validator: 'parseImpactRevalidation'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-completion-v1.md', 'packages/rosetta-schemas/docs/engineering-completion-v1.schema.json'], exposureStatus: 'downstream-contract', family: 'engineering-evidence',
+    knownGaps: ['Source-linked observations and structural conformance only; no hidden telemetry reconstruction, evidence authentication, routing score or production promotion.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'engineering.run-completion.v1', sourceIssues: ['#1727', '#1509', '#1726'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/engineering-completion.spec.ts'], validator: 'parseEngineeringCompletion'
+  },
+  {
+    authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/source-substrate', '@entif-ai/ingress-refinery', '@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-lifecycle-v1.md', 'packages/rosetta-schemas/docs/engineering-lifecycle-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'engineering-evidence', knownGaps: ['Bounded source metadata and reference closure; external source authentication and unobserved historical executor/model configuration remain outside this adapter.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'engineering.lifecycle-source.v1', sourceIssues: ['#1726', '#1509'], sourcePrs: ['#1732'],
+    tests: ['packages/projection-adapters/src/lib/engineering-lifecycle.spec.ts'], validator: 'parseEngineeringLifecycleSource'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/work-lifecycle-v1.md', 'packages/rosetta-schemas/docs/work-lifecycle-v1.schema.json'],
+    exposureStatus: 'downstream-contract', family: 'work-lifecycle', knownGaps: ['Structural attribution and bounded history closure do not authenticate evidence, establish real-world verifier independence or grant operational authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'work.lifecycle.v1', sourceIssues: ['#1509'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts'], validator: 'validateWorkLifecycle'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'validation-entrypoint', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/work-lifecycle-v1.md'], exposureStatus: 'downstream-contract', family: 'work-lifecycle', knownGaps: ['Closed bounded history only; current state is an inspection projection, not scheduling or authorization.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'work.lifecycle-state.v1', sourceIssues: ['#1509'], sourcePrs: ['#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/work-lifecycle.spec.ts'], validator: 'materializeWorkLifecycle'
+  },
+  {
+    authorityTier: 'core-spine',
+    boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-schemas', '@entif-ai/rosetta-core'],
+    docs: [SCHEMA_README, AUTHORITY_MAP, 'packs/schema-pack-evaluation-profiles/schema/counterfactual-evaluation.schema.json'],
+    exposureStatus: 'downstream-contract',
+    family: 'evaluation-profile',
+    knownGaps: ['Records declared historical frontier and sandbox evidence; does not resolve referenced evidence, enforce isolation, select mechanisms or authorize production activation.'],
+    ownerPackage: '@entif-ai/rosetta-schemas',
+    rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId: 'counterfactual.evaluation.v1',
+    sourceIssues: ['#1692', '#1695'],
+    sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/counterfactual-profile.spec.ts', 'packs/schema-pack-evaluation-profiles/tests/README.md'],
+    validator: 'validateCounterfactualEvaluation'
+  },
+  {
+    authorityTier: 'core-spine',
+    boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-schemas', '@entif-ai/rosetta-core'],
+    docs: [SCHEMA_README, AUTHORITY_MAP, SALIENCE_PACK_SCHEMA],
+    exposureStatus: 'downstream-contract',
+    family: 'evaluation-profile',
+    knownGaps: ['Represents inspectable salience assessments only; formulas, weighting, gating, selection, activation, and execution policy remain outside this Profile.'],
+    ownerPackage: '@entif-ai/rosetta-schemas',
+    rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId: 'salience.evaluation.v1',
+    sourceIssues: ['#1694'],
+    sourcePrs: [],
+    tests: [SCHEMA_SPEC, SALIENCE_PACK_TESTS],
+    validator: 'validateSalienceEvaluation'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-kinematics-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Observable representation measurements; no hidden-memory or scoring authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace-kin-v1', sourceIssues: ['#1669', '#1666', '#1667', '#1736', '#1738'], sourcePrs: ['#1725', '#1732'],
+    tests: ['packages/rosetta-schemas/src/lib/trace-kinematics.spec.ts', 'packages/projection-adapters/src/lib/trace-kinematics.spec.ts'], validator: 'parseTraceKinematics'
+  },
+  {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-projection-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Rebuildable development projection; no semantic storage or runtime policy.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace.projection.v1', sourceIssues: ['#1667', '#1666', '#1734', '#1735', '#1738'], sourcePrs: ['#1725', '#1732'],
+    tests: ['packages/projection-adapters/src/lib/falkordb-trace-projection.spec.ts', 'packages/projection-adapters/src/lib/neo4j-trace-projection.spec.ts'], validator: 'parseTraceProjection'
+  },
+  {
+    authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/ingress-refinery', '@entif-ai/projection-adapters'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/trace-normalization-v1.md'], exposureStatus: 'fixture-only', family: 'trace', knownGaps: ['Fixture-backed structural view; no live capture or model interpretation.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'trace.normalization.v1', sourceIssues: ['#1666', '#1665', '#528'], sourcePrs: ['#1725'],
+    tests: ['packages/rosetta-schemas/src/lib/trace-normalization.spec.ts', 'packages/ingress-refinery/src/lib/trace-normalizer.spec.ts'], validator: 'parseTraceNormalization'
+  },
   {
     authorityTier: 'governance-admission',
     boundaryKind: 'owned-schema',
@@ -273,7 +408,7 @@ const BOUNDARY_CATALOG_ENTRIES: RosettaSchemaCatalogEntry[] = [
     docs: [SCHEMA_README, AUTHORITY_MAP],
     exposureStatus: 'package-internal',
     family: 'conformance',
-    knownGaps: ['Summary bundles are local conformance receipts, not a full standards conformance engine.'],
+    knownGaps: ['Summary bundles are derived validation reports, not signed Rosetta Receipts or a full conformance engine.'],
     ownerPackage: '@entif-ai/rosetta-schemas',
     rfcPrdAnchors: [ROSETTA_CORE_SPEC],
     schemaId: 'rosetta.conformance_bundle',
@@ -364,7 +499,19 @@ const BOUNDARY_CATALOG_ENTRIES: RosettaSchemaCatalogEntry[] = [
   }
 ];
 
-export const ROSETTA_SCHEMA_CATALOG = [...TILE_CATALOG_ENTRIES, ...AGENTIC_MESSAGE_CATALOG_ENTRIES, ...BOUNDARY_CATALOG_ENTRIES].sort(
+const MESSAGE_PROFILE_IDS = Object.values(AGENTIC_MESSAGE_TYPE_PROFILES).map((profile) => profile.schemaId);
+
+export const ROSETTA_SCHEMA_CATALOG = [...TILE_CATALOG_ENTRIES, ...AGENTIC_MESSAGE_CATALOG_ENTRIES, ...BOUNDARY_CATALOG_ENTRIES].map((entry) => {
+  const descent = getCoreDescent(entry.schemaId, MESSAGE_PROFILE_IDS);
+  if (!descent) throw new Error(`Schema requires an explicit core-descent review: ${entry.schemaId}`);
+  const compatibilityMapping = getAuthzCompatibilityMapping(entry.schemaId === 'entif.iam.decision.ref' ? 'iam.decision' : entry.schemaId);
+  return { ...entry, ...descent, ...(compatibilityMapping ? {
+    compatibilityMapping,
+    sourceIssues: [...new Set([...entry.sourceIssues, '#1748'])],
+    docs: [...new Set([...entry.docs, 'packages/rosetta-guard/docs/authz-compatibility-v1.md'])],
+    tests: [...new Set([...entry.tests, 'packages/rosetta-guard/src/lib/authority-compatibility.spec.ts'])]
+  } : {}) };
+}).sort(
   (left, right) => left.schemaId.localeCompare(right.schemaId)
 ) satisfies RosettaSchemaCatalogEntry[];
 
@@ -376,9 +523,10 @@ export function getSchemaCatalogEntry(schemaId: string): RosettaSchemaCatalogEnt
   return ROSETTA_SCHEMA_CATALOG.find((entry) => entry.schemaId === schemaId);
 }
 
-export function validateSchemaCatalogCoverage(): string[] {
+export function validateSchemaCatalogCoverage(catalog: readonly (SchemaCatalogSourceEntry & Partial<CoreDescentMetadata>)[] = ROSETTA_SCHEMA_CATALOG): string[] {
   const errors: string[] = [];
-  const catalogIds = new Set(ROSETTA_SCHEMA_CATALOG.map((entry) => entry.schemaId));
+  const catalogIds = new Set(catalog.map((entry) => entry.schemaId));
+  if (catalogIds.size !== catalog.length) errors.push('Duplicate schema catalog identity.');
 
   for (const schemaId of Object.keys(SUPPORTED_TILE_KIND_REQUIRED_FIELDS)) {
     if (!catalogIds.has(schemaId)) {
@@ -394,7 +542,12 @@ export function validateSchemaCatalogCoverage(): string[] {
     }
   }
 
-  for (const entry of ROSETTA_SCHEMA_CATALOG) {
+  for (const entry of catalog) {
+    const expected = getCoreDescent(entry.schemaId, MESSAGE_PROFILE_IDS);
+    if (!expected || entry.coreDescent !== expected.coreDescent) errors.push(`Missing or conflicting core descent: ${entry.schemaId}`);
+    if (!entry.descentAuthority || entry.descentAuthority !== expected?.descentAuthority) errors.push(`Missing or conflicting descent authority: ${entry.schemaId}`);
+    if (JSON.stringify(entry.relatedCoreKinds) !== JSON.stringify(expected?.relatedCoreKinds)) errors.push(`Missing or conflicting related core kinds: ${entry.schemaId}`);
+    if (entry.sourceIssues.length === 0) errors.push(`Catalog entry lacks source issue: ${entry.schemaId}`);
     if (entry.exposureStatus !== 'deprecated' && entry.exposureStatus !== 'reserved-interface') {
       if (entry.tests.length === 0) {
         errors.push(`Catalog entry lacks tests: ${entry.schemaId}`);

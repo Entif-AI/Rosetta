@@ -1,0 +1,23 @@
+{
+  "profile": "trace.graphiti-inspection.v1",
+  "authority": "derived-interpretation",
+  "status": "degraded",
+  "effectiveAt": "2026-10-04T05:52:00.897Z",
+  "knownAt": "2026-10-04T05:52:00.897Z",
+  "support": {
+    "profile": "trace.graphiti-selection.v1",
+    "profileVersion": "1.0.0",
+    "sourceArtifactRef": "generated-edges",
+    "sourceDigest": "8cb0d6c4922935fe49a88b67a391729f33f602ce7c69eda3df9297b85bc96f07",
+    "normalizedProfile": "trace.normalization.v1",
+    "normalizedVersion": "trace-norm-v1",
+    "normalizedDigest": "1eba0b0c5d2bc7f8d6e6ba337665abb5d680e7349b59b39e6193362bb87c25fa",
+    "episodes": []
+  },
+  "artifacts": [],
+  "sourceLineages": [],
+  "loss": [
+    "Live inference unavailable: missing OPENAI_API_KEY, TRACE_GRAPHITI_MODEL, TRACE_GRAPHITI_EMBEDDER, TRACE_GRAPHITI_RERANKER. Deterministic evidence retained.",
+    "Unknown validity is omitted. Contradictions and ambiguous identities are not silently resolved. Current rights govern historical queries. Projection multiplicity is not independent evidence."
+  ]
+}

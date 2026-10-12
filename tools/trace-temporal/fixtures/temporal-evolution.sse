@@ -1,0 +1,15 @@
+event: trace_snapshot
+data: {"emitted_ids":["episode-0"],"objects":[{"content":"Avery manages Project Cedar beginning January 1, 2000.","id":"episode-0","kind":"message"}],"origin":"generated-fixture","reset":false,"run_id":"temporal-evolution","source_event_time":"2000-01-01T00:00:00.000Z","type":"trace_snapshot","window_id":"temporal-evolution-window"}
+
+event: trace_snapshot
+data: {"emitted_ids":["episode-1"],"objects":[{"content":"Blair replaces Avery as manager of Project Cedar beginning January 3, 2000.","id":"episode-1","kind":"message"}],"origin":"generated-fixture","reset":false,"run_id":"temporal-evolution","source_event_time":"2000-01-03T00:00:00.000Z","type":"trace_snapshot","window_id":"temporal-evolution-window"}
+
+event: trace_snapshot
+data: {"emitted_ids":["episode-2"],"objects":[{"content":"Historical event delivered late: Avery still managed Project Cedar on January 2, 2000.","id":"episode-2","kind":"message"}],"origin":"generated-fixture","reset":false,"run_id":"temporal-evolution","source_event_time":"2000-01-02T00:00:00.000Z","type":"trace_snapshot","window_id":"temporal-evolution-window"}
+
+event: trace_snapshot
+data: {"emitted_ids":["episode-3"],"objects":[{"content":"Correction: retract the January 3 claim that Blair manages Project Cedar. The current manager is unknown.","id":"episode-3","kind":"message"}],"origin":"generated-fixture","reset":false,"run_id":"temporal-evolution","source_event_time":"2000-01-04T00:00:00.000Z","type":"trace_snapshot","window_id":"temporal-evolution-window"}
+
+event: trace_snapshot
+data: {"emitted_ids":["episode-4"],"objects":[{"content":"Two people named Avery have unresolved identity. A disputed assignment claims an end on January 1 and a start on January 5, 2000. Preserve the contradiction.","id":"episode-4","kind":"message"}],"origin":"generated-fixture","reset":false,"run_id":"temporal-evolution","source_event_time":"2000-01-05T00:00:00.000Z","type":"trace_snapshot","window_id":"temporal-evolution-window"}
+

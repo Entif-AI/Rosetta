@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 import { countTopics, joinBasePath } from '../../lib/content';
 import { getPublishedEntries, toSummary } from '../../lib/site-data';
 
@@ -9,29 +10,30 @@ const topics = [...countTopics(entries.map(toSummary)).entries()].sort(
   ([leftTerm, leftCount], [rightTerm, rightCount]) =>
     rightCount - leftCount || leftTerm.localeCompare(rightTerm)
 );
+const page = await getEntry('pages', 'tags');
+if (!page) throw new Error('Missing page copy');
 ---
 
-<BaseLayout
-  title="Tags"
-  description="Browse Entif AI research and projects by topic, protocol, system, and project tag."
+<ContentPageLayout
+  title={page.data.eyebrow}
+  description={page.data.description}
+  eyebrow={page.data.eyebrow}
+  heading={page.data.title}
+  lede={page.data.description}
 >
-  <section class="section shell topic-page">
-    <p class="eyebrow">Taxonomy</p>
-    <h1>Tags</h1>
-    <p class="lede">
-      The public Entif corpus is cross-linked through shared topics and
-      projects.
-    </p>
-    <ul class="tag-list tag-directory" aria-label="Entif tags">
-      {
-        topics.map(([term, count]) => (
-          <li>
-            <a href={joinBasePath(baseUrl, `tags/${term}/`)}>
-              {term} · {count}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-</BaseLayout>
+  <ul
+    class="tag-list tag-directory"
+    aria-label="Entif tags"
+    data-test-id="tags-page-directory"
+  >
+    {
+      topics.map(([term, count]) => (
+        <li>
+          <a href={joinBasePath(baseUrl, `tags/${term}/`)}>
+            {term} · {count}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ContentPageLayout>

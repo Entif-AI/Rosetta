@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@entif-ai/rosetta-guard": "workspace:*",
     "@entif-ai/ingress-refinery": "workspace:*",
     "@entif-ai/rosetta-schemas": "workspace:*",
     "@entif-ai/source-registry": "workspace:*"

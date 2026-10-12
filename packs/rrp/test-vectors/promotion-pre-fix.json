@@ -1,0 +1,9 @@
+{
+  "kind": "rosetta.observation",
+  "pack": "rrp.rlm",
+  "payload": {
+    "observationId": "promotion.promote.fixture",
+    "signal": "Promotion transition 'promote' applied: active -> promoted.",
+    "source": "rosetta.promotion"
+  }
+}

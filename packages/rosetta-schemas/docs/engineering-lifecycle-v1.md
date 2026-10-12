@@ -1,0 +1,15 @@
+# Engineering lifecycle source adapter v1
+
+Authority: #1726, #1509, TRACE-SRC/NORM/GRAPH #1665–#1667 and the Rosetta v3 Core Spine. Publication posture: public adapter and conformance evidence. This application contract adds no Core kind, lifecycle vocabulary, telemetry policy or operational algorithm.
+
+`engineering.lifecycle-source.v1` composes admitted `work.lifecycle.v1` records, a bounded external-reference table, explicit red/green/implementation relations and limitations. Source reference roles preserve governing contracts, desired state, Git implementation, verification and integration as distinct authority classes. Source timestamps and adapter capture/materialization time stay separate. Unexposed executor identity is an unresolved reference with explicit unknown posture; absent canonical receipts remain absent. A successful hosted workflow is attributed independently of the unspecified historical executor.
+
+The source contract allows at most 64 lifecycle records, 256 source descriptors and 128 KiB of canonical metadata. Chats, diffs and CI logs are external payloads, not supported inline fields. Schema admission plus companion validation checks reference closure and the #1509 history invariants. It does not authenticate a remote source or infer actual work-event timing from a Git timestamp.
+
+`buildEngineeringLifecycleProjection` deterministically emits declared snapshots into the existing TRACE-NORM normalizer and TRACE-GRAPH builder. The snapshots are authored adapter materializations over durable public evidence, not a raw live agent trace. Source Record and Manifestation identities bind exact adapted bytes, the original reference table and source-bundle digest. Original evidence stays at its source locators and digests; Neo4j can be dropped independently.
+
+`inspectEngineeringLifecycle` reconstructs the final source bundle from the canonical graph export, verifies payload bindings and returns the same records, references, red/green relations and independently materialized outcomes. Projection IDs include the source-bundle digest. Current inspection is a reconstruction of a completed fixture, not a frozen historical counterfactual context.
+
+The real #1693/#1725 fixture is `tools/engineering-evidence/fixtures/jcs-1693.json`. Selected GitHub metadata captures are preserved beside it with SHA-256 bindings; Git file references use the actual merge revision. Local red/green claims retain their committed attestation role, while captured hosted checks attest their actual final source head. PR integration does not imply that the still-open GitHub issue was closed.
+
+Build the owning packages, then run `node tools/engineering-evidence/prove.mjs`. With an explicitly owned isolated local Neo4j database, `--neo4j` also checks import/export, duplicate import, scoped reset, rebuild and a direct bounded source-reference query. Public schema exports are regenerated/checked with `schema-sync.mjs` and require the separately supplied Work Lifecycle schema.

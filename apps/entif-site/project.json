@@ -18,7 +18,21 @@
       "options": {
         "cwd": "apps/entif-site",
         "command": "pnpm exec astro build"
-      }
+      },
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "env": "ENTIF_SITE_URL"
+        },
+        {
+          "env": "ENTIF_SITE_BASE"
+        },
+        {
+          "runtime": "node --version"
+        }
+      ]
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -36,7 +50,7 @@
     "format:check": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "pnpm exec prettier --check \"apps/entif-site/**/*.{astro,css,json,md,ts,tsx}\""
+        "command": "pnpm exec prettier --check \"apps/entif-site/**/*.{astro,css,scss,json,md,ts,tsx,mjs}\" apps/entif-site/Design.MD"
       }
     },
     "test": {
@@ -57,8 +71,44 @@
     "verify": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "pnpm exec nx run entif-site:format:check && pnpm exec nx run entif-site:lint && pnpm exec nx run entif-site:typecheck && pnpm exec nx run entif-site:test && pnpm exec nx run entif-site:build"
+        "command": "pnpm exec nx run entif-site:format:check && pnpm exec nx run entif-site:lint && pnpm exec nx run entif-site:stylelint && pnpm exec nx run entif-site:typecheck && pnpm exec nx run entif-site:test && pnpm exec nx run entif-site:build && pnpm exec nx run entif-site:html"
+      }
+    },
+    "html": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "apps/entif-site",
+        "command": "node tools/validate-output.mjs"
+      }
+    },
+    "lighthouse": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "apps/entif-site",
+        "command": "node tools/lighthouse.mjs"
+      }
+    },
+    "stylelint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/entif-site",
+        "command": "pnpm exec stylelint \"src/styles/**/*.{css,scss}\""
       }
     }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "siteGlobals"],
+    "siteGlobals": [
+      "{workspaceRoot}/.nvmrc",
+      "{workspaceRoot}/tsconfig.base.json",
+      "{workspaceRoot}/pnpm-workspace.yaml",
+      "{workspaceRoot}/.github/workflows/entif-site-pages.yml",
+      "{workspaceRoot}/.github/workflows/entif-site-ci.yml",
+      "{workspaceRoot}/eslint.config.mjs",
+      "{workspaceRoot}/.prettierrc",
+      "{workspaceRoot}/.prettierignore"
+    ]
   }
 }

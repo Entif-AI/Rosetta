@@ -1,1 +1,2 @@
 pnpm exec nx sync
+pnpm run governance:authority

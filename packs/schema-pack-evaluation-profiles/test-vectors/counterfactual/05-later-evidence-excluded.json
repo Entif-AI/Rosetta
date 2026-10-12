@@ -1,0 +1,99 @@
+{
+  "expectOk": true,
+  "payload": {
+    "evaluationId": "fixture.counterfactual.later-excluded",
+    "summary": "Later synthetic evidence is retained outside the historical input frontier.",
+    "verdict": "pass",
+    "profile": {
+      "id": "counterfactual.evaluation.v1",
+      "version": "1.0.0"
+    },
+    "historical": {
+      "subjectRefs": [
+        "fixture.strategy-episode.1"
+      ],
+      "decisionRef": "fixture.routing-judgment.1",
+      "evidenceCutoff": {
+        "frontierRef": "fixture.frontier.frozen.1",
+        "availableAt": "2026-09-01T12:00:00Z",
+        "inputRefs": [
+          "fixture.observation.input.1"
+        ],
+        "excludedLaterEvidenceRefs": [
+          "fixture.observation.later.1"
+        ]
+      },
+      "context": {
+        "authorityRefs": [
+          "fixture.authority.1"
+        ],
+        "policyRefs": [
+          "fixture.policy.1"
+        ],
+        "modelRefs": [],
+        "runtimeRefs": [
+          "fixture.runtime.1"
+        ],
+        "profileRefs": [
+          "fixture.profile.1"
+        ],
+        "budgetRefs": [
+          "fixture.budget.1"
+        ]
+      }
+    },
+    "candidate": {
+      "mechanismRef": "fixture.mechanism.deterministic.1",
+      "version": "1.0.0",
+      "class": "deterministic-procedure"
+    },
+    "replay": {
+      "state": "replayable",
+      "runRefs": [
+        "fixture.run.shadow.1"
+      ],
+      "mode": "no-live-effect",
+      "liveEffects": "none"
+    },
+    "comparison": {
+      "criteriaRef": "fixture.criteria.1",
+      "comparatorRefs": [
+        "fixture.comparator.1"
+      ],
+      "verifierRefs": [
+        "fixture.verifier.1"
+      ],
+      "qualityObservationRefs": [
+        "fixture.observation.quality.1"
+      ],
+      "exceptionObservationRefs": [],
+      "latencyObservationRefs": [],
+      "computeObservationRefs": [],
+      "tokenObservationRefs": [],
+      "costObservationRefs": [
+        "fixture.observation.cost.1"
+      ],
+      "maintenanceObservationRefs": [],
+      "revalidationObservationRefs": []
+    },
+    "disposition": "equivalent-within-declared-criteria",
+    "validityScope": {
+      "scopeRef": "fixture.scope.1",
+      "description": "Only the authored synthetic historical input frontier."
+    },
+    "evidenceRefs": [
+      "fixture.observation.input.1"
+    ],
+    "counterEvidenceRefs": [
+      "fixture.observation.later.1"
+    ],
+    "provenanceRefs": [
+      "fixture.experiment.1"
+    ],
+    "receiptRefs": [
+      "fixture.receipt.1"
+    ],
+    "supersedesRefs": [],
+    "laterEvaluationRefs": []
+  }
+}

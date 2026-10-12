@@ -1,0 +1,4 @@
+{
+  "type": "object", "additionalProperties": false, "required": ["request"],
+  "properties": {"request": {"type": "string"}, "apply": {"type": "boolean", "default": false}}
+}

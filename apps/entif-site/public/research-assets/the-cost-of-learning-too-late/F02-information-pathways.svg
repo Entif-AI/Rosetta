@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">Four information pathways</title><desc id="desc">Different mechanisms require different evidence and safeguards</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">Four information pathways</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Different mechanisms require different evidence and safeguards</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="65" y="205" width="455" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="251" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Unauthorized</text>
+<text x="89" y="290" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">coordination</text>
+<rect x="600" y="205" width="470" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="624" y="251" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Unintended shared</text>
+<text x="624" y="290" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">surface</text>
+<rect x="1150" y="205" width="385" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1174" y="251" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Access or event</text>
+<text x="1174" y="290" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">traces</text>
+<line x1="530" y1="265" x2="585" y2="265" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1080" y1="265" x2="1135" y2="265" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="65" y="370" width="455" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="416" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Covert encoding</text>
+<rect x="600" y="370" width="470" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="624" y="416" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Carrier + compatible</text>
+<text x="624" y="455" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">decoder</text>
+<rect x="1150" y="370" width="385" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1174" y="416" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Harmless message</text>
+<text x="1174" y="455" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">recovery</text>
+<line x1="530" y1="430" x2="585" y2="430" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1080" y1="430" x2="1135" y2="430" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="65" y="535" width="455" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Subliminal learning</text>
+<rect x="600" y="535" width="470" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="624" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Data + learning/update</text>
+<text x="624" y="620" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">path</text>
+<rect x="1150" y="535" width="385" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1174" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Post-update behavior</text>
+<text x="1174" y="620" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">change</text>
+<line x1="530" y1="595" x2="585" y2="595" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1080" y1="595" x2="1135" y2="595" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="65" y="700" width="455" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="746" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Internal reasoning</text>
+<rect x="600" y="700" width="470" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="624" y="746" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Latent representations</text>
+<rect x="1150" y="700" width="385" height="120" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1174" y="746" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Validated probe or</text>
+<text x="1174" y="785" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">intervention</text>
+<line x1="530" y1="760" x2="585" y2="760" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1080" y1="760" x2="1135" y2="760" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Conceptual synthesis [4,5,9,16-20]. No row proves the others, and no single deployed system is claimed to</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">exhibit all four.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

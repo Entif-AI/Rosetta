@@ -1,0 +1,73 @@
+{
+  "issue": 1714,
+  "observedAt": "2026-10-03",
+  "adapterVersion": "0.1.35",
+  "adoptedCommit": "13e81833fae5d844812d2e04b01272aed1df386c",
+  "inspectedHead": "d221ffabfe106e2c7a5998bde30bf58528678d22",
+  "reads": [
+    {
+      "kind": "issues",
+      "axiBytes": 523,
+      "nativeSelectedJsonBytes": 298,
+      "axiWallSeconds": 1.113,
+      "nativeWallSeconds": 1.043,
+      "exit": 0,
+      "fidelity": "native identities verified; detail/full/raw fallback retained"
+    },
+    {
+      "kind": "pr",
+      "axiBytes": 871,
+      "nativeSelectedJsonBytes": 145,
+      "axiWallSeconds": 0.82,
+      "nativeWallSeconds": 0.267,
+      "exit": 0,
+      "fidelity": "native identities verified; detail/full/raw fallback retained"
+    },
+    {
+      "kind": "runs",
+      "axiBytes": 520,
+      "nativeSelectedJsonBytes": 330,
+      "axiWallSeconds": 0.476,
+      "nativeWallSeconds": 0.384,
+      "exit": 0,
+      "fidelity": "native identities verified; detail/full/raw fallback retained"
+    },
+    {
+      "kind": "repo",
+      "axiBytes": 234,
+      "nativeSelectedJsonBytes": 188,
+      "axiWallSeconds": 0.348,
+      "nativeWallSeconds": 0.298,
+      "exit": 0,
+      "fidelity": "native identities verified; detail/full/raw fallback retained"
+    },
+    {
+      "kind": "commit",
+      "exit": 0,
+      "bytes": 121
+    },
+    {
+      "kind": "releases",
+      "exit": 0,
+      "bytes": 196
+    },
+    {
+      "kind": "labels",
+      "exit": 0,
+      "bytes": 180
+    }
+  ],
+  "mutation": {
+    "operation": "PATCH existing delivery checkpoint comment",
+    "commentId": 5973255201,
+    "replays": 2,
+    "sameIdentityAndBodyVerified": true,
+    "noIssueCreation": true
+  },
+  "limitations": [
+    "Selected native JSON can be smaller; no universal savings claim",
+    "Published release lags inspected HEAD; known check-state fidelity uses native statusCheckRollup fallback",
+    "Projects not required; no scope expansion",
+    "No Claude dollar/Codex quota conversion"
+  ]
+}

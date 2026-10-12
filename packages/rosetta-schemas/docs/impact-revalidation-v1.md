@@ -1,0 +1,13 @@
+# Dependency impact and attributable revalidation v1
+
+Public authority: #1730 under semantic owner #1560, composing existing Observation, Evaluation, Receipt and Action references. Related owners are #158/source provenance, #1558 knowledge/time roles, #1551/#1553 correction/supersession, #1557 external effects and #994 write admission. This is a governed extension evidence Profile, not a Core kind or private impact-ranking/remediation engine.
+
+`impact.revalidation.v1` version 1.0.0 records invalidation identity, subject reference/version/CID, invalidation class, reasons/support, bounded dependency scope and evidence, downstream dispositions, attributable revalidation, replacement, irreversible effects/compensation references, unresolved frontier, temporal roles, historical knowledge, provenance and receipts. Every downstream disposition is machine-distinguishable; dependency is not itself definite affectedness.
+
+Public conformance requires the published JSON Schema and `parseImpactRevalidation` relational admission. AFFECTED requires affectedness support. PROVEN_UNAFFECTED and both REVALIDATED states require an attributed validation method/Profile/executor and evidence; rebuild-only cannot satisfy them. Unknown/partial candidate scope requires an unresolved frontier, which prevents closed status. SUPERSEDED requires replacement references. Irreversible effects remain separately represented after semantic repair.
+
+`appendImpactRevalidation` preserves bounded additive history. Exact duplicate delivery is idempotent, identity conflicts fail, revisions explicitly supersede earlier records of the same invalidation/subjects, historical decision knowledge remains fixed, and irreversible external evidence/compensation references cannot disappear. Time roles are separate references; no timestamp sort invents causality or earlier knowledge of later evidence.
+
+References are evidence assertions requiring their owning authorities for resolution/authentication, rights and actual support. Empty receipt arrays preserve absence of canonical Receipts. Structural admission does not discover missing dependencies, decide actual impact, verify signatures, grant write/rollback/compensation permission or authorize promotion.
+
+Synthetic conformance cases in `tools/view-integrity/fixtures/impact-cases.json` cover all eight required positive scenarios and three negative scenarios: remint mistaken for revalidation, missing dependency scope mistaken for unaffected, and later invalidation inserted into historical knowledge. Focused tests also exercise additive history and external-effect preservation. Run owner Vitest/Nx checks and `node tools/view-integrity/schema-sync.mjs` after building rosetta-schemas; `--write` regenerates the published shape.

@@ -1246,6 +1246,32 @@ describe('rosetta-schemas', () => {
     });
   });
 
+  it('separates core descent from ownership, namespaces and exposure', () => {
+    expect(getSchemaCatalogEntry('rosetta.run')).toMatchObject({ coreDescent: 'core-primitive' });
+    expect(getSchemaCatalogEntry('skill.card')).toMatchObject({ coreDescent: 'implementation-local', authorityTier: 'governance-admission' });
+    expect(getSchemaCatalogEntry('source.evaluation_receipt')).toMatchObject({ coreDescent: 'pack-defined-schema', relatedCoreKinds: ['rosetta.evaluation', 'rosetta.receipt'] });
+    expect(getSchemaCatalogEntry('source.trust_matrix')).toMatchObject({ coreDescent: 'pack-defined-schema', relatedCoreKinds: ['rosetta.matrix'] });
+    expect(getSchemaCatalogEntry('source.package')).toMatchObject({ coreDescent: 'governed-extension' });
+    expect(getSchemaCatalogEntry('rosetta.translation_evidence')).toMatchObject({ coreDescent: 'implementation-local' });
+    expect(getSchemaCatalogEntry('entif.iam.decision.ref')).toMatchObject({ coreDescent: 'external-contract-ref' });
+    for (const profile of Object.values(AGENTIC_MESSAGE_TYPE_PROFILES)) {
+      expect(getSchemaCatalogEntry(profile.schemaId)).toMatchObject({ coreDescent: 'implementation-local' });
+    }
+  });
+
+  it('rejects missing descent evidence, duplicate IDs and unsupported core promotion', () => {
+    const catalog = listSchemaCatalogEntries();
+    const first = catalog[0];
+    expect(validateSchemaCatalogCoverage([...catalog, first]).join(';')).toMatch(/duplicate/i);
+    expect(validateSchemaCatalogCoverage(catalog.map((entry) => entry === first ? { ...entry, coreDescent: undefined } : entry)).join(';')).toMatch(/descent/i);
+    expect(validateSchemaCatalogCoverage(catalog.map((entry) => entry === first ? { ...entry, descentAuthority: '' } : entry)).join(';')).toMatch(/descent authority/i);
+    expect(validateSchemaCatalogCoverage(catalog.map((entry) => entry.schemaId === 'skill.card' ? { ...entry, coreDescent: 'core-primitive' } : entry)).join(';')).toMatch(/core/i);
+    expect(validateSchemaCatalogCoverage(catalog.map((entry) => entry === first ? { ...entry, sourceIssues: [] } : entry)).join(';')).toMatch(/source issue/i);
+    for (const schemaId of ['rosetta.unreviewed', 'constructor']) {
+      expect(validateSchemaCatalogCoverage([...catalog, { ...first, schemaId }]).join(';')).toMatch(/descent/i);
+    }
+  });
+
   it('catalogs every registered Agentic Messaging family and boundary contract', () => {
     const catalogIds = new Set(ROSETTA_SCHEMA_CATALOG.map((entry) => entry.schemaId));
 
@@ -1261,7 +1287,7 @@ describe('rosetta-schemas', () => {
     expect(getSchemaCatalogEntry('entif.iam.decision.ref')).toMatchObject({
       boundaryKind: 'referenced-external-contract',
       exposureStatus: 'reserved-interface',
-      sourceIssues: ['#630']
+      sourceIssues: expect.arrayContaining(['#630', '#1748'])
     });
     expect(getSchemaCatalogEntry('entif.agentic-messaging.execution-admission.v1')).toMatchObject({
       authorityTier: 'governance-admission',

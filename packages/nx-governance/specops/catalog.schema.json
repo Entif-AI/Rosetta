@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Derived SpecOps identity and relationship projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["formatVersion", "role", "authorityRule", "nodes", "relationships"],
+  "properties": {
+    "formatVersion": {"const": 1},
+    "role": {"const": "derived-specops-catalog-projection"},
+    "authorityRule": {"type": "string"},
+    "nodes": {"type": "array", "items": {"type": "object", "required": ["id", "kind", "title", "status", "source"], "properties": {
+      "id": {"type": "string", "minLength": 1}, "kind": {"enum": ["principles", "architecture", "behavior", "api", "plan"]}, "title": {"type": "string"}, "status": {"enum": ["accepted", "in-development", "planned", "in-progress", "done", "blocked", "cancelled"]},
+      "source": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}
+    }}},
+    "relationships": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["from", "kind", "to"], "properties": {"from": {"type": "string"}, "kind": {"enum": ["implements", "depends-on", "specializes", "constrains", "governed-by", "validated-by", "supersedes", "amends"]}, "to": {"type": "string"}}}}
+  }
+}

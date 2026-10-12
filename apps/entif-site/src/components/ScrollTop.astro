@@ -1,0 +1,46 @@
+---
+import { copy } from '../lib/copy';
+---
+
+<button
+  class="scroll-top"
+  data-test-id="scroll-top"
+  aria-label={copy.scrollTop}
+  tabindex="-1"
+>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg
+  >
+</button>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.scroll-top');
+  if (button) {
+    let returning = false;
+    const update = () => {
+      if (window.scrollY === 0) returning = false;
+      const visible = !returning && window.scrollY > window.innerHeight;
+      button.classList.toggle('is-visible', visible);
+      button.tabIndex = visible ? 0 : -1;
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    button.addEventListener('click', () => {
+      returning = true;
+      document
+        .querySelector<HTMLElement>('#main-content')
+        ?.focus({ preventScroll: true });
+      update();
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'instant'
+          : 'smooth',
+      });
+    });
+    update();
+  }
+</script>

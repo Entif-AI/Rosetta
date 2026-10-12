@@ -1,0 +1,121 @@
+{
+  "createdAt": "2026-10-04T06:43:53.462Z",
+  "executorSurface": "Codex desktop",
+  "exactProvider": null,
+  "exactModel": null,
+  "reasoning": null,
+  "delegation": [],
+  "mutableWriterCount": 1,
+  "quotaAdapterVersion": "0.1.56",
+  "quota": [
+    {
+      "event": "before",
+      "capturedAt": "2026-10-04T06:06:00.681Z",
+      "observations": [
+        {
+          "provider": "codex",
+          "status": "fresh",
+          "stale": false,
+          "observedAt": "2026-10-04T06:06:00.681Z",
+          "source": "oauth",
+          "windows": [
+            {
+              "id": "five_hour",
+              "kind": "five_hour",
+              "windowSeconds": 18000,
+              "usedPercent": 8,
+              "remainingPercent": 92,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-04T11:02:46.000Z"
+            },
+            {
+              "id": "weekly",
+              "kind": "weekly",
+              "windowSeconds": 604800,
+              "usedPercent": 25,
+              "remainingPercent": 75,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-10T09:17:53.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "checkpoint",
+      "capturedAt": "2026-10-04T06:19:09.499Z",
+      "observations": [
+        {
+          "provider": "codex",
+          "status": "fresh",
+          "stale": false,
+          "observedAt": "2026-10-04T06:19:09.499Z",
+          "source": "oauth",
+          "windows": [
+            {
+              "id": "five_hour",
+              "kind": "five_hour",
+              "windowSeconds": 18000,
+              "usedPercent": 16,
+              "remainingPercent": 84,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-04T11:02:46.000Z"
+            },
+            {
+              "id": "weekly",
+              "kind": "weekly",
+              "windowSeconds": 604800,
+              "usedPercent": 27,
+              "remainingPercent": 73,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-10T09:17:53.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "checkpoint",
+      "capturedAt": "2026-10-04T06:35:55.605Z",
+      "observations": [
+        {
+          "provider": "codex",
+          "status": "fresh",
+          "stale": false,
+          "observedAt": "2026-10-04T06:35:55.604Z",
+          "source": "oauth",
+          "windows": [
+            {
+              "id": "five_hour",
+              "kind": "five_hour",
+              "windowSeconds": 18000,
+              "usedPercent": 23,
+              "remainingPercent": 77,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-04T11:02:46.000Z"
+            },
+            {
+              "id": "weekly",
+              "kind": "weekly",
+              "windowSeconds": 604800,
+              "usedPercent": 28,
+              "remainingPercent": 72,
+              "limitPercent": null,
+              "shareOf": null,
+              "resetAt": "2026-10-10T09:17:53.000Z"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Shared-seat observations do not attribute consumption to this run.",
+    "Actual run start/end, token counts, cost and hidden model configuration are not exposed."
+  ]
+}

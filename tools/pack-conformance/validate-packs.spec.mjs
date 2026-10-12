@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -56,6 +56,37 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
+  it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
+    try {
+      await cp(path.resolve('packs/schema-pack-evaluation-profiles'), root, { recursive: true });
+      const manifestPath = path.join(root, 'pack.json');
+      const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+      manifest.pack_id = await computePackId(root);
+      await writeJson(manifestPath, manifest);
+      expect((await validatePackRoot(root)).errors).toEqual([]);
+
+      const profile = manifest.profiles[0];
+      const schemaPath = path.join(root, profile.path);
+      const schema = JSON.parse(await readFile(schemaPath, 'utf8'));
+      expect(schema.$id).not.toBe(profile.name);
+      schema.properties.profile.properties.id.const = 'unrelated.profile';
+      await writeJson(schemaPath, schema);
+      manifest.pack_id = await computePackId(root);
+      await writeJson(manifestPath, manifest);
+      expect((await validatePackRoot(root)).errors).toContainEqual(expect.objectContaining({ code: 'profile-descent-missing', detail: profile.name }));
+    } finally { await rm(root, { recursive: true, force: true }); }
+  });
+  it('rejects a Profile that drops its formal Core descent', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'profile-descent-'));
+    try {
+      await writePack(root, baseManifest({ id: 'rrp', profiles: [{ name: 'rrp.promotion-state.v1', path: 'schema/profile.json' }] }), {
+        'examples/example.md': 'fixture', 'schema/profile.json': JSON.stringify({ $id: 'rrp.promotion-state.v1' })
+      });
+      const result = await validatePackRoot(root);
+      expect(result.errors.some((error) => error.code === 'profile-descent-missing')).toBe(true);
+    } finally { await rm(root, { recursive: true, force: true }); }
+  });
   it('computes a deterministic pack_id from manifest metadata and sorted file hashes', async () => {
     const tempDir = await mkdtemp(path.join(tmpdir(), 'pack-id-'));
     const first = path.join(tempDir, 'first');

@@ -2,6 +2,12 @@
 
 # A Tile-First Knowledge Framework
 
+## Semantic authority and terminology status
+
+This document is preserved as a historical or working precursor. The [`Rosetta v3.0.0 Core Spine Specification`](./Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) controls current Rosetta meaning, nomenclature, identity, provenance, operational Spine, Packs, Profiles, and conformance wherever this document overlaps or conflicts with v3.
+
+Implementations MUST map useful concepts forward explicitly rather than treating repeated pre-v3 definitions as independent current authority. This source remains valuable research lineage and may motivate accepted extensions, translators, or successor specifications.
+
 [Motivation	2](#motivation)
 
 [Tile Schema and Canonicalization	2](#tile-schema-and-canonicalization)

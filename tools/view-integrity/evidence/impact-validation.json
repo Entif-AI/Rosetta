@@ -1,0 +1,34 @@
+{
+  "profile": "impact-revalidation-validation-v1",
+  "observedAt": "2026-10-04T08:17:37.577149+00:00",
+  "baseCommit": "eef561dceb6aac5fb78b4b0ffb062d1a8bd8c3ab",
+  "posture": "working-tree-source-digests",
+  "sourceDigests": {
+    "packages/rosetta-schemas/src/lib/impact-revalidation.ts": "8c7a0a8d09599c60a241f6e7205e39fff85d93db963addcd55601569d6b8b2a2",
+    "packages/rosetta-schemas/src/lib/evidence-contract-validation.ts": "b854b3243da37600a0715d78ad1b769573a9df5ed8469dfe85ad1943cc9114c5",
+    "packages/rosetta-schemas/src/lib/impact-revalidation.spec.ts": "9d773b183a82893c31c2da26d5c99286025d152d3261c2ba54cfe67497d60f16",
+    "packages/rosetta-schemas/docs/impact-revalidation-v1.schema.json": "49268d7e96464e6652b39fdd1cde9b1da881fa4bbcf54f480f4fa1dd61337014",
+    "tools/view-integrity/fixtures/impact-cases.json": "0d317d02bd96e611fefec8b15a1b1d261da149e65203d47ecff3fb8aa654b543"
+  },
+  "focusedTests": {
+    "passed": 15,
+    "failed": 0,
+    "requiredPositiveFixtures": 8,
+    "requiredNegativeFixtures": 3
+  },
+  "ownerChecks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "test": {
+      "passed": 126,
+      "failed": 0
+    }
+  },
+  "authority": "passed",
+  "specAdmission": "passed",
+  "schemaSync": "passed",
+  "semanticOwnerIssue": 1560,
+  "coreDescent": "governed-extension",
+  "noOperationalAuthorityGranted": true
+}

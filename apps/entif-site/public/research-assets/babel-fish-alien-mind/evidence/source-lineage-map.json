@@ -1,0 +1,32 @@
+[
+  {
+    "from": "P-GEM-190",
+    "to": "P-GEM-FULL-MD",
+    "relation": "same_source_lineage; 190-tail role and text alignment verified"
+  },
+  {
+    "from": "P-GEM-190",
+    "to": "GEM-generated-mechanism",
+    "relation": "contains, not independent support for mechanism"
+  },
+  {
+    "from": "GEM-generated-mechanism",
+    "to": "GEM-user-quoted-thinking",
+    "relation": "quoted/reintroduced in conversation; not independent corroboration"
+  },
+  {
+    "from": "P-GEM-190",
+    "to": "EvidenceSeed",
+    "relation": "seed excerpts are derivative"
+  },
+  {
+    "from": "P-XMAS-2025",
+    "to": "EvidenceSeed",
+    "relation": "seed excerpt is derivative"
+  },
+  {
+    "from": "EvidenceSeed",
+    "to": "ETR-v2-analysis",
+    "relation": "locator assistance only; raw source reverified"
+  }
+]

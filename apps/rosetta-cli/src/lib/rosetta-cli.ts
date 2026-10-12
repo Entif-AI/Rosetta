@@ -13,6 +13,8 @@ import {
   projectToPrismShadow,
 } from '@entif-ai/projection-adapters';
 import {
+  buildLifecycleDemo,
+  buildPromotionTransitionDemo,
   verifyReceiptBundle,
   verifySignedReceipt,
 } from '@entif-ai/rosetta-receipts';
@@ -171,6 +173,8 @@ export function buildRosettaCliOutput() {
   const { ingressJob, snapshot, store } = buildDemoContext();
 
   return {
+    lifecycleDemo: buildLifecycleDemo(),
+    promotionTransitionDemo: buildPromotionTransitionDemo(),
     action: snapshot.action,
     canonicalArtifact: snapshot.canonicalArtifact,
     conformanceBundle: snapshot.conformanceBundle,

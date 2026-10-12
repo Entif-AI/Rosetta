@@ -1,0 +1,13 @@
+{
+  "formatVersion": 1,
+  "component": "@entif-ai/nx-governance",
+  "identity": {
+    "runtime": "codex",
+    "version": "0.1.0",
+    "sourceDigest": "12f2da5e3d93d96a6af3e9371646079c9b565227c00e2da2d39c09d1894d18b9",
+    "specopsCommit": "03c332620c207ade153a25c8c49805a64228961d"
+  },
+  "files": {
+    ".agents/skills/entif-substrate/SKILL.md": "0e119fad3849c61efe0116cbb3bf9d7e4b7c72452f3bb3d665f2b66772b90a45"
+  }
+}

@@ -45,7 +45,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run apps/rosetta-api/src/lib/rosetta-api.spec.ts"
+        "command": "vitest run apps/rosetta-api/src/lib/*.spec.ts"
       },
       "cache": true,
       "inputs": [

@@ -1,0 +1,60 @@
+{
+  "capturedAt": "2026-10-04T16:31:43.263Z",
+  "runRef": "urn:rosetta:engineering:1732:falkor-kin-1736",
+  "checkpoint": "cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+  "remoteReadback": "cdc0672bffe3f063a0e24036b56b0bf2e4f41689",
+  "executorSurface": "Codex desktop",
+  "delegation": [],
+  "localChecks": {
+    "ownershipRegression": 1,
+    "literalQueryFamilies": 3,
+    "fixtures": 2,
+    "metricSnapshots": [
+      66,
+      6
+    ],
+    "lint": "passed",
+    "authority": "passed",
+    "specAdmission": "passed",
+    "realFalkorProof": "passed"
+  },
+  "repairs": [
+    "Lint identified missing node:process import in ownership regression; repaired without changing the proven harness."
+  ],
+  "limits": [
+    "Real database proof is executor-attested; hosted CI does not independently rerun the real Falkor fixture.",
+    "Unmerged; no release or issue closure.",
+    "Actual model/reasoning/token/cost/full-run timing remains unknown.",
+    "Provider-neutral metric parity does not establish provider/model internal memory compaction.",
+    "Graphiti successor #1737 and final #1738/V0 reconciliation retain independent acceptance boundaries."
+  ],
+  "quota": [
+    {
+      "provider": "codex",
+      "observedAt": "2026-10-04T16:01:52.627Z",
+      "status": "fresh",
+      "windows": [
+        {
+          "id": "five_hour",
+          "kind": "five_hour",
+          "windowSeconds": 18000,
+          "usedPercent": 32,
+          "remainingPercent": 68,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-04T19:44:34.000Z"
+        },
+        {
+          "id": "weekly",
+          "kind": "weekly",
+          "windowSeconds": 604800,
+          "usedPercent": 45,
+          "remainingPercent": 55,
+          "limitPercent": null,
+          "shareOf": null,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ]
+    }
+  ]
+}

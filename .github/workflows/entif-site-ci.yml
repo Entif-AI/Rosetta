@@ -8,6 +8,10 @@ on:
       - '.prettier*'
       - 'package.json'
       - 'pnpm-lock.yaml'
+      - 'nx.json'
+      - 'tsconfig.base.json'
+      - 'pnpm-workspace.yaml'
+      - '.nvmrc'
       - '.github/workflows/entif-site-ci.yml'
   push:
     branches:
@@ -18,6 +22,10 @@ on:
       - '.prettier*'
       - 'package.json'
       - 'pnpm-lock.yaml'
+      - 'nx.json'
+      - 'tsconfig.base.json'
+      - 'pnpm-workspace.yaml'
+      - '.nvmrc'
       - '.github/workflows/entif-site-ci.yml'
 
 permissions:
@@ -34,6 +42,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
@@ -50,16 +60,44 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check whether the site is affected
+        id: affected
+        env:
+          NX_DAEMON: 'false'
+          NX_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          NX_HEAD: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        shell: bash
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || -z "$NX_BASE" || "$NX_BASE" =~ ^0+$ ]]; then
+            echo "site=true" >> "$GITHUB_OUTPUT"
+          else
+            pnpm exec nx show projects --affected --json > /tmp/affected-projects.json
+            node -e 'const fs = require("node:fs"); const projects = JSON.parse(fs.readFileSync("/tmp/affected-projects.json", "utf8")); fs.appendFileSync(process.env.GITHUB_OUTPUT, `site=${projects.includes("entif-site")}\n`);'
+          fi
+
+      - name: Restore site build cache
+        if: steps.affected.outputs.site == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: entif-site-${{ runner.os }}-${{ github.sha }}
+          restore-keys: entif-site-${{ runner.os }}-
+
       - name: Install Chromium
+        if: steps.affected.outputs.site == 'true'
         run: pnpm --filter @entif-ai/site exec playwright install --with-deps chromium
 
       - name: Verify static site
+        if: steps.affected.outputs.site == 'true'
         run: pnpm exec nx run entif-site:verify
 
       - name: Run browser feature and accessibility tests
+        if: steps.affected.outputs.site == 'true'
         run: pnpm exec nx run entif-site:e2e
 
       - name: Upload generated site preview
+        if: steps.affected.outputs.site == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: entif-site-preview

@@ -1,0 +1,143 @@
+.story-scene.language-scene {
+  background: var(--scene-night);
+  color: var(--scene-paper);
+}
+.language-scene .scene-choice label {
+  border-color: var(--scene-paper);
+}
+.story-scene.language-scene figcaption {
+  color: var(--canvas);
+}
+.language-scene .scene-choice label:has(:checked) {
+  background: var(--scene-paper);
+  color: var(--ink);
+}
+.language-paper {
+  background: var(--scene-paper);
+  color: var(--ink);
+  margin: 3rem auto;
+  padding: clamp(1.5rem, 5vw, 5rem);
+  max-width: 60rem;
+  transform: rotate(-1deg);
+  box-shadow: 1rem 1rem 0 var(--scene-rule);
+}
+.memo-label {
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+}
+.language-paper p {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  margin-block: 3rem;
+}
+.language-paper em {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+.language-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--accent);
+  padding-top: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.language-foot > span:last-child {
+  font-size: 2rem;
+}
+.language-scene .person-wording {
+  display: none;
+}
+.language-scene:has([value='person']:checked) .person-wording {
+  display: block;
+}
+.language-scene:has([value='person']:checked) .institution-wording {
+  display: none;
+}
+.story-scene.disclosure-scene {
+  background: var(--scene-paper);
+}
+.disclosure-folders {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 4rem;
+  align-items: start;
+}
+.disclosure-folders details {
+  min-height: 13rem;
+  padding: 1rem;
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: 0.4rem 0.4rem 0 var(--scene-rule);
+}
+.disclosure-folders details:nth-child(even) {
+  margin-top: 2rem;
+}
+.disclosure-folders summary {
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  min-height: 6rem;
+}
+.disclosure-folders summary span {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.disclosure-folders p {
+  font-family: system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.story-scene.disclosure-scene figcaption {
+  color: var(--ink);
+}
+.disclosure-scene .disclosure-conclusion {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 4rem;
+}
+@media (max-width: 55rem) {
+  .disclosure-folders {
+    grid-template-columns: 1fr 1fr;
+  }
+  .language-paper {
+    box-shadow: 0.4rem 0.4rem 0 var(--scene-rule);
+  }
+}
+@media (max-width: 35rem) {
+  .disclosure-folders {
+    grid-template-columns: 1fr;
+  }
+  .disclosure-folders details:nth-child(even) {
+    margin-top: 0;
+  }
+  .disclosure-folders details {
+    min-height: 0;
+  }
+  .disclosure-folders summary {
+    min-height: 3rem;
+  }
+}
+@media print {
+  .language-scene .institution-wording,
+  .language-scene .person-wording {
+    display: block !important;
+  }
+  .language-paper {
+    transform: none;
+    box-shadow: none;
+  }
+  .disclosure-folders details {
+    break-inside: avoid;
+  }
+}

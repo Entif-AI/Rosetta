@@ -1,0 +1,163 @@
+{
+  "registrySource": "https://drive.google.com/file/d/1d8BmPEb7eKh-iPbdqHzwFXLxANz4nvbW/view",
+  "registrySha256": "a6f12404ea2df389bb5da45201d25bd17607113dae41fdd4c493ab340bc959ef",
+  "chapters": [
+    {
+      "chapter": 1,
+      "issue": 1604,
+      "source": "https://drive.google.com/file/d/1LoORY0NWyPPEslqrYBepLfRCyTsrQv-r/view?usp=drivesdk",
+      "sha256": "de218d978d4fc75a748208b3ac08b4a647abc965f2dc8eb9ac51f4b7ef9917fd",
+      "bodySha256": "a7b6bcb133db7f9037499d315a94607a788cde55203b730c8fc002b79d8c58c4",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "fa7d2645fe5ede005eb705e173d805e697b8d4807478f49077f221e4ff3897da",
+      "additionSource": "https://drive.google.com/file/d/1EhM3_PRXdMKbLijAJ4LtjdX9qHA42C53/view?usp=drivesdk"
+    },
+    {
+      "chapter": 2,
+      "issue": 1605,
+      "source": "https://drive.google.com/file/d/1AFxMc8oERtb0ONfF8ZZLbanf3If81R8l/view?usp=drivesdk",
+      "sha256": "58ff82820caa8a237c611cd831f3e3d423cf06370ed221cbc6a73d585bf2f276",
+      "bodySha256": "f3ca3025fd9cbaf813a20715356247eedd4fd99960aa490988e7ceeaf5fae2f6",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "1e607afabd69a4366e7ed3412eceff70929dd50a8ac5b9d31714d74ca68eaead",
+      "additionSource": "https://drive.google.com/file/d/11bu04pJ7SZDgPmtI7Ri3shtjvASlXyCG/view?usp=drivesdk"
+    },
+    {
+      "chapter": 3,
+      "issue": 1606,
+      "source": "https://drive.google.com/file/d/1smnJDEW6OYxOLXZ1zpjbsFEFPUBoeDZV/view?usp=drivesdk",
+      "sha256": "3d1906259ae832f45f714d2f1f052fb0be3c56ad4d7be1cbb76c3472e004b682",
+      "bodySha256": "03011fe7804f6d312343d6652209f60e75585f4b09723448b5bb757d9ee2b6c7",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "681ba70553cea1bbdb8ccb07fa57ec569303a0dbc21ae84338a7481c8a6f58ec",
+      "additionSource": "https://drive.google.com/file/d/1a1q9jiIh5onJcvyrRgX4QVdR7SxT2dha/view?usp=drivesdk"
+    },
+    {
+      "chapter": 4,
+      "issue": 1607,
+      "source": "https://drive.google.com/file/d/1TlyI6epK0DbkoH8Jjhacwgra_eQjzGmc/view?usp=drivesdk",
+      "sha256": "f6621e2a7ecda7614d3597689c2ed855ed93b8e464e636c5e1d8ee4db41a128b",
+      "bodySha256": "7a4ae8189617acc329c2c3ef32c8d749e63169da092e9497b23be7311c9f75b2",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "6d7ce48d2c69097178c39825b8e137d4313df10b048f1e98d2f33e63f54e6401",
+      "additionSource": "https://drive.google.com/file/d/1GnRRX50TNouJTQkeiu46Z-q8f-DbJwgx/view?usp=drivesdk"
+    },
+    {
+      "chapter": 5,
+      "issue": 1608,
+      "source": "https://drive.google.com/file/d/1eyQLUSGIIqbk7_-HrLEA-0NHxVBps5CY/view?usp=drivesdk",
+      "sha256": "c02244acf883bac33fbe0e81950f6de73469cbe7c648eb990ca689cd4eb88567",
+      "bodySha256": "faa786ae5ed41c07b71c4bbb4da33c15bbed2d059ead4bde69a7d1f624b21483",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "a614704f5914c822342f17688fb7c7c2eaf557b98c1cd68f5f194046b38d343a",
+      "additionSource": "https://drive.google.com/file/d/1KknONALPYpz7SDZXodDadRIl1OO_FufP/view?usp=drivesdk"
+    },
+    {
+      "chapter": 6,
+      "issue": 1609,
+      "source": "https://drive.google.com/file/d/12Ih9WBz7qp7NAcH0TqNO-MOGKQZBfFzA/view?usp=drivesdk",
+      "sha256": "22dca7bd810d81acb1e53c941714f5fc364bd6e9bfa0ceef8a8c7d6513554e1c",
+      "bodySha256": "471f28be4d583877f1850691db29b1fb7c893386fb8aac116930f316e15aec38",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "ab9211bbb95ece77fe3f9389ce40c7fc38da989579414490d1191ae7d8b7f67f",
+      "additionSource": "https://drive.google.com/file/d/1V0-MBcnwQ0sFFQnkfISV7VJRo0_rJ2fU/view?usp=drivesdk"
+    },
+    {
+      "chapter": 7,
+      "issue": 1610,
+      "source": "https://drive.google.com/file/d/1VrpuQHg0F23REukVvngByzXlfQ7QkYXl/view?usp=drivesdk",
+      "sha256": "8459397df8397415acd673354c9616ee6b9388003ed74f6972385bbbb1de3d67",
+      "bodySha256": "7dc5adebfea9f82e6086b237eea7082fecae34ddb671a160a739050dfebbbe3f",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "041023089ae11c75e4ec4a7f267b942c845e59c5c5b6889b2dbbef7cef661f75",
+      "additionSource": "https://drive.google.com/file/d/1_8l_rdP-JEAaWBwO_ejCxmcbZFaTcO84/view?usp=drivesdk"
+    },
+    {
+      "chapter": 8,
+      "issue": 1611,
+      "source": "https://drive.google.com/file/d/1Yp_AmCmGA6Br92kxtGrbcAZmlfhdwxnB/view?usp=drivesdk",
+      "sha256": "5982b1173a3e43959e15b6f28c0061c7627ed63496636698976c83ac05e74278",
+      "bodySha256": "fa4538f43d8a4aee8a2772844dc5c206161eccaf99b5fb64aa67b5ae8fe89b2c",
+      "additionIncludedVerbatim": null,
+      "additionSha256": null
+    },
+    {
+      "chapter": 9,
+      "issue": 1612,
+      "source": "https://drive.google.com/file/d/1cqnceO5Ili5kl-QRMaYzNGWTYJuTO2cl/view?usp=drivesdk",
+      "sha256": "c5684bc4a292b2b5bd998c60ba71ca62db4bf9dc388749536f595db53be0ec4e",
+      "bodySha256": "9f28b9584ab6039cf9faec5080a382f80fee096db2ed0e4938769c237d7a3c83",
+      "additionIncludedVerbatim": null,
+      "additionSha256": null
+    },
+    {
+      "chapter": 10,
+      "issue": 1613,
+      "source": "https://drive.google.com/file/d/1UXcVMe9kpifPTcfe-3vNBDu8xAqkJGEC/view?usp=drivesdk",
+      "sha256": "14c59c4a077b99881c9cd212c2bd47d8be55a423a6ea72cafda5872c6c0ec9d9",
+      "bodySha256": "cecfeed0822717cb5c6bbf63a9f518ba658b05b0b5c68367b842ba3c02289750",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "11d4e0729f5d6a5768c5d88758246eed3bbacb0d784e499e9c98569636468153",
+      "additionSource": "https://drive.google.com/file/d/1Tcypy9NjiPwxuohJYa5rTk-6zr9L7QjK/view?usp=drivesdk"
+    },
+    {
+      "chapter": 11,
+      "issue": 1614,
+      "source": "https://drive.google.com/file/d/1vugs792D-x5bucxKdj7b64J9Ddta2M1J/view?usp=drivesdk",
+      "sha256": "a79ea68bbdfb986ad2853c0e6ab72e00d03994ba8dca315bf7e60e3b5f98c01f",
+      "bodySha256": "c36f71c529f23fc99450e98db989bfb6203dbc64fe226cf739b6132ccd21f7e7",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "8a636f18182094329e1fef0d5ea1c87c3828cdd26e3b7f00d5f200f14b10c1c3",
+      "additionSource": "https://drive.google.com/file/d/1_-Qqvw_Sex_LNeoKMR-qv64kKnivhp30/view?usp=drivesdk"
+    },
+    {
+      "chapter": 12,
+      "issue": 1615,
+      "source": "https://drive.google.com/file/d/1aMLiaTYfkjnM_M9vD-8GIIBqSfWpMaM2/view?usp=drivesdk",
+      "sha256": "8a287ffa8d982f3007c30cf5946e2fc2c353c915d1cdf6929c09519192e0d3b9",
+      "bodySha256": "b468dda89914be0131c4a498897cdd9860eebbce7b8d092e3981b61106169231",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "cd5bb3c09a4957f563749baaf206ca501df433738c68b0d691c9da308f139892",
+      "additionSource": "https://drive.google.com/file/d/1YUVYLj1YVDNAdvK0cT7h4hJVh8ogMLuS/view?usp=drivesdk"
+    },
+    {
+      "chapter": 13,
+      "issue": 1616,
+      "source": "https://drive.google.com/file/d/1sVZ59EH8hRnHU9DWm3fWK9trj2B_f2Qr/view?usp=drivesdk",
+      "sha256": "a10dbd448b03e2c5f71e7b2f57b9ee10e94e37ba88406f2dff70fc53aabfb55b",
+      "bodySha256": "184ea5a5c775479bb31d738afd8d8186b2d37a11ac7ee50e3e18d394aca541d8",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "4b716c3beee953a989308be990129edb8f598587db714164c927c1af3cc73569",
+      "additionSource": "https://drive.google.com/file/d/1DgjZ08fc5OvaT8p85BeJ2QZlzOJpG8FH/view?usp=drivesdk"
+    },
+    {
+      "chapter": 14,
+      "issue": 1617,
+      "source": "https://drive.google.com/file/d/1oAsGZ7eZ4LQvL4X1Vbazb0L47mrVMEAg/view?usp=drivesdk",
+      "sha256": "d6e2cd55b51d468f05a6ad73ef06b7065c167f9cb76d646c5d83297c74699421",
+      "bodySha256": "746c107c442abaea4b50b62a9fa001989f5dd4adc23b063cd305dd8a30225cb6",
+      "additionIncludedVerbatim": null,
+      "additionSha256": null
+    },
+    {
+      "chapter": 15,
+      "issue": 1618,
+      "source": "https://drive.google.com/file/d/1U-RyeYZvifrxVn3upTaiOoW0daHKpVN6/view?usp=drivesdk",
+      "sha256": "65a5a09c34a8783d034162ad938ca4fc9f6f30b827430453cd490462aa5e5d06",
+      "bodySha256": "f84bf86a14409fb75818a0d9fc8be47514d4b04dcb3e9da4bf99571dff106484",
+      "additionIncludedVerbatim": true,
+      "additionSha256": "d79cb11e8da4e2662520fd04a034a18a15d005e937589d22d4f1dca9903563cf",
+      "additionSource": "https://drive.google.com/file/d/1WtNDHO3-DJgjsCpGsZbvzXQ6h3JEQksB/view?usp=drivesdk"
+    },
+    {
+      "chapter": 16,
+      "issue": 1619,
+      "source": "https://drive.google.com/file/d/1q5fB0hHGuS_y8xhq6S0AXjNuZ1VQdf9d/view?usp=drivesdk",
+      "sha256": "3b12b23f440d87895be376720a91ad57919a0f2468802c2c20d0a10a9feb5acb",
+      "bodySha256": "f48f7cfe97d7d67d217f66899f4272167b75286ae5570f4c3fcfc8cf6ccc531e",
+      "additionIncludedVerbatim": null,
+      "additionSha256": null
+    }
+  ],
+  "formatting": "Website Markdown formatting may normalize whitespace and equivalent emphasis delimiters; chapter prose and source markers are preserved."
+}

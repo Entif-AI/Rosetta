@@ -4,6 +4,26 @@
 
 It is designed to let a researcher clone the repository, run one bounded proof, inspect the resulting Rosetta artifacts, and deliberately break two integrity assumptions without reading the entire specification suite first.
 
+## Authority and scope
+
+- Rosetta semantic and protocol meaning is governed by the [v3 Core Spine](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md), not by CLI behavior.
+- Workbench and clone-to-insight practice follow [Research and Interoperability](../../docs/governance/genesis/RESEARCH_AND_INTEROPERABILITY.md).
+- Names and boundaries follow [Semantic Alignment](../../docs/governance/genesis/SEMANTIC_ALIGNMENT.md).
+
+This reference implementation is not a semantic authority. Inspection does not promote provisional or catalog-only entries into Core support or execution permission.
+
+## Researcher path
+
+From the repository root, the existing aggregate demonstration remains available:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm run sync
+pnpm run demo
+```
+
+The inspection, positive verification and tamper-negative steps below complete a fixture-backed clone-to-proof path without introducing live ingestion or storage guarantees.
+
 ## Status
 
 The workbench is **fixture-backed**. It exercises real Rosetta code over controlled bootstrap inputs.
@@ -122,6 +142,7 @@ pnpm exec nx run rosetta-cli:lint
 pnpm exec nx run rosetta-cli:typecheck
 pnpm exec nx run rosetta-cli:test
 pnpm exec nx run rosetta-cli:build
+pnpm run governance:semantic
 ```
 
 The focused CI workflow also validates `rosetta-api`, because issue #1200 requires API and CLI shape parity for the guarded-bootstrap report.

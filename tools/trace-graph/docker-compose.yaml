@@ -1,0 +1,11 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:6.0.1@sha256:e2765e207e5ba4ee90e47ed31eb7491ad6dd3d42241c326e429375c02ad9882f
+    container_name: entif-falkor-1735
+    labels:
+      entif.issue: "1735"
+      entif.branch: codex/roadmap-engineering-evidence-completion
+    ports:
+      - "127.0.0.1:16379:6379"
+# Disposable local/private fixture only. No persistent volume or public browser port.
+# SSPLv1 public/network service promotion requires separate review.

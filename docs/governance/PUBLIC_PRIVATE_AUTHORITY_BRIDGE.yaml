@@ -1,0 +1,615 @@
+version: 0.1-draft
+status: proposed
+purpose: >-
+  Disclosure-safe projection of relationships between public Rosetta contracts and
+  protected Entif implementation authorities. Protected content is referenced only
+  by opaque IPR identifiers. This file MUST NOT contain private-repository URLs or
+  protected mechanism details.
+
+invariants:
+  - public_contracts_are_independently_meaningful
+  - private_implementation_must_not_redefine_public_meaning
+  - protected_references_use_opaque_ipr_ids_only
+  - public_artifacts_must_not_link_directly_to_protected_repository
+  - internal_engineering_resolves_protected_requirements_before_behavioral_changes
+
+relationship_types:
+  - implements
+  - constrains
+  - consumes
+  - supersedes
+  - derived_from
+  - validated_by
+  - represented_by
+  - produces
+  - blocks
+  - requires_review_of
+
+bridges:
+  - public_issue: 1474
+    public_contract: creator_scorecard
+    protected_authorities: [IPR-0009]
+    relationship: implements
+    protected_review_required_for:
+      - weighting_changes
+      - ranking_changes
+      - calibration_changes
+      - prediction_or_action_selection_changes
+
+  - public_issue: 1475
+    public_contract: procedural_memory_promotion_artifact
+    protected_authorities: [IPR-0011]
+    relationship: implements
+    protected_review_required_for:
+      - recurrence_threshold_changes
+      - promotion_scoring_changes
+      - failure_suppression_changes
+      - certification_decision_changes
+
+  - public_issue: 1476
+    public_contract: learned_persona_state
+    protected_authorities: [IPR-0012]
+    relationship: implements
+    protected_review_required_for:
+      - trait_update_policy_changes
+      - signal_weighting_changes
+      - smoothing_or_recentering_changes
+
+  - public_issue: 1477
+    public_contract: runtime_overlay_artifact
+    protected_authorities: [IPR-0013]
+    relationship: implements
+    protected_review_required_for:
+      - activation_policy_changes
+      - installer_or_orchestrator_changes
+      - overlay_selection_changes
+
+  - public_issue: 1478
+    public_contract: omoc_route_plan
+    protected_authorities: [IPR-0014]
+    relationship: implements
+    protected_review_required_for:
+      - route_selection_changes
+      - utility_weight_changes
+      - survivorship_strategy_changes
+      - learned_routing_changes
+
+  - public_issue: 1479
+    public_contract: route_context_budget_record
+    protected_authorities: [IPR-0017]
+    relationship: implements
+    protected_review_required_for:
+      - budget_allocation_policy_changes
+      - context_optimization_changes
+      - low_budget_action_policy_changes
+
+  - public_issue: 1480
+    public_contract: route_evaluation_record
+    protected_authorities: [IPR-0018]
+    relationship: implements
+    protected_review_required_for:
+      - route_score_calculation_changes
+      - calibration_changes
+      - benchmark_selection_changes
+
+  - public_issue: 1481
+    public_contract: specialist_selection_decision
+    protected_authorities: [IPR-0019]
+    relationship: implements
+    protected_review_required_for:
+      - specialist_selection_policy_changes
+      - spawn_resume_policy_changes
+      - candidate_ranking_changes
+
+  - public_issue: 1482
+    public_contract: cognitive_operator_selection_plan
+    protected_authorities: [IPR-0004]
+    relationship: implements
+    protected_review_required_for:
+      - operator_routing_changes
+      - applicability_scoring_changes
+      - operator_selection_policy_changes
+
+  - public_issue: 1483
+    public_contract: strategy_episode
+    protected_authorities: [IPR-0005, IPR-0189]
+    relationship: implements
+    protected_review_required_for:
+      - efficacy_scoring_changes
+      - strategy_learning_changes
+      - promotion_or_demotion_changes
+
+  - public_issue: 1484
+    public_contract: retrieval_benchmark_record
+    protected_authorities: [IPR-0021]
+    relationship: implements
+    protected_review_required_for:
+      - retrieval_method_selection_changes
+      - ranking_strategy_changes
+      - vendor_or_engine_selection_changes
+
+  - public_issue: 1485
+    public_contract: external_signal_feed_contract
+    protected_authorities: [IPR-0023]
+    relationship: implements
+    protected_review_required_for:
+      - provider_selection_changes
+      - cadence_or_fallback_strategy_changes
+      - rollout_or_reentry_policy_changes
+
+  - public_issue: 1486
+    public_contract: media_attention_artifact_contracts
+    protected_authorities: [IPR-0024]
+    relationship: implements
+    protected_review_required_for:
+      - rollout_choreography_changes
+      - live_platform_strategy_changes
+      - credential_or_scheduling_strategy_changes
+
+  - public_issue: 1488
+    public_contract: compiled_context_artifact
+    protected_authorities: [IPR-0027]
+    relationship: implements
+    protected_review_required_for:
+      - context_selection_policy_changes
+      - ordering_or_precedence_policy_changes
+      - compression_strategy_changes
+      - stable_prefix_promotion_changes
+      - cache_planning_changes
+      - adaptive_packing_changes
+      - fallback_or_reuse_policy_changes
+
+  - public_issue: 1490
+    public_contract: cache_domain_reuse_authorization
+    protected_authorities: [IPR-0028, IPR-0189]
+    relationship: implements
+    protected_review_required_for:
+      - reuse_economics_changes
+      - keepalive_policy_changes
+      - retention_optimization_changes
+      - cache_candidate_selection_changes
+      - stale_risk_savings_strategy_changes
+
+  - public_issue: 1491
+    public_contract: provider_cache_profile_state
+    protected_authorities: [IPR-0029]
+    relationship: implements
+    protected_review_required_for:
+      - hysteresis_or_switch_threshold_changes
+      - profile_reevaluation_policy_changes
+      - warm_window_optimization_changes
+      - provider_handle_coordination_changes
+      - expected_savings_or_profile_ranking_changes
+
+  - public_issue: 1493
+    public_contract: repository_code_index
+    protected_authorities: [IPR-0030]
+    relationship: implements
+    protected_review_required_for:
+      - retrieval_ranking_formula_changes
+      - query_mode_or_reranking_changes
+      - dependency_or_centrality_weighting_changes
+      - retrieval_tier_or_full_source_escalation_changes
+      - budget_pack_selection_changes
+      - retrieval_optimization_changes
+
+  - public_issue: 1495
+    public_contract: rolling_budget_state
+    protected_authorities: [IPR-0031, IPR-0131, IPR-0153, IPR-0173]
+    relationship: implements
+    protected_review_required_for:
+      - cap_staging_policy_changes
+      - consumer_priority_or_resource_allocation_changes
+      - low_budget_action_selection_changes
+      - optional_automation_admission_changes
+      - control_order_or_tightening_sequence_changes
+      - adaptive_budget_policy_changes
+
+  - public_issue: 1497
+    public_contract: planner_exchange_artifacts
+    protected_authorities: [IPR-0032]
+    relationship: implements
+    protected_review_required_for:
+      - snapshot_selection_or_ranking_changes
+      - artifact_filtering_or_cap_allocation_changes
+      - planner_model_or_provider_selection_changes
+      - fallback_or_replan_selection_changes
+      - adaptive_planner_orchestration_changes
+      - context_value_optimization_changes
+
+  - public_issue: 1505
+    public_contract: memory_activation_evaluation_record
+    protected_authorities: [IPR-0033, IPR-0049]
+    relationship: implements
+    protected_review_required_for:
+      - activation_scoring_or_weighting_changes
+      - normalization_or_calibration_changes
+      - activation_event_semantics_changes
+      - decay_or_history_parameter_changes
+      - event_weighting_or_approximation_changes
+      - adaptive_activation_policy_changes
+
+  - public_issue: 1506
+    public_contract: memory_tier_transition_record
+    protected_authorities: [IPR-0050]
+    relationship: implements
+    protected_review_required_for:
+      - tier_transition_threshold_changes
+      - promotion_or_demotion_policy_changes
+      - compaction_or_downsampling_trigger_changes
+      - retention_or_destructive_action_policy_changes
+      - rehydration_or_review_trigger_changes
+      - adaptive_lifecycle_policy_changes
+
+  - public_issue: 1507
+    public_contract: routing_judgment_record
+    protected_authorities: [IPR-0051]
+    relationship: implements
+    protected_review_required_for:
+      - context_burden_classification_changes
+      - impact_classification_changes
+      - policy_sensitive_escalation_changes
+      - signal_combination_or_threshold_changes
+      - branch_selection_or_budget_tradeoff_changes
+      - routing_calibration_or_adaptive_policy_changes
+
+  - public_issue: 1508
+    public_contract: tool_surface_budget_observation_record
+    protected_authorities: [IPR-0052]
+    relationship: implements
+    protected_review_required_for:
+      - tool_budget_threshold_changes
+      - risk_or_breadth_aggregation_changes
+      - ambiguity_or_context_waste_regression_changes
+      - consolidation_or_profile_tightening_changes
+      - broker_policy_consequence_changes
+      - adaptive_tool_surface_optimization_changes
+
+  - public_issue: 1509
+    public_contract: work_orchestration_lifecycle_record
+    protected_authorities: [IPR-0053]
+    relationship: implements
+    protected_review_required_for:
+      - prioritization_or_frontier_selection_changes
+      - work_shape_or_decomposition_policy_changes
+      - procedure_or_executor_selection_changes
+      - scheduling_or_resource_allocation_changes
+      - escalation_or_repair_routing_changes
+      - production_frontier_learning_changes
+
+  - public_issue: 1510
+    public_contract: persona_drift_evaluation_record
+    protected_authorities: [IPR-0055]
+    relationship: implements
+    protected_review_required_for:
+      - drift_metric_or_feature_composition_changes
+      - normalization_or_axis_weighting_changes
+      - governance_threshold_changes
+      - recenter_or_review_trigger_changes
+      - measurement_cadence_or_baseline_policy_changes
+      - drift_calibration_or_adaptive_control_changes
+  - public_issue: 143
+    public_contract: public_contract_143
+    protected_authorities: [IPR-0185]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 457
+    public_contract: public_contract_457
+    protected_authorities: [IPR-0131, IPR-0153, IPR-0173]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1035
+    public_contract: public_contract_1035
+    protected_authorities: [IPR-0189]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1036
+    public_contract: public_contract_1036
+    protected_authorities: [IPR-0186]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1184
+    public_contract: public_contract_1184
+    protected_authorities: [IPR-0185]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1506
+    public_contract: public_contract_1506
+    protected_authorities: [IPR-0186]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1507
+    public_contract: public_contract_1507
+    protected_authorities: [IPR-0131, IPR-0153, IPR-0173]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1522
+    public_contract: contact_assessment
+    protected_authorities: [IPR-0124, IPR-0144, IPR-0145, IPR-0146, IPR-0155, IPR-0161]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1523
+    public_contract: source_quality
+    protected_authorities: [IPR-0147, IPR-0148, IPR-0149, IPR-0156]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1524
+    public_contract: ranking_evidence
+    protected_authorities: [IPR-0151, IPR-0152, IPR-0194]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1525
+    public_contract: advisory_synthesis
+    protected_authorities: [IPR-0128, IPR-0154]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1526
+    public_contract: codec_capability
+    protected_authorities: [IPR-0162]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1527
+    public_contract: decode_decision
+    protected_authorities: [IPR-0132, IPR-0187]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1528
+    public_contract: scheduler_decision
+    protected_authorities: [IPR-0169]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1529
+    public_contract: research_intake
+    protected_authorities: [IPR-0171, IPR-0172]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1530
+    public_contract: embedding_artifact
+    protected_authorities: [IPR-0176, IPR-0178, IPR-0180, IPR-0181, IPR-0208]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1531
+    public_contract: disambiguation_evidence
+    protected_authorities: [IPR-0177, IPR-0179, IPR-0204, IPR-0209]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1532
+    public_contract: skill_selection
+    protected_authorities: [IPR-0157, IPR-0159, IPR-0174, IPR-0175]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1533
+    public_contract: source_trust
+    protected_authorities: [IPR-0190]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1534
+    public_contract: graph_query
+    protected_authorities: [IPR-0193]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1535
+    public_contract: analysis_admission
+    protected_authorities: [IPR-0192]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1536
+    public_contract: capability_transfer
+    protected_authorities: [IPR-0196]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1537
+    public_contract: coherence_evidence
+    protected_authorities: [IPR-0136]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1538
+    public_contract: code_pattern
+    protected_authorities: [IPR-0138]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1539
+    public_contract: impact_evidence
+    protected_authorities: [IPR-0139]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1540
+    public_contract: content_risk
+    protected_authorities: [IPR-0163, IPR-0206]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1541
+    public_contract: entity_resolution
+    protected_authorities: [IPR-0195]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1542
+    public_contract: exploration_trace
+    protected_authorities: [IPR-0205]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+  - public_issue: 1543
+    public_contract: dialogue_study
+    protected_authorities: [IPR-0141]
+    relationship: implements
+    protected_review_required_for:
+      - implementation_behavior_changes
+    validation_references:
+      - public_schema_and_fixture_contract
+
+
+  - public_issue: 1625
+    public_contract: correction_amendment_profile
+    protected_authorities: [IPR-0039]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - implementation_behavior_changes
+      - trust_weighting_or_admission_policy_changes
+    validation_references:
+      - public_correction_amendment_schema_and_adversarial_fixtures
+
+
+  - public_issue: 1670
+    public_contract: salience_evidence_profile
+    protected_authorities: [IPR-0218]
+    relationship: implements
+    protected_review_required_for:
+      - private_salience_estimation_policy_changes
+      - recursive_scale_aggregation_policy_changes
+      - attention_or_assimilation_policy_changes
+    validation_references:
+      - public_salience_schema_and_interoperability_fixtures
+
+
+  - public_issue: 1692
+    public_contract: counterfactual_mechanism_evaluation_profile
+    protected_authorities: [IPR-0219]
+    relationship: implements
+    protected_review_required_for:
+      - candidate_selection_policy_changes
+      - comparator_or_threshold_policy_changes
+      - adaptive_substitution_or_promotion_recommendation_changes
+    validation_references:
+      - public_counterfactual_evaluation_schema_and_fixtures
+
+
+  - public_issue: 1694
+    public_contract: salience_evidence_profile_schema_implementation
+    protected_authorities: [IPR-0218]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - private_salience_behavior_assumptions
+      - implementation_changes_that_depend_on_private_estimation_or_gating_policy
+    validation_references:
+      - public_salience_schema_and_interoperability_fixtures
+
+  - public_issue: 1695
+    public_contract: counterfactual_mechanism_evaluation_schema_implementation
+    protected_authorities: [IPR-0219]
+    relationship: requires_review_of
+    protected_review_required_for:
+      - private_candidate_selection_or_threshold_assumptions
+      - implementation_changes_that_depend_on_private_substitution_policy
+    validation_references:
+      - public_counterfactual_evaluation_schema_and_fixtures
+
+
+notes:
+  - >-
+    This initial bridge is intentionally incomplete. New edges MUST be added as
+    public/private split work creates or discovers protected implementation authority.
+  - >-
+    Absence of an IPR edge is not proof that no protected requirement exists. Internal
+    engineering still performs authority discovery for material behavioral changes.

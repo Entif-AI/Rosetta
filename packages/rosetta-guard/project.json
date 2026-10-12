@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run packages/rosetta-guard/src/lib/rosetta-guard.spec.ts"
+        "command": "vitest run packages/rosetta-guard/src/lib/*.spec.ts"
       },
       "cache": true,
       "inputs": [

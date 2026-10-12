@@ -1,0 +1,40 @@
+---
+import { getEntry } from 'astro:content';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { getPublishedEntries } from '../../lib/site-data';
+import { joinBasePath } from '../../lib/content';
+const page = await getEntry('pages', 'archive');
+if (!page) throw new Error('Missing archive copy');
+const dates = [
+  ...new Set(
+    (await getPublishedEntries())
+      .filter((e) => e.data.kind !== 'project')
+      .map((e) => e.data.published.toISOString().slice(0, 10))
+  ),
+];
+---
+
+<ContentPageLayout
+  title={page.data.eyebrow}
+  description={page.data.description}
+  eyebrow={page.data.eyebrow}
+  heading={page.data.title}
+  lede={page.data.description}
+>
+  <ul class="archive-list">
+    {
+      dates.map((date) => (
+        <li>
+          <a
+            href={joinBasePath(
+              import.meta.env.BASE_URL,
+              `archive/${date.replaceAll('-', '/')}/`
+            )}
+          >
+            <time datetime={date}>{date}</time>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ContentPageLayout>

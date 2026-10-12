@@ -1,0 +1,54 @@
+---
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { getPublishedEntries, toSummary } from '../../lib/site-data';
+import { toContentCard } from '../../lib/content';
+import { copy, formatCopy } from '../../lib/copy';
+export async function getStaticPaths() {
+  const entries = (await getPublishedEntries()).filter(
+    (e) => e.data.kind !== 'project'
+  );
+  const dates = new Set<string>();
+  entries.forEach((e) => {
+    const date = e.data.published
+      .toISOString()
+      .slice(0, 10)
+      .replaceAll('-', '/');
+    dates.add(date.slice(0, 4));
+    dates.add(date.slice(0, 7));
+    dates.add(date);
+  });
+  return [...dates].map((date) => ({
+    params: { date },
+    props: {
+      date,
+      entries: entries.filter((e) =>
+        e.data.published
+          .toISOString()
+          .slice(0, 10)
+          .replaceAll('-', '/')
+          .startsWith(date)
+      ),
+    },
+  }));
+}
+const { date, entries } = Astro.props;
+---
+
+<ContentPageLayout
+  title={`${copy.archive} · ${date}`}
+  description={formatCopy(copy.archiveDescription, { date })}
+  eyebrow={copy.archive}
+  heading={date}
+>
+  <div class="card-grid">
+    {
+      entries.map((entry) => (
+        <ContentCard
+          headingLevel={2}
+          card={toContentCard(toSummary(entry), import.meta.env.BASE_URL)}
+        />
+      ))
+    }
+  </div>
+</ContentPageLayout>

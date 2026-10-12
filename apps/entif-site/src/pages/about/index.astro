@@ -1,0 +1,192 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import AboutPageLayout from '../../layouts/AboutPageLayout.astro';
+import AboutHero from '../../components/about/AboutHero.astro';
+import AboutIcon from '../../components/about/AboutIcon.astro';
+import DoctrineLibrary from '../../components/about/DoctrineLibrary.astro';
+import { getAboutArtwork } from '../../lib/about-art';
+import { getDoctrinePath, doctrineIds } from '../../lib/doctrine';
+import { joinBasePath } from '../../lib/content';
+import { copy } from '../../lib/copy';
+
+const entry = await getEntry('pages', 'about');
+if (!entry?.data.about) throw new Error('Missing validated About presentation');
+const { Content } = await render(entry);
+const content = entry.data.about;
+const docs = (await getCollection('doctrine'))
+  .map((e) => e.data)
+  .sort((a, b) => a.id.localeCompare(b.id));
+if (
+  docs.length !== doctrineIds.length ||
+  docs.some((d, i) => d.id !== doctrineIds[i]) ||
+  new Set(docs.map((d) => d.heroImage)).size !== docs.length
+)
+  throw new Error(
+    'About requires the complete distinct public doctrine suite.'
+  );
+const byId = new Map(docs.map((d) => [d.id, d]));
+const projectPath = joinBasePath(import.meta.env.BASE_URL, 'projects/');
+---
+
+<AboutPageLayout title={entry.data.title} description={entry.data.description}>
+  <AboutHero
+    title={entry.data.title}
+    eyebrow={entry.data.eyebrow}
+    description={entry.data.description}
+    image={getAboutArtwork(content.heroImage)}
+  >
+    <div class="about-actions">
+      <a class="about-action" href="#doctrine"
+        >{content.heroAction}<span aria-hidden="true">→</span></a
+      >
+      <a class="about-action about-action-quiet" href="#mission"
+        >{content.heroSecondaryAction}</a
+      >
+    </div>
+    <p class="about-art-note">{copy.doctrine.illustration}</p>
+  </AboutHero>
+
+  <section
+    id="mission"
+    class="about-stage about-light"
+    aria-labelledby="about-mission-heading"
+    data-test-id="about-mission"
+  >
+    <div class="stage-shell about-split">
+      <div>
+        <p class="about-eyebrow">{content.mission.eyebrow}</p>
+        <h2 id="about-mission-heading">{content.mission.title}</h2>
+        <p class="about-lead">{content.mission.description}</p>
+        <p class="about-status-note">{content.mission.note}</p>
+      </div>
+      <ul class="about-values">
+        {
+          content.mission.values.map((value) => (
+            <li>
+              <>
+                <AboutIcon name={value.icon} />
+                <div>
+                  <>
+                    <h3>{value.title}</h3>
+                    <p>{value.description}</p>
+                  </>
+                </div>
+              </>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section
+    class="about-stage about-principles"
+    aria-labelledby="about-principles-heading"
+    data-test-id="about-principles"
+  >
+    <div class="stage-shell">
+      <p class="about-eyebrow">{content.principles.eyebrow}</p>
+      <h2 id="about-principles-heading">{content.principles.title}</h2>
+      <p class="about-lead reading-measure">{content.principles.description}</p>
+      <ul class="about-principle-grid">
+        {
+          content.principles.items.map((principle) => {
+            const doc = byId.get(principle.document);
+            if (!doc)
+              throw new Error(
+                `Missing principle document: ${principle.document}`
+              );
+            return (
+              <li>
+                <a
+                  class="about-principle-card"
+                  href={getDoctrinePath(doc.slug, import.meta.env.BASE_URL)}
+                >
+                  <AboutIcon name={principle.icon} />
+                  <h3>{principle.title}</h3>
+                  <p>{principle.description}</p>
+                  <>
+                    <span class="about-principle-reference">
+                      {doc.id}
+                      <span aria-hidden="true">↗</span>
+                    </span>
+                  </>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section
+    class="about-stage about-light about-founder"
+    aria-labelledby="about-founder-heading"
+    data-test-id="about-founder"
+  >
+    <div class="stage-shell">
+      <div class="about-founder-grid">
+        <div>
+          <p class="about-eyebrow">{content.founder.eyebrow}</p>
+          <h2 id="about-founder-heading">{content.founder.name}</h2>
+          <p class="about-founder-role">{content.founder.role}</p>
+          <p class="about-lead">{content.founder.description}</p>
+        </div>
+        <div>
+          <figure class="about-founder-quote">
+            <span class="about-quote-mark" aria-hidden="true">“</span>
+            <blockquote><p>{content.founder.quote}</p></blockquote>
+            <figcaption>{content.founder.quoteCredit}</figcaption>
+          </figure>
+          <ul class="about-founder-skills">
+            {
+              content.founder.skills.map((skill) => (
+                <li>
+                  <>
+                    <AboutIcon name={skill.icon} />
+                    <span>{skill.title}</span>
+                  </>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <details id="full-bio" class="about-bio-details" data-test-id="about-bio">
+        <summary class="about-action"
+          >{content.founder.bioLabel}<span aria-hidden="true">＋</span></summary
+        >
+        <div class="about-bio-prose"><Content /></div>
+      </details>
+    </div>
+  </section>
+
+  <DoctrineLibrary entries={docs} content={content.doctrine} />
+
+  <section
+    class="about-stage about-closing"
+    aria-labelledby="about-closing-heading"
+    data-test-id="about-closing"
+  >
+    <Image
+      src={getAboutArtwork(content.closing.heroImage)}
+      alt=""
+      widths={[640, 960, 1280, 1672]}
+      sizes="100vw"
+      format="webp"
+      quality={85}
+      loading="lazy"
+      class="about-closing-image"
+    />
+    <div class="stage-shell about-closing-copy">
+      <p class="about-eyebrow">{content.closing.eyebrow}</p>
+      <h2 id="about-closing-heading">{content.closing.title}</h2>
+      <p class="about-lead">{content.closing.description}</p>
+      <a class="about-action" href={projectPath}
+        >{content.closing.action}<span aria-hidden="true">→</span></a
+      >
+    </div>
+  </section>
+</AboutPageLayout>

@@ -1,0 +1,37 @@
+{
+  "role": "public-engineering-lifecycle-conformance-proof",
+  "issue": 1726,
+  "provingWork": 1693,
+  "codeBaseRevision": "b99ff2428002b35d4d1a5c8fd18c3ae5005e31b4",
+  "workingTreeDirty": true,
+  "implementationSourceDigests": {
+    "packages/projection-adapters/src/lib/engineering-lifecycle.ts": "3ba6398920093f15aa91bc5e27a852ec867cb2ffc245965e893652f234acb070",
+    "packages/rosetta-schemas/src/lib/engineering-lifecycle.ts": "0728b9346636618ca701cdfb51765e08828741272038e735852c8aff9e06396f",
+    "packages/rosetta-schemas/src/lib/work-lifecycle.ts": "0892b08d106f91841cb32765ca87beb9f83e0f87ce9e5db6a764ee5b0c7ef492",
+    "tools/engineering-evidence/prove.mjs": "abe627a1063babbdbb7e634c978b397d84ed48ef363ab740a93f441d3209c1bd"
+  },
+  "sourceRecordCid": "cidv1-sha256-89442256838479a6cf44193578ad9a5b409c5db5050c9afaaab42d7aa1ff1952",
+  "sourceManifestationCid": "cidv1-sha256-42317c0a9337f0d35c89cd3fd5c72a2b8c0d2395b720fb9ad0bde573626f4688",
+  "inputDigest": "60cfb3ff8b82751ca7987171579c1fccef08eaa795f0577de3811ba22a90b8c0",
+  "sourceDigest": "5ca8f59699e08a7cd3bdf4017d5e7afefae9b96c79d7884b86183b10dd3e6813",
+  "normalizedDigest": "6082f00460d44d96ae3b72e92cfbe8cefb693e363da6eecf794a94952109cb8f",
+  "closureDigest": "d5c41ac624a4555bb6cde9fe7ae7b92bfb7feca53533db90896b181d2b3d56d4",
+  "records": 4,
+  "sourceReferences": 13,
+  "nodeCount": 29,
+  "edgeCount": 49,
+  "deterministicRebuild": true,
+  "sourceDigestsVerified": true,
+  "graphRuntime": "passed",
+  "limitations": [
+    "Historical executor identity is not durably exposed.",
+    "Red/green timing and hidden model configuration are not reconstructed.",
+    "Local test evidence is externally attested by committed artifacts; hosted workflows verify the captured final head.",
+    "Adapter record createdAt is capture/materialization time, not inferred original work-event time.",
+    "PR integration is recorded; the captured issue remains open."
+  ],
+  "databaseVersion": "5.26.0",
+  "idempotentImport": true,
+  "scopedReset": true,
+  "rebuiltClosureAndQuery": true
+}

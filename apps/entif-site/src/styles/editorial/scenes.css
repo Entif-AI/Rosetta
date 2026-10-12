@@ -1,0 +1,124 @@
+/* Narrative figures. All color choices stay local to the editorial experience. */
+.story-scene {
+  --scene-night: var(--ink);
+  --scene-paper: var(--accent-soft);
+  --scene-signal: #f4c47c;
+  --scene-rule: #a3b1c7;
+  position: relative;
+  max-width: none;
+  margin: 4rem 0;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  color: var(--ink);
+  background: var(--canvas);
+  isolation: isolate;
+}
+.scene-overline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid currentColor;
+}
+.story-scene h2 {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 2rem 0;
+  max-width: none;
+  text-wrap: balance;
+}
+.story-scene h3 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+}
+.story-scene p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+.machine-label,
+.scene-kicker {
+  display: block;
+  font-size: 0.93rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.story-scene figcaption {
+  font-size: 1.1rem;
+  letter-spacing: 0.057rem;
+  line-height: 1.6;
+  max-width: 65rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--scene-rule);
+  color: var(--ink);
+  font-weight: 300;
+}
+.scene-choice {
+  border: 0;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.scene-choice legend {
+  font-size: 0.93rem;
+  margin-bottom: 1rem;
+}
+.scene-choice label {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.93rem;
+}
+.scene-choice label:has(:checked) {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+.scene-choice input {
+  margin: 0;
+  accent-color: var(--accent);
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+.scene-choice label:focus-within {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (max-width: 40rem) {
+  .story-scene {
+    margin-block: 2.5rem;
+    padding: 1.5rem 1rem;
+  }
+  .scene-overline {
+    font-size: 0.6875rem;
+  }
+  .scene-choice {
+    display: grid;
+  }
+}
+@media print {
+  .story-scene {
+    break-inside: avoid;
+    background: none !important;
+    color: var(--ink) !important;
+    padding: 1rem 0;
+    margin: 2rem 0;
+  }
+  .scene-choice {
+    display: none;
+  }
+}

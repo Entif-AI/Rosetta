@@ -1,8 +1,9 @@
 ---
+import ScrollTop from '../components/ScrollTop.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { joinBasePath } from '../lib/content';
-import '../styles/global.css';
+import '../styles/global.scss';
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const { title, description, noindex = false } = Astro.props;
-const pageTitle = title === 'Entif AI' ? title : `${title} · Entif AI`;
+const pageTitle = title.includes('Entif.AI') ? title : `${title} · Entif.AI`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const logoPath = joinBasePath(
   import.meta.env.BASE_URL,
@@ -38,12 +39,32 @@ const logoPath = joinBasePath(
       content={new URL(logoPath, Astro.site ?? Astro.url.origin)}
     />
     <title>{pageTitle}</title>
+    <slot name="head" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-85BLT96B14"></script>
+
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-85BLT96B14');
+    </script>
   </head>
+
   <body>
     <SiteHeader />
     <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <SiteFooter />
+    <ScrollTop />
   </body>
 </html>

@@ -1,0 +1,46 @@
+{
+  "profile": "compiled-context-validation-v1",
+  "observedAt": "2026-10-04T15:30:02.885408+00:00",
+  "baseCommit": "b9dabac0ff795976e208cc71c2879abbc2411bcd",
+  "posture": "working-tree-source-digests",
+  "sourceDigests": {
+    "packages/rosetta-schemas/src/lib/compiled-context.ts": "cd69a610a9bd6fa883b597c6b8fb7351883fa15432d8c36815e167b5f83353ab",
+    "packages/rosetta-schemas/src/lib/compiled-context.spec.ts": "693c0e39a5e1f136dbaf708695587df58fcb1675391e84b57414ce405393b51a",
+    "packages/rosetta-schemas/src/lib/evidence-contract-validation.ts": "94e33a3b842d5381d4f045b229985c49909c94c6541fa1e14fbd89bdff4ec305",
+    "packages/rosetta-schemas/src/lib/graph-view.ts": "f689d728592ee8667d35332258a51766eef7657084ef196f8767e2dbc39fcae8",
+    "packages/rosetta-schemas/docs/compiled-context-v1.schema.json": "8c0bc589944e24fe7a60d2a4c3835e51d7c44fa32d426862b8055315bcfba3a0",
+    "packages/rosetta-schemas/docs/compiled-context-block-v1.schema.json": "55774c0deb48ed74b9242a806ebe7ce67c86556eada2d2d3d20716d4f739ea3e"
+  },
+  "focusedTests": {
+    "passed": 25,
+    "failed": 0,
+    "requiredScenarios": 19
+  },
+  "ownerChecks": {
+    "command": "NX_DAEMON=false pnpm exec nx run-many -p rosetta-schemas -t lint,typecheck,test,build --parallel=1",
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "test": {
+      "passed": 180,
+      "failed": 0
+    },
+    "tasks": 10,
+    "cachedTasks": 6
+  },
+  "schemaSync": {
+    "passed": 5
+  },
+  "specAdmission": {
+    "status": "passed",
+    "tasks": 10,
+    "cachedTasks": 2
+  },
+  "nxSyncCheck": "passed",
+  "coreDescent": "derived-projection",
+  "semanticOwnerIssue": 1488,
+  "protectedAuthority": "IPR-0027",
+  "protectedPolicyChanged": false,
+  "graphViewSharedInvariantRetested": true,
+  "noEffectAuthorityGranted": true
+}

@@ -1,37 +1,69 @@
 ---
 import { joinBasePath } from '../lib/content';
-
-const baseUrl = import.meta.env.BASE_URL;
+import { copy } from '../lib/copy';
+import Icon from './Icon.astro';
+const base = import.meta.env.BASE_URL;
+const links = [
+  ['research', 'research/'],
+  ['articles', 'articles/'],
+  ['projects', 'projects/'],
+  ['about', 'about/'],
+  ['contact', 'contact/'],
+] as const;
+const socials = [
+  ['youtube', 'YouTube', 'https://youtube.com/@Entif-AI'],
+  ['x', 'X', 'https://x.com/entifai'],
+  ['github', 'GitHub', 'https://github.com/entif-ai/'],
+] as const;
 ---
 
-<header class="site-header">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header" data-test-id="site-header">
+  <a class="skip-link" href="#main-content" data-test-id="site-skip-link"
+    >{copy.skip}</a
+  >
   <div class="shell header-inner">
     <a
       class="brand"
-      href={joinBasePath(baseUrl, '')}
-      aria-label="Entif AI home"
-    >
-      <img
-        src={joinBasePath(baseUrl, 'brand/entif-logo.webp')}
-        width="44"
-        height="44"
-        alt=""
+      href={joinBasePath(base, '')}
+      aria-label={copy.homeLabel}
+      data-test-id="site-brand-home"
+      ><img
+        src={joinBasePath(base, 'brand/entif-logo.webp')}
+        width="56"
+        height="56"
+        alt={copy.logoAlt}
         decoding="async"
-      />
-      <span>Entif AI</span>
-    </a>
-    <nav aria-label="Primary navigation">
+      /><span>{copy.brandTagline}</span></a
+    >
+    <nav aria-label={copy.navigation}>
       <ul class="nav-list">
-        <li><a href={joinBasePath(baseUrl, 'tags/')}>Tags</a></li>
-        <li><a href={joinBasePath(baseUrl, 'projects/')}>Projects</a></li>
-        <li><a href={joinBasePath(baseUrl, 'team/')}>Team</a></li>
-        <li><a href={joinBasePath(baseUrl, 'contact/')}>Contact</a></li>
-        <li>
-          <a href="https://github.com/entif-ai/rosetta" rel="external">GitHub</a
-          >
-        </li>
+        {
+          links.map(([key, path]) => (
+            <li>
+              <a
+                href={joinBasePath(base, path)}
+                aria-current={
+                  Astro.url.pathname === joinBasePath(base, path)
+                    ? 'page'
+                    : undefined
+                }
+                data-test-id={`site-nav-${key}`}
+              >
+                {copy[key]}
+              </a>
+            </li>
+          ))
+        }
       </ul>
+    </nav>
+    <nav class="social-links" aria-label={copy.socialLabel}>
+      {
+        socials.map(([icon, label, href]) => (
+          <a href={href} aria-label={label} title={label} rel="external">
+            <Icon name={icon} />
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>

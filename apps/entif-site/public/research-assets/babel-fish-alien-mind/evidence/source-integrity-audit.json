@@ -1,0 +1,2135 @@
+{
+  "source_id": "P-GEM-190",
+  "bytes": 499271,
+  "raw_sha256": "71b8a324b0c83901c793f52cec91f876cac8754498b29dd201e1442dd3b0a33d",
+  "record_count": 190,
+  "roles": {
+    "user": 113,
+    "assistant": 77
+  },
+  "content_types": {
+    "text": 190,
+    "thinking": 72
+  },
+  "assistant_model_ids": {
+    "models/gemini-3.8-flash": 77
+  },
+  "created_at_values": {
+    "": 190
+  },
+  "updated_at_values": {
+    "1788465827573": 119,
+    "1788465827574": 71
+  },
+  "duplicate_assistant_texts": [
+    {
+      "sha256": "d8def862be607e327d5951d8e7009543ea715d5bf553d6cc6df96c3d1123d559",
+      "record_ids": ["google_566", "google_568"]
+    }
+  ],
+  "limitations": [
+    "Filename identifies Gemini 3.1 Pro; all assistant modelId fields identify models/gemini-3.8-flash. Backend identity is not independently authenticated.",
+    "Export thinking blocks are model-produced text, not privileged telemetry.",
+    "No content block is an authenticated search/tool event. Search narration cannot prove execution.",
+    "Record count is export denominator, not independent experimental trials.",
+    "No exact structured 588-record artifact has been resolved."
+  ],
+  "blocks": [
+    {
+      "record_id": "google_398",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "f554f27f7010e46f573e2982d334521048d351489ca46407c1da2dfdcf85ccf9",
+      "bytes": 374
+    },
+    {
+      "record_id": "google_399",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "db76750a6662c0073ec976d198b1996c92c7ed5483eb5b397532c1b09adec32d",
+      "bytes": 1431
+    },
+    {
+      "record_id": "google_399",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "afec1333b0839309c0aa68d3d8cc966762fab55813331ad1d1acac10306e2118",
+      "bytes": 2739
+    },
+    {
+      "record_id": "google_400",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "595338d3f5e7ac3f23b1f2ea045dd7d8e967a6e23f1d3d43a5dead63949f0479",
+      "bytes": 374
+    },
+    {
+      "record_id": "google_401",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "d4ea45946383ce3eeb603bcf4a0f170ffececfa1b74381463ae708d035aea1c3",
+      "bytes": 3005
+    },
+    {
+      "record_id": "google_401",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "4f56da25857c5b73519be18ec5b912f6a676444645da0f46960d3948142dd84a",
+      "bytes": 2292
+    },
+    {
+      "record_id": "google_402",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "4521413ad4032322e9bc8ee87fb08cf33da65181e7127568743e72578846f688",
+      "bytes": 508
+    },
+    {
+      "record_id": "google_403",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "8bdde4a63342f1e696621b0d896371e96d03bb1b19e25d9fe21704ad7d6c4af4",
+      "bytes": 1036
+    },
+    {
+      "record_id": "google_403",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "24229a6558ead5c41cfaf7cf5030d8fafabf9c56cd7d25f68cb60aabeefe5802",
+      "bytes": 3770
+    },
+    {
+      "record_id": "google_404",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "33fddf6c9a3cf38baa215205405a611b6c16cb87f87e54c45858000046b305b1",
+      "bytes": 1347
+    },
+    {
+      "record_id": "google_405",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "c2389c2e9dbcee9ef934f28cc30cde18dd7cd90fad7e8e8ff98cbffdc4ea7982",
+      "bytes": 1708
+    },
+    {
+      "record_id": "google_405",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "fdca397363f13ee305b1d36234cadc6ca693f305bf7e20bab3b16d1eda0911c4",
+      "bytes": 3871
+    },
+    {
+      "record_id": "google_406",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "6bc3bf472abf4403d64e3b278406fa2e84072e0764633e4d58850f5400e1280a",
+      "bytes": 2249
+    },
+    {
+      "record_id": "google_407",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "f2348c256c244ad6ecdb597bbe7159ebd3e92c5d476e0c7a0777351e3bd1509b",
+      "bytes": 2602
+    },
+    {
+      "record_id": "google_407",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "eea6e5012a80cad6cd60415b75f0bf8aa3abb9e3e05ece5692d0895ea99a581d",
+      "bytes": 5539
+    },
+    {
+      "record_id": "google_408",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "00d22a33c58dd7a41798645571c091804e1b010bcaf24ee99998c8a5a16f6c84",
+      "bytes": 829
+    },
+    {
+      "record_id": "google_409",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "c627e037377bcd44bbf11c91a5c951f8145ce52a71b3f2e5f42df3afae935a00",
+      "bytes": 1422
+    },
+    {
+      "record_id": "google_409",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "8745263ec62f7eef20f9da0a66e20254d20dd628f0ade5c10d8c8bfa8d9a595a",
+      "bytes": 4589
+    },
+    {
+      "record_id": "google_410",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "24138a20b6d28f918b4f2cd85d2f3dd79a4132bdaf4952f0bd9c46c223bd5eb8",
+      "bytes": 227
+    },
+    {
+      "record_id": "google_411",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "a989d996c8750bb5b02ffe417b32cf380df710f36051a00f5eada3ab65a90a5c",
+      "bytes": 1989
+    },
+    {
+      "record_id": "google_411",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "b6a89e91e5e88272e0ef2d79e71b257e29ae9955b6de5d0bd971dcf338863f2c",
+      "bytes": 1916
+    },
+    {
+      "record_id": "google_412",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "7e75b971b3be6946387835c134ab7bba07425b2af407ca83595dfb49db7a94f2",
+      "bytes": 116
+    },
+    {
+      "record_id": "google_413",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "71414de73f4f38c574c89d7bb00776420e2cc8ad83d763af25e3a6ada429d2f4",
+      "bytes": 1551
+    },
+    {
+      "record_id": "google_413",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "1fc27807ca392382cfbf96a4c13940e3a712953f85d38a4ac92da8672b393401",
+      "bytes": 1497
+    },
+    {
+      "record_id": "google_414",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_415",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "c224d17066b40be98e3b5eab2059f2b08598c1dcd6773f31f2a2a9fe37741d28",
+      "bytes": 486
+    },
+    {
+      "record_id": "google_416",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "51526a3fea9f4d9313520207a25d39f4ae2b85889ac986e50cae6be7d5d76ca0",
+      "bytes": 1773
+    },
+    {
+      "record_id": "google_416",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "1cbd2035ae7be474f250f181cf972786dd14cda222bbaa1f9622c1485242cf82",
+      "bytes": 2438
+    },
+    {
+      "record_id": "google_417",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "c4f0b10c5f8c09a9fcc3925006cbe918cf4d855041ffd29fb23e7be3700d2051",
+      "bytes": 243
+    },
+    {
+      "record_id": "google_418",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "1991dca58561b57db158f0d62d9f5cb64f8edea9f549489493c368623f58aba0",
+      "bytes": 1808
+    },
+    {
+      "record_id": "google_418",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "804e4e20a69c189b2146623ad4c403b4709bc8d9a3d55852b48804c4f24e0f43",
+      "bytes": 2980
+    },
+    {
+      "record_id": "google_419",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e6899da9b321d2ff5c4d8eb39975e6913fa818ea825df8618250d809e1537fad",
+      "bytes": 276
+    },
+    {
+      "record_id": "google_420",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "c3f5b036b3d84da6a44db7c90914677c70e9df5f3b603279659b9a1d7751bbe2",
+      "bytes": 1202
+    },
+    {
+      "record_id": "google_420",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "7ef54dcae7b882e1e83cf244ab284e50a5fdcb740f594bb344e71627c1466313",
+      "bytes": 2559
+    },
+    {
+      "record_id": "google_421",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "f5a0ddeab89931184d0bb7c5b632f6d5caaa2b6834634b60142d37df0fe3d206",
+      "bytes": 125
+    },
+    {
+      "record_id": "google_422",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "89053016a48e88923f9121530719a13a2d694afb56f137efb5f4304a114943dd",
+      "bytes": 1908
+    },
+    {
+      "record_id": "google_422",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "44926473721876ac86c6f56407049d5c74bf107759127044d8355e8f7d36cd1e",
+      "bytes": 2011
+    },
+    {
+      "record_id": "google_423",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3fec6ba463c4406565e1cd20d657a3fa7bcca1d6fa3dbb56e3c9057f490aeab",
+      "bytes": 935
+    },
+    {
+      "record_id": "google_424",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "2e54f8168e790bf3f98d9c43ff8107898657b6ed5f2226bb79f9a14d2713291a",
+      "bytes": 4010
+    },
+    {
+      "record_id": "google_425",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e80a2e0fa7920e3e4c5419a0876906ab0d9c3e82a2579bde29776e5d66d7e4cc",
+      "bytes": 717
+    },
+    {
+      "record_id": "google_426",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "e16cd91b14504f5ff605130f8137c437f18f58b9b4d35797486df98b5f382a26",
+      "bytes": 3300
+    },
+    {
+      "record_id": "google_426",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "ddfd7cf527b932e76ce11ca3b645dcae4b69fc4d674162792541000a3d8f2e92",
+      "bytes": 3656
+    },
+    {
+      "record_id": "google_427",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "c1be999e2dde52ad5cfb5ddc92a8bb724219317b21ef843ee9cc9b4d13e69978",
+      "bytes": 3135
+    },
+    {
+      "record_id": "google_428",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "e1f4e4f8def5f175884e266a831fb6612485175462c95b7828927ec026628fd6",
+      "bytes": 6309
+    },
+    {
+      "record_id": "google_428",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c6f1692e67f9a3b600151e8eb5956e75b8c9059398a8ef4fdec5053d0cfa3460",
+      "bytes": 3738
+    },
+    {
+      "record_id": "google_429",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "8cf8b3d12114f610ae9f7fd06a859c2147c7a13e3f44c5a1edeaf5c763ea4027",
+      "bytes": 27
+    },
+    {
+      "record_id": "google_430",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "983f005999394d9234c63737c1f17ad80724924099dd1afd3739e279851eda01",
+      "bytes": 4340
+    },
+    {
+      "record_id": "google_430",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "dc4e8446f23b560c8217cd254a691fdcfbf7bf5ff9017a408a7a07dbcd6b99df",
+      "bytes": 3135
+    },
+    {
+      "record_id": "google_431",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "20b44025c36e60eff50c66bda7fd1c0abfbf7203cbb6d9abfd7a285bfddf47fe",
+      "bytes": 741
+    },
+    {
+      "record_id": "google_432",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "b23cbdacc1099eca213fa51275de8612bb5d11d32c3dde917caa72ced598c63d",
+      "bytes": 1071
+    },
+    {
+      "record_id": "google_432",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "4ded8b363dafa3f3bf493b89a6a5cfc74c8181bb6793f7a133fb5a119116f1ff",
+      "bytes": 4563
+    },
+    {
+      "record_id": "google_433",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_434",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_435",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_436",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "61d69b43f548388a0575625ac524292fbfaad856202fdd22b4e46eca436fa9cd",
+      "bytes": 476
+    },
+    {
+      "record_id": "google_437",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "f3664f4a2022bede03a8ba4e4fc22c7fc2d88020ec3f09e06fa43dc0a069b3e1",
+      "bytes": 1340
+    },
+    {
+      "record_id": "google_437",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "493778a24f90ecf5af765193564fa0b43d2bd3921296ccdb57ca7679ee498aab",
+      "bytes": 4896
+    },
+    {
+      "record_id": "google_438",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_439",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "fe7798f41718db4e3b6409df606b703c04332571edd6c7c391c56b653f087540",
+      "bytes": 495
+    },
+    {
+      "record_id": "google_440",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "1ef84d2b72af49bcf570b09b5a6da316d4963a160223dd847cc3728cf64beaea",
+      "bytes": 2622
+    },
+    {
+      "record_id": "google_440",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c6565eb5e1cd74a1206c2f90d111bd7bb08bdcbd9a9482c7aae97c7ee9abd82d",
+      "bytes": 3557
+    },
+    {
+      "record_id": "google_441",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_442",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "56227e56e4805d8599ed56aef4fdd639cc9475db41d6128238ff68aca78fef8b",
+      "bytes": 394
+    },
+    {
+      "record_id": "google_443",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "c011fa284fe7475886f6b4a06393c35bd790d6d40a381c31d844915e82f8b144",
+      "bytes": 1788
+    },
+    {
+      "record_id": "google_443",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "e5137be4d5e1b65ad4820be6e0bd1e1e6609d2d89fa70d285bcc9c2f9b119425",
+      "bytes": 3183
+    },
+    {
+      "record_id": "google_444",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "004852f819c2217f4af34806163313848652aa2b8d54b202fdc4d3f59e7564d4",
+      "bytes": 784
+    },
+    {
+      "record_id": "google_445",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "eb28e5c8df2b6323db388a3f5e3486577d0d4c73ee71b9ff0560ed979495fc51",
+      "bytes": 823
+    },
+    {
+      "record_id": "google_445",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c3d3a5681861ac6fcc42445d1a572c5d7869a0ace3701a4a728b876ad0f69435",
+      "bytes": 3143
+    },
+    {
+      "record_id": "google_446",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "a185921fd28ab2229e52e246309b8c607c365b7adfef63fec76f76b445fa92d6",
+      "bytes": 959
+    },
+    {
+      "record_id": "google_447",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "16d42189b3f60cabbcb1e596d694ce8b5597e12edbcd5128b732bf0dcc36376c",
+      "bytes": 4281
+    },
+    {
+      "record_id": "google_447",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "47c0d47da3a983673929dbb945f9545d2423f4cc8d44dfcc9c901ac4c9c9f3e7",
+      "bytes": 3081
+    },
+    {
+      "record_id": "google_448",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "5cb7d783125bff0466501fa808a12b880defe4b02137703d12deaf729e2cd2f0",
+      "bytes": 434
+    },
+    {
+      "record_id": "google_449",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "faffb204eb668bb30d9d71672845c330c6a51f62829059cf9b6be8cdb8a3c632",
+      "bytes": 1753
+    },
+    {
+      "record_id": "google_449",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "d4b3c6dad22e254631fddcbf2062d5a2df327c5ee99f441ebd88b4c78e68fe0b",
+      "bytes": 1979
+    },
+    {
+      "record_id": "google_450",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_451",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_452",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_453",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "f57618b4778e08635d8294e72af1936ce3268f63e4dfba574a7a9d49e97a70d0",
+      "bytes": 232
+    },
+    {
+      "record_id": "google_454",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "30cb0a5b10383ee1afa35bb6a2d19a59444a2ccade7f981e9b101fab8c168356",
+      "bytes": 2539
+    },
+    {
+      "record_id": "google_454",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "1570a1f269641c1f91b46fe3591e52267e1f0b5ce536683e34a9dafceb9c045b",
+      "bytes": 3526
+    },
+    {
+      "record_id": "google_455",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_456",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "902053005010191d43676ee130cb6a638da0bcc057cc112e002df21cb8c192dd",
+      "bytes": 286
+    },
+    {
+      "record_id": "google_457",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "604c697bdca95745b1c8bbca6c48813e5532e1510b7fbbcb372e6605550724d0",
+      "bytes": 1870
+    },
+    {
+      "record_id": "google_457",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "7c344d398d8e4133147c29b39767788efbc7a7de6aebb66536397e41ed00e961",
+      "bytes": 2815
+    },
+    {
+      "record_id": "google_458",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3870c3fecda149f0ab24c6449aadddbc60e2ffce2a0b699c3472599f42bc45cf",
+      "bytes": 513
+    },
+    {
+      "record_id": "google_459",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "f06bcd7977c904b4a496fffb8c5417ed841e36b490a77bab7746c7b9323b4eb2",
+      "bytes": 1247
+    },
+    {
+      "record_id": "google_459",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "1d60f7bcbd8c0d5f737d119d20a172de0355a839846ac561a74265b78b207670",
+      "bytes": 2388
+    },
+    {
+      "record_id": "google_460",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_461",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3f364073d78502afb1eb7f229f9c8fe2d4f3f3568985dbf8dddf34ea13072bd0",
+      "bytes": 214
+    },
+    {
+      "record_id": "google_462",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "d21aec0cf18df542648d17d085ec27b25e40780fa8d6597e246db980b6b10540",
+      "bytes": 1192
+    },
+    {
+      "record_id": "google_462",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "15ebf52305498cf53b3748fa515fa383b811a5ad47d29a3927a23dbbbce51130",
+      "bytes": 2756
+    },
+    {
+      "record_id": "google_463",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "ee3579babc4e99b72745bc36c66b0fc085c9723d367e69c12cd7192312c4d839",
+      "bytes": 124
+    },
+    {
+      "record_id": "google_464",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "b5d5faf3286a2aaa06a2bce16d5149140dc4fbbae5e3951a96640d560a0a70cb",
+      "bytes": 1350
+    },
+    {
+      "record_id": "google_464",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "62e76e098fcc23fb71d50f2e433785d4b11be6fecbd2bd9dd4b22ea6d02a19e8",
+      "bytes": 2381
+    },
+    {
+      "record_id": "google_465",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "8667a1065857e17158594b5c1506009731a123d56217086e07411c1871eeda33",
+      "bytes": 276
+    },
+    {
+      "record_id": "google_466",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "d2423669c4911d68c64e10ede57a2dec8deae3178aea005d5b6d96b2e23c513f",
+      "bytes": 1071
+    },
+    {
+      "record_id": "google_466",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "b2d0fbe55f5563b0d0f60d10624dff8dd15d3db3bf7d81e812cc8bcc0ac304ab",
+      "bytes": 3036
+    },
+    {
+      "record_id": "google_467",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_468",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "9078784f726eb50b4edd30bb6489593a5256187dc2612cb94dbb7d26c4960e00",
+      "bytes": 419
+    },
+    {
+      "record_id": "google_469",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "68559edba59833cf7bc0ba68184338a6371a19df2a780fd5d5a017278c5cba3c",
+      "bytes": 2072
+    },
+    {
+      "record_id": "google_469",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "aede6b35440ef692d5def47d7dcb4a010ed6739086f18276f5c8a6524af3d5f7",
+      "bytes": 2560
+    },
+    {
+      "record_id": "google_470",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "5fb4e35805229b4e62770e984bea99b7c15ada0038cdc65bb25ff76c6833ff92",
+      "bytes": 496
+    },
+    {
+      "record_id": "google_471",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "2a8efa8fc092049bfe759556fdd622f15ceac2e6db3fe37b95e42b6c5a5c6e7d",
+      "bytes": 1314
+    },
+    {
+      "record_id": "google_471",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "09566a9c8e462703e0779efb949dae444b6003bc3c64d1269d1013ae7b8e660c",
+      "bytes": 3537
+    },
+    {
+      "record_id": "google_472",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "9cf92c3a2119907987abcd8ce4f7b70394d39e0ba4600150a1b00cdb19e96583",
+      "bytes": 636
+    },
+    {
+      "record_id": "google_473",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "3b4148f57e50b9362e4e801e7780e869f038ff5e11a0857bf4ca3192525ccb7a",
+      "bytes": 875
+    },
+    {
+      "record_id": "google_473",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c1113387a0af847f5a7d47fd25402b70d02122599532f3e8ce6670aea570632f",
+      "bytes": 2611
+    },
+    {
+      "record_id": "google_474",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_475",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "f7a744b2f8eea70c6922e0ea198a4627febbb604e8b7815a913cc7c5619ff441",
+      "bytes": 363
+    },
+    {
+      "record_id": "google_476",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "6c34e8ab6fd2118a3564f086f01a0a8ee7c158b837cc2c9f7f3a3965f0d89f16",
+      "bytes": 2601
+    },
+    {
+      "record_id": "google_476",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "02dfa3161bb4375af1487e59256e5069a5268aa8184bcb5e0c48666eb422c580",
+      "bytes": 4150
+    },
+    {
+      "record_id": "google_477",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "139e40ad7d576c41389b306053250e23b4dbb1c2c6ca379ef75939b22d5d891d",
+      "bytes": 502
+    },
+    {
+      "record_id": "google_478",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "4c9bf35a2402a516eef5b3f0c5253f3079542e7976ab7575f9ec604d22c1e7b8",
+      "bytes": 1125
+    },
+    {
+      "record_id": "google_478",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "d19cf8694bed854796c0cb51c635c26809ec47c651bfe9631d924246cf47ed30",
+      "bytes": 3108
+    },
+    {
+      "record_id": "google_479",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_480",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_481",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "55b34e862b51e0c9acb7938fe0cee48acea8f34bf9bdf3487e4d03d245d6845b",
+      "bytes": 175
+    },
+    {
+      "record_id": "google_482",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "0f5a0878818cb1bbe47c66f96bb0b9adb4090e247b70d377025142168fe8395a",
+      "bytes": 857
+    },
+    {
+      "record_id": "google_482",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "1cfcc6ca41703a3b5e7d1503a60854de8b8157f665707c2df6130bf929c1311f",
+      "bytes": 4357
+    },
+    {
+      "record_id": "google_483",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_484",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_485",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "d4265079bfbc825991a841410f388d4bd505d3a53b8c2db0d58470620470b8c1",
+      "bytes": 2
+    },
+    {
+      "record_id": "google_486",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "fb86225869953e799f0dc84975fa9e88ba2cc8c4e9ff0a82591f873c0090ac9a",
+      "bytes": 1095
+    },
+    {
+      "record_id": "google_486",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "cb5567c1bf407baebc08bb6c97d430c76a89e9a6da858db3a1273d5138aac4de",
+      "bytes": 3008
+    },
+    {
+      "record_id": "google_487",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_488",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "7b01642d1310c84bfae07003ee154d1ada226591a7844d0e66c86b6e42bcc492",
+      "bytes": 45
+    },
+    {
+      "record_id": "google_489",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "a4289b4cc9691a60e6fabc46e6ebad0ccf9fa9be235e1a9c2125c09e3c582f30",
+      "bytes": 732
+    },
+    {
+      "record_id": "google_489",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "87789cbe06af5f4721dc9f245b111cf0f7904e949df22001a44705324845245a",
+      "bytes": 1771
+    },
+    {
+      "record_id": "google_490",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3b812c80ebfaad207cbc5830f8b3e65732474bc9ffe0d8ba1850ddaa68ff1862",
+      "bytes": 619
+    },
+    {
+      "record_id": "google_491",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "e017eb626410862be81ad2eb49c9e0e5cd6c20046c454f584c57078845798729",
+      "bytes": 1039
+    },
+    {
+      "record_id": "google_491",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "8e682b3d345977ad6c71ee08b8e61d8663117b4e2556dab6ed842a69c42519da",
+      "bytes": 917
+    },
+    {
+      "record_id": "google_492",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "111b4b986963f167b9f49563d624821cd548c7e35de4e1ad3de53745fce74eba",
+      "bytes": 533
+    },
+    {
+      "record_id": "google_493",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "87475f75f84faa23ab5a55362357f6e98845ba6270ef733fa8375f30cad358d8",
+      "bytes": 852
+    },
+    {
+      "record_id": "google_493",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "90259e7bffe73849633760f348e8edb86cc7378bb494422a16cd5bf28d0a209a",
+      "bytes": 1799
+    },
+    {
+      "record_id": "google_494",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "55f07ffc7329b5c8b7e7a8f73b4b591073701ca97a0ac7a1b7f9d025a935baf4",
+      "bytes": 915
+    },
+    {
+      "record_id": "google_495",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "6b21e459dc8e96718f41936a95057457d36c0a6dc5a2aa9757b5adf599c6cbe9",
+      "bytes": 732
+    },
+    {
+      "record_id": "google_495",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "0d216553e90081f323eb801fde430ec1eb767b3f32b746a46ab7118fda5577e1",
+      "bytes": 1888
+    },
+    {
+      "record_id": "google_496",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "4d31267fffa6bdfe143637e382b631a37231bda0bd9b81c14ab7927296854264",
+      "bytes": 286
+    },
+    {
+      "record_id": "google_497",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "767c8425de747ffe9f557cc0fa3938ca1e03961eac7eb6d8b6f2aae364d25134",
+      "bytes": 1022
+    },
+    {
+      "record_id": "google_497",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "12df73c8bc4929d173678b33d92992f975ea18e535c0478d41b339d4be86b283",
+      "bytes": 2186
+    },
+    {
+      "record_id": "google_498",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_499",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_500",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_501",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_502",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_503",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_504",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "fe7b6c5d6b362bd9573783f1c1dcc135e0855b7e23ec2bf1ba6b936c8656f1fd",
+      "bytes": 340
+    },
+    {
+      "record_id": "google_505",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "cf97a121be7aaa36969576815622dff28f463560b040e4339e4fa4d2809e20e2",
+      "bytes": 2602
+    },
+    {
+      "record_id": "google_505",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "93aa758fd7e87b20383f0b2f865ac709e03036324570237297adca5c90a5424d",
+      "bytes": 4540
+    },
+    {
+      "record_id": "google_506",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "4c39f193b69d101ddf5fb7cfbcd9191cb91e5f670e0e20d1effee8b1638e3fbe",
+      "bytes": 1150
+    },
+    {
+      "record_id": "google_507",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "31f5fa2a9e194186160d34831e6d551e117744270ea31c5010bd0623f3242379",
+      "bytes": 998
+    },
+    {
+      "record_id": "google_507",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "7afbef66606b6a1d63e6accb18fe900439a6d6f2cb6e52e5ad8abfa80b9f6649",
+      "bytes": 3779
+    },
+    {
+      "record_id": "google_508",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_509",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_510",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "df97793d7d9a7048b1ce5a39cf48bf45f28f75058bb74cd8268975e4ceb3082d",
+      "bytes": 965
+    },
+    {
+      "record_id": "google_511",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "6cda3647e41ca4e934d7a27aa619aa9f4a862b19c92afec520ad88d111a72de9",
+      "bytes": 4536
+    },
+    {
+      "record_id": "google_512",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "5b04239d4d796e54f6602421e759f302b16ef40c903d5773a8d206722c76363a",
+      "bytes": 329
+    },
+    {
+      "record_id": "google_513",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "b4790eb6064ae3542c5e7acc099c45a486ad08c7d6f792d532526b184b733a12",
+      "bytes": 3339
+    },
+    {
+      "record_id": "google_513",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "bfc981df1cf560d7421e638f368bfe579f45f284846609175762b588f5a68cdb",
+      "bytes": 2509
+    },
+    {
+      "record_id": "google_514",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "eab1fefa7d7dc6b3bf469bd55d068585952ce795eb983b93eaa4643a6c6a2644",
+      "bytes": 562
+    },
+    {
+      "record_id": "google_515",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "5b8a7a9a8078eac7d5d3be906d0601b8c13e8371ec55d7855c1d19548688d37d",
+      "bytes": 1104
+    },
+    {
+      "record_id": "google_515",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "cc1c2f48f5d50479a76be29dd7c57b9050ac3dfc5e48905ae2d22522c1bc7888",
+      "bytes": 1835
+    },
+    {
+      "record_id": "google_516",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "6e6611aaa0ef8fcf5334c15fe620b17a6fcbbe9165b030fdb2e3dfbed6cd99cd",
+      "bytes": 557
+    },
+    {
+      "record_id": "google_517",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "fd952390ffc9ce58feb3b566ce2ed7603972a69fcc5560986cb6b2bdfeac5d29",
+      "bytes": 2055
+    },
+    {
+      "record_id": "google_517",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c1a0df0322997cb0c422a6bcfc16e0bfa6738628830beeab821a7aa651bea32d",
+      "bytes": 2473
+    },
+    {
+      "record_id": "google_518",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "687097e7ed7a6fadbbd1c4bd939897bb3ab9344bd1185d156aba19353f3f5cd6",
+      "bytes": 353
+    },
+    {
+      "record_id": "google_519",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "b489fe03578e2462b6877129e8956afa0d549ec28371e397c4bbde9c31d499dc",
+      "bytes": 468
+    },
+    {
+      "record_id": "google_519",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "de1159f46e32e404ce3452e89217c4a83e2bb56dc981602e715710c89c83d0d8",
+      "bytes": 1381
+    },
+    {
+      "record_id": "google_520",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "63ceedd172adf54d0112be0465c1813936564712edef021035880697772cf907",
+      "bytes": 243
+    },
+    {
+      "record_id": "google_521",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "ac53819fab610128ce57469b767a93518d62af56c81cc5acd9c0886541cce664",
+      "bytes": 1881
+    },
+    {
+      "record_id": "google_522",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "7c94b67b48c9eb565da514ecb05589cee61409ba4110b8eb26cb982a01501fea",
+      "bytes": 260
+    },
+    {
+      "record_id": "google_523",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "573be69f7727e2e5bf5825315435507d796d32e570034a34381aa85ad9dd399c",
+      "bytes": 1144
+    },
+    {
+      "record_id": "google_523",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "5f098679468b50da52e5de7eb8e20a0cc183008731b669cc9f1bb7c649d6e29a",
+      "bytes": 1680
+    },
+    {
+      "record_id": "google_524",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "62b641a3af45ff2f4c0c07a7d36f73d9c33c591e1a0564e2f8a8937b6c80af0a",
+      "bytes": 209
+    },
+    {
+      "record_id": "google_525",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "2c2aadc2014c5cd4c5151edf54adbd3f9b97ad504150e4224ac42d181064b689",
+      "bytes": 1014
+    },
+    {
+      "record_id": "google_525",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "d867eb94c83850f0e8fed02300d72692a4a1ce13f74fe2af88243d317f50db5c",
+      "bytes": 1423
+    },
+    {
+      "record_id": "google_526",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "83414cda147ad7fd3b8ba0487f20c917efeb554dac26b4e0fb428ea8ee7668d2",
+      "bytes": 504
+    },
+    {
+      "record_id": "google_527",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "2bb53b4c56c233036e3402383fe56efa483f06954308c33d6a72910e80225523",
+      "bytes": 1775
+    },
+    {
+      "record_id": "google_527",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "7f8d91c9a38f98777135e22777b5b05840b15e5d8eb05af80591ede39826dfef",
+      "bytes": 3229
+    },
+    {
+      "record_id": "google_528",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "ebc8fef908a0ea3cd3fd4f9006012247103a48fb935cb4be6aa0dc6d56d5acf6",
+      "bytes": 1089
+    },
+    {
+      "record_id": "google_529",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "0586a526943d0b779c71259798a6ca2955aab3e7ca4b0ccd3dfb03e8c5624ca0",
+      "bytes": 1680
+    },
+    {
+      "record_id": "google_529",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "272c89999d30bc052639e0e64b5cca37656dfb90397b9c87993b308b21f36378",
+      "bytes": 2881
+    },
+    {
+      "record_id": "google_530",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_531",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_532",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_533",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_534",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_535",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_536",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_537",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "470b007efff8d6dcfdd4f584171094055ec78a951a537ef7a16021e2de751209",
+      "bytes": 602
+    },
+    {
+      "record_id": "google_538",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "d52ec35573d4200511f423906bcd05aa594c9a8eac42f0d2c0ef24a5122a1614",
+      "bytes": 648
+    },
+    {
+      "record_id": "google_538",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "95f581321b3abfd24b26bf654f89ef12a487d3e6b71b8b2f726cc12fffcf5549",
+      "bytes": 3221
+    },
+    {
+      "record_id": "google_539",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "be2be899b2fa9432ec17e7cd402df751bb11fdc775bf7db9af8600c999938e36",
+      "bytes": 153
+    },
+    {
+      "record_id": "google_540",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "3bde012322be68518a782cb08c317bdc38facbb3e82204d2e5cef6fd6dc659f4",
+      "bytes": 1875
+    },
+    {
+      "record_id": "google_540",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "a14760c4803c34a089ed11ffd8f7b8dfc9654d8e982f7b8a059af268602bbcc2",
+      "bytes": 2476
+    },
+    {
+      "record_id": "google_541",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "b572f94715deefb0518db671c78f5331d2924334b6aa258c531390bebdd88cfc",
+      "bytes": 129
+    },
+    {
+      "record_id": "google_542",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "4b2adaa38e716bec9e07d71536271cd99a32d4c14af3bfa4dcbf6dc88368df95",
+      "bytes": 1545
+    },
+    {
+      "record_id": "google_542",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "90b59d6e6a0a0572fd6f667ed00f177a819680098706495cc87a8117fa1df1aa",
+      "bytes": 786
+    },
+    {
+      "record_id": "google_543",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_544",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "145984813419e002bf83905f72c4b6c5d9522574658e89deba3ef460c87c6264",
+      "bytes": 471
+    },
+    {
+      "record_id": "google_545",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3478729e11034ed3c1f429e374915fee6e0c902033316d01289c58a4da104084",
+      "bytes": 2372
+    },
+    {
+      "record_id": "google_546",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3e18254bac88ecdf9b0a5e5fae25568ee788ed0695c48bad0b2efe147d0e41f2",
+      "bytes": 223
+    },
+    {
+      "record_id": "google_547",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "861165f064fa2512e496329e6745319dfa3b438b5fd7d1121eefb694f0beed36",
+      "bytes": 1680
+    },
+    {
+      "record_id": "google_548",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e46bcaea319c355fa1e70fb5c297400fede5308fbfae0e150a636d06658358a6",
+      "bytes": 871
+    },
+    {
+      "record_id": "google_549",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "925e30478383748057900c111392cc9ad69eb047e77d792a6f04f709771d2a8f",
+      "bytes": 2017
+    },
+    {
+      "record_id": "google_549",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "fe1a09047d1a01a7579042be6b8d8793b705982a068cb10d13a9e700f87a65ee",
+      "bytes": 4755
+    },
+    {
+      "record_id": "google_550",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "80d234638fe76fa57f437c6359e819e2e6e4689dd8f5764aab1ecc1162964abc",
+      "bytes": 364
+    },
+    {
+      "record_id": "google_551",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "4158208385189857bca33db6502c1a7fb634bda834cfc6312bb575ff5e89dac2",
+      "bytes": 1849
+    },
+    {
+      "record_id": "google_551",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "14869ca9359a361501308d87861693acb28bd1702df29dc5a6ff8a0585eba79a",
+      "bytes": 2429
+    },
+    {
+      "record_id": "google_552",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "2198b1bc7a827221992d3f88091c9d8f8f965f2138f924702ed18ee5f57f4032",
+      "bytes": 628
+    },
+    {
+      "record_id": "google_553",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "23cd5eb699c150014c1340a53afefea3ee3681022de94f38e4aa2cae6759b077",
+      "bytes": 4316
+    },
+    {
+      "record_id": "google_553",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "75517695eb91f5ef0488d8614e698472337c5cd2a3f00b0f4f6ebbdcd6884031",
+      "bytes": 3892
+    },
+    {
+      "record_id": "google_554",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "8e7b43a60c089fbe7fe7b022cab70b830094f317e9cf32f45a247c5ddb8ab621",
+      "bytes": 2948
+    },
+    {
+      "record_id": "google_555",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "af102bb653c3f4cd0507ab285905812bef9cba1a68970826d6350faedee67f61",
+      "bytes": 1320
+    },
+    {
+      "record_id": "google_555",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c1aa23ec1228a369ec15140b69b0fc6a784002548394466067326f741e9533aa",
+      "bytes": 2909
+    },
+    {
+      "record_id": "google_556",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_557",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "00be1995ba545b0a2e4f7bb083136e83361e86a5a163d631472e25e8c7254dad",
+      "bytes": 254
+    },
+    {
+      "record_id": "google_558",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "a30a8d16575ee1a6ca3d41059facf363f2482ed977cd3bcd3acc7d485fc7f5f5",
+      "bytes": 3779
+    },
+    {
+      "record_id": "google_558",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "e652a25cb288cb0955fcbcc8cd6a2ce47a703a54fb0deeaf44ea996cad11041d",
+      "bytes": 3238
+    },
+    {
+      "record_id": "google_559",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "10e3d220a2145990a8f843a4032b6691e2555b7a8e337d4c1e3cfa12cd6163b5",
+      "bytes": 576
+    },
+    {
+      "record_id": "google_560",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "a6858e022145bbc4f091a6d63a68c19aab0794b5b8ccefa51783f73cb4ae6de0",
+      "bytes": 1436
+    },
+    {
+      "record_id": "google_560",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "ed238791605b1fe0f4fc87884ac0adfeb4eadb6776241b7d1020b175141dbab5",
+      "bytes": 3899
+    },
+    {
+      "record_id": "google_561",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "b1e9efda809f3a7d0a111a22d969c9035a07c35d688531d8b52f2d00cbf452d2",
+      "bytes": 124
+    },
+    {
+      "record_id": "google_562",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "2f0ae203a1e0d71c71b56821df27612c63cb41ce9c8c9bfcba625c5af636ab78",
+      "bytes": 3678
+    },
+    {
+      "record_id": "google_562",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "14809a5cf18c5acdb8124eb8deed2548dbc26959cec6f4f92d6e3aa314e7c990",
+      "bytes": 2958
+    },
+    {
+      "record_id": "google_563",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "3c44c6ce24985e8e4667729f7cd4b5cc3b04f18d67ef18880ec36cce6179931b",
+      "bytes": 293
+    },
+    {
+      "record_id": "google_564",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "192dd45c69abae1ba045962f277952f0d652f831d35bd1592cb542b4b9cb9ce1",
+      "bytes": 2504
+    },
+    {
+      "record_id": "google_564",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "7d4a0db2eb2a726ad2a4a0b1de18c78c384314c8884f7e68580a615455cae4e4",
+      "bytes": 2898
+    },
+    {
+      "record_id": "google_565",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "cdc414f056086139157248bae70dc4640beb3d06c868b1657df0749c6914f551",
+      "bytes": 785
+    },
+    {
+      "record_id": "google_566",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "4c05c4f6135d78e6b7360c155f0b79bf96538a939364de4150df41ebfce07085",
+      "bytes": 3422
+    },
+    {
+      "record_id": "google_566",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "d8def862be607e327d5951d8e7009543ea715d5bf553d6cc6df96c3d1123d559",
+      "bytes": 5801
+    },
+    {
+      "record_id": "google_567",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "1a07b43a9d17ebedda530256662bbc3b3afe6a4c5b1736c77c3469b1847c7b7e",
+      "bytes": 371
+    },
+    {
+      "record_id": "google_568",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "900f8b10cd4bb31b09036af48c298f3eff81d731294882056249befb69b76f3a",
+      "bytes": 3164
+    },
+    {
+      "record_id": "google_568",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "d8def862be607e327d5951d8e7009543ea715d5bf553d6cc6df96c3d1123d559",
+      "bytes": 5801
+    },
+    {
+      "record_id": "google_569",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "4875342450f3b3ffa671e1f013f9c83d271cc00bea6cef778d5511d25e24becb",
+      "bytes": 719
+    },
+    {
+      "record_id": "google_570",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "f08fb78f2e5a7aa3a247799f0e3963ea073bb271a71d2394b320ea5dc42a7aa4",
+      "bytes": 3079
+    },
+    {
+      "record_id": "google_570",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "a8df1034284c3c9723c2e6b4a5ab13415561cf445c3eccd5b21fe8781fe9bf14",
+      "bytes": 6170
+    },
+    {
+      "record_id": "google_571",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "fd54b72a5122094f8af3cc80d18010799afb604752447d374e336c6c550bc57f",
+      "bytes": 228
+    },
+    {
+      "record_id": "google_572",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "759f158225c9fb98d7158e561bfac2bb1715f76ad0b57e92fa9d8e14687911d3",
+      "bytes": 3385
+    },
+    {
+      "record_id": "google_572",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "c348cd72eb831cebe7cc11a32bb9957b8fa4ce29d00b12d3da402aa3c99863a0",
+      "bytes": 2683
+    },
+    {
+      "record_id": "google_573",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "84ae35d8a77243e2de0a8290d85880aaa9b71954524e3b97aafae3066753a124",
+      "bytes": 2755
+    },
+    {
+      "record_id": "google_574",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "01b4f39d842ef34b249789f29cd9f4917136ed242f8307cd7ef07397ee4ad17d",
+      "bytes": 3535
+    },
+    {
+      "record_id": "google_574",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "ea063ac15ddbe65241eeb8bba731d06ce3622a86df958e73022ab0a7f024f26c",
+      "bytes": 1554
+    },
+    {
+      "record_id": "google_575",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "7ff19ea64c10757c0946831f35c3f9122c1245b7fbc14d01801d019b16ba339b",
+      "bytes": 126
+    },
+    {
+      "record_id": "google_576",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "e2e958679c8091b7403c365decbac50a27e9b37e2eec6749891169cb40e5ccf9",
+      "bytes": 4318
+    },
+    {
+      "record_id": "google_576",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "6fe9cf14bf00ccde3d913ceb8ed7514615fb2dbe14977b59a6440871a2af82ae",
+      "bytes": 6389
+    },
+    {
+      "record_id": "google_577",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "0fd3fa2d500eb3c5aaef1ca1e32d0bbf596881c91cb568e4a6c54dc8170e2da7",
+      "bytes": 130
+    },
+    {
+      "record_id": "google_578",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "d17ef65db241db958487a2c52eb9f9cdd0c9f07a1d17757581864b8db098c61a",
+      "bytes": 3818
+    },
+    {
+      "record_id": "google_578",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "29da86500391a74cc85469455113cb70e5f8817dc3a78cda753f36bd8669259e",
+      "bytes": 2154
+    },
+    {
+      "record_id": "google_579",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "0eccd0b0498ba0556cd37cd7e4bcb62218fe0f50f3e0cd3f732a705099d97293",
+      "bytes": 213
+    },
+    {
+      "record_id": "google_580",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "f2d9ec2c7e7437aa8ed1d22cf6899df6067eade797f88c5e595646d89a9a81fd",
+      "bytes": 2995
+    },
+    {
+      "record_id": "google_580",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "71b9ba9caa1720d474200ac5e876b4f02d79e4fc516d16fed84c6f9d63494d2e",
+      "bytes": 2271
+    },
+    {
+      "record_id": "google_581",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "9e7d10b5d5e0070e977e70d37af8a442eaabc648749b7560ab3ba6adb97217cf",
+      "bytes": 205
+    },
+    {
+      "record_id": "google_582",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "a303cad75e0d12dfae345f55208272e9e932515d8f5b7ff35b3da8251f8788bd",
+      "bytes": 2487
+    },
+    {
+      "record_id": "google_582",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "388f0136c8cb11902906bc607e618340c53986808e342a2d91f9f80306a774ea",
+      "bytes": 2678
+    },
+    {
+      "record_id": "google_583",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "23ff3138bca4f678d8b082dd3f7a7d8627d61a3faa3e5a93cdaa7b79e648d9cd",
+      "bytes": 898
+    },
+    {
+      "record_id": "google_584",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "9414757b9aa082d62abf01e08949a7f8507342f6400dee505547412585c49f32",
+      "bytes": 290
+    },
+    {
+      "record_id": "google_584",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "9d836c834a90eca7b87a2f3a4868ad0d401da94df243d894d0e991a25f87715a",
+      "bytes": 4691
+    },
+    {
+      "record_id": "google_585",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "record_id": "google_586",
+      "role": "user",
+      "block_index": 0,
+      "channel_as_exported": "text",
+      "sha256": "4ac6aab049bf498a3f5b2c901c056b5469350023e2cfd191aafa3fec81c2f849",
+      "bytes": 317
+    },
+    {
+      "record_id": "google_587",
+      "role": "assistant",
+      "block_index": 0,
+      "channel_as_exported": "thinking",
+      "sha256": "b3ab736227f9d98f4b76a302351b1a149d9085979ce5ebd920d1060b8a258002",
+      "bytes": 950
+    },
+    {
+      "record_id": "google_587",
+      "role": "assistant",
+      "block_index": 1,
+      "channel_as_exported": "text",
+      "sha256": "980f6b707bc3ad19ca45d146a8542362d7cdd5d73844245bf320d8949a58873b",
+      "bytes": 2728
+    }
+  ]
+}

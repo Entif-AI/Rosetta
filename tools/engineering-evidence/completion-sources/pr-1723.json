@@ -1,0 +1,32 @@
+{
+  "headRefOid": "7cada6ed71cc74f7a1483a0819f45ef9a85dd44c",
+  "mergeCommit": {
+    "oid": "88dd7aa8eb6501f334b3616c1c16e8b2761ab5a9"
+  },
+  "mergedAt": "2026-10-03T22:54:21Z",
+  "state": "MERGED",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-03T21:50:08Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Entif-AI/Rosetta/actions/runs/37156266919/job/111300163092",
+      "name": "verify",
+      "startedAt": "2026-10-03T21:46:55Z",
+      "status": "COMPLETED",
+      "workflowName": "Entif site CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-03T21:49:43Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/Entif-AI/Rosetta/actions/runs/37156266879/job/111300162732",
+      "name": "admission",
+      "startedAt": "2026-10-03T21:46:55Z",
+      "status": "COMPLETED",
+      "workflowName": "Semantic governance"
+    }
+  ],
+  "title": "feat(agentic-dev): adopt AXI and migrate specification substrate to SpecOps",
+  "url": "https://github.com/Entif-AI/Rosetta/pull/1723"
+}

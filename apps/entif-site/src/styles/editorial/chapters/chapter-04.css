@@ -1,0 +1,104 @@
+.story-scene.handoff-scene {
+  background: var(--scene-night);
+  color: var(--scene-paper);
+}
+.handoff-chain {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-block: 3rem;
+}
+.handoff-chain details {
+  position: relative;
+  padding: 1rem 0;
+  border-block: 1px solid var(--scene-rule);
+}
+.handoff-chain details:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -1.375rem;
+  top: 4.75rem;
+  color: var(--scene-signal);
+}
+.handoff-chain summary {
+  cursor: pointer;
+  font-size: 1.25rem;
+  min-height: 7rem;
+}
+.handoff-chain summary span {
+  display: block;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0.5rem 0 1rem;
+  color: var(--scene-signal);
+}
+.handoff-chain p {
+  font-family: system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+.handoff-person {
+  text-align: center;
+  padding: 1rem;
+}
+.handoff-person > span {
+  color: var(--scene-signal);
+  font-size: 3rem;
+}
+.handoff-person p {
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  line-height: 1.2;
+}
+.story-scene.belonging-scene {
+  background: var(--scene-paper);
+}
+.belonging-ledgers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-block: 3rem;
+}
+.belonging-ledgers > div + div {
+  border-left: 1px solid var(--accent);
+  padding-left: 4rem;
+}
+.belonging-ledgers h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+.story-scene.handoff-scene figcaption {
+  color: var(--canvas);
+}
+.ledger-rule {
+  height: 3rem;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 15px,
+    var(--scene-rule) 16px
+  );
+}
+@media (max-width: 55rem) {
+  .handoff-chain {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .handoff-chain summary {
+    min-height: 3rem;
+  }
+  .handoff-chain summary span {
+    display: inline-block;
+    margin: 0 1rem 0 0;
+    font-size: 2rem;
+  }
+  .handoff-chain details:not(:last-child)::after {
+    display: none;
+  }
+  .belonging-ledgers {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .belonging-ledgers > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--accent);
+    padding: 2rem 0 0;
+  }
+}

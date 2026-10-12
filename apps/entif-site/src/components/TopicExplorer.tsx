@@ -5,6 +5,11 @@ interface TopicExplorerProps {
   readonly cards: readonly ContentCardData[];
 }
 
+const topicFilterTestId = (topic: string): string =>
+  `topic-filter-${encodeURIComponent(topic)}`;
+const topicCardTestId = (id: string): string =>
+  `topic-card-${encodeURIComponent(id)}`;
+
 export function TopicExplorer({ cards }: TopicExplorerProps): ReactElement {
   const topics = useMemo(
     () => [...new Set(cards.flatMap((card) => card.tags))].sort(),
@@ -21,16 +26,22 @@ export function TopicExplorer({ cards }: TopicExplorerProps): ReactElement {
   );
 
   return (
-    <section className="topic-explorer" aria-labelledby="research-heading">
+    <section
+      className="topic-explorer"
+      aria-labelledby="research-heading"
+      data-test-id="topic-explorer"
+    >
       <div
         className="topic-controls"
         role="group"
         aria-label="Filter research by topic"
+        data-test-id="topic-filters"
       >
         <button
           type="button"
           aria-pressed={activeTopic === 'all'}
           onClick={() => setActiveTopic('all')}
+          data-test-id="topic-filter-all"
         >
           All
         </button>
@@ -40,21 +51,33 @@ export function TopicExplorer({ cards }: TopicExplorerProps): ReactElement {
             type="button"
             aria-pressed={activeTopic === topic}
             onClick={() => setActiveTopic(topic)}
+            data-test-id={topicFilterTestId(topic)}
           >
             {topic}
           </button>
         ))}
       </div>
-      <p className="result-count" role="status" aria-live="polite">
+      <p
+        className="result-count"
+        role="status"
+        aria-live="polite"
+        data-test-id="topic-result-count"
+        data-result-count={visibleCards.length}
+      >
         {visibleCards.length} {visibleCards.length === 1 ? 'result' : 'results'}
       </p>
       {visibleCards.length === 0 ? (
-        <p className="empty-state">No published work matches this topic yet.</p>
+        <p className="empty-state" data-test-id="topic-empty-state">
+          No published work matches this topic yet.
+        </p>
       ) : (
-        <ul className="explorer-grid">
+        <ul className="explorer-grid" data-test-id="topic-results">
           {visibleCards.map((card) => (
             <li key={card.id}>
-              <article className="content-card">
+              <article
+                className="content-card"
+                data-test-id={topicCardTestId(card.id)}
+              >
                 <div className="card-meta">
                   <span className="eyebrow">{card.kind}</span>
                   {card.projects.length > 0 ? (

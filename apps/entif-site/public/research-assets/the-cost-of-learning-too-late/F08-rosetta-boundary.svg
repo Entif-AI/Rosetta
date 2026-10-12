@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc"><title id="title">Auditable exchange: useful, but not sufficient</title><desc id="desc">Public representation, validation, authorization and truth remain distinct</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#687986"/></marker></defs><rect width="1600" height="1000" fill="white"/>
+<text x="65" y="75" font-family="DejaVu Sans, sans-serif" font-size="45" font-weight="700" fill="#172533" text-anchor="start">Auditable exchange: useful, but not sufficient</text>
+<text x="65" y="126" font-family="DejaVu Sans, sans-serif" font-size="27" font-weight="400" fill="#687986" text-anchor="start">Public representation, validation, authorization and truth remain distinct</text>
+<line x1="65" y1="153" x2="1535" y2="153" stroke="#cbd5dc" stroke-width="2"/>
+<rect x="65" y="230" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="276" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Evidence</text>
+<text x="89" y="329" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">What was observed?</text>
+<rect x="570" y="230" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="594" y="276" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Typed claim</text>
+<text x="594" y="329" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">What is being asserted?</text>
+<rect x="1075" y="230" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1099" y="276" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Evaluation</text>
+<text x="1099" y="329" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">What was checked?</text>
+<line x1="540" y1="325" x2="555" y2="325" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1045" y1="325" x2="1060" y2="325" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="65" y="535" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="89" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Provenance</text>
+<text x="89" y="634" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Sources and</text>
+<text x="89" y="669" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">transformations</text>
+<rect x="570" y="535" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="594" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Receipt</text>
+<text x="594" y="634" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Attestation with a</text>
+<text x="594" y="669" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">stated scope</text>
+<rect x="1075" y="535" width="460" height="190" rx="10" fill="#eaf0f4" stroke="#cbd5dc" stroke-width="2"/>
+<text x="1099" y="581" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="700" fill="#172533" text-anchor="start">Authorization</text>
+<text x="1099" y="634" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">Separate permission to</text>
+<text x="1099" y="669" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="400" fill="#687986" text-anchor="start">act</text>
+<line x1="800" y1="430" x2="800" y2="520" stroke="#687986" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1305" y1="430" x2="1305" y2="520" stroke="#687986" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow)"/>
+<text x="80" y="807" font-family="DejaVu Sans, sans-serif" font-size="30" font-weight="400" fill="#172533" text-anchor="start">A valid signature is not truth. A valid schema is not permission. Residual channels and</text>
+<text x="80" y="847" font-family="DejaVu Sans, sans-serif" font-size="30" font-weight="400" fill="#172533" text-anchor="start">runtime enforcement still require tests.</text>
+<line x1="65" y1="916" x2="1535" y2="916" stroke="#cbd5dc" stroke-width="2"/>
+<text x="65" y="956" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">Conceptual public boundary [29-36], not a complete deployed architecture or an anti-steganography</text>
+<text x="65" y="986" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" fill="#687986" text-anchor="start">guarantee. Dashed arrow is a policy-dependent step.</text>
+<text x="1510" y="892" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#687986" text-anchor="end">ETR-2026-02 | v1.6</text>
+</svg>

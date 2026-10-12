@@ -1,0 +1,29 @@
+{
+  "issue": 1720,
+  "role": "context-byte-benchmark-not-quota-claim",
+  "repository": {
+    "naiveCorpusAndPlanBytes": 3256,
+    "compactToonBytes": 3664,
+    "ratio": 1.1253071253071254
+  },
+  "fixture": {
+    "description": "24-spec corpus: current repository architecture/principles plus 22 independent fixture surfaces derived from public architecture text; one controlling plan",
+    "naiveCorpusAndPlanBytes": 40020,
+    "compactToonBytes": 3522,
+    "ratio": 0.08800599700149925
+  },
+  "fidelity": {
+    "planIdentity": true,
+    "readiness": true,
+    "issues": true,
+    "governingPrinciples": true,
+    "sourceLocatorsAndDigests": true,
+    "onDemandSections": true
+  },
+  "limitations": [
+    "Fixture is synthetic, not a claim that repository already has 24 specs",
+    "Small current repository corpus can be cheaper to read directly",
+    "Bytes measured; tokens/turns/quality-adjusted quota not measured",
+    "No routing/model policy change; #1711 remains downstream"
+  ]
+}

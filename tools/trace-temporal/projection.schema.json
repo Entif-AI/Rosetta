@@ -1,0 +1,390 @@
+{
+  "type": "object",
+  "properties": {
+    "profile": {
+      "const": "trace.graphiti-projection.v1"
+    },
+    "profileVersion": {
+      "const": "1.0.0"
+    },
+    "selected": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "const": "trace.graphiti-selection.v1"
+        },
+        "profileVersion": {
+          "const": "1.0.0"
+        },
+        "sourceArtifactRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "normalizedProfile": {
+          "const": "trace.normalization.v1"
+        },
+        "normalizedVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalizedDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "episodes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "properties": {
+              "recordId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "effectiveAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "correctionAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "scopeRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rightsRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "identity": {
+                "enum": [
+                  "unresolved",
+                  "distinct"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content": {},
+              "sourceEventAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "observedAt": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "recordedAt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timeBasis": {
+                "enum": [
+                  "fixture",
+                  "relative-redacted"
+                ]
+              },
+              "sourceSequence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "recordId",
+              "effectiveAt",
+              "correctionAt",
+              "scopeRef",
+              "rightsRef",
+              "identity",
+              "id",
+              "content",
+              "sourceEventAt",
+              "observedAt",
+              "recordedAt",
+              "timeBasis",
+              "sourceSequence"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "profile",
+        "profileVersion",
+        "sourceArtifactRef",
+        "sourceDigest",
+        "normalizedProfile",
+        "normalizedVersion",
+        "normalizedDigest",
+        "episodes"
+      ],
+      "additionalProperties": false
+    },
+    "derivation": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "model-backed",
+            "fixture-replay",
+            "unavailable"
+          ]
+        },
+        "graphitiVersion": {
+          "const": "0.30.2"
+        },
+        "graphitiCommit": {
+          "const": "eaa4128681bc53487138a4bbc22d58336ebe70d2"
+        },
+        "databaseVersion": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modelVersion": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "extractionConfig": {
+          "type": "object"
+        },
+        "embedder": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reranker": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adapterVersion": {
+          "const": "1.0.0"
+        }
+      },
+      "required": [
+        "mode",
+        "graphitiVersion",
+        "graphitiCommit",
+        "databaseVersion",
+        "provider",
+        "model",
+        "modelVersion",
+        "extractionConfig",
+        "embedder",
+        "reranker",
+        "adapterVersion"
+      ],
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "entity",
+              "fact",
+              "edge",
+              "episode",
+              "invalidation",
+              "supersession"
+            ]
+          },
+          "interpretation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supportEpisodeIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "validFrom": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "validUntil": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "validUntilKnownAt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "validUntilSupportEpisodeIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "materializedAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supersedes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "identity": {
+            "enum": [
+              "unresolved",
+              "distinct"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "interpretation",
+          "supportEpisodeIds",
+          "validFrom",
+          "validUntil",
+          "validUntilKnownAt",
+          "validUntilSupportEpisodeIds",
+          "materializedAt",
+          "supersedes",
+          "identity"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "loss": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    }
+  },
+  "required": [
+    "profile",
+    "profileVersion",
+    "selected",
+    "derivation",
+    "artifacts",
+    "loss"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+# Bounded credential mediation (#1760)
+
+`LocalCredentialMediator` wraps the current #1758/#1747 path and #994/#1765 admission. The owning runtime fixes the authority refs, authenticated subject, domain/target, operation catalog, provider/account binding, context, ceilings, gates and startup/workflow policy. Agent intent supplies only a bounded execution ID/operation, a minimum revision and optional historical evidence. It cannot select credentials, inject source snapshots or set gates.
+
+The provider lifecycle owner supplies current capability/expiry/revocation metadata and a private credential resolver. #776 retains OAuth refresh/expiry/failure ownership; this mediator does not implement OAuth. Current authority is checked during admission, after checkpoint, before secret selection and again after selection immediately before provider invocation. Provider capabilities intersect authority and never create rights. The live metadata must still match the configured provider, account and target.
+
+Public artifacts carry safe provider/account/target and credential-handle refs, capability metadata, current Evaluation, checkpoint, measured readback and canonical Receipt closure. They carry no token, cookie, password, private key or secret endpoint. Malformed/secret-shaped request fields are rejected; untrusted submissions and raw provider exception text are not copied into artifacts. Generated reference credentials live in private runtime fields/callbacks.
+
+`ENTIF_AUTHORITY_DENIED` is distinct from provider scope, expiry, credential invalidity, binding and authentication failures. Apply/closure ambiguity remains held for reconciliation. The local reference provider writes real target files with exclusive creation, fsync and byte readback. Its effect count and SHA-256 of target bytes make no-effect denials falsifiable. It is a reference adapter, not a production vendor integration or distributed transaction guarantee.
+
+Discovery is current inspection evidence. A cached operation list, prior envelope, Evaluation, Receipt or mutation acknowledgement cannot authorize a later call. The execution consumer must call `execute` at handler time. AXI disposition: WRAP_EXISTING_INTERFACE; the bounded handler owns the transport.

@@ -1,8 +1,19 @@
 # rosetta-schemas
 
+Catalog entries distinguish core descent from operational ownership and exposure.
+See [schema authority and descent](docs/schema-authority-map.md#core-descent).
+New supported kinds need an explicit classification in `src/lib/core-descent.ts`;
+catalog presence alone grants neither core status nor runtime authority.
+
 ## Purpose
 
 Provides lightweight payload validation and conformance bundle emission for current tile kinds.
+
+## Semantic authority
+
+[`../../docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md`](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) remains the semantic authority for Rosetta core terms. This package is an implementation registry and bootstrap validator, not a replacement Terminology Lock.
+
+Schema registry presence establishes implementation ownership/visibility only. Non-core `rosetta.*` IDs require an explicit disposition in [`../../docs/governance/genesis/SEMANTIC_AUDIT.md`](../../docs/governance/genesis/SEMANTIC_AUDIT.md), and Entif/source/Guard/adapter/skill schemas remain application or accepted-extension contracts according to their owning authorities.
 
 ## Working Today
 
@@ -46,7 +57,7 @@ When adding a schema family, add or update a catalog entry in the same change. N
 
 ## Agentic Messaging Registry
 
-- Normative location: `packages/rosetta-schemas/src/lib/rosetta-schemas.ts`
+- Implementation registry: `packages/rosetta-schemas/src/lib/rosetta-schemas.ts`
 - Envelope schema: `entif.agentic-messaging.envelope.v1`
 - Message-family schema IDs:
   - `TASK_RECEIPT`
@@ -58,6 +69,7 @@ When adding a schema family, add or update a catalog entry in the same change. N
   - `ACTION_DECISION`
   - `APPROVAL_REQUEST`
   - `APPROVAL_RESPONSE`
+- `TASK_RECEIPT` and `INCIDENT_ENVELOPE` are internal transport-family labels. A payload has canonical Rosetta **Receipt** or **Incident** semantics only when the owning contract explicitly maps and validates it against those v3 artifacts.
 - `domain_ref` is treated as a nested component owned by issue `#711`; the registry consumes that shape rather than redefining it.
 - The mailroom mapping is deterministic: `msg_type -> schema_id -> validation result -> quarantine reason`.
 - First-wave mailroom size policy:
@@ -109,6 +121,33 @@ When adding a schema family, add or update a catalog entry in the same change. N
   - `#1029` owns the Guard decision request/validation handshake
   - this package only decides whether a message is structurally eligible for data-plane routing, control-plane review, or quarantine
 
+## Semantic governance
+
+Before adding a schema family:
+
+1. search the v3 Terminology Lock and accepted extensions;
+2. classify the schema as core reuse, accepted extension, application contract, projection/derived view, external reference, or provisional semantic extension;
+3. update `schema-catalog.ts`, the authority map, tests, and [`SEMANTIC_AUDIT.md`](../../docs/governance/genesis/SEMANTIC_AUDIT.md) in the same change;
+4. run `pnpm run governance:semantic` and the package tests.
+
+Do not place a schema in the `rosetta.*` namespace merely because the package owns its validator.
+
+## Evaluation Profiles
+
+`salience.evaluation.v1` is a Pack-defined Profile over existing `rosetta.evaluation`; it does not add a Core kind. It keeps Impact, Exigency, and Novelty distinct, attaches scope, time, evidence, receipt, provenance, and supersession references, and permits inline scalar/ordinal values or references to richer schema-declared values (including intervals, vectors, distributions, and categories). Profile validation rejects truth, execution, activation, and authorization fields. Its shared evaluation scope, valid time, receipt references, and provenance apply to each assessment while dimension-specific evidence/provenance references supplement them. See `packs/schema-pack-evaluation-profiles/`.
+
+`counterfactual.evaluation.v1` composes historical decision/StrategyEpisode,
+experiment, replay/run/tape, budget, comparator/verifier, observation and receipt
+references. It preserves the declared historical input frontier and distinguishes
+comparison disposition from Core verdicts. Quality, exception and each resource
+measurement remain separately referenceable; empty measurement arrays mean absent
+measurements, never zero cost or proved equivalence. Comparable dispositions need
+replay, comparator, verifier and quality evidence. Unknown/non-replayable history
+remains expressible. Sandbox mode requires a sandbox reference; performed live
+effects and production-activation fields fail conformance. Actual isolation,
+evidence resolution/authentication and historical frontier completeness remain
+runtime/authority responsibilities. See the public Pack conformance notes.
+
 ## Fixture Status
 
 - executable
@@ -123,3 +162,14 @@ When adding a schema family, add or update a catalog entry in the same change. N
 ## Roadmap
 
 - replace or augment the current required-field validator with real SHACL/RDF tooling when the MVP needs it
+
+The completed #1179 ambiguity register is generated at
+`docs/governance/CORE_DESCENT_AUDIT.json`. `governance:descent` detects drift.
+`coreDescent` describes semantic descent; `authorityTier` describes operational ownership.
+`rrp.promotion-state.v1` is an Observation Profile, not another supported Core kind.
+Source receipt/matrix/package nouns are qualified domain records or compositions,
+not automatically structurally substitutable for Core artifacts. See the register
+for bounded remediation decisions and the Genesis audit for exposure constraints.
+# Agent-native authority
+
+The public [Authority Envelope Profile](docs/authority-envelope-v1.md) is a bounded projection using Core `TileEnvelope`; structural validity and integrity never grant authority. Guard consumes current authority state at execution boundaries.

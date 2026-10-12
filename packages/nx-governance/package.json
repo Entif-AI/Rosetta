@@ -1,0 +1,92 @@
+{
+  "name": "@entif-ai/nx-governance",
+  "version": "0.1.0",
+  "private": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@entif-ai/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "packages/nx-governance/dist",
+          "main": "packages/nx-governance/src/index.ts",
+          "tsConfig": "packages/nx-governance/tsconfig.lib.json",
+          "rootDir": "packages/nx-governance/src",
+          "generatePackageJson": false,
+          "assets": [
+            {
+              "input": "./packages/nx-governance/src",
+              "glob": "**/!(*.ts)",
+              "output": "."
+            },
+            {
+              "input": "./packages/nx-governance/src",
+              "glob": "**/*.d.ts",
+              "output": "."
+            }
+          ]
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vitest run packages/nx-governance/src/*.spec.ts"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "{workspaceRoot}/vitest.config.ts",
+          "{workspaceRoot}/pnpm-lock.yaml"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "@nx/devkit": "22.6.5",
+    "@toon-format/toon": "2.1.0",
+    "ajv": "8.17.1",
+    "semver": "^7.7.2",
+    "tslib": "^2.3.0",
+    "yaml": "2.8.1"
+  },
+  "generators": "./generators.json",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "generators.json",
+    "executors.json",
+    "migrations.json",
+    "spec-kit",
+    "README.md",
+    "src",
+    "!src/**/*.spec.ts",
+    "!**/__pycache__/**",
+    "!**/*.pyc",
+    "specops",
+    "!specops/*.spec.mjs"
+  ],
+  "executors": "./executors.json",
+  "nx-migrations": "./migrations.json",
+  "license": "MIT",
+  "description": "Source-owned governance checks, admission evidence and specification projections for Nx workspaces.",
+  "peerDependencies": {
+    "nx": ">=22.6.5 <23"
+  },
+  "bin": {
+    "entif-substrate": "./specops/install.mjs"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "configPath": "tools/semantic-governance/governance.config.json",
+  "branchPolicy": "existing-authorized",
+  "writerCount": 1,
+  "components": {
+    "substrate": "specops"
+  }
+}

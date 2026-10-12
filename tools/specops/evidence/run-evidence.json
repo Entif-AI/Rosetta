@@ -1,0 +1,188 @@
+{
+  "formatVersion": 1,
+  "role": "run-observation-and-validation-evidence-not-routing-policy",
+  "implementationRevision": "47e4c28f7dcd0383c5b5d5592db38473cc590902",
+  "pr": "https://github.com/Entif-AI/Rosetta/pull/1723",
+  "issuesCompleted": [
+    1712,
+    1713,
+    1714,
+    1715,
+    1716,
+    1717,
+    1718,
+    1719,
+    1720,
+    1721
+  ],
+  "excludedIssue": 1711,
+  "observedAt": "2026-10-03T21:46:34.536037+00:00",
+  "epoch": {
+    "firstDurableCheckpointAt": "2026-10-03T20:31:06+00:00",
+    "checkpointToReceiptSeconds": 4529,
+    "actualRunStart": "not captured; checkpoint interval is not total runtime"
+  },
+  "configuration": {
+    "primaryExactModelAndReasoning": "not exposed by run tools",
+    "reviewAgent": {
+      "role": "efficient_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning": "high",
+      "scope": "read-only distribution crash/ownership/consumer safety",
+      "mutableWriterCount": 1
+    }
+  },
+  "quota": {
+    "preRun": "not captured",
+    "firstInstalledMidRun": {
+      "issue": 1713,
+      "observedAt": "2026-10-03T20:35:43.486Z",
+      "event": "installed-mid-run",
+      "provider": "codex",
+      "source": "oauth",
+      "status": "fresh",
+      "uncertainty": "known",
+      "adapterVersion": "0.1.56",
+      "windows": [
+        {
+          "kind": "five_hour",
+          "usedPercent": 23,
+          "remainingPercent": 77,
+          "resetAt": "2026-10-04T00:24:56.000Z"
+        },
+        {
+          "kind": "weekly",
+          "usedPercent": 14,
+          "remainingPercent": 86,
+          "resetAt": "2026-10-10T09:17:53.000Z"
+        }
+      ],
+      "rawEvidence": "locally retained under ignored .axi/evidence (0600), not published",
+      "limitations": [
+        "No pre-run observation exists",
+        "Provider observations may change; percentages are not billing/quota contracts",
+        "No token or model-turn savings inferred"
+      ]
+    },
+    "checkpointAt2108UTC": {
+      "observedAt": "2026-10-03T21:08:59.184Z",
+      "fiveHourUsedPercent": 45,
+      "weeklyUsedPercent": 17
+    },
+    "distributionCheckpoint": [
+      {
+        "provider": "codex",
+        "source": "oauth",
+        "observedAt": "2026-10-03T21:38:19.664Z",
+        "status": "fresh",
+        "uncertainty": "known",
+        "windows": [
+          {
+            "id": "five_hour",
+            "kind": "five_hour",
+            "windowSeconds": 18000,
+            "usedPercent": 72,
+            "remainingPercent": 28,
+            "limitPercent": null,
+            "shareOf": null,
+            "resetAt": "2026-10-04T00:24:56.000Z"
+          },
+          {
+            "id": "weekly",
+            "kind": "weekly",
+            "windowSeconds": 604800,
+            "usedPercent": 22,
+            "remainingPercent": 78,
+            "limitPercent": null,
+            "shareOf": null,
+            "resetAt": "2026-10-10T09:17:53.000Z"
+          }
+        ]
+      }
+    ],
+    "after": [
+      {
+        "provider": "codex",
+        "source": "oauth",
+        "observedAt": "2026-10-03T21:46:34.457Z",
+        "status": "fresh",
+        "uncertainty": "known",
+        "windows": [
+          {
+            "id": "five_hour",
+            "kind": "five_hour",
+            "windowSeconds": 18000,
+            "usedPercent": 76,
+            "remainingPercent": 24,
+            "limitPercent": null,
+            "shareOf": null,
+            "resetAt": "2026-10-04T00:24:56.000Z"
+          },
+          {
+            "id": "weekly",
+            "kind": "weekly",
+            "windowSeconds": 604800,
+            "usedPercent": 22,
+            "remainingPercent": 78,
+            "limitPercent": null,
+            "shareOf": null,
+            "resetAt": "2026-10-10T09:17:53.000Z"
+          }
+        ]
+      }
+    ],
+    "rawEvidence": "ignored local .axi/evidence, mode 0600; no credentials/identifying account/routing advice published",
+    "interpretation": "provider observations only; no attributable run delta, billing contract or efficiency claim"
+  },
+  "validation": {
+    "frozenInstall": "pass",
+    "syncCheck": "pass",
+    "releasePlanCheck": "pass",
+    "verifyFull": "pass: lint/typecheck/test/build, authority/semantic/DocID gates; 27 test projects, 19 build projects",
+    "nodeAXISpecOpsFixtures": "16 passed",
+    "nxBehaviorFixtures": "35 passed",
+    "catalogFixtures": "4 passed",
+    "semanticFixtures": "15 passed",
+    "mergeAdmission": "pass: 13 prerequisite collectors",
+    "packedConsumerE2E": "pass: 10 proof groups, actual pnpm bin, S1 expansion, Codex/Claude/generic, real Nx migration",
+    "readOnlyReview": "passed after crash fixes; no findings",
+    "hostedAtImplementationRevision": [
+      {
+        "name": "admission",
+        "result": "success",
+        "runId": 37155902410
+      },
+      {
+        "name": "verify",
+        "result": "success",
+        "runId": 37155902413
+      }
+    ],
+    "finalCloseoutHeadHosted": "verify through GitHub current-head checks; this receipt records implementation-head proof"
+  },
+  "cache": {
+    "preservedNxCaches": true,
+    "latestFullTestsCachedTasks": "25 of 28",
+    "latestFullBuildCachedTasks": "19 of 19",
+    "mergeAdmissionCachedTasks": "9 of 14",
+    "interpretation": "local task reuse observed; no quota/speedup claim"
+  },
+  "repairLoops": [
+    "Donor does not accept JSON-shaped frontmatter: canonical YAML and rejection guard",
+    "Evidence incorrectly placed in Profile-only spec-surfaces: moved to tooling evidence",
+    "Stale Nx daemon catalog count: daemon disabled, caches preserved",
+    "pnpm symlink main-module identity skipped CLI: realpath identity",
+    "S1 prose incompatible with canonical corpus: explicit consumer-owned archive, no inferred semantics",
+    "No Git origin in local consumer: omit remote lineage explicitly",
+    "Hosted Core-descent test bypassed existing source loader: shared loader reused",
+    "Review: staged source acquisition and explicit dead-owner lock recovery, red/green fixtures and re-review"
+  ],
+  "toolCallCounts": "not readily exposed",
+  "limitations": [
+    "SpecOps pinned donor has no conventional license declaration; separately acquired, no vendoring",
+    "Legacy prose needs consumer review/port or preserved archive",
+    "No live model compliance claim from runtime/agent-dispatch fixtures",
+    "Substrate desired-state docs remain in-development under review; no generated acceptance promotion",
+    "No merge, release, tag or package publication; #1711 not executed"
+  ]
+}

@@ -1,0 +1,6 @@
+Pre-fix package test, October 3, 2026, production bytes from main 88dd7aa8.
+Command: NX_DAEMON=false pnpm exec nx test rosetta-canon
+Test: sorts integer-like keys lexically before hashing
+Expected: {"10":"ten","2":"two"}
+Received: {"2":"two","10":"ten"}
+1 failed, 9 passed. Full local output retained outside the repository.

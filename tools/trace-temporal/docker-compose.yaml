@@ -1,0 +1,11 @@
+services:
+  graphiti-falkordb:
+    image: falkordb/falkordb:v4.20.7@sha256:13996aa523f0dd283f6bd6df6620b094dcea525452417c4d6ef9bef15dc9998d
+    container_name: entif-graphiti-falkor-1737
+    labels:
+      entif.issue: "1737"
+      entif.branch: codex/roadmap-engineering-evidence-completion
+    ports:
+      - "127.0.0.1:16380:6379"
+# Disposable first-party donor fixture. Graphiti 0.30.2 is incompatible with Falkor 6.x.
+# No persistent volume or public browser port. SSPLv1 promotion requires separate review.

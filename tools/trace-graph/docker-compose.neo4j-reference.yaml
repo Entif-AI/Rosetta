@@ -1,0 +1,10 @@
+services:
+  neo4j:
+    image: neo4j:5-community
+    ports:
+      - "127.0.0.1:17474:7474"
+    environment:
+      NEO4J_AUTH: none
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 512m
+# Ephemeral fixture database: no production data, credentials, or persistent volume.

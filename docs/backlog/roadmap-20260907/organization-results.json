@@ -1,0 +1,9455 @@
+{
+  "task": "rosetta-roadmap-20260907",
+  "started_at": "2026-09-07T08:01:48.702199+00:00",
+  "successors": [
+    {
+      "group": "contact-assessment",
+      "number": 1522,
+      "url": "https://github.com/entif-ai/rosetta/issues/1522",
+      "sources": [
+        119,
+        389,
+        391,
+        394,
+        435,
+        468
+      ],
+      "title": "Contact Assessment and Correction Record",
+      "verified": true
+    },
+    {
+      "group": "source-quality",
+      "number": 1523,
+      "url": "https://github.com/entif-ai/rosetta/issues/1523",
+      "sources": [
+        398,
+        400,
+        404,
+        437
+      ],
+      "title": "Source Quality and Similarity Assessment Records",
+      "verified": true
+    },
+    {
+      "group": "ranking-evidence",
+      "number": 1524,
+      "url": "https://github.com/entif-ai/rosetta/issues/1524",
+      "sources": [
+        412,
+        423,
+        834
+      ],
+      "title": "Ranking and Calibration Evidence Profile",
+      "verified": true
+    },
+    {
+      "group": "advisory-synthesis",
+      "number": 1525,
+      "url": "https://github.com/entif-ai/rosetta/issues/1525",
+      "sources": [
+        134,
+        433
+      ],
+      "title": "Advisory Review and Disagreement Trace Record",
+      "verified": true
+    },
+    {
+      "group": "codec-capability",
+      "number": 1526,
+      "url": "https://github.com/entif-ai/rosetta/issues/1526",
+      "sources": [
+        476
+      ],
+      "title": "Codec Capability and Precision Requirement Profile",
+      "verified": true
+    },
+    {
+      "group": "decode-decision",
+      "number": 1527,
+      "url": "https://github.com/entif-ai/rosetta/issues/1527",
+      "sources": [
+        260,
+        751
+      ],
+      "title": "Slug Decode Candidate and Decision Record",
+      "verified": true
+    },
+    {
+      "group": "scheduler-decision",
+      "number": 1528,
+      "url": "https://github.com/entif-ai/rosetta/issues/1528",
+      "sources": [
+        517
+      ],
+      "title": "Scheduled Work Decision and Trigger Evidence Record",
+      "verified": true
+    },
+    {
+      "group": "research-intake",
+      "number": 1529,
+      "url": "https://github.com/entif-ai/rosetta/issues/1529",
+      "sources": [
+        530,
+        534
+      ],
+      "title": "Research Intake Assessment and Routing Record",
+      "verified": true
+    },
+    {
+      "group": "embedding-artifact",
+      "number": 1530,
+      "url": "https://github.com/entif-ai/rosetta/issues/1530",
+      "sources": [
+        657,
+        663,
+        670,
+        672,
+        1226
+      ],
+      "title": "Embedding and Projection Artifact Manifest",
+      "verified": true
+    },
+    {
+      "group": "disambiguation-evidence",
+      "number": 1531,
+      "url": "https://github.com/entif-ai/rosetta/issues/1531",
+      "sources": [
+        659,
+        665,
+        1124,
+        1227
+      ],
+      "title": "Disambiguation Evaluation and Prior Evidence Record",
+      "verified": true
+    },
+    {
+      "group": "skill-selection",
+      "number": 1532,
+      "url": "https://github.com/entif-ai/rosetta/issues/1532",
+      "sources": [
+        441,
+        461,
+        648,
+        655
+      ],
+      "title": "Skill Selection and Preload Decision Record",
+      "verified": true
+    },
+    {
+      "group": "source-trust",
+      "number": 1533,
+      "url": "https://github.com/entif-ai/rosetta/issues/1533",
+      "sources": [
+        803
+      ],
+      "title": "Source Trust Assessment Record",
+      "verified": true
+    },
+    {
+      "group": "graph-query",
+      "number": 1534,
+      "url": "https://github.com/entif-ai/rosetta/issues/1534",
+      "sources": [
+        827
+      ],
+      "title": "Graph Query Plan and Cache Posture Record",
+      "verified": true
+    },
+    {
+      "group": "analysis-admission",
+      "number": 1535,
+      "url": "https://github.com/entif-ai/rosetta/issues/1535",
+      "sources": [
+        821
+      ],
+      "title": "Analysis Admission Evaluation Record",
+      "verified": true
+    },
+    {
+      "group": "capability-transfer",
+      "number": 1536,
+      "url": "https://github.com/entif-ai/rosetta/issues/1536",
+      "sources": [
+        867
+      ],
+      "title": "Capability Transferability Evaluation Profile",
+      "verified": true
+    },
+    {
+      "group": "coherence-evidence",
+      "number": 1537,
+      "url": "https://github.com/entif-ai/rosetta/issues/1537",
+      "sources": [
+        359
+      ],
+      "title": "Builder Coherence Evaluation Record",
+      "verified": true
+    },
+    {
+      "group": "code-pattern",
+      "number": 1538,
+      "url": "https://github.com/entif-ai/rosetta/issues/1538",
+      "sources": [
+        367
+      ],
+      "title": "Reusable Code Pattern Evidence Record",
+      "verified": true
+    },
+    {
+      "group": "impact-evidence",
+      "number": 1539,
+      "url": "https://github.com/entif-ai/rosetta/issues/1539",
+      "sources": [
+        369
+      ],
+      "title": "Planned Change Impact Evidence Record",
+      "verified": true
+    },
+    {
+      "group": "content-risk",
+      "number": 1540,
+      "url": "https://github.com/entif-ai/rosetta/issues/1540",
+      "sources": [
+        485,
+        1182
+      ],
+      "title": "Content Risk Assessment Vector and Disposition Record",
+      "verified": true
+    },
+    {
+      "group": "entity-resolution",
+      "number": 1541,
+      "url": "https://github.com/entif-ai/rosetta/issues/1541",
+      "sources": [
+        838
+      ],
+      "title": "Entity Resolution Proposal and Reversal Record",
+      "verified": true
+    },
+    {
+      "group": "exploration-trace",
+      "number": 1542,
+      "url": "https://github.com/entif-ai/rosetta/issues/1542",
+      "sources": [
+        1136
+      ],
+      "title": "Bounded Exploration Branch and Outcome Record",
+      "verified": true
+    },
+    {
+      "group": "dialogue-study",
+      "number": 1543,
+      "url": "https://github.com/entif-ai/rosetta/issues/1543",
+      "sources": [
+        379
+      ],
+      "title": "Dialogue Study Run and Evidence Manifest",
+      "verified": true
+    }
+  ],
+  "labels": [
+    {
+      "number": 11,
+      "before": [
+        "planning",
+        "text-core",
+        "implementation",
+        "tapestry",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "text-core",
+        "implementation",
+        "tapestry",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 10,
+      "before": [
+        "documentation",
+        "planning",
+        "text-core",
+        "ingress-refinery",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "text-core",
+        "ingress-refinery",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 12,
+      "before": [
+        "planning",
+        "text-core",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "text-core",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p1",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 33,
+      "before": [
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 43,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p1",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 41,
+      "before": [
+        "documentation",
+        "governance",
+        "bootstrap",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "bootstrap",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 71,
+      "before": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 74,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 77,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 79,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 84,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 87,
+      "before": [
+        "documentation",
+        "governance",
+        "sprint:s3",
+        "priority:p3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 89,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 96,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 98,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 103,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 105,
+      "before": [
+        "documentation",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 107,
+      "before": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 109,
+      "before": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 117,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "reviewed",
+        "priority:p4",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 123,
+      "before": [
+        "documentation",
+        "planning",
+        "sprint:s3",
+        "priority:p3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 141,
+      "before": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 143,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 145,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 148,
+      "before": [
+        "documentation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 150,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 152,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 156,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 158,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 160,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 162,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 164,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 173,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 175,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 178,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 182,
+      "before": [
+        "documentation",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 193,
+      "before": [
+        "documentation",
+        "schemas",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 201,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 204,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:s",
+        "reviewed",
+        "priority:p4",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 210,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 214,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 226,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 240,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 243,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 246,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 249,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 252,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 258,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 262,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 265,
+      "before": [
+        "documentation",
+        "validation",
+        "integrations",
+        "size:m",
+        "sprint:s4",
+        "reviewed",
+        "priority:p4"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "integrations",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 267,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s1",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 269,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 271,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 273,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 278,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 282,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 285,
+      "before": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 288,
+      "before": [
+        "documentation",
+        "receipts",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 290,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 292,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 295,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 297,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 300,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 302,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 307,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 310,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 312,
+      "before": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 315,
+      "before": [
+        "documentation",
+        "storage",
+        "priority:p2",
+        "sprint:s1",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "storage",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 317,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 319,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 322,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 325,
+      "before": [
+        "documentation",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "sprint:s1",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 328,
+      "before": [
+        "documentation",
+        "planning",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 330,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 334,
+      "before": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "integrations",
+        "size:s",
+        "reviewed",
+        "priority:p4",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 337,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 339,
+      "before": [
+        "documentation",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 341,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p1",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 343,
+      "before": [
+        "documentation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 345,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 347,
+      "before": [
+        "documentation",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 349,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 353,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 361,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 363,
+      "before": [
+        "documentation",
+        "governance",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 373,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 375,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 377,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 381,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 387,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 402,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 410,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 415,
+      "before": [
+        "documentation",
+        "enhancement",
+        "schemas",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "schemas",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 417,
+      "before": [
+        "documentation",
+        "planning",
+        "text-core",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "text-core",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 419,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 421,
+      "before": [
+        "documentation",
+        "enhancement",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 425,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 427,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 431,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 439,
+      "before": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 443,
+      "before": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 445,
+      "before": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 457,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 466,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 471,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p1",
+        "sprint:s2",
+        "size:l",
+        "integration",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 483,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 488,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "integration",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 496,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 498,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 504,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 506,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 508,
+      "before": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 510,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 513,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 515,
+      "before": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 519,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 521,
+      "before": [
+        "documentation",
+        "enhancement",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 526,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 528,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 536,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 538,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 542,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 544,
+      "before": [
+        "documentation",
+        "planning",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 547,
+      "before": [
+        "documentation",
+        "planning",
+        "sprint:s3",
+        "priority:p3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 549,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 551,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 553,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 555,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 558,
+      "before": [
+        "documentation",
+        "governance",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 560,
+      "before": [
+        "documentation",
+        "governance",
+        "integrations",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 563,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 565,
+      "before": [
+        "documentation",
+        "governance",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 569,
+      "before": [
+        "documentation",
+        "governance",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 573,
+      "before": [
+        "documentation",
+        "governance",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 575,
+      "before": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 577,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 581,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 583,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 585,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 587,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 592,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 594,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 596,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 598,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 600,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 602,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 604,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 606,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 610,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 614,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 624,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 626,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 630,
+      "before": [
+        "documentation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 632,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 637,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 639,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 641,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 643,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 645,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 651,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 653,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 661,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 668,
+      "before": [
+        "documentation",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 674,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 676,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 678,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 680,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 683,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 685,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 688,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 690,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 701,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 703,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 709,
+      "before": [
+        "documentation",
+        "enhancement",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 714,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 716,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 720,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 722,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 724,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 727,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 733,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 735,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 737,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p3",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 745,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 747,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 749,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 759,
+      "before": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 762,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 764,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 768,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 770,
+      "before": [
+        "documentation",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "storage",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 772,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 774,
+      "before": [
+        "documentation",
+        "planning",
+        "storage",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "storage",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 776,
+      "before": [
+        "documentation",
+        "schemas",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "integration",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "storage",
+        "priority:p2",
+        "size:s",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 781,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 784,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 790,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 793,
+      "before": [
+        "documentation",
+        "planning",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "storage",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 795,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 799,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 801,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 805,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s1",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 807,
+      "before": [
+        "documentation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 809,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 811,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 813,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 816,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 823,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 836,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 840,
+      "before": [
+        "documentation",
+        "schemas",
+        "integrations",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "integrations",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 842,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 848,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 856,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 861,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 870,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 873,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 875,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 877,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 879,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 883,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 885,
+      "before": [
+        "documentation",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 887,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 889,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 892,
+      "before": [
+        "documentation",
+        "schemas",
+        "priority:p3",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "schemas",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 901,
+      "before": [
+        "documentation",
+        "governance",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 907,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 911,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 913,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 915,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 921,
+      "before": [
+        "documentation",
+        "planning",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 923,
+      "before": [
+        "documentation",
+        "governance",
+        "receipts",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "receipts",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 930,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 932,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 934,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "sprint:s3",
+        "size:s",
+        "priority:p1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 938,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 940,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 948,
+      "before": [
+        "documentation",
+        "governance",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 952,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 956,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 961,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 978,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 980,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 992,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 994,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1017,
+      "before": [
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1019,
+      "before": [
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1021,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1022,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1024,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1025,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1026,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1027,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1028,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "sprint:s3",
+        "priority:p1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1031,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1032,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p1",
+        "sprint:s2",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1033,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1034,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1035,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1036,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1038,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1039,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1044,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1045,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1046,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1047,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1048,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1049,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1051,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1054,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1056,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1058,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1059,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1061,
+      "before": [
+        "enhancement",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "enhancement",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1062,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "scope",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "scope",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1063,
+      "before": [
+        "enhancement",
+        "governance",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "enhancement",
+        "governance",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1065,
+      "before": [
+        "governance",
+        "planning",
+        "schemas",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "governance",
+        "planning",
+        "schemas",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1068,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "schemas",
+        "storage",
+        "priority:p1",
+        "sprint:s2",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "schemas",
+        "storage",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1066,
+      "before": [
+        "documentation",
+        "enhancement",
+        "receipts",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p3",
+        "size:l",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "receipts",
+        "planning",
+        "implementation",
+        "storage",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1069,
+      "before": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1070,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1071,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1072,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p3",
+        "size:l",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1074,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1075,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1076,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1077,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1078,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1081,
+      "before": [
+        "documentation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1082,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1083,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1084,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1085,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1089,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1090,
+      "before": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1110,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1111,
+      "before": [
+        "documentation",
+        "size:s",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "after": [
+        "documentation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1116,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "priority:p1",
+        "sprint:s2",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1118,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1122,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1123,
+      "before": [
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1125,
+      "before": [
+        "size:m",
+        "sprint:s3",
+        "priority:p1",
+        "reviewed"
+      ],
+      "after": [
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1126,
+      "before": [
+        "size:m",
+        "priority:p1",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1127,
+      "before": [
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1129,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1130,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1131,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1134,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1135,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1137,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1138,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1139,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:l",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1140,
+      "before": [
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1148,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "integration",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1150,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "integration",
+        "reviewed",
+        "sprint:s6"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1152,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "integration",
+        "reviewed",
+        "sprint:s6"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1153,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "integration",
+        "reviewed",
+        "sprint:s7"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1154,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1155,
+      "before": [
+        "governance",
+        "planning",
+        "schemas",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "governance",
+        "planning",
+        "schemas",
+        "storage",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1156,
+      "before": [
+        "governance",
+        "planning",
+        "schemas",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "governance",
+        "planning",
+        "schemas",
+        "integrations",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1159,
+      "before": [
+        "planning",
+        "text-core",
+        "implementation",
+        "storage",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "text-core",
+        "implementation",
+        "storage",
+        "size:m",
+        "sprint:s3",
+        "priority:p1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1160,
+      "before": [
+        "planning",
+        "text-core",
+        "implementation",
+        "english-accompaniment",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "sprint:s6"
+      ],
+      "after": [
+        "planning",
+        "text-core",
+        "implementation",
+        "english-accompaniment",
+        "size:m",
+        "priority:p1",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1167,
+      "before": [
+        "documentation",
+        "bootstrap",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "bootstrap",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1168,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1169,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1172,
+      "before": [
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1173,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1176,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "integration",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "integration",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1177,
+      "before": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1179,
+      "before": [
+        "governance",
+        "validation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "governance",
+        "validation",
+        "planning",
+        "schemas",
+        "size:s",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1180,
+      "before": [
+        "validation",
+        "planning",
+        "schemas",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "validation",
+        "planning",
+        "schemas",
+        "size:s",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 1183,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1184,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1185,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1188,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed",
+        "privacy"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "privacy",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1189,
+      "before": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed",
+        "privacy"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "privacy",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1193,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1194,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": false
+    },
+    {
+      "number": 1200,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1205,
+      "before": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p1",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1210,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "integrations",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1211,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1212,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1213,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1214,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1216,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1217,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "sprint:s3",
+        "priority:p3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1219,
+      "before": [
+        "documentation",
+        "validation",
+        "storage",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "storage",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1220,
+      "before": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1221,
+      "before": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1222,
+      "before": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "storage",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1223,
+      "before": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1224,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1225,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1231,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "schemas",
+        "priority:p3",
+        "size:s",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "schemas",
+        "priority:p3",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1233,
+      "before": [
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1241,
+      "before": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:s",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1249,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:s",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1253,
+      "before": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1295,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1296,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1300,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1302,
+      "before": [
+        "enhancement",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "enhancement",
+        "planning",
+        "size:m",
+        "priority:p3",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1304,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1308,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1386,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1411,
+      "before": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1420,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1421,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1422,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1442,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "sprint:s3",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1443,
+      "before": [
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "sprint:s3",
+        "reviewed"
+      ],
+      "after": [
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1449,
+      "before": [
+        "automation",
+        "planning",
+        "text-core",
+        "size:s",
+        "priority:p1",
+        "reviewed",
+        "sprint:s0"
+      ],
+      "after": [
+        "automation",
+        "planning",
+        "text-core",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1457,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p3",
+        "size:l",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1458,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1459,
+      "before": [
+        "automation",
+        "bootstrap",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s1",
+        "reviewed"
+      ],
+      "after": [
+        "automation",
+        "bootstrap",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1460,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p3",
+        "size:l",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1461,
+      "before": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p1",
+        "size:l",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:l",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1463,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1464,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1465,
+      "before": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p3",
+        "sprint:s5",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1466,
+      "before": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p1",
+        "sprint:s4",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "size:m",
+        "priority:p2",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1467,
+      "before": [
+        "proposal"
+      ],
+      "after": [
+        "priority:p2",
+        "proposal",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1468,
+      "before": [
+        "proposal"
+      ],
+      "after": [
+        "priority:p2",
+        "proposal",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1469,
+      "before": [
+        "proposal"
+      ],
+      "after": [
+        "priority:p3",
+        "proposal",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1470,
+      "before": [
+        "proposal"
+      ],
+      "after": [
+        "priority:p3",
+        "proposal",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1474,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1475,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s3"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1476,
+      "before": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "sprint:s3",
+        "priority:p3"
+      ],
+      "after": [
+        "documentation",
+        "governance",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1477,
+      "before": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "sprint:s4"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "priority:p2",
+        "size:m",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1478,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1479,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1480,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1481,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1482,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1483,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1484,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1485,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1486,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1488,
+      "before": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p1",
+        "sprint:s2"
+      ],
+      "after": [
+        "documentation",
+        "planning",
+        "size:m",
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1490,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1491,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1493,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1495,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1497,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1500,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:s",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1501,
+      "before": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "planning",
+        "implementation",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1502,
+      "before": [
+        "enhancement",
+        "governance",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed"
+      ],
+      "after": [
+        "enhancement",
+        "governance",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1503,
+      "before": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "validation",
+        "receipts",
+        "planning",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1504,
+      "before": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed"
+      ],
+      "after": [
+        "documentation",
+        "enhancement",
+        "governance",
+        "validation",
+        "schemas",
+        "priority:p2",
+        "size:m",
+        "reviewed",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1505,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1506,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1507,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1508,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1509,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1510,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1511,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1512,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1513,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1514,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1515,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1516,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1517,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1518,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1519,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1520,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    },
+    {
+      "number": 1521,
+      "before": [],
+      "after": [
+        "priority:p2",
+        "backlog"
+      ],
+      "verified": true,
+      "changed": true
+    }
+  ],
+  "skipped": [],
+  "migration_cleanup_performed": false,
+  "completed_at": "2026-09-07T08:09:41.935478+00:00",
+  "frozen_count": 518,
+  "scheduled_count": 20,
+  "deferred_migrations": [
+    119,
+    126,
+    128,
+    130,
+    132,
+    134,
+    138,
+    169,
+    254,
+    260,
+    351,
+    355,
+    357,
+    359,
+    365,
+    367,
+    369,
+    371,
+    379,
+    383,
+    385,
+    389,
+    391,
+    394,
+    398,
+    400,
+    404,
+    408,
+    412,
+    423,
+    429,
+    433,
+    435,
+    437,
+    441,
+    447,
+    461,
+    464,
+    468,
+    476,
+    485,
+    490,
+    492,
+    494,
+    500,
+    502,
+    517,
+    524,
+    530,
+    534,
+    567,
+    648,
+    655,
+    657,
+    659,
+    663,
+    665,
+    670,
+    672,
+    692,
+    694,
+    698,
+    739,
+    743,
+    751,
+    753,
+    786,
+    803,
+    818,
+    821,
+    827,
+    834,
+    838,
+    867,
+    944,
+    954,
+    970,
+    972,
+    974,
+    976,
+    1030,
+    1124,
+    1136,
+    1182,
+    1215,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230,
+    1303,
+    1306
+  ]
+}

@@ -1,0 +1,119 @@
+---
+/* eslint-disable astro/jsx-a11y/no-noninteractive-tabindex -- Named receipt regions need keyboard scrolling. */
+import { getEntry } from 'astro:content';
+import { copy } from '../lib/copy';
+import Icon from './Icon.astro';
+const keys = ['source', 'observation', 'interpretation', 'projection'] as const;
+const kinds = ['document', 'measurement', 'inference', 'forecast'] as const;
+const stages = await Promise.all(
+  keys.map((key) => getEntry('pages', `stage-${key}`))
+);
+---
+
+<div
+  class="claim-journey"
+  id="claim-journey"
+  role="group"
+  aria-label={copy.demoLabel}
+>
+  <ol class="journey-track">
+    {
+      stages.map(
+        (entry, index) =>
+          entry && (
+            <li>
+              <details class="claim-card">
+                <>
+                  <summary>
+                    <span class="info-icon">
+                      <Icon name="info" />
+                    </span>
+                    <span class="stage-title">{copy[keys[index]!]}</span>
+                    <span class="eyebrow">{copy[kinds[index]!]}</span>
+                    <span class="stage-icon">
+                      <Icon name={keys[index]!} />
+                    </span>
+                    <>
+                      <span class="stage-number">0{index + 1}</span>
+                    </>
+                  </summary>
+                  {/* Keyboard focus allows scrolling this fixed-height receipt. */}
+                  <div
+                    class="claim-receipt"
+                    tabindex={0}
+                    role="region"
+                    aria-label={entry.data.title}
+                  >
+                    <p class="claim-text">{entry.data.title}</p>
+                    <p>{entry.data.description}</p>
+                    <>
+                      <p class="eyebrow">{copy.selected}</p>
+                      <p class="receipt-id">{entry.data.eyebrow}</p>
+                    </>
+                  </div>
+                </>
+              </details>
+            </li>
+          )
+      )
+    }
+  </ol>
+  <p class="demo-note">{copy.demoNote}</p>
+</div>
+<script>
+  const journey = document.querySelector<HTMLElement>('.claim-journey');
+  if (journey) {
+    const cards = Array.from(
+      journey.querySelectorAll<HTMLDetailsElement>('details')
+    );
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let interacted = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const cancel = () => {
+      interacted = true;
+      clearTimeout(timer);
+      cards.forEach((card) => card.classList.remove('idle-cue'));
+    };
+    journey.addEventListener('pointerdown', cancel, { once: true });
+    journey.addEventListener('keydown', cancel, { once: true });
+    cards.forEach((card) =>
+      card.addEventListener('toggle', () => {
+        if (card.open) {
+          cancel();
+          cards.forEach((other) => {
+            if (other !== card) other.open = false;
+          });
+        }
+      })
+    );
+    const ready = () => {
+      if (window.matchMedia('(hover: none)').matches && !reduce.matches)
+        timer = setTimeout(() => {
+          const card = cards[2];
+          const box = card?.getBoundingClientRect();
+          if (
+            card &&
+            !interacted &&
+            !reduce.matches &&
+            document.visibilityState === 'visible' &&
+            box &&
+            box.top >= 0 &&
+            box.bottom <= window.innerHeight
+          ) {
+            card.classList.add('idle-cue');
+            card.addEventListener(
+              'animationend',
+              () => card.classList.remove('idle-cue'),
+              { once: true }
+            );
+          }
+        }, 10000);
+    };
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready, { once: true });
+    window.addEventListener('pagehide', cancel, { once: true });
+    reduce.addEventListener('change', () => {
+      if (reduce.matches) cancel();
+    });
+  }
+</script>

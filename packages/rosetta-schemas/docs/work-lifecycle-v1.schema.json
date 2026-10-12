@@ -1,0 +1,492 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:rosetta:work.lifecycle.v1",
+  "title": "Public bounded-work lifecycle record v1",
+  "description": "Application-level composition of work, execution, Evaluation and Receipt references. No dispatch, completion or telemetry record grants operational authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordId",
+    "profile",
+    "workRef",
+    "event",
+    "createdAt",
+    "receiptRefs",
+    "provenanceRefs"
+  ],
+  "properties": {
+    "recordId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "workRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "event": {
+      "enum": [
+        "declared",
+        "blocked",
+        "ready",
+        "dispatched",
+        "started",
+        "completed",
+        "failed",
+        "verification_requested",
+        "verification_accepted",
+        "verification_rejected",
+        "repair_required",
+        "human_requested",
+        "human_responded",
+        "integrated",
+        "deferred",
+        "cancelled"
+      ]
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "work.lifecycle.v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-5][0-9](?:\\.[0-9]+)?(?:[Zz]|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "receiptRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "provenanceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "disposition": {
+      "enum": [
+        "accepted",
+        "repair_required",
+        "rejected",
+        "blocked",
+        "deferred",
+        "completed"
+      ]
+    },
+    "objectiveRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "commitmentRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "dependencyRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "capabilityRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "acceptanceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "verifierRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "integrationRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "telemetryRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "procedureRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "executorRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "contextRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "dispatchRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "attemptRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "resultRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "verificationRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "adapterProfileRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "priorRecordRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "continuationRef": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "enum": [
+              "dispatched",
+              "started"
+            ]
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "procedureRef",
+          "executorRef"
+        ],
+        "properties": {}
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "executorRef",
+          "resultRef",
+          "evidenceRefs",
+          "disposition"
+        ],
+        "properties": {
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disposition": {
+            "const": "completed"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "verification_requested"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "executorRef",
+          "resultRef",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "verification_accepted"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "executorRef",
+          "resultRef",
+          "verifierRefs",
+          "evidenceRefs",
+          "disposition"
+        ],
+        "properties": {
+          "verifierRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disposition": {
+            "const": "accepted"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "verification_rejected"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "executorRef",
+          "resultRef",
+          "verifierRefs",
+          "evidenceRefs",
+          "disposition"
+        ],
+        "properties": {
+          "verifierRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disposition": {
+            "const": "rejected"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "integrated"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "verificationRef",
+          "integrationRefs",
+          "evidenceRefs",
+          "disposition"
+        ],
+        "properties": {
+          "integrationRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disposition": {
+            "const": "accepted"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event": {
+            "const": "repair_required"
+          }
+        },
+        "required": [
+          "event"
+        ]
+      },
+      "then": {
+        "required": [
+          "priorRecordRef",
+          "continuationRef",
+          "evidenceRefs",
+          "disposition"
+        ],
+        "properties": {
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "disposition": {
+            "const": "repair_required"
+          }
+        }
+      }
+    }
+  ]
+}

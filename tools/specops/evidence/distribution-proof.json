@@ -1,0 +1,30 @@
+{
+  "formatVersion": 1,
+  "issues": [
+    "#1701",
+    "#1710",
+    "#1721"
+  ],
+  "proofs": [
+    "pinned upstream workflow hook/step overlap, failure recovery and human-gate resume (agent dispatch emulated)",
+    "local-packed plugin install, idempotent init/sync, cacheable admission, local authority preservation",
+    "Codex/Claude/generic per-file provenance, exact Git pin, edit/identity protection, reproducible refresh and selected-file Meta-Skill routing",
+    "Codex integration with offline pinned bundle, idempotent install, reproducible bundle ZIP",
+    "prior prototype package install and standard nx migrate runner; bundle refresh preserves current branch",
+    "S1 Spec Kit -> SpecOps expansion, explicit pinned acquisition, Codex idempotency/edit guard, donor next/context/drift/native admission, rollback and branch/local authority preserved",
+    "claude independent packed consumer, own authority, managed route, idempotent install and Nx admission",
+    "generic independent packed consumer, own authority, managed route, idempotent install and Nx admission",
+    "real Nx 22.6.4 -> 22.6.5 package migration workflow and gates",
+    "incompatible branch-per-spec configuration rejected without mutation"
+  ],
+  "publication": "local-packed artifacts only",
+  "packageSha256": "399ba942308ff8f7d269a4985a29345477d508e93fcace7425f9d573d528e165",
+  "bundleSha256": "bcf1c7d15dd04630d2e7428f0cf8de2f3e3413fdd647a89d186e3fbb5556caa2",
+  "role": "local-packed-consumer-conformance-evidence-not-release",
+  "legacySpecKitCommit": "de0cbd762e2d0b30f90d3ffcbe2ee9d7167f4eda",
+  "limitations": [
+    "Legacy prose explicitly archived by consumer fixture; no automatic semantic migration",
+    "Runtime routing/agent dispatch is not live model compliance",
+    "No package or bundle published"
+  ]
+}

@@ -13,6 +13,7 @@
       "cache": true,
       "inputs": [
         "{projectRoot}/**/*",
+        "{workspaceRoot}/packs/**/*",
         "{workspaceRoot}/vitest.config.ts",
         {
           "externalDependencies": ["vitest"]

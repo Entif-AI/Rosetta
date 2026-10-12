@@ -807,26 +807,55 @@ This table itself is normative in that the DocIDs and titles must be treated as 
 
 *(This provides a machine-readable listing of each document and which other documents it directly depends on, aiding tooling or analysis.)*
 
-In JSON-like notation or simple list: \- ROCK-3001: deps \= \[\] (base document) \- ROCK-3002: deps \= \[3001\] \- ROCK-3003: deps \= \[3001\] \- ROCK-3004: deps \= \[3001\] \- ROCK-3005: deps \= \[3001\] \- ROCK-3006: deps \= \[3001, 3002\] \- ROCK-3007: deps \= \[3001\] (implicitly also uses 3002 etc but primarily core spec) \- ROCK-3010: deps \= \[3002\] \- ROCK-3099: deps \= \[3001, others as context\]
+The following adjacency list is authoritative for direct Rosetta-suite dependencies. External references and the Patch Ledger's references to other documents for context are not additional prerequisite edges.
 
-We can also represent it as a directed graph where an arrow A \-\> B means A depends on B (so B must be understood for A):
+```json
+{
+  "ROCK-3001": [],
+  "ROCK-3002": [
+    "ROCK-3001"
+  ],
+  "ROCK-3003": [
+    "ROCK-3001"
+  ],
+  "ROCK-3004": [
+    "ROCK-3001"
+  ],
+  "ROCK-3005": [
+    "ROCK-3001"
+  ],
+  "ROCK-3006": [
+    "ROCK-3001",
+    "ROCK-3002"
+  ],
+  "ROCK-3007": [
+    "ROCK-3001"
+  ],
+  "ROCK-3010": [
+    "ROCK-3002"
+  ],
+  "ROCK-3099": [
+    "ROCK-3001"
+  ]
+}
+```
 
-graph LR;  
-  ROCK-3001\[ROCK-3001 Core Spine\] \--\> ROCK-3002;  
-  ROCK-3001 \--\> ROCK-3003;  
-  ROCK-3001 \--\> ROCK-3004;  
-  ROCK-3001 \--\> ROCK-3005;  
-  ROCK-3001 \--\> ROCK-3006;  
-  ROCK-3001 \--\> ROCK-3007;  
-  ROCK-3002\[ROCK-3002 Data Model\] \--\> ROCK-3010;  
-  ROCK-3002 \--\> ROCK-3006;  
-  ROCK-3003\[ROCK-3003 StdPacks\] \--\> ROCK-3006;  
-  ROCK-3004\[ROCK-3004 VocabPacks\] \--\> ROCK-3006;  
-  ROCK-3005\[ROCK-3005 Profiles\] \--\> ROCK-3006;  
-  ROCK-3010\[ROCK-3010 Schema Pack\] \--\> ROCK-3006;  
-  ROCK-3099\[ROCK-3099 Patch Ledger\] \--\> ROCK-3001;
+The explanatory graph uses **A --> B to mean A depends on B** and contains exactly the adjacency-list edges:
 
-*(In this diagram, arrows might be interpreted backwards from typical reading; here "Core Spine \--\> Data Model" was meant as Core is prerequisite for Data Model spec, i.e., Data Model depends on Core. We could reverse arrows for "depends on", but the adjacency list above is the authoritative text.)*
+```mermaid
+graph TD
+  ROCK-3002 --> ROCK-3001;
+  ROCK-3003 --> ROCK-3001;
+  ROCK-3004 --> ROCK-3001;
+  ROCK-3005 --> ROCK-3001;
+  ROCK-3006 --> ROCK-3001;
+  ROCK-3006 --> ROCK-3002;
+  ROCK-3007 --> ROCK-3001;
+  ROCK-3010 --> ROCK-3002;
+  ROCK-3099 --> ROCK-3001;
+```
+
+Editorial correction for #676: the previous graph reversed most arrows and added guide dependencies absent from the authoritative list. This rendering follows that list; it does not introduce normative dependencies.
 
 We can explain: The Core Spec is foundational; Data Model, Packs, Profiles all extend it. Implementation Guide and Use Case compendium depend conceptually on core (and data model for details). The Schema Pack depends on Data Model definitions. Patch Ledger depends on core (and essentially tracks changes across all, but placed under core as root of version tree).
 

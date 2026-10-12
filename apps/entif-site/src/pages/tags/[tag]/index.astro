@@ -1,6 +1,7 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { copy, formatCopy } from '../../../lib/copy';
 import ContentCard from '../../../components/ContentCard.astro';
+import ContentPageLayout from '../../../layouts/ContentPageLayout.astro';
 import {
   countTopics,
   getTaxonomyTerms,
@@ -32,25 +33,21 @@ const baseUrl = import.meta.env.BASE_URL;
 const matching = entries
   .map(toSummary)
   .filter((item) => getTaxonomyTerms(item).includes(tag));
+const lede = formatCopy(copy.tagCount, { count: matching.length });
 ---
 
-<BaseLayout
-  title={`Tag: ${tag}`}
+<ContentPageLayout
+  title={formatCopy(copy.tagTitle, { tag })}
   description={`Published Entif AI work connected to the ${tag} tag.`}
+  eyebrow={copy.tags}
+  heading={tag}
+  lede={lede}
 >
-  <section class="section shell topic-page">
-    <p class="eyebrow">Tag</p>
-    <h1>{tag}</h1>
-    <p class="lede">
-      {matching.length} connected {matching.length === 1 ? 'page' : 'pages'} in the
-      public Entif corpus.
-    </p>
-    <div class="card-grid">
-      {
-        matching.map((item) => (
-          <ContentCard card={toContentCard(item, baseUrl)} />
-        ))
-      }
-    </div>
-  </section>
-</BaseLayout>
+  <div class="card-grid" data-test-id="tag-page-grid">
+    {
+      matching.map((item) => (
+        <ContentCard headingLevel={2} card={toContentCard(item, baseUrl)} />
+      ))
+    }
+  </div>
+</ContentPageLayout>

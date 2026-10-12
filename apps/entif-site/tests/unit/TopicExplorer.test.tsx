@@ -28,11 +28,16 @@ const cards: readonly ContentCardData[] = [
 describe('TopicExplorer', () => {
   it('shows all cards initially', () => {
     render(<TopicExplorer cards={cards} />);
-    expect(screen.getByText('2 results')).toBeTruthy();
-    expect(screen.getByText('Memory research')).toBeTruthy();
-    expect(screen.getByText('Semantic research')).toBeTruthy();
+
     expect(
-      screen.getByRole('button', { name: 'All' }).getAttribute('aria-pressed')
+      screen.getByTestId('topic-result-count').getAttribute('data-result-count')
+    ).toBe('2');
+    expect(screen.getByTestId('topic-card-entif.research.memory')).toBeTruthy();
+    expect(
+      screen.getByTestId('topic-card-entif.research.semantic')
+    ).toBeTruthy();
+    expect(
+      screen.getByTestId('topic-filter-all').getAttribute('aria-pressed')
     ).toBe('true');
   });
 
@@ -40,30 +45,37 @@ describe('TopicExplorer', () => {
     const user = userEvent.setup();
     render(<TopicExplorer cards={cards} />);
 
-    const filter = screen.getByRole('button', { name: 'memory' });
+    const filter = screen.getByTestId('topic-filter-memory');
     await user.click(filter);
 
     expect(filter.getAttribute('aria-pressed')).toBe('true');
-    expect(screen.getByText('1 result')).toBeTruthy();
-    expect(screen.getByText('Memory research')).toBeTruthy();
-    expect(screen.queryByText('Semantic research')).toBeNull();
+    expect(
+      screen.getByTestId('topic-result-count').getAttribute('data-result-count')
+    ).toBe('1');
+    expect(screen.getByTestId('topic-card-entif.research.memory')).toBeTruthy();
+    expect(
+      screen.queryByTestId('topic-card-entif.research.semantic')
+    ).toBeNull();
   });
 
   it('can reset a topic filter to all results', async () => {
     const user = userEvent.setup();
     render(<TopicExplorer cards={cards} />);
 
-    await user.click(screen.getByRole('button', { name: 'memory' }));
-    await user.click(screen.getByRole('button', { name: 'All' }));
+    await user.click(screen.getByTestId('topic-filter-memory'));
+    await user.click(screen.getByTestId('topic-filter-all'));
 
-    expect(screen.getByText('2 results')).toBeTruthy();
+    expect(
+      screen.getByTestId('topic-result-count').getAttribute('data-result-count')
+    ).toBe('2');
   });
 
   it('renders an explicit empty state for an empty published corpus', () => {
     render(<TopicExplorer cards={[]} />);
-    expect(screen.getByText('0 results')).toBeTruthy();
+
     expect(
-      screen.getByText('No published work matches this topic yet.')
-    ).toBeTruthy();
+      screen.getByTestId('topic-result-count').getAttribute('data-result-count')
+    ).toBe('0');
+    expect(screen.getByTestId('topic-empty-state')).toBeTruthy();
   });
 });

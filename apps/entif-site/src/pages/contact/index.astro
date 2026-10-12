@@ -1,27 +1,17 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+const entry = await getEntry('pages', 'contact');
+if (!entry) throw new Error('Missing page copy');
+const { Content } = await render(entry);
 ---
 
-<BaseLayout
-  title="Contact"
-  description="Contact Entif AI about Rosetta research, implementation, collaboration, and public technical work."
+<ContentPageLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  eyebrow={entry.data.eyebrow}
+  heading={entry.data.title}
+  lede={entry.data.description}
 >
-  <section class="section shell topic-page">
-    <p class="eyebrow">Contact</p>
-    <h1>Start with the work.</h1>
-    <div class="prose">
-      <p>
-        For now, GitHub is Entif AI's public coordination surface for Rosetta
-        research, implementation proposals, technical questions, and reviewable
-        collaboration.
-      </p>
-      <p>
-        <a href="https://github.com/entif-ai/rosetta"
-          >Visit the Rosetta repository</a
-        >
-        to inspect the current work, open an issue, or join an existing technical
-        thread.
-      </p>
-    </div>
-  </section>
-</BaseLayout>
+  <div class="prose"><Content /></div>
+</ContentPageLayout>

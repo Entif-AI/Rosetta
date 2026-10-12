@@ -1,0 +1,225 @@
+event: message
+data: {"captured":"v1","source_sequence":0}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","type":"resume_conversation_token"},"source_sequence":1}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","input_message":{"author":{"metadata":{},"role":"user"},"content":{"content_type":"text","parts":["redacted-text-001"]},"create_time":"2000-01-01T00:00:00.000Z","id":"message-001","metadata":{"parent_id":"message-002","request_id":"request-001","turn_exchange_id":"turn-001","turn_id":"turn-002","working_turn_id":"turn-001"},"status":"finished_successfully"},"type":"input_message"},"source_sequence":2}
+
+event: message
+data: {"captured":{"c":0,"o":"add","v":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"system"},"content":{"content_type":"text","parts":["redacted-text-002"]},"end_turn":true,"id":"message-003","metadata":{"parent_id":"message-001","request_id":"request-001","turn_exchange_id":"turn-001","turn_id":"turn-002","working_turn_id":"turn-001"},"status":"finished_successfully"}}},"source_sequence":3}
+
+event: message
+data: {"captured":{"c":1,"v":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"system"},"content":{"content_type":"text","parts":["redacted-text-002"]},"end_turn":true,"id":"message-004","metadata":{"parent_id":"message-003","request_id":"request-001","turn_exchange_id":"turn-001","turn_id":"turn-002","working_turn_id":"turn-001"},"status":"finished_successfully"}}},"source_sequence":4}
+
+event: message
+data: {"captured":{"c":2,"v":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{"content_type":"text","parts":["redacted-text-002"]},"create_time":"2000-01-01T00:00:06.580Z","id":"message-005","metadata":{"parent_id":"message-004","request_id":"request-001","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}}},"source_sequence":5}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","turn_exchange_id":"turn-001","type":"stream_handoff"},"source_sequence":6}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","metadata":{"message_id":"message-005","request_id":"request-001","turn_exchange_id":"turn-001"},"type":"server_ste_metadata"},"source_sequence":7}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","type":"conversation_detail_metadata"},"source_sequence":8}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:00:12.285Z","id":"message-006","metadata":{"parent_id":"message-004","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":9}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:00:32.484Z","end_turn":false,"id":"message-007","metadata":{"parent_id":"message-006","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":10}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:00:22.122Z","end_turn":false,"id":"message-008","metadata":{"parent_id":"message-007","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":11}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{"content_type":"text","parts":["redacted-text-003"]},"create_time":"2000-01-01T00:00:30.599Z","id":"message-009","metadata":{"parent_id":"message-008","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":12}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-004"]},"create_time":"2000-01-01T00:00:31.118Z","id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":13}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-005"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":14}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-006"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":15}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-007"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":16}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-008"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":17}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-009"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":18}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-010"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":19}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-011"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":20}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-012"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":21}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-013"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":22}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-014"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":23}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-015"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":24}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-016"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":25}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-017"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":26}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-018"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":27}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-019"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":28}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-020"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":29}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-021"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":30}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-022"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":31}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-023"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":32}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-024"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":33}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-025"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":34}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-026"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":35}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:00:30.663Z","id":"message-011","metadata":{"parent_id":"message-010","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":36}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-027"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":37}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-028"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":38}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-029"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":39}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-030"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":40}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-031"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":41}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-032"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":42}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-033"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":43}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:00:36.028Z","end_turn":false,"id":"message-012","metadata":{"parent_id":"message-011","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":44}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-034"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":45}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-035"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":46}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-036"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":47}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-037"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":48}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-038"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":49}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-039"]},"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"in_progress"}},"source_sequence":50}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"channel":"commentary","content":{"content_type":"text","parts":["redacted-text-039"]},"create_time":"2000-01-01T00:00:31.118Z","end_turn":true,"id":"message-010","metadata":{"parent_id":"message-009","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":51}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:00:30.599Z","end_turn":false,"id":"message-013","metadata":{"parent_id":"message-012","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":52}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:00:43.352Z","id":"message-014","metadata":{"parent_id":"message-013","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":53}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:00:55.541Z","end_turn":false,"id":"message-015","metadata":{"parent_id":"message-014","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":54}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:01:02.295Z","id":"message-016","metadata":{"parent_id":"message-015","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":55}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:11.858Z","end_turn":false,"id":"message-017","metadata":{"parent_id":"message-016","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":56}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:12.344Z","end_turn":false,"id":"message-018","metadata":{"parent_id":"message-017","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":57}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:05.834Z","end_turn":false,"id":"message-019","metadata":{"parent_id":"message-018","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":58}
+
+event: message
+data: {"captured":{"type":"transport_comment"},"source_sequence":59}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:01:12.762Z","id":"message-020","metadata":{"parent_id":"message-019","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":60}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:25.719Z","end_turn":false,"id":"message-021","metadata":{"parent_id":"message-020","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":61}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:25.719Z","end_turn":false,"id":"message-021","metadata":{"parent_id":"message-020","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":62}
+
+event: message
+data: {"captured":{"type":"transport_comment"},"source_sequence":63}
+
+event: message
+data: {"captured":{"type":"transport_comment"},"source_sequence":64}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:45.446Z","end_turn":false,"id":"message-022","metadata":{"parent_id":"message-021","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":65}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:45.864Z","end_turn":false,"id":"message-023","metadata":{"parent_id":"message-022","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":66}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:38.268Z","end_turn":false,"id":"message-024","metadata":{"parent_id":"message-023","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":67}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"tool"},"content":{},"create_time":"2000-01-01T00:01:47.839Z","id":"message-025","metadata":{"parent_id":"message-024","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":68}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:55.935Z","end_turn":false,"id":"message-026","metadata":{"parent_id":"message-025","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":69}
+
+event: message
+data: {"captured":{"type":"transport_comment"},"source_sequence":70}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:01:55.935Z","end_turn":false,"id":"message-026","metadata":{"parent_id":"message-025","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":71}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:02:08.489Z","end_turn":false,"id":"message-027","metadata":{"parent_id":"message-026","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":72}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:02:08.489Z","end_turn":false,"id":"message-027","metadata":{"parent_id":"message-026","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":73}
+
+event: message
+data: {"captured":{"conversation_id":"conversation-001","error":null,"error_code":null,"message":{"author":{"metadata":{},"role":"assistant"},"content":{},"create_time":"2000-01-01T00:02:13.733Z","end_turn":false,"id":"message-028","metadata":{"parent_id":"message-027","request_id":"request-002","turn_exchange_id":"turn-001","turn_id":"turn-003","working_turn_id":"turn-001"},"status":"finished_successfully"}},"source_sequence":74}
+

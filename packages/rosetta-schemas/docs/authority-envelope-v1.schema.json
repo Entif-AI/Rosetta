@@ -1,0 +1,528 @@
+{
+  "$id": "urn:rosetta:authz:authority-envelope:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "envelopeRef",
+    "profile",
+    "authoritySources",
+    "actorEvidenceRefs",
+    "scope",
+    "policy",
+    "contextConstraints",
+    "validity",
+    "delegation",
+    "provenance",
+    "integrityRefs",
+    "receiptRefs"
+  ],
+  "properties": {
+    "envelopeRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "authz.authority_envelope.v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "authoritySources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "ref"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "authority-root",
+              "authority-delegation"
+            ]
+          },
+          "ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "actorEvidenceRefs": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "operations",
+        "effects"
+      ],
+      "properties": {
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "resourceRef",
+            "domainRef"
+          ],
+          "properties": {
+            "resourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            "domainRef": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tenantId",
+                "classification",
+                "abacLabels"
+              ],
+              "properties": {
+                "tenantId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "classification": {
+                  "enum": [
+                    "public",
+                    "internal",
+                    "confidential",
+                    "restricted"
+                  ]
+                },
+                "abacLabels": {
+                  "type": "array",
+                  "maxItems": 256,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "key",
+                      "value"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      },
+                      "value": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      }
+                    }
+                  }
+                },
+                "vendorRoute": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                }
+              }
+            }
+          }
+        },
+        "operations": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "effects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "pure-transform",
+              "source-read",
+              "local-write",
+              "external-write",
+              "payment"
+            ]
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "version",
+        "frontierRef"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "frontierRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "contextConstraints": {
+      "type": "object",
+      "maxProperties": 256,
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "maxItems": 256,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "minItems": 1
+      }
+    },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "notBefore",
+        "expiresAt",
+        "state",
+        "revocationRefs",
+        "invalidityRefs",
+        "supersededByRefs"
+      ],
+      "properties": {
+        "notBefore": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "enum": [
+            "valid",
+            "expired",
+            "revoked",
+            "invalid",
+            "superseded"
+          ]
+        },
+        "revocationRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "invalidityRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "supersededByRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "delegation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parentEnvelopeRef",
+        "lineageRefs",
+        "ceiling",
+        "furtherDelegation",
+        "depthRemaining"
+      ],
+      "properties": {
+        "parentEnvelopeRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lineageRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "ceiling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "target",
+            "operations",
+            "effects"
+          ],
+          "properties": {
+            "target": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "resourceRef",
+                "domainRef"
+              ],
+              "properties": {
+                "resourceRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "domainRef": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "tenantId",
+                    "classification",
+                    "abacLabels"
+                  ],
+                  "properties": {
+                    "tenantId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    "classification": {
+                      "enum": [
+                        "public",
+                        "internal",
+                        "confidential",
+                        "restricted"
+                      ]
+                    },
+                    "abacLabels": {
+                      "type": "array",
+                      "maxItems": 256,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "key",
+                          "value"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048,
+                            "pattern": "\\S"
+                          },
+                          "value": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2048,
+                            "pattern": "\\S"
+                          }
+                        }
+                      }
+                    },
+                    "vendorRoute": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    }
+                  }
+                }
+              }
+            },
+            "operations": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              "minItems": 1
+            },
+            "effects": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 5,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "pure-transform",
+                  "source-read",
+                  "local-write",
+                  "external-write",
+                  "payment"
+                ]
+              }
+            }
+          }
+        },
+        "furtherDelegation": {
+          "type": "boolean"
+        },
+        "depthRemaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "compiledAt",
+        "compilerRef",
+        "sourceFrontierRef",
+        "sourceRefs"
+      ],
+      "properties": {
+        "compiledAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "compilerRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "sourceFrontierRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "integrityRefs": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      }
+    },
+    "receiptRefs": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      }
+    }
+  }
+}

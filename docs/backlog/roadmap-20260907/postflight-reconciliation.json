@@ -1,0 +1,41 @@
+{
+  "task": "rosetta-roadmap-20260907",
+  "date": "2026-09-07",
+  "publication": "public",
+  "original_eligible_count": 518,
+  "original_comments_captured": 1651,
+  "retained_original_public_issues": 426,
+  "migrated_original_sources": 92,
+  "new_public_successor_contracts": 22,
+  "expected_frozen_scope_public_count": 448,
+  "original_cleanup_receipt_preserved": "docs/backlog/roadmap-20260907/cleanup-results.json",
+  "census_reconciliation": {
+    "raw_paginated_cleanup_count": 447,
+    "missing_expected_number": 1024,
+    "direct_readback": "open, priority:p2, backlog, no excluded labels",
+    "interpretation": "The paginated census omitted #1024. No closure or exclusion is inferred; the raw receipt remains unchanged."
+  },
+  "late_arrivals": [
+    {
+      "number": 1544,
+      "created_at": "2026-09-07T08:25:23Z",
+      "title": "GUT Reasoning-Space Receipt SchemaPack: provenance for semantic merges and graph uncertainty",
+      "publication": "public",
+      "work_shape": "DECOMPOSITION_READY",
+      "priority": "priority:p2",
+      "bucket": "backlog",
+      "size": "size:l",
+      "labels_before": [],
+      "labels_added": ["documentation", "planning", "schemas", "priority:p2", "backlog", "size:l"],
+      "next_action": "Freeze the neutral interchange and loss vocabulary, then scope one offline schema/fixture leaf. No NLI engine, trainer, or graph runtime is required for that first public contract.",
+      "boundary": "Represent source samples, interpretation, merge evidence, graph snapshots, uncertainty, optimization and correctness separately. Public research methodology is not classified as protected Entif IP.",
+      "source": "https://github.com/entif-ai/rosetta/issues/1544",
+      "original_census_member": false
+    }
+  ],
+  "reconciled_public_open_count": 449,
+  "selected_execution_issues": 20,
+  "backlog_issues_in_reconciled_scope": 429,
+  "scope_rule": "The 518-row source census remains immutable. One separately identified late arrival is tracked at closeout; later arrivals are outside this snapshot.",
+  "verification_limits": ["No protocol runtime build or conformance certification was performed", "No issue deletion or history erasure is claimed", "The original cleanup count is preserved rather than silently rewritten"]
+}

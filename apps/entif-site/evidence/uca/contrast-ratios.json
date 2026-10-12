@@ -1,0 +1,176 @@
+{
+  "method": "WCAG relative luminance and conservative brightest gradient endpoints; alpha panel endpoint treated as opaque for a stronger bound",
+  "pairs": [
+    {
+      "pair": "small gold / cream",
+      "foreground": "#73522b",
+      "background": "#f4f0e8",
+      "ratio": 6.219,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "small gold / scenario",
+      "foreground": "#73522b",
+      "background": "#eae6df",
+      "ratio": 5.683,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "light body / scenario",
+      "foreground": "#151922",
+      "background": "#eae6df",
+      "ratio": 14.139,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "light muted / scenario",
+      "foreground": "#45494d",
+      "background": "#eae6df",
+      "ratio": 7.298,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "hero muted / brightest gradient endpoint",
+      "foreground": "#b5bfce",
+      "background": "#193446",
+      "ratio": 6.976,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "hero gold / brightest gradient endpoint",
+      "foreground": "#f4cb88",
+      "background": "#193446",
+      "ratio": 8.479,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "closing muted / brightest gradient endpoint",
+      "foreground": "#b5bfce",
+      "background": "#1c4b55",
+      "ratio": 5.171,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "closing gold / brightest gradient endpoint",
+      "foreground": "#f4cb88",
+      "background": "#1c4b55",
+      "ratio": 6.285,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "panel detail / conservative opaque gradient endpoint",
+      "foreground": "#d1d9e4",
+      "background": "#2b3f4b",
+      "ratio": 7.704,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "panel muted / conservative opaque gradient endpoint",
+      "foreground": "#b5bfce",
+      "background": "#2b3f4b",
+      "ratio": 5.904,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "panel gold / conservative opaque gradient endpoint",
+      "foreground": "#f4cb88",
+      "background": "#2b3f4b",
+      "ratio": 7.176,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "response muted / brightest gradient endpoint",
+      "foreground": "#b5bfce",
+      "background": "#182131",
+      "ratio": 8.694,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "response mint / brightest gradient endpoint",
+      "foreground": "#9fe4cf",
+      "background": "#182131",
+      "ratio": 11.126,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "white heading / panel endpoint",
+      "foreground": "#ffffff",
+      "background": "#2b3f4b",
+      "ratio": 10.964,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "button label / gold",
+      "foreground": "#0a0d14",
+      "background": "#f4cb88",
+      "ratio": 12.72,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "button label / hover gold",
+      "foreground": "#0a0d14",
+      "background": "#ffe2b2",
+      "ratio": 15.523,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "selected rail muted / composited gold tint",
+      "foreground": "#b5bfce",
+      "background": "#1e2025",
+      "ratio": 8.776,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "selected rail gold / composited gold tint",
+      "foreground": "#f4cb88",
+      "background": "#1e2025",
+      "ratio": 10.667,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "focus mint / closing gradient endpoint",
+      "foreground": "#9fe4cf",
+      "background": "#1c4b55",
+      "ratio": 6.618,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "shared muted / canvas",
+      "foreground": "#536383",
+      "background": "#f6f7fd",
+      "ratio": 5.644,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "shared accent / canvas",
+      "foreground": "#613535",
+      "background": "#f6f7fd",
+      "ratio": 9.493,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "shared ink / canvas",
+      "foreground": "#012664",
+      "background": "#f6f7fd",
+      "ratio": 13.429,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "decorative orbit white / brightest center endpoint",
+      "foreground": "#ffffff",
+      "background": "#38536c",
+      "ratio": 8.009,
+      "ordinaryTextPass": true
+    },
+    {
+      "pair": "decorative orbit mint / brightest center endpoint",
+      "foreground": "#9fe4cf",
+      "background": "#38536c",
+      "ratio": 5.52,
+      "ordinaryTextPass": true
+    }
+  ],
+  "axeLimitation": "All 15 Projects axe states include color-contrast incomplete. These are separate analytical CSS bounds, not an automatic completion of those nodes.",
+  "formula": "sRGB c/255 linearizes at <=0.04045 as c/12.92, otherwise ((c+0.055)/1.055)^2.4; L=0.2126R+0.7152G+0.0722B; ratio=(Llighter+0.05)/(Ldarker+0.05)",
+  "focusAndSelection": "Mint on the brightest closing endpoint and dark gold on cream/scenario are conservative focus bounds; selected rail uses full-opacity gold border/arrow/underline. All corresponding recorded ratios exceed 3:1."
+}

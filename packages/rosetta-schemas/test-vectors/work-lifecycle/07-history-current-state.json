@@ -1,0 +1,162 @@
+{
+  "description": "Synthetic public conformance vector; no assertion that an external activity occurred.",
+  "expectOk": true,
+  "records": [
+    {
+      "recordId": "record:0",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "declared",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ]
+    },
+    {
+      "recordId": "record:1",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "completed",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "executorRef": "executor:worker",
+      "resultRef": "result:attempt",
+      "disposition": "completed",
+      "priorRecordRef": "record:0"
+    },
+    {
+      "recordId": "record:2",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "verification_accepted",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "executorRef": "executor:worker",
+      "resultRef": "result:attempt",
+      "verifierRefs": [
+        "executor:reviewer"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "record:1"
+    },
+    {
+      "recordId": "record:3",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "integrated",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "verificationRef": "record:2",
+      "integrationRefs": [
+        "integration:garden"
+      ],
+      "disposition": "accepted",
+      "priorRecordRef": "record:2"
+    }
+  ],
+  "currentState": {
+    "profile": "work.lifecycle-state.v1",
+    "workRef": "work:software",
+    "headRecordRef": "record:3",
+    "historyRefs": [
+      "record:0",
+      "record:1",
+      "record:2",
+      "record:3"
+    ],
+    "lastEvent": "integrated",
+    "execution": {
+      "state": "completed",
+      "recordRef": "record:1",
+      "resultRef": "result:attempt"
+    },
+    "verification": {
+      "state": "accepted",
+      "recordRef": "record:2",
+      "resultRef": "result:attempt"
+    },
+    "integration": {
+      "state": "integrated",
+      "recordRef": "record:3",
+      "verificationRef": "record:2"
+    }
+  }
+}

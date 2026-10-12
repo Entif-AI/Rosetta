@@ -1,0 +1,37 @@
+{
+  "description": "Synthetic public conformance vector; no assertion that an external activity occurred.",
+  "expectOk": true,
+  "records": [
+    {
+      "recordId": "record:repair_required",
+      "profile": {
+        "id": "work.lifecycle.v1",
+        "version": "1.0.0"
+      },
+      "workRef": "work:software",
+      "event": "repair_required",
+      "createdAt": "2026-10-04T06:00:00Z",
+      "objectiveRefs": [
+        "objective:repair"
+      ],
+      "commitmentRefs": [
+        "commitment:repair"
+      ],
+      "acceptanceRefs": [
+        "acceptance:red-green"
+      ],
+      "evidenceRefs": [
+        "evidence:result"
+      ],
+      "receiptRefs": [
+        "receipt:result"
+      ],
+      "provenanceRefs": [
+        "provenance:adapter"
+      ],
+      "priorRecordRef": "record:verification_rejected",
+      "continuationRef": "work:repair",
+      "disposition": "repair_required"
+    }
+  ]
+}
