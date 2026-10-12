@@ -506,6 +506,64 @@ describe('pack conformance', () => {
     }
   });
 
+  it('fails discovery of a candidate Pack directory without pack.json and blocks Pack-ID repair before writes', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-manifest-absent-'));
+    const packsRoot = path.join(tempDir, 'packs');
+    const first = path.join(packsRoot, 'a-existing');
+    const missing = path.join(packsRoot, 'z-missing');
+    try {
+      await writePack(first, baseManifest(), { 'examples/example.md': 'content\n' });
+      const manifestPath = path.join(first, 'pack.json');
+      const before = await readFile(manifestPath, 'utf8');
+      await mkdir(missing);
+      await writeFile(path.join(missing, 'README.md'), 'candidate Pack without manifest\n');
+
+      const result = await validateWorkspacePacks(packsRoot);
+      expect(result.ok).toBe(false);
+      expect(result.packs.map((pack) => pack.root)).toEqual([first, missing]);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'manifest-missing', root: missing
+      }));
+      await expect(updateWorkspacePackIds(packsRoot)).rejects.toEqual(expect.objectContaining({
+        code: 'manifest-missing', root: missing
+      }));
+      expect(await readFile(manifestPath, 'utf8')).toBe(before);
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses symlinked pack.json in direct, workspace and Pack-ID repair paths', async () => {
+    const tempDir = await mkdtemp(path.join(tmpdir(), 'packs-manifest-symlink-'));
+    const packsRoot = path.join(tempDir, 'packs');
+    const root = path.join(packsRoot, 'example');
+    const outsideManifest = path.join(tempDir, 'outside-pack.json');
+    try {
+      await writePackWithCurrentId(root, baseManifest(), { 'examples/example.md': 'content\n' });
+      const manifestPath = path.join(root, 'pack.json');
+      const before = await readFile(manifestPath, 'utf8');
+      await writeFile(outsideManifest, before);
+      await rm(manifestPath);
+      await symlink(outsideManifest, manifestPath);
+
+      expect((await validatePackRoot(root)).errors).toEqual([
+        expect.objectContaining({ code: 'manifest-unsafe', root })
+      ]);
+      expect((await validateWorkspacePacks(packsRoot)).errors).toContainEqual(
+        expect.objectContaining({ code: 'manifest-unsafe', root })
+      );
+      await expect(computePackId(root)).rejects.toEqual(expect.objectContaining({
+        code: 'manifest-unsafe', root
+      }));
+      await expect(updateWorkspacePackIds(packsRoot)).rejects.toEqual(expect.objectContaining({
+        code: 'manifest-unsafe', root
+      }));
+      expect(await readFile(outsideManifest, 'utf8')).toBe(before);
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
+  });
+
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {
