@@ -187,10 +187,42 @@ describe('behavioral compatibility #1556', () => {
     const req = requirement([claim('ordering', 'ordered')]);
     const cap = capability([claim('ordering', 'unordered')]);
     const actual = compare(req, cap);
-    expect(() => parseBehavioralComparison({ ...actual, disposition: 'COMPATIBLE' })).toThrow(/aggregate hides/);
+    expect(() => parseBehavioralComparison({ ...actual, disposition: 'COMPATIBLE' }, req)).toThrow(/aggregate hides/);
     expect(() => parseBehavioralComparison({
       ...actual, disposition: 'COMPATIBLE', dimensions: actual.dimensions.map(dimension => ({ ...dimension, disposition: 'COMPATIBLE' }))
-    })).toThrow(/dimension disposition contradicts reasons/);
+    }, req)).toThrow(/dimension disposition contradicts reasons/);
+  });
+
+  it('rejects persisted comparisons that omit an unfavorable required dimension', () => {
+    const req = requirement([claim('idempotency', 'idempotent'), claim('ordering', 'ordered')]);
+    const cap = capability([claim('idempotency', 'idempotent'), claim('ordering', 'unordered')]);
+    const actual = compare(req, cap);
+    expect(actual.disposition).toBe('INCOMPATIBLE');
+
+    const forged = {
+      ...actual,
+      disposition: 'COMPATIBLE',
+      dimensions: actual.dimensions.filter(result => result.dimension !== 'ordering')
+    };
+    expect(forged.dimensions).toHaveLength(1);
+    expect(() => parseBehavioralComparison(forged, req)).toThrow(/required dimensions/);
+  });
+
+  it('binds persisted comparison identity and required values to the trusted request', () => {
+    const req = requirement([claim('delivery', 'exactly-once')]);
+    const actual = compare(req, capability([claim('delivery', 'exactly-once')]));
+    expect(parseBehavioralComparison(actual, req)).toEqual(actual);
+
+    expect(() => parseBehavioralComparison(actual, undefined)).toThrow();
+    expect(() => parseBehavioralComparison({ ...actual, requestId: 'urn:request:other' }, req)).toThrow(/request identity/);
+    expect(() => parseBehavioralComparison({ ...actual, processProfileRef: 'urn:process:other' }, req)).toThrow(/request identity/);
+    expect(() => parseBehavioralComparison({ ...actual, scope: { ...actual.scope, ref: 'urn:path:other' } }, req)).toThrow(/request identity/);
+    expect(() => parseBehavioralComparison({
+      ...actual, operation: { ...actual.operation, implementationVersion: '3.0.0' }
+    }, req)).toThrow(/request identity/);
+    expect(() => parseBehavioralComparison({
+      ...actual, dimensions: actual.dimensions.map(dimension => ({ ...dimension, requiredValue: 'at-most-once' }))
+    }, req)).toThrow(/required dimensions/);
   });
 
   it('replays deterministically across input claim ordering without mutating source records', () => {
@@ -201,7 +233,7 @@ describe('behavioral compatibility #1556', () => {
     const snapshot = structuredClone({ req, cap });
     const output = compare(req, cap);
     expect(output.disposition).toBe('COMPATIBLE');
-    expect(parseBehavioralComparison(output)).toEqual(output);
+    expect(parseBehavioralComparison(output, req)).toEqual(output);
     expect(compare({ ...req, required: [second, first] }, capability([first, second], [first, second]))).toEqual(output);
     expect({ req, cap }).toEqual(snapshot);
   });

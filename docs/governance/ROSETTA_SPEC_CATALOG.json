@@ -1248,7 +1248,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/behavioral-compatibility.spec.ts",
-          "sha256": "4cfd3f5e71fb13039b2c502d6128a0a52646ddf0c0f05cb70d4b865928600955",
+          "sha256": "37390d7081aad988eddad8ead51df724b2c454a92090ce77d846a4698aa3524c",
           "availability": "checked-in"
         }
       ]
@@ -1332,7 +1332,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/behavioral-compatibility.spec.ts",
-          "sha256": "4cfd3f5e71fb13039b2c502d6128a0a52646ddf0c0f05cb70d4b865928600955",
+          "sha256": "37390d7081aad988eddad8ead51df724b2c454a92090ce77d846a4698aa3524c",
           "availability": "checked-in"
         }
       ]
@@ -1420,7 +1420,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/behavioral-compatibility.spec.ts",
-          "sha256": "4cfd3f5e71fb13039b2c502d6128a0a52646ddf0c0f05cb70d4b865928600955",
+          "sha256": "37390d7081aad988eddad8ead51df724b2c454a92090ce77d846a4698aa3524c",
           "availability": "checked-in"
         }
       ]

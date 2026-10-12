@@ -173,10 +173,32 @@ const incompatibleReasons = new Set<BehavioralReason>([
   'OPERATION_MISMATCH', 'IMPLEMENTATION_MISMATCH', 'NORMATIVE_MISMATCH',
   'OBSERVED_MISMATCH', 'NORMATIVE_OBSERVED_CONFLICT'
 ]);
-export function parseBehavioralComparison(input: unknown): BehavioralComparison {
+/** A persisted comparison is meaningful only against its independently trusted request. */
+export function parseBehavioralComparison(input: unknown, trustedRequirementInput: unknown): BehavioralComparison {
+  const requirement = parseBehavioralRequirement(trustedRequirementInput);
   const value = admitComparison(input);
   if (new Set(value.dimensions.map(dimension => dimension.dimension)).size !== value.dimensions.length) {
     throw new Error('Duplicate behavioral comparison dimension.');
+  }
+  if (
+    value.requestId !== requirement.requestId ||
+    value.processProfileRef !== requirement.processProfileRef ||
+    value.scope.kind !== requirement.scope.kind ||
+    value.scope.ref !== requirement.scope.ref ||
+    value.operation.capabilityId !== requirement.operation.capabilityId ||
+    value.operation.operationClass !== requirement.operation.operationClass ||
+    value.operation.implementationRef !== requirement.operation.implementationRef ||
+    value.operation.implementationVersion !== requirement.operation.implementationVersion
+  ) {
+    throw new Error('Behavioral comparison request identity or scope disagrees with trusted requirement.');
+  }
+  if (
+    value.dimensions.length !== requirement.required.length ||
+    requirement.required.some(required => !value.dimensions.some(
+      dimension => dimension.dimension === required.dimension && dimension.requiredValue === required.value
+    ))
+  ) {
+    throw new Error('Behavioral comparison required dimensions disagree with trusted requirement.');
   }
   for (const dimension of value.dimensions) {
     const expected = dimension.reasons.some(reason => incompatibleReasons.has(reason)) ? 'INCOMPATIBLE'
@@ -244,5 +266,5 @@ export function compareBehavioralCompatibility(requestInput: unknown, capability
     requestId: request.requestId, capabilityRecordId: capability.capabilityRecordId,
     scope: request.scope, processProfileRef: request.processProfileRef,
     operation: request.operation, offeredOperation: capability.operation, disposition, dimensions
-  });
+  }, request);
 }
