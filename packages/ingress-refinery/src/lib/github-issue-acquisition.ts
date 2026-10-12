@@ -56,6 +56,16 @@ export interface GitHubIssueAcquisitionResult {
   authorizationBasis: 'caller-supplied-attestation';
   canonicalSourceJson: string;
   captureCoverage: 'issue-object-only';
+  publicationProjection:
+    | {
+        status: 'available';
+        canonicalJson: string;
+        sha256: string;
+      }
+    | {
+        status: 'unavailable';
+        reason: 'private-repository';
+      };
   canonicalArtifact: ReturnType<typeof refineTextArtifact>['canonicalArtifact'];
   episode: TileEnvelope<SourceEpisode>;
   evaluationReceipt: ReturnType<typeof refineTextArtifact>['evaluationReceipt'];
@@ -189,6 +199,55 @@ function instant(value: string, field: string): string {
   return value;
 }
 
+function createPublicationProjection(input: {
+  repositoryId: number;
+  repositoryNodeId: string;
+  fullName: string;
+  isPrivate: boolean;
+  issueId: number;
+  issueNodeId: string;
+  issueNumber: number;
+  title: string;
+  body: string | null;
+  state: string;
+  comments: number;
+  createdAt: string;
+  updatedAt: string;
+  apiUrl: string;
+  htmlUrl: string;
+}): GitHubIssueAcquisitionResult['publicationProjection'] {
+  if (input.isPrivate) {
+    return { status: 'unavailable', reason: 'private-repository' };
+  }
+  const canonicalJson = canonicalizeJson({
+    repository: {
+      id: input.repositoryId,
+      node_id: input.repositoryNodeId,
+      full_name: input.fullName,
+      private: false,
+    },
+    issue: {
+      id: input.issueId,
+      node_id: input.issueNodeId,
+      number: input.issueNumber,
+      title: input.title,
+      body: input.body,
+      state: input.state,
+      comments: input.comments,
+      created_at: input.createdAt,
+      updated_at: input.updatedAt,
+      url: input.apiUrl,
+      html_url: input.htmlUrl,
+      repository_url: 'https://api.github.com/repos/' + input.fullName,
+    },
+  });
+  return {
+    status: 'available',
+    canonicalJson,
+    sha256: sha256Hex(canonicalJson),
+  };
+}
+
 /**
  * Issues and pull requests share GitHub issue numbers, but NOT an acquisition
  * contract. PR/review admission and comment/timeline pagination are separate.
@@ -252,12 +311,13 @@ export function acquireGitHubIssueThroughRefinery(
     'issue.updated_at'
   );
   const comments = requiredNonnegativeInteger(issue.comments, 'issue.comments');
-  requiredString(issue.title, 'issue.title');
+  const title = requiredString(issue.title, 'issue.title');
   const state = requiredString(issue.state, 'issue.state');
   if (state !== 'open' && state !== 'closed') {
     throw new Error('Unsupported native GitHub issue state.');
   }
-  if (issue.body !== null && typeof issue.body !== 'string') {
+  const body = issue.body;
+  if (body !== null && typeof body !== 'string') {
     throw new Error('Native GitHub issue body must be text or null.');
   }
   if (Object.hasOwn(issue, 'pull_request')) {
@@ -307,6 +367,23 @@ export function acquireGitHubIssueThroughRefinery(
     throw new Error('Refusing over-bounded GitHub issue JSON snapshot.');
   }
   const snapshotHash = sha256Hex(snapshotJson);
+  const publicationProjection = createPublicationProjection({
+    repositoryId,
+    repositoryNodeId,
+    fullName,
+    isPrivate: repository.private,
+    issueId,
+    issueNodeId,
+    issueNumber,
+    title,
+    body,
+    state,
+    comments,
+    createdAt,
+    updatedAt,
+    apiUrl,
+    htmlUrl,
+  });
   const sourceId = 'github.issue:' + repositoryId + ':' + issueId;
   const previous = request.previous;
   if (previous) {
@@ -386,11 +463,19 @@ export function acquireGitHubIssueThroughRefinery(
         repositoryId,
         repositoryNodeId,
         repositoryNameAtCapture: fullName,
+        providerVisibility: repository.private ? 'private' : 'public',
+        publicationProjectionHash:
+          publicationProjection.status === 'available'
+            ? publicationProjection.sha256
+            : null,
         snapshotHash,
         sourceCreatedAt: createdAt,
         sourceUpdatedAt: updatedAt,
       },
-      publicationStatus: repository.private ? 'restricted' : 'published',
+      // The admitted manifestation preserves the complete provider object. Even a
+      // public repository response can contain caller-specific metadata, so only
+      // the explicit allowlisted projection is publication-safe.
+      publicationStatus: 'restricted',
       recordLocalId: sourceId,
       recordType: 'github-issue',
       sourceSystemId: 'github',
@@ -476,6 +561,7 @@ export function acquireGitHubIssueThroughRefinery(
     authorizationBasis: 'caller-supplied-attestation',
     canonicalSourceJson: snapshotJson,
     captureCoverage: 'issue-object-only',
+    publicationProjection,
     ...refined,
     canonicalArtifact: withMintTime(refined.canonicalArtifact, mintedAt),
     episode: withMintTime(episode, mintedAt),

@@ -198,6 +198,48 @@ describe('GitHub issue REST source admission', () => {
     );
   });
 
+  it('keeps the raw provider snapshot restricted and exposes only an allowlisted public projection', () => {
+    const input = specimen();
+    repoObject(input).permissions = {
+      admin: false,
+      maintain: false,
+      pull: true,
+      push: true,
+      triage: true,
+    };
+    repoObject(input).security_and_analysis = {
+      secret_scanning: { status: 'enabled' },
+    };
+    issueObject(input).performed_via_github_app = {
+      permissions: { issues: 'write' },
+    };
+
+    const admitted = acquireGitHubIssueThroughRefinery(input);
+
+    expect(admitted.record.payload.publicationStatus).toBe('restricted');
+    expect(admitted.canonicalSourceJson).toContain('"permissions"');
+    expect(admitted.canonicalSourceJson).toContain('security_and_analysis');
+    expect(admitted.publicationProjection.status).toBe('available');
+    if (admitted.publicationProjection.status !== 'available') {
+      throw new Error('Expected an allowlisted public projection.');
+    }
+    expect(admitted.publicationProjection.canonicalJson).toContain(
+      'Native provider record, not inferred graph truth'
+    );
+    expect(admitted.publicationProjection.canonicalJson).not.toContain(
+      '"permissions"'
+    );
+    expect(admitted.publicationProjection.canonicalJson).not.toContain(
+      'security_and_analysis'
+    );
+    expect(admitted.publicationProjection.canonicalJson).not.toContain(
+      'performed_via_github_app'
+    );
+    expect(admitted.publicationProjection.sha256).toBe(
+      sha256Hex(admitted.publicationProjection.canonicalJson)
+    );
+  });
+
   it('does not accept any caller-declared live provider mode as production evidence', () => {
     const request = specimen();
     Object.assign(request, { acquisitionMode: 'live' });
