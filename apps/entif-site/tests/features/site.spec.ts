@@ -81,6 +81,44 @@ test('homepage hero links and claim disclosures are legible without a disclaimer
   expect(receiptWithinCard).toBe(true);
 });
 
+test('homepage text inherits the site typeface and never falls below 1rem', async ({
+  page,
+}) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 960 });
+    await page.goto('/');
+    await page.locator('.claim-card').nth(2).locator('summary').click();
+
+    const outliers = await page.getByTestId('entif-home').evaluate((home) => {
+      const rootStyle = getComputedStyle(document.documentElement);
+      const minimumSize = parseFloat(rootStyle.fontSize);
+      const siteTypeface = rootStyle.fontFamily;
+      const failures: string[] = [];
+      const walker = document.createTreeWalker(home, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (!node.textContent?.trim()) continue;
+        const element = node.parentElement;
+        if (!element || !element.getClientRects().length) continue;
+        const style = getComputedStyle(element);
+        if (style.visibility === 'hidden' || style.display === 'none') continue;
+        if (
+          parseFloat(style.fontSize) + 0.01 < minimumSize ||
+          style.fontFamily !== siteTypeface
+        ) {
+          failures.push(
+            `${element.tagName.toLowerCase()}.${element.className}: ${
+              style.fontSize
+            }; ${style.fontFamily}`
+          );
+        }
+      }
+      return failures;
+    });
+    expect(outliers).toEqual([]);
+  }
+});
+
 test('published manuscripts retain scientific status and working figures', async ({
   page,
 }) => {
