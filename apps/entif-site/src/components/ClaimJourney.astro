@@ -88,23 +88,27 @@ const stages = await Promise.all(
     const ready = () => {
       if (window.matchMedia('(hover: none)').matches && !reduce.matches)
         timer = setTimeout(() => {
-          const card = cards[2];
-          const box = card?.getBoundingClientRect();
+          const card = cards.find((candidate) => {
+            const box = candidate.getBoundingClientRect();
+            return (
+              !candidate.open &&
+              box.top >= 0 &&
+              box.bottom <= window.innerHeight
+            );
+          });
           if (
             card &&
             !interacted &&
             !reduce.matches &&
-            document.visibilityState === 'visible' &&
-            box &&
-            box.top >= 0 &&
-            box.bottom <= window.innerHeight
+            document.visibilityState === 'visible'
           ) {
             card.classList.add('idle-cue');
-            card.addEventListener(
-              'animationend',
-              () => card.classList.remove('idle-cue'),
-              { once: true }
-            );
+            const clearCue = () => {
+              card.classList.remove('idle-cue');
+              clearTimeout(timer);
+            };
+            card.addEventListener('animationend', clearCue, { once: true });
+            timer = setTimeout(clearCue, 1200);
           }
         }, 10000);
     };

@@ -478,6 +478,21 @@
   }
 
   @media (max-width: 48rem) {
+    .entif-home .home-hero-copy,
+    .entif-home .home-lead-grid > *,
+    .entif-home .home-conviction-layout > *,
+    .entif-home .home-closing-layout > * {
+      min-width: 0;
+    }
+
+    .entif-home h1,
+    .entif-home h2,
+    .entif-home h3,
+    .entif-home .home-kicker,
+    .entif-home .home-action {
+      overflow-wrap: anywhere;
+    }
+
     .entif-home .home-actions {
       flex-direction: column;
       align-items: stretch;
@@ -485,6 +500,7 @@
 
     .entif-home .home-actions .home-action {
       width: 100%;
+      min-width: 0;
       min-height: 4.25rem;
       padding: 1rem 1.4rem;
       font-size: 1.25rem;
