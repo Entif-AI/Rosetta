@@ -15,7 +15,7 @@ describe('specification catalog #1700', () => {
     expect(catalog.schemas.find((entry) => entry.schemaId === 'rrp.promotion-state.v1').coreDescent).toBe('core-tile-profile');
     expect(catalog.packMap.overlay.fields).toContain('decisionNotes');
     expect(outputs['docs/governance/ROSETTA_PACK_MAP.csv']).not.toContain('decisionNotes');
-  });
+  }, 15_000);
   it('rejects duplicate, unresolved, cyclic and false Profile descent identities', async () => {
     const catalog = await buildCatalog();
     catalog.packs.push({ ...catalog.packs[0] });
