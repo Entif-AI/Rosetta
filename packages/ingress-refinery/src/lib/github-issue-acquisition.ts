@@ -1,0 +1,577 @@
+import { canonicalizeJson, type JsonValue } from '@entif-ai/rosetta-canon';
+import { sha256Hex } from '@entif-ai/rosetta-cid';
+import { verifyTileIntegrity, type TileEnvelope } from '@entif-ai/rosetta-core';
+import {
+  createSourceManifestationTile,
+  createSourceRecordTile,
+  createSourceSystemProfileTile,
+  type SourceEpisode,
+  type SourceManifestation,
+  type SourceRecord,
+} from '@entif-ai/source-substrate';
+import { bootstrapSourceProfiles } from '@entif-ai/source-registry';
+import {
+  createIngressJob,
+  createParseOnlySourceEpisode,
+  refineTextArtifact,
+} from './ingress-refinery.js';
+
+export type GitHubIssueAcquisitionMode = 'fixture' | 'local';
+const MAX_ISSUE_SNAPSHOT_BYTES = 1_000_000;
+const MAX_JSON_ITEMS = 25_000;
+const MAX_JSON_DEPTH = 64;
+
+/**
+ * The provider client owns authentication and transport. This parse-only adapter
+ * admits a caller-provided issue REST object on an OFFLINE proof path only.
+ * A caller-supplied decision reference is provenance, not proof of provider
+ * authentication or a live permission check for later GraphView reads.
+ */
+export interface GitHubIssueReadDecision {
+  allowed: boolean;
+  checkedAt: string;
+  decisionRef: string;
+  issueNodeId: string;
+  policyRefs: string[];
+  principalRef: string;
+  repositoryNodeId: string;
+  rightsScopes: string[];
+}
+
+export interface GitHubIssueAcquisitionRequest {
+  acquisitionMode: GitHubIssueAcquisitionMode;
+  capturedAt: string;
+  issue: unknown;
+  readDecision: GitHubIssueReadDecision;
+  repository: unknown;
+  previous?: {
+    capturedAt: string;
+    manifestation: TileEnvelope<SourceManifestation>;
+    record: TileEnvelope<SourceRecord>;
+  };
+}
+
+export interface GitHubIssueAcquisitionResult {
+  acquisitionMode: GitHubIssueAcquisitionMode;
+  authorizationBasis: 'caller-supplied-attestation';
+  canonicalSourceJson: string;
+  captureCoverage: 'issue-object-only';
+  publicationProjection:
+    | {
+        status: 'available';
+        canonicalJson: string;
+        sha256: string;
+      }
+    | {
+        status: 'unavailable';
+        reason: 'private-repository';
+      };
+  canonicalArtifact: ReturnType<typeof refineTextArtifact>['canonicalArtifact'];
+  episode: TileEnvelope<SourceEpisode>;
+  evaluationReceipt: ReturnType<typeof refineTextArtifact>['evaluationReceipt'];
+  fetchReceipt: ReturnType<typeof refineTextArtifact>['fetchReceipt'];
+  ingressJob: ReturnType<typeof createIngressJob>;
+  manifestation: TileEnvelope<SourceManifestation>;
+  normalizationReceipt: ReturnType<
+    typeof refineTextArtifact
+  >['normalizationReceipt'];
+  record: TileEnvelope<SourceRecord>;
+  sourceSystem: ReturnType<typeof createSourceSystemProfileTile>;
+  trustMatrix: ReturnType<typeof refineTextArtifact>['trustMatrix'];
+}
+
+function isJson(value: unknown): value is JsonValue {
+  const pending: { value: unknown; depth: number }[] = [{ value, depth: 0 }];
+  const visited = new Set<object>();
+  let itemCount = 0;
+  let byteCount = 0;
+  while (pending.length) {
+    const entry = pending.pop();
+    if (!entry) break;
+    if (++itemCount > MAX_JSON_ITEMS || entry.depth > MAX_JSON_DEPTH) {
+      throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+    }
+    const current = entry.value;
+    if (current === null || typeof current === 'boolean') continue;
+    if (typeof current === 'number') {
+      if (!Number.isFinite(current)) return false;
+      continue;
+    }
+    if (typeof current === 'string') {
+      byteCount += Buffer.byteLength(current, 'utf8');
+      if (byteCount > MAX_ISSUE_SNAPSHOT_BYTES) {
+        throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+      }
+      continue;
+    }
+    if (!current || typeof current !== 'object') return false;
+    if (visited.has(current)) return false;
+    visited.add(current);
+    const isArray = Array.isArray(current);
+    if (!isArray && Object.getPrototypeOf(current) !== Object.prototype)
+      return false;
+    const keys = Object.keys(current);
+    if (keys.length + itemCount > MAX_JSON_ITEMS) {
+      throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+    }
+    for (const key of keys) {
+      if (!isArray) byteCount += Buffer.byteLength(key, 'utf8');
+      if (byteCount > MAX_ISSUE_SNAPSHOT_BYTES) {
+        throw new Error('Refusing over-bounded GitHub JSON snapshot.');
+      }
+      const descriptor = Object.getOwnPropertyDescriptor(current, key);
+      if (!descriptor || !('value' in descriptor)) return false;
+      pending.push({ value: descriptor.value, depth: entry.depth + 1 });
+    }
+  }
+  return true;
+}
+
+function isJsonObject(value: unknown): value is Record<string, JsonValue> {
+  if (
+    !value ||
+    typeof value !== 'object' ||
+    Array.isArray(value) ||
+    Object.getPrototypeOf(value) !== Object.prototype
+  ) {
+    return false;
+  }
+  return isJson(value);
+}
+
+// Envelope creation time is when this process minted the tile, distinct from
+// source update/capture time. It is deliberately outside the content CID.
+function withMintTime<P>(
+  tile: TileEnvelope<P>,
+  mintedAt: string
+): TileEnvelope<P> {
+  return { ...tile, createdAt: mintedAt };
+}
+
+function jsonObject(value: unknown, label: string): Record<string, JsonValue> {
+  if (!isJsonObject(value)) {
+    throw new Error(label + ' must be a native JSON object.');
+  }
+  return value;
+}
+
+function requiredString(value: JsonValue | undefined, field: string): string {
+  if (typeof value !== 'string' || !value.trim()) {
+    throw new Error('GitHub issue snapshot requires ' + field + '.');
+  }
+  return value;
+}
+
+function requiredPositiveInteger(
+  value: JsonValue | undefined,
+  field: string
+): number {
+  if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 1) {
+    throw new Error('GitHub issue snapshot requires positive ' + field + '.');
+  }
+  return value;
+}
+
+function requiredNonnegativeInteger(
+  value: JsonValue | undefined,
+  field: string
+): number {
+  if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 0) {
+    throw new Error(
+      'GitHub issue snapshot requires nonnegative ' + field + '.'
+    );
+  }
+  return value;
+}
+
+function instant(value: string, field: string): string {
+  const time = Date.parse(value);
+  if (
+    !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/u.test(value) ||
+    !Number.isFinite(time) ||
+    // Date.parse silently normalizes impossible calendar dates on some runtimes.
+    new Date(time).toISOString().slice(0, 19) !== value.slice(0, 19)
+  ) {
+    throw new Error(
+      'GitHub issue snapshot requires UTC instant ' + field + '.'
+    );
+  }
+  return value;
+}
+
+function createPublicationProjection(input: {
+  repositoryId: number;
+  repositoryNodeId: string;
+  fullName: string;
+  isPrivate: boolean;
+  issueId: number;
+  issueNodeId: string;
+  issueNumber: number;
+  title: string;
+  body: string | null;
+  state: string;
+  comments: number;
+  createdAt: string;
+  updatedAt: string;
+  apiUrl: string;
+  htmlUrl: string;
+}): GitHubIssueAcquisitionResult['publicationProjection'] {
+  if (input.isPrivate) {
+    return { status: 'unavailable', reason: 'private-repository' };
+  }
+  const canonicalJson = canonicalizeJson({
+    repository: {
+      id: input.repositoryId,
+      node_id: input.repositoryNodeId,
+      full_name: input.fullName,
+      private: false,
+    },
+    issue: {
+      id: input.issueId,
+      node_id: input.issueNodeId,
+      number: input.issueNumber,
+      title: input.title,
+      body: input.body,
+      state: input.state,
+      comments: input.comments,
+      created_at: input.createdAt,
+      updated_at: input.updatedAt,
+      url: input.apiUrl,
+      html_url: input.htmlUrl,
+      repository_url: 'https://api.github.com/repos/' + input.fullName,
+    },
+  });
+  return {
+    status: 'available',
+    canonicalJson,
+    sha256: sha256Hex(canonicalJson),
+  };
+}
+
+/**
+ * Issues and pull requests share GitHub issue numbers, but NOT an acquisition
+ * contract. PR/review admission and comment/timeline pagination are separate.
+ * An issue-object snapshot never asserts completeness of the discussion.
+ */
+export function acquireGitHubIssueThroughRefinery(
+  request: GitHubIssueAcquisitionRequest
+): GitHubIssueAcquisitionResult {
+  const mintedAt = new Date().toISOString();
+  const decision = request.readDecision;
+  // Check supplied authorization before inspecting any potentially protected source data.
+  if (
+    (request.acquisitionMode !== 'fixture' &&
+      request.acquisitionMode !== 'local') ||
+    decision?.allowed !== true ||
+    !decision.decisionRef?.trim() ||
+    !decision.principalRef?.trim() ||
+    !decision.repositoryNodeId?.trim() ||
+    !decision.issueNodeId?.trim() ||
+    !Array.isArray(decision.rightsScopes) ||
+    decision.rightsScopes.length === 0 ||
+    !decision.rightsScopes.every(
+      (scope) => typeof scope === 'string' && scope.trim()
+    ) ||
+    !Array.isArray(decision.policyRefs) ||
+    decision.policyRefs.length === 0 ||
+    !decision.policyRefs.every(
+      (policy) => typeof policy === 'string' && policy.trim()
+    )
+  ) {
+    throw new Error(
+      'GitHub issue read DENIED: missing or denied external read-decision evidence.'
+    );
+  }
+
+  const capturedAt = instant(request.capturedAt, 'capturedAt');
+  const checkedAt = instant(decision.checkedAt, 'readDecision.checkedAt');
+  if (Date.parse(checkedAt) > Date.parse(capturedAt)) {
+    throw new Error(
+      'GitHub issue read DENIED: read decision occurred after the admitted capture.'
+    );
+  }
+
+  const repository = jsonObject(request.repository, 'GitHub repository');
+  const issue = jsonObject(request.issue, 'GitHub issue');
+  const repositoryId = requiredPositiveInteger(repository.id, 'repository.id');
+  const repositoryNodeId = requiredString(
+    repository.node_id,
+    'repository.node_id'
+  );
+  const fullName = requiredString(repository.full_name, 'repository.full_name');
+  const issueId = requiredPositiveInteger(issue.id, 'issue.id');
+  const issueNodeId = requiredString(issue.node_id, 'issue.node_id');
+  const issueNumber = requiredPositiveInteger(issue.number, 'issue.number');
+  const createdAt = instant(
+    requiredString(issue.created_at, 'issue.created_at'),
+    'issue.created_at'
+  );
+  const updatedAt = instant(
+    requiredString(issue.updated_at, 'issue.updated_at'),
+    'issue.updated_at'
+  );
+  const comments = requiredNonnegativeInteger(issue.comments, 'issue.comments');
+  const title = requiredString(issue.title, 'issue.title');
+  const state = requiredString(issue.state, 'issue.state');
+  if (state !== 'open' && state !== 'closed') {
+    throw new Error('Unsupported native GitHub issue state.');
+  }
+  const body = issue.body;
+  if (body !== null && typeof body !== 'string') {
+    throw new Error('Native GitHub issue body must be text or null.');
+  }
+  if (Object.hasOwn(issue, 'pull_request')) {
+    throw new Error(
+      'GitHub pull requests require a separate native PR/review source contract.'
+    );
+  }
+  if (repository.private !== true && repository.private !== false) {
+    throw new Error('Native GitHub repository visibility is required.');
+  }
+  if (repository.private && decision.rightsScopes.includes('public')) {
+    throw new Error(
+      'GitHub issue read DENIED: private repository cannot use public-only rights.'
+    );
+  }
+  const apiUrl =
+    'https://api.github.com/repos/' + fullName + '/issues/' + issueNumber;
+  const htmlUrl = 'https://github.com/' + fullName + '/issues/' + issueNumber;
+  if (
+    !/^[a-zA-Z0-9-]+\/[a-zA-Z0-9._-]+$/u.test(fullName) ||
+    issue.url !== apiUrl ||
+    issue.html_url !== htmlUrl ||
+    issue.repository_url !== 'https://api.github.com/repos/' + fullName
+  ) {
+    throw new Error('GitHub issue native URL, repository and number disagree.');
+  }
+  if (
+    decision.repositoryNodeId !== repositoryNodeId ||
+    decision.issueNodeId !== issueNodeId
+  ) {
+    throw new Error(
+      'GitHub issue read DENIED: external decision is bound to a different source.'
+    );
+  }
+  if (
+    Date.parse(updatedAt) < Date.parse(createdAt) ||
+    Date.parse(capturedAt) < Date.parse(updatedAt) ||
+    Date.parse(checkedAt) < Date.parse(updatedAt)
+  ) {
+    throw new Error(
+      'GitHub issue read DENIED: source revision or rights decision is stale.'
+    );
+  }
+
+  const snapshotJson = canonicalizeJson({ repository, issue });
+  if (Buffer.byteLength(snapshotJson, 'utf8') > MAX_ISSUE_SNAPSHOT_BYTES) {
+    throw new Error('Refusing over-bounded GitHub issue JSON snapshot.');
+  }
+  const snapshotHash = sha256Hex(snapshotJson);
+  const publicationProjection = createPublicationProjection({
+    repositoryId,
+    repositoryNodeId,
+    fullName,
+    isPrivate: repository.private,
+    issueId,
+    issueNodeId,
+    issueNumber,
+    title,
+    body,
+    state,
+    comments,
+    createdAt,
+    updatedAt,
+    apiUrl,
+    htmlUrl,
+  });
+  const sourceId = 'github.issue:' + repositoryId + ':' + issueId;
+  const previous = request.previous;
+  if (previous) {
+    if (
+      previous.record.kind !== 'source.record' ||
+      previous.manifestation.kind !== 'source.manifestation' ||
+      !verifyTileIntegrity(previous.record).ok ||
+      !verifyTileIntegrity(previous.manifestation).ok
+    ) {
+      throw new Error(
+        'GitHub issue correction has tampered or non-source prior Rosetta tiles.'
+      );
+    }
+    const previousUpdatedAt =
+      previous.record.payload.metadataBlob.sourceUpdatedAt;
+    const previousHash = previous.manifestation.payload.byteHashes.sha256;
+    if (
+      previous.record.payload.sourceSystemId !== 'github' ||
+      previous.record.payload.recordType !== 'github-issue' ||
+      previous.record.payload.recordLocalId !== sourceId ||
+      previous.manifestation.payload.sourceRecordCid !== previous.record.cid ||
+      previous.manifestation.payload.manifestationKind !==
+        'github-issue-rest-json' ||
+      previous.record.payload.metadataBlob.repositoryNodeId !==
+        repositoryNodeId ||
+      previous.record.payload.metadataBlob.issueNodeId !== issueNodeId ||
+      previous.record.payload.metadataBlob.snapshotHash !== previousHash ||
+      previous.record.payload.claimedVersion !== previousUpdatedAt ||
+      previous.manifestation.payload.manifestationId !==
+        'github.issue.snapshot:' +
+          repositoryId +
+          ':' +
+          issueId +
+          ':' +
+          previousHash ||
+      typeof previousUpdatedAt !== 'string' ||
+      typeof previousHash !== 'string'
+    ) {
+      throw new Error(
+        'GitHub issue correction has mismatched native source identity or lineage.'
+      );
+    }
+    const earlierCapture = instant(previous.capturedAt, 'previous.capturedAt');
+    if (
+      Date.parse(capturedAt) <= Date.parse(earlierCapture) ||
+      Date.parse(updatedAt) <
+        Date.parse(instant(previousUpdatedAt, 'previous.sourceUpdatedAt'))
+    ) {
+      throw new Error('GitHub issue correction is stale or nonmonotonic.');
+    }
+  }
+
+  const sourceProfile = bootstrapSourceProfiles.find(
+    (profile) => profile.sourceSystemId === 'github'
+  );
+  if (!sourceProfile)
+    throw new Error('GitHub source-system profile is not registered.');
+  const sourceSystem = createSourceSystemProfileTile(sourceProfile);
+  const record = createSourceRecordTile(
+    {
+      claimedVersion: updatedAt,
+      // Even an unchanged provider revision can be re-observed under changed
+      // rights/policies. Preserve that temporal lineage rather than silently
+      // forking the new access context from its verified predecessor.
+      lineageRefs: previous ? [previous.record.cid] : [],
+      metadataBlob: {
+        authorizationBasis: 'caller-supplied-attestation',
+        captureCoverage: 'issue-object-only',
+        commentCount: comments,
+        issueId,
+        issueNodeId,
+        issueNumber,
+        readDecisionCheckedAt: checkedAt,
+        readDecisionRef: decision.decisionRef,
+        readPolicyRefs: decision.policyRefs,
+        readPrincipalRef: decision.principalRef,
+        repositoryId,
+        repositoryNodeId,
+        repositoryNameAtCapture: fullName,
+        providerVisibility: repository.private ? 'private' : 'public',
+        publicationProjectionHash:
+          publicationProjection.status === 'available'
+            ? publicationProjection.sha256
+            : null,
+        snapshotHash,
+        sourceCreatedAt: createdAt,
+        sourceUpdatedAt: updatedAt,
+      },
+      // The admitted manifestation preserves the complete provider object. Even a
+      // public repository response can contain caller-specific metadata, so only
+      // the explicit allowlisted projection is publication-safe.
+      publicationStatus: 'restricted',
+      recordLocalId: sourceId,
+      recordType: 'github-issue',
+      sourceSystemId: 'github',
+      stableLocators: [htmlUrl],
+    },
+    [sourceSystem.cid, ...(previous ? [previous.record.cid] : [])]
+  );
+  const manifestation = createSourceManifestationTile(
+    {
+      accessRequirements: decision.rightsScopes,
+      byteHashes: { sha256: snapshotHash },
+      fetchableUrl: apiUrl,
+      manifestationId:
+        'github.issue.snapshot:' +
+        repositoryId +
+        ':' +
+        issueId +
+        ':' +
+        snapshotHash,
+      manifestationKind: 'github-issue-rest-json',
+      mediaType: 'application/vnd.github+json',
+      sourceRecordCid: record.cid,
+      structureProfile: 'github.issue-object-only.v1',
+    },
+    [record.cid, ...(previous ? [previous.manifestation.cid] : [])]
+  );
+  const episode = createParseOnlySourceEpisode(record, manifestation, {
+    chronology: {
+      canonical: {
+        createdAt: {
+          date: createdAt.slice(0, 10),
+          kind: 'createdAt',
+          source: 'github-issues-rest',
+        },
+        updatedAt: {
+          date: updatedAt.slice(0, 10),
+          kind: 'updatedAt',
+          source: 'github-issues-rest',
+        },
+      },
+      primary: {
+        date: capturedAt.slice(0, 10),
+        kind: 'observedAt',
+        source: 'github-issues-rest',
+      },
+    },
+    locator: apiUrl,
+    rawEvidenceRefs: [
+      {
+        evidenceId:
+          'raw.github.issue.' +
+          repositoryId +
+          '.' +
+          issueId +
+          '.' +
+          snapshotHash,
+        evidenceKind:
+          request.acquisitionMode === 'fixture'
+            ? 'generated-fixture'
+            : 'inline-text',
+        locator: 'inline:github-issue-json:' + snapshotHash,
+        sha256: snapshotHash,
+      },
+    ],
+    rightsScope: decision.rightsScopes,
+  });
+  const ingressJob = createIngressJob(record.cid, manifestation.cid);
+  const refined = refineTextArtifact(
+    record,
+    manifestation,
+    snapshotJson,
+    decision.policyRefs,
+    {
+      evaluatedAt: capturedAt,
+      fetchedAt: capturedAt,
+      fetchMethod: 'github-' + request.acquisitionMode + '-issue-snapshot',
+      requestedLocator: apiUrl,
+      resolvedLocator: apiUrl,
+    }
+  );
+  return {
+    acquisitionMode: request.acquisitionMode,
+    authorizationBasis: 'caller-supplied-attestation',
+    canonicalSourceJson: snapshotJson,
+    captureCoverage: 'issue-object-only',
+    publicationProjection,
+    ...refined,
+    canonicalArtifact: withMintTime(refined.canonicalArtifact, mintedAt),
+    episode: withMintTime(episode, mintedAt),
+    evaluationReceipt: withMintTime(refined.evaluationReceipt, mintedAt),
+    fetchReceipt: withMintTime(refined.fetchReceipt, mintedAt),
+    ingressJob: withMintTime(ingressJob, mintedAt),
+    manifestation: withMintTime(manifestation, mintedAt),
+    normalizationReceipt: withMintTime(refined.normalizationReceipt, mintedAt),
+    record: withMintTime(record, mintedAt),
+    sourceSystem: withMintTime(sourceSystem, mintedAt),
+    trustMatrix: withMintTime(refined.trustMatrix, mintedAt),
+  };
+}

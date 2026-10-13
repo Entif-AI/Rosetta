@@ -143,6 +143,19 @@
       }
     },
     {
+      "id": "entif:github-issue-source-admission",
+      "kind": "plan",
+      "title": "Admit a bounded native GitHub issue snapshot",
+      "status": "done",
+      "task": "T1810",
+      "issues": [1810, 799, 506],
+      "pr": 1811,
+      "source": {
+        "path": "plans/github-issue-source-admission.md",
+        "sha256": "d0de98d1a37334ea19b00c28dd2f8e169cd844a22e3de38dc50eb0964e54e158"
+      }
+    },
+    {
       "id": "entif:graph-view",
       "kind": "plan",
       "title": "Bounded GraphView conformance",
@@ -552,6 +565,11 @@
       "from": "entif:engineering-akasha",
       "kind": "depends-on",
       "to": "entif:jcs-001"
+    },
+    {
+      "from": "entif:github-issue-source-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:graph-view",
