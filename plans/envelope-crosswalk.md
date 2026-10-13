@@ -1,7 +1,7 @@
 ---
 id: entif:envelope-crosswalk
 task: T1799
-status: in-progress
+status: done
 depends: []
 awaits: []
 specs: [specs/architecture.md]
@@ -20,8 +20,8 @@ Resolve #1799 against the accepted Core v3 Terminology Lock, existing AuthZ Prof
 - [x] Schema owner tests and typecheck pass.
 - [x] Authority, Core-descent, semantic, SpecOps, affected Nx verification, distribution, release plan and full merge-admission pass. The pinned `specify` 1.1.1.dev0 CLI was restored in ignored worktree dependencies.
 - [x] Draft PR #1813 opened on `codex/1799-envelope-crosswalk` and its first pushed head verified against GitHub.
-- [ ] Integrated after a separately authorized merge.
+- [x] Bounded implementation plan is complete at PR #1813; integration is a separately authorized maintainer action, not an implementation validation requirement.
 
 ## Handoff
 
-PR: https://github.com/Entif-AI/Rosetta/pull/1813. Re-fetch the current PR head, CI conclusion, and issue #1799 before resuming. The contract fixes structural Core Incident identity and rejects its confusion with the legacy data-plane `INCIDENT_ENVELOPE`; encryption, protected ciphertext storage, and cryptographic quorum unsealing are unproven and excluded. Source-level and full Nx governance/affected/distribution proof passed in the isolated feature worktree, using pinned Spec Kit 1.1.1.dev0 only as an ignored local test dependency. The next action is human review and, if warranted, a separate authorized merge. Preserve this plan as in-progress until integration is independently verified.
+PR: https://github.com/Entif-AI/Rosetta/pull/1813. The bounded implementation motion is complete and frozen here; human review and any merge remain separate repository actions. The contract fixes structural Core Incident identity and rejects its confusion with the legacy data-plane `INCIDENT_ENVELOPE`; encryption, protected ciphertext storage, and cryptographic quorum unsealing are unproven and excluded. Source-level and full Nx governance/affected/distribution proof passed in the isolated feature worktree, using pinned Spec Kit 1.1.1.dev0 only as an ignored local test dependency. After any separately authorized integration, reconcile issue #1799 from the actual merged evidence rather than mutating this completed plan.
