@@ -17,7 +17,6 @@
   'explore': 'Explore Rosetta',
   'trace': 'Trace a claim',
   'demoLabel': 'An illustrative provenance journey',
-  'demoNote': 'Illustrative example · Traceability is not proof of truth.',
   'selected': 'Inside the receipt',
   'source': 'Source',
   'observation': 'Observation',
