@@ -15,6 +15,17 @@
       }
     },
     {
+      "id": "rosetta:pack-lock-graph-v1",
+      "kind": "behavior",
+      "title": "Pack dependency closure and content-addressed lock graph (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta Pack/schema maintainers",
+      "source": {
+        "path": "specs/pack-lock-graph.md",
+        "sha256": "84ce8e9dcb144b7717c9ec045d176c7218360e85ca75070e670270b3a1f02568"
+      }
+    },
+    {
       "id": "entif:substrate-principles",
       "kind": "principles",
       "title": "Substrate principles",
@@ -218,6 +229,19 @@
       "source": {
         "path": "plans/materialized-view.md",
         "sha256": "9ebf249b4951c0b9223f2030b2b114f75c1d70042a4a70319dac9b427b29ab5f"
+      }
+    },
+    {
+      "id": "entif:pack-lock-spec",
+      "kind": "plan",
+      "title": "Admit the Pack lock graph contract before the resolver",
+      "status": "planned",
+      "task": "T1790",
+      "issues": [1790, 1559],
+      "pr": 1814,
+      "source": {
+        "path": "plans/pack-lock-spec.md",
+        "sha256": "920fa50b6d73d9c643bfadd9c9c4a7d4ccfeb1ca7df593048a96a7a7d7f74d51"
       }
     },
     {
@@ -612,6 +636,11 @@
       "to": "entif:impact-revalidation"
     },
     {
+      "from": "entif:pack-lock-spec",
+      "kind": "implements",
+      "to": "rosetta:pack-lock-graph-v1"
+    },
+    {
       "from": "entif:run-completion",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -788,6 +817,11 @@
     },
     {
       "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:pack-lock-graph-v1",
       "kind": "governed-by",
       "to": "entif:substrate-principles"
     }
