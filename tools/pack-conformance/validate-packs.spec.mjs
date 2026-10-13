@@ -116,6 +116,101 @@ describe('pack conformance', () => {
     }
   });
 
+  it.each([
+    {
+      title: 'malformed JSON',
+      schemaContents: '{"type":',
+      errorCode: 'schema-json-invalid'
+    },
+    {
+      title: 'an invalid JSON Schema keyword type',
+      schemaContents: '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":42}',
+      errorCode: 'schema-invalid'
+    }
+  ])('rejects declared schema entrypoints containing $title', async ({ schemaContents, errorCode }) => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-negative-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/example.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/example.schema.json': schemaContents
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: errorCode,
+        detail: expect.stringContaining('schema/example.schema.json')
+      }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a valid declared JSON Schema without imposing Ajv strict-lint policy', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-positive-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/example.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/example.schema.json': JSON.stringify({
+          $schema: 'https://json-schema.org/draft/2020-12/schema',
+          type: 'object',
+          required: ['identifier']
+        })
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      expect((await validatePackRoot(root)).errors).toEqual([]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not misclassify a different JSON Schema dialect as an invalid document', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-dialect-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/older.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/older.schema.json': JSON.stringify({ $schema: 'http://json-schema.org/draft-07/schema#', type: 'object' })
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'schema-dialect-unsupported',
+        detail: expect.stringContaining('schema/older.schema.json')
+      }));
+      expect(result.errors.some((error) => error.code === 'schema-invalid')).toBe(false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reports a missing declared schema path only as a missing asset', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-missing-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/absent.schema.json'] }
+      });
+      await writePack(root, manifest, { 'examples/example.md': 'fixture\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-missing',
+        detail: 'schema/absent.schema.json'
+      }));
+      expect(result.errors.some((error) => error.code.startsWith('schema-'))).toBe(false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {

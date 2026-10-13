@@ -10,6 +10,8 @@ const PACK_ID_ALGORITHM = 'rosetta-pack-id-v1';
 const DEFAULT_PACKS_ROOT = 'packs';
 const require = createRequire(import.meta.url);
 const Ajv2020 = require('ajv/dist/2020.js');
+// Ajv strict lint is not JSON Schema validity; report standard meta-schema failures only.
+const packSchemaMetaValidator = new Ajv2020({ allErrors: true, strict: false });
 let manifestValidator;
 
 async function validateManifest(manifest) {
@@ -193,6 +195,39 @@ export async function validatePackRoot(packRoot) {
   for (const relativePath of [...entriesFromEntrypoints(manifest.entrypoints), ...entriesFromExports(manifest.exports)]) {
     if (!(await fileExists(path.join(packRoot, relativePath)))) {
       errors.push(validationError('declared-path-missing', packRoot, relativePath));
+    }
+  }
+
+  for (const relativePath of manifest.entrypoints.schema ?? []) {
+    const schemaPath = path.join(packRoot, relativePath);
+    if (!(await fileExists(schemaPath))) continue; // Already reported as a missing declared path.
+
+    let schema;
+    try {
+      schema = await readJson(schemaPath);
+    } catch (error) {
+      errors.push(validationError('schema-json-invalid', packRoot, `${relativePath}: ${error.message}`));
+      continue;
+    }
+
+    if (
+      schema && typeof schema === 'object' && !Array.isArray(schema) &&
+      typeof schema.$schema === 'string' &&
+      schema.$schema !== 'https://json-schema.org/draft/2020-12/schema'
+    ) {
+      errors.push(validationError('schema-dialect-unsupported', packRoot, `${relativePath}: ${schema.$schema}`));
+      continue;
+    }
+
+    try {
+      if (!packSchemaMetaValidator.validateSchema(schema)) {
+        const details = (packSchemaMetaValidator.errors ?? [])
+          .map((error) => `${error.instancePath || '/'} ${error.message}`)
+          .join('; ');
+        errors.push(validationError('schema-invalid', packRoot, `${relativePath}: ${details}`));
+      }
+    } catch (error) {
+      errors.push(validationError('schema-invalid', packRoot, `${relativePath}: ${error.message}`));
     }
   }
 
