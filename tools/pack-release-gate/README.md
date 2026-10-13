@@ -2,6 +2,8 @@
 
 The Pack release gate composes existing repository checks into one deterministic report. It does not implement a second Pack validator.
 
+The generic evidence adapter in `vector-evidence.mjs` executes portable JSON Schema vector families named in `vector-bindings.json`, using each test case's declared `expectOk` result. It records the exact vector and schema SHA-256 digests, expected and actual verdicts, and case counts. New JSON vectors in a configured family are executed; new families or unmapped examples remain `not-evaluated`. Cases omitted from the Pack's declared test entrypoints fail. Unsupported RRP receipt/signature vectors remain owned by their existing Pack-specific executable harness and do not become a generic JSON Schema pass by association.
+
 The current composer runs four ordered implemented stages:
 
 1. Pack-root and manifest validation from `tools/pack-conformance/validate-packs.mjs`.
@@ -11,7 +13,7 @@ The current composer runs four ordered implemented stages:
 
 If a stage fails, later stages are reported as blocked. The report still preserves every Pack-validator error observed before the first gate failure.
 
-The follow-on `rock-release-obligations` stage audits the Draft ROCK release contract separately from the accepted manifest schema. It checks actual required root artifacts and example declarations, and verifies that Pack version bumps include an updated changelog that identifies the new version. It records per-Pack `pass`, `fail`, `not-applicable`, and `not-evaluated` outcomes under `obligations`, without inventing a generic semantics test runner. A missing root document, example declaration, or version/changelog match blocks release. Semantic example execution, applicable test-vector execution, required traceability headers, normative-change classification, and breaking-change migration evidence still need explicit contracts and may remain `not-evaluated`. The top-level report is `blocked` on a proved violation and otherwise `partial` while coverage is incomplete. Both return nonzero. The target MUST NOT be described as release-ready.
+The follow-on `rock-release-obligations` stage audits the Draft ROCK release contract separately from the accepted manifest schema. It checks actual required root artifacts and example declarations, portable mapped JSON Schema vectors, and Pack version bumps against their changelog. It records per-Pack `pass`, `fail`, `not-applicable`, and `not-evaluated` outcomes under `obligations`. A missing root document, example declaration, failed bound vector, or version/changelog mismatch blocks release. Unbound Markdown examples, RRP signature tests, traceability headers, normative-change classification, and breaking-change migration evidence still need explicit contracts and may remain `not-evaluated`. The top-level report is `blocked` on a proved violation and otherwise `partial` while coverage is incomplete. Both return nonzero. The target MUST NOT be described as release-ready.
 
 An intentional `blocked` result on today's four Pack roots is not a regression in their accepted manifest conformance: each is missing the fuller ROCK root-document set. Their missing documents should be authored with genuine content, not placeholders. See `plans/pack-release-gate-report.md` for the accepted-schema versus Draft ROCK reconciliation matrix and pending implementation gates.
 

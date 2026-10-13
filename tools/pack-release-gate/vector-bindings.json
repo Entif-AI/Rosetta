@@ -1,0 +1,17 @@
+{
+  "formatVersion": 1,
+  "packs": {
+    "schema-pack-evaluation-profiles": [
+      {
+        "schema": "schema/salience-evaluation.schema.json",
+        "vectors": "test-vectors/salience",
+        "examples": ["examples/salience-evaluation.json"]
+      },
+      {
+        "schema": "schema/counterfactual-evaluation.schema.json",
+        "vectors": "test-vectors/counterfactual",
+        "examples": []
+      }
+    ]
+  }
+}

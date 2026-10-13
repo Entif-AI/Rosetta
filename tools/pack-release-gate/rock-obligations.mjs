@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { lstat, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { auditExecutablePackEvidence } from './vector-evidence.mjs';
 
 const ROOT_FILES = ['README.md', 'acceptance.md', 'metadata.json'];
 
@@ -24,8 +25,8 @@ async function nonemptyDirectory(directory) {
   }
 }
 
-function item(root, id, status, detail) {
-  return { root, id, status, detail };
+function item(root, id, status, detail, receipts) {
+  return { root, id, status, detail, ...(receipts ? { receipts } : {}) };
 }
 
 function requiresChangelog(version) {
@@ -97,12 +98,19 @@ export async function auditPackReleaseObligations({ packResults, workspaceRoot, 
     findings.push(item(relativeRoot, 'generic-required-root-file-presence', absent.length ? 'fail' : 'pass', absent.length ? `Missing or invalid: ${absent.join(', ')}` : 'Required root files and nonempty directories present'));
 
     const examples = manifest.entrypoints.examples ?? [];
-    findings.push(item(relativeRoot, 'example-validation', examples.length === 0 ? 'fail' : 'not-evaluated',
-      examples.length === 0 ? 'No example declared in manifest' : 'Example assets exist in the manifest, but no generic example-to-schema validation contract is declared'));
+    const proof = await auditExecutablePackEvidence({ root, manifest });
+    const exampleProof = proof?.examples;
+    findings.push(item(relativeRoot, 'example-validation',
+      examples.length === 0 ? 'fail' : exampleProof?.status ?? 'not-evaluated',
+      examples.length === 0 ? 'No example declared in manifest' : exampleProof?.detail ?? 'No executable example binding for this Pack',
+      exampleProof?.receipts));
 
     const vectors = await nonemptyDirectory(path.join(root, 'test-vectors'));
-    findings.push(item(relativeRoot, 'test-vector-execution-where-applicable', vectors ? 'not-evaluated' : 'not-applicable',
-      vectors ? 'Vectors present; generic gate has no cross-Pack execution receipt contract' : 'No test-vectors/ subtree'));
+    const vectorProof = proof?.vectors;
+    findings.push(item(relativeRoot, 'test-vector-execution-where-applicable',
+      vectors ? vectorProof?.status ?? 'not-evaluated' : 'not-applicable',
+      vectors ? vectorProof?.detail ?? 'Vectors present without a generic executable binding' : 'No test-vectors/ subtree',
+      vectorProof?.receipts));
     findings.push(item(relativeRoot, 'traceability-header-checks-where-required', 'not-evaluated',
       'ROCK requires headers for normative JSON/SHACL/other artifacts, but live JSON schemas cannot use textual preambles; mapping or sidecar convention not accepted'));
 
