@@ -153,6 +153,9 @@ importers:
       quota-axi:
         specifier: 0.1.56
         version: 0.1.56
+      semver:
+        specifier: 7.8.5
+        version: 7.8.5
       tslib:
         specifier: ^2.3.0
         version: 2.8.1

@@ -12,7 +12,7 @@ describe('semantic/Profile admission #1699', () => {
     expect((await validateSurface({ ...declaration, coreKinds: ['rosetta.promotion_state'] }, schemas.ROSETTA_SCHEMA_CATALOG, read, tasks)).join(';')).toMatch(/Core|descent/);
     expect((await validateSurface({ ...declaration, coreDescent: 'core-primitive' }, schemas.ROSETTA_SCHEMA_CATALOG, read, tasks)).join(';')).toMatch(/descent/);
     expect((await validateSurface(declaration, schemas.ROSETTA_SCHEMA_CATALOG, read, new Set())).join(';')).toMatch(/task/);
-  });
+  }, 30_000); // Cold CI loading can exceed Vitest's five-second default under parallel Nx jobs.
   it('rejects the frozen pre-fix shape and admits the corrected declared Profile', async () => {
     const load = async (name) => JSON.parse(await readFile(`packs/rrp/test-vectors/${name}.json`, 'utf8'));
     expect((await inspectPromotionCandidate(await load('promotion-pre-fix'))).ok).toBe(false);

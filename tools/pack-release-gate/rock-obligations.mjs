@@ -1,8 +1,13 @@
 import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { lstat, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { auditExecutablePackEvidence } from './vector-evidence.mjs';
+import { auditPackTraceability } from './traceability-evidence.mjs';
 
 const ROOT_FILES = ['README.md', 'acceptance.md', 'metadata.json'];
+const require = createRequire(import.meta.url);
+const semver = require('semver');
 
 async function regularFile(filePath) {
   try {
@@ -24,8 +29,8 @@ async function nonemptyDirectory(directory) {
   }
 }
 
-function item(root, id, status, detail) {
-  return { root, id, status, detail };
+function item(root, id, status, detail, receipts) {
+  return { root, id, status, detail, ...(receipts ? { receipts } : {}) };
 }
 
 function requiresChangelog(version) {
@@ -39,6 +44,9 @@ export function evaluateVersionEvidence({ current, previous, changedPaths, chang
   if (current.version === previous.version) {
     return { status: 'not-applicable', detail: 'Pack version unchanged against the selected base' };
   }
+  if (!semver.valid(current.version) || !semver.valid(previous.version) || !semver.gt(current.version, previous.version)) {
+    return { status: 'fail', detail: `Pack version must advance: ${previous.version} -> ${current.version}` };
+  }
   if (!changedPaths.includes('CHANGELOG.md')) {
     return { status: 'fail', detail: `Pack version ${previous.version} -> ${current.version} without a changelog change` };
   }
@@ -46,6 +54,31 @@ export function evaluateVersionEvidence({ current, previous, changedPaths, chang
     return { status: 'fail', detail: `Changelog does not identify new version ${current.version}` };
   }
   return { status: 'pass', detail: `Changelog updated for version ${previous.version} -> ${current.version}` };
+}
+
+function sortedJson(value) {
+  if (Array.isArray(value)) return value.map(sortedJson);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b))
+      .map(([k, v]) => [k, sortedJson(v)]));
+  }
+  return value;
+}
+
+function withoutContentId(manifest) {
+  const cleaned = { ...manifest };
+  delete cleaned.pack_id;
+  return sortedJson(cleaned);
+}
+
+export function normativeDelta({ current, previous, changedPaths }) {
+  const changed = changedPaths.filter((file) =>
+    /^(schema|shacl|vocab|policy|profiles|translators|migrations)\//.test(file));
+  if (changedPaths.includes('pack.json') &&
+    JSON.stringify(withoutContentId(current)) !== JSON.stringify(withoutContentId(previous))) {
+    changed.push('pack.json');
+  }
+  return changed.sort();
 }
 
 function gitRead(workspaceRoot, args) {
@@ -97,14 +130,22 @@ export async function auditPackReleaseObligations({ packResults, workspaceRoot, 
     findings.push(item(relativeRoot, 'generic-required-root-file-presence', absent.length ? 'fail' : 'pass', absent.length ? `Missing or invalid: ${absent.join(', ')}` : 'Required root files and nonempty directories present'));
 
     const examples = manifest.entrypoints.examples ?? [];
-    findings.push(item(relativeRoot, 'example-validation', examples.length === 0 ? 'fail' : 'not-evaluated',
-      examples.length === 0 ? 'No example declared in manifest' : 'Example assets exist in the manifest, but no generic example-to-schema validation contract is declared'));
+    const proof = await auditExecutablePackEvidence({ root, manifest });
+    const exampleProof = proof?.examples;
+    findings.push(item(relativeRoot, 'example-validation',
+      examples.length === 0 ? 'fail' : exampleProof?.status ?? 'not-evaluated',
+      examples.length === 0 ? 'No example declared in manifest' : exampleProof?.detail ?? 'No executable example binding for this Pack',
+      exampleProof?.receipts));
 
     const vectors = await nonemptyDirectory(path.join(root, 'test-vectors'));
-    findings.push(item(relativeRoot, 'test-vector-execution-where-applicable', vectors ? 'not-evaluated' : 'not-applicable',
-      vectors ? 'Vectors present; generic gate has no cross-Pack execution receipt contract' : 'No test-vectors/ subtree'));
-    findings.push(item(relativeRoot, 'traceability-header-checks-where-required', 'not-evaluated',
-      'ROCK requires headers for normative JSON/SHACL/other artifacts, but live JSON schemas cannot use textual preambles; mapping or sidecar convention not accepted'));
+    const vectorProof = proof?.vectors;
+    findings.push(item(relativeRoot, 'test-vector-execution-where-applicable',
+      vectors ? vectorProof?.status ?? 'not-evaluated' : 'not-applicable',
+      vectors ? vectorProof?.detail ?? 'Vectors present without a generic executable binding' : 'No test-vectors/ subtree',
+      vectorProof?.receipts));
+    const traceability = await auditPackTraceability({ root, manifest });
+    findings.push(item(relativeRoot, 'traceability-header-checks-where-required', traceability.status,
+      traceability.detail, traceability.receipts));
 
     const history = await historyForPack(workspaceRoot, root, baseRef);
     if (!history) {
@@ -117,9 +158,19 @@ export async function auditPackReleaseObligations({ packResults, workspaceRoot, 
     const version = evaluateVersionEvidence({ current: manifest, previous: history.previous, changedPaths: history.changedPaths, changelogText });
     findings.push(item(relativeRoot, 'release-version-to-changelog-consistency', version.status, version.detail));
 
-    const normativeChanges = history.changedPaths.filter((file) => /^(schema|shacl|vocab|policy|profiles|translators|migrations)\//.test(file) || file === 'pack.json');
-    findings.push(item(relativeRoot, 'changelog-update-for-normative-changes', normativeChanges.length ? 'not-evaluated' : 'not-applicable',
-      normativeChanges.length ? `Review normative significance: ${normativeChanges.join(', ')}` : 'No candidate normative paths changed'));
+    const normativeChanges = history.previous
+      ? normativeDelta({ current: manifest, previous: history.previous, changedPaths: history.changedPaths })
+      : ['new-pack'];
+    const changedLog = history.changedPaths.includes('CHANGELOG.md');
+    const changelogStatus = normativeChanges.length
+      ? changedLog ? 'not-evaluated' : 'fail'
+      : 'not-applicable';
+    const changelogDetail = normativeChanges.length
+      ? changedLog
+        ? `Changelog changed; review normative significance: ${normativeChanges.join(', ')}`
+        : `Normative candidate changed without changelog update: ${normativeChanges.join(', ')}`
+      : 'No candidate normative paths changed';
+    findings.push(item(relativeRoot, 'changelog-update-for-normative-changes', changelogStatus, changelogDetail));
     findings.push(item(relativeRoot, 'breaking-change-migration-or-translator-strategy', normativeChanges.length ? 'not-evaluated' : 'not-applicable',
       normativeChanges.length ? 'Breaking-change determination requires semantic diff and human review' : 'No candidate normative paths changed'));
   }

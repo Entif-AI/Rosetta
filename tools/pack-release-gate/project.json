@@ -8,7 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": ".",
-        "command": "vitest run tools/pack-release-gate/release-gate.spec.mjs tools/pack-release-gate/rock-obligations.spec.mjs"
+        "command": "vitest run tools/pack-release-gate/release-gate.spec.mjs tools/pack-release-gate/rock-obligations.spec.mjs tools/pack-release-gate/vector-evidence.spec.mjs tools/pack-release-gate/traceability-evidence.spec.mjs"
       },
       "cache": true,
       "inputs": [

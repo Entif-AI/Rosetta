@@ -1,0 +1,25 @@
+{
+  "formatVersion": 1,
+  "packs": {
+    "rrp": [
+      {
+        "kind": "pack-id-v1",
+        "vector": "test-vectors/pack-id-v1.expected.json"
+      }
+    ],
+    "schema-pack-evaluation-profiles": [
+      {
+        "kind": "json-schema",
+        "schema": "schema/salience-evaluation.schema.json",
+        "vectors": "test-vectors/salience",
+        "examples": ["examples/salience-evaluation.json"]
+      },
+      {
+        "kind": "json-schema",
+        "schema": "schema/counterfactual-evaluation.schema.json",
+        "vectors": "test-vectors/counterfactual",
+        "examples": []
+      }
+    ]
+  }
+}
