@@ -62,6 +62,45 @@
       ]
     },
     {
+      "schemaId": "behavioral.capability.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "specs/behavioral-compatibility-v1.md",
+        "sha256": "9ffbe0fa33b76d5aa400dee2faa6e77b3f95b3d11af27156465072ab63954477"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed and fixture-backed only; result is compatibility evidence, not execution/retry, write, compensation or authorization permission."
+      ]
+    },
+    {
+      "schemaId": "behavioral.comparison.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "specs/behavioral-compatibility-v1.md",
+        "sha256": "9ffbe0fa33b76d5aa400dee2faa6e77b3f95b3d11af27156465072ab63954477"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed and fixture-backed only; result is compatibility evidence, not execution/retry, write, compensation or authorization permission."
+      ]
+    },
+    {
+      "schemaId": "behavioral.requirement.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "specs/behavioral-compatibility-v1.md",
+        "sha256": "9ffbe0fa33b76d5aa400dee2faa6e77b3f95b3d11af27156465072ab63954477"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed and fixture-backed only; result is compatibility evidence, not execution/retry, write, compensation or authorization permission."
+      ]
+    },
+    {
       "schemaId": "compiled.context.block.v1",
       "coreDescent": "derived-projection",
       "authority": {

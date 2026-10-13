@@ -1,0 +1,291 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:rosetta:behavioral.comparison.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile",
+    "requestId",
+    "capabilityRecordId",
+    "scope",
+    "processProfileRef",
+    "operation",
+    "offeredOperation",
+    "disposition",
+    "dimensions"
+  ],
+  "properties": {
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "behavioral.comparison.v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "capabilityRecordId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "node",
+            "edge",
+            "path"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "processProfileRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capabilityId",
+        "operationClass",
+        "implementationRef",
+        "implementationVersion"
+      ],
+      "properties": {
+        "capabilityId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "operationClass": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "implementationRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "implementationVersion": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "offeredOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capabilityId",
+        "operationClass",
+        "implementationRef",
+        "implementationVersion"
+      ],
+      "properties": {
+        "capabilityId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "operationClass": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "implementationRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "implementationVersion": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "disposition": {
+      "enum": [
+        "COMPATIBLE",
+        "INCOMPATIBLE",
+        "UNKNOWN"
+      ]
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dimension",
+          "requiredValue",
+          "normativeValue",
+          "observedValue",
+          "disposition",
+          "reasons",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "dimension": {
+            "enum": [
+              "effectClass",
+              "idempotency",
+              "replaySafety",
+              "idempotencyKeyScope",
+              "delivery",
+              "ordering",
+              "acknowledgment",
+              "timeoutCommit",
+              "atomicity",
+              "partialSuccess",
+              "finality",
+              "reversibility",
+              "compensation",
+              "concurrency"
+            ]
+          },
+          "requiredValue": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "normativeValue": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observedValue": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "COMPATIBLE",
+              "INCOMPATIBLE",
+              "UNKNOWN"
+            ]
+          },
+          "reasons": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "OPERATION_MISMATCH",
+                "IMPLEMENTATION_MISMATCH",
+                "REQUIREMENT_UNKNOWN",
+                "NORMATIVE_MISSING",
+                "NORMATIVE_UNKNOWN",
+                "NORMATIVE_MISMATCH",
+                "NORMATIVE_EVIDENCE_MISSING",
+                "OBSERVED_MISSING",
+                "OBSERVED_UNKNOWN",
+                "OBSERVED_MISMATCH",
+                "OBSERVED_EVIDENCE_MISSING",
+                "NORMATIVE_OBSERVED_CONFLICT"
+              ]
+            }
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "maxItems": 256,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            }
+          }
+        }
+      }
+    }
+  }
+}
