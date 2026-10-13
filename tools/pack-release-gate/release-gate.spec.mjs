@@ -129,4 +129,21 @@ describe('Pack release gate report', () => {
     expect(releaseGateExitCode({ disposition: 'blocked' })).toBe(1);
     expect(releaseGateExitCode({ disposition: 'pass' })).toBe(0);
   });
+
+  it('makes missing ROCK required-root artifacts a blocking release-stage failure without losing earlier pass receipts', () => {
+    const report = composePackReleaseGateReport({
+      bootstrap: { status: 'pass' }, packErrors: [],
+      obligations: [
+        { root: 'packs/rrp', id: 'generic-required-root-file-presence', status: 'fail', detail: 'Missing README.md' },
+        { root: 'packs/rrp', id: 'example-validation', status: 'not-evaluated', detail: 'No declared schema mapping' }
+      ]
+    });
+    expect(report.stages.map((stage) => stage.status)).toEqual(['pass', 'pass', 'pass', 'pass', 'fail']);
+    expect(report.disposition).toBe('blocked');
+    expect(report.observedErrors).toEqual([{
+      code: 'generic-required-root-file-presence', root: 'packs/rrp', detail: 'Missing README.md'
+    }]);
+    expect(report.obligations[1].status).toBe('not-evaluated');
+    expect(releaseGateExitCode(report)).toBe(1);
+  });
 });
