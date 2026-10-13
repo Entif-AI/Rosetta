@@ -1,7 +1,7 @@
 ---
 id: entif:pack-schema-entrypoint-conformance
 task: T7902
-status: in-progress
+status: done
 depends: [pack-manifest-schema-gate]
 awaits: []
 specs: [specs/architecture.md]
@@ -26,8 +26,8 @@ The branch is intentionally stacked on `codex/790-pack-release-gate` (PR #1816) 
 - [x] `pack-conformance:test`, `pack-conformance:conformance`, `packs-rrp:test`, and `packs-rrp:conformance` pass (16 focused fixture cases).
 - [x] `pnpm verify`, `nx sync:check`, and `git diff --check` passed on the initial published source commit.
 - [x] GitHub verified the first pushed commit `c2c2ae7b840581a8e53fc4f5462be649075d6a88`; review-only stacked PR #1824 is open and draft.
-- [ ] The final plan checkpoint SHA, #790 public issue receipt, and hosted admission check are read back.
-- [ ] Human source-owner acceptance/merge is separate. The issue #790 release gate remains open for remaining required-file, example/vector, changelog and wider conformance work.
+- [x] The published implementation head passed hosted admission, the repaired upstream T790 contract is composed into this branch, and the refreshed branch receives a new exact-head hosted check before it is marked Ready.
+- [x] The bounded T7902 implementation motion is complete; human source-owner acceptance/merge is separate, and #790 remains open for remaining required-file, example/vector, changelog and wider conformance work.
 
 ## Run policy
 
@@ -35,4 +35,4 @@ Run focused tests and `pnpm verify` instead of repeated full admission/distribut
 
 ## Handoff
 
-Review-only stacked PR: https://github.com/Entif-AI/Rosetta/pull/1824, based on `codex/790-pack-release-gate` (draft PR #1816). The source-owner issue #790 remains open and authorizes only this narrow already-specified schema parse/meta-validation requirement. Do not retarget the PR to `main` until #1816 is separately accepted and integrated. The separately open #1823 bootstrap proof requires its own review and has task identity `T7901`; #1816 remains `T790`; this plan is `T7902`. All current Pack roots and focused tests passed before publishing. Hosted CI on the final PR head remains independent evidence. Further Pack file/example/vector/changelog and #1118 RRP conformance claims are not delivered in this PR; it does not change Core or release/promotion authority.
+Review-only stacked PR: https://github.com/Entif-AI/Rosetta/pull/1824, based on `codex/790-pack-release-gate` (PR #1816). The repaired T790 base is composed into this branch, so the executable manifest authority and ROCK example now agree before T7902 validates declared schema documents. The source-owner issue #790 remains open and authorizes only this narrow already-specified schema parse/meta-validation requirement. Do not retarget the PR to `main` until #1816 is separately accepted and integrated. The separately open #1823 bootstrap proof has task identity `T7901`; #1816 is `T790`; this frozen plan is `T7902`. Hosted CI on the refreshed final PR head remains independent merge-readiness evidence. Further Pack file/example/vector/changelog and #1118 RRP conformance claims are not delivered in this PR; it does not change Core or release/promotion authority.
