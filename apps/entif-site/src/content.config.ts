@@ -129,7 +129,6 @@ const ui = defineCollection({
     explore: z.string().min(1),
     trace: z.string().min(1),
     demoLabel: z.string().min(1),
-    demoNote: z.string().min(1),
     selected: z.string().min(1),
     source: z.string().min(1),
     observation: z.string().min(1),

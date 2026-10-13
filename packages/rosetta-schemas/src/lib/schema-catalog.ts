@@ -52,6 +52,8 @@ export interface RosettaSchemaCatalogEntry extends SchemaCatalogSourceEntry, Cor
 
 const SCHEMA_README = 'packages/rosetta-schemas/README.md';
 const SCHEMA_SPEC = 'packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts';
+const ENVELOPE_CROSSWALK = 'packages/rosetta-schemas/docs/envelope-family-crosswalk.md';
+const ENVELOPE_TESTS = 'packages/rosetta-schemas/src/lib/envelope-families.spec.ts';
 const AUTHORITY_MAP = 'packages/rosetta-schemas/docs/schema-authority-map.md';
 const AGENTIC_MESSAGING_RFC = 'docs/RFCs/20260228 - Entif v0 - Spec Proposal - Agentic Messaging.md';
 const ROSETTA_CORE_SPEC = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md';
@@ -134,6 +136,14 @@ function tileConsumerPackages(schemaId: string): string[] {
 }
 
 function tileCatalogEntry(schemaId: string): SchemaCatalogSourceEntry {
+  if (schemaId === 'rosetta.incident') return {
+    authorityTier: 'core-spine', boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-core', '@entif-ai/rosetta-schemas'],
+    docs: [ROSETTA_CORE_SPEC, ENVELOPE_CROSSWALK], exposureStatus: 'downstream-contract', family: 'rosetta',
+    knownGaps: ['Core Incident payload shape only; quorum unsealing, access control, and encryption are not implemented by this validator.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId, sourceIssues: ['#1799'], sourcePrs: [], tests: [ENVELOPE_TESTS], validator: 'validatePayload'
+  };
   if (schemaId === 'authz.authority_envelope.v1') return {
     authorityTier: 'governance-admission', boundaryKind: 'owned-schema',
     consumerPackages: ['@entif-ai/rosetta-guard'],

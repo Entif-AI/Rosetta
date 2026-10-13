@@ -16,7 +16,7 @@ describe('rosetta-api', () => {
     expect(result.statusCode).toBe(200);
     expect(result.body).toMatchObject({
       entries: expect.any(Array),
-      profiles: expect.any(Array)
+      profiles: expect.any(Array),
     });
   });
 
@@ -26,16 +26,67 @@ describe('rosetta-api', () => {
     expect(result.statusCode).toBe(200);
     expect(result.body).toMatchObject({
       conformanceBundle: {
-        summary: { violations: 0 }
+        summary: { violations: 0 },
       },
       receiptBundle: {
-        subjectCids: expect.any(Array)
+        subjectCids: expect.any(Array),
       },
       signedReceipt: {
         receipt: {
-          kind: 'rosetta.receipt'
-        }
-      }
+          kind: 'rosetta.receipt',
+        },
+      },
+    });
+  });
+
+  it('serves shape-compatible guarded-bootstrap inspection scenarios', () => {
+    const scenarios = ['pass', 'block', 'deny', 'fail'] as const;
+
+    for (const scenario of scenarios) {
+      const result = routeRosettaApi(
+        `/inspect/bootstrap-gate?scenario=${scenario}`
+      );
+
+      expect(result.statusCode).toBe(200);
+      expect(result.body).toMatchObject({
+        bootstrapGate: {
+          status: scenario,
+          verdict: scenario,
+        },
+        scenario,
+        status: 'fixture-backed',
+      });
+    }
+  });
+
+  it('keeps guarded-bootstrap inspection read-only and explicit about proof boundaries', () => {
+    const result = routeRosettaApi('/inspect/bootstrap-gate');
+
+    expect(result.statusCode).toBe(200);
+    expect(result.body).toMatchObject({
+      bootstrapGate: {
+        closureArtifact: { exists: true },
+        guard: { effect: 'allow' },
+        receiptBundleVerification: { ok: true },
+        status: 'pass',
+        steps: expect.arrayContaining([
+          expect.objectContaining({ id: 'canonicalize-input', status: 'pass' }),
+          expect.objectContaining({ id: 'verify-chain', status: 'pass' }),
+        ]),
+      },
+      note: expect.stringContaining('does not grant execution'),
+      scenario: 'pass',
+      status: 'fixture-backed',
+    });
+  });
+
+  it('rejects unsupported guarded-bootstrap scenarios', () => {
+    const result = routeRosettaApi('/inspect/bootstrap-gate?scenario=unknown');
+
+    expect(result.statusCode).toBe(400);
+    expect(result.body).toMatchObject({
+      acceptedScenarios: ['pass', 'block', 'deny', 'fail'],
+      error: 'unsupported bootstrap gate scenario: unknown',
     });
   });
 
@@ -47,18 +98,19 @@ describe('rosetta-api', () => {
       entries: expect.arrayContaining([
         expect.objectContaining({
           exposureStatus: 'downstream-contract',
-          schemaId: 'entif.agentic-messaging.envelope.v1'
+          schemaId: 'entif.agentic-messaging.envelope.v1',
         }),
         expect.objectContaining({
           exposureStatus: 'reserved-interface',
-          schemaId: 'entif.iam.decision.ref'
-        })
-      ])
+          schemaId: 'entif.iam.decision.ref',
+        }),
+      ]),
     });
   });
 
-  it('rejects missing or unknown routes', () => {
+  it('rejects missing, invalid, or unknown routes', () => {
     expect(routeRosettaApi(undefined)).toMatchObject({ statusCode: 400 });
+    expect(routeRosettaApi('http://%')).toMatchObject({ statusCode: 400 });
     expect(routeRosettaApi('/missing')).toMatchObject({ statusCode: 404 });
   });
 });
