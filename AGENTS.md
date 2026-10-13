@@ -41,6 +41,12 @@ When work creates, supersedes, splits, or discovers an authority relationship:
 
 ## Governance checks
 
+For PR descriptions linking GitHub issues, follow
+[`docs/workflows/agentic-development/PR_CLOSEOUT.md`](docs/workflows/agentic-development/PR_CLOSEOUT.md):
+declare an explicit per-issue disposition and preserve accepted Core/Pack
+authority and human approval gates. Do not infer issue closure or protocol
+acceptance from the merge event alone.
+
 Run:
 
 ```bash
