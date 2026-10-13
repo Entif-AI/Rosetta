@@ -1,0 +1,4 @@
+2916e67dc5497aa875a5abdb6a67ac20e5fc1d05e6b3919ffbab31b82a4ec186  tools/ver-interop/interop-trace-0001.json
+9e56ee12e8b986d0976f3da0c59cf55213cd1d79882cfec278fb08426e332e2a  tools/ver-interop/interop-trace-0001.schema.json
+00189e9766d41f75fefd24603b8c19f8b1ad8d3d40bbab8d0c6cf9e0383c9e76  tools/ver-interop/interop-trace-0001-schema-legend.md
+218b41c4dc36d8b8b0faa31f25a20ebb6483088de2efb284105d58235f2f5808  tools/ver-interop/verify-interop-trace.py
