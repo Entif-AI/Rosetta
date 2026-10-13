@@ -425,9 +425,20 @@ packs/rrp/
 
 ### 9.1 RRP-specific `pack.json` example
 
+For repository conformance, the machine-recognized `pack.json` shape is defined by
+`packs/_schemas/pack-manifest.schema.json`, which the Pack validator consumes before
+integrity or declared-path checks. This RFC defines the Pack filesystem and semantic
+obligations around that manifest; its examples do not create additional manifest
+keys. If an example and the executable manifest schema diverge, the example must be
+corrected or the schema must be amended explicitly through its own authority path.
+
 ```json
 {
+  "$schema": "../_schemas/pack-manifest.schema.json",
+  "id": "rrp",
   "pack_id": "cidv1-sha256-cada32cfe484e30fa81767221c6ffbb7782e0e51151dfe60a273e347e607cb80",
+  "kind": "pack",
+  "title": "Receipt Refinement Pack",
   "name": "Receipt Refinement Pack",
   "doc_id": "ROCK-3111-C",
   "category": "SchemaPack",
@@ -458,8 +469,10 @@ packs/rrp/
     {"name": "auditor", "path": "profiles/auditor.json"}
   ],
   "entrypoints": {
-    "primary_schema": "schema/receipt-content.schema.json",
-    "primary_bundle_schema": "schema/receipt-bundle-tapestry.schema.json"
+    "schema": [
+      "schema/receipt-content.schema.json",
+      "schema/receipt-bundle-tapestry.schema.json"
+    ]
   },
   "source_of_truth": {
     "doctrine": "Doctrine v0.2",

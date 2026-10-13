@@ -29,7 +29,10 @@ async function writePack(root, manifest, files = {}) {
 
 function baseManifest(overrides = {}) {
   return {
-    pack_id: 'cidv1-sha256-placeholder',
+    id: 'example',
+    pack_id: `cidv1-sha256-${'0'.repeat(64)}`,
+    kind: 'stdpack',
+    title: 'Example Pack',
     name: 'Example Pack',
     doc_id: 'EXAMPLE-1',
     category: 'StdPack',
@@ -56,6 +59,158 @@ function baseManifest(overrides = {}) {
 }
 
 describe('pack conformance', () => {
+  it('rejects unsupported manifest shape before claiming a pack root is conformant', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'manifest-schema-negative-'));
+    try {
+      const manifest = baseManifest({ id: 'example', kind: 'stdpack', title: 'Example Pack', unexpected_grant: true });
+      await writePack(root, manifest, { 'examples/example.md': 'fixture\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid' }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('requires Pack Core compatibility and dependencies before validating paths and IDs', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'manifest-missing-contract-'));
+    try {
+      const incomplete = baseManifest({ id: 'example', kind: 'stdpack', title: 'Example Pack' });
+      delete incomplete.compatible_core;
+      delete incomplete.depends_on;
+      await writePack(root, incomplete, { 'examples/example.md': 'fixture\n' });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid' }));
+      expect(result.errors.map((error) => error.code)).not.toContain('pack-id-mismatch');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects the historical primary_schema entrypoint instead of accepting a path-only false green', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'entrypoint-schema-negative-'));
+    try {
+      const manifest = baseManifest({ entrypoints: { primary_schema: 'schema/source.schema.json' } });
+      await writePack(root, manifest, { 'schema/source.schema.json': '{}\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid', detail: expect.stringContaining('additional properties') }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects malformed Pack IDs as schema errors before integrity and path checks', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-id-schema-negative-'));
+    try {
+      await writePack(root, baseManifest({ pack_id: 'not-a-content-id' }), { 'examples/example.md': 'fixture\n' });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({ code: 'manifest-schema-invalid', detail: expect.stringContaining('/pack_id') }));
+      expect(result.errors.map((error) => error.code)).not.toContain('pack-id-mismatch');
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    {
+      title: 'malformed JSON',
+      schemaContents: '{"type":',
+      errorCode: 'schema-json-invalid'
+    },
+    {
+      title: 'an invalid JSON Schema keyword type',
+      schemaContents: '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":42}',
+      errorCode: 'schema-invalid'
+    }
+  ])('rejects declared schema entrypoints containing $title', async ({ schemaContents, errorCode }) => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-negative-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/example.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/example.schema.json': schemaContents
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.ok).toBe(false);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: errorCode,
+        detail: expect.stringContaining('schema/example.schema.json')
+      }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts a valid declared JSON Schema without imposing Ajv strict-lint policy', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-positive-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/example.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/example.schema.json': JSON.stringify({
+          $schema: 'https://json-schema.org/draft/2020-12/schema',
+          type: 'object',
+          required: ['identifier']
+        })
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      expect((await validatePackRoot(root)).errors).toEqual([]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not misclassify a different JSON Schema dialect as an invalid document', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-dialect-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/older.schema.json'] }
+      });
+      await writePack(root, manifest, {
+        'examples/example.md': 'fixture\n',
+        'schema/older.schema.json': JSON.stringify({ $schema: 'http://json-schema.org/draft-07/schema#', type: 'object' })
+      });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'schema-dialect-unsupported',
+        detail: expect.stringContaining('schema/older.schema.json')
+      }));
+      expect(result.errors.some((error) => error.code === 'schema-invalid')).toBe(false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it('reports a missing declared schema path only as a missing asset', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'pack-schema-missing-'));
+    try {
+      const manifest = baseManifest({
+        entrypoints: { examples: ['examples/example.md'], schema: ['schema/absent.schema.json'] }
+      });
+      await writePack(root, manifest, { 'examples/example.md': 'fixture\n' });
+      await writeJson(path.join(root, 'pack.json'), { ...manifest, pack_id: await computePackId(root) });
+      const result = await validatePackRoot(root);
+      expect(result.errors).toContainEqual(expect.objectContaining({
+        code: 'declared-path-missing',
+        detail: 'schema/absent.schema.json'
+      }));
+      expect(result.errors.some((error) => error.code.startsWith('schema-'))).toBe(false);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
   it('accepts distinct Profile and schema IDs only when the payload binds the declared Profile', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'evaluation-profile-descent-'));
     try {

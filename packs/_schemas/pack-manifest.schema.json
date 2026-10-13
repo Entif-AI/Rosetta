@@ -3,8 +3,9 @@
   "$id": "https://entif.ai/schema/pack-manifest.schema.json",
   "title": "Entif Pack Manifest",
   "type": "object",
-  "required": ["id", "pack_id", "kind", "category", "namespace", "doc_id", "version", "title", "status", "entrypoints"],
+  "required": ["id", "pack_id", "kind", "category", "namespace", "doc_id", "version", "title", "status", "compatible_core", "depends_on", "entrypoints"],
   "properties": {
+    "$schema": { "type": "string" },
     "id": { "type": "string" },
     "pack_id": {
       "type": "string",

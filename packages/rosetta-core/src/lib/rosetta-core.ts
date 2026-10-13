@@ -799,6 +799,18 @@ export function createIncident(
   quorumThreshold?: number,
   parents: string[] = []
 ): TileEnvelope<IncidentPayload> {
+  const threshold = quorumThreshold ?? Math.ceil(sealParticipants.length * 0.6);
+  if (
+    !encryptedBlobRef.trim() ||
+    sealParticipants.length === 0 ||
+    sealParticipants.some((participant) => !participant.trim()) ||
+    new Set(sealParticipants).size !== sealParticipants.length ||
+    !Number.isSafeInteger(threshold) ||
+    threshold < 1 ||
+    threshold > sealParticipants.length
+  ) {
+    throw new Error('Invalid Core Incident seal declaration.');
+  }
   return buildTile(
     'rosetta.incident',
     {
@@ -808,7 +820,7 @@ export function createIncident(
       involvedRunCids,
       encryptedBlobRef,
       sealParticipants,
-      quorumThreshold: quorumThreshold ?? Math.ceil(sealParticipants.length * 0.6),
+      quorumThreshold: threshold,
       occurredAt
     },
     { parents: [...involvedRunCids, ...parents] }
