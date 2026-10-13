@@ -190,21 +190,6 @@
     color: var(--muted);
   }
 
-  .demo-note {
-    font-size: var(--small);
-    color: var(--muted);
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border: 1px solid var(--line);
-    border-radius: 0.5rem;
-    background: linear-gradient(
-      var(--accent-soft),
-      #fcf3f3 93%,
-      #eee7ff 96%,
-      #bebebe5c 100%
-    );
-  }
-
   .idle-cue summary::after {
     animation: corner-wink 1200ms ease 1;
   }
