@@ -69,7 +69,7 @@ When adding a schema family, add or update a catalog entry in the same change. N
   - `ACTION_DECISION`
   - `APPROVAL_REQUEST`
   - `APPROVAL_RESPONSE`
-- `TASK_RECEIPT` and `INCIDENT_ENVELOPE` are internal transport-family labels. A payload has canonical Rosetta **Receipt** or **Incident** semantics only when the owning contract explicitly maps and validates it against those v3 artifacts.
+- `TASK_RECEIPT` and `INCIDENT_ENVELOPE` are internal transport-family labels. A payload has canonical Rosetta **Receipt** or **Incident** semantics only when the owning contract explicitly maps and validates it against those v3 artifacts. See the [envelope-family crosswalk](docs/envelope-family-crosswalk.md) for the Core, AuthZ, Messaging and intake boundaries and their current proof limits.
 - `domain_ref` is treated as a nested component owned by issue `#711`; the registry consumes that shape rather than redefining it.
 - The mailroom mapping is deterministic: `msg_type -> schema_id -> validation result -> quarantine reason`.
 - First-wave mailroom size policy:

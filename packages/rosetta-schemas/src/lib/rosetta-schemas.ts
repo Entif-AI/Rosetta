@@ -497,6 +497,7 @@ const REQUIRED_FIELDS: Record<string, string[]> = {
   'guard.decision_token': ['action', 'effect', 'expiresAt', 'policyIds', 'reason', 'resource', 'tokenId'],
   'rosetta.action': ['actionId', 'intent', 'runCid'],
   'rosetta.evaluation': ['evaluationId', 'summary', 'verdict'],
+  'rosetta.incident': ['encryptedBlobRef', 'incidentId', 'involvedRunCids', 'occurredAt', 'quorumThreshold', 'sealParticipants', 'severity', 'title'],
   'rosetta.observation': ['observationId', 'signal', 'source'],
   'entif.intake_envelope': [
     'contentPointer',
@@ -1315,6 +1316,30 @@ function validateDerivedArtifactPayload(payload: object, errors: string[]): void
   validateSourceSpanRefs('source.derived_artifact', artifact.sourceSpans, errors);
 }
 
+function validateCoreIncidentPayload(payload: object, errors: string[]): void {
+  const incident = payload as Record<string, unknown>;
+  for (const field of ['encryptedBlobRef', 'incidentId', 'title']) {
+    if (!requiredString(incident[field] as string | undefined)) errors.push(`rosetta.incident ${field} must be a non-empty string.`);
+  }
+  if (!['low', 'medium', 'high', 'critical'].includes(incident.severity as string)) {
+    errors.push('rosetta.incident severity must be low, medium, high, or critical.');
+  }
+  if (typeof incident.occurredAt !== 'string' || !isIsoTimestamp(incident.occurredAt)) {
+    errors.push('rosetta.incident occurredAt must be an ISO-8601 timestamp.');
+  }
+  const runCids = incident.involvedRunCids;
+  if (!Array.isArray(runCids) || runCids.some((ref) => !requiredString(ref))) {
+    errors.push('rosetta.incident involvedRunCids must be an array of non-empty references.');
+  }
+  const participants = incident.sealParticipants;
+  if (!Array.isArray(participants) || participants.length === 0 || participants.some((ref) => !requiredString(ref)) || new Set(participants).size !== participants.length) {
+    errors.push('rosetta.incident sealParticipants must be a non-empty array of unique references.');
+  }
+  if (!Number.isSafeInteger(incident.quorumThreshold) || (incident.quorumThreshold as number) < 1 || (Array.isArray(participants) && (incident.quorumThreshold as number) > participants.length)) {
+    errors.push('rosetta.incident quorumThreshold must be within the number of seal participants.');
+  }
+}
+
 export function validatePayload(kind: string, payload: object): ValidationResult {
   if (kind === 'authz.authority_envelope.v1') return validateAuthorityEnvelope(payload);
   if (kind === 'work.lifecycle.v1') return validateWorkLifecycle(payload);
@@ -1324,6 +1349,8 @@ export function validatePayload(kind: string, payload: object): ValidationResult
 
   if (kind === 'rosetta.evaluation' && isSalienceEvaluationProfile(payload)) {
     errors.push(...validateSalienceEvaluation(payload).errors);
+  } else if (kind === 'rosetta.incident') {
+    validateCoreIncidentPayload(payload, errors);
   } else if (kind === 'rosetta.evaluation' && isCounterfactualEvaluationProfile(payload)) {
     errors.push(...validateCounterfactualEvaluation(payload).errors);
   } else if (kind === 'rosetta.observation' && 'profile' in payload) {
