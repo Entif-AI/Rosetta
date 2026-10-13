@@ -198,26 +198,26 @@
       "id": "entif:pack-manifest-schema-gate",
       "kind": "plan",
       "title": "Validate Pack manifests before integrity and path claims",
-      "status": "in-progress",
+      "status": "done",
       "task": "T790",
       "issues": [790],
       "pr": 1816,
       "source": {
         "path": "plans/pack-manifest-schema-gate.md",
-        "sha256": "4e441cdfe4cf2082a3f4ad63132082ab8a7509256d7d99fa6d4f221a595fa2ba"
+        "sha256": "02835fbf0cf3efc37420ec19b1b8024f946cc0247876535ebc200f3c90b9c477"
       }
     },
     {
       "id": "entif:pack-path-confinement",
       "kind": "plan",
       "title": "Confine declared Pack paths to Pack identity",
-      "status": "in-progress",
+      "status": "done",
       "task": "T7903",
       "issues": [790],
       "pr": 1826,
       "source": {
         "path": "plans/pack-path-confinement.md",
-        "sha256": "7bb3d3a5ec489da27e49d4c20da979c54f42e46c095e54e4272ae1be20eb432d"
+        "sha256": "0f0bb6b40164fc4dab5f2d4541d0a291bcd9a0aef9c40a302f3542582e7ea50b"
       }
     },
     {
@@ -237,13 +237,13 @@
       "id": "entif:pack-schema-entrypoint-conformance",
       "kind": "plan",
       "title": "Validate declared Pack JSON Schema entrypoints",
-      "status": "in-progress",
+      "status": "done",
       "task": "T7902",
       "issues": [790],
       "pr": 1824,
       "source": {
         "path": "plans/pack-schema-entrypoint-conformance.md",
-        "sha256": "389000ed0c58f070b47e457db6c2f0f2ec74e4b227fc34bab0d54fe03f866c36"
+        "sha256": "ffbe4db4c79a345ac18ebd9879b0b3c1406a7bde157de9cdf5d969d9c9e9d3f9"
       }
     },
     {
