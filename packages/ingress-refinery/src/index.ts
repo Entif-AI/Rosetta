@@ -1,3 +1,4 @@
+export * from './lib/bootstrap-gate-inspection.js';
 export * from './lib/ingress-refinery.js';
 export * from './lib/github-issue-acquisition.js';
 export * from './lib/agent-stream-normalization.js';

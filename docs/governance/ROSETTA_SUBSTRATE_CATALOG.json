@@ -167,6 +167,19 @@
       }
     },
     {
+      "id": "entif:envelope-crosswalk",
+      "kind": "plan",
+      "title": "Prove envelope family boundaries",
+      "status": "done",
+      "task": "T1799",
+      "issues": [1799, 630, 220],
+      "pr": 1813,
+      "source": {
+        "path": "plans/envelope-crosswalk.md",
+        "sha256": "1224da0f5aa12b30e4a7e1db53dfe9c98cae0b1fc4f4977e9d9cc407601bd451"
+      }
+    },
+    {
       "id": "entif:github-issue-source-admission",
       "kind": "plan",
       "title": "Admit a bounded native GitHub issue snapshot",
@@ -242,6 +255,19 @@
       "source": {
         "path": "plans/materialized-view.md",
         "sha256": "9ebf249b4951c0b9223f2030b2b114f75c1d70042a4a70319dac9b427b29ab5f"
+      }
+    },
+    {
+      "id": "entif:pack-bootstrap-admission",
+      "kind": "plan",
+      "title": "Include bootstrap Pack evidence in merge admission",
+      "status": "done",
+      "task": "T7901",
+      "issues": [790],
+      "pr": 1823,
+      "source": {
+        "path": "plans/pack-bootstrap-admission.md",
+        "sha256": "88a2baf7fdba762ddc5de5aaa078686004cce479e816bf7db93106d40115fe6c"
       }
     },
     {
@@ -635,6 +661,11 @@
       "to": "entif:jcs-001"
     },
     {
+      "from": "entif:envelope-crosswalk",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:github-issue-source-admission",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -678,6 +709,11 @@
       "from": "entif:materialized-view",
       "kind": "depends-on",
       "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:pack-bootstrap-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:pack-lock-spec",

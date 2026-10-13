@@ -78,6 +78,22 @@
         "{workspaceRoot}/tools/pack-conformance/**/*"
       ]
     },
+    "pack-bootstrap": {
+      "command": "pnpm exec vitest run packages/rosetta-schemas/src/lib/workspace-contract.spec.ts",
+      "owner": "packages/rosetta-schemas/src/lib/workspace-contract.spec.ts",
+      "stage": "merge",
+      "inputs": [
+        "{workspaceRoot}/packages/nx-governance/**/*",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/nx.json",
+        "{workspaceRoot}/vitest.config.ts",
+        "{workspaceRoot}/packages/rosetta-schemas/src/lib/workspace-contract.spec.ts",
+        "{workspaceRoot}/docs/governance/**/*",
+        "{workspaceRoot}/docs/packs/PACK_SUITE_INDEX.md",
+        "{workspaceRoot}/packs/*/pack.json"
+      ]
+    },
     "profile": {
       "command": "node tools/semantic-governance/profile-admission.mjs",
       "owner": "docs/spec/PROMOTION_TRANSITION_CONTRACT.md",
