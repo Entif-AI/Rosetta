@@ -28,10 +28,12 @@ describe('specification catalog #1700', () => {
     catalog.packs.find((pack) => pack.id === 'rrp').profiles[0].coreKind = 'rosetta.promotion_state';
     expect(validateCatalog(catalog).join(';')).toMatch(/Core|parent/i);
   });
-  it('projects Packs without optional examples and keeps evaluation Profile and schema IDs distinct', async () => {
+  it('projects the declared Evaluation Pack example and keeps Profile and schema IDs distinct', async () => {
     const catalog = await buildCatalog();
     const pack = catalog.packs.find((entry) => entry.id === 'schema-pack-evaluation-profiles');
-    expect(catalog.packMap.rows.find((row) => row.identity === pack.docId).examples).toEqual([]);
+    expect(catalog.packMap.rows.find((row) => row.identity === pack.docId).examples).toEqual([
+      'packs/schema-pack-evaluation-profiles/examples/salience-evaluation.json'
+    ]);
     for (const profile of pack.profiles) {
       const definition = JSON.parse(await readFile(new URL(`../../${profile.provenance[1].path}`, import.meta.url), 'utf8'));
       expect(profile).toMatchObject({ schemaId: definition.$id, coreKind: 'rosetta.evaluation', coreDescent: 'core-tile-profile', version: '1.0.0' });

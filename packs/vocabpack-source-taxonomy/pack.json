@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "vocabpack-source-taxonomy",
-  "pack_id": "cidv1-sha256-f01141ad6216e2083e4fbf08b747c50f4d82e22bef4770c7259f626609512347",
+  "pack_id": "cidv1-sha256-08328fb8c78e01b49475de4b9e60fe5efa990ce313ed248a70c8804dbcb9f35b",
   "kind": "vocabpack",
   "category": "VocabPack",
   "namespace": "source-taxonomy",

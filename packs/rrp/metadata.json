@@ -1,0 +1,12 @@
+{
+  "maintainer": "Entif/Rosetta maintainers",
+  "source_doctrine": "ROCK-3111-C; Rosetta v3.0.0 Core Spine",
+  "lifecycle": "draft",
+  "security_classification": "public",
+  "tags": ["receipt", "provenance", "schema-pack"],
+  "automation": {
+    "manifest": "pack.json",
+    "conformance": "pnpm run packs:conformance",
+    "pack_tests": "pnpm exec nx run packs-rrp:test"
+  }
+}
