@@ -2,7 +2,7 @@
 /* global console, process */
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { lstat, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
@@ -95,7 +95,8 @@ async function listPackFiles(root, current = root) {
 }
 
 export async function computePackId(packRoot) {
-  const manifest = await readJson(path.join(packRoot, 'pack.json'));
+  await assertDirectRoot(packRoot, 'pack-root-unsafe', 'Pack root');
+  const manifest = await readJson(await assertPackManifest(packRoot));
   const fileManifest = await listPackFiles(packRoot);
   const idInput = {
     algorithm: PACK_ID_ALGORITHM,
@@ -112,6 +113,13 @@ export function computePackIdFromHashInput(idInput) {
 
 function validationError(code, root, detail) {
   return { code, root, detail };
+}
+
+function rootBoundaryError(code, root, detail) {
+  const error = new Error(detail);
+  error.code = code;
+  error.root = root;
+  return error;
 }
 
 function entriesFromEntrypoints(entrypoints) {
@@ -140,21 +148,105 @@ function entriesFromExports(exportsValue) {
   return exportsValue.map((entry) => entry?.path).filter((entry) => typeof entry === 'string');
 }
 
-async function fileExists(filePath) {
-  try {
-    return (await stat(filePath)).isFile();
-  } catch (error) {
-    if (error?.code === 'ENOENT') {
-      return false;
+async function inspectDeclaredFile(packRoot, declaredPath) {
+  const root = path.resolve(packRoot);
+  const segments = declaredPath.split(/[\\/]+/);
+  if (
+    path.isAbsolute(declaredPath) ||
+    path.posix.isAbsolute(declaredPath) ||
+    path.win32.isAbsolute(declaredPath) ||
+    segments.includes('..')
+  ) {
+    return { status: 'unsafe' };
+  }
+
+  const absolutePath = path.resolve(root, declaredPath);
+  const relativePath = path.relative(root, absolutePath);
+  if (
+    relativePath === '' ||
+    relativePath === '..' ||
+    relativePath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativePath)
+  ) {
+    return { status: 'unsafe' };
+  }
+  const identity = relativePath.split(path.sep).join('/');
+
+  let current = root;
+  let info;
+  for (const segment of relativePath.split(path.sep)) {
+    current = path.join(current, segment);
+    try {
+      info = await lstat(current);
+    } catch (error) {
+      if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+        return { identity, status: 'missing' };
+      }
+      throw error;
     }
 
+    if (info.isSymbolicLink()) {
+      return { status: 'unsafe' };
+    }
+  }
+
+  return info?.isFile() ? { identity, status: 'ok', path: absolutePath } : { identity, status: 'missing' };
+}
+
+async function assertDirectRoot(root, code, label) {
+  const rootPrefix = path.parse(root).root;
+  let directRoot = root;
+  while (directRoot.length > rootPrefix.length && /[\\/]$/u.test(directRoot)) {
+    directRoot = directRoot.slice(0, -1);
+  }
+
+  let info;
+  try {
+    info = await lstat(directRoot);
+  } catch (error) {
+    if (error?.code === 'ENOENT') return;
     throw error;
   }
+
+  if (info.isSymbolicLink()) {
+    throw rootBoundaryError(code, root, `${label} must not be a symbolic link`);
+  }
+}
+
+async function assertPackManifest(packRoot) {
+  const manifestPath = path.join(packRoot, 'pack.json');
+  let info;
+  try {
+    info = await lstat(manifestPath);
+  } catch (error) {
+    if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') {
+      throw rootBoundaryError('manifest-missing', packRoot, 'Pack root must contain pack.json');
+    }
+    throw error;
+  }
+
+  if (!info.isFile()) {
+    throw rootBoundaryError('manifest-unsafe', packRoot, 'pack.json must be a regular file, not a symbolic link');
+  }
+  return manifestPath;
 }
 
 export async function validatePackRoot(packRoot) {
   const errors = [];
-  const manifestPath = path.join(packRoot, 'pack.json');
+  let manifestPath;
+  try {
+    await assertDirectRoot(packRoot, 'pack-root-unsafe', 'Pack root');
+    manifestPath = await assertPackManifest(packRoot);
+  } catch (error) {
+    if (!['pack-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(error?.code)) throw error;
+    return {
+      computedPackId: null,
+      errors: [validationError(error.code, packRoot, error.message)],
+      manifest: null,
+      ok: false,
+      root: packRoot
+    };
+  }
   let manifest;
   try {
     manifest = await readJson(manifestPath);
@@ -179,6 +271,14 @@ export async function validatePackRoot(packRoot) {
   }
   const declaredPackId = manifest.pack_id;
   const computedPackId = await computePackId(packRoot);
+  const declaredFiles = new Map();
+  const reportedMissingAssets = new Set();
+  const inspect = async (relativePath) => {
+    if (!declaredFiles.has(relativePath)) {
+      declaredFiles.set(relativePath, await inspectDeclaredFile(packRoot, relativePath));
+    }
+    return declaredFiles.get(relativePath);
+  };
 
   if (typeof declaredPackId !== 'string' || declaredPackId.length === 0) {
     errors.push(validationError('pack-id-missing', packRoot, 'pack.json must declare pack_id'));
@@ -193,18 +293,22 @@ export async function validatePackRoot(packRoot) {
   }
 
   for (const relativePath of [...entriesFromEntrypoints(manifest.entrypoints), ...entriesFromExports(manifest.exports)]) {
-    if (!(await fileExists(path.join(packRoot, relativePath)))) {
+    const declaredFile = await inspect(relativePath);
+    if (declaredFile.status === 'unsafe') {
+      errors.push(validationError('declared-path-unsafe', packRoot, relativePath));
+    } else if (declaredFile.status === 'missing' && !reportedMissingAssets.has(declaredFile.identity)) {
       errors.push(validationError('declared-path-missing', packRoot, relativePath));
+      reportedMissingAssets.add(declaredFile.identity);
     }
   }
 
   for (const relativePath of manifest.entrypoints.schema ?? []) {
-    const schemaPath = path.join(packRoot, relativePath);
-    if (!(await fileExists(schemaPath))) continue; // Already reported as a missing declared path.
+    const declaredFile = await inspect(relativePath);
+    if (declaredFile.status !== 'ok') continue; // Already reported as missing or unsafe above.
 
     let schema;
     try {
-      schema = await readJson(schemaPath);
+      schema = await readJson(declaredFile.path);
     } catch (error) {
       errors.push(validationError('schema-json-invalid', packRoot, `${relativePath}: ${error.message}`));
       continue;
@@ -235,11 +339,23 @@ export async function validatePackRoot(packRoot) {
   for (const profile of manifest.profiles ?? []) {
     if (profileNames.has(profile.name)) errors.push(validationError('profile-duplicate', packRoot, profile.name));
     profileNames.add(profile.name);
-    if (!profile.path || !(await fileExists(path.join(packRoot, profile.path)))) {
+    if (!profile.path) {
       errors.push(validationError('profile-path-missing', packRoot, profile.name));
       continue;
     }
-    const schema = await readJson(path.join(packRoot, profile.path));
+    const declaredFile = await inspect(profile.path);
+    if (declaredFile.status === 'unsafe') {
+      errors.push(validationError('profile-path-unsafe', packRoot, `${profile.name}: ${profile.path}`));
+      continue;
+    }
+    if (declaredFile.status === 'missing') {
+      if (!reportedMissingAssets.has(declaredFile.identity)) {
+        errors.push(validationError('profile-path-missing', packRoot, profile.name));
+        reportedMissingAssets.add(declaredFile.identity);
+      }
+      continue;
+    }
+    const schema = await readJson(declaredFile.path);
     const descent = schema['x-rosetta'];
     const profileId = schema.properties?.profile?.const ?? schema.properties?.profile?.properties?.id?.const;
     if (typeof schema.$id !== 'string' || !schema.$id.trim() || (schema.$id !== profile.name && profileId !== profile.name) || descent?.coreDescent !== 'core-tile-profile' || !descent?.coreKind?.startsWith('rosetta.') || descent?.pack !== manifest.id || !descent?.authority) {
@@ -347,25 +463,40 @@ export function validatePackGraph(packResults) {
 }
 
 export async function findPackRoots(packsRoot = DEFAULT_PACKS_ROOT) {
+  await assertDirectRoot(packsRoot, 'packs-root-unsafe', 'Packs root');
   const entries = await readdir(packsRoot, { withFileTypes: true });
   const roots = [];
 
   for (const entry of entries) {
-    if (!entry.isDirectory() || entry.name.startsWith('_')) {
+    if (entry.name.startsWith('_')) {
       continue;
     }
 
     const root = path.join(packsRoot, entry.name);
-    if (await fileExists(path.join(root, 'pack.json'))) {
-      roots.push(root);
+    if (entry.isSymbolicLink()) {
+      throw rootBoundaryError('pack-root-unsafe', root, 'Pack root must not be a symbolic link');
     }
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    roots.push(root);
   }
 
   return roots.sort((left, right) => left.localeCompare(right));
 }
 
 export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
-  const roots = await findPackRoots(packsRoot);
+  let roots;
+  try {
+    roots = await findPackRoots(packsRoot);
+  } catch (error) {
+    if (!['packs-root-unsafe', 'pack-root-unsafe'].includes(error?.code)) throw error;
+    return {
+      errors: [validationError(error.code, error.root ?? packsRoot, error.message)],
+      ok: false,
+      packs: []
+    };
+  }
   const packResults = await Promise.all(roots.map((root) => validatePackRoot(root)));
   const allManifestsValid = packResults.every((result) => result.manifest && !result.errors.some((error) => error.code.startsWith('manifest-')));
   const graphResult = allManifestsValid ? validatePackGraph(packResults) : { errors: [], ok: false };
@@ -380,10 +511,15 @@ export async function validateWorkspacePacks(packsRoot = DEFAULT_PACKS_ROOT) {
 
 export async function updateWorkspacePackIds(packsRoot = DEFAULT_PACKS_ROOT) {
   const roots = await findPackRoots(packsRoot);
+  // Validate every candidate before any repair write, so one missing/linked
+  // manifest cannot leave earlier Pack IDs partially updated.
+  const manifests = await Promise.all(roots.map(async (root) => ({
+    root,
+    manifestPath: await assertPackManifest(root)
+  })));
   const updated = [];
 
-  for (const root of roots) {
-    const manifestPath = path.join(root, 'pack.json');
+  for (const { root, manifestPath } of manifests) {
     const manifest = await readJson(manifestPath);
     const computedPackId = await computePackId(root);
     if (manifest.pack_id === computedPackId) {
@@ -408,7 +544,14 @@ export async function cli(argv = process.argv.slice(2), { log = console.log, err
     packsRootFlagIndex >= 0 && argv[packsRootFlagIndex + 1] ? argv[packsRootFlagIndex + 1] : DEFAULT_PACKS_ROOT;
 
   if (shouldFix) {
-    const updated = await updateWorkspacePackIds(packsRoot);
+    let updated;
+    try {
+      updated = await updateWorkspacePackIds(packsRoot);
+    } catch (caught) {
+      if (!['packs-root-unsafe', 'pack-root-unsafe', 'manifest-missing', 'manifest-unsafe'].includes(caught?.code)) throw caught;
+      error(`${caught.root}: ${caught.code}: ${caught.message}`);
+      return 1;
+    }
     for (const entry of updated) {
       log(`${entry.root}: pack_id -> ${entry.pack_id}`);
     }
