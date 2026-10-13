@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { lstat, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { auditExecutablePackEvidence } from './vector-evidence.mjs';
+import { auditPackTraceability } from './traceability-evidence.mjs';
 
 const ROOT_FILES = ['README.md', 'acceptance.md', 'metadata.json'];
 const require = createRequire(import.meta.url);
@@ -142,8 +143,9 @@ export async function auditPackReleaseObligations({ packResults, workspaceRoot, 
       vectors ? vectorProof?.status ?? 'not-evaluated' : 'not-applicable',
       vectors ? vectorProof?.detail ?? 'Vectors present without a generic executable binding' : 'No test-vectors/ subtree',
       vectorProof?.receipts));
-    findings.push(item(relativeRoot, 'traceability-header-checks-where-required', 'not-evaluated',
-      'ROCK requires headers for normative JSON/SHACL/other artifacts, but live JSON schemas cannot use textual preambles; mapping or sidecar convention not accepted'));
+    const traceability = await auditPackTraceability({ root, manifest });
+    findings.push(item(relativeRoot, 'traceability-header-checks-where-required', traceability.status,
+      traceability.detail, traceability.receipts));
 
     const history = await historyForPack(workspaceRoot, root, baseRef);
     if (!history) {

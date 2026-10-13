@@ -6,6 +6,8 @@ The generic evidence adapter in `vector-evidence.mjs` executes portable JSON Sch
 
 The Git-baseline audit also rejects version downgrades and normative candidate changes with no corresponding changelog change. It ignores content-ID-only manifest edits. Having a changelog is **not** proof that a change is backward compatible or that a major-bump migration is adequate; those semantic determinations remain `not-evaluated` until their public review/evidence contract exists.
 
+Traceability evidence is format-aware. For declared JSON Schemas, it checks for contradictory `x-rosetta.pack` descent and records the exact artifact hash, but a governing `x-rosetta.authority` may correctly point to an external contract rather than the local file. JSON files cannot contain literal text headers, so they remain `not-evaluated` until an accepted DocID/sidecar projection exists. Declared SHACL/Turtle files accept comment headers with DocID, artifact, version, status, dependencies and source; the audit checks them against Pack identity and exports. Missing/incomplete headers are `not-evaluated`, and contradictory fields fail. This first-wave audit does not claim coverage of policy/translator specs or canonical generated vectors.
+
 The current composer runs four ordered implemented stages:
 
 1. Pack-root and manifest validation from `tools/pack-conformance/validate-packs.mjs`.
