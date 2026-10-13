@@ -297,6 +297,19 @@
       }
     },
     {
+      "id": "entif:pack-path-confinement",
+      "kind": "plan",
+      "title": "Confine declared Pack paths to Pack identity",
+      "status": "done",
+      "task": "T7903",
+      "issues": [790],
+      "pr": 1826,
+      "source": {
+        "path": "plans/pack-path-confinement.md",
+        "sha256": "0f0bb6b40164fc4dab5f2d4541d0a291bcd9a0aef9c40a302f3542582e7ea50b"
+      }
+    },
+    {
       "id": "entif:pack-schema-entrypoint-conformance",
       "kind": "plan",
       "title": "Validate declared Pack JSON Schema entrypoints",
@@ -737,6 +750,16 @@
       "from": "entif:pack-manifest-schema-gate",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-path-confinement",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-path-confinement",
+      "kind": "depends-on",
+      "to": "entif:pack-schema-entrypoint-conformance"
     },
     {
       "from": "entif:pack-schema-entrypoint-conformance",
