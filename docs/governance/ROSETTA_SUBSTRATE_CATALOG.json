@@ -156,6 +156,19 @@
       }
     },
     {
+      "id": "entif:github-live-provider-admission",
+      "kind": "plan",
+      "title": "Admit native live GitHub provider acquisition",
+      "status": "blocked",
+      "task": "T1819",
+      "issues": [799, 1810],
+      "pr": 1819,
+      "source": {
+        "path": "plans/github-live-provider-admission.md",
+        "sha256": "aec06588e6d527574e55c3ea8f76d8b7e96579fb5251dca3f8076a922b1511c9"
+      }
+    },
+    {
       "id": "entif:graph-view",
       "kind": "plan",
       "title": "Bounded GraphView conformance",
@@ -544,6 +557,16 @@
       "from": "entif:github-issue-source-admission",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:github-live-provider-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:github-live-provider-admission",
+      "kind": "depends-on",
+      "to": "entif:github-issue-source-admission"
     },
     {
       "from": "entif:graph-view",
