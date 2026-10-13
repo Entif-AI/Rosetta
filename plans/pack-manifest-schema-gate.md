@@ -1,7 +1,7 @@
 ---
 id: entif:pack-manifest-schema-gate
 task: T790
-status: in-progress
+status: done
 depends: []
 awaits: []
 specs: [specs/architecture.md]
@@ -25,9 +25,13 @@ The remaining #790 work includes the composed local/CI release gate, bootstrap w
 - [x] Red-before-green: malformed manifest falsely returned `ok: true`; omitted `compatible_core`/`depends_on` reached Pack-ID verification before schema refusal.
 - [x] Local manifest schema runs first; malformed keys/fields yield typed errors; valid workspace Packs still pass.
 - [x] Focused vectors preserve Pack-ID, Profile descent and dependency-cycle behavior.
-- [x] `pnpm verify`, targeted Pack/RRP tests, authority/semantic/SpecOps admission, Nx sync and diff checks passed. The full local composed admission also passed before the run policy was narrowed.
+- [x] ROCK-3111-C §9.1 now conforms to the accepted executable manifest schema: required `id`, `kind` and `title` are present, and schema entrypoints use the supported array-valued `entrypoints.schema` key instead of stale `primary_schema` / `primary_bundle_schema` keys.
+- [x] `pnpm verify`, targeted Pack/RRP tests, authority/semantic/SpecOps admission, Nx sync and diff checks pass on the closeout state. The full local composed admission also passed before the run policy was narrowed.
 - [x] Draft review-only PR #1816 opened; first pushed head `53fa57d59e3f7b7ad5496c4146fc1cd0cc210900` verified through GitHub and `git ls-remote`.
-- [ ] Integrated only by separately authorized human action; parent #790 stays open for remaining release-gate work.
+
+## Integration boundary
+
+Human source-owner acceptance and merge remain separate from bounded implementation validation. Completing T790 does not merge PR #1816, close parent #790, certify a Pack release, authorize promotion, or complete the remaining release-gate leaves.
 
 ## Run and recovery policy
 
