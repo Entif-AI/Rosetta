@@ -1,7 +1,7 @@
 ---
 id: entif:rrp-receipt-vectors
 task: T1118
-status: in-progress
+status: done
 depends: []
 awaits: []
 specs: []
