@@ -1,0 +1,160 @@
+{
+  "toolMode": "Built-in imagegen; 17 individual reference-guided generations",
+  "reference": "Author-supplied About design reference, 2026-10-11",
+  "format": "WebP; quality 85; effort 6; image content and dimensions preserved",
+  "assets": [
+    {
+      "key": "about-hero",
+      "file": "src/assets/about/about-hero.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 164052,
+      "sha256": "0a3cc972e1b5230c830328ad2ea0f9955a1348d4028d9bc6aa4808935eda23c3",
+      "prompt": "Use-case: stylized-concept / identity-preserve. Create a standalone widescreen cinematic editorial illustration for the Entif About website hero, using the supplied screenshot as the aesthetic and identity reference. Do NOT reproduce a webpage, typography, borders, buttons, or navigation. Depict the same mature thoughtful long-bearded researcher in a deep burgundy shirt, seated at a real desk with an open notebook and dark laptop, on the RIGHT half of the composition. Preserve the depicted facial features and very long gray beard. Behind him, luminous electric-blue threads suggest a graceful abstract intelligence silhouette and a globe of connected points, balanced with restrained amber points of light. Dark navy, realistic skin and fabric, subtle warm study lighting, sophisticated depth, meticulously polished. On the LEFT 45 percent keep a very dark, quiet navy study background with minimal objects for overlaid website copy. The person and globe remain comfortably within the right 55 percent with safe margins. Landscape 16:9, expansive horizontal scene, no words, no logos, no marks, no readable text. This is a conceptual illustration, not a documentary photograph."
+    },
+    {
+      "key": "d01-nonprofit",
+      "file": "src/assets/about/d01-nonprofit.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 244396,
+      "sha256": "b47cd8da1890295b448d1d7194a881655696a022bcce04762298244e33524dbc",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, aesthetically matching the supplied reference's deep navy, brilliant electric blue and restrained amber palette. Subject: a luminous young tree growing from a transparent open geometric foundation, its electric-blue roots connecting many separate small human-scale lights, protected by softly lit real hands at the edges. Public benefit and a mission that outlives its founder; roots and branching stewardship, without a corporate emblem. Main subject occupies the RIGHT 60 percent. LEFT 40 percent is quiet near-black navy negative space for HTML text. Photographic material textures, translucent glass, carefully controlled luminous filaments, intellectual and human scale, elegant depth, premium editorial polish. Landscape 16:9, no webpage UI, no typography, no letters, numbers, logos or watermarks. Conceptual illustration, not scientific evidence."
+    },
+    {
+      "key": "d02-charter",
+      "file": "src/assets/about/d02-charter.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 162220,
+      "sha256": "7ad1eda18ecbd0dfb0a9e33be0616d10849595cfe2c45c73ddc8f9c2f42afca3",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, aesthetically matching the supplied reference's deep navy, brilliant electric blue and restrained amber palette. Subject: an open unlettered archival covenant folio on a dark stone desk, fine electric-blue filaments joining its pages to a luminous transparent cube within a stable open circular architectural frame. An enduring charter protecting human dignity, consent and public benefit; no seals, legal endorsements or lettering. Main subject occupies the RIGHT 60 percent. LEFT 40 percent is quiet near-black navy negative space for HTML text. Photographic material textures, translucent glass, carefully controlled luminous filaments, intellectual and human scale, elegant depth, premium editorial polish. Landscape 16:9, no webpage UI, no typography, no letters, numbers, logos or watermarks. Conceptual illustration, not scientific evidence."
+    },
+    {
+      "key": "d03-provenance",
+      "file": "src/assets/about/d03-provenance.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 184522,
+      "sha256": "f8d797b4fc6865379944f34fd99cbb6075052234b13efcf15d7d557651ab683e",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, aesthetically matching the supplied reference's deep navy, brilliant electric blue and restrained amber palette. Subject: a beautiful glass archival corridor with an open unlettered book and a sequence of translucent source sheets linked by precise blue threads; one fine amber thread traces a continuous lineage through the archive. Meaning, provenance and interpretation across time; no charts, no text, no fake data. Main subject occupies the RIGHT 60 percent. LEFT 40 percent is quiet near-black navy negative space for HTML text. Photographic material textures, translucent glass, carefully controlled luminous filaments, intellectual and human scale, elegant depth, premium editorial polish. Landscape 16:9, no webpage UI, no typography, no letters, numbers, logos or watermarks. Conceptual illustration, not scientific evidence."
+    },
+    {
+      "key": "d04-governance",
+      "file": "src/assets/about/d04-governance.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 215148,
+      "sha256": "937233b27deec1f9ccd06c7b851889a7031f0c1a1f8a3ad57c5eb8f527cfe7a9",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, electric blue and restrained amber aesthetic. Subject: three distinct transparent architectural pillars supporting an open luminous blue ring over a shared civic courtyard, with several independent amber-lit paths to the center; a stable mission held by independent counterweights, human scale, careful institutional architecture. Main subject on the RIGHT 60 percent, LEFT 40 percent quiet near-black navy negative space for HTML text. Photographic real materials, translucent glass, precise luminous connections, elegant intellectual mood, rich controlled light, premium editorial polish. Landscape 16:9. No webpage UI, typography, text, letters, numbers, logos or watermarks. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d05-legal-design",
+      "file": "src/assets/about/d05-legal-design.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 138388,
+      "sha256": "2cc3deac1fe70190996a8c40648348269fe694ecb0fbe9d90767dca3f4c034b9",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, electric blue and restrained amber aesthetic. Subject: a dark architect's desk with an unlettered vellum blueprint, refined brass drafting calipers and a balanced transparent geometric framework illuminated in electric blue; the work of translating a public mission into a sound legal structure, no legal text, no seals or official emblems. Main subject on the RIGHT 60 percent, LEFT 40 percent quiet near-black navy negative space for HTML text. Photographic real materials, translucent glass, precise luminous connections, elegant intellectual mood, rich controlled light, premium editorial polish. Landscape 16:9. No webpage UI, typography, text, letters, numbers, logos or watermarks. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d06-ethics",
+      "file": "src/assets/about/d06-ethics.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 140708,
+      "sha256": "cc850cb0c5eda53daeacb0f00540461c369542b8cd36ddec3962ec4037666db9",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, electric blue and restrained amber aesthetic. Subject: a beautiful unlettered compass with a luminous blue needle on a dark study desk, several small warm amber lights forming a path into a landscape beyond; human ethical judgment, care and accountable conduct, understated, not mystical. Main subject on the RIGHT 60 percent, LEFT 40 percent quiet near-black navy negative space for HTML text. Photographic real materials, translucent glass, precise luminous connections, elegant intellectual mood, rich controlled light, premium editorial polish. Landscape 16:9. No webpage UI, typography, text, letters, numbers, logos or watermarks. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d07-epistemic-integrity",
+      "file": "src/assets/about/d07-epistemic-integrity.webp",
+      "width": 1672,
+      "height": 940,
+      "bytes": 167774,
+      "sha256": "c473ef8474fe2ebc3781880d9afc030b5cb10a9f24f650befa683f750847ea6f",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, electric blue and restrained amber aesthetic. Subject: an elegant large glass optical lens hovering over a layered archive of unlettered transparent source sheets on a dark desk, revealing a sharp blue thread running through the sheets while uncertain background threads remain softly out of focus; evidence, truthful claims, provenance and correction, no invented data or charts. Main subject on the RIGHT 60 percent, LEFT 40 percent quiet near-black navy negative space for HTML text. Photographic real materials, translucent glass, precise luminous connections, elegant intellectual mood, rich controlled light, premium editorial polish. Landscape 16:9. No webpage UI, typography, text, letters, numbers, logos or watermarks. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d08-consent",
+      "file": "src/assets/about/d08-consent.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 151208,
+      "sha256": "e49f2898e42c26abf8d14de99397d268699ee9eb96e16b468e5c162801a6a107",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, brilliant electric blue and restrained amber palette. Subject: a real human hand holding a small luminous transparent blue sphere, with several clearly open illuminated doorways and paths beyond it; meaningful choice and the ability to choose a different path, dignified and calm, no screens or text. Main subject on the RIGHT 60 percent; LEFT 40 percent quiet near-black navy negative space for HTML copy. Photographic materials and natural textures, luminous filaments, sophisticated intellectual mood, elegant depth, premium editorial polish. Landscape 16:9. No webpage, UI, typography, letters, numbers, logos or watermarks. Conceptual illustration, not operational evidence."
+    },
+    {
+      "key": "d09-attention",
+      "file": "src/assets/about/d09-attention.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 191794,
+      "sha256": "332fb56ebed5ebde5733ec44d2bea07dab1606129c2e5571cbef8ff4af145917",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, brilliant electric blue and restrained amber palette. Subject: a serene human-scale walled garden beside a dark quiet study, one amber reading lamp and a single luminous blue ribbon gently connecting an open book to the garden; attention freely chosen, restorative quiet, humane technology, no clocks or notifications. Main subject on the RIGHT 60 percent; LEFT 40 percent quiet near-black navy negative space for HTML copy. Photographic materials and natural textures, luminous filaments, sophisticated intellectual mood, elegant depth, premium editorial polish. Landscape 16:9. No webpage, UI, typography, letters, numbers, logos or watermarks. Conceptual illustration, not operational evidence."
+    },
+    {
+      "key": "d10-apprenticeship",
+      "file": "src/assets/about/d10-apprenticeship.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 147122,
+      "sha256": "1b01c3213414d9af451a9a87c4d4768b9544739610e615c9dda6063444d0698d",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, brilliant electric blue and restrained amber palette. Subject: a skilled human hand and a subtle translucent electric-blue assistive hand working together on a small intricate open mechanical model on a dark workshop desk; learning through capable collaboration, warm task light, shared craft and durable human skill, no humanoid robot or readable text. Main subject on the RIGHT 60 percent; LEFT 40 percent quiet near-black navy negative space for HTML copy. Photographic materials and natural textures, luminous filaments, sophisticated intellectual mood, elegant depth, premium editorial polish. Landscape 16:9. No webpage, UI, typography, letters, numbers, logos or watermarks. Conceptual illustration, not operational evidence."
+    },
+    {
+      "key": "d11-authority",
+      "file": "src/assets/about/d11-authority.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 261442,
+      "sha256": "526f4f9e7ed8c26914827c1afa23c185977f24e0cf6a9f272738fcc7dd38b4c0",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for one Entif doctrine webpage, matching the reference's deep navy, brilliant electric blue and restrained amber palette. Subject: three clearly separated refined glass control pavilions linked by narrow blue pathways around a central contained transparent sphere, amber gateways marking the boundaries between them; different powers with explicit scope, proposal approval and execution kept separate, human-scale architecture. Main subject on the RIGHT 60 percent; LEFT 40 percent quiet near-black navy negative space for HTML copy. Photographic materials and natural textures, luminous filaments, sophisticated intellectual mood, elegant depth, premium editorial polish. Landscape 16:9. No webpage, UI, typography, letters, numbers, logos or watermarks. Conceptual illustration, not operational evidence."
+    },
+    {
+      "key": "d12-memory",
+      "file": "src/assets/about/d12-memory.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 182548,
+      "sha256": "bbcdec798db1db3e9c68a74a6d529ad07aad1a7b2134716439b74c0a355959cb",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for the Entif About and doctrine pages, matching the supplied reference's deep navy, vivid electric blue and restrained amber palette. Subject: a beautiful personal archive of separate translucent glass memory vessels on a dark wood study desk, precise blue threads joining only intentionally open vessels, a small warm amber key lying beside the owner's notebook; legitimate control, privacy, memory and meaningful exit; no locks on a human body, no text. Main subject on the RIGHT 60 percent. LEFT 40 percent quiet near-black navy negative space for overlaid HTML text. Real photographic materials, translucent glass, precise luminous filaments, elegant intellectual atmosphere, premium editorial polish, controlled light and rich depth. Landscape 16:9. No webpage UI, typography, letters, words, numbers, watermarks or logos. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d13-moral-uncertainty",
+      "file": "src/assets/about/d13-moral-uncertainty.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 171504,
+      "sha256": "4c180ec66943f5857e46a5cc8e5e352379c58bcb99aab1d1d82727e1f1f0088d",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for the Entif About and doctrine pages, matching the supplied reference's deep navy, vivid electric blue and restrained amber palette. Subject: a contemplative quiet room with one warmly lit real human reading chair and one intricate abstract electric-blue luminous pattern suspended across a transparent reflective pane, a softly branching path beyond; careful inquiry into continuity and possible morally relevant interests, no claim of machine consciousness, no humanoid robot, no distress. Main subject on the RIGHT 60 percent. LEFT 40 percent quiet near-black navy negative space for overlaid HTML text. Real photographic materials, translucent glass, precise luminous filaments, elegant intellectual atmosphere, premium editorial polish, controlled light and rich depth. Landscape 16:9. No webpage UI, typography, letters, words, numbers, watermarks or logos. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d14-research-ethics",
+      "file": "src/assets/about/d14-research-ethics.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 160342,
+      "sha256": "a41895b0989361c6669cb71ce785800c67de6e6d473ee7c2a575601551692491",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for the Entif About and doctrine pages, matching the supplied reference's deep navy, vivid electric blue and restrained amber palette. Subject: a sophisticated open research workbench with two matched transparent experimental assemblies under an optical instrument, blue illumination in one and neutral clear glass in the other, an amber safety boundary and a clean unlettered notebook; fair comparisons, falsifiable research and protective boundaries, no scientific graphs or claimed results. Main subject on the RIGHT 60 percent. LEFT 40 percent quiet near-black navy negative space for overlaid HTML text. Real photographic materials, translucent glass, precise luminous filaments, elegant intellectual atmosphere, premium editorial polish, controlled light and rich depth. Landscape 16:9. No webpage UI, typography, letters, words, numbers, watermarks or logos. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "d16-conformance",
+      "file": "src/assets/about/d16-conformance.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 185596,
+      "sha256": "35436eccac8f79a6144c9d70d1fec183b546ba1cb22e17e90b3655f34986aa16",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for the Entif About and doctrine pages, matching the supplied reference's deep navy, vivid electric blue and restrained amber palette. Subject: a precise transparent architectural model held within a blue geometric frame, refined brass measuring calipers and a clear optical lens on a dark desk, amber evidence threads connecting the measured structure to an open unlettered record; governance judged by observable outcomes rather than badges, no certification seal or numbers. Main subject on the RIGHT 60 percent. LEFT 40 percent quiet near-black navy negative space for overlaid HTML text. Real photographic materials, translucent glass, precise luminous filaments, elegant intellectual atmosphere, premium editorial polish, controlled light and rich depth. Landscape 16:9. No webpage UI, typography, letters, words, numbers, watermarks or logos. Conceptual illustration, not scientific or operational evidence."
+    },
+    {
+      "key": "closing-purpose",
+      "file": "src/assets/about/closing-purpose.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 209438,
+      "sha256": "ee657e44d680e294bc901364b9b1a8fffa36e16b895af613cf60706f347f42fe",
+      "prompt": "Use-case: stylized-concept. Create a standalone widescreen cinematic editorial artwork for the Entif About and doctrine pages, matching the supplied reference's deep navy, vivid electric blue and restrained amber palette. Subject: a magnificent luminous blue Earth-like globe with distinct amber and blue pathways connecting small human-scale points of light across continents, a refined small transparent cube hovering above the globe, deep cosmic navy space and a hopeful dawn; open cognitive infrastructure serving people and society, no text, no logos. Main subject on the RIGHT 60 percent. LEFT 40 percent quiet near-black navy negative space for overlaid HTML text. Real photographic materials, translucent glass, precise luminous filaments, elegant intellectual atmosphere, premium editorial polish, controlled light and rich depth. Landscape 16:9. No webpage UI, typography, letters, words, numbers, watermarks or logos. Conceptual illustration, not scientific or operational evidence."
+    }
+  ]
+}

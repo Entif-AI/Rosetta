@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-11",
+  "reviewer": "Codex",
+  "scope": "local built site; no production or full human accessibility claim",
+  "environment": {
+    "platform": "darwin",
+    "node": "v24.21.0",
+    "playwright": "1.62.1",
+    "projectNames": ["chromium"],
+    "packages": {
+      "@astrojs/markdown-remark": "^7.2.4",
+      "@astrojs/react": "6.0.4",
+      "@astrojs/sitemap": "3.7.3",
+      "astro": "7.2.9",
+      "react": "19.0.0",
+      "react-dom": "19.0.0",
+      "@astrojs/check": "0.9.10",
+      "@axe-core/playwright": "4.13.0",
+      "@playwright/test": "1.62.1",
+      "@testing-library/react": "16.3.0",
+      "@testing-library/user-event": "14.6.6",
+      "@types/react": "19.0.0",
+      "@types/react-dom": "19.0.0",
+      "html-validate": "11.15.0",
+      "jsdom": "~22.1.0",
+      "lighthouse": "13.4.1",
+      "sass": "1.105.1",
+      "stylelint": "17.16.0",
+      "stylelint-config-standard-scss": "17.0.0",
+      "typescript": "5.9.3",
+      "vitest": "4.1.4"
+    }
+  },
+  "verify": {
+    "command": "NX_DAEMON=false pnpm exec nx run entif-site:verify",
+    "exitCode": 0,
+    "gates": [
+      "format:check",
+      "lint",
+      "stylelint",
+      "typecheck",
+      "test",
+      "build",
+      "html"
+    ],
+    "checkedFiles": 58,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0,
+    "unit": {
+      "files": 7,
+      "tests": 44,
+      "passed": 44
+    },
+    "buildRoutes": 252,
+    "validatedHtmlDocuments": 253,
+    "originalLogSha256": "66c5c4ef0b75fdfabcbcbbffccfe2632b747418e2922219b9bf890e8ae65aa22"
+  },
+  "e2e": {
+    "command": "PLAYWRIGHT_JSON_OUTPUT_FILE=/tmp/entif-uca-e2e.json NX_DAEMON=false pnpm exec nx run entif-site:e2e -- --workers=4 --reporter=list,json",
+    "stats": {
+      "startTime": "2026-10-11T10:22:53.292Z",
+      "duration": 51500.944,
+      "expected": 286,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "errors": [],
+    "projectsTests": [
+      {
+        "title": "seven-stage structure, global chrome and every selectable system agree",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 2295
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "vertical automatic activation wraps; Home/End, Space/Enter and Tab preserve logical focus",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1749
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "horizontal keyboard rail wraps and selection survives responsive orientation changes",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1750
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "touch activation selects content and retains focus",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 500
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "static fallback preserves every section and fragment with JavaScript disabled",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 263
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "published detail/research routes, fragments, metadata and skip navigation remain usable",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 587
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "WCAG axe checks every active system at 1366px",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 4767
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "WCAG axe checks every active system at 390px",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 4514
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "WCAG axe checks the no-JavaScript DOM snapshot",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 974
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "effective 400% reflow and seven viewport geometries keep content inside padded boundaries",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 3147
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "200% text, WCAG spacing and long labels retain readable content and keyboard focus",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 958
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "focus, non-color selection, forced colors, reduced motion and print retain the reading path",
+        "ok": true,
+        "tests": [
+          {
+            "project": "chromium",
+            "status": "expected",
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 617
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "originalReportSha256": "eb0cbcd4245e14d9f33b4636cb067efcdbf7aa45e2af51620cc5d0d46221f1dc"
+  },
+  "limitations": [
+    "Only configured Chromium browser suite executed",
+    "Emulated touch is not physical mobile assistive technology",
+    "Axe color-contrast incomplete on gradient nodes",
+    "Actual browser zoom and desktop/mobile screen readers NOT_EVALUATED"
+  ]
+}

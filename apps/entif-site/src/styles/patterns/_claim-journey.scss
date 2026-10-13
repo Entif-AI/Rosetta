@@ -1,0 +1,242 @@
+@use '../tools';
+
+@layer patterns {
+  .claim-journey {
+    min-width: 0;
+    scroll-margin-top: 1rem;
+  }
+
+  .journey-track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .journey-track > li {
+    position: relative;
+    min-width: 0;
+  }
+
+  .journey-track > li + li::before {
+    content: '';
+    position: absolute;
+    width: 1.5rem;
+    height: 1px;
+    background: #7f8bad;
+    left: -1.5rem;
+    top: 11rem;
+  }
+
+  .claim-journey > ol.journey-track > li {
+    background-color: #fcfcfe;
+  }
+
+  .claim-card {
+    position: relative;
+    height: 17.5rem;
+    background: var(--surface);
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: -1px 4px 2px #0126640c;
+    container-type: inline-size;
+  }
+
+  .claim-card summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    gap: 0.75rem;
+    padding: 3rem 0.25rem 1rem;
+    cursor: pointer;
+    border-radius: inherit;
+    list-style: none;
+    overflow: hidden;
+  }
+
+  .claim-card summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .claim-card summary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: linear-gradient(225deg, #fcfcfe 48%, #e7eefb 50%, #fff 78%);
+    transform: translate(100%, -100%);
+    transition: transform 0.15s;
+  }
+
+  .claim-card summary > .eyebrow {
+    max-width: 100%;
+    position: absolute;
+    left: 38px;
+    top: 38px;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .claim-card summary > .stage-icon {
+    position: absolute;
+    top: 100px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .stage-icon svg {
+    width: 7rem;
+    height: 7rem;
+    color: #48567b;
+    margin-bottom: 0;
+  }
+
+  .stage-title {
+    font-weight: 780;
+    position: absolute;
+    top: 20px;
+    left: 37px;
+    font-size: 0.88rem;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .claim-card[open] {
+    background: var(--accent-soft);
+  }
+
+  .claim-card[open] summary {
+    height: 18rem;
+    position: absolute;
+    width: 100%;
+  }
+
+  .claim-card[open] summary::after {
+    transform: translate(0, 0);
+  }
+
+  .claim-card[open] .stage-icon,
+  .claim-card[open] summary > .eyebrow {
+    display: none;
+  }
+
+  .stage-number {
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    font-size: var(--small);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .info-icon {
+    position: absolute;
+    top: 1.1rem;
+    right: 1rem;
+    color: var(--muted);
+  }
+
+  .info-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .claim-receipt {
+    height: calc(100% - 6rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 0 1rem 0.5rem;
+    font-size: var(--small);
+    margin-top: 60px;
+    background: radial-gradient(#fffeef 19%, var(--accent-soft) 91%);
+  }
+
+  .claim-receipt .eyebrow {
+    display: none;
+    visibility: hidden;
+  }
+
+  .claim-text {
+    font-size: var(--small);
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
+  .claim-text + p {
+    line-height: 1.2;
+    margin-top: 8px;
+  }
+
+  .receipt-id {
+    border-top: 1px solid var(--line);
+    padding-top: 0.3rem;
+    margin-top: 0.5rem;
+    color: var(--muted);
+  }
+
+  .idle-cue summary::after {
+    animation: corner-wink 1200ms ease 1;
+  }
+
+  @keyframes corner-wink {
+    0%,
+    100% {
+      transform: translate(100%, -100%);
+    }
+
+    40%,
+    60% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @media (hover: hover) {
+    .claim-card summary:hover::after {
+      transform: translate(0, 0);
+    }
+  }
+
+  @include tools.down('hero') {
+    .journey-track {
+      gap: 1.5rem;
+    }
+
+    .journey-track > li + li::before {
+      top: 8rem;
+    }
+  }
+
+  @include tools.down('compact') {
+    .journey-track {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .journey-track > li + li::before {
+      width: 1px;
+      height: 1rem;
+      left: 2.1rem;
+      top: -1rem;
+    }
+
+    .claim-card {
+      height: 16rem;
+    }
+  }
+}

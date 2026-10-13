@@ -1,0 +1,21 @@
+{
+  "name": "authz-conformance",
+  "projectType": "library",
+  "implicitDependencies": ["rosetta-guard", "rosetta-schemas", "rosetta-core", "rosetta-receipts", "rosetta-store", "rosetta-canon"],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": [{ "target": "build", "projects": ["rosetta-guard", "rosetta-receipts", "rosetta-store", "rosetta-canon"] }],
+      "cache": true,
+      "inputs": ["default", "^production", "{workspaceRoot}/packages/rosetta-guard/fixtures/authz-evaluation-v1.json"],
+      "options": { "command": "node --test tools/authz/conformance.spec.mjs" }
+    },
+    "report": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["test"],
+      "cache": false,
+      "outputs": ["{workspaceRoot}/dist/authz/conformance-v1.json"],
+      "options": { "command": "node tools/authz/conformance.mjs --report dist/authz/conformance-v1.json" }
+    }
+  }
+}

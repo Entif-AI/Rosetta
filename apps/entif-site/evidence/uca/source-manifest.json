@@ -1,0 +1,1096 @@
+{
+  "date": "2026-10-11",
+  "branch": "codex/entif-uca-showcase-01a12a46",
+  "startingCommit": "65937be5391c2b66f9e2da0096e72f6f109bba52",
+  "lastCommittedImplementationCheckpoint": "5f23e8e56979ca2b28f6d8f17719d20f5a1697e6",
+  "scope": "Tested worktree includes QA code committed with this bundle. Manifest excludes evidence and README documentation to avoid self-reference. It is an input receipt, not a claim that the previous Git checkpoint contains all tested code.",
+  "aggregateMethod": "SHA-256 of JSON.stringify(inputs), with paths sorted by JavaScript default string order",
+  "aggregateSha256": "316c623c51bd6d5037ba2bfcee9e55b8c9b0e7afe91cf985df1f630683f44c67",
+  "builtProjectsHtmlSha256": "a6e1473bc38ff356c689e568b1f49b5177cab7575f000365dced822fdce4da81",
+  "inputs": [
+    {
+      "path": ".github/workflows/entif-site-ci.yml",
+      "sha256": "a6e21e56251e35666cee60013073a6a149854212ddb098729dc45064e6c22aec"
+    },
+    {
+      "path": ".github/workflows/entif-site-pages.yml",
+      "sha256": "2629c24ce26902c782d7afe9bc5c0e3feaf90d87836fa3ebd09e5a72ad195b44"
+    },
+    {
+      "path": ".nvmrc",
+      "sha256": "51849cee918b92b09b95121b54380f6124c0f578d8c2323221c0d75bbbadb08d"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "35281b516f41dd44e39687bf9e29e34140c915a6afedc2dd38e6cfb342b2a54f"
+    },
+    {
+      "path": ".prettierrc",
+      "sha256": "2b411eab1548e9ecc139518b3cb970ed569a006022ae57812432c3c722b72a0c"
+    },
+    {
+      "path": "apps/entif-site/Design.MD",
+      "sha256": "c317623919bb6a652fb2f8283dcab2375f23af5f61d61f2c618bb33766ac4fc8"
+    },
+    {
+      "path": "apps/entif-site/ETR-2026-07.md",
+      "sha256": "f4428dbf7336fa8344e0eafc151a4208f9002bafc6ef4a0da7ddc8fa273c0c18"
+    },
+    {
+      "path": "apps/entif-site/ETR_EXPERIENCE_PLAN.md",
+      "sha256": "494e9de72eef36ed9d40a13a5d86f722b281ffd55315b54c04f008606d519296"
+    },
+    {
+      "path": "apps/entif-site/VALIDATION.md",
+      "sha256": "0d14ee1162aae8d2c8e726c7449e77e4095ebcb3e6201a4ccc1505e1e632fbc5"
+    },
+    {
+      "path": "apps/entif-site/astro.config.ts",
+      "sha256": "ce09df37543ed018b3430bf6a8cf3c9713c7db674c8a2d655cc3d086d2a18538"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate.md",
+      "sha256": "832efba199100ad83cf59b760fc084f53fff3f5c858a6665a6a6056804cd35b7"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/02-language-that-makes-power-hard-to-see.md",
+      "sha256": "cb3e59fda203e6f60eed1c152390602dc900e0ef592c5b69c65e3cfa7d34ebd5"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/03-markets-that-sell-reality-back-to-us.md",
+      "sha256": "f8813eb6ca0d934c4af19cc1e680002a8f39532869da5895587dfd0b0a08f332"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/04-the-corporation-without-a-villain.md",
+      "sha256": "2c72f5dffbc107813cb7bcdd58f8f6d0dce26603075f52944e169328fa7e771f"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/05-who-creates-the-value-and-who-gets-it.md",
+      "sha256": "7ad61b46c6d8631dd784e8f8ae9ed924dce8ef7b9ba3afef3be6cf5d917e6a00"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/06-extraction-at-the-checkout-screen.md",
+      "sha256": "06267be08845d854b1de129ef8cd6bb0cf15bb5d1f83b796504851c8f5e33b9b"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/07-money-that-few-people-can-see-moving.md",
+      "sha256": "899b94dbf2f8c586312015c5c863da8e864bea87f110100da30c38781c97000d"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/08-how-money-expertise-and-access-meet.md",
+      "sha256": "daafcbc6b9dfa81871a8f110361807ccbe27048f56e777b4626eb04fb826334c"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/09-where-grievance-finds-a-story.md",
+      "sha256": "13ae84e0c04fbe598ac4d78f5350f28c432c5534ce5f4ca26da1172271b48e1c"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/10-from-platform-to-nervous-system.md",
+      "sha256": "e4ca8b37628f7bfeda72defff37f50384200a7a09ae9648ce137ccea8e2ada06"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/11-the-past-inside-the-model.md",
+      "sha256": "9559ab8e45a31e76774607d6a81c838ad0370ec877bb79a5382322c0dfb2ca0b"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/12-meaning-we-cannot-read.md",
+      "sha256": "2c0dc35622548129577d4ccd4224c1719dcb9aef736a7a565c66cf6c936225e7"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/13-acceleration-feeds-itself.md",
+      "sha256": "2e47d05c19ef09abcc24142dd98c8d6cc89179f4c0744b1cb5723f7bdcaa6425"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/14-the-best-case-dystopia.md",
+      "sha256": "f48b797fb55ddc0e53a9dd1c5b12d837986837d1a7648b6613b3a03d5b0d4574"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/15-the-worse-cases-still-exist.md",
+      "sha256": "8a588ef5e3a470f327c31f975ad3f4c77fa92480fef17db5dc2382a71878fab6"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/16-accelerating-the-dystopia-or-changing-the-destination.md",
+      "sha256": "be7035fad17ef93a0abde9ed28f107a44b8850aa1f332bc299df7e98c110b09e"
+    },
+    {
+      "path": "apps/entif-site/content/articles/accelerating-the-dystopia/17-citations.md",
+      "sha256": "63bad898ede18a87884bfbe6f4a8cef67157b8af30417e5abf260df1e3c15809"
+    },
+    {
+      "path": "apps/entif-site/content/articles/can-semantically-typed-operands-make-cognition-local.md",
+      "sha256": "d3fded5cb1bcdd9caed81f9b4d91fb37f3951fbac68514006acd501e21efb169"
+    },
+    {
+      "path": "apps/entif-site/content/articles/shift-left-move-uncertainty-upstream.md",
+      "sha256": "bf714ddea77cb215568029d784fd59b1982fe73325845edcbdfdedb2b4394933"
+    },
+    {
+      "path": "apps/entif-site/content/editorial/accelerating-the-dystopia.md",
+      "sha256": "9ce6b0388ff4c46a5f061ea0505eca96790109a456ae928ef90363fe62f4b097"
+    },
+    {
+      "path": "apps/entif-site/content/editorial/accelerating-the-dystopia/migration.json",
+      "sha256": "67de27a5b11fc2388e2d92dc337c15b9c3b35d80dd24e2c19b971fe5686c4eaf"
+    },
+    {
+      "path": "apps/entif-site/content/editorial/accelerating-the-dystopia/sources.json",
+      "sha256": "fd604009dbda1c7650706c8ac9fed623ea30f99eff9818db5e1c5eb5140887b9"
+    },
+    {
+      "path": "apps/entif-site/content/pages/about.md",
+      "sha256": "351d12da9b1820b69aacb831b991a13eae6de3c5ff7edd1577ad582fe0795333"
+    },
+    {
+      "path": "apps/entif-site/content/pages/archive.md",
+      "sha256": "99f53051765a506dd621f915671a78518dd63dcb8a3d9983a969f69380cc877e"
+    },
+    {
+      "path": "apps/entif-site/content/pages/articles.md",
+      "sha256": "f531c79ce79e560b2952a35dd47585a3fab9c932010cc6947cffce07599dca0c"
+    },
+    {
+      "path": "apps/entif-site/content/pages/contact.md",
+      "sha256": "ea41e6cc16212ca1f41b792c502a59ba1f024ce731318cff3ff561515b926186"
+    },
+    {
+      "path": "apps/entif-site/content/pages/home.md",
+      "sha256": "1494efa1b8d3282d9a4f1001aa3b3e1603900864b56e37ca4d16e84a9126da4f"
+    },
+    {
+      "path": "apps/entif-site/content/pages/journey.md",
+      "sha256": "2d4438e836ce64a8e6c00b07b110f116a8db16081ac22d99a8d9ac50b056521a"
+    },
+    {
+      "path": "apps/entif-site/content/pages/projects.md",
+      "sha256": "164f3ceb81675c09bfdb0375fd96e8453a52c5675fe93959f4b06b1dbb5b9a6e"
+    },
+    {
+      "path": "apps/entif-site/content/pages/research.md",
+      "sha256": "d94063b38d7d4a5de9946b9de8e03790e41f9057075d5c080580c52c31d18ff6"
+    },
+    {
+      "path": "apps/entif-site/content/pages/stage-interpretation.md",
+      "sha256": "2d903ba8cacab471bfcbc4729ff8a7ed7f1ca886dd9672b075fb492f32b8d556"
+    },
+    {
+      "path": "apps/entif-site/content/pages/stage-observation.md",
+      "sha256": "56161a483bc1e84f4dc558dba51fb1c47913768a16f70bdcc741c41e8112740c"
+    },
+    {
+      "path": "apps/entif-site/content/pages/stage-projection.md",
+      "sha256": "96d821b7b057d676e202fb298657045e127b2d9534d704b41c4218f7a086e4f1"
+    },
+    {
+      "path": "apps/entif-site/content/pages/stage-source.md",
+      "sha256": "d8ab66dc750af2097e8dd86712431ef3f46b1cb897e32a04cf308c5e24990f22"
+    },
+    {
+      "path": "apps/entif-site/content/pages/tags.md",
+      "sha256": "f8f04b21b68d78e0d4bb133a8412a64872aba17f302fd6ef0f0443ac0dc73ce9"
+    },
+    {
+      "path": "apps/entif-site/content/projects/bilqis.md",
+      "sha256": "72e1007b1fa6cde366b5beff92e4e49888c0ace254f9fd911c304bcecfc832b0"
+    },
+    {
+      "path": "apps/entif-site/content/projects/codito.md",
+      "sha256": "2cef89b49fa4c2acc4c3ba05b619a4b81164ef374dc4f378196fb08c5612339e"
+    },
+    {
+      "path": "apps/entif-site/content/projects/indranet.md",
+      "sha256": "041ad3ba4179a56a82f68247a8f3c62a4ad7cbce51bb65b96ff385121091aada"
+    },
+    {
+      "path": "apps/entif-site/content/projects/rosetta.md",
+      "sha256": "0d1c523f6755ceaceabbf05b1612d78a260be3273d66988e5821fe6cc3192160"
+    },
+    {
+      "path": "apps/entif-site/content/research/after-the-inflection.md",
+      "sha256": "714cac05e9d2616bbb30aaa8ba281afb7001829c5e30562d96ec334c8f881a34"
+    },
+    {
+      "path": "apps/entif-site/content/research/agentic-memory.md",
+      "sha256": "88104e474f479897ec7d07dd432943df1327c9d8506e6dffb0b3e116bca8ab89"
+    },
+    {
+      "path": "apps/entif-site/content/research/babel-fish-alien-mind.md",
+      "sha256": "cccc3dd75999549aeec36a2dad00db9be787c5cec7e3a740e96bb69ab6cacb3a"
+    },
+    {
+      "path": "apps/entif-site/content/research/editorial-pipeline-draft.md",
+      "sha256": "176b819b9377315f8fd1d7a34bf9388e18cf820fa6b44b883be76fe83edaad63"
+    },
+    {
+      "path": "apps/entif-site/content/research/indranet.md",
+      "sha256": "a50335b3f1d64e313a1995e462e6fad78d0c7c8cb1cc6d6d57eb36a973474be6"
+    },
+    {
+      "path": "apps/entif-site/content/research/omoc.md",
+      "sha256": "1b3dfa6aa98a82821b2722280e52912e112326d3108fa13ea8ceb4790327169d"
+    },
+    {
+      "path": "apps/entif-site/content/research/prepaying-semantics.md",
+      "sha256": "23c36eb16d3e9db136d7fa0b6ad393d8d375a74ed722ac2f6b5006ae2d48665a"
+    },
+    {
+      "path": "apps/entif-site/content/research/rosetta-pasigraphy-protocol.md",
+      "sha256": "8fa5df433944701920e0e42324ad32c388ed47de692f8a60a43150c7a75bab18"
+    },
+    {
+      "path": "apps/entif-site/content/research/semantic-latticing.md",
+      "sha256": "318edefa7ebc6908302fc1f7958e6844f238904d4601e9e2c12e03a06605fb49"
+    },
+    {
+      "path": "apps/entif-site/content/research/the-cost-of-learning-too-late.md",
+      "sha256": "24f1f03f6728559f867b24f99eb39374dc7283e412fe76ebe3c6c09e9e89e950"
+    },
+    {
+      "path": "apps/entif-site/content/ui/en.md",
+      "sha256": "b9661622a62408bc6c1d668206566efb1c98488762b62e16a4dbaa72d88c5816"
+    },
+    {
+      "path": "apps/entif-site/package.json",
+      "sha256": "7373975f6f5b947d987292a90e8ac6bd4f78f28eb3eef00c80bc51b1c16522d9"
+    },
+    {
+      "path": "apps/entif-site/playwright.config.ts",
+      "sha256": "e3d2395f8eb326f618ddb4b22da54a5e10d6f718095f3dcbfcbfe227f6dc0a2c"
+    },
+    {
+      "path": "apps/entif-site/project.json",
+      "sha256": "c98b8402979085829f5c6268c81b4f14146a3364c8b5815aa4fff6e8f74900c3"
+    },
+    {
+      "path": "apps/entif-site/public/brand/entif-logo.webp",
+      "sha256": "ea7c20de9a330100aac26753e764e198ab51b34e536be4c8405c2abf3451a7dd"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/after-the-inflection/F01-recursive-circuit.svg",
+      "sha256": "6e2675c27cabac9f767cd7d4197e22c9180b7b4e5f38fe4609c5ad71f8c8c8ec"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/after-the-inflection/F02-growth-paths.svg",
+      "sha256": "a7c86719f555ac003da4d03b9fd8eb8b7e362d0d212dd45e3743f5541dcda81d"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/after-the-inflection/F03-bottleneck.svg",
+      "sha256": "f96278dc64b15b3b3efb9bc7cb04b2c4cd8380483b4293d373ee2abafc3cddcb"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/after-the-inflection/F04-public-concern.svg",
+      "sha256": "935f7a826377c149094ca12a42df89e00e9bd0edd5ed1e20f055fa97250be0e1"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/after-the-inflection/F05-adaptation-backlog.svg",
+      "sha256": "e5a8b635d574bfa93f68ea1acc3d71d5ac2fe1dd12d379ab11b3c2807e5eb7c7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/etr-2026-01_v0.5.2_draft.pdf",
+      "sha256": "fcfddb604bf489ac61cacea704889925100f59445f91884d8daabff93685419b"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F01.png",
+      "sha256": "d37d7d5a79293f82c71ca012cb98ff8ced8808aae65eb5279c52ce4ad9f50001"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F01.svg",
+      "sha256": "aee0cafcce6e3c672bf070bd7fbfbe0a5e0164d828a223faa866aa4c9f218aeb"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F02.png",
+      "sha256": "2667f483ef8848e31749dd7df3b7308f6d28a0f1c67fb32db655425b956a3121"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F02.svg",
+      "sha256": "71736b6ebe89e422cb26de8fab48b96397c54827ae7b2202afd04fab9d7636ba"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F03.png",
+      "sha256": "8517c0ce94c1809a3362029b5fa4d951426d1d5185c09bcc2d377225f73f9db2"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F03.svg",
+      "sha256": "0f1bc6a5229c9edc5eb8a92083b6fb531249c1d0caeebd388e8c1827a5406d62"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F04.png",
+      "sha256": "3a93376ef7a7e73cf148045b4fd5b2ac0a4ac52a7f5dab3bf2c5f29f99e7067b"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F04.svg",
+      "sha256": "4d1cb27680403797636c6a44591277594cac3bdb959edd3dfa43b070ce8b9466"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F05.png",
+      "sha256": "6a81e31ae51f6ef664d07a84adc02b89606f71e8f4be5084dc8b1c8d267475c5"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F05.svg",
+      "sha256": "f4241c9e1c1e8c110c19eb04a3c891751ecd6512df25432d7fd61028933fac16"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F06.png",
+      "sha256": "5cbaa78daa9e10d394b963cf49e9ae367924a9d26078e87d69e16ea6daeb9e70"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F06.svg",
+      "sha256": "8f0615ea3be8c2b05082663f5b0da2e5e1be2b071414f98bd2f3a378c250b315"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F07.png",
+      "sha256": "a2f40bd024914620e0d8b0135e680fdec688df54895af96af5eff8cf05aefa2f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F07.svg",
+      "sha256": "d1059e2ff5d5d5945625e866a02d20130fb697c9b43351ec0ba01756192e5d00"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F08.png",
+      "sha256": "3ae0edc2092c80b2d95d482a23252846c2703fc89f94bea61ac0ab288f07499f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F08.svg",
+      "sha256": "f98603019a8c6c74d54ff8c6277eb97bc672d1faab479e9b40f33c013e346a6f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F09.png",
+      "sha256": "5a4376e9cc78c6911a41f91b09ea5f235e1e005f1b9074d83cadeb7dea940bd4"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F09.svg",
+      "sha256": "d773ba9ef3ed4e4dda0528a66903839d5caadc5cef034f3bf434c543a9e34ed2"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F10.png",
+      "sha256": "bc0a3bf02b62f61b7ede426f535a8926457ad6e6612f0ba1ba84cfd5cc55ca5a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F10.svg",
+      "sha256": "d6090c9ed464e7409e842e96d2bc535b714a3c6afc49b0c5041b55db0d520323"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F11.png",
+      "sha256": "8c7079e8c4eb6a16e484ffeb69db101bfb7e0737eefea1d70c0a6aafc361d474"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F11.svg",
+      "sha256": "1c0e08de5a2976d2a0d905eb6d8c9a1187ffa4a4c8d469aa130b4b75a2173dff"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F12.png",
+      "sha256": "d4369b785e077959fb1ca9036e72448a62191dd9db1138471576f8adb77a82a8"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F12.svg",
+      "sha256": "7ce36e1f0fcbb689eec61b304c1f8c69a856f9689bff2a53bbb5e2a5362c1a5f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F13.png",
+      "sha256": "715f8c1e1489e3e89bdd21563c2f0fbf05986943f41f6994baba4b9614e183af"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F13.svg",
+      "sha256": "f12972c7f848206263e11f3281e6084a5fcecbbcf9c4ef65b73d435ee8f3102e"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14a.png",
+      "sha256": "c1d156ca51ac49f721d0bbdeb776b8a4e4b58ee9ae85881cabc782edf65550a8"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14a.svg",
+      "sha256": "10be61e83f2a453366794647b86c88362a70b6cb10d1ff1558e244acace922ab"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14b.png",
+      "sha256": "ff3b2d9cf0f065b84d160fd08c2dc203a65e09f49800f6227734c58e58d6df0a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14b.svg",
+      "sha256": "438f013a694b05218a5624f73975b5ddd83942bbac98e2825798071e1bc428e0"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14c.png",
+      "sha256": "496bafb3ebce8d383d836f6c553cbf8b038ae03e71128a0327f53fcc01deef7c"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14c.svg",
+      "sha256": "b8214ee0a75665e21b255d4207d5699cfa48b42ebfdc2e58915885f86c0f1a5f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14d.png",
+      "sha256": "f1015f417fc78538b0b225a38fc17fe601d89b642584925cdb08afbc97c20c9e"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14d.svg",
+      "sha256": "aa373c3ea9a36c7e2c6267ccab935f30e307ecd990e06732edc7a0bdaa1a3457"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14e.png",
+      "sha256": "9a65df68ff88323038580ca366fa9cad0ede4d9600f2cc4e687051b7e5e8b1a5"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F14e.svg",
+      "sha256": "608a24912cc4e36315506c8caa4aab463a9561dbb67a721ba5cc77af5eb9f809"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F15.png",
+      "sha256": "c16e809b257003e487f7918a6ee6caac50abda3716fd3f166ba2b70299e5d757"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F15.svg",
+      "sha256": "b60aca951c122a045192bbdb3a5bdfb4b66eb1265f9f04ba791200326632f3dc"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F16.png",
+      "sha256": "873e8a2d1fd038343913d071c342f8ae00b21e391ddfe6ee32d371b58842c766"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/babel-fish-alien-mind/graphics/F16.svg",
+      "sha256": "d4e9904f0a03d0f3e40de2fa222ae754f4c6a9c5bc29fafa88e4b4f67856d1a3"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F01.svg",
+      "sha256": "c089f8d6bc4866c32d67b4f9ea59a0bb9beaa29d6137ddf2e95e275ed99d3546"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F02.svg",
+      "sha256": "ce6a756f5751790ace61e350260e522d30c10f92882f2ef9bc109814d78f76d7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F03.svg",
+      "sha256": "d9be2a2c394a580f97ce66c44f65a75e55513b1d5bcae7a2b66763a603429fbc"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F04.svg",
+      "sha256": "859a4f3795d23248db24d32703df7ec2de29149f5a8379099406e552859849bc"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F05.svg",
+      "sha256": "d96e287b2dd8331a74369384932a6fcf4aa98474d05b0db3aacd7f66cefbe67f"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F06.svg",
+      "sha256": "e5bd9950a893b850656be4dc66521c6cf78143fb4b9fb049bd59d60db631b7fc"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F07.svg",
+      "sha256": "c0c2c194aeaee0818203d4c4f1fb021cab0bdb6babbc78116def313f59d84541"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F08.svg",
+      "sha256": "07c01d38bca1bdf81193c898cfa3802325858afcee7b6df306997921bd88934b"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F09.svg",
+      "sha256": "077b4813768c966cb19116c5ff1ecf94020bc972dca3ac341c45d60e19dbfc24"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F10.svg",
+      "sha256": "dabb3fcbab9aff390815e5163442e46aaec744c44a2b49bff53bfa29dfcc90d1"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F11.svg",
+      "sha256": "22837db62ca9500476a72fb336cc417e1745ecf5ea7f07fa107b62759110e64c"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F12.svg",
+      "sha256": "174c5f502f9b5fbffeb8ef411ea2c6235a3336ce80e731bfccc81454531776b7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F13.svg",
+      "sha256": "a50119e551080eb125c0e936338423181f3e8384dcd40812ca84ca5ecb028077"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F14.svg",
+      "sha256": "e538322978e9dc21426ebae071524fb60b842c13b01daad1d5cd327e3f20da42"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F15.svg",
+      "sha256": "c243d7128061d425325ecc2e06c61e6eaf50fd53834cf105ec9819dbe8adcafc"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F16.svg",
+      "sha256": "87a66202925d49755a9b1bb0d94caa75fb3b80e7422feafc646f1c333ed5916a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F17.svg",
+      "sha256": "473e935c6b77ea0e9f4eb7edbfed26577a0fb77d9e0d1976ff8bfac3a6211263"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F18.svg",
+      "sha256": "f8c20d5d05460266f4db5bffc892cb6bb9476ed53390ea758a7558e8516ae81d"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F19.svg",
+      "sha256": "9883112376962e6732127ec7f9a8e59049836c67e891e5cfa465e389e24170c8"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/indranet/graphics/F20.svg",
+      "sha256": "7ce34d20053885b57dae624ce082530d2235bfcdf8b56dec8429cb286e23a1f7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F01.png",
+      "sha256": "ceece65e841fbc5c5090edb79e8805acd41aecafcee8a370973f0cbeeda050b3"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F01.svg",
+      "sha256": "24482d5eff94430e6e1f9b986de9340f57de67e28c4ff7e9101178ccf06b8b74"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F02.png",
+      "sha256": "d2480d56fc0927cecd23c1d2965091b994ac12219e686b00a5ead2f318908ddd"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F02.svg",
+      "sha256": "b22c1b9fe1b0149d5c2d6837261f991bdb92176cdaf4889d1242bbebac91ab51"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F03.png",
+      "sha256": "11bf55fe42133b2287ef1fa6fad8ff233e7f1027d164f60778146d87decdcc8e"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F03.svg",
+      "sha256": "0789d0dc063ff3a829cbc12672d2e5b761078f27affa2bdc7f88d271f142a5e6"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F04.png",
+      "sha256": "2720932e492f29a4a924fca0b57d57536a7b7e910df172ac3fc3895422f6b6a2"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F04.svg",
+      "sha256": "3b854729c5cbf21bdcfc9dee670195b5f2d1273f2bee76851caebaddf0e44086"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F05.png",
+      "sha256": "adb10fbc3d21cec6ee67fde7a4d0dca28c7f518645a64bd8dc5f01b57c0cf9f8"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F05.svg",
+      "sha256": "32507e50c145743e625e8ef7084ac255cb1c9d456e540a41eb7bd414beebfa7c"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F06.png",
+      "sha256": "09e52592cc6942f8e05898a610f7e8aef727a0f77e2da31bf4070b8cfcd523af"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F06.svg",
+      "sha256": "95b9125e1f06eef562ec4070bee60b988089071c509b95653f3e449946402b47"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F07.png",
+      "sha256": "7abf2ae76c5f46b4285e5c35bdf4509fcf78a4b53a1f8a73079b27317d6f4772"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F07.svg",
+      "sha256": "b4ca112d82cdb13fccc9b6db44340ba51e8926f6466dbb97efb3f9ce4b5ba302"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F08.png",
+      "sha256": "e70f0ac185c072974781eca536b079b9d5e5803711b214aa829386f08a459d29"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/graphics/F08.svg",
+      "sha256": "7299a36c6d26b395c61046f68057b24642ce763cc5a387de737c1b9ca8f33ca7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/prepaying-semantics/prepaying_semantics-v0.4.7_draft.pdf",
+      "sha256": "374bf2a9c898eb1f6964077e0d36c45a97f7c1da80219eec3256d4a5162b9c3d"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/etr-2026-04_v0.2_draft.pdf",
+      "sha256": "ede0728a6b10bbb1d8dd48aaddb69e7a12256ea40b09643f27dfe8c86f1e14ad"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig01-five-layers.png",
+      "sha256": "d8ef6f4923c18ab8e852dd1711efef23ddbdfbb65ef9d52e44684f3223e25882"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig01-five-layers.svg",
+      "sha256": "774e65e6ac0c54c335526f532adfb5edcf28d04f7c391252490b4e5943d2fe2c"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig02-spine.png",
+      "sha256": "d8b43ac629b0ecfdc0fd5e1da5f271242eb4f9b4d0795d2d00ee753f57ed6c69"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig02-spine.svg",
+      "sha256": "7ea481d8234a7d56c1c75b24d608bacef3bb1b81a32eb55a9d234fc14209514b"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig03-diamond.png",
+      "sha256": "44c011906538c8423fa8c717e5ba6f82046095cdc13e464f3acbcbccdd6771e5"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig03-diamond.svg",
+      "sha256": "7c5ac2b66fe8c3d5113bbba8d0c6634f32a484aa46294c2dcebe9c10c5f475b7"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig04-compatibility.png",
+      "sha256": "4694095f591f2895684ca8bfa23b706a71d2f68490039e06d1546a414d078b8a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig04-compatibility.svg",
+      "sha256": "0c95c286f0f3b92239dcc003b64065288bfa3f2d5da1199118b234ea9175f32e"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig05-research-cases.png",
+      "sha256": "b4107c61417d2cef9abe9336bea04b86775e35d0a54f47312e052977be90bf73"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig05-research-cases.svg",
+      "sha256": "ee5d534a58aab7de7e8498a3d184de24ac3d64468854b1783b99ad2b3f776b97"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig06-conservation.png",
+      "sha256": "eea974d7cd721da9f9f83b7c6b3da57bf87d694cfc4d2ab32479fa42eb0d4993"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/rosetta-pasigraphy-protocol/graphics/fig06-conservation.svg",
+      "sha256": "615ae478d9e3f779560a8758d19b0b40efca94589c4aafb269e332b1f2a6da1a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F01-arc-harness.svg",
+      "sha256": "5fcc8e5b19b0dec2084ee2a84cc106a606d45c3855adecbb6c4dc4a3c23c55ae"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F02-information-pathways.svg",
+      "sha256": "3c63225c830f596899e12a9af9851ee943bba694912a0b618a4004fa2b213fd6"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F03-capability-evidence.svg",
+      "sha256": "5f10be9bcce0e3ec67c265cdd02e9190ca68e7d97c6a1b5e4a7b6e3844fe7772"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F04-improvement-mechanisms.svg",
+      "sha256": "1efe058636121a2562506ff70f11dc5ce5c1e852edc33ff77b7d3ca83f45744a"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F05-governance-lag.svg",
+      "sha256": "3e686b5e28706f19b7fde3665a134b0051de2ae3754bb61cf8ef8cf29c11fa76"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F06-capability-dependence.svg",
+      "sha256": "b360049b5bb40cc6b01ba14dee23c1d6a393be675239ad43195d0bf576867198"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F07-dual-risk.svg",
+      "sha256": "c478fdafb1d3d6da8aa5c6d10d1c7ab634fe7f8178e209de44964024f9091254"
+    },
+    {
+      "path": "apps/entif-site/public/research-assets/the-cost-of-learning-too-late/F08-rosetta-boundary.svg",
+      "sha256": "d59477a7b676fad81cfe0d6020dd890d7b76d562143d6262b47317a462b454ed"
+    },
+    {
+      "path": "apps/entif-site/src/components/ClaimJourney.astro",
+      "sha256": "08b528abd020a4b711dfabf4dc403f8f6784fccbf47249c3472ec67844a5f69c"
+    },
+    {
+      "path": "apps/entif-site/src/components/ContentCard.astro",
+      "sha256": "bf60c33419cb7230c2049d99d28127c337d6d72581aa3608186e442ce15c786b"
+    },
+    {
+      "path": "apps/entif-site/src/components/EditorialChapterNav.astro",
+      "sha256": "a69fcc5ce08ff552b26ab0d2503247c203bc3cbc18d60ec16b403c28d59eae98"
+    },
+    {
+      "path": "apps/entif-site/src/components/Icon.astro",
+      "sha256": "f3d22523c7f78a70480709e9a072746d9c9c37400507ef6fbed57a79a4e744d6"
+    },
+    {
+      "path": "apps/entif-site/src/components/PublishedEntry.astro",
+      "sha256": "61202a351d2cc4910bd10cdd752a6649bbf5ba397c553730f851a1f43b7fb718"
+    },
+    {
+      "path": "apps/entif-site/src/components/ScrollTop.astro",
+      "sha256": "162a750e07b561df7b9ae869a9d94b91f153dc3f6aeff153b2418af0d8e31a18"
+    },
+    {
+      "path": "apps/entif-site/src/components/SiteFooter.astro",
+      "sha256": "002023b3944dd09e4002879681d8ca1343c6350a4a26ef77e78bcce91696b50a"
+    },
+    {
+      "path": "apps/entif-site/src/components/SiteHeader.astro",
+      "sha256": "b1ec58301f4094260ca538868d394bb5dd146706d41ffcad68e3609ab06d57f6"
+    },
+    {
+      "path": "apps/entif-site/src/components/TopicExplorer.tsx",
+      "sha256": "711c32826461b2a1c0ad5ffd5bc1c74eef09bb56cec1cf1e1aaceb9f4b0cc3de"
+    },
+    {
+      "path": "apps/entif-site/src/components/projects/ArchitectureExplorer.astro",
+      "sha256": "cc90d1586e09f5938683f9ba60369e96624f8486dfb1f18ec33ffb63a093296e"
+    },
+    {
+      "path": "apps/entif-site/src/components/projects/HumanAgencyOrbit.astro",
+      "sha256": "2a72a46b27ed64a47bdd3401c5787acabeb77f53a46c9c6b4c8e04e9d8eac6dd"
+    },
+    {
+      "path": "apps/entif-site/src/content.config.ts",
+      "sha256": "76934a0fc32f0f437c2a475d99addd2e17deeb7e14c7eba5892c44135bdbec76"
+    },
+    {
+      "path": "apps/entif-site/src/env.d.ts",
+      "sha256": "9c9283a414423d9223e5ea86941b142443b8af7a007f77612dc2c098de2d2500"
+    },
+    {
+      "path": "apps/entif-site/src/layouts/BaseLayout.astro",
+      "sha256": "150e480fcb31f9b328e5e3bd208abcfe79861a1a9c9c6816719fc7a805c2eaab"
+    },
+    {
+      "path": "apps/entif-site/src/layouts/ContentPageLayout.astro",
+      "sha256": "fcf15db9f2257461a4b095fe46f26fd1ad6c537160b054f0834739d7fcfa531b"
+    },
+    {
+      "path": "apps/entif-site/src/layouts/EditorialSeriesLayout.astro",
+      "sha256": "12cb443fc1b5b75f15b0f385a917ac5b60cd18f071a18c886299162ff741e7c6"
+    },
+    {
+      "path": "apps/entif-site/src/layouts/FullWidthPageLayout.astro",
+      "sha256": "cef7e3bcf5929eed1edf342628facf9f049dcd48c404bdbfcfd4625968e468f9"
+    },
+    {
+      "path": "apps/entif-site/src/lib/content.ts",
+      "sha256": "06c2c837b7dfe23aad54daa9bb14f33e43c6416502bc59aa382a1c209603d6e9"
+    },
+    {
+      "path": "apps/entif-site/src/lib/copy.ts",
+      "sha256": "91bb94a673e30eb77ed20bd7f08d04a60257648a71ad3bbb5eb8daa3eaaa977c"
+    },
+    {
+      "path": "apps/entif-site/src/lib/editorial-citations.mjs",
+      "sha256": "95f49a18b9d3a827b4b5b545f3c5fee9007032d18011cfd0b955ea649f3660c5"
+    },
+    {
+      "path": "apps/entif-site/src/lib/editorial.ts",
+      "sha256": "53e1b92461ab302b8aff3101087aedb46f9ce0b6df7a07ba6bea7069cc92f304"
+    },
+    {
+      "path": "apps/entif-site/src/lib/remark-site-assets.mjs",
+      "sha256": "645dd66d1741ccfafb0db37d4eaf939ab8323b52d01c3664af10ee299b5d0a15"
+    },
+    {
+      "path": "apps/entif-site/src/lib/showcase.ts",
+      "sha256": "363a07b8fb1527f9f371e11ae27296f9a1fdb8b523bf36496a1338fe022413c8"
+    },
+    {
+      "path": "apps/entif-site/src/lib/site-data.ts",
+      "sha256": "744d7944be4fd670609537417a7cbbb06fcf5cfc9533d0fb6452339caaf5e09c"
+    },
+    {
+      "path": "apps/entif-site/src/pages/404.astro",
+      "sha256": "3b0fa7a1e8d00c942e8272f9900273e4853abae1f3e0fe70cb3ba0fd36a20c75"
+    },
+    {
+      "path": "apps/entif-site/src/pages/about/index.astro",
+      "sha256": "e30a474f0b6b2855b1c950acc2c286a2210f4c71abbb6e467017f9cd7458ba70"
+    },
+    {
+      "path": "apps/entif-site/src/pages/archive/[...date].astro",
+      "sha256": "d9fcdb53d7618a64c1b68d822197e573f85e671c85cabd4ccb03dccca9375e7a"
+    },
+    {
+      "path": "apps/entif-site/src/pages/archive/index.astro",
+      "sha256": "76ec176c5bb6ec834c54ce85157a18b7db4e00b252223ad5dcba79a150d1e98d"
+    },
+    {
+      "path": "apps/entif-site/src/pages/articles/[series]/[slug].astro",
+      "sha256": "d1762c8d9d7aa09d1d24971692efdb81eaeec81a9afd27c180121e3ecc8d7dfe"
+    },
+    {
+      "path": "apps/entif-site/src/pages/articles/[slug].astro",
+      "sha256": "331245f98bfc9b4950d60e9a292c6335988fc4c4df9b80887f62e64ef58a5da4"
+    },
+    {
+      "path": "apps/entif-site/src/pages/articles/index.astro",
+      "sha256": "c77c371322c948a7537b05add9b647b7512b062d58343199f9bb96d871057990"
+    },
+    {
+      "path": "apps/entif-site/src/pages/contact/index.astro",
+      "sha256": "1dcb2462f5d54782c67e5ab4e432dc0b51b4d0e8e74e5de5cf2377e56a40c609"
+    },
+    {
+      "path": "apps/entif-site/src/pages/index.astro",
+      "sha256": "ffdfcc72611ab965529bb8a4ec3064c8461c43a42627132f0cfc0615fae40b82"
+    },
+    {
+      "path": "apps/entif-site/src/pages/projects/[slug].astro",
+      "sha256": "d224b42b9d7c9c7604ddd51292e72a2c4d3d41dfb79ef9e4ae3e676cc239f735"
+    },
+    {
+      "path": "apps/entif-site/src/pages/projects/index.astro",
+      "sha256": "cbd10b5dc203a47d5351757f24813220e00c9454e3e107c1e43cd68c09954854"
+    },
+    {
+      "path": "apps/entif-site/src/pages/research-assets/[...manuscript].md.ts",
+      "sha256": "af7bb3d8f67d948fc0ec4b8a80352f853f976a385e52e9eacefa50150248a57d"
+    },
+    {
+      "path": "apps/entif-site/src/pages/research/index.astro",
+      "sha256": "d530453b58308abbc0f705d503cdeaa548218719925958f935c1110d92835eba"
+    },
+    {
+      "path": "apps/entif-site/src/pages/robots.txt.ts",
+      "sha256": "1cab746f9826708b33f764938d0fcaa1d24fe4d6945c98f5d9eb8aaea43bbbe3"
+    },
+    {
+      "path": "apps/entif-site/src/pages/tags/[tag]/[...date].astro",
+      "sha256": "b7479671f6e8be468d8aa8917b0a93d8436dd1eb60d944a9e3509e2af38bbef9"
+    },
+    {
+      "path": "apps/entif-site/src/pages/tags/[tag]/[year]/[month]/[day]/[slug]/index.astro",
+      "sha256": "bb559c8cfa2f1d0c094cd28dcebd3d724c5b4296b6a595ed91339a6eee60a80a"
+    },
+    {
+      "path": "apps/entif-site/src/pages/tags/[tag]/index.astro",
+      "sha256": "84d7658ccfe5f2f35509b19a562cfa7fa877540b071bbe51afe7a43fa229ef6f"
+    },
+    {
+      "path": "apps/entif-site/src/pages/tags/index.astro",
+      "sha256": "6c42a6ca988d12401cefc9f4446e0aee8c2fd15dfafc19e4cb1dbbc1e4553647"
+    },
+    {
+      "path": "apps/entif-site/src/pages/team/index.astro",
+      "sha256": "e697b1054e505e47356e8d557e19bfc2f5b6bc887e22e98c8e1ba8fb430a8b96"
+    },
+    {
+      "path": "apps/entif-site/src/scripts/editorial-citations.ts",
+      "sha256": "ca30519a4697aadf9b9c82f5f53d75e080e15001f254ac18d6b016e1941b0fda"
+    },
+    {
+      "path": "apps/entif-site/src/scripts/uca-explorer.ts",
+      "sha256": "f9e7e2491f42a16e2fe357968725dd09fce3a1310dcdbc4db60844b2220f9e9b"
+    },
+    {
+      "path": "apps/entif-site/src/styles/_layers.scss",
+      "sha256": "3d15f8524f250a0abc981f8d8af0f4d5b164d74daae7a688358203f3d3f097f3"
+    },
+    {
+      "path": "apps/entif-site/src/styles/about.css",
+      "sha256": "5b67355e0734e7d172772da68de47fedcbc4df575670e775fef63e2f4f1e56c5"
+    },
+    {
+      "path": "apps/entif-site/src/styles/base/_elements.scss",
+      "sha256": "a7f7719385658af47ab4caf750138a3e7980383213a7f389af5f918a0d6ad042"
+    },
+    {
+      "path": "apps/entif-site/src/styles/base/_reset.scss",
+      "sha256": "6beb4d6da08a3d6f6822225792b8d572c8531c16a8edbc91b3025ef1fe1349f5"
+    },
+    {
+      "path": "apps/entif-site/src/styles/components/_buttons.scss",
+      "sha256": "1cf098f73d8ee6b818fd6fe440c065033de9afa010c7118f543325f0a8b6befd"
+    },
+    {
+      "path": "apps/entif-site/src/styles/components/_cards.scss",
+      "sha256": "ecf0b7083fe0cd13684e32e43df8c8a5c6fa64b5bfa0c249b9b414afe9479270"
+    },
+    {
+      "path": "apps/entif-site/src/styles/components/_scroll-top.scss",
+      "sha256": "3a5721332678d08522487e1300b60b7a1792bf171f35d06e103a4b8574c7155e"
+    },
+    {
+      "path": "apps/entif-site/src/styles/components/_tags.scss",
+      "sha256": "8c4d5f56660da0fc6bc361f31d1c5b2cf21e8affd28a3354ea2904680d0a4854"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-01.css",
+      "sha256": "ef7446ac8af557888307c096b58a50c52f115a0d079b4b9f602acc705d0a916d"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-02.css",
+      "sha256": "855badb512a172e7d75d83835eb5d29a553c4f75a6a82122023ce85b87a4eaa8"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-03.css",
+      "sha256": "d601eb30102f9ff94b94ca3631db56e2da2f7c6417e8459712f86e1edafcae95"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-04.css",
+      "sha256": "52fbe1d6c48ca245eac3c4c7b3cac0b73e1aa6106fbdc2adafc0aeb942765bd3"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-05.css",
+      "sha256": "fb3c14ae17c88c4678df12a06be3b801084f3088839013d9492815957e6087bd"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-06.css",
+      "sha256": "6463c0db095478fdf37944509aa310be186a6058b56e881b415845178bdc5dd7"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/chapters/chapter-07.css",
+      "sha256": "508889a1316bfb790b8b9cbbf20daf13ba33bc14e1fd76e556e4ab4f1ceb5a18"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/citations.css",
+      "sha256": "016f504cc1cd282ea41662c1957a9e2ae46ac8bc8d7a01f6b3897227fa64dc02"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/scenes.css",
+      "sha256": "6530324c0d3488acfbb2d2ead64df1e07275b12d99047eaa74045ed4310bfdcc"
+    },
+    {
+      "path": "apps/entif-site/src/styles/editorial/series.css",
+      "sha256": "4f7c92f0871cb10912bc0335c32ede1293aa9b0e3b2702eb48347f52170ea443"
+    },
+    {
+      "path": "apps/entif-site/src/styles/global.scss",
+      "sha256": "ad35b36e9a58f97fefd8b57530ba5b110160728c15392b351bc79e256edfbf81"
+    },
+    {
+      "path": "apps/entif-site/src/styles/layout/_article.scss",
+      "sha256": "e84354cba4840917553d8dea617d8ede48e49e18bc71a90ef0e351c26b90cf26"
+    },
+    {
+      "path": "apps/entif-site/src/styles/layout/_footer.scss",
+      "sha256": "c4e8cbb0622b21be97e139756afc3abf2ad5523c64bd6e82cdf76fd5d78bb058"
+    },
+    {
+      "path": "apps/entif-site/src/styles/layout/_header.scss",
+      "sha256": "638a1b2f4d89a4319766a719d41f55cfd64419c29a26e1a676f25f896bd172da"
+    },
+    {
+      "path": "apps/entif-site/src/styles/layout/_shell.scss",
+      "sha256": "a11f39b3a34646db6065726629929c1bb1680d5e6f22aee7ef4edc1f6b3c718f"
+    },
+    {
+      "path": "apps/entif-site/src/styles/pages/_home.scss",
+      "sha256": "ae27aa1b45294aff6f81aeb2631b0aca715889c1b39333ccdb2a967ecc529e5c"
+    },
+    {
+      "path": "apps/entif-site/src/styles/pages/_indexes.scss",
+      "sha256": "130c79ea93c9f1d3837e3b886372d35ecfadba70639dbff3965fab36e79e1316"
+    },
+    {
+      "path": "apps/entif-site/src/styles/pages/_projects.scss",
+      "sha256": "47f4dfaa4ae34aeb30790bd4eee8e09917e98278aaa3de061d5c498e1ec9b4c7"
+    },
+    {
+      "path": "apps/entif-site/src/styles/patterns/_claim-journey.scss",
+      "sha256": "26d6d8e154fc0e269f3ce0f336adbd10ecd38ec7e4a3c2d19602eebd82b079b1"
+    },
+    {
+      "path": "apps/entif-site/src/styles/patterns/_hero.scss",
+      "sha256": "9b609da1a83f7caa2c49c4e197708c231d74832ae5a33b83199fa07f1c85dd31"
+    },
+    {
+      "path": "apps/entif-site/src/styles/patterns/_prose.scss",
+      "sha256": "cdb074fef2ad5402a7ed1261eb58499af56da16563f591697898a335a0f12e19"
+    },
+    {
+      "path": "apps/entif-site/src/styles/settings/_breakpoints.scss",
+      "sha256": "b13aa62f9b8609f6e998c4912535eb04c2a40e72657aec63b335b7535d62ec3f"
+    },
+    {
+      "path": "apps/entif-site/src/styles/settings/_index.scss",
+      "sha256": "ca58993c2e0e1644f25701afe15bd7ed1da8c076bd2de451e39a631447dfa79e"
+    },
+    {
+      "path": "apps/entif-site/src/styles/settings/_tokens.scss",
+      "sha256": "5e2252fed43e27e9c75994e02e7131afe25b46b1d7ae593df516f68b001f0f9d"
+    },
+    {
+      "path": "apps/entif-site/src/styles/tools/_index.scss",
+      "sha256": "68ffd3dac729392b7c5ea4f4649a405c0ae7e0bd7718c759fc048a3c586d5e4a"
+    },
+    {
+      "path": "apps/entif-site/src/styles/tools/_mixins.scss",
+      "sha256": "6fe5da6c5ef8c42c84a3e5837eb2a32f75a70f0a3577c64b4e583f293744f707"
+    },
+    {
+      "path": "apps/entif-site/src/styles/utilities/_preferences.scss",
+      "sha256": "7d098959d8e36f17eb27e2e1ce5d133898d7b51e92fe4a04dd516b81eb4d332f"
+    },
+    {
+      "path": "apps/entif-site/stylelint.config.mjs",
+      "sha256": "707f43d3eb8cbfcb26d08fbb950f42784aea8fb5c6b17988a38d0c1a1f2583ce"
+    },
+    {
+      "path": "apps/entif-site/tests/features/editorial.spec.ts",
+      "sha256": "f3fab325ab2bc0e762b2750ede0eace4b46de128c3fe57d46797e5e546d3e2a2"
+    },
+    {
+      "path": "apps/entif-site/tests/features/projects.spec.ts",
+      "sha256": "e3f29c7149b99e00cdaa75213edaede08076c4573fe3afe73c5e315e5b29a8bb"
+    },
+    {
+      "path": "apps/entif-site/tests/features/site.spec.ts",
+      "sha256": "634f5b97f30acc6d267d1bfed230d17bb42daa162d13bdaba52b48de5f27ed63"
+    },
+    {
+      "path": "apps/entif-site/tests/setup.ts",
+      "sha256": "6248ddd0b31ac8060569b4a4f30e9f51f919847f975a1abaf00db5f9e42f9e54"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/TopicExplorer.test.tsx",
+      "sha256": "089ad8bbff1db68ca4b2bb5df2a0defc303c159d9d5ab59df3647233f30143f2"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/content.test.ts",
+      "sha256": "4f0f7e1c05af30fea3e8e356d9970cd79f6022ee42961e067e50feb9a4256c22"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/design-contract.test.ts",
+      "sha256": "3934bd42a59a3d136e500aa2e2f7ad9cde006a396fefe6aad85b27eb186b9d84"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/editorial.test.ts",
+      "sha256": "b77709a9b3a8c29da428ddc2791d49cb075ce8cfa60b81545eb925a9104e99aa"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/showcase.test.ts",
+      "sha256": "ae2b21aa6a83160d8bf5cf3aa60287375309d6de67051a3de8be02bb5020d700"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/style-tokens.test.ts",
+      "sha256": "b9963e63ee33e13c24052159539e082b75cc75a8aa479078cd9bb82bbee670a0"
+    },
+    {
+      "path": "apps/entif-site/tests/unit/uca-explorer.test.ts",
+      "sha256": "716573294eb63235051337c214fc617026f02da6e1dbc3f067ead49dbb43ee0d"
+    },
+    {
+      "path": "apps/entif-site/tools/lighthouse.mjs",
+      "sha256": "18ccae9305cc3bd6c0f5390683949754f9af2782653fa0f63337c79197081033"
+    },
+    {
+      "path": "apps/entif-site/tools/preview.mjs",
+      "sha256": "5728593f14d20997c46f433c0b52a0497275954da637072234c8037c2c35197f"
+    },
+    {
+      "path": "apps/entif-site/tools/validate-output.mjs",
+      "sha256": "3283180c4e5c440a48df78a7c04e81979e19916a89e7d6ef2096221ba1c5159d"
+    },
+    {
+      "path": "apps/entif-site/tsconfig.json",
+      "sha256": "0263cfaa2dbe954471fbcfb7b9909641be30475f0f1f47940425688435780a55"
+    },
+    {
+      "path": "apps/entif-site/vercel.json",
+      "sha256": "b0d42f34c934cdc50f77bb910434c83286c69e1471b971e25622b0789aa593e5"
+    },
+    {
+      "path": "apps/entif-site/vitest.config.ts",
+      "sha256": "ccee73ee5cf09c446857d35032c41b385fb7cbc0c89b26d476fc159a34858e58"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "40282ad23261e6b2e3444e1e576c5b7b0bf9737442d2669842b1c121bdb0e484"
+    },
+    {
+      "path": "nx.json",
+      "sha256": "967804f26182422a8d0cc4f3f26e3455ec8c70c07d3154feecabaf0b3c356bf7"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "03c845dfeb7cf747bbc8291803dfec2d341145a696ff919ccf1dcdda4ffeb520"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "556ea7d39a9777185b1001955976d729ab8145cfaacbbb11015b0e27fad749e1"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "7080b806366876dfad7a5bfe710e9cc2a77edc6efccda1eb82b24aae839ef139"
+    }
+  ]
+}

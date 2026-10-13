@@ -41,6 +41,191 @@ test('navigation, social destinations, and card keyboard disclosure', async ({
   await expect(summaries.nth(0)).toBeFocused();
 });
 
+test('homepage hero links and claim disclosures are legible without a disclaimer banner', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const actions = page.locator('.home-hero-copy .home-actions a');
+  await expect(actions).toHaveCount(2);
+  await expect(actions.nth(0)).toHaveAttribute('href', '/research/');
+  await expect(actions.nth(0)).toContainText('Explore research');
+  await expect(actions.nth(1)).toHaveAttribute('href', '/about/');
+  await expect(actions.nth(1)).toContainText('About Entif');
+  await expect(page.locator('.demo-note')).toHaveCount(0);
+  await expect(page.locator('.entif-home')).not.toContainText(
+    'Traceability is not proof of truth'
+  );
+
+  expect(
+    await page.locator('.home-hero-aside').evaluate((aside) => {
+      const rootSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      return parseFloat(getComputedStyle(aside).fontSize) / rootSize;
+    })
+  ).toBeCloseTo(1.45, 2);
+
+  const card = page.locator('.claim-card').nth(2);
+  await card.locator('summary').click();
+  await expect(card).toHaveAttribute('open', '');
+  await expect(card.locator('.claim-text')).toBeVisible();
+  const receiptWithinCard = await card.evaluate((element) => {
+    const outer = element.getBoundingClientRect();
+    const inner = element
+      .querySelector('.claim-receipt')
+      ?.getBoundingClientRect();
+    return Boolean(
+      inner && inner.top >= outer.top && inner.bottom <= outer.bottom + 1
+    );
+  });
+  expect(receiptWithinCard).toBe(true);
+});
+
+test('homepage text inherits the site typeface and never falls below 1rem', async ({
+  page,
+}) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 960 });
+    await page.goto('/');
+    await page.locator('.claim-card').nth(2).locator('summary').click();
+
+    const outliers = await page.getByTestId('entif-home').evaluate((home) => {
+      const rootStyle = getComputedStyle(document.documentElement);
+      const minimumSize = parseFloat(rootStyle.fontSize);
+      const siteTypeface = rootStyle.fontFamily;
+      const failures: string[] = [];
+      const walker = document.createTreeWalker(home, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (!node.textContent?.trim()) continue;
+        const element = node.parentElement;
+        if (!element || !element.getClientRects().length) continue;
+        const style = getComputedStyle(element);
+        if (style.visibility === 'hidden' || style.display === 'none') continue;
+        if (
+          parseFloat(style.fontSize) + 0.01 < minimumSize ||
+          style.fontFamily !== siteTypeface
+        ) {
+          failures.push(
+            `${element.tagName.toLowerCase()}.${element.className}: ${
+              style.fontSize
+            }; ${style.fontFamily}`
+          );
+        }
+      }
+      return failures;
+    });
+    expect(outliers).toEqual([]);
+  }
+});
+
+test('portrait header groups logo and socials above an unbroken tagline and navigation', async ({
+  page,
+}) => {
+  for (const width of [320, 350, 360, 390, 708, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+
+    const geometry = await page.evaluate(() => {
+      const bounds = (element: Element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          x: rect.x,
+          y: rect.y,
+          width: rect.width,
+          height: rect.height,
+          bottom: rect.bottom,
+        };
+      };
+      const element = (id: string) => {
+        const target = document.querySelector(`[data-test-id="${id}"]`);
+        if (!target) throw new Error(`Missing header or hero target: ${id}`);
+        return target;
+      };
+      const tagline = element('site-brand-tagline');
+      const navLinks = [
+        'research',
+        'articles',
+        'projects',
+        'about',
+        'contact',
+      ].map((name) => element(`site-nav-${name}`));
+      const firstLink = navLinks[0];
+      if (!firstLink) throw new Error('Missing primary navigation links');
+      const socials = Array.from(
+        element('site-social-nav').querySelectorAll('a')
+      );
+      const buttons = ['home-hero-research', 'home-hero-about'].map(element);
+      const rootSize = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      );
+      return {
+        viewport: document.documentElement.clientWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        logo: bounds(element('site-brand-logo')),
+        tagline: bounds(tagline),
+        taglineLines:
+          bounds(tagline).height /
+          parseFloat(getComputedStyle(tagline).lineHeight),
+        navRows: navLinks.map((link) => Math.round(bounds(link).y)),
+        navFont: getComputedStyle(firstLink).fontVariantCaps,
+        navFontSize: getComputedStyle(firstLink).fontSize,
+        socialButtons: socials.map(bounds),
+        actionArea: bounds(element('home-hero-actions')),
+        actions: buttons.map((button) => ({
+          ...bounds(button),
+          remSize: parseFloat(getComputedStyle(button).fontSize) / rootSize,
+        })),
+      };
+    });
+
+    expect(geometry.scrollWidth).toBe(geometry.viewport);
+    expect(geometry.tagline.y).toBeGreaterThan(geometry.logo.bottom);
+    expect(Math.min(...geometry.navRows)).toBeGreaterThan(
+      geometry.tagline.bottom
+    );
+    expect(geometry.navFont).toBe('all-small-caps');
+    expect(geometry.navFontSize).toBe('17px');
+    expect(geometry.socialButtons).toHaveLength(3);
+    for (const icon of geometry.socialButtons) {
+      expect(icon.y).toBeCloseTo(geometry.logo.y, 0);
+      expect(icon.width).toBeCloseTo(geometry.logo.width, 0);
+      expect(icon.height).toBeCloseTo(geometry.logo.height, 0);
+    }
+    if (width <= 350) {
+      expect(geometry.navRows.slice(0, 3)).toEqual([
+        geometry.navRows[0],
+        geometry.navRows[0],
+        geometry.navRows[0],
+      ]);
+      expect(geometry.navRows[3]).toBe(geometry.navRows[4]);
+      expect(geometry.navRows[3]).toBeGreaterThan(geometry.navRows[0] ?? -1);
+    } else {
+      expect(new Set(geometry.navRows).size).toBe(1);
+      expect(geometry.taglineLines).toBeCloseTo(1, 0);
+    }
+    for (const button of geometry.actions) {
+      expect(button.width).toBeCloseTo(geometry.actionArea.width, 0);
+      expect(button.height).toBeGreaterThanOrEqual(68);
+      expect(button.remSize).toBeGreaterThanOrEqual(1.25);
+    }
+  }
+});
+
+test('desktop header and hero actions retain their inline layout', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const logo = await page.getByTestId('site-brand-logo').boundingBox();
+  const tagline = await page.getByTestId('site-brand-tagline').boundingBox();
+  const research = await page.getByTestId('home-hero-research').boundingBox();
+  const about = await page.getByTestId('home-hero-about').boundingBox();
+  expect(tagline?.x).toBeGreaterThan((logo?.x ?? 0) + (logo?.width ?? 0));
+  expect(research?.y).toBeCloseTo(about?.y ?? -1, 0);
+  expect((research?.width ?? 0) + (about?.width ?? 0)).toBeLessThan(800);
+});
+
 test('published manuscripts retain scientific status and working figures', async ({
   page,
 }) => {
@@ -121,6 +306,7 @@ test('old URLs and date archives remain available; drafts stay private', async (
 
 const reflowRoutes = [
   ['/', 'home-hero-heading'],
+  ['/projects/', 'uca-hero-heading'],
   ...reports.map((path) => [path, 'published-entry-heading'] as const),
   ['/about/', 'content-page-heading'],
 ] as const;
@@ -256,12 +442,14 @@ test('cards retain their geometry and hero position when opened', async ({
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
   const cards = page.locator('.claim-card');
-  const hero = await page.locator('.hero-copy').boundingBox();
+  const hero = await page.getByTestId('home-hero-heading').boundingBox();
   for (const card of await cards.all()) {
     const before = await card.boundingBox();
     await card.locator('summary').click();
     expect((await card.boundingBox())?.height).toBe(before?.height);
-    expect((await page.locator('.hero-copy').boundingBox())?.y).toBe(hero?.y);
+    expect((await page.getByTestId('home-hero-heading').boundingBox())?.y).toBe(
+      hero?.y
+    );
   }
 });
 test('tag date archives and scroll to top work', async ({ page }) => {

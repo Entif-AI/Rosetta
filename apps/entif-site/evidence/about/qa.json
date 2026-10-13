@@ -1,0 +1,89 @@
+{
+  "evaluatedAt": "2026-10-11T18:30:27.524Z",
+  "scope": "About plus D01–D14 and D16; D05 public overview; D15 excluded.",
+  "checks": [
+    {
+      "command": "pnpm exec nx run entif-site:verify",
+      "status": "PASS",
+      "astroFiles": 69,
+      "diagnostics": 0,
+      "unitTests": 56,
+      "routes": 267,
+      "htmlDocuments": 268
+    },
+    {
+      "command": "pnpm exec nx run entif-site:e2e --args='--workers=2'",
+      "status": "PASS",
+      "tests": 321,
+      "workers": 2,
+      "failed": 0,
+      "skipped": 0,
+      "retries": 0
+    },
+    {
+      "command": "pnpm install --frozen-lockfile --ignore-scripts",
+      "status": "PASS"
+    },
+    {
+      "command": "NX_DAEMON=false pnpm exec nx sync",
+      "status": "PASS"
+    },
+    {
+      "command": "NX_DAEMON=false pnpm exec nx sync:check",
+      "status": "PASS"
+    },
+    {
+      "command": "pnpm run governance:authority",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "check": "Native full-source body comparison",
+      "status": "PASS",
+      "matchedDocuments": 14,
+      "publicOverviews": 1,
+      "listStructurePreserved": true,
+      "dateChipsPreserved": 3
+    },
+    {
+      "check": "Header HTML, geometry and decoded RGBA pixels",
+      "status": "PASS",
+      "widths": [1440, 390],
+      "changedPixels": 0
+    },
+    {
+      "check": "Existing interface strings",
+      "status": "PASS",
+      "unchangedKeys": 68
+    },
+    {
+      "check": "W3C Nu",
+      "status": "PASS",
+      "documents": 16,
+      "httpStatus": 200,
+      "messages": 0,
+      "inputDigestsRecheckedAgainstFinalBuild": true
+    }
+  ],
+  "earlierRuns": [
+    {
+      "scope": "Full suite with default worker count after print correction",
+      "result": "316 passed; 5 timeouts on existing long-article axe audits; no accessibility assertion violations reported.",
+      "resolution": "Complete suite rerun with two workers: 321 passed, no retries, unchanged assertions."
+    },
+    {
+      "scope": "Print biography regression test",
+      "result": "RED: closed biography hidden; GREEN after scoped details-content visibility correction."
+    }
+  ],
+  "manual": {
+    "physicalDesktopAT": "NOT_EVALUATED",
+    "physicalPhoneAT": "NOT_EVALUATED",
+    "nativeBrowserZoom": "NOT_EVALUATED",
+    "authorApproval": "OPEN"
+  },
+  "maturity": "Local review evidence; no new production deployment, institutional adoption or complete WCAG conformance claimed."
+}

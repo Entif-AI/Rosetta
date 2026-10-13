@@ -12,6 +12,39 @@ const chromeLauncher = await import(
   })
 );
 const root = resolve('dist');
+const routes = [
+  ['home', '/'],
+  ['projects', '/projects/'],
+  ['about', '/about/'],
+  ['doctrine-founding', '/about/doctrine/why-nonprofit/'],
+  ['doctrine-authority', '/about/doctrine/delegated-authority/'],
+  ['doctrine-criteria', '/about/doctrine/governance-criteria/'],
+  ['cost', '/tags/research/2026/09/06/the-cost-of-learning-too-late/'],
+  ['inflection', '/tags/research/2026/09/07/after-the-inflection/'],
+  [
+    'etr-opening',
+    '/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/',
+  ],
+  ['etr-references', '/articles/accelerating-the-dystopia/17-citations/'],
+];
+const categories = ['performance', 'accessibility', 'best-practices', 'seo'];
+function select(value, available, label) {
+  if (!value) return available;
+  const requested = value.split(',');
+  for (const name of requested)
+    if (!available.includes(name)) throw new Error(`Unknown ${label}: ${name}`);
+  return requested;
+}
+const selectedRoutes = select(
+  process.env.LIGHTHOUSE_ROUTES,
+  routes.map(([name]) => name),
+  'route'
+);
+const selectedCategories = select(
+  process.env.LIGHTHOUSE_CATEGORIES,
+  categories,
+  'category'
+);
 const mime = {
   '.html': 'text/html',
   '.css': 'text/css',
@@ -42,27 +75,14 @@ const chrome = await chromeLauncher.launch({
   chromeFlags: ['--headless', '--disable-features=HttpsUpgrades'],
 });
 try {
-  for (const [name, path] of [
-    ['home', '/'],
-    ['cost', '/tags/research/2026/09/06/the-cost-of-learning-too-late/'],
-    ['inflection', '/tags/research/2026/09/07/after-the-inflection/'],
-    [
-      'etr-opening',
-      '/articles/accelerating-the-dystopia/01-the-problem-is-the-substrate/',
-    ],
-    ['etr-references', '/articles/accelerating-the-dystopia/17-citations/'],
-  ]) {
+  for (const [name, path] of routes) {
+    if (!selectedRoutes.includes(name)) continue;
     for (const mode of ['mobile', 'desktop']) {
       const result = await lighthouse('http://127.0.0.1:4325' + path, {
         port: chrome.port,
         output: 'json',
         logLevel: 'error',
-        onlyCategories: [
-          'performance',
-          'accessibility',
-          'best-practices',
-          'seo',
-        ],
+        onlyCategories: selectedCategories,
         ...(mode === 'desktop' ? { preset: 'desktop' } : {}),
       });
       if (result.lhr.runtimeError)

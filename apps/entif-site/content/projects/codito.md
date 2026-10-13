@@ -7,7 +7,7 @@ status: published
 published: 2026-10-05
 authors:
   - Entif AI
-description: "Unified Cognitive Architecture for interoperable metacognition. Global-scale orchestration, reusable context compilation and compounding cognitive capital shared across variable-resourced operator Jewels."
+description: 'Unified Cognitive Architecture for interoperable metacognition. Global-scale orchestration, reusable context compilation and compounding cognitive capital shared across variable-resourced operator Jewels.'
 tags:
   - cognitive-architecture
   - orchestration

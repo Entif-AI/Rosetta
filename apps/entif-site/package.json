@@ -14,7 +14,8 @@
     "@astrojs/sitemap": "3.7.3",
     "astro": "7.2.9",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "sharp": "0.35.4"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
@@ -27,6 +28,10 @@
     "html-validate": "11.15.0",
     "jsdom": "~22.1.0",
     "lighthouse": "13.4.1",
+    "sass": "1.105.1",
+    "sass-embedded": "^1.105.1",
+    "stylelint": "17.16.0",
+    "stylelint-config-standard-scss": "17.0.0",
     "typescript": "5.9.3",
     "vitest": "4.1.4"
   }

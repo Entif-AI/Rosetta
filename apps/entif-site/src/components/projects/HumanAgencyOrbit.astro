@@ -1,0 +1,45 @@
+---
+import type { Showcase, PublicLink, SystemId } from '../../lib/showcase';
+
+interface Props {
+  hero: Showcase['hero'];
+  systems: Showcase['architecture']['systems'];
+  projects: ReadonlyMap<SystemId, PublicLink>;
+}
+const { hero, systems, projects } = Astro.props;
+---
+
+<div class="uca-orbit" data-test-id="uca-orbit">
+  <svg viewBox="0 0 400 400" focusable="false" aria-hidden="true">
+    <circle cx="200" cy="200" r="151" class="uca-orbit-ring"></circle>
+    <circle
+      cx="200"
+      cy="200"
+      r="112"
+      class="uca-orbit-ring uca-orbit-ring-inner"></circle>
+    <path
+      d="M200 200L200 38M200 200L332 102M200 200L375 233M200 200L290 345M200 200L111 345M200 200L23 233M200 200L68 102"
+    ></path>
+  </svg>
+  <div class="uca-orbit-center" aria-hidden="true">
+    <strong>{hero.agencyLabel}</strong>
+    <span>{hero.agencyCaption}</span>
+  </div>
+  {
+    systems.map((system) =>
+      projects.has(system.id) ? (
+        <a
+          class={`uca-orbit-node uca-orbit-node-${system.id}`}
+          href={projects.get(system.id)!.href}
+          data-test-id={`uca-orbit-project-${system.id}`}
+        >
+          {system.name}
+        </a>
+      ) : (
+        <span class={`uca-orbit-node uca-orbit-node-${system.id}`}>
+          {system.name}
+        </span>
+      )
+    )
+  }
+</div>

@@ -1,0 +1,89 @@
+@use '../tools';
+
+@layer patterns {
+  .prose {
+    max-width: var(--reading);
+    overflow-wrap: anywhere;
+  }
+
+  .prose > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .prose h2 {
+    margin-top: 2.75rem;
+  }
+
+  .prose h3,
+  .prose h4 {
+    margin-top: 2rem;
+  }
+
+  .prose p,
+  .prose li {
+    font-size: var(--body);
+    line-height: 1.4;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-left: 1.5rem;
+  }
+
+  .prose li + li {
+    margin-top: 0.5rem;
+  }
+
+  .prose blockquote {
+    margin-inline: 0;
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    background: var(--accent-soft);
+  }
+
+  .prose pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: 1rem;
+    background: var(--accent-soft);
+  }
+
+  .prose code {
+    background: var(--accent-soft);
+  }
+
+  .prose pre.astro-code,
+  .prose pre.astro-code code {
+    background: unset;
+  }
+
+  .prose table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: var(--small);
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    text-align: left;
+    min-width: 8rem;
+  }
+
+  .prose img {
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: white;
+  }
+
+  .prose .align-right {
+    text-align: right;
+  }
+
+  .prose .align-center {
+    text-align: center;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "checker": "https://validator.w3.org/nu/?out=json",
+  "method": "HTTP POST actual input bytes with Content-Type text/html; charset=utf-8",
+  "generatedHtml": {
+    "input": "dist/projects/index.html",
+    "sha256": "a6e1473bc38ff356c689e568b1f49b5177cab7575f000365dced822fdce4da81",
+    "httpStatus": 200,
+    "responseDate": "Sun, 11 Oct 2026 10:30:05 GMT",
+    "response": {
+      "version": "26.10.11",
+      "messages": [],
+      "language": "en"
+    }
+  },
+  "enhancedDom": {
+    "input": "Chromium page.content() after the explorer enhances; default Rosetta active",
+    "sha256": "97896e42688605f73a86c4edbef42a2c516cbcc286057857ec24c4668b56a4d8",
+    "capturedAt": "2026-10-11T10:36:19.843Z",
+    "response": {
+      "version": "26.10.9",
+      "messages": [],
+      "language": "en"
+    }
+  }
+}

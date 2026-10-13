@@ -1287,7 +1287,7 @@ describe('rosetta-schemas', () => {
     expect(getSchemaCatalogEntry('entif.iam.decision.ref')).toMatchObject({
       boundaryKind: 'referenced-external-contract',
       exposureStatus: 'reserved-interface',
-      sourceIssues: ['#630']
+      sourceIssues: expect.arrayContaining(['#630', '#1748'])
     });
     expect(getSchemaCatalogEntry('entif.agentic-messaging.execution-admission.v1')).toMatchObject({
       authorityTier: 'governance-admission',

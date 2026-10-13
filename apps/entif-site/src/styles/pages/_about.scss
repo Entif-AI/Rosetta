@@ -1,0 +1,996 @@
+@use '../tools';
+
+@layer pages {
+  .about-surface {
+    --about-night: #061426;
+    --about-deep: #09203b;
+    --about-panel: #0e2846;
+    --about-ink: #132e61;
+    --about-subtle: #41587e;
+    --about-amber: #ffbe74;
+    --about-copper: #914717;
+    --about-white: #f7f9ff;
+    --about-soft: #d8e3f4;
+    --about-light: #f0f4fb;
+    --about-blue: #9fd4ff;
+    --about-line: #b9cbea;
+
+    background: var(--about-night);
+    color: var(--about-white);
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+
+    p {
+      letter-spacing: normal;
+    }
+
+    a {
+      color: var(--about-amber);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 1.35rem + 1.4vw, 3rem);
+      max-width: 52rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    :focus-visible {
+      @include tools.focus-ring(var(--about-blue));
+    }
+
+    [id] {
+      scroll-margin-block: 1.5rem;
+    }
+
+    .about-stage {
+      padding-block: clamp(3rem, 5vw, 5rem);
+    }
+
+    .about-eyebrow {
+      color: var(--about-amber);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-lead {
+      font-size: clamp(1.125rem, 1.025rem + 0.3vw, 1.3rem);
+      line-height: 1.65;
+      color: var(--about-soft);
+      margin-top: 1.25rem;
+    }
+
+    .about-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.875rem;
+      margin-top: 1.75rem;
+    }
+
+    .about-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 2.75rem;
+      padding: 0.75rem 1.125rem;
+      border: 1px solid var(--about-amber);
+      border-radius: 0.25rem;
+      background: var(--about-night);
+      color: var(--about-white);
+      font-size: 1rem;
+      line-height: 1.4;
+      text-decoration: none;
+      max-width: 100%;
+    }
+
+    .about-action:hover {
+      background: var(--about-panel);
+    }
+
+    .about-action-quiet {
+      border-color: var(--about-blue);
+      background: #061426a6;
+    }
+
+    .about-hero {
+      position: relative;
+      isolation: isolate;
+      background: var(--about-night);
+    }
+
+    .about-hero-image,
+    .about-closing-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+    }
+
+    .about-hero::after,
+    .about-closing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        90deg,
+        #061426f5 0%,
+        #061426e6 30%,
+        #061426ae 45%,
+        #06142612 65%
+      );
+    }
+
+    .about-hero-shell {
+      padding-block: clamp(3rem, 5.5vw, 6rem);
+      min-height: 38rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-hero-copy {
+      width: 51%;
+      max-width: 39rem;
+      min-width: 0;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.6rem, 1.65rem + 2.3vw, 3.9rem);
+      text-wrap: balance;
+    }
+
+    .about-hero .about-lead {
+      max-width: 35rem;
+    }
+
+    .about-hero-doctrine .about-hero-shell {
+      min-height: 34rem;
+    }
+
+    .about-hero-doctrine .about-hero-copy {
+      width: 59%;
+      max-width: 45rem;
+    }
+
+    .about-hero-doctrine h1 {
+      font-size: clamp(2.3rem, 1.3rem + 2.4vw, 3.5rem);
+    }
+
+    .about-art-note {
+      font-size: 0.8125rem;
+      color: var(--about-soft);
+      margin-top: 1rem;
+    }
+
+    .about-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.9375rem;
+      margin-bottom: 2rem;
+      color: var(--about-soft);
+    }
+
+    .about-breadcrumb a {
+      color: var(--about-blue);
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .about-light {
+      background: linear-gradient(120deg, #f8faff, var(--about-light));
+      color: var(--about-ink);
+    }
+
+    .about-light .about-eyebrow {
+      color: var(--about-copper);
+    }
+
+    .about-light .about-lead {
+      color: var(--about-subtle);
+    }
+
+    .about-light a {
+      color: var(--about-ink);
+    }
+
+    .about-light :focus-visible {
+      outline-color: var(--about-copper);
+    }
+
+    .about-light .about-action {
+      background: transparent;
+      color: var(--about-ink);
+      border-color: var(--about-ink);
+    }
+
+    .about-light .about-action:hover {
+      background: #e0e8f5;
+    }
+
+    .about-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-status-note {
+      font-size: 1rem;
+      color: var(--about-subtle);
+      margin-top: 1.5rem;
+      border-left: 2px solid var(--about-copper);
+      padding-left: 1rem;
+    }
+
+    .about-values {
+      list-style: none;
+      padding: 0 0 0 2.5rem;
+      margin: 0;
+      border-left: 1px solid var(--about-line);
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .about-values li {
+      display: grid;
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .about-values h3 {
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .about-values p {
+      color: var(--about-subtle);
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .about-principles {
+      background: linear-gradient(
+        115deg,
+        var(--about-deep),
+        var(--about-night)
+      );
+    }
+
+    .about-principle-grid {
+      list-style: none;
+      margin: 2rem 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .about-principle-grid li {
+      display: flex;
+    }
+
+    .about-principle-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border: 1px solid #416287;
+      border-radius: 0.4rem;
+      padding: 1.5rem;
+      background: linear-gradient(140deg, #173858b3, #08172b);
+      text-decoration: none;
+      color: var(--about-white);
+    }
+
+    .about-principle-card svg {
+      color: var(--about-blue);
+      margin-bottom: 1rem;
+    }
+
+    .about-principle-card h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    .about-principle-card p {
+      font-size: 1rem;
+      color: var(--about-soft);
+      margin-top: 0.75rem;
+    }
+
+    .about-principle-card:hover {
+      border-color: var(--about-amber);
+    }
+
+    .about-principle-reference {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--about-amber);
+      padding-top: 1.25rem;
+      margin-top: auto;
+      font-size: 0.875rem;
+    }
+
+    .about-founder-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-founder-role {
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.75rem;
+    }
+
+    .about-founder-quote {
+      position: relative;
+      margin: 0;
+      padding: 2rem 2rem 2rem 3.5rem;
+      border: 1px solid #c6d5ef;
+      border-radius: 0.5rem;
+      background: #e7edf9;
+    }
+
+    .about-quote-mark {
+      position: absolute;
+      left: 1rem;
+      top: 0.25rem;
+      color: #5f77a1;
+      font-size: 4.5rem;
+      line-height: 1;
+    }
+
+    .about-founder-quote blockquote {
+      margin: 0;
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .about-founder-quote figcaption {
+      margin-top: 1rem;
+      color: var(--about-subtle);
+      font-size: 0.875rem;
+    }
+
+    .about-founder-skills {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .about-founder-skills li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+      padding-inline: 0.75rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .about-founder-skills li + li {
+      border-left: 1px solid var(--about-line);
+    }
+
+    .about-bio-details {
+      margin-top: 1.5rem;
+    }
+
+    .about-bio-details summary {
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .about-bio-details[open] summary {
+      margin-bottom: 2rem;
+    }
+
+    .about-bio-details[open] summary span {
+      transform: rotate(45deg);
+    }
+
+    .about-bio-prose {
+      max-width: 46rem;
+      font-size: 1.125rem;
+    }
+
+    .about-bio-prose h2 {
+      margin-top: 2.5rem;
+      font-size: 2rem;
+    }
+
+    .about-bio-prose p,
+    .about-bio-prose ul {
+      margin-top: 1.25rem;
+    }
+
+    .about-bio-prose ul {
+      padding-left: 1.5rem;
+    }
+
+    .about-bio-prose figure {
+      margin: 2rem 0;
+    }
+
+    .about-bio-prose img {
+      width: 10rem;
+      height: 10rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .about-bio-prose figcaption {
+      margin-top: 0.5rem;
+      color: var(--about-subtle);
+      font-size: 1rem;
+    }
+
+    .about-library {
+      background: var(--about-night);
+    }
+
+    .about-library-group {
+      margin-top: 3rem;
+    }
+
+    .about-group-heading {
+      font-size: 1.15rem;
+      color: var(--about-blue);
+      margin-bottom: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #355270;
+    }
+
+    .about-document-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-document-grid li {
+      display: flex;
+    }
+
+    .about-document-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #355270;
+      border-radius: 0.5rem;
+      background: var(--about-panel);
+      text-decoration: none;
+      color: var(--about-white);
+    }
+
+    .about-document-card:hover {
+      border-color: var(--about-amber);
+    }
+
+    .about-card-image {
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      object-position: right center;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .about-document-copy {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-document-number {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      color: var(--about-amber);
+      font-size: 0.875rem;
+    }
+
+    .about-document-number span {
+      color: var(--about-soft);
+    }
+
+    .about-document-card h4 {
+      font-size: 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .about-document-card h4 + p {
+      color: var(--about-soft);
+      font-size: 1rem;
+      margin-top: 0.875rem;
+    }
+
+    .about-card-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: var(--about-amber);
+      padding-top: 1.5rem;
+      margin-top: auto;
+      min-height: 2.75rem;
+    }
+
+    .about-closing {
+      position: relative;
+      isolation: isolate;
+      min-height: 26rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-closing-copy h2,
+    .about-closing-copy .about-lead {
+      max-width: 38rem;
+    }
+
+    .about-closing-copy .about-action {
+      margin-top: 1.5rem;
+    }
+
+    .doctrine-introduction h2 {
+      font-size: clamp(1.7rem, 1.15rem + 1.3vw, 2.5rem);
+    }
+
+    .doctrine-status-note {
+      margin-top: 1.25rem;
+      color: var(--about-subtle);
+      font-size: 1rem;
+    }
+
+    .doctrine-metadata {
+      display: grid;
+      gap: 1.25rem;
+      padding-left: 2rem;
+      border-left: 1px solid var(--about-line);
+      margin: 0;
+    }
+
+    .doctrine-metadata > div {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+
+    .doctrine-metadata svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .doctrine-metadata dt {
+      color: var(--about-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.8125rem;
+    }
+
+    .doctrine-metadata dd {
+      margin: 0.2rem 0 0;
+      font-size: 1.0625rem;
+    }
+
+    .about-reading {
+      background: #f8faff;
+      color: var(--about-ink);
+    }
+
+    .doctrine-reading-grid {
+      display: grid;
+      grid-template-columns: minmax(10rem, 17rem) minmax(0, 46rem);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: start;
+    }
+
+    .doctrine-aside {
+      position: sticky;
+      top: 1.5rem;
+      min-width: 0;
+    }
+
+    .doctrine-contents {
+      max-height: calc(100dvh - 3rem);
+      overflow: auto;
+      padding: 0.25rem;
+    }
+
+    .doctrine-contents .about-eyebrow {
+      color: var(--about-copper);
+    }
+
+    .doctrine-contents ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .doctrine-contents a {
+      color: var(--about-subtle);
+      display: block;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      min-height: 2.75rem;
+      text-decoration: none;
+      line-height: 1.45;
+    }
+
+    .doctrine-contents a:hover {
+      color: var(--about-ink);
+      text-decoration: underline;
+    }
+
+    .doctrine-contents :focus-visible,
+    .doctrine-body :focus-visible {
+      outline-color: var(--about-copper);
+    }
+
+    .doctrine-contents .doctrine-back {
+      color: var(--about-ink);
+      border-top: 1px solid var(--about-line);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .doctrine-body {
+      min-width: 0;
+      font-size: 1.1875rem;
+      line-height: 1.8;
+    }
+
+    .doctrine-body h2 {
+      font-size: clamp(1.7rem, 1.35rem + 0.9vw, 2.3rem);
+      margin-block: 3rem 1.25rem;
+      line-height: 1.3;
+    }
+
+    .doctrine-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .doctrine-body h3 {
+      margin-block: 2.5rem 1rem;
+      font-size: 1.5rem;
+      line-height: 1.35;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--about-line);
+    }
+
+    .doctrine-body p {
+      margin-top: 1.25rem;
+    }
+
+    .doctrine-body ul,
+    .doctrine-body ol {
+      padding-left: 1.5rem;
+      margin-block: 1.25rem;
+    }
+
+    .doctrine-body li + li {
+      margin-top: 0.75rem;
+    }
+
+    .doctrine-body a {
+      color: var(--about-ink);
+    }
+
+    .doctrine-body strong {
+      font-weight: 650;
+    }
+
+    .doctrine-neighbors {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .doctrine-neighbor {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      background: var(--about-panel);
+      border: 1px solid #416287;
+      border-radius: 0.4rem;
+      text-decoration: none;
+    }
+
+    .doctrine-neighbor:hover {
+      border-color: var(--about-amber);
+    }
+
+    .doctrine-neighbor > span {
+      font-size: 0.9375rem;
+    }
+
+    .doctrine-neighbor strong {
+      color: var(--about-white);
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .doctrine-related {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0;
+      gap: 1rem 2rem;
+    }
+
+    .doctrine-related a {
+      display: inline-block;
+      padding-block: 0.5rem;
+      min-height: 2.75rem;
+    }
+
+    .doctrine-source-note {
+      font-size: 0.875rem;
+      color: var(--about-soft);
+      margin-top: 2rem;
+      max-width: 46rem;
+    }
+
+    @include tools.down('hero') {
+      .about-hero-copy {
+        width: 62%;
+      }
+
+      .about-hero-doctrine .about-hero-copy {
+        width: 70%;
+      }
+
+      .about-principle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-split,
+      .about-founder-grid {
+        gap: 2rem;
+      }
+
+      .about-document-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @include tools.down('compact') {
+      .about-hero-image {
+        position: relative;
+        inset: auto;
+        z-index: 0;
+        height: clamp(14rem, 58vw, 24rem);
+        object-position: right center;
+      }
+
+      .about-hero::after {
+        display: none;
+      }
+
+      .about-hero-shell,
+      .about-hero-doctrine .about-hero-shell {
+        min-height: 0;
+        padding-block: 2.5rem;
+      }
+
+      .about-hero-copy,
+      .about-hero-doctrine .about-hero-copy {
+        width: 100%;
+        max-width: none;
+      }
+
+      .about-hero h1,
+      .about-hero-doctrine h1 {
+        font-size: clamp(2.125rem, 1.5rem + 3vw, 3rem);
+      }
+
+      .about-breadcrumb {
+        margin-bottom: 1rem;
+      }
+
+      .about-split,
+      .about-founder-grid,
+      .doctrine-reading-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-values,
+      .doctrine-metadata {
+        border-left: 0;
+        border-top: 1px solid var(--about-line);
+        padding: 2rem 0 0;
+      }
+
+      .about-principle-grid,
+      .about-document-grid,
+      .doctrine-neighbors {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-card-image {
+        height: 12rem;
+      }
+
+      .about-founder-quote {
+        padding: 1.5rem 1.5rem 1.5rem 3rem;
+      }
+
+      .about-founder-quote blockquote {
+        font-size: 1.25rem;
+      }
+
+      .about-founder-skills li {
+        padding-inline: 0.5rem;
+      }
+
+      .about-founder-skills span {
+        font-size: 0.75rem;
+        letter-spacing: 0.03em;
+      }
+
+      .doctrine-aside {
+        position: static;
+      }
+
+      .doctrine-contents {
+        max-height: none;
+        overflow: visible;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--about-line);
+      }
+
+      .doctrine-body {
+        font-size: 1.125rem;
+      }
+
+      .about-closing::after {
+        background: #061426dd;
+      }
+    }
+  }
+}
+
+@media print {
+  .about-surface {
+    background: white;
+    color: black;
+
+    .about-hero-image,
+    .about-closing-image,
+    .about-hero::after,
+    .about-closing::after,
+    .doctrine-aside,
+    .about-actions,
+    .about-art-note {
+      display: none;
+    }
+
+    .about-hero-shell {
+      min-height: 0;
+    }
+
+    .about-hero-copy,
+    .about-hero-doctrine .about-hero-copy {
+      width: 100%;
+    }
+
+    .about-light,
+    .about-reading,
+    .about-principles,
+    .about-library {
+      background: white;
+      color: black;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    a,
+    span,
+    figcaption,
+    dt,
+    dd {
+      color: black;
+    }
+
+    .doctrine-reading-grid {
+      display: block;
+    }
+
+    .about-bio-details::details-content,
+    .about-bio-prose {
+      display: block;
+      content-visibility: visible;
+    }
+
+    .about-stage {
+      padding-block: 1.5rem;
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .about-surface {
+    color: CanvasText;
+    background: Canvas;
+
+    .about-hero-image,
+    .about-closing-image,
+    .about-hero::after,
+    .about-closing::after {
+      display: none;
+    }
+
+    .about-light,
+    .about-reading,
+    .about-principle-card,
+    .about-document-card,
+    .about-founder-quote,
+    .about-action,
+    .doctrine-neighbor {
+      color: CanvasText;
+      background: Canvas;
+      border-color: CanvasText;
+    }
+
+    a {
+      color: LinkText;
+    }
+
+    :focus-visible {
+      outline-color: Highlight;
+    }
+  }
+}
