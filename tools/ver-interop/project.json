@@ -1,0 +1,38 @@
+{
+  "name": "ver-interop",
+  "projectType": "library",
+  "root": "tools/ver-interop",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "rosetta-core",
+            "rosetta-schemas",
+            "rosetta-receipts",
+            "rosetta-store",
+            "rosetta-tapestry"
+          ],
+          "target": "build"
+        }
+      ],
+      "options": {
+        "cwd": ".",
+        "command": "vitest run tools/ver-interop/native-verify.spec.mjs"
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/packages/rosetta-core/src/**/*",
+        "{workspaceRoot}/packages/rosetta-receipts/src/**/*",
+        "{workspaceRoot}/packages/rosetta-store/src/**/*",
+        "{workspaceRoot}/packages/rosetta-tapestry/src/**/*",
+        "{workspaceRoot}/packages/rosetta-schemas/src/**/*",
+        { "externalDependencies": ["vitest", "ajv"] }
+      ],
+      "outputs": []
+    }
+  },
+  "tags": ["tooling", "research", "interoperability"]
+}
