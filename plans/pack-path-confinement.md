@@ -1,7 +1,7 @@
 ---
 id: entif:pack-path-confinement
 task: T7903
-status: in-progress
+status: done
 depends: [pack-schema-entrypoint-conformance]
 awaits: []
 specs: [specs/architecture.md]
@@ -14,7 +14,7 @@ pr: 1826
 
 ROCK-3111-C defines a Pack root under `packs/<pack-name>/` and binds `rosetta-pack-id-v1` to regular files below that root. The inherited validator accepted entrypoint, export and Profile declarations that escaped the root or traversed symbolic links. It also followed a supplied Pack root or workspace Packs root when that exact root was a symbolic link, and repeated one missing asset across manifest surfaces as multiple failures. This #790 leaf closes those filesystem-boundary gaps before declared assets are read or Pack IDs are repaired. It does not change the Pack-ID algorithm, manifest vocabulary, Core semantics or release authority.
 
-This branch is stacked on `codex/790-pack-schema-entrypoints` (draft PR #1824). Draft #1824 remains the owner of JSON Schema entrypoint meta-validation. Draft #1816 remains the owner of manifest-schema-first validation, and draft #1823 remains the independent bootstrap admission lane. This plan uses task `T7903` after `T7902` so the branches compose without duplicate task identity.
+This branch is stacked on `codex/790-pack-schema-entrypoints` (PR #1824). #1824 remains the owner of JSON Schema entrypoint meta-validation. #1816 remains the owner of manifest-schema-first validation, and #1823 remains the independent bootstrap admission lane. This plan uses task `T7903` after `T7902` so the branches compose without duplicate task identity.
 
 ## Validation
 
@@ -34,7 +34,7 @@ This branch is stacked on `codex/790-pack-schema-entrypoints` (draft PR #1824). 
 
 ## Integration boundary
 
-Human source-owner acceptance and merge remain separate from bounded implementation validation. This plan must remain `in-progress` until its declared dependency `pack-schema-entrypoint-conformance` is `done`; completion of this leaf does not merge the PR, close #790, certify Pack release readiness or authorize promotion.
+Human source-owner acceptance and merge remain separate from bounded implementation validation. The declared dependency `pack-schema-entrypoint-conformance` is now `done` and composed into this branch, so this bounded path-confinement motion is complete and frozen. Completion does not merge the PR, close #790, certify Pack release readiness or authorize promotion. Hosted admission on the refreshed exact head remains independent merge-readiness evidence.
 
 ## Run policy
 
