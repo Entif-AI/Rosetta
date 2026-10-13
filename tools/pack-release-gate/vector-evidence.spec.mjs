@@ -102,4 +102,31 @@ describe('executable Pack example and test-vector evidence', () => {
     expect(result.vectors.receipts.filter((receipt) => receipt.expected === 'reject')).toHaveLength(2);
     expect(result.vectors.receipts.every((receipt) => receipt.actual === receipt.expected)).toBe(true);
   });
+
+  it('checks the canonical RRP Pack-ID vector without certifying its separate receipt vectors', async () => {
+    const root = path.resolve('packs/rrp');
+    const manifest = JSON.parse(await readFile(path.join(root, 'pack.json'), 'utf8'));
+    const result = await auditExecutablePackEvidence({ root, manifest });
+    expect(result.vectors.status).toBe('not-evaluated');
+    expect(result.vectors.receipts).toHaveLength(1);
+    expect(result.vectors.receipts[0].path).toBe('test-vectors/pack-id-v1.expected.json');
+    expect(result.vectors.receipts[0].actual).toBe('cidv1-sha256-95fca7b3518b727fb47af60439aeab5ddeb720c04af9f44fe704a0da92530b34');
+    expect(result.vectors.receipts[0].expected).toBe(result.vectors.receipts[0].actual);
+    expect(result.vectors.detail).toContain('test-vectors/receipt-pass.json');
+  });
+
+  it('rejects a deliberately wrong expected Pack-ID while preserving the actual fingerprint', async () => {
+    await withPack(async ({ root, manifest, write }) => {
+      const vector = JSON.parse(await readFile('packs/rrp/test-vectors/pack-id-v1.expected.json', 'utf8'));
+      vector.expected_pack_id = `cidv1-sha256-${'0'.repeat(64)}`;
+      await write('test-vectors/pack-id-v1.expected.json', vector);
+      manifest.entrypoints.tests = ['test-vectors/pack-id-v1.expected.json'];
+      const result = await validatePackEvidenceBindings({
+        root, manifest, bindings: [{ kind: 'pack-id-v1', vector: 'test-vectors/pack-id-v1.expected.json' }]
+      });
+      expect(result.vectors.status).toBe('fail');
+      expect(result.vectors.detail).toContain('Unexpected Pack-ID vector result');
+      expect(result.vectors.receipts[0].actual).toBe('cidv1-sha256-95fca7b3518b727fb47af60439aeab5ddeb720c04af9f44fe704a0da92530b34');
+    });
+  });
 });

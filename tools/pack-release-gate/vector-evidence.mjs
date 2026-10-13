@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { lstat, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { URL } from 'node:url';
+import { computePackIdFromHashInput } from '../pack-conformance/validate-packs.mjs';
 
 const require = createRequire(import.meta.url);
 const Ajv2020 = require('ajv/dist/2020.js');
@@ -79,6 +80,28 @@ export async function validatePackEvidenceBindings({
 
   for (const binding of bindings) {
     try {
+      if (binding.kind === 'pack-id-v1') {
+        const file = binding.vector;
+        if (observedVectors.has(file)) throw new Error(`Vector has two bindings: ${file}`);
+        observedVectors.add(file);
+        if (!declaredTests.has(file)) throw new Error(`Vector is not declared in entrypoints.tests: ${file}`);
+        const asset = await readRegularFile(root, file);
+        const vector = JSON.parse(asset.bytes.toString('utf8'));
+        if (vector.algorithm !== 'rosetta-pack-id-v1' || vector.input?.algorithm !== vector.algorithm ||
+          typeof vector.expected_pack_id !== 'string') {
+          throw new Error(`Malformed pack-id-v1 vector: ${file}`);
+        }
+        const actual = computePackIdFromHashInput(vector.input);
+        vectorReceipts.push({
+          path: file, sha256: asset.sha256, algorithm: vector.algorithm,
+          expected: vector.expected_pack_id, actual, count: 1
+        });
+        if (actual !== vector.expected_pack_id) errors.push(`Unexpected Pack-ID vector result: ${file}`);
+        continue;
+      }
+      if (binding.kind && binding.kind !== 'json-schema') {
+        throw new Error(`Unsupported Pack evidence binding: ${binding.kind}`);
+      }
       if (!manifest.entrypoints.schema?.includes(binding.schema)) {
         throw new Error(`Schema is not a declared entrypoint: ${binding.schema}`);
       }
