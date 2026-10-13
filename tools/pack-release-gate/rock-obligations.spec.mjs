@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-import { auditPackReleaseObligations, evaluateVersionEvidence } from './rock-obligations.mjs';
+import { auditPackReleaseObligations, evaluateVersionEvidence, normativeDelta } from './rock-obligations.mjs';
 
 async function fixture(fn) {
   const workspaceRoot = await mkdtemp(path.join(tmpdir(), 'rock-release-'));
@@ -67,6 +67,43 @@ describe('ROCK release obligation evidence', () => {
     expect(evaluateVersionEvidence({ current, previous: old, changedPaths: ['CHANGELOG.md'], changelogText: '# 0.1.0' }).status).toBe('fail');
     expect(evaluateVersionEvidence({ current, previous: old, changedPaths: ['CHANGELOG.md'], changelogText: '# 0.2.0' }).status).toBe('pass');
     expect(evaluateVersionEvidence({ current, previous: current, changedPaths: [], changelogText: null }).status).toBe('not-applicable');
+    expect(evaluateVersionEvidence({ current: { version: '0.1.0' }, previous: current, changedPaths: ['CHANGELOG.md'], changelogText: '# 0.1.0' }).status).toBe('fail');
+  });
+
+  it('distinguishes a content-ID-only manifest rewrite from a normative manifest change', () => {
+    expect(normativeDelta({
+      current: { id: 'x', version: '0.1.0', pack_id: 'cid-new' },
+      previous: { id: 'x', version: '0.1.0', pack_id: 'cid-old' },
+      changedPaths: ['pack.json', 'README.md']
+    })).toEqual([]);
+    expect(normativeDelta({
+      current: { id: 'x', version: '0.2.0', pack_id: 'cid-new' },
+      previous: { id: 'x', version: '0.1.0', pack_id: 'cid-old' },
+      changedPaths: ['pack.json', 'schema/thing.json']
+    })).toEqual(['pack.json', 'schema/thing.json']);
+  });
+
+  it('blocks a changed normative schema without a changed changelog', async () => {
+    await fixture(async (ctx) => {
+      const git = (...args) => execFileSync('git', ['-C', ctx.workspaceRoot, ...args], { stdio: 'pipe' });
+      git('init', '-q');
+      await mkdir(path.join(ctx.root, 'schema'), { recursive: true });
+      await writeFile(path.join(ctx.root, 'schema', 'thing.json'), '{"type":"string"}\n');
+      await writeFile(path.join(ctx.root, 'pack.json'), '{"version":"0.1.0"}\n');
+      await writeFile(path.join(ctx.root, 'CHANGELOG.md'), '# 0.1.0\n');
+      git('add', '.');
+      git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.org', 'commit', '-qm', 'initial');
+      await writeFile(path.join(ctx.root, 'schema', 'thing.json'), '{"type":"number"}\n');
+      let audit = await auditPackReleaseObligations({
+        packResults: [{ root: ctx.root, manifest: ctx.manifest }], workspaceRoot: ctx.workspaceRoot, baseRef: 'HEAD'
+      });
+      expect(audit.find((entry) => entry.id === 'changelog-update-for-normative-changes')?.status).toBe('fail');
+      await writeFile(path.join(ctx.root, 'CHANGELOG.md'), '# Unreleased\n- Change thing schema.\n# 0.1.0\n');
+      audit = await auditPackReleaseObligations({
+        packResults: [{ root: ctx.root, manifest: ctx.manifest }], workspaceRoot: ctx.workspaceRoot, baseRef: 'HEAD'
+      });
+      expect(audit.find((entry) => entry.id === 'changelog-update-for-normative-changes')?.status).toBe('not-evaluated');
+    });
   });
 
   it('checks actual Git baseline bytes when a Pack version changes', async () => {

@@ -4,6 +4,8 @@ The Pack release gate composes existing repository checks into one deterministic
 
 The generic evidence adapter in `vector-evidence.mjs` executes portable JSON Schema vector families named in `vector-bindings.json`, using each test case's declared `expectOk` result. It records the exact vector and schema SHA-256 digests, expected and actual verdicts, and case counts. New JSON vectors in a configured family are executed; new families or unmapped examples remain `not-evaluated`. Cases omitted from the Pack's declared test entrypoints fail. Unsupported RRP receipt/signature vectors remain owned by their existing Pack-specific executable harness and do not become a generic JSON Schema pass by association.
 
+The Git-baseline audit also rejects version downgrades and normative candidate changes with no corresponding changelog change. It ignores content-ID-only manifest edits. Having a changelog is **not** proof that a change is backward compatible or that a major-bump migration is adequate; those semantic determinations remain `not-evaluated` until their public review/evidence contract exists.
+
 The current composer runs four ordered implemented stages:
 
 1. Pack-root and manifest validation from `tools/pack-conformance/validate-packs.mjs`.

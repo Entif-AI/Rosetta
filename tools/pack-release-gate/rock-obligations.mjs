@@ -1,9 +1,12 @@
 import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import { lstat, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { auditExecutablePackEvidence } from './vector-evidence.mjs';
 
 const ROOT_FILES = ['README.md', 'acceptance.md', 'metadata.json'];
+const require = createRequire(import.meta.url);
+const semver = require('semver');
 
 async function regularFile(filePath) {
   try {
@@ -40,6 +43,9 @@ export function evaluateVersionEvidence({ current, previous, changedPaths, chang
   if (current.version === previous.version) {
     return { status: 'not-applicable', detail: 'Pack version unchanged against the selected base' };
   }
+  if (!semver.valid(current.version) || !semver.valid(previous.version) || !semver.gt(current.version, previous.version)) {
+    return { status: 'fail', detail: `Pack version must advance: ${previous.version} -> ${current.version}` };
+  }
   if (!changedPaths.includes('CHANGELOG.md')) {
     return { status: 'fail', detail: `Pack version ${previous.version} -> ${current.version} without a changelog change` };
   }
@@ -47,6 +53,31 @@ export function evaluateVersionEvidence({ current, previous, changedPaths, chang
     return { status: 'fail', detail: `Changelog does not identify new version ${current.version}` };
   }
   return { status: 'pass', detail: `Changelog updated for version ${previous.version} -> ${current.version}` };
+}
+
+function sortedJson(value) {
+  if (Array.isArray(value)) return value.map(sortedJson);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b))
+      .map(([k, v]) => [k, sortedJson(v)]));
+  }
+  return value;
+}
+
+function withoutContentId(manifest) {
+  const cleaned = { ...manifest };
+  delete cleaned.pack_id;
+  return sortedJson(cleaned);
+}
+
+export function normativeDelta({ current, previous, changedPaths }) {
+  const changed = changedPaths.filter((file) =>
+    /^(schema|shacl|vocab|policy|profiles|translators|migrations)\//.test(file));
+  if (changedPaths.includes('pack.json') &&
+    JSON.stringify(withoutContentId(current)) !== JSON.stringify(withoutContentId(previous))) {
+    changed.push('pack.json');
+  }
+  return changed.sort();
 }
 
 function gitRead(workspaceRoot, args) {
@@ -125,9 +156,19 @@ export async function auditPackReleaseObligations({ packResults, workspaceRoot, 
     const version = evaluateVersionEvidence({ current: manifest, previous: history.previous, changedPaths: history.changedPaths, changelogText });
     findings.push(item(relativeRoot, 'release-version-to-changelog-consistency', version.status, version.detail));
 
-    const normativeChanges = history.changedPaths.filter((file) => /^(schema|shacl|vocab|policy|profiles|translators|migrations)\//.test(file) || file === 'pack.json');
-    findings.push(item(relativeRoot, 'changelog-update-for-normative-changes', normativeChanges.length ? 'not-evaluated' : 'not-applicable',
-      normativeChanges.length ? `Review normative significance: ${normativeChanges.join(', ')}` : 'No candidate normative paths changed'));
+    const normativeChanges = history.previous
+      ? normativeDelta({ current: manifest, previous: history.previous, changedPaths: history.changedPaths })
+      : ['new-pack'];
+    const changedLog = history.changedPaths.includes('CHANGELOG.md');
+    const changelogStatus = normativeChanges.length
+      ? changedLog ? 'not-evaluated' : 'fail'
+      : 'not-applicable';
+    const changelogDetail = normativeChanges.length
+      ? changedLog
+        ? `Changelog changed; review normative significance: ${normativeChanges.join(', ')}`
+        : `Normative candidate changed without changelog update: ${normativeChanges.join(', ')}`
+      : 'No candidate normative paths changed';
+    findings.push(item(relativeRoot, 'changelog-update-for-normative-changes', changelogStatus, changelogDetail));
     findings.push(item(relativeRoot, 'breaking-change-migration-or-translator-strategy', normativeChanges.length ? 'not-evaluated' : 'not-applicable',
       normativeChanges.length ? 'Breaking-change determination requires semantic diff and human review' : 'No candidate normative paths changed'));
   }
