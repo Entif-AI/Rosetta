@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /* global console, process */
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,8 +9,7 @@ import { validateWorkspacePacks } from '../pack-conformance/validate-packs.mjs';
 
 const BOOTSTRAP_SOURCE = 'packages/rosetta-schemas/src/lib/workspace-contract.spec.ts';
 const PACK_SOURCE = 'tools/pack-conformance/validate-packs.mjs';
-const RRP_RECEIPT_SOURCE = 'tools/pack-conformance/rrp-receipt-vectors.spec.mjs';
-const RRP_RECEIPT_TARGET = 'packs-rrp:test';
+const ROCK_PACK_SOURCE = 'docs/RFCs/ROCK-3111-C-RRP-Pack-Filesystem-Contract-v0.2.0.md';
 const DEFAULT_REPORT = 'dist/pack-release-gate/report.json';
 const GRAPH_ERROR_CODES = new Set([
   'depends-on-cycle',
@@ -28,13 +26,28 @@ function bootstrapFailure() {
   };
 }
 
-function receiptFailure() {
-  return {
-    code: 'rrp-receipt-semantics-failed',
-    root: 'packs/rrp',
-    detail: `${RRP_RECEIPT_TARGET} failed to prove signed receipt pass/tamper semantics`
-  };
-}
+const RELEASE_COVERAGE = {
+  status: 'partial',
+  authority: ROCK_PACK_SOURCE,
+  evaluated: [
+    'manifest-validation',
+    'content-addressed-pack-id',
+    'depends-on-self-reference-and-cycle',
+    'declared-path-and-export-existence',
+    'declared-json-schema-parse-and-meta-schema-validation',
+    'repo-local-doc-id-integrity',
+    'bootstrap-workspace-presence'
+  ],
+  notEvaluated: [
+    'generic-required-root-file-presence',
+    'example-validation',
+    'test-vector-execution-where-applicable',
+    'traceability-header-checks-where-required',
+    'changelog-update-for-normative-changes',
+    'release-version-to-changelog-consistency',
+    'breaking-change-migration-or-translator-strategy'
+  ]
+};
 
 function normalizeRoot(root, workspaceRoot) {
   const absoluteRoot = path.resolve(root);
@@ -90,7 +103,7 @@ function appendStage(stages, id, errors, blocker) {
   return null;
 }
 
-export function composePackReleaseGateReport({ packErrors, bootstrap, rrpReceipts }) {
+export function composePackReleaseGateReport({ packErrors, bootstrap }) {
   const classified = classifyPackErrors(packErrors);
   const stages = [];
   let blocker = appendStage(stages, 'pack-root-manifest', classified.manifest, null);
@@ -109,28 +122,17 @@ export function composePackReleaseGateReport({ packErrors, bootstrap, rrpReceipt
     blocker = 'bootstrap-workspace';
   }
 
-  if (blocker) {
-    stages.push({ id: 'rrp-receipt-semantics', status: 'blocked', blockedBy: blocker });
-  } else if (rrpReceipts?.status === 'pass') {
-    stages.push({ id: 'rrp-receipt-semantics', status: 'pass' });
-  } else {
-    const error = receiptFailure();
-    stages.push({ id: 'rrp-receipt-semantics', status: 'fail', errors: [error] });
-    observedErrors.push(error);
-    blocker = 'rrp-receipt-semantics';
-  }
-
   return {
     formatVersion: 1,
     role: 'pack-release-gate-evidence',
     effect: 'conformance-evidence-only',
-    disposition: blocker ? 'blocked' : 'pass',
+    disposition: blocker ? 'blocked' : RELEASE_COVERAGE.status,
     sources: {
       bootstrapWorkspace: BOOTSTRAP_SOURCE,
       packConformance: PACK_SOURCE,
-      rrpReceiptSemantics: RRP_RECEIPT_SOURCE,
-      rrpReceiptTarget: RRP_RECEIPT_TARGET
+      packContract: ROCK_PACK_SOURCE
     },
+    coverage: RELEASE_COVERAGE,
     stages,
     observedErrors
   };
@@ -145,31 +147,9 @@ function runBootstrapProof(workspaceRoot) {
   return result.status === 0 && !result.error ? { status: 'pass' } : { status: 'fail' };
 }
 
-function runRrpReceiptProof(workspaceRoot) {
-  // #1825 owns the executable positive/tamper-negative receipt vectors. The
-  // uncached Nx target runs them and builds the required Core/receipt packages.
-  // Refuse a green generic Pack test if its target stops running these vectors.
-  try {
-    const config = JSON.parse(readFileSync(path.join(workspaceRoot, 'packs/rrp/project.json'), 'utf8'));
-    const command = config.targets?.test?.options?.command;
-    if (typeof command !== 'string' || !command.split(/\s+/).includes(RRP_RECEIPT_SOURCE)) {
-      return { status: 'fail' };
-    }
-  } catch {
-    return { status: 'fail' };
-  }
-  const result = spawnSync('pnpm', ['exec', 'nx', 'run', RRP_RECEIPT_TARGET, '--skip-nx-cache'], {
-    cwd: workspaceRoot,
-    env: { ...process.env, NX_DAEMON: 'false' },
-    stdio: 'inherit'
-  });
-  return result.status === 0 && !result.error ? { status: 'pass' } : { status: 'fail' };
-}
-
 export async function evaluatePackReleaseGate({
   workspaceRoot = process.cwd(),
-  runBootstrap = runBootstrapProof,
-  runRrpReceipts = runRrpReceiptProof
+  runBootstrap = runBootstrapProof
 } = {}) {
   let packErrors;
   try {
@@ -184,10 +164,11 @@ export async function evaluatePackReleaseGate({
   }
 
   const bootstrap = packErrors.length === 0 ? runBootstrap(workspaceRoot) : { status: 'not-run' };
-  const rrpReceipts = packErrors.length === 0 && bootstrap.status === 'pass'
-    ? runRrpReceipts(workspaceRoot)
-    : { status: 'not-run' };
-  return composePackReleaseGateReport({ packErrors, bootstrap, rrpReceipts });
+  return composePackReleaseGateReport({ packErrors, bootstrap });
+}
+
+export function releaseGateExitCode(report) {
+  return report.disposition === 'pass' ? 0 : 1;
 }
 
 function reportPathFromArgs(argv) {
@@ -206,7 +187,7 @@ export async function cli(argv = process.argv.slice(2)) {
   await mkdir(path.dirname(reportPath), { recursive: true });
   await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   console.log(`Pack release gate ${report.disposition}; report: ${reportPath}`);
-  return report.disposition === 'pass' ? 0 : 1;
+  return releaseGateExitCode(report);
 }
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);

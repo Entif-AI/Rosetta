@@ -1,8 +1,9 @@
 # RRP Tests
 
-The Pack test target executes the declared RRP receipt vectors through the existing Rosetta runtime primitives rather than treating fixture paths as conformance evidence by themselves.
+The current runtime tests cover:
 
-- `receipt-pass.json` contains a serialized Core subject Tile plus a signed `rosetta.receipt`. The test verifies Tile integrity, Ed25519 receipt signature validity, and complete receipt-bundle closure.
-- `receipt-tampered.json` preserves the original signed CID/signature while changing the receipt payload and omitting its subject closure Tile. The existing integrity/signature verifier rejects the payload drift and the existing bundle verifier reports the missing closure member.
+- signed receipt verification
+- incomplete bundle rejection
+- deterministic tile digests
 
-These vectors prove only the bounded receipt evidence path owned by #1118/#158. They do not claim generic Pack root-file, changelog/migration, SHACL-processor, release, promotion, or auditor conformance.
+Future slices should align these runtime tests with the pack test vectors more directly.

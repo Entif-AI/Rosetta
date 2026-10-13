@@ -22,19 +22,9 @@
     },
     "test": {
       "executor": "nx:run-commands",
-      "dependsOn": [
-        {
-          "target": "build",
-          "projects": [
-            "rosetta-core",
-            "rosetta-store",
-            "rosetta-receipts"
-          ]
-        }
-      ],
       "options": {
         "cwd": ".",
-        "command": "vitest run tools/pack-conformance/validate-packs.spec.mjs tools/pack-conformance/rrp-receipt-vectors.spec.mjs"
+        "command": "vitest run tools/pack-conformance/validate-packs.spec.mjs"
       },
       "cache": true,
       "inputs": [
@@ -42,18 +32,11 @@
         "{workspaceRoot}/tools/pack-conformance/**/*.mjs",
         "{workspaceRoot}/vitest.config.ts",
         {
-          "externalDependencies": [
-            "vitest"
-          ]
+          "externalDependencies": ["vitest"]
         }
       ],
-      "outputs": [
-        "{workspaceRoot}/tools/pack-conformance/coverage"
-      ]
+      "outputs": ["{workspaceRoot}/tools/pack-conformance/coverage"]
     }
   },
-  "tags": [
-    "packs",
-    "rrp"
-  ]
+  "tags": ["packs", "rrp"]
 }

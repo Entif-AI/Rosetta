@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "rrp",
-  "pack_id": "cidv1-sha256-0a9eab0fc5de79b2a03c8fabae24a1009eb3c2930feddfd9a31326b1648f1c89",
+  "pack_id": "cidv1-sha256-eda795ee0ca8600a8a3e7a599f950b65f9fa11864b2ed720e89ce62396aaa80b",
   "kind": "pack",
   "category": "SchemaPack",
   "namespace": "rrp",

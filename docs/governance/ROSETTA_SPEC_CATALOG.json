@@ -205,7 +205,7 @@
   "packs": [
     {
       "id": "rrp",
-      "packId": "cidv1-sha256-0a9eab0fc5de79b2a03c8fabae24a1009eb3c2930feddfd9a31326b1648f1c89",
+      "packId": "cidv1-sha256-eda795ee0ca8600a8a3e7a599f950b65f9fa11864b2ed720e89ce62396aaa80b",
       "docId": "ROCK-3111-C",
       "namespace": "rrp",
       "title": "Rosetta Receipt Pack",
@@ -229,7 +229,7 @@
       "scope": "Receipt vocabulary, schema, starter SHACL, examples, and test vectors for signed bundle verification.",
       "source": {
         "path": "packs/rrp/pack.json",
-        "sha256": "cdcb4e9d333f749c6f89195efe153b217c6c577cb2c4fe08d9865f75e93ff274",
+        "sha256": "3e52d569b3943d03efa9321aac154800ca8e63c0c7a9609326dbc6bc05546be7",
         "availability": "checked-in"
       },
       "profiles": [
@@ -245,7 +245,7 @@
           "provenance": [
             {
               "path": "packs/rrp/pack.json",
-              "sha256": "cdcb4e9d333f749c6f89195efe153b217c6c577cb2c4fe08d9865f75e93ff274",
+              "sha256": "3e52d569b3943d03efa9321aac154800ca8e63c0c7a9609326dbc6bc05546be7",
               "availability": "checked-in"
             },
             {
@@ -257,7 +257,7 @@
           "conformanceRefs": [
             {
               "path": "packs/rrp/tests/README.md",
-              "sha256": "772ad74ba6de6b8f8ebf142a3c6e29121bec4308a0dd47b5cf061a5365dc5714",
+              "sha256": "688b1a18d9c4b5e71c56e173278a204ef6a839424fad7401d570bbfa7a6537d3",
               "availability": "checked-in"
             },
             {
@@ -267,12 +267,12 @@
             },
             {
               "path": "packs/rrp/test-vectors/receipt-pass.json",
-              "sha256": "174231653b321d001f3e576af27a1354fb943c2dd3a9d65f863258fc84f443aa",
+              "sha256": "d1497868629e73a4ba9a10607b07263f2103879d912e538478b02a533176d572",
               "availability": "checked-in"
             },
             {
               "path": "packs/rrp/test-vectors/receipt-tampered.json",
-              "sha256": "83b58a386136d7e10be87c7589a1e65ed3308954ac933e7985401f6dcfca8800",
+              "sha256": "dd1ab7ea80b56ae15d2abd82827a2d277ae0b2c5404a32bddd0fff084804e0c8",
               "availability": "checked-in"
             },
             {
@@ -365,7 +365,7 @@
         "tests": [
           {
             "path": "packs/rrp/tests/README.md",
-            "sha256": "772ad74ba6de6b8f8ebf142a3c6e29121bec4308a0dd47b5cf061a5365dc5714",
+            "sha256": "688b1a18d9c4b5e71c56e173278a204ef6a839424fad7401d570bbfa7a6537d3",
             "availability": "checked-in"
           },
           {
@@ -375,12 +375,12 @@
           },
           {
             "path": "packs/rrp/test-vectors/receipt-pass.json",
-            "sha256": "174231653b321d001f3e576af27a1354fb943c2dd3a9d65f863258fc84f443aa",
+            "sha256": "d1497868629e73a4ba9a10607b07263f2103879d912e538478b02a533176d572",
             "availability": "checked-in"
           },
           {
             "path": "packs/rrp/test-vectors/receipt-tampered.json",
-            "sha256": "83b58a386136d7e10be87c7589a1e65ed3308954ac933e7985401f6dcfca8800",
+            "sha256": "dd1ab7ea80b56ae15d2abd82827a2d277ae0b2c5404a32bddd0fff084804e0c8",
             "availability": "checked-in"
           },
           {

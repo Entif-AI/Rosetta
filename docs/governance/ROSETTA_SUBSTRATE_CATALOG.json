@@ -230,7 +230,7 @@
       "pr": 1827,
       "source": {
         "path": "plans/pack-release-gate-report.md",
-        "sha256": "69c0bcc9500dcdd648ce7b510b86b89ba65887054a4db21f12aa8c7a74d76eb3"
+        "sha256": "1cd1424e73755c64964d359a030275033bc4ee295ffb5217461b05f001f76297"
       }
     },
     {
@@ -244,19 +244,6 @@
       "source": {
         "path": "plans/pack-schema-entrypoint-conformance.md",
         "sha256": "ffbe4db4c79a345ac18ebd9879b0b3c1406a7bde157de9cdf5d969d9c9e9d3f9"
-      }
-    },
-    {
-      "id": "entif:rrp-receipt-vectors",
-      "kind": "plan",
-      "title": "Execute RRP receipt pass/tamper vectors",
-      "status": "in-progress",
-      "task": "T1118",
-      "issues": [1118, 790, 158],
-      "pr": 1825,
-      "source": {
-        "path": "plans/rrp-receipt-vectors.md",
-        "sha256": "96346c33bc480d71bb9d9c03d942d0adea851cd6519cf1c54b7dbf1204f91620"
       }
     },
     {
@@ -651,11 +638,6 @@
       "from": "entif:pack-release-gate-report",
       "kind": "depends-on",
       "to": "entif:pack-path-confinement"
-    },
-    {
-      "from": "entif:pack-release-gate-report",
-      "kind": "depends-on",
-      "to": "entif:rrp-receipt-vectors"
     },
     {
       "from": "entif:pack-schema-entrypoint-conformance",
