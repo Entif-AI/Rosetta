@@ -52,6 +52,8 @@ export interface RosettaSchemaCatalogEntry extends SchemaCatalogSourceEntry, Cor
 
 const SCHEMA_README = 'packages/rosetta-schemas/README.md';
 const SCHEMA_SPEC = 'packages/rosetta-schemas/src/lib/rosetta-schemas.spec.ts';
+const ENVELOPE_CROSSWALK = 'packages/rosetta-schemas/docs/envelope-family-crosswalk.md';
+const ENVELOPE_TESTS = 'packages/rosetta-schemas/src/lib/envelope-families.spec.ts';
 const AUTHORITY_MAP = 'packages/rosetta-schemas/docs/schema-authority-map.md';
 const AGENTIC_MESSAGING_RFC = 'docs/RFCs/20260228 - Entif v0 - Spec Proposal - Agentic Messaging.md';
 const ROSETTA_CORE_SPEC = 'docs/RFCs/Rosetta v3.0.0 Core Spine Specification.md';
@@ -134,6 +136,14 @@ function tileConsumerPackages(schemaId: string): string[] {
 }
 
 function tileCatalogEntry(schemaId: string): SchemaCatalogSourceEntry {
+  if (schemaId === 'rosetta.incident') return {
+    authorityTier: 'core-spine', boundaryKind: 'owned-schema',
+    consumerPackages: ['@entif-ai/rosetta-core', '@entif-ai/rosetta-schemas'],
+    docs: [ROSETTA_CORE_SPEC, ENVELOPE_CROSSWALK], exposureStatus: 'downstream-contract', family: 'rosetta',
+    knownGaps: ['Core Incident payload shape only; quorum unsealing, access control, and encryption are not implemented by this validator.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId, sourceIssues: ['#1799'], sourcePrs: [], tests: [ENVELOPE_TESTS], validator: 'validatePayload'
+  };
   if (schemaId === 'authz.authority_envelope.v1') return {
     authorityTier: 'governance-admission', boundaryKind: 'owned-schema',
     consumerPackages: ['@entif-ai/rosetta-guard'],
@@ -241,6 +251,22 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 );
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  ...(['behavioral.requirement.v1', 'behavioral.capability.v1', 'behavioral.comparison.v1'] as const).map(schemaId => ({
+    authorityTier: 'governance-admission' as const,
+    boundaryKind: 'owned-schema' as const,
+    consumerPackages: ['@entif-ai/rosetta-schemas', 'integration-compatibility-graph'],
+    docs: [SCHEMA_README, AUTHORITY_MAP, 'specs/behavioral-compatibility-v1.md', `packages/rosetta-schemas/docs/behavioral-${schemaId.split('.')[1]}-v1.schema.json`],
+    exposureStatus: 'downstream-contract' as const,
+    family: 'behavioral-compatibility',
+    knownGaps: ['Proposed and fixture-backed only; result is compatibility evidence, not execution/retry, write, compensation or authorization permission.'],
+    ownerPackage: '@entif-ai/rosetta-schemas',
+    rfcPrdAnchors: [ROSETTA_CORE_SPEC],
+    schemaId,
+    sourceIssues: ['#1556', '#1553', '#1037', '#994', '#1295'],
+    sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/behavioral-compatibility.spec.ts'],
+    validator: schemaId === 'behavioral.requirement.v1' ? 'parseBehavioralRequirement' : schemaId === 'behavioral.capability.v1' ? 'parseBehavioralCapability' : 'parseBehavioralComparison'
+  })),
   ...(['compiled.context.v1', 'compiled.context.block.v1'] as const).map(schemaId => ({
     authorityTier: 'memory-context-cache' as const, boundaryKind: 'owned-schema' as const, consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/compiled-context-v1.md', 'packages/rosetta-schemas/docs/compiled-context-v1.schema.json', 'packages/rosetta-schemas/docs/compiled-context-block-v1.schema.json'],

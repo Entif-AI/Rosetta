@@ -33,9 +33,10 @@ const socials = [
         height="56"
         alt={copy.logoAlt}
         decoding="async"
-      /><span>{copy.brandTagline}</span></a
+        data-test-id="site-brand-logo"
+      /><span data-test-id="site-brand-tagline">{copy.brandTagline}</span></a
     >
-    <nav aria-label={copy.navigation}>
+    <nav aria-label={copy.navigation} data-test-id="site-primary-nav">
       <ul class="nav-list">
         {
           links.map(([key, path]) => (
@@ -56,7 +57,11 @@ const socials = [
         }
       </ul>
     </nav>
-    <nav class="social-links" aria-label={copy.socialLabel}>
+    <nav
+      class="social-links"
+      aria-label={copy.socialLabel}
+      data-test-id="site-social-nav"
+    >
       {
         socials.map(([icon, label, href]) => (
           <a href={href} aria-label={label} title={label} rel="external">

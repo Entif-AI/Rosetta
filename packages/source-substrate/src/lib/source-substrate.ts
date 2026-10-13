@@ -85,6 +85,8 @@ export interface SourcePackage {
 export type SourceFamily =
   | 'arxiv-paper'
   | 'chat-transcript'
+  | 'github-issue'
+  | 'github-pull-request'
   | 'github-text'
   | 'journal-log'
   | 'questionnaire'

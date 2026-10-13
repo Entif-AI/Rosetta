@@ -123,6 +123,8 @@ Required follow-up for each:
 
 Any public or cross-package claim that these messages carry Rosetta semantics MUST define and test the mapping to the corresponding canonical artifacts. Otherwise they remain transport/application messages.
 
+The [#1799 envelope-family crosswalk](../../../packages/rosetta-schemas/docs/envelope-family-crosswalk.md) records the Core `TileEnvelope`/`rosetta.incident`, `authz.authority_envelope.v1`, Agentic Messaging transport and legacy `INCIDENT_ENVELOPE`, and `IntakeEnvelope` boundaries. The executable incident shape check rejects an ordinary transport report as a Core Incident. The current Core constructor has no proven encryption/quorum release path; validated shape and CID integrity must not be reported as sealed-access conformance.
+
 ## 4. Active-document alignment
 
 | Document                                                                                      | Disposition                        | Alignment action                                                                                                                                     |

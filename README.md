@@ -108,6 +108,30 @@ pnpm run demo
 pnpm run api
 ```
 
+## Try The Guarded Research Workbench
+
+The first researcher-facing workbench is fixture-backed and JSON-first. It lets you verify the bounded bootstrap chain, inspect explicit non-pass outcomes, and prove that two deliberate integrity defects are rejected.
+
+```bash
+pnpm install --no-frozen-lockfile
+pnpm exec nx build rosetta-cli
+
+node apps/rosetta-cli/dist/main.js verify
+node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=pass
+node apps/rosetta-cli/dist/main.js tamper
+```
+
+The `tamper` command changes only cloned in-memory fixture artifacts. It passes when Rosetta detects both a signature-to-CID binding mismatch and a missing receipt-bundle closure member.
+
+Machine-readable variants are available for scripting and notebooks:
+
+```bash
+node apps/rosetta-cli/dist/main.js verify --json
+node apps/rosetta-cli/dist/main.js tamper --json
+```
+
+See [`apps/rosetta-cli/README.md`](apps/rosetta-cli/README.md) for the command contract, exit codes, readiness limits, and API parity route.
+
 ## Starting A New Agent Session
 
 New Codex or agent sessions should start here:
@@ -135,7 +159,7 @@ Every stable branch should update `docs/handoffs/CURRENT_HANDOFF.md` before its 
 - Record published GitHub issue URLs and state changes in `docs/intake/github-issue-ledger.json`.
 - Use local issue drafts under `docs/intake/issue-drafts/` as the review gate before creating remote GitHub issues.
 - Do not perform large-scale Rosetta-native semantic corpus ingest until the Ingress Refinery and canonical corpus cache are ready.
-- Do perform docs-intelligence extraction for planning now: read the repo's source documents for intent, requirements, architecture, technology choices, priorities, contradictions, and GitHub issue candidates. This planning lane is not blocked by runtime ingestion readiness and must not be routed through Rosetta-native tile/tapestry conversion unless a specific issue asks for that product behavior.
+- Do perform docs-intelligence extraction for planning now: read the repo's source documents for intent, requirements, architecture, technology choices, priorities, contradictions, dependencies, and issue candidates. This planning lane is not blocked by runtime ingestion readiness and must not be routed through Rosetta-native tile/tapestry conversion unless a specific issue asks for that product behavior.
 - Prefer targeted validation during development; use `pnpm run verify` when a branch changes shared contracts or before claiming a broad green state.
 - Before adding a durable semantic term or schema family, run `pnpm run governance:semantic` and update the governing crosswalk in the same change.
 
@@ -206,9 +230,9 @@ Each package now has its own `README.md` describing purpose, current functionali
 ## Current Apps
 
 - `apps/rosetta-cli`
-  Emits a bootstrap snapshot and verification report.
+  Runs the aggregate demo, guarded-bootstrap inspection, verification, and tamper-negative proof.
 - `apps/rosetta-api`
-  Serves `/health`, `/registry`, and `/demo` for the current bootstrap slice.
+  Serves `/health`, `/registry`, `/demo`, `/inspect/bootstrap-gate`, and `/schemas` as read-only bootstrap inspection surfaces.
 - `apps/rosetta-operator`
   Placeholder operator-shell surface, not the constitutional center.
 

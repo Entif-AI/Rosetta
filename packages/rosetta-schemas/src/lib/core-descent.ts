@@ -23,6 +23,7 @@ function metadata(coreDescent: CoreDescent, descentAuthority: string, relatedCor
 // Explicit identity registrations: new supported kinds must be reviewed, not inferred from a prefix.
 const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
   'authz.authority_envelope.v1': metadata('governed-extension', 'packages/rosetta-schemas/docs/authority-envelope-v1.md', ['rosetta.policy', 'rosetta.receipt']),
+  'rosetta.incident': metadata('core-tile-profile', CORE, ['rosetta.incident']),
   ...Object.fromEntries(IMPLEMENTED_CORE_PRIMITIVES.map((kind) => [kind, metadata('core-primitive', CORE, [kind])])),
   'guard.decision_token': metadata('implementation-local', AUDIT, ['rosetta.policy']),
   'adapter.capability_manifest': metadata('implementation-local', AUDIT),
@@ -50,6 +51,9 @@ const TILE_DESCENT: Record<string, CoreDescentMetadata> = {
 };
 
 const BOUNDARY_DESCENT: Record<string, CoreDescentMetadata> = {
+  'behavioral.requirement.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt']),
+  'behavioral.capability.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.observation', 'rosetta.evaluation', 'rosetta.receipt']),
+  'behavioral.comparison.v1': metadata('governed-extension', 'specs/behavioral-compatibility-v1.md', ['rosetta.evaluation', 'rosetta.receipt']),
   'compiled.context.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/compiled-context-v1.md', ['rosetta.observation', 'rosetta.receipt']),
   'compiled.context.block.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/compiled-context-v1.md', ['rosetta.observation', 'rosetta.receipt']),
   'graph.view.v1': metadata('derived-projection', 'packages/rosetta-schemas/docs/graph-view-v1.md', ['rosetta.observation', 'rosetta.lattice_edge', 'rosetta.receipt']),

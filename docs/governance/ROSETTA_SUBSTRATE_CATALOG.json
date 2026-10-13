@@ -15,6 +15,28 @@
       }
     },
     {
+      "id": "rosetta:behavioral-compatibility-v1",
+      "kind": "behavior",
+      "title": "Bounded behavioral compatibility (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta interoperability/compatibility maintainers",
+      "source": {
+        "path": "specs/behavioral-compatibility-v1.md",
+        "sha256": "9ffbe0fa33b76d5aa400dee2faa6e77b3f95b3d11af27156465072ab63954477"
+      }
+    },
+    {
+      "id": "rosetta:pack-lock-graph-v1",
+      "kind": "behavior",
+      "title": "Pack dependency closure and content-addressed lock graph (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta Pack/schema maintainers",
+      "source": {
+        "path": "specs/pack-lock-graph.md",
+        "sha256": "84ce8e9dcb144b7717c9ec045d176c7218360e85ca75070e670270b3a1f02568"
+      }
+    },
+    {
       "id": "entif:substrate-principles",
       "kind": "principles",
       "title": "Substrate principles",
@@ -23,6 +45,17 @@
       "source": {
         "path": "specs/principles.md",
         "sha256": "cad4ce7f4f9c492b1c8276d2f940a868536206dbaa06372a93d400ded299a89e"
+      }
+    },
+    {
+      "id": "rosetta:temporal-evidence-v1",
+      "kind": "behavior",
+      "title": "Federated temporal and causal evidence (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta temporal/provenance maintainers",
+      "source": {
+        "path": "specs/temporal-evidence-v1.md",
+        "sha256": "2cbc3bd0460e4d0f8f3bc6e1da67930c5870ff77443801118936dea8e1ab6171"
       }
     },
     {
@@ -117,6 +150,19 @@
       }
     },
     {
+      "id": "entif:behavioral-compatibility",
+      "kind": "plan",
+      "title": "Behavioral interoperability Profile and deterministic proof",
+      "status": "in-progress",
+      "task": "T1556",
+      "issues": [1556, 1553],
+      "pr": 1822,
+      "source": {
+        "path": "plans/behavioral-compatibility.md",
+        "sha256": "8a0b9879e4d73a9dc7504c319dd5e6514cdf4266f6f0a62872e14cfa33117ab0"
+      }
+    },
+    {
       "id": "entif:compiled-context",
       "kind": "plan",
       "title": "Public compiled-context output conformance",
@@ -130,6 +176,19 @@
       }
     },
     {
+      "id": "entif:contract-aware-pr-closeout",
+      "kind": "plan",
+      "title": "Enforce contract-aware issue closeout and retire shared root worklogs",
+      "status": "done",
+      "task": "T1815",
+      "issues": [1815],
+      "pr": 1817,
+      "source": {
+        "path": "plans/contract-aware-closeout.md",
+        "sha256": "8d92e843cdf9ae6e3235efc7d7f863be052fc66ba20f40445c86bba141d6f2df"
+      }
+    },
+    {
       "id": "entif:engineering-akasha",
       "kind": "plan",
       "title": "Reconstruct JCS engineering work through Akasha evidence",
@@ -140,6 +199,45 @@
       "source": {
         "path": "plans/engineering-akasha.md",
         "sha256": "1c24f4b98f5ed58b5131fff4216dcbe2b3a024cba83ee4f789670bd16cf06ca4"
+      }
+    },
+    {
+      "id": "entif:envelope-crosswalk",
+      "kind": "plan",
+      "title": "Prove envelope family boundaries",
+      "status": "done",
+      "task": "T1799",
+      "issues": [1799, 630, 220],
+      "pr": 1813,
+      "source": {
+        "path": "plans/envelope-crosswalk.md",
+        "sha256": "1224da0f5aa12b30e4a7e1db53dfe9c98cae0b1fc4f4977e9d9cc407601bd451"
+      }
+    },
+    {
+      "id": "entif:github-issue-source-admission",
+      "kind": "plan",
+      "title": "Admit a bounded native GitHub issue snapshot",
+      "status": "done",
+      "task": "T1810",
+      "issues": [1810, 799, 506],
+      "pr": 1811,
+      "source": {
+        "path": "plans/github-issue-source-admission.md",
+        "sha256": "d0de98d1a37334ea19b00c28dd2f8e169cd844a22e3de38dc50eb0964e54e158"
+      }
+    },
+    {
+      "id": "entif:github-live-provider-admission",
+      "kind": "plan",
+      "title": "Admit native live GitHub provider acquisition",
+      "status": "blocked",
+      "task": "T1819",
+      "issues": [799, 1810],
+      "pr": 1819,
+      "source": {
+        "path": "plans/github-live-provider-admission.md",
+        "sha256": "aec06588e6d527574e55c3ea8f76d8b7e96579fb5251dca3f8076a922b1511c9"
       }
     },
     {
@@ -182,6 +280,19 @@
       }
     },
     {
+      "id": "entif:m3-ultra-compute-broker",
+      "kind": "plan",
+      "title": "Prove the bounded M3 Ultra development compute broker",
+      "status": "done",
+      "task": "T1744",
+      "issues": [1744],
+      "pr": 1795,
+      "source": {
+        "path": "plans/m3-ultra-compute-broker.md",
+        "sha256": "49bde6ae4157d1b5a90f50df63c86107a97dc8841951e34b37147fb6dd9e07b0"
+      }
+    },
+    {
       "id": "entif:materialized-view",
       "kind": "plan",
       "title": "Materialized view identity, frontier and currency",
@@ -192,6 +303,32 @@
       "source": {
         "path": "plans/materialized-view.md",
         "sha256": "9ebf249b4951c0b9223f2030b2b114f75c1d70042a4a70319dac9b427b29ab5f"
+      }
+    },
+    {
+      "id": "entif:pack-bootstrap-admission",
+      "kind": "plan",
+      "title": "Include bootstrap Pack evidence in merge admission",
+      "status": "done",
+      "task": "T7901",
+      "issues": [790],
+      "pr": 1823,
+      "source": {
+        "path": "plans/pack-bootstrap-admission.md",
+        "sha256": "88a2baf7fdba762ddc5de5aaa078686004cce479e816bf7db93106d40115fe6c"
+      }
+    },
+    {
+      "id": "entif:pack-lock-spec",
+      "kind": "plan",
+      "title": "Admit the Pack lock graph contract before the resolver",
+      "status": "planned",
+      "task": "T1790",
+      "issues": [1790, 1559],
+      "pr": 1814,
+      "source": {
+        "path": "plans/pack-lock-spec.md",
+        "sha256": "920fa50b6d73d9c643bfadd9c9c4a7d4ccfeb1ca7df593048a96a7a7d7f74d51"
       }
     },
     {
@@ -244,6 +381,19 @@
       "source": {
         "path": "plans/pack-schema-entrypoint-conformance.md",
         "sha256": "ffbe4db4c79a345ac18ebd9879b0b3c1406a7bde157de9cdf5d969d9c9e9d3f9"
+      }
+    },
+    {
+      "id": "entif:rrp-receipt-vectors",
+      "kind": "plan",
+      "title": "Execute RRP receipt pass/tamper vectors",
+      "status": "done",
+      "task": "T1118",
+      "issues": [1118, 790, 158],
+      "pr": 1825,
+      "source": {
+        "path": "plans/rrp-receipt-vectors.md",
+        "sha256": "acf80c5cc01764fc93a8564e058876dc12e804970405766859a5e23ce7fd71d8"
       }
     },
     {
@@ -351,6 +501,19 @@
       }
     },
     {
+      "id": "entif:temporal-evidence-spec",
+      "kind": "plan",
+      "title": "Agree temporal/causal evidence semantics before runtime behavior",
+      "status": "planned",
+      "task": "T1558",
+      "issues": [1558, 1791],
+      "pr": 1818,
+      "source": {
+        "path": "plans/temporal-evidence-spec.md",
+        "sha256": "4a1d53f96b532799444ffefb849b03c491c274fd40abce7480b92d865498aa61"
+      }
+    },
+    {
       "id": "entif:trace-graph-falkor",
       "kind": "plan",
       "title": "Re-prove the operational projection against FalkorDB",
@@ -400,6 +563,19 @@
       "source": {
         "path": "plans/trace-kin.md",
         "sha256": "a4064d5f6bcefc9534bebea74ee6546a253ccb098c6787da884509498ad42c45"
+      }
+    },
+    {
+      "id": "entif:trace-live-adapter",
+      "kind": "plan",
+      "title": "Prove the bounded TRACE-LIVE source-adapter fixture",
+      "status": "done",
+      "task": "T1685",
+      "issues": [1685],
+      "pr": 1795,
+      "source": {
+        "path": "plans/trace-live-adapter.md",
+        "sha256": "8cae04676d257a7dfa1a5a774df0f92d2ede40fa65eb50653fc77ddad71997ad"
       }
     },
     {
@@ -545,7 +721,17 @@
       "to": "entif:specops-integrated"
     },
     {
+      "from": "entif:behavioral-compatibility",
+      "kind": "implements",
+      "to": "rosetta:behavioral-compatibility-v1"
+    },
+    {
       "from": "entif:compiled-context",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:contract-aware-pr-closeout",
       "kind": "implements",
       "to": "entif:development-substrate"
     },
@@ -580,6 +766,26 @@
       "to": "entif:jcs-001"
     },
     {
+      "from": "entif:envelope-crosswalk",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:github-issue-source-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:github-live-provider-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:github-live-provider-admission",
+      "kind": "depends-on",
+      "to": "entif:github-issue-source-admission"
+    },
+    {
       "from": "entif:graph-view",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -605,6 +811,11 @@
       "to": "entif:development-substrate"
     },
     {
+      "from": "entif:m3-ultra-compute-broker",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:materialized-view",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -613,6 +824,16 @@
       "from": "entif:materialized-view",
       "kind": "depends-on",
       "to": "entif:impact-revalidation"
+    },
+    {
+      "from": "entif:pack-bootstrap-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-lock-spec",
+      "kind": "implements",
+      "to": "rosetta:pack-lock-graph-v1"
     },
     {
       "from": "entif:pack-manifest-schema-gate",
@@ -730,6 +951,11 @@
       "to": "entif:specops-migrate"
     },
     {
+      "from": "entif:temporal-evidence-spec",
+      "kind": "implements",
+      "to": "rosetta:temporal-evidence-v1"
+    },
+    {
       "from": "entif:trace-graph-falkor",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -768,6 +994,11 @@
       "from": "entif:trace-kin",
       "kind": "depends-on",
       "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:trace-live-adapter",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:trace-norm",
@@ -821,6 +1052,21 @@
     },
     {
       "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:behavioral-compatibility-v1",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:pack-lock-graph-v1",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:temporal-evidence-v1",
       "kind": "governed-by",
       "to": "entif:substrate-principles"
     }

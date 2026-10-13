@@ -146,7 +146,7 @@
         [
           {
             'id': 'meaning',
-            'etrIds': ['ETR-2026-01', 'ETR-2026-04', 'ETR-2026-16'],
+            'etrIds': ['ETR-2026-01', 'ETR-2026-04'],
             'question': 'What if translation changes the truth?',
             'concern': 'Fluent words can conceal the loss of distinctions that matter to a decision.',
             'response': 'Make semantic structure explicit. Preserve source and interpretation as different objects. Keep transformations inspectable.',
@@ -154,7 +154,7 @@
           },
           {
             'id': 'inheritance',
-            'etrIds': ['ETR-2026-08'],
+            'etrIds': [],
             'question': 'What if capability survives, but judgment doesn’t?',
             'concern': 'A model may preserve the answer while losing its uncertainty, limitations, and correction history.',
             'response': 'Carry validity conditions with reusable computation. Recheck the dependencies that change.',
@@ -162,7 +162,7 @@
           },
           {
             'id': 'memory',
-            'etrIds': ['ETR-2026-09'],
+            'etrIds': [],
             'question': 'What if yesterday’s mistake makes tomorrow’s decisions?',
             'concern': 'Old errors linger in caches, procedures, summaries, and policies after the source has been corrected.',
             'response': 'Preserve lineage across persistent state. Make corrections propagate to what depends on them.',
@@ -178,7 +178,7 @@
           },
           {
             'id': 'concentration',
-            'etrIds': ['ETR-2026-12'],
+            'etrIds': [],
             'question': 'Who owns our collective cognitive progress?',
             'concern': 'When knowledge lives only inside private models, the benefits of compounding are captured by the few who control them.',
             'response': 'Make useful cognition portable. Enable cooperation among independent participants without central ownership of their state.',
@@ -186,7 +186,7 @@
           },
           {
             'id': 'culture',
-            'etrIds': ['ETR-2026-10'],
+            'etrIds': [],
             'question': 'What if inherited habits become invisible rules?',
             'concern': 'Machine-generated norms and personas can influence later systems long after their origin has faded.',
             'response': 'Trace lineage, preserve disagreement, examine inherited assumptions, and keep identities separate from authority.',
@@ -230,7 +230,6 @@
               },
             ],
           'conclusion': 'One traceable path from observation to human-authorized action.',
-          'illustrativeLabel': 'Illustrative future scenario',
         },
       'closing':
         {

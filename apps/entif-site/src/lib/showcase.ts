@@ -129,7 +129,7 @@ export const showcaseSchema = z
         z
           .object({
             id: z.enum(responseIds),
-            etrIds: z.array(z.string().regex(/^ETR-2026-\d{2}$/)).min(1),
+            etrIds: z.array(z.string().regex(/^ETR-2026-\d{2}$/)),
             question: copy,
             concern: copy,
             response: copy,
@@ -143,7 +143,6 @@ export const showcaseSchema = z
         .array(z.object({ systemId, description: copy }).strict())
         .length(7),
       conclusion: copy,
-      illustrativeLabel: copy,
     }),
     closing: intro.extend({
       emphasis: copy,

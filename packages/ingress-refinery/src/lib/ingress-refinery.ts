@@ -162,6 +162,7 @@ export interface SourceObservationArtifacts {
 }
 
 export interface RefineryLineageOptions {
+  evaluatedAt?: string;
   fetchedAt?: string;
   fetchMethod?: string;
   requestedLocator?: string;
@@ -588,6 +589,21 @@ function classifySourceFamily(record: TileEnvelope<SourceRecord>, manifestation:
   const metadataText = JSON.stringify(record.payload.metadataBlob).toLowerCase();
   const structureProfile = manifestation.payload.structureProfile.toLowerCase();
 
+  if (sourceSystemId === 'github' && recordType === 'github-issue') {
+    return {
+      confidence: 1,
+      family: 'github-issue',
+      reasons: ['The admitted source record is explicitly a GitHub issue REST object, not a Git blob.']
+    };
+  }
+  if (sourceSystemId === 'github' && recordType === 'github-pull-request') {
+    return {
+      confidence: 1,
+      family: 'github-pull-request',
+      reasons: ['The admitted source record is a native GitHub pull request REST object.'],
+    };
+  }
+
   if (recordType.includes('chat') || metadataText.includes('chatgpt') || structureProfile.includes('chat')) {
     return {
       confidence: 0.95,
@@ -710,7 +726,7 @@ export function refineTextArtifact(
   const evaluationReceipt = buildTile(
     'source.evaluation_receipt',
     {
-      evaluatedAt: new Date('2026-04-13T00:20:00.000Z').toISOString(),
+      evaluatedAt: lineage.evaluatedAt ?? new Date('2026-04-13T00:20:00.000Z').toISOString(),
       policyRefs,
       subjectCid: manifestation.cid,
       ...(lineage.sourcePackageCid ? { sourcePackageCid: lineage.sourcePackageCid } : {}),

@@ -1,0 +1,134 @@
+name: Rosetta workbench CI
+
+on:
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'apps/rosetta-api/**'
+      - 'apps/rosetta-cli/**'
+      - 'packages/ingress-refinery/**'
+      - 'packages/projection-adapters/**'
+      - 'packages/rosetta-*/**'
+      - 'packages/source-*/**'
+      - 'eslint.config.mjs'
+      - '.prettier*'
+      - 'nx.json'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig*.json'
+      - 'vitest.config.ts'
+      - '.github/workflows/rosetta-workbench-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'apps/rosetta-api/**'
+      - 'apps/rosetta-cli/**'
+      - 'packages/ingress-refinery/**'
+      - 'packages/projection-adapters/**'
+      - 'packages/rosetta-*/**'
+      - 'packages/source-*/**'
+      - 'eslint.config.mjs'
+      - '.prettier*'
+      - 'nx.json'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig*.json'
+      - 'vitest.config.ts'
+      - '.github/workflows/rosetta-workbench-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rosetta-workbench-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: >-
+          pnpm exec prettier --check
+          README.md
+          apps/rosetta-api/README.md
+          apps/rosetta-api/src/lib/rosetta-api.ts
+          apps/rosetta-api/src/lib/rosetta-api.spec.ts
+          apps/rosetta-cli/README.md
+          apps/rosetta-cli/src/main.ts
+          apps/rosetta-cli/src/lib/rosetta-cli.ts
+          apps/rosetta-cli/src/lib/rosetta-cli.spec.ts
+          packages/ingress-refinery/src/index.ts
+          packages/ingress-refinery/src/lib/bootstrap-gate-inspection.ts
+          .github/workflows/rosetta-workbench-ci.yml
+
+      - name: Verify shared inspection contract
+        run: |
+          pnpm exec nx run ingress-refinery:lint
+          pnpm exec nx run ingress-refinery:typecheck
+          pnpm exec nx run ingress-refinery:test
+          pnpm exec nx run ingress-refinery:build
+
+      - name: Verify API inspection surface
+        run: |
+          pnpm exec nx run rosetta-api:lint
+          pnpm exec nx run rosetta-api:typecheck
+          pnpm exec nx run rosetta-api:test
+          pnpm exec nx run rosetta-api:build
+
+      - name: Verify CLI research workbench
+        run: |
+          pnpm exec nx run rosetta-cli:lint
+          pnpm exec nx run rosetta-cli:typecheck
+          pnpm exec nx run rosetta-cli:test
+          pnpm exec nx run rosetta-cli:build
+
+      - name: Exercise compiled positive and negative proofs
+        run: |
+          node apps/rosetta-cli/dist/main.js verify
+          node apps/rosetta-cli/dist/main.js tamper
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=pass > /dev/null
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=block > /dev/null
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=deny > /dev/null
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=fail > /dev/null
+
+      - name: Build researcher review artifacts
+        run: |
+          mkdir -p .artifacts/rosetta-workbench
+          node apps/rosetta-cli/dist/main.js verify --json > .artifacts/rosetta-workbench/verification.json
+          node apps/rosetta-cli/dist/main.js tamper --json > .artifacts/rosetta-workbench/tamper-negative.json
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=pass > .artifacts/rosetta-workbench/bootstrap-pass.json
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=block > .artifacts/rosetta-workbench/bootstrap-block.json
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=deny > .artifacts/rosetta-workbench/bootstrap-deny.json
+          node apps/rosetta-cli/dist/main.js inspect bootstrap-gate --scenario=fail > .artifacts/rosetta-workbench/bootstrap-fail.json
+
+      - name: Upload researcher review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rosetta-workbench-proof
+          path: .artifacts/rosetta-workbench
+          if-no-files-found: error
+          retention-days: 14
