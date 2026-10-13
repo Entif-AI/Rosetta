@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "stdpack-source-substrate",
-  "pack_id": "cidv1-sha256-28ba351886bdc7dd2f801abda105ca46d395707d376b73342204e4f8f74968a6",
+  "pack_id": "cidv1-sha256-5883892c08cb39122db5dbc6ff46e101d5580750769c4cdee2ccbb295b3e365f",
   "kind": "stdpack",
   "category": "StdPack",
   "namespace": "source-substrate",

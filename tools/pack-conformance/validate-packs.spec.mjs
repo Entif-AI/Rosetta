@@ -1,8 +1,13 @@
 import { cp, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
+import { createRequire } from 'node:module';
 
 import { describe, expect, it } from 'vitest';
+
+const require = createRequire(import.meta.url);
+const Ajv2020 = require('ajv/dist/2020.js');
+const addFormats = require('ajv-formats');
 
 import {
   computePackId,
@@ -67,6 +72,19 @@ async function writePackWithCurrentId(root, manifest, files = {}) {
 }
 
 describe('pack conformance', () => {
+  it('validates the declared standalone Evaluation Profile example and rejects an unauthorized field', async () => {
+    const packRoot = path.resolve('packs/schema-pack-evaluation-profiles');
+    const manifest = JSON.parse(await readFile(path.join(packRoot, 'pack.json'), 'utf8'));
+    expect(manifest.entrypoints.examples).toEqual(['examples/salience-evaluation.json']);
+    const example = JSON.parse(await readFile(path.join(packRoot, manifest.entrypoints.examples[0]), 'utf8'));
+    const schema = JSON.parse(await readFile(path.join(packRoot, 'schema/salience-evaluation.schema.json'), 'utf8'));
+    const ajv = new Ajv2020({ strict: false });
+    addFormats(ajv);
+    const validate = ajv.compile(schema);
+    expect(validate(example), JSON.stringify(validate.errors)).toBe(true);
+    expect(validate({ ...example, executionGrant: true })).toBe(false);
+  });
+
   it('rejects unsupported manifest shape before claiming a pack root is conformant', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'manifest-schema-negative-'));
     try {

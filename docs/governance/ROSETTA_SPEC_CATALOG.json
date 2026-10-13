@@ -205,7 +205,7 @@
   "packs": [
     {
       "id": "rrp",
-      "packId": "cidv1-sha256-0a9eab0fc5de79b2a03c8fabae24a1009eb3c2930feddfd9a31326b1648f1c89",
+      "packId": "cidv1-sha256-bb8b59cfbe7f32a1836c7654e8fea639f7521df51baff782bc2bfcf1c1cbff8d",
       "docId": "ROCK-3111-C",
       "namespace": "rrp",
       "title": "Rosetta Receipt Pack",
@@ -229,7 +229,7 @@
       "scope": "Receipt vocabulary, schema, starter SHACL, examples, and test vectors for signed bundle verification.",
       "source": {
         "path": "packs/rrp/pack.json",
-        "sha256": "cdcb4e9d333f749c6f89195efe153b217c6c577cb2c4fe08d9865f75e93ff274",
+        "sha256": "b93991fb674555b5460e45d5afecad978949a462040802e59f8f5f2dd7b8e08e",
         "availability": "checked-in"
       },
       "profiles": [
@@ -245,7 +245,7 @@
           "provenance": [
             {
               "path": "packs/rrp/pack.json",
-              "sha256": "cdcb4e9d333f749c6f89195efe153b217c6c577cb2c4fe08d9865f75e93ff274",
+              "sha256": "b93991fb674555b5460e45d5afecad978949a462040802e59f8f5f2dd7b8e08e",
               "availability": "checked-in"
             },
             {
@@ -406,7 +406,7 @@
     },
     {
       "id": "schema-pack-evaluation-profiles",
-      "packId": "cidv1-sha256-2385e88732d01be2a3c5a1294981aa1522b298e1abeb88c55d54ab0117f6514a",
+      "packId": "cidv1-sha256-cdc4a3bfa7a06aa7c2e8d69468893ae256dd82685a165a35ad9841bba3eae0b8",
       "docId": "ROCK-3010-SALIENCE-EVALUATION",
       "namespace": "salience",
       "title": "Evaluation Profiles Schema Pack",
@@ -430,7 +430,7 @@
       "scope": "Public representational Profiles over Core Evaluation: salience assessments and bounded historical counterfactual comparisons.",
       "source": {
         "path": "packs/schema-pack-evaluation-profiles/pack.json",
-        "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+        "sha256": "b2b062f138587b4136ff064fa13cfe3753acfb07a86e51fee9f2e2328d80a5b8",
         "availability": "checked-in"
       },
       "profiles": [
@@ -446,7 +446,7 @@
           "provenance": [
             {
               "path": "packs/schema-pack-evaluation-profiles/pack.json",
-              "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+              "sha256": "b2b062f138587b4136ff064fa13cfe3753acfb07a86e51fee9f2e2328d80a5b8",
               "availability": "checked-in"
             },
             {
@@ -565,7 +565,7 @@
           "provenance": [
             {
               "path": "packs/schema-pack-evaluation-profiles/pack.json",
-              "sha256": "9c4ddc5267d6e56b4f252a9604c8547666d3138afe1621be713888673ce28a8c",
+              "sha256": "b2b062f138587b4136ff064fa13cfe3753acfb07a86e51fee9f2e2328d80a5b8",
               "availability": "checked-in"
             },
             {
@@ -700,6 +700,13 @@
         }
       ],
       "assets": {
+        "examples": [
+          {
+            "path": "packs/schema-pack-evaluation-profiles/examples/salience-evaluation.json",
+            "sha256": "377c43a110467031e6b7bef03af90edb1e8591ae4b98d768d05f0939c79497ec",
+            "availability": "checked-in"
+          }
+        ],
         "schema": [
           {
             "path": "packs/schema-pack-evaluation-profiles/schema/salience-evaluation.schema.json",
@@ -814,7 +821,7 @@
     },
     {
       "id": "stdpack-source-substrate",
-      "packId": "cidv1-sha256-28ba351886bdc7dd2f801abda105ca46d395707d376b73342204e4f8f74968a6",
+      "packId": "cidv1-sha256-5883892c08cb39122db5dbc6ff46e101d5580750769c4cdee2ccbb295b3e365f",
       "docId": "PACK-SOURCE-SUBSTRATE",
       "namespace": "source-substrate",
       "title": "Source Substrate Standard Pack",
@@ -843,7 +850,7 @@
       "scope": "Source system, record, manifestation, package, trust, and correction starter contracts.",
       "source": {
         "path": "packs/stdpack-source-substrate/pack.json",
-        "sha256": "5e7c279fc2c914e9ee2f99168b3126b4ad6d72ba1b4d58b769d2cb13dc5575bf",
+        "sha256": "d6b518835bfd05457c02d4be533cae2a80167cce42f4e83730067a63876cdb17",
         "availability": "checked-in"
       },
       "profiles": [],
@@ -923,7 +930,7 @@
     },
     {
       "id": "vocabpack-source-taxonomy",
-      "packId": "cidv1-sha256-f01141ad6216e2083e4fbf08b747c50f4d82e22bef4770c7259f626609512347",
+      "packId": "cidv1-sha256-08328fb8c78e01b49475de4b9e60fe5efa990ce313ed248a70c8804dbcb9f35b",
       "docId": "PACK-SOURCE-TAXONOMY",
       "namespace": "source-taxonomy",
       "title": "Source Taxonomy Vocabulary Pack",
@@ -952,7 +959,7 @@
       "scope": "Starter taxonomy for infrastructure, repository, and volatility classes plus source tiers.",
       "source": {
         "path": "packs/vocabpack-source-taxonomy/pack.json",
-        "sha256": "a1458e9ab53de8145e973e8e3c2725d7bd29147f7d242d84ebcc078755551a1c",
+        "sha256": "52c30929b52309117461ccf3d63e35826fe87ea6a1e5edfac9fb9f2b3bf97b00",
         "availability": "checked-in"
       },
       "profiles": [],
@@ -6118,7 +6125,9 @@
         "scope": "Public representational Profiles over Core Evaluation: salience assessments and bounded historical counterfactual comparisons.",
         "admissionRule": "Declared manifest, exports, Core compatibility and conformance gates.",
         "issueOwners": ["#1694", "#1692", "#1695"],
-        "examples": [],
+        "examples": [
+          "packs/schema-pack-evaluation-profiles/examples/salience-evaluation.json"
+        ],
         "sourceRef": "packs/schema-pack-evaluation-profiles/pack.json"
       },
       {

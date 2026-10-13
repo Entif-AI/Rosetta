@@ -1,0 +1,11 @@
+{
+  "maintainer": "Entif/Rosetta maintainers",
+  "source_doctrine": "Rosetta v3.0.0 Core Spine; Doctrine v0.2; PACK-SOURCE-SUBSTRATE",
+  "lifecycle": "draft",
+  "security_classification": "public",
+  "tags": ["stdpack", "source", "provenance", "registry"],
+  "automation": {
+    "manifest": "pack.json",
+    "conformance": "pnpm run packs:conformance"
+  }
+}
