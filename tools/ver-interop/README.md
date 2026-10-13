@@ -63,6 +63,14 @@ mapping, provenance loss, ambiguous evidence relation, scientific state,
 counter-hypothesis, and nondiscriminating observation. Data insufficiency or a
 local-corrective explanation is an acceptable scientific outcome.
 
+**Adapter edge case:** The pre- and post-calibration readings use the same
+tool and arguments, so the current Core constructor gives both tool calls
+the same `toolCallId`. They are _different Tile CIDs_, with distinct
+parent Actions and Observations. An adapter must not deduplicate these two
+occurrences on `toolCallId` alone. The test suite deliberately rejects
+that collapse. Parent/traversal information is not a substitute for recorded
+event timestamps or causal identification.
+
 The original trace is **constructed fixture data** for a sensor-calibration
 story. Native reconstruction does not establish that any sensor, external
 service, or physical calibration ran. Its timestamp is constructor metadata,

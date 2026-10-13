@@ -94,6 +94,21 @@ describe('VER native interoperability witness #1466', () => {
     expect(find(verify(document), 'observable-lineage').status).toBe('fail');
   });
 
+  it('refuses to conflate repeated identical tool calls with distinct parented events', () => {
+    const document = copy();
+    const pre = document.tiles.find(
+      (tile) => tile.cid === document.roleIndex.preCalibrationToolCall
+    );
+    const post = document.tiles.find(
+      (tile) => tile.cid === document.roleIndex.postCalibrationToolCall
+    );
+    expect(pre.payload.toolCallId).toBe(post.payload.toolCallId);
+    expect(pre.cid).not.toBe(post.cid);
+    document.roleIndex.postCalibrationToolCall =
+      document.roleIndex.preCalibrationToolCall;
+    expect(find(verify(document), 'observable-lineage').status).toBe('fail');
+  });
+
   it('rejects missing post-correction measurements rather than treating an action as its effect', () => {
     const document = copy();
     document.tiles = document.tiles.filter(
