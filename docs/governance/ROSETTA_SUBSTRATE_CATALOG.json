@@ -182,6 +182,19 @@
       }
     },
     {
+      "id": "entif:m3-ultra-compute-broker",
+      "kind": "plan",
+      "title": "Prove the bounded M3 Ultra development compute broker",
+      "status": "done",
+      "task": "T1744",
+      "issues": [1744],
+      "pr": 1795,
+      "source": {
+        "path": "plans/m3-ultra-compute-broker.md",
+        "sha256": "49bde6ae4157d1b5a90f50df63c86107a97dc8841951e34b37147fb6dd9e07b0"
+      }
+    },
+    {
       "id": "entif:materialized-view",
       "kind": "plan",
       "title": "Materialized view identity, frontier and currency",
@@ -348,6 +361,19 @@
       "source": {
         "path": "plans/trace-kin.md",
         "sha256": "a4064d5f6bcefc9534bebea74ee6546a253ccb098c6787da884509498ad42c45"
+      }
+    },
+    {
+      "id": "entif:trace-live-adapter",
+      "kind": "plan",
+      "title": "Prove the bounded TRACE-LIVE source-adapter fixture",
+      "status": "done",
+      "task": "T1685",
+      "issues": [1685],
+      "pr": 1795,
+      "source": {
+        "path": "plans/trace-live-adapter.md",
+        "sha256": "8cae04676d257a7dfa1a5a774df0f92d2ede40fa65eb50653fc77ddad71997ad"
       }
     },
     {
@@ -553,6 +579,11 @@
       "to": "entif:development-substrate"
     },
     {
+      "from": "entif:m3-ultra-compute-broker",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:materialized-view",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -681,6 +712,11 @@
       "from": "entif:trace-kin",
       "kind": "depends-on",
       "to": "entif:trace-graph"
+    },
+    {
+      "from": "entif:trace-live-adapter",
+      "kind": "implements",
+      "to": "entif:development-substrate"
     },
     {
       "from": "entif:trace-norm",
