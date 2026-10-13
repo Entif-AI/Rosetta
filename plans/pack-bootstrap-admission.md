@@ -1,7 +1,7 @@
 ---
 id: entif:pack-bootstrap-admission
 task: T7901
-status: in-progress
+status: done
 depends: []
 awaits: []
 specs: [specs/architecture.md]
@@ -27,8 +27,8 @@ This is a repository-local bootstrap-presence check, not an independently certif
 - [x] `pnpm verify` and `git diff --check` pass.
 - [x] First pushed remote feature branch SHA `e74e43034d6f008e2c5927522dd4793c4c259f17` matches the local checkpoint.
 - [x] Review-only draft PR #1823 opened; no automatic merge.
-- [ ] #790 owner issue receipt and final plan checkpoint are read back.
-- [ ] Hosted admission is rechecked at the final unique-task-identity checkpoint.
+- [x] #790 owner receipt and final plan checkpoint were read back at https://github.com/Entif-AI/Rosetta/issues/790#issuecomment-6113984801.
+- [x] Hosted Semantic governance admission passed on exact final head `95c28b38f500a551360f3a52419c218663b8a915`.
 
 ## Run constraints
 
@@ -36,6 +36,6 @@ Use `pnpm verify` and focused targets, not repeated full merge/distribution matr
 
 ## Handoff
 
-Draft PR: https://github.com/Entif-AI/Rosetta/pull/1823. The bootstrap evidence record is `dist/governance/rosetta-governance/pack-bootstrap.json`, and the existing composed merge report is `dist/governance/rosetta-governance/merge-admission.json`. Both Pack checks passed. The first complete local composition was blocked on the isolated worktree's absent pinned Spec Kit CLI; a second attempt exposed a relative path problem in the test's temporary consumer. The focused distribution E2E then passed with the existing pinned Spec Kit CLI from a sibling ignored virtual environment using an absolute path, without repository dependency changes. Hosted admission at the exact final PR head remains the controlling end-to-end check. No full release certification, write/promotion authority, or merge is claimed. Further #790 obligations include ROCK-3111-C required-file/example/vector/changelog conformance, with RRP-specific cases owned by #1118.
+Draft PR: https://github.com/Entif-AI/Rosetta/pull/1823. The bounded SpecOps motion is complete and frozen here; source-owner review and merge remain separate actions. The bootstrap evidence record is `dist/governance/rosetta-governance/pack-bootstrap.json`, and the existing composed merge report is `dist/governance/rosetta-governance/merge-admission.json`. Both Pack checks passed. The first complete local composition was blocked on the isolated worktree's absent pinned Spec Kit CLI; a second attempt exposed a relative path problem in the test's temporary consumer. The focused distribution E2E then passed with the existing pinned Spec Kit CLI from a sibling ignored virtual environment using an absolute path, without repository dependency changes. Hosted admission passed on exact final head `95c28b38f500a551360f3a52419c218663b8a915`. No full release certification, write/promotion authority, or merge is claimed. Further #790 obligations include ROCK-3111-C required-file/example/vector/changelog conformance, with RRP-specific cases owned by #1118.
 
 The per-plan task identity is `T7901`, distinct from draft #1816's `T790`. Separate #790 leaves must not collide under SpecOps' unique task identity check when multiple draft PRs eventually compose.

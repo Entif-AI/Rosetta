@@ -198,13 +198,13 @@
       "id": "entif:pack-bootstrap-admission",
       "kind": "plan",
       "title": "Include bootstrap Pack evidence in merge admission",
-      "status": "in-progress",
+      "status": "done",
       "task": "T7901",
       "issues": [790],
       "pr": 1823,
       "source": {
         "path": "plans/pack-bootstrap-admission.md",
-        "sha256": "11f90ebac1a3784ffd2135d9191e3b9dcdf7485fdcbd7c1f525a2e9459a4be87"
+        "sha256": "88a2baf7fdba762ddc5de5aaa078686004cce479e816bf7db93106d40115fe6c"
       }
     },
     {
