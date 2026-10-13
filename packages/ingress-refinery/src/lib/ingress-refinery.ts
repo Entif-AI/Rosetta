@@ -596,6 +596,13 @@ function classifySourceFamily(record: TileEnvelope<SourceRecord>, manifestation:
       reasons: ['The admitted source record is explicitly a GitHub issue REST object, not a Git blob.']
     };
   }
+  if (sourceSystemId === 'github' && recordType === 'github-pull-request') {
+    return {
+      confidence: 1,
+      family: 'github-pull-request',
+      reasons: ['The admitted source record is a native GitHub pull request REST object.'],
+    };
+  }
 
   if (recordType.includes('chat') || metadataText.includes('chatgpt') || structureProfile.includes('chat')) {
     return {

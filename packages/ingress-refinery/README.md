@@ -38,6 +38,67 @@ The result returns `canonicalSourceJson` (RFC 8785 JCS), whose SHA-256 matches t
 
 `readDecision` is caller-supplied and its reference, principal, check time, policy refs and source scope are preserved with the source record. No live GitHub authorization, future rights validity, cryptographic attestation verification, remote provider fetch or current GraphView read gate is implemented here. There is **no** `live` acquisition mode. Read-side authorization and correction tests exercise the **offline supplied-attestation contract**, not provider enforcement.
 
+## Native GitHub bearer REST acquisition (stacked on #1811; #799)
+
+`acquireGitHubNativeSource({ kind, owner, repo, number, token, readGrant, ...limits })` is a
+separate live path. It calls only `https://api.github.com`, sends the host's
+bearer credential on every request, disables redirects, and fails closed on
+401/403/404 and other unsuccessful responses. It never logs or embeds the
+credential. Hosts may inject a Fetch-compatible transport for controlled tests
+and deployment. A caller-authorized `readGrant` is mandatory and names the
+exact owner, repository, immutable native ID and node ID, principal, grant
+reference and rights scope. The adapter checks the host grant **before any
+network read**, and verifies immutable repository IDs against GitHub before
+reading issue content. A private repo requires its repository-specific rights
+scope and cannot claim `public`. The host remains responsible for
+authenticating and authorizing its own grant issuer. GitHub's current bearer
+response is separately checked; an injected transport is trusted by its host,
+not independently authenticated by this library. Neither the caller grant nor
+the successful provider response is a standing grant for later GraphView reads.
+
+Native issues and pull requests use different record types and native IDs,
+even when sharing an issue number. PR acquisition verifies both the issue REST
+counterpart and the pulls REST identity. Collection capture supports issue
+comments and timeline, plus PR reviews and review comments. Each has explicit
+inclusion/completeness/page-count/next-page state. The bounded
+`source.package` uses `record-scoped-package`, and its CID flows through the
+source episode, ingress job, receipts, and canonical artifact. Native contents
+remain source evidence; they are not a validated dependency graph, accepted
+review decision, or permission to publish.
+
+The GitHub timeline contains heterogeneous event shapes. In particular,
+`cross-referenced` entries may have no native numeric event ID. These are
+preserved at their page/array position in original response bytes and the
+canonical snapshot, never assigned a fabricated provider event ID. Some
+cross-references embed **another repository's issue contents**. Without an
+independently authorized grant for that repository, this adapter rejects the
+entire capture before returning the embedded payload. A caller may explicitly
+omit timeline capture to admit the remaining authorized issue/PR objects,
+but the resulting overall coverage is then **incomplete**, not empty or
+complete. No cross-repository grant inference or implicit follow-up fetch is
+performed.
+
+Defaults are 50 items/page, 2 pages per collection, 100 items per collection,
+3 MB overall response/canonical snapshot, 1 MB per HTTP response, and a 15 s
+per-request deadline. These
+limits can be lowered; bounded increases have hard ceilings. Reaching a page
+cap records incomplete coverage; malformed/over-bounded/denied data rejects
+the capture. Issue, repository rights, and PR identity are rechecked after
+pagination so a changing source does not become a false coherent snapshot.
+Repeating unchanged provider source bytes reuses the earlier source-record and
+manifestation CIDs; the new read produces its own fetch/evaluation receipts.
+
+`rawResponses` contains the **original HTTP entity bytes**, resource locator,
+capture time and SHA-256 for each successful response; the episode links these
+hashes. The canonical JSON source snapshot is a separate JCS transformation,
+and plain-text normalization can lose JSON whitespace inside string values.
+The caller must durably store `rawResponses` and `canonicalSourceJson` for
+later byte-level or semantic reconstruction; this function does not persist
+them. Omitted collections and page-limit truncation remain visible in
+`captureCoverage` and `source.package.boundedness`. No watch/sync loop,
+durable cache, GraphView permission enforcement, or inferred PR approval is
+implemented by this slice.
+
 ## Roadmap
 
 - replace bootstrap inputs with real source adapters while preserving the existing contract surface
