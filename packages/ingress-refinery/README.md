@@ -12,12 +12,14 @@ Turns source-aware inputs into canonical artifacts plus linked provenance receip
 - builds canonical artifacts with PID, rights, and dedupe metadata
 - threads bounded listing-snapshot package lineage through episodes, receipts, and canonical-artifact provenance
 - provides a narrow GitHub text acquisition API for pinned markdown/plain-text blobs using injected fixture/local/live payloads
+- provides a **separate, offline-only** parse-only native GitHub issue JSON admission proof under #1810
 - emits a bootstrap demo snapshot stitching the whole flow together
 
 ## Fixture Status
 
 - the mechanics are executable
 - the current GitHub adapter boundary is executable with deterministic supplied payloads
+- native issue JSON is currently fixture/local supplied, not live/provider-authenticated, and the required read decision is **caller-attested**, not independently verified
 - network-backed upstream fetch clients remain outside this package for now
 
 ## Not Yet
@@ -26,6 +28,15 @@ Turns source-aware inputs into canonical artifacts plus linked provenance receip
 - HTML/PDF/document parsing
 - durable job orchestration
 - revision and correction polling against real sources
+- live GitHub issue/PR fetching, comment/timeline pagination and independently enforced provider/current-read authorization
+
+## GitHub issue-object admission (#1810)
+
+`acquireGitHubIssueThroughRefinery()` models a bounded **single issue REST object** and separately supplied repository identity. It does not use Git tree/blob acquisition or admit pull-request objects. Source identity binds native GitHub repository and issue IDs; issue number, title and mutable repo name are neither sole identity nor inferred proof of a dependency. A changed observation produces new immutable record/manifestation CIDs with explicit prior lineage. The JSON capture is limited to 1,000,000 UTF-8 bytes.
+
+The result returns `canonicalSourceJson` (RFC 8785 JCS), whose SHA-256 matches the manifestation's source hash. Its separate `canonicalArtifact.normalizedText` is a **plain-text derived representation** and may collapse whitespace inside JSON string values. Consumers must preserve the canonical JSON separately if they require exact value-level or historical reconstruction; this function does not persist it. The capture is labeled `issue-object-only` even if its issue has zero comments: no claim of complete comment/timeline/conversation acquisition is made.
+
+`readDecision` is caller-supplied and its reference, principal, check time, policy refs and source scope are preserved with the source record. No live GitHub authorization, future rights validity, cryptographic attestation verification, remote provider fetch or current GraphView read gate is implemented here. There is **no** `live` acquisition mode. Read-side authorization and correction tests exercise the **offline supplied-attestation contract**, not provider enforcement.
 
 ## Roadmap
 

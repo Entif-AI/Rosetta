@@ -15,6 +15,17 @@
       }
     },
     {
+      "id": "rosetta:pack-lock-graph-v1",
+      "kind": "behavior",
+      "title": "Pack dependency closure and content-addressed lock graph (proposed v1)",
+      "status": "in-development",
+      "owner": "Rosetta Pack/schema maintainers",
+      "source": {
+        "path": "specs/pack-lock-graph.md",
+        "sha256": "84ce8e9dcb144b7717c9ec045d176c7218360e85ca75070e670270b3a1f02568"
+      }
+    },
+    {
       "id": "entif:substrate-principles",
       "kind": "principles",
       "title": "Substrate principles",
@@ -130,6 +141,19 @@
       }
     },
     {
+      "id": "entif:contract-aware-pr-closeout",
+      "kind": "plan",
+      "title": "Enforce contract-aware issue closeout and retire shared root worklogs",
+      "status": "done",
+      "task": "T1815",
+      "issues": [1815],
+      "pr": 1817,
+      "source": {
+        "path": "plans/contract-aware-closeout.md",
+        "sha256": "8d92e843cdf9ae6e3235efc7d7f863be052fc66ba20f40445c86bba141d6f2df"
+      }
+    },
+    {
       "id": "entif:engineering-akasha",
       "kind": "plan",
       "title": "Reconstruct JCS engineering work through Akasha evidence",
@@ -140,6 +164,19 @@
       "source": {
         "path": "plans/engineering-akasha.md",
         "sha256": "1c24f4b98f5ed58b5131fff4216dcbe2b3a024cba83ee4f789670bd16cf06ca4"
+      }
+    },
+    {
+      "id": "entif:github-issue-source-admission",
+      "kind": "plan",
+      "title": "Admit a bounded native GitHub issue snapshot",
+      "status": "done",
+      "task": "T1810",
+      "issues": [1810, 799, 506],
+      "pr": 1811,
+      "source": {
+        "path": "plans/github-issue-source-admission.md",
+        "sha256": "d0de98d1a37334ea19b00c28dd2f8e169cd844a22e3de38dc50eb0964e54e158"
       }
     },
     {
@@ -182,6 +219,19 @@
       }
     },
     {
+      "id": "entif:m3-ultra-compute-broker",
+      "kind": "plan",
+      "title": "Prove the bounded M3 Ultra development compute broker",
+      "status": "done",
+      "task": "T1744",
+      "issues": [1744],
+      "pr": 1795,
+      "source": {
+        "path": "plans/m3-ultra-compute-broker.md",
+        "sha256": "49bde6ae4157d1b5a90f50df63c86107a97dc8841951e34b37147fb6dd9e07b0"
+      }
+    },
+    {
       "id": "entif:materialized-view",
       "kind": "plan",
       "title": "Materialized view identity, frontier and currency",
@@ -205,6 +255,19 @@
       "source": {
         "path": "plans/pack-bootstrap-admission.md",
         "sha256": "88a2baf7fdba762ddc5de5aaa078686004cce479e816bf7db93106d40115fe6c"
+      }
+    },
+    {
+      "id": "entif:pack-lock-spec",
+      "kind": "plan",
+      "title": "Admit the Pack lock graph contract before the resolver",
+      "status": "planned",
+      "task": "T1790",
+      "issues": [1790, 1559],
+      "pr": 1814,
+      "source": {
+        "path": "plans/pack-lock-spec.md",
+        "sha256": "920fa50b6d73d9c643bfadd9c9c4a7d4ccfeb1ca7df593048a96a7a7d7f74d51"
       }
     },
     {
@@ -364,6 +427,19 @@
       }
     },
     {
+      "id": "entif:trace-live-adapter",
+      "kind": "plan",
+      "title": "Prove the bounded TRACE-LIVE source-adapter fixture",
+      "status": "done",
+      "task": "T1685",
+      "issues": [1685],
+      "pr": 1795,
+      "source": {
+        "path": "plans/trace-live-adapter.md",
+        "sha256": "8cae04676d257a7dfa1a5a774df0f92d2ede40fa65eb50653fc77ddad71997ad"
+      }
+    },
+    {
       "id": "entif:trace-norm",
       "kind": "plan",
       "title": "Normalize trace structure, deltas, duplicate refs, and loss report",
@@ -511,6 +587,11 @@
       "to": "entif:development-substrate"
     },
     {
+      "from": "entif:contract-aware-pr-closeout",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:engineering-akasha",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -541,6 +622,11 @@
       "to": "entif:jcs-001"
     },
     {
+      "from": "entif:github-issue-source-admission",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:graph-view",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -566,6 +652,11 @@
       "to": "entif:development-substrate"
     },
     {
+      "from": "entif:m3-ultra-compute-broker",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:materialized-view",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -579,6 +670,11 @@
       "from": "entif:pack-bootstrap-admission",
       "kind": "implements",
       "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-lock-spec",
+      "kind": "implements",
+      "to": "rosetta:pack-lock-graph-v1"
     },
     {
       "from": "entif:run-completion",
@@ -701,6 +797,11 @@
       "to": "entif:trace-graph"
     },
     {
+      "from": "entif:trace-live-adapter",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
       "from": "entif:trace-norm",
       "kind": "implements",
       "to": "entif:development-substrate"
@@ -752,6 +853,11 @@
     },
     {
       "from": "entif:development-substrate",
+      "kind": "governed-by",
+      "to": "entif:substrate-principles"
+    },
+    {
+      "from": "rosetta:pack-lock-graph-v1",
       "kind": "governed-by",
       "to": "entif:substrate-principles"
     }

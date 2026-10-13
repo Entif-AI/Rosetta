@@ -11,6 +11,8 @@ import '../../styles/pages/_projects.scss';
 const page = await getEntry('pages', 'projects');
 if (!page?.data.showcase)
   throw new Error('Missing validated Projects showcase');
+const editorial = await getEntry('editorial', 'accelerating-the-dystopia');
+if (!editorial) throw new Error('Missing published editorial metadata');
 const {
   hero,
   stakesIntro,
@@ -34,6 +36,7 @@ const links = resolveShowcaseLinks(
 const names = new Map(
   architecture.systems.map((system) => [system.id, system.name])
 );
+const editorialTitle = `${editorial.data.title}: ${editorial.data.subtitle}`;
 ---
 
 <FullWidthPageLayout
@@ -65,7 +68,11 @@ const names = new Map(
             {hero.agencyLabel}{' '}{hero.agencyCaption}.
           </p>
         </div>
-        <HumanAgencyOrbit hero={hero} systems={architecture.systems} />
+        <HumanAgencyOrbit
+          hero={hero}
+          systems={architecture.systems}
+          projects={links.projects}
+        />
       </div>
     </section>
 
@@ -174,28 +181,32 @@ const names = new Map(
                       <p>{response.response}</p>
                     </>
                   </div>
-                  <ul
-                    class="uca-source-list"
-                    aria-label={copy.source}
-                    data-test-id={`uca-response-sources-${response.id}`}
-                  >
-                    {links.responses.get(response.id)!.map((source) => (
-                      <li>
-                        {source.link ? (
-                          <a
-                            class="uca-source-link"
-                            href={source.link.href}
-                            data-test-id={`uca-research-link-${source.id}`}
-                          >
-                            {source.id}
-                            <span aria-hidden="true"> ↗</span>
-                          </a>
-                        ) : (
-                          <span>{source.id}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+                  {links.responses.get(response.id)!.length > 0 && (
+                    <ul
+                      class="uca-source-list"
+                      aria-label={copy.source}
+                      data-test-id={`uca-response-sources-${response.id}`}
+                    >
+                      {links.responses.get(response.id)!.map((source) => (
+                        <li>
+                          {source.link ? (
+                            <a
+                              class="uca-source-link"
+                              href={source.link.href}
+                              data-test-id={`uca-research-link-${source.id}`}
+                            >
+                              {source.id === editorial.data.report
+                                ? editorialTitle
+                                : source.link.label}
+                              <span aria-hidden="true"> ↗</span>
+                            </a>
+                          ) : (
+                            <span>{source.id}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </article>
               </li>
             ))
@@ -213,20 +224,31 @@ const names = new Map(
         <p class="uca-eyebrow">{scenario.eyebrow}</p>
         <h2 id="uca-scenario-heading">{scenario.headline}</h2>
         <p class="uca-introduction reading-measure">{scenario.description}</p>
-        <p class="uca-illustrative" data-test-id="uca-scenario-label">
-          {scenario.illustrativeLabel}
-        </p>
         <ol class="uca-scenario-steps">
           {
             scenario.steps.map((step, index) => (
               <li data-test-id={`uca-scenario-step-${step.systemId}`}>
-                <span class="uca-number" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <>
-                  <h3>{names.get(step.systemId)}</h3>
-                  <p>{step.description}</p>
-                </>
+                {links.projects.has(step.systemId) ? (
+                  <a
+                    class="uca-scenario-tile"
+                    href={links.projects.get(step.systemId)!.href}
+                    data-test-id={`uca-scenario-project-${step.systemId}`}
+                  >
+                    <span class="uca-number" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3>{names.get(step.systemId)}</h3>
+                    <p>{step.description}</p>
+                  </a>
+                ) : (
+                  <div class="uca-scenario-tile">
+                    <span class="uca-number" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3>{names.get(step.systemId)}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                )}
               </li>
             ))
           }
