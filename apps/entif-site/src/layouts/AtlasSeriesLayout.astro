@@ -1,0 +1,127 @@
+---
+/* eslint-disable astro/no-set-html-directive -- Atlas chapter fragments are checked-in, publication-screened build inputs with no runtime/user interpolation. */
+import FullWidthPageLayout from './FullWidthPageLayout.astro';
+import { getContentPath, joinBasePath } from '../lib/content';
+import { getAtlasChapter } from '../lib/atlas';
+import { toSummary, type SiteEntry } from '../lib/site-data';
+import '../styles/atlas/atlas.scss';
+
+interface Props {
+  entry: SiteEntry;
+  chapters: readonly SiteEntry[];
+  metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+}
+
+const { entry, chapters, metadata } = Astro.props;
+const current = entry.data.series!.order;
+const previous = chapters[current - 2];
+const next = chapters[current];
+const chapter = getAtlasChapter(current);
+const base = import.meta.env.BASE_URL;
+const href = (item: SiteEntry) =>
+  joinBasePath(base, getContentPath(toSummary(item)));
+---
+
+<FullWidthPageLayout
+  title={`${entry.data.title} · ${metadata.title}`}
+  description={entry.data.description}
+  noindex={entry.data.noindex}
+  pageClass="atlas-page"
+>
+  <div
+    class="atlas-series"
+    data-atlas-root
+    data-atlas-view="text"
+    data-atlas-motion="active"
+    data-test-id="atlas-root"
+  >
+    <div class="atlas-toolbar">
+      <div class="atlas-toolbar-copy">
+        <a href={joinBasePath(base, 'articles/')}>Articles</a>
+        <span aria-hidden="true">/</span>
+        <span>{metadata.title}</span>
+        <span class="atlas-toolbar-position"
+          >Chapter {String(current).padStart(2, '0')}</span
+        >
+      </div>
+      <div class="atlas-toolbar-actions">
+        <button
+          class="atlas-control"
+          type="button"
+          data-atlas-view-toggle
+          data-test-id="atlas-view-toggle"
+          aria-pressed="false"
+          hidden>Visualize</button
+        >
+        <button
+          class="atlas-control"
+          type="button"
+          data-atlas-motion-toggle
+          data-test-id="atlas-motion-toggle"
+          aria-pressed="true"
+          hidden>Motion: on</button
+        >
+      </div>
+    </div>
+
+    <article
+      class="atlas-source"
+      data-test-id="atlas-source"
+      set:html={chapter.html}
+    />
+
+    <nav class="atlas-ending" aria-label={metadata.navigation}>
+      {
+        previous ? (
+          <a href={href(previous)}>
+            <span>{metadata.previous}</span>
+            {previous.data.title}
+          </a>
+        ) : (
+          <a href={joinBasePath(base, 'articles/')}>
+            <span>Back to</span>
+            Articles
+          </a>
+        )
+      }
+      {
+        next ? (
+          <a href={href(next)}>
+            <span>{metadata.next}</span>
+            {next.data.title}
+          </a>
+        ) : (
+          <span class="atlas-ending-status">
+            <span>Migration status</span>
+            {chapter.sceneCount} illustrated scenes ported in this chapter
+          </span>
+        )
+      }
+    </nav>
+
+    <nav
+      class="atlas-scene-jumper"
+      data-atlas-scene-jumper
+      aria-label="Illustrated scene navigation"
+      hidden
+    >
+      <button
+        type="button"
+        data-atlas-scene-previous
+        aria-label="Previous scene"
+      >
+        ↑
+      </button>
+      <span data-atlas-scene-current>01 / {chapter.sceneCount}</span>
+      <button type="button" data-atlas-scene-next aria-label="Next scene"
+        >↓</button
+      >
+    </nav>
+  </div>
+</FullWidthPageLayout>
+
+<script>
+  import { enhanceAtlas } from '../scripts/atlas';
+
+  enhanceAtlas();
+</script>

@@ -1,0 +1,27 @@
+---
+import AtlasSeriesLayout from './AtlasSeriesLayout.astro';
+import EditorialSeriesLayout from './EditorialSeriesLayout.astro';
+import { ATLAS_SERIES_ID } from '../lib/atlas';
+import type { SiteEntry } from '../lib/site-data';
+
+interface Props {
+  entry: SiteEntry;
+  chapters: readonly SiteEntry[];
+  metadata: import('astro:content').CollectionEntry<'editorial'>['data'];
+}
+
+const { entry, chapters, metadata } = Astro.props;
+const isAtlas = entry.data.series?.id === ATLAS_SERIES_ID;
+---
+
+{
+  isAtlas ? (
+    <AtlasSeriesLayout entry={entry} chapters={chapters} metadata={metadata} />
+  ) : (
+    <EditorialSeriesLayout
+      entry={entry}
+      chapters={chapters}
+      metadata={metadata}
+    />
+  )
+}

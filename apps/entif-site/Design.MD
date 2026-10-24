@@ -120,6 +120,16 @@ All displayed copy is authored in Markdown with frontmatter under `content/`. `c
 
 Existing `/tags/{tag}/{year}/{month}/{day}/{slug}/` routes remain stable. Research and Articles are separate indexes; `/archive/` and `/tags/{tag}/` expose year, month, and day indexes. The legacy Team and Projects entry points remain available. Research details support authors, report ID, version, review status, evidence cutoff, manuscript download, headings, figures, references, and related work. Published means available on the website, not peer-reviewed.
 
+### Agentic Aberrancy Atlas article experience
+
+`An Agentic Aberrancy Atlas Shrugged` is an Articles-series presentation composed through `FullWidthPageLayout`. `BaseLayout` retains sole ownership of the document shell, canonical metadata, skip link, main landmark, existing Entif header, existing Entif footer, analytics and shared scroll-to-top control. The Atlas must not ship a second site header or footer.
+
+The Atlas opens in **text-only mode by default**. Complete prose, headings, citations and chapter navigation are server-rendered and readable without JavaScript. A named **Visualize** toggle progressively reveals the article-local illustrated stages. The reader may return to **Text only** at any time. Visualization state may persist only after an explicit reader choice; a new reader starts with text.
+
+Illustrated mode preserves the supplied Paperwork Planetarium vocabulary: warm paper, dark petrol ink, muted teal machinery, burnt-orange intervention, pale-gold warning signals, conceptual SVG scenes and reversible scroll-derived motion. These are route-local presentation choices and do not redefine the shared site palette. Motion is never required to understand the article; reduced-motion preference produces static illustrations.
+
+Private evidence destinations from source-production artifacts are not copied into the public website merely because their citation labels appear in manuscript prose. The public article may preserve disclosure-safe citation labels while private links remain absent until separately authorized for publication.
+
 Publication diagrams retain their authors' scientific visual encoding; readable captions and adjacent prose supply context. Do not restyle a scientific figure in a way that changes its meaning.
 
 ## Accessibility and assurance
