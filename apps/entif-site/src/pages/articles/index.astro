@@ -11,6 +11,15 @@ const base = import.meta.env.BASE_URL;
 const entries = (await getPublishedEntries()).filter((entry) =>
   ['essay', 'update'].includes(entry.data.kind)
 );
+entries.sort((left, right) => {
+  if (
+    left.data.series?.id !== undefined &&
+    left.data.series.id === right.data.series?.id
+  ) {
+    return left.data.series.order - right.data.series.order;
+  }
+  return 0;
+});
 ---
 
 <ContentPageLayout

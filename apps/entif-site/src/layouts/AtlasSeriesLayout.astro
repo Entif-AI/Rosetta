@@ -35,6 +35,30 @@ const href = (item: SiteEntry) =>
     data-atlas-motion="active"
     data-test-id="atlas-root"
   >
+    <nav
+      class="atlas-chapter-rail"
+      data-test-id="atlas-chapter-rail"
+      aria-label={metadata.navigation}
+    >
+      {
+        chapters.map((item) => {
+          const order = item.data.series!.order;
+          const isCurrent = order === current;
+          return (
+            <a
+              href={href(item)}
+              aria-current={isCurrent ? 'page' : undefined}
+              aria-label={`Chapter ${order}: ${item.data.title}`}
+            >
+              <span class="atlas-rail-label">
+                {order}. {item.data.title}
+              </span>
+            </a>
+          );
+        })
+      }
+    </nav>
+
     <div class="atlas-toolbar">
       <div class="atlas-toolbar-copy">
         <a href={joinBasePath(base, 'articles/')}>Articles</a>
@@ -90,12 +114,7 @@ const href = (item: SiteEntry) =>
             <span>{metadata.next}</span>
             {next.data.title}
           </a>
-        ) : (
-          <span class="atlas-ending-status">
-            <span>Migration status</span>
-            {chapter.sceneCount} illustrated scenes ported in this chapter
-          </span>
-        )
+        ) : null
       }
     </nav>
 
