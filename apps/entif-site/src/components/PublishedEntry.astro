@@ -187,8 +187,11 @@ const isProject = entry.data.kind === 'project';
           </div>
         </div>
         <div class="card-grid">
-          {related.map((item) => (
-            <ContentCard card={toContentCard(item, baseUrl)} />
+          {related.map((item, index) => (
+            <ContentCard
+              card={toContentCard(item, baseUrl)}
+              artworkIndex={index + 3}
+            />
           ))}
         </div>
       </section>

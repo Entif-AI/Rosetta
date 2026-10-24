@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import PublishedEntry from '../../components/PublishedEntry.astro';
-import EditorialSeriesLayout from '../../layouts/EditorialSeriesLayout.astro';
+import SeriesEntryLayout from '../../layouts/SeriesEntryLayout.astro';
 import { orderSeries } from '../../lib/editorial';
 import { getPublishedEntries, type SiteEntry } from '../../lib/site-data';
 
@@ -61,7 +61,7 @@ const { entry, allEntries, editorial } = Astro.props as RouteProps;
 
 {
   editorial ? (
-    <EditorialSeriesLayout
+    <SeriesEntryLayout
       entry={entry}
       chapters={editorial.chapters}
       metadata={editorial.metadata}

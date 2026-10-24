@@ -18,6 +18,10 @@
       border: 1px solid CanvasText;
     }
 
+    .content-card-media {
+      display: none;
+    }
+
     :focus-visible {
       outline-color: Highlight;
     }
@@ -48,6 +52,33 @@
     }
 
     .scroll-top {
+      display: none;
+    }
+
+    .content-card {
+      color: black;
+      background: white;
+      border-color: black;
+      box-shadow: none;
+      break-inside: avoid;
+    }
+
+    .content-card h2 a,
+    .content-card h3 a,
+    .content-card-description,
+    .content-card .card-meta,
+    .content-card .card-meta .eyebrow,
+    .content-card .tag-list li,
+    .content-card-action {
+      color: black;
+    }
+
+    .content-card .tag-list li {
+      background: white;
+      border-color: black;
+    }
+
+    .content-card-media {
       display: none;
     }
   }

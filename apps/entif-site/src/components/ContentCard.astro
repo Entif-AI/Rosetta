@@ -1,31 +1,76 @@
 ---
+import { Image } from 'astro:assets';
 import { copy } from '../lib/copy';
 import type { ContentCardData } from '../lib/content';
+import { getContentCardArtwork } from '../lib/content-card-art';
 
 interface Props {
   card: ContentCardData;
   headingLevel?: 2 | 3;
+  artworkIndex?: number;
+  variant?: 'standard' | 'compact';
+  linkTestId?: string;
 }
 
-const { card, headingLevel = 3 } = Astro.props;
+const {
+  card,
+  headingLevel = 3,
+  artworkIndex = 0,
+  variant = 'standard',
+  linkTestId,
+} = Astro.props;
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
 const testId = `content-card-${encodeURIComponent(card.id)}`;
+const artwork = getContentCardArtwork(artworkIndex);
+const actionLabel =
+  card.kind === 'project'
+    ? 'Explore project'
+    : card.kind === 'research'
+    ? 'Read research'
+    : card.kind === 'protocol'
+    ? 'View protocol'
+    : 'Read article';
 ---
 
-<article class="content-card" data-test-id={testId}>
-  <div class="card-meta">
-    <span class="eyebrow">{card.kind}</span>
-    {card.projects.length > 0 && <span>{card.projects.join(' · ')}</span>}
+<article
+  class:list={['content-card', `content-card--${variant}`]}
+  data-test-id={testId}
+  data-card-artwork={artwork.name}
+>
+  <div class="content-card-media" aria-hidden="true">
+    <Image
+      src={artwork.image}
+      alt=""
+      widths={[320, 640]}
+      sizes={variant === 'compact'
+        ? '(min-width: 48rem) 12rem, 100vw'
+        : '(min-width: 64rem) 30vw, (min-width: 48rem) 46vw, 100vw'}
+      format="webp"
+      quality={78}
+      loading="lazy"
+      class="content-card-image"
+    />
   </div>
-  <Heading><a href={card.href}>{card.title}</a></Heading>
-  <p>{card.description}</p>
-  {
-    card.tags.length > 0 && (
-      <ul class="tag-list" aria-label={copy.topics}>
-        {card.tags.slice(0, 4).map((tag) => (
-          <li>{tag}</li>
-        ))}
-      </ul>
-    )
-  }
+  <div class="content-card-copy">
+    <div class="card-meta">
+      <span class="eyebrow">{card.kind}</span>
+      {card.projects.length > 0 && <span>{card.projects.join(' · ')}</span>}
+    </div>
+    <Heading>
+      <a href={card.href} data-test-id={linkTestId}>{card.title}</a>
+    </Heading>
+    <p class="content-card-description">{card.description}</p>
+    {
+      card.tags.length > 0 && (
+        <ul class="tag-list" aria-label={copy.topics}>
+          {card.tags.slice(0, 4).map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+    <span class="content-card-action" aria-hidden="true">
+      {actionLabel}<span>→</span>
+    </span>
+  </div>
 </article>

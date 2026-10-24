@@ -47,10 +47,11 @@ const { tag, date, entries } = Astro.props;
 >
   <div class="card-grid">
     {
-      entries.map((entry) => (
+      entries.map((entry, index) => (
         <ContentCard
           headingLevel={2}
           card={toContentCard(entry, import.meta.env.BASE_URL)}
+          artworkIndex={index}
         />
       ))
     }

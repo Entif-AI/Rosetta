@@ -30,6 +30,7 @@ const siteSchema = z
     manuscript: z.string().optional(),
     featured: z.boolean().default(false),
     noindex: z.boolean().default(false),
+    hideFromArticlesIndex: z.boolean().default(false),
     series: z
       .object({
         id: z.string().regex(slugPattern),

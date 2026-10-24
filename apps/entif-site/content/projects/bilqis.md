@@ -132,4 +132,4 @@ Its purpose is not to report that Bilqis works.
 
 It is to make the proposition precise enough that reality can answer.
 
-[Inspect Bilqis on GitHub](https://github.com/Entif-AI/Bilqis).
+[Inspect Bilqis on GitHub](https://github.com/Entif-AI/Bilqis-MLX).

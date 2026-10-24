@@ -1,17 +1,86 @@
 ---
 import { getEntry } from 'astro:content';
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
-import { getPublishedEntries } from '../../lib/site-data';
-import { joinBasePath } from '../../lib/content';
+import ContentCard from '../../components/ContentCard.astro';
+import { joinBasePath, toContentCard } from '../../lib/content';
+import {
+  getPublishedEntries,
+  toSummary,
+  type SiteEntry,
+} from '../../lib/site-data';
 const page = await getEntry('pages', 'archive');
 if (!page) throw new Error('Missing archive copy');
-const dates = [
-  ...new Set(
-    (await getPublishedEntries())
-      .filter((e) => e.data.kind !== 'project')
-      .map((e) => e.data.published.toISOString().slice(0, 10))
-  ),
-];
+
+const monthFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const entries = (await getPublishedEntries())
+  .filter((entry) => entry.data.kind !== 'project')
+  .sort((left, right) => {
+    const dateOrder =
+      right.data.published.getTime() - left.data.published.getTime();
+    if (dateOrder !== 0) return dateOrder;
+
+    if (left.data.series?.id && left.data.series.id === right.data.series?.id) {
+      return left.data.series.order - right.data.series.order;
+    }
+
+    return left.data.title.localeCompare(right.data.title);
+  });
+
+interface ArchiveDateGroup {
+  readonly date: string;
+  readonly label: string;
+  readonly entries: readonly SiteEntry[];
+}
+
+interface ArchiveMonthGroup {
+  readonly month: string;
+  readonly label: string;
+  readonly dates: readonly ArchiveDateGroup[];
+}
+
+const grouped = new Map<string, Map<string, SiteEntry[]>>();
+for (const entry of entries) {
+  const date = entry.data.published.toISOString().slice(0, 10);
+  const month = date.slice(0, 7);
+  const dates = grouped.get(month) ?? new Map<string, SiteEntry[]>();
+  const dateEntries = dates.get(date) ?? [];
+  dateEntries.push(entry);
+  dates.set(date, dateEntries);
+  grouped.set(month, dates);
+}
+
+const archiveMonths: readonly ArchiveMonthGroup[] = [...grouped.entries()].map(
+  ([month, dates]) => {
+    const [year, monthNumber] = month.split('-').map(Number);
+    const monthDate = new Date(Date.UTC(year ?? 0, (monthNumber ?? 1) - 1, 1));
+
+    return {
+      month,
+      label: monthFormatter.format(monthDate),
+      dates: [...dates.entries()].map(([date, dateEntries]) => ({
+        date,
+        label: dateFormatter.format(
+          dateEntries[0]?.data.published ?? monthDate
+        ),
+        entries: dateEntries,
+      })),
+    };
+  }
+);
+const artworkIndexById = new Map(
+  entries.map((entry, index) => [entry.data.id, index])
+);
 ---
 
 <ContentPageLayout
@@ -21,20 +90,52 @@ const dates = [
   heading={page.data.title}
   lede={page.data.description}
 >
-  <ul class="archive-list">
+  <div class="archive-months">
     {
-      dates.map((date) => (
-        <li>
-          <a
-            href={joinBasePath(
-              import.meta.env.BASE_URL,
-              `archive/${date.replaceAll('-', '/')}/`
-            )}
-          >
-            <time datetime={date}>{date}</time>
-          </a>
-        </li>
+      archiveMonths.map(({ month, label, dates }) => (
+        <section
+          class="archive-month"
+          data-test-id="archive-month"
+          data-month={month}
+        >
+          <h2 data-test-id="archive-month-heading">{label}</h2>
+          <ol class="archive-list">
+            {dates.map(({ date, label: dateLabel, entries }) => (
+              <li
+                class="archive-date"
+                data-test-id="archive-date"
+                data-date={date}
+              >
+                <a
+                  class="archive-date-link"
+                  href={joinBasePath(
+                    import.meta.env.BASE_URL,
+                    `archive/${date.replaceAll('-', '/')}/`
+                  )}
+                >
+                  <time datetime={date}>{dateLabel}</time>
+                </a>
+                <ul class="archive-entry-list">
+                  {entries.map((entry) => (
+                    <li>
+                      <ContentCard
+                        headingLevel={3}
+                        variant="compact"
+                        linkTestId="archive-entry-link"
+                        artworkIndex={artworkIndexById.get(entry.data.id) ?? 0}
+                        card={toContentCard(
+                          toSummary(entry),
+                          import.meta.env.BASE_URL
+                        )}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))
     }
-  </ul>
+  </div>
 </ContentPageLayout>

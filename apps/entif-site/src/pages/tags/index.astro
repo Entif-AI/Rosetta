@@ -12,6 +12,46 @@ const topics = [...countTopics(entries.map(toSummary)).entries()].sort(
 );
 const page = await getEntry('pages', 'tags');
 if (!page) throw new Error('Missing page copy');
+
+const minCount = Math.min(...topics.map(([, count]) => count));
+const maxCount = Math.max(...topics.map(([, count]) => count));
+const logMin = Math.log(minCount);
+const logRange = Math.max(Math.log(maxCount) - logMin, Number.EPSILON);
+
+const mix = (
+  from: readonly [number, number, number],
+  to: readonly [number, number, number],
+  amount: number
+): readonly [number, number, number] => [
+  Math.round(from[0] + (to[0] - from[0]) * amount),
+  Math.round(from[1] + (to[1] - from[1]) * amount),
+  Math.round(from[2] + (to[2] - from[2]) * amount),
+];
+
+const colorForWeight = (weight: number): string => {
+  const brown = [77, 58, 53] as const;
+  const burgundy = [111, 37, 57] as const;
+  const crimson = [158, 24, 49] as const;
+  const color =
+    weight < 0.5
+      ? mix(brown, burgundy, weight / 0.5)
+      : mix(burgundy, crimson, (weight - 0.5) / 0.5);
+  return `rgb(${color.join(', ')})`;
+};
+
+const tagCloud = topics.map(([term, count]) => {
+  const weight = (Math.log(count) - logMin) / logRange;
+  return {
+    term,
+    label: term.replaceAll('-', ' '),
+    count,
+    weight,
+    desktopSize: 0.95 + weight * 1.7,
+    mobileSize: 0.78 + weight * 0.82,
+    fontWeight: Math.round(430 + weight * 350),
+    color: colorForWeight(weight),
+  };
+});
 ---
 
 <ContentPageLayout
@@ -20,20 +60,50 @@ if (!page) throw new Error('Missing page copy');
   eyebrow={page.data.eyebrow}
   heading={page.data.title}
   lede={page.data.description}
+  pageClass="tags-page"
 >
   <ul
-    class="tag-list tag-directory"
+    class="tag-cloud"
     aria-label="Entif tags"
     data-test-id="tags-page-directory"
+    data-tag-cloud
   >
     {
-      topics.map(([term, count]) => (
-        <li>
-          <a href={joinBasePath(baseUrl, `tags/${term}/`)}>
-            {term} · {count}
-          </a>
-        </li>
-      ))
+      tagCloud.map(
+        ({
+          term,
+          label,
+          count,
+          weight,
+          desktopSize,
+          mobileSize,
+          fontWeight,
+          color,
+        }) => (
+          <li class="tag-cloud-item" data-tag-cloud-item>
+            <a
+              class="tag-cloud-link"
+              href={joinBasePath(baseUrl, `tags/${term}/`)}
+              data-test-id="tag-cloud-link"
+              data-tag={term}
+              data-count={count}
+              data-weight={weight.toFixed(4)}
+              style={`--tag-size:${desktopSize.toFixed(
+                3
+              )}rem;--tag-size-mobile:${mobileSize.toFixed(
+                3
+              )}rem;--tag-font-weight:${fontWeight};--tag-color:${color}`}
+            >
+              {label}
+            </a>
+          </li>
+        )
+      )
     }
   </ul>
 </ContentPageLayout>
+
+<script>
+  import { enhanceTagCloud } from '../../scripts/tag-cloud';
+  enhanceTagCloud();
+</script>

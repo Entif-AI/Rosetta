@@ -1,6 +1,6 @@
 # Entif AI design system
 
-Version: 1.3.0 · October 11, 2026
+Version: 1.4.0 · October 24, 2026
 
 ## Intent and authority
 
@@ -119,6 +119,38 @@ A lightweight CSS corner peel appears on pointer hover. Touch devices receive at
 All displayed copy is authored in Markdown with frontmatter under `content/`. `content/ui/en.md` owns shared interface strings; `content/pages/` owns page narrative and demonstration copy; `content/research/`, `content/articles/`, and `content/projects/` own publications. Astro validates and compiles these at build time. Dates and counts are formatted data. Preserve stable content IDs and route tags. Add a locale and locale-aware route policy as a deliberate future migration rather than duplicating strings in components.
 
 Existing `/tags/{tag}/{year}/{month}/{day}/{slug}/` routes remain stable. Research and Articles are separate indexes; `/archive/` and `/tags/{tag}/` expose year, month, and day indexes. The legacy Team and Projects entry points remain available. Research details support authors, report ID, version, review status, evidence cutoff, manuscript download, headings, figures, references, and related work. Published means available on the website, not peer-reviewed.
+
+The top-level `/archive/` is a publication index, not a bare date directory. Group published non-project content under a heading for every represented month, order months and dates newest to oldest, keep each date linked to its date archive, and list the titles of every publication from that date beside it using their canonical content routes. Preserve series order for entries from the same series that share a publication date.
+
+The `/archive/` publication index should visually separate its first month heading from the page lede so the archive hierarchy does not collide with the introductory copy.
+
+The top-level `/tags/` directory is a weighted semantic tag cloud rather than a chip list. Keep canonical tag slugs and routes unchanged, but present labels with hyphens replaced by spaces and do not display raw occurrence counts. Use the occurrence count only as the visual weight signal: higher-frequency terms grow larger and heavier, sit nearer the center of the cloud, and move toward saturated crimson; lower-frequency terms radiate outward through burgundy toward a darker desaturated brown. Links have no chip background or default underline. Hover and keyboard focus may enlarge the active term and gently displace nearby terms to create spatial focus. The cloud must recompute its layout when its available width changes, remain horizontally contained on compact portrait and landscape viewports, honor reduced-motion preferences, and retain a readable wrapping link list if client-side enhancement is unavailable.
+
+### Shared publication and project cards
+
+Publication/project listing cards use one reusable image-led presentation across the homepage, Research, Articles, tag/date indexes, related-content sections, and archive surfaces. The purpose is to make substantive public work visually legible as authored material rather than a flat metadata directory while preserving the existing information architecture, canonical routes, titles, descriptions, taxonomy and publication semantics.
+
+Until dedicated publication artwork is produced, cards may reuse the existing local doctrine artwork in `src/assets/about/`. Treat this artwork as decorative: render it with an empty alternative text because the card title and description carry the meaning. Dense listings use a deterministic deck of fifteen distinct doctrine images and do not repeat an image until the full deck has cycled. Separate homepage groups use an offset into the same deck so research and project cards do not visibly echo one another. This temporary assignment is presentation-only; content identity must not depend on a particular illustration.
+
+The standard card is vertically composed: a cropped cinematic image above a deep-navy information panel with a compact kind/project row, prominent serif title, concise description, optional topic chips and an amber action line. The whole title area remains a single canonical link target; decorative artwork never introduces an extra destination. Hover may lift the card slightly and scale the image subtly, but reduced-motion preference removes both transforms. The top-level archive retains month/date chronology and uses a compact sibling treatment: image at left and publication copy at right on wider screens, stacking vertically at compact widths. Archive dates remain their own linked navigation targets rather than being absorbed into the cards.
+
+Cards must remain readable at enlarged text and narrow widths without horizontal document overflow. At the compact threshold, ordinary card grids become one column. Forced-colors and print treatments suppress decorative images; print cards become plain black-on-white blocks with visible borders. Images use Astro's local responsive image pipeline and lazy loading, sharing the existing About thumbnail derivative sizes rather than creating a parallel asset pipeline.
+
+### Agentic Aberrancy Atlas article experience
+
+`An Agentic Aberrancy Atlas Shrugged` is an Articles-series presentation composed through `FullWidthPageLayout`. `BaseLayout` retains sole ownership of the document shell, canonical metadata, skip link, main landmark, existing Entif header, existing Entif footer, analytics and shared scroll-to-top control. The Atlas must not ship a second site header or footer.
+
+The Atlas opens in **text-only mode by default**. Complete prose, headings, citations and chapter navigation are server-rendered and readable without JavaScript. The desktop chapter-dot rail is a shared navigation treatment and remains available in both text-only and visual modes; it is not conditional on visualization. A named **Visualize** toggle progressively reveals the article-local illustrated stages. The reader may return to **Text only** at any time. Visualization state may persist only after an explicit reader choice; a new reader starts with text.
+
+Within an Atlas chapter hero, the authored subtitle directly beneath the single chapter `h1` is rendered as an `h2`, not paragraph text. The raw imported fragment may retain its source tag, but the public renderer promotes that subtitle semantically without rewriting the supplied chapter source file.
+
+Atlas citation markers use the same progressive-disclosure interaction contract as _Accelerating the Dystopia_. Without JavaScript, each cited source remains a normal link to a unique anchor on the published **Appendices & References** route. With the Popover API available, hover, keyboard focus, click or touch may open a compact citation card without navigating away. The card identifies the source key, its evidence family, the Chapter 16 dossier or appendix that supplies its public context, a short source-grounded explanation, and a direct link to that exact `#atlas-source-*` anchor. Escape and the explicit Close control dismiss the card and restore focus. Cards remain viewport-bounded and scroll internally when a compound citation contains several sources. Do not invent bibliographic metadata for ledger rows, postmortems, transcripts, GitHub evidence or other operational source families merely to make them resemble conventional references.
+
+Reference-only terminal routes may remain fully published while opting out of the Articles index through `hideFromArticlesIndex`. They still participate in their series navigation, direct routing, archive/tag surfaces, sitemap output, and normal publication semantics. **Appendices & References** is hidden this way for _An Agentic Aberrancy Atlas Shrugged_, and **Citations** is hidden the same way for _Accelerating the Dystopia_.
+
+Illustrated mode preserves the supplied Paperwork Planetarium vocabulary: warm paper, dark petrol ink, muted teal machinery, burnt-orange intervention, pale-gold warning signals, conceptual SVG scenes and reversible scroll-derived motion. These are route-local presentation choices and do not redefine the shared site palette. Motion is never required to understand the article; reduced-motion preference produces static illustrations.
+
+Private evidence destinations from source-production artifacts are not copied into the public website merely because their citation labels appear in manuscript prose. The public article may preserve disclosure-safe citation labels while private links remain absent until separately authorized for publication.
 
 Publication diagrams retain their authors' scientific visual encoding; readable captions and adjacent prose supply context. Do not restyle a scientific figure in a way that changes its meaning.
 
