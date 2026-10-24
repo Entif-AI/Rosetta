@@ -7,6 +7,28 @@ const routes = readdirSync(`dist${prefix}`, { withFileTypes: true })
   .map((entry) => `${prefix}${entry.name}/`)
   .sort();
 
+test('Dystopia chapter cards use chapter-specific descriptions and tags', async ({
+  page,
+}) => {
+  await page.goto('/articles/');
+  const cards = page.locator(
+    '[data-test-id^="content-card-entif.essay.etr-2026-07."]'
+  );
+  await expect(cards).toHaveCount(16);
+
+  const descriptions = await cards
+    .locator('.content-card-description')
+    .allTextContents();
+  const tagSets = await cards.locator('.tag-list').allTextContents();
+  expect(new Set(descriptions.map((text) => text.trim())).size).toBe(16);
+  expect(
+    new Set(tagSets.map((text) => text.replace(/\s+/g, ' ').trim())).size
+  ).toBe(16);
+  expect(
+    descriptions.some((text) => text.includes('Section 1 of Accelerating'))
+  ).toBe(false);
+});
+
 test('Citations stays published but is hidden from the Articles index', async ({
   page,
 }) => {

@@ -9,15 +9,17 @@ test('tag directory presents weighted human-readable labels without chip chrome 
   const links = cloud.locator('[data-test-id="tag-cloud-link"]');
   expect(await links.count()).toBeGreaterThan(20);
 
-  const agentic = cloud.locator('[data-tag="agentic-ai"]');
-  await expect(agentic).toHaveText('agentic ai');
-  await expect(agentic).toHaveAttribute('data-count', /^\d+$/);
+  const hyphenated = cloud.locator('[data-tag*="-"]').first();
+  const hyphenatedTag = await hyphenated.getAttribute('data-tag');
+  if (!hyphenatedTag) throw new Error('Missing hyphenated tag sample');
+  await expect(hyphenated).toHaveText(hyphenatedTag.replaceAll('-', ' '));
+  await expect(hyphenated).toHaveAttribute('data-count', /^\d+$/);
 
   const labels = await links.allTextContents();
   expect(labels.every((label) => !label.includes('·'))).toBe(true);
   expect(labels.every((label) => !label.includes('-'))).toBe(true);
 
-  const visualChrome = await agentic.evaluate((element) => {
+  const visualChrome = await hyphenated.evaluate((element) => {
     const style = getComputedStyle(element);
     return {
       backgroundColor: style.backgroundColor,
@@ -27,26 +29,22 @@ test('tag directory presents weighted human-readable labels without chip chrome 
   expect(visualChrome.backgroundColor).toBe('rgba(0, 0, 0, 0)');
   expect(visualChrome.textDecorationLine).toBe('none');
 
-  const strongest = cloud.locator('[data-tag="ai"]');
-  const weakest = cloud.locator('[data-tag="codito"]');
-  const [strongestVisual, weakestVisual] = await Promise.all([
-    strongest.evaluate((element) => {
+  const visuals = await links.evaluateAll((elements) =>
+    elements.map((element) => {
       const style = getComputedStyle(element);
       return {
         fontSize: parseFloat(style.fontSize),
         fontWeight: Number(style.fontWeight),
         weight: Number(element.getAttribute('data-weight')),
       };
-    }),
-    weakest.evaluate((element) => {
-      const style = getComputedStyle(element);
-      return {
-        fontSize: parseFloat(style.fontSize),
-        fontWeight: Number(style.fontWeight),
-        weight: Number(element.getAttribute('data-weight')),
-      };
-    }),
-  ]);
+    })
+  );
+  const strongestVisual = visuals.reduce((best, item) =>
+    item.weight > best.weight ? item : best
+  );
+  const weakestVisual = visuals.reduce((best, item) =>
+    item.weight < best.weight ? item : best
+  );
   expect(strongestVisual.weight).toBeGreaterThan(weakestVisual.weight);
   expect(strongestVisual.fontSize).toBeGreaterThan(weakestVisual.fontSize);
   expect(strongestVisual.fontWeight).toBeGreaterThan(weakestVisual.fontWeight);
@@ -86,7 +84,36 @@ test('tag cloud lays out responsively and gives hovered tags spatial focus', asy
   expect(centerGravity.strongest).toBeLessThan(centerGravity.weakestAverage);
 
   const focused = cloud.locator('[data-tag="ai"]');
-  const peer = cloud.locator('[data-tag="institutions"]').locator('xpath=..');
+  const peerTag = await cloud.evaluate((element) => {
+    const focused = element.querySelector<HTMLElement>('[data-tag="ai"]');
+    if (!focused) throw new Error('Missing ai tag');
+    const focusedBox = focused.parentElement?.getBoundingClientRect();
+    if (!focusedBox) throw new Error('Missing focused tag geometry');
+    const centerX = focusedBox.left + focusedBox.width / 2;
+    const centerY = focusedBox.top + focusedBox.height / 2;
+    const peers = [
+      ...element.querySelectorAll<HTMLElement>(
+        '[data-test-id="tag-cloud-link"]'
+      ),
+    ]
+      .filter((candidate) => candidate !== focused)
+      .map((candidate) => {
+        const box = candidate.parentElement?.getBoundingClientRect();
+        return {
+          tag: candidate.dataset.tag ?? '',
+          distance: box
+            ? Math.hypot(
+                box.left + box.width / 2 - centerX,
+                box.top + box.height / 2 - centerY
+              )
+            : Infinity,
+        };
+      })
+      .sort((left, right) => left.distance - right.distance);
+    return peers[0]?.tag ?? '';
+  });
+  if (!peerTag) throw new Error('Missing nearby tag sample');
+  const peer = cloud.locator(`[data-tag="${peerTag}"]`).locator('xpath=..');
   const before = await peer.evaluate(
     (element) => getComputedStyle(element).transform
   );

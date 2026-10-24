@@ -28,6 +28,9 @@ test('Articles index exposes every Atlas chapter except references', async ({
 }) => {
   await page.goto('/articles/');
 
+  const descriptions: string[] = [];
+  const tagSets: string[] = [];
+
   for (const [index, title] of chapterTitles.entries()) {
     const order = String(index + 1).padStart(2, '0');
     const card = page.locator(
@@ -35,7 +38,22 @@ test('Articles index exposes every Atlas chapter except references', async ({
     );
     await expect(card).toBeVisible();
     await expect(card.locator('h2')).toHaveText(title);
+    descriptions.push(
+      (await card.locator('.content-card-description').textContent())?.trim() ??
+        ''
+    );
+    tagSets.push(
+      (await card.locator('.tag-list').textContent())
+        ?.replace(/\s+/g, ' ')
+        .trim() ?? ''
+    );
   }
+
+  expect(new Set(descriptions).size).toBe(chapterTitles.length);
+  expect(new Set(tagSets).size).toBe(chapterTitles.length);
+  expect(descriptions).not.toContain(
+    'Follow the incidents, the machinery, and the human work holding the relationships together.'
+  );
 
   await expect(page.locator('.card-grid')).not.toContainText(
     'Appendices & References'
