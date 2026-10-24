@@ -57,16 +57,26 @@ test('Atlas uses the shared site shell and starts in text-only mode', async ({
   ).toBeVisible();
   await expect(page.locator('.atlas-source .art-stage').first()).toBeHidden();
   await expect(page.locator('[data-atlas-scene-jumper]')).toBeHidden();
-  await expect(page.getByTestId('atlas-chapter-rail')).toBeHidden();
+  const rail = page.getByTestId('atlas-chapter-rail');
+  await expect(rail).toBeVisible();
+  await expect(rail.locator('a')).toHaveCount(16);
+  await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
+    'aria-label',
+    'Chapter 1: What Happened to Us'
+  );
   await expect(page.locator('main')).not.toContainText('Migration status');
   await expect(page.locator('main')).not.toContainText(
     'illustrated scenes ported'
   );
   await expect(page.locator('main')).not.toContainText('Semi-final');
   await expect(page.locator('main')).not.toContainText('Prepared for Crates');
+  await expect(page.locator('main')).not.toContainText('frozen Failure Atlas');
+  await expect(page.locator('main')).not.toContainText('frozen Atlas');
 });
 
-test('every published Atlas chapter route resolves', async ({ page }) => {
+test('every Atlas chapter listed on the Articles index resolves', async ({
+  page,
+}) => {
   await page.goto('/articles/');
   const links = page.locator(
     '[data-test-id^="content-card-entif.essay.agentic-aberrancy-atlas."] h2 a'
@@ -99,7 +109,7 @@ test('visualization is an explicit progressive enhancement', async ({
   await expect(page.getByTestId('atlas-motion-toggle')).toBeVisible();
   const rail = page.getByTestId('atlas-chapter-rail');
   await expect(rail).toBeVisible();
-  await expect(rail.locator('a')).toHaveCount(15);
+  await expect(rail.locator('a')).toHaveCount(16);
   await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
     'aria-label',
     'Chapter 1: What Happened to Us'
@@ -109,7 +119,6 @@ test('visualization is an explicit progressive enhancement', async ({
 test('chapter rail navigates among Atlas chapters', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(route);
-  await page.getByTestId('atlas-view-toggle').click();
 
   const secondChapter = page
     .getByTestId('atlas-chapter-rail')
@@ -122,6 +131,43 @@ test('chapter rail navigates among Atlas chapters', async ({ page }) => {
   await secondChapter.click();
   await expect(page).toHaveURL(
     /\/articles\/agentic-aberrancy-atlas\/02-the-pattern-hidden-inside-296-reports\/$/
+  );
+});
+
+test('References exists as Chapter 16 but stays off the Articles index', async ({
+  page,
+}) => {
+  const referencesRoute =
+    '/articles/agentic-aberrancy-atlas/16-appendices-and-references/';
+
+  await page.goto('/articles/');
+  await expect(
+    page.locator(
+      '[data-test-id="content-card-entif.essay.agentic-aberrancy-atlas.16"]'
+    )
+  ).toHaveCount(0);
+
+  await page.goto(
+    '/articles/agentic-aberrancy-atlas/15-where-this-trajectory-leads/'
+  );
+  const next = page.locator('.atlas-ending a').filter({
+    hasText: 'Appendices & References',
+  });
+  await expect(next).toBeVisible();
+  await expect(next).toHaveAttribute('href', referencesRoute);
+
+  await next.click();
+  await expect(page).toHaveURL(
+    /\/articles\/agentic-aberrancy-atlas\/16-appendices-and-references\/$/
+  );
+  await expect(page.locator('.atlas-source h1')).toHaveText(
+    'Appendices & References'
+  );
+  const rail = page.getByTestId('atlas-chapter-rail');
+  await expect(rail.locator('a')).toHaveCount(16);
+  await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
+    'aria-label',
+    'Chapter 16: Appendices & References'
   );
 });
 
@@ -141,6 +187,10 @@ test('text-only mode remains the complete no-JavaScript fallback', async ({
   ).toBeVisible();
   await expect(page.locator('.atlas-source .art-stage').first()).toBeHidden();
   await expect(page.getByTestId('atlas-view-toggle')).toBeHidden();
+  await expect(page.getByTestId('atlas-chapter-rail')).toBeVisible();
+  await expect(page.getByTestId('atlas-chapter-rail').locator('a')).toHaveCount(
+    16
+  );
 
   await context.close();
 });

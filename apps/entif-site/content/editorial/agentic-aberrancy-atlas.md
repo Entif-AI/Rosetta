@@ -2,7 +2,7 @@
 title: An Agentic Aberrancy Atlas Shrugged
 subtitle: The paradox of late-stage techno-capitalism
 report: Illustrated editorial
-chapters: 15
+chapters: 16
 navigation: Chapters
 previous: Previous chapter
 next: Next chapter

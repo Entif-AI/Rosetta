@@ -38,7 +38,7 @@ const href = (item: SiteEntry) =>
     <nav
       class="atlas-chapter-rail"
       data-test-id="atlas-chapter-rail"
-      aria-label={metadata.navigation}
+      aria-label="Chapter navigation"
     >
       {
         chapters.map((item) => {
@@ -94,7 +94,7 @@ const href = (item: SiteEntry) =>
       set:html={chapter.html}
     />
 
-    <nav class="atlas-ending" aria-label={metadata.navigation}>
+    <nav class="atlas-ending" aria-label="Chapter pagination">
       {
         previous ? (
           <a href={href(previous)}>

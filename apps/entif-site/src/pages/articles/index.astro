@@ -8,8 +8,10 @@ import { copy } from '../../lib/copy';
 const entry = await getEntry('pages', 'articles');
 if (!entry) throw new Error('Missing page copy');
 const base = import.meta.env.BASE_URL;
-const entries = (await getPublishedEntries()).filter((entry) =>
-  ['essay', 'update'].includes(entry.data.kind)
+const entries = (await getPublishedEntries()).filter(
+  (entry) =>
+    ['essay', 'update'].includes(entry.data.kind) &&
+    !entry.data.hideFromArticlesIndex
 );
 entries.sort((left, right) => {
   if (
