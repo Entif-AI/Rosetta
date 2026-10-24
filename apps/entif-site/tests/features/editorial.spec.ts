@@ -7,6 +7,25 @@ const routes = readdirSync(`dist${prefix}`, { withFileTypes: true })
   .map((entry) => `${prefix}${entry.name}/`)
   .sort();
 
+test('Citations stays published but is hidden from the Articles index', async ({
+  page,
+}) => {
+  const citationsRoute = `${prefix}17-citations/`;
+
+  await page.goto('/articles/');
+  await expect(
+    page.locator('[data-test-id="content-card-entif.essay.etr-2026-07.17"]')
+  ).toHaveCount(0);
+  await expect(page.locator('.card-grid')).not.toContainText('Citations');
+
+  const response = await page.request.get(citationsRoute);
+  expect(response.status()).toBe(200);
+
+  await page.goto(citationsRoute);
+  await expect(page.getByTestId('editorial-series')).toBeVisible();
+  await expect(page.locator('h1')).toContainText('Citations');
+});
+
 test('short article routes retain the editorial series treatment', async ({
   page,
 }) => {

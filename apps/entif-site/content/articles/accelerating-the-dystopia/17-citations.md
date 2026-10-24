@@ -14,6 +14,7 @@
   'report': 'ETR-2026-07',
   'sourceRefs':
     ['https://drive.google.com/file/d/1d8BmPEb7eKh-iPbdqHzwFXLxANz4nvbW/view'],
+  'hideFromArticlesIndex': true,
   'series': { 'id': 'accelerating-the-dystopia', 'order': 17 },
 }
 ---
