@@ -108,8 +108,11 @@ const steps = [
         </div>
         <div class="home-research-grid">
           {
-            research.map((entry) => (
-              <ContentCard card={toContentCard(toSummary(entry), base)} />
+            research.map((entry, index) => (
+              <ContentCard
+                card={toContentCard(toSummary(entry), base)}
+                artworkIndex={index}
+              />
             ))
           }
         </div>
@@ -198,8 +201,11 @@ const steps = [
         </div>
         <div class="home-project-grid">
           {
-            featured.map((entry) => (
-              <ContentCard card={toContentCard(toSummary(entry), base)} />
+            featured.map((entry, index) => (
+              <ContentCard
+                card={toContentCard(toSummary(entry), base)}
+                artworkIndex={index + 7}
+              />
             ))
           }
         </div>

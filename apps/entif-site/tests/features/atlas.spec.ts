@@ -1,6 +1,10 @@
 import { expect, test } from '@playwright/test';
 
 const route = '/articles/agentic-aberrancy-atlas/01-what-happened-to-us/';
+const citationRoute =
+  '/articles/agentic-aberrancy-atlas/03-memory-without-continuity/';
+const referencesRoute =
+  '/articles/agentic-aberrancy-atlas/16-appendices-and-references/';
 const chapterTitles = [
   'What Happened to Us',
   'The Pattern Hidden Inside 296 Reports',
@@ -137,9 +141,6 @@ test('chapter rail navigates among Atlas chapters', async ({ page }) => {
 test('References exists as Chapter 16 but stays off the Articles index', async ({
   page,
 }) => {
-  const referencesRoute =
-    '/articles/agentic-aberrancy-atlas/16-appendices-and-references/';
-
   await page.goto('/articles/');
   await expect(
     page.locator(
@@ -171,6 +172,73 @@ test('References exists as Chapter 16 but stays off the Articles index', async (
   );
 });
 
+test('Atlas citations preview on hover and focus, then navigate to the exact reference anchor', async ({
+  page,
+}) => {
+  await page.goto(citationRoute);
+
+  const trigger = page.locator(
+    '[data-test-id="citation-trigger"][data-citation-keys="C03,B:M045,B:M049,B:M047"]'
+  );
+  const citation = trigger.locator('xpath=..');
+  const panel = citation.getByTestId('citation-panel');
+
+  await trigger.hover();
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('C03');
+  await expect(panel).toContainText('Failure Atlas deep case');
+
+  await page.mouse.move(0, 0);
+  await expect(panel).not.toBeVisible();
+  await trigger.focus();
+  await expect(panel).toBeVisible();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+  const reference = panel.locator(
+    `[data-test-id="citation-reference"][href="${referencesRoute}#atlas-source-c03"]`
+  );
+  await expect(reference).toHaveAttribute(
+    'href',
+    `${referencesRoute}#atlas-source-c03`
+  );
+  await reference.click();
+  await expect(page).toHaveURL(
+    new RegExp(`${referencesRoute}#atlas-source-c03$`)
+  );
+  await expect(page.locator('#atlas-source-c03')).toHaveCount(1);
+  await expect(page.locator('#atlas-source-c03')).toHaveCSS(
+    'scroll-margin-top',
+    /.+/
+  );
+});
+
+test('Atlas citation disclosure works by touch without forcing navigation', async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  });
+  const page = await context.newPage();
+  await page.goto('http://127.0.0.1:4322' + citationRoute);
+
+  const citation = page.getByTestId('editorial-citation').filter({
+    hasText: 'B:M045',
+  });
+  await citation.getByTestId('citation-trigger').tap();
+  const panel = citation.getByTestId('citation-panel');
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('Bilqis Mistakes ledger record');
+  await expect(panel.getByTestId('citation-reference').first()).toHaveAttribute(
+    'href',
+    new RegExp(`^${referencesRoute}#atlas-source-`)
+  );
+  await panel.getByTestId('citation-close').tap();
+  await expect(panel).not.toBeVisible();
+  await context.close();
+});
+
 test('text-only mode remains the complete no-JavaScript fallback', async ({
   browser,
 }) => {
@@ -191,6 +259,8 @@ test('text-only mode remains the complete no-JavaScript fallback', async ({
   await expect(page.getByTestId('atlas-chapter-rail').locator('a')).toHaveCount(
     16
   );
+  await expect(page.getByTestId('citation-fallback').first()).toBeVisible();
+  await expect(page.getByTestId('citation-trigger').first()).toBeHidden();
 
   await context.close();
 });

@@ -318,29 +318,12 @@
     gap: clamp(1rem, 2vw, 2rem);
   }
 
-  .entif-home .home-light .content-card {
-    background: #fffcf8;
-    border: 1px solid #d1d8dd;
-  }
-
-  .entif-home .home-light .content-card h3 a,
-  .entif-home .home-light .content-card h2 a {
-    color: var(--home-ink);
-  }
-
-  .entif-home .home-dark .content-card {
-    background: #0c304a;
-    border: 1px solid var(--home-rule);
-  }
-
-  .entif-home .home-dark .content-card h3 a,
-  .entif-home .home-dark .content-card h2 a {
-    color: var(--home-white);
-  }
-
-  .entif-home .home-dark .content-card p,
-  .entif-home .home-dark .card-meta {
-    color: var(--home-muted);
+  .entif-home .content-card {
+    --card-bg: #0c304a;
+    --card-border: var(--home-rule);
+    --card-ink: var(--home-white);
+    --card-muted: var(--home-muted);
+    --card-accent: var(--home-orange);
   }
 
   .entif-home .home-inline-link {
@@ -527,7 +510,7 @@
     color: #88420e;
   }
 
-  .entif-home .home-dark .content-card .eyebrow {
+  .entif-home .content-card .eyebrow {
     color: #ffc18f;
   }
 }

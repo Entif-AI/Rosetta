@@ -378,6 +378,42 @@
     text-underline-offset: 0.2em;
   }
 
+  .editorial-citation > a,
+  .editorial-citation > button {
+    color: var(--atlas-rust);
+  }
+
+  .editorial-citation-panel {
+    border-color: var(--atlas-rust);
+    background: var(--atlas-cream);
+    color: var(--atlas-ink);
+    font-family: var(--atlas-sans);
+  }
+
+  .editorial-citation-panel button {
+    border-color: var(--atlas-rust);
+    color: var(--atlas-rust);
+    background: var(--atlas-cream);
+  }
+
+  .editorial-citation-source > span:last-child {
+    color: var(--atlas-muted);
+  }
+
+  .atlas-reference-anchor {
+    display: block;
+    width: 0;
+    height: 0;
+    scroll-margin-top: 5rem;
+  }
+
+  .article-copy h2:has(.atlas-reference-anchor:target) {
+    text-decoration: underline;
+    text-decoration-color: var(--atlas-gold);
+    text-decoration-thickness: 0.18em;
+    text-underline-offset: 0.18em;
+  }
+
   .atlas-ending {
     display: flex;
     justify-content: space-between;

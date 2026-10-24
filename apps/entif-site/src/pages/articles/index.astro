@@ -34,10 +34,11 @@ entries.sort((left, right) => {
   {
     entries.length ? (
       <div class="card-grid">
-        {entries.map((item) => (
+        {entries.map((item, index) => (
           <ContentCard
             headingLevel={2}
             card={toContentCard(toSummary(item), base)}
+            artworkIndex={index}
           />
         ))}
       </div>

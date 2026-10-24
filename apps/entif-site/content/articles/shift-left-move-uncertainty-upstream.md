@@ -23,8 +23,8 @@
       'OpenAI - GPT-6 Astra: A new generation of intelligence - 2026-09-03',
       'OpenAI - Research acceleration: The view inside OpenAI - 2026-09-06',
       'Jakub Pachocki - An Alien Mind - OpenAI - 2026-09-06',
-      'entif-ai/rosetta - GitHub issue and publication history - inspected 2026-09-12',
-      'entif-ai/bilqis - GitHub issue and repository bootstrap history - inspected 2026-09-12',
+      'Entif-AI/Rosetta - GitHub issue and publication history - inspected 2026-09-12',
+      'Entif-AI/Bilqis-MLX - GitHub issue and repository bootstrap history - inspected 2026-09-12',
     ],
   'featured': true,
 }
@@ -88,7 +88,7 @@ We use a related rule inside the <a href="https://github.com/entif-ai/bilqis/iss
 
 ## Make disagreement productive before merge
 
-We used the same adversarial pattern when we created the <a href="https://github.com/entif-ai/bilqis" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/12/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
+We used the same adversarial pattern when we created the <a href="https://github.com/Entif-AI/Bilqis-MLX" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/12/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
 
 Two agents, each running a frontier model at its highest available reasoning setting, received the migration brief. Each treated its own branch as the base and built a competing implementation. Their approaches and contents differed enough to create a useful comparison.
 
@@ -102,7 +102,7 @@ Continuous participation also helps the human operator learn. The review process
 
 ## Governance as working memory
 
-The <a href="https://github.com/entif-ai/rosetta" rel="nofollow noreferrer noopener" target="_blank">Rosetta repository</a> shows the same pattern at a larger scale. <a href="https://github.com/entif-ai/rosetta/issues" rel="nofollow noreferrer noopener" target="_blank">GitHub search returned 845 issue records</a> in the repository on September 12.
+The <a href="https://github.com/Entif-AI/Rosetta" rel="nofollow noreferrer noopener" target="_blank">Rosetta repository</a> shows the same pattern at a larger scale. <a href="https://github.com/Entif-AI/Rosetta/issues" rel="nofollow noreferrer noopener" target="_blank">GitHub search returned 845 issue records</a> in the repository on September 12.
 
 That number spans different work states, closed history, gated proposals, research tasks, and implementation issues. Its value here is that decisions have durable addresses.
 

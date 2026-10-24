@@ -45,8 +45,12 @@ const lede = formatCopy(copy.tagCount, { count: matching.length });
 >
   <div class="card-grid" data-test-id="tag-page-grid">
     {
-      matching.map((item) => (
-        <ContentCard headingLevel={2} card={toContentCard(item, baseUrl)} />
+      matching.map((item, index) => (
+        <ContentCard
+          headingLevel={2}
+          card={toContentCard(item, baseUrl)}
+          artworkIndex={index}
+        />
       ))
     }
   </div>

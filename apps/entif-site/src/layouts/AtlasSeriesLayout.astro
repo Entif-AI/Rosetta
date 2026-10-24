@@ -2,8 +2,9 @@
 /* eslint-disable astro/no-set-html-directive -- Atlas chapter fragments are checked-in, publication-screened build inputs with no runtime/user interpolation. */
 import FullWidthPageLayout from './FullWidthPageLayout.astro';
 import { getContentPath, joinBasePath } from '../lib/content';
-import { getAtlasChapter } from '../lib/atlas';
+import { ATLAS_REFERENCE_PATH, getAtlasChapter } from '../lib/atlas';
 import { toSummary, type SiteEntry } from '../lib/site-data';
+import '../styles/editorial/citations.css';
 import '../styles/atlas/atlas.scss';
 
 interface Props {
@@ -16,8 +17,11 @@ const { entry, chapters, metadata } = Astro.props;
 const current = entry.data.series!.order;
 const previous = chapters[current - 2];
 const next = chapters[current];
-const chapter = getAtlasChapter(current);
 const base = import.meta.env.BASE_URL;
+const chapter = getAtlasChapter(
+  current,
+  joinBasePath(base, ATLAS_REFERENCE_PATH)
+);
 const href = (item: SiteEntry) =>
   joinBasePath(base, getContentPath(toSummary(item)));
 ---
@@ -141,6 +145,8 @@ const href = (item: SiteEntry) =>
 
 <script>
   import { enhanceAtlas } from '../scripts/atlas';
+  import { enhanceCitations } from '../scripts/editorial-citations';
 
   enhanceAtlas();
+  enhanceCitations();
 </script>

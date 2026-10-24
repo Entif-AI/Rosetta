@@ -9,7 +9,7 @@
   'published': '2026-10-24',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'agentic-ai', 'reliability'],
-  'projects': [],
+  'projects': ['bilqis'],
   'routeTag': 'ai',
   'sourceRefs': [],
   'series': { 'id': 'agentic-aberrancy-atlas', 'order': 6 },
