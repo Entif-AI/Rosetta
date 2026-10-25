@@ -1,0 +1,12 @@
+{
+  "maintainer": "Entif/Rosetta maintainers",
+  "source_doctrine": "Rosetta v3.0.0 Core Spine; public evaluation Profiles #1694 and #1695",
+  "lifecycle": "draft",
+  "security_classification": "public",
+  "tags": ["schema-pack", "evaluation", "salience", "counterfactual"],
+  "automation": {
+    "manifest": "pack.json",
+    "conformance": "pnpm run packs:conformance",
+    "example_test": "pnpm exec nx run pack-conformance:test"
+  }
+}

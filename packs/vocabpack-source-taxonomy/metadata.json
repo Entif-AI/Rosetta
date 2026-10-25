@@ -1,0 +1,11 @@
+{
+  "maintainer": "Entif/Rosetta maintainers",
+  "source_doctrine": "Rosetta v3.0.0 Core Spine; Doctrine v0.2; PACK-SOURCE-TAXONOMY",
+  "lifecycle": "draft",
+  "security_classification": "public",
+  "tags": ["vocabpack", "taxonomy", "source-tier", "trust"],
+  "automation": {
+    "manifest": "pack.json",
+    "conformance": "pnpm run packs:conformance"
+  }
+}

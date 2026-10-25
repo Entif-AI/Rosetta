@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "schema-pack-evaluation-profiles",
-  "pack_id": "cidv1-sha256-2385e88732d01be2a3c5a1294981aa1522b298e1abeb88c55d54ab0117f6514a",
+  "pack_id": "cidv1-sha256-cdc4a3bfa7a06aa7c2e8d69468893ae256dd82685a165a35ad9841bba3eae0b8",
   "kind": "schema-pack",
   "category": "SchemaPack",
   "namespace": "salience",
@@ -16,6 +16,9 @@
     "max_exclusive": "4.0.0"
   },
   "entrypoints": {
+    "examples": [
+      "examples/salience-evaluation.json"
+    ],
     "schema": [
       "schema/salience-evaluation.schema.json",
       "schema/counterfactual-evaluation.schema.json"
