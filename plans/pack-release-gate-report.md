@@ -1,0 +1,62 @@
+---
+id: entif:pack-release-gate-report
+task: T7904
+status: in-progress
+depends: [pack-path-confinement]
+awaits: []
+specs: [specs/architecture.md]
+issues: [790]
+pr: 1827
+---
+# Compose the Pack release-gate report
+
+## Scope and authority
+
+Issue #790 requires one generic workspace Pack release-gate signal that composes manifest authority, deterministic Pack checks, repo-local `doc_id` and dependency checks, and the existing bootstrap workspace proof. Pack-specific semantic fixtures remain downstream consumers of this gate and do not define generic #790 readiness.
+
+The report is conformance evidence only. #676 still owns governed DocID registry semantics, #79 owns optional Pack subtrees, #1172 owns governed non-Pack roots, #240 owns broader Profile conformance, and #1118 owns RRP-specific closure. No #1118/#1825 behavior is a prerequisite for this generic gate.
+
+## Contract
+
+The current report uses four fixed ordered implemented stages: Pack-root/manifest, Pack integrity, DocID/dependencies, and bootstrap workspace. A failure blocks later stages. Errors already observed by the inherited Pack validator remain available in the report.
+
+The ROCK release-obligations audit follows these stages only when the generic Pack validator succeeds. It is a separate fifth stage so a draft ROCK filesystem rule cannot silently become a new requirement of the accepted `pack.json` JSON Schema. The audit emits per-Pack outcomes (`pass`, `fail`, `not-applicable`, `not-evaluated`) and exact failure details. A proven failure blocks release, while incomplete/undetermined evidence keeps the report `partial`, and the exit code remains nonzero in either case. This is a **release-evidence** target, not generic manifest conformance, core semantics, or authorization to merge.
+
+ROCK-3111-C §8 also names generic required-file presence, example validation, applicable vector execution, required traceability headers, changelog/version consistency, and breaking-change migration strategy. Those are not all computed by the current generic validator. Until they are, a clean four-stage run MUST report `disposition: partial`, enumerate the unevaluated obligations, and return nonzero instead of claiming release readiness.
+
+## ROCK §2/§5/§7/§8 reconciliation and acceptance matrix
+
+Source posture: ROCK-3111-C is **Draft**. The accepted live manifest contract in `packs/_schemas/pack-manifest.schema.json` is authoritative for `pack.json` shape, including the `entrypoints` enum. Historical ROCK example keys such as `primary_schema` are not accepted aliases. The generic filesystem/release requirements are evaluated as a distinct draft release contract; this change does not quietly add requirements to the manifest validator, grant Packs certification, or invent approved exceptions.
+
+| Requirement | Current release audit and executable failure case | Unfinished acceptance proof |
+| --- | --- | --- |
+| Required root files / §2 | Inspect regular, nonempty README, acceptance, and JSON object metadata; require CHANGELOG after `0.0.x` (the specific §2.1 grace rule); require nonempty `examples/`, `tests/`. Symlinks and empty files do not count. Missing artifacts produce `fail` with paths. | Existing Packs need genuine authored root artifacts, not placeholder files. Confirm whether full §2.0 minimum overrides the §2.1 changelog grace period before acceptance. |
+| Example validation / §§2,8 | Require at least one declared example and the example directory. A missing declaration fails. | Specify example-to-schema/semantic mappings and run them. Markdown examples cannot be assumed valid from path existence. No false pass. |
+| Vector execution / §§3,6,8 | Detect a vector directory and explicitly report `not-evaluated`, or `not-applicable` without one. | Each applicable vector must bind to a deterministic runner, expected positive/negative verdict, version/profile and executable proof. RRP-specific #1118 may supply evidence, not generic semantics. |
+| Traceability / §5 | Explicit `not-evaluated`; no unchecked header is called valid. | Define compatible sidecar/metadata mapping for JSON/TTL files that cannot accept a literal plain-text DocID header; verify required normative classes and reject stale headers. |
+| Changelog for normative edits / §§7,8 | Git path diff identifies candidate normative changes but leaves their semantic classification `not-evaluated`. | Add authoritative classification/attestation linking the change to its changelog entry and tests. |
+| Release version versus changelog / §§7,8 | Compare `pack.json` version to base ref, require changed changelog and new version entry for bumps; missing baseline is `not-evaluated`. | Check semver bump *magnitude* against normative change impact; avoid pretending filesystem diffs settle semantics. |
+| Breaking migration / §7 | Candidate semantic paths are flagged for review; lack of change is `not-applicable`, not a fabricated migration waiver. | Record breaking/additive classification and require migration notes, translator, or before/after fixtures as appropriate. |
+
+Observed baseline on the checked `main`: all four Packs lack root README, CHANGELOG, acceptance and metadata files; evaluation-profile SchemaPack also lacks an example directory. These must be fixed or expressly reconciled through accepted specification motion before this draft release check could pass. **Do not** write synthetic acceptance claims to make the report green.
+
+The release gate has three distinct evidence conditions: `fail` means a requirement was checked and violated; `not-evaluated` means its test/authority/evidence contract is incomplete; `not-applicable` means the specific trigger was absent; `pass` requires actual verification. Failure or incomplete coverage must never yield exit code zero. A green generic Pack report is evidence only, not merge/release/promotion authorization.
+
+Local execution uses `pnpm run packs:release-gate`; Nx exposes `pack-release-gate:report`. The incomplete report is deliberately not a generic `spec-admission` target. The report path is `dist/pack-release-gate/report.json`.
+
+## Validation
+
+- [x] Active #790 PRs and current open-PR file overlap were inspected before edits.
+- [x] Current draft #1826 base head is incorporated without mutating #1826.
+- [x] Red-before-green fixture run failed because `release-gate.mjs` did not yet exist after local dependencies were installed.
+- [x] Positive and negative report fixtures pass with deterministic stage ordering.
+- [x] A clean implemented-stage run is explicitly `partial`, never `pass`, while ROCK generic release obligations remain unevaluated.
+- [x] Existing Pack conformance and bootstrap proof remain green.
+- [x] RRP-specific #1118/#1825 dependency, target execution, and merged tree effects are removed from the generic #790 candidate.
+- [x] The incomplete release report is not exposed as a generic `spec-admission` success surface.
+- [x] `pnpm verify`, governance checks, SpecOps/Nx sync, focused Pack/gate tests, and `git diff --check` pass on the repaired final candidate.
+- [ ] Remote feature SHA, draft PR, #790 receipt, and hosted admission are read back.
+- [ ] Remaining generic ROCK release obligations are implemented or assigned to accepted follow-up motion before T7904 can become `done`.
+- [x] Required-root-file, undeclared-example and version/changelog failures are independently observable in the release report with negative fixtures.
+- [x] Non-applicable conditions are represented separately from unverified example, vector, traceability and migration semantics.
+- [ ] Remaining `not-evaluated` obligations gain authoritative machine-readable binding and runner/fixture proofs; existing Pack root deficiencies are resolved by separate maintained Pack changes.
