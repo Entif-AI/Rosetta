@@ -1,5 +1,7 @@
 import { mkdir, copyFile } from 'node:fs/promises';
 import { unified } from '@astrojs/markdown-remark';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import {
   remarkSiteAssets,
   rehypeSiteTables,
@@ -20,8 +22,11 @@ export default defineConfig({
   output: 'static',
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkSiteAssets],
-      rehypePlugins: [rehypeSiteTables, rehypeEditorial],
+      remarkPlugins: [
+        [remarkMath, { singleDollarTextMath: false }],
+        remarkSiteAssets,
+      ],
+      rehypePlugins: [rehypeKatex, rehypeSiteTables, rehypeEditorial],
     }),
   },
   integrations: [

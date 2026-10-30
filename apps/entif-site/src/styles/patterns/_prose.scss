@@ -52,6 +52,12 @@
     background: var(--accent-soft);
   }
 
+  .prose .katex-display {
+    max-width: 100%;
+    overflow: auto hidden;
+    padding-block: 0.5rem;
+  }
+
   .prose pre.astro-code,
   .prose pre.astro-code code {
     background: unset;

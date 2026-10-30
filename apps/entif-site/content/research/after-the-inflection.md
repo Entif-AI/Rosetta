@@ -153,7 +153,9 @@ This is a mechanism, not an assertion that every deployment becomes a research l
 
 A schematic accounting identity helps expose the assumptions. Let N be the number of active machine workstreams, u their utilization, q their accepted contribution rate, and v the share relevant to future capability. Then effective machine contribution to development can be organized as:
 
-$$R_M = N u q v.$$
+$$
+R_M = N u q v.
+$$
 
 The factors are defined for one workload and time interval; they are not independent, and the expression is not a measured global production function. More workstreams can reduce q if review is overloaded. A better model can reduce the human attention needed per accepted result, increase the range of relevant tasks, or do neither. A deployment boom can raise N while v remains negligible.
 
@@ -183,7 +185,9 @@ A J-shaped image can conceal several different claims. The amount of output may 
 
 For a positive, consistently measured quantity X(t), define the instantaneous proportional growth rate:
 
-$$g(t)=\frac{d\log X(t)}{dt}=\frac{\dot X(t)}{X(t)}.$$
+$$
+g(t)=\frac{d\log X(t)}{dt}=\frac{\dot X(t)}{X(t)}.
+$$
 
 Constant g produces exponential growth. For the finite-horizon analysis here, a _superexponential interval_ means that g increases over the interval: the log of the quantity has positive curvature. This is an explicit operational definition, not a claim about asymptotic behavior for all time. A worldwide index called disruption does not yet supply such a measurement. It would first need defensible units, coverage, aggregation, and a treatment of changes in quality.
 
@@ -193,13 +197,17 @@ The distinction matters because a frightening-looking curve can be drawn from ar
 
 Suppose capability, deployment scale, and utilization follow fixed-rate exponentials. Their product is:
 
-$$X(t)=X_0 e^{g_1t} e^{g_2t} e^{g_3t}=X_0 e^{(g_1+g_2+g_3)t}.$$
+$$
+X(t)=X_0 e^{g_1t} e^{g_2t} e^{g_3t}=X_0 e^{(g_1+g_2+g_3)t}.
+$$
 
 The rate is larger, but still constant. Thus a list of simultaneous improvements in chips, algorithms, memory, and adoption is not by itself evidence that the growth rate is increasing. The stronger claim requires feedback that changes the rates, sustained changes in task coverage, or another mechanism that increases proportional growth. This corrects an overextended reading of the motivating discussion without discarding its central insight. [2]
 
 A simple illustrative alternative is:
 
-$$X(t)=X_0\exp\left(g_0t+\tfrac12 at^2\right),\qquad g(t)=g_0+at.$$
+$$
+X(t)=X_0\exp\left(g_0t+\tfrac12 at^2\right),\qquad g(t)=g_0+at.
+$$
 
 For positive a, proportional growth rises. Here a is an assumed acceleration parameter, not one estimated from the available evidence. Figure 2 compares this construction with fixed-rate growth. Its horizontal axis is normalized time, deliberately not calendar years. It is a demonstration of the distinction, not a forecast of capabilities, GDP, unemployment, or social distress.
 
@@ -211,11 +219,15 @@ _Figure 2. Author calculations from X = exp(0.25t) and X = exp(0.25t + 0.06t squ
 
 A still more aggressive toy model assumes that an existing stock of capability directly increases its own growth productivity:
 
-$$\dot X=kX^{1+\beta},\qquad k>0,\ \beta>0.$$
+$$
+\dot X=kX^{1+\beta},\qquad k>0,\ \beta>0.
+$$
 
 Its solution is:
 
-$$X(t)=\left[X(0)^{-\beta}-\beta kt\right]^{-1/\beta},$$
+$$
+X(t)=\left[X(0)^{-\beta}-\beta kt\right]^{-1/\beta},
+$$
 
 while the bracket remains positive. The mathematical divergence at the bracket's zero is a property of the assumptions. It is not evidence of an actual finite-time singularity. The model omits finite energy, evaluation limits, diminishing returns, substitution, institutional constraints, and changes in what X even measures. Its use is diagnostic: a prediction of unbounded growth should reveal which missing constraint it assumes away.
 
@@ -235,7 +247,9 @@ The stronger proposition worth testing is not that every line bends upward forev
 
 Consider a sequential project in which a fraction f of baseline completion time can be accelerated by a factor s, while the remainder is unchanged. With no new overhead or changes in scope, the overall speedup is:
 
-$$S=\frac{1}{(1-f)+f/s}.$$
+$$
+S=\frac{1}{(1-f)+f/s}.
+$$
 
 If f = 0.8 and s = 10, S is approximately 3.57, not ten. Even infinite acceleration of that fraction leaves an upper bound of five. These are arithmetic consequences of a stated toy workflow, not estimates of AI's economic impact.
 
@@ -632,7 +646,9 @@ The prior governance-lag ratio compared response time with the interval between 
 
 For a narrowly defined institutional process, let B be a backlog of unresolved adaptation tasks, a the tasks arriving during an interval, and c the tasks completed to an agreed standard. A simple accounting model is:
 
-$$B_{t+1}=\max(0,B_t+a_t-c_t).$$
+$$
+B_{t+1}=\max(0,B_t+a_t-c_t).
+$$
 
 Tasks must be comparable or separately categorized; a policy amendment and a clinical consultation are not interchangeable units. The equation does not model a person's mental state, and no parameters are estimated here. Its purpose is to reveal that more change requires either more effective response capacity, fewer simultaneous commitments, or a growing backlog.
 
