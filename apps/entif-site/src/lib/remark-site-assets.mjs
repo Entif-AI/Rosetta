@@ -41,6 +41,15 @@ export function rehypeSiteTables() {
     const text = (node) =>
       node.value ?? node.children?.map(text).join(' ') ?? '';
     const walk = (node) => {
+      const classes = node.properties?.className;
+      if (
+        node.tagName === 'span' &&
+        (classes === 'katex-display' ||
+          (Array.isArray(classes) && classes.includes('katex-display')))
+      ) {
+        node.properties ??= {};
+        node.properties.tabIndex = 0;
+      }
       if (node.tagName === 'table') {
         node.properties ??= {};
         node.properties.tabIndex = 0;

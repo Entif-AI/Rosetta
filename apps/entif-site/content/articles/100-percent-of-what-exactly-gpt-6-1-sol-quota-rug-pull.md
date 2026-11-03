@@ -8,9 +8,20 @@
   'status': 'published',
   'published': '2026-10-25',
   'authors': ['Crates McDade'],
-  'tags': ['ai', 'openai', 'codex', 'gpt-6-1-sol', 'pricing', 'usage-limits'],
+  'tags':
+    [
+      'token-costs',
+      'billing',
+      'usage-limit',
+      'subscription',
+      'telemetry',
+      'openai',
+      'gpt-6-1-sol',
+      'codex',
+      'quota',
+    ],
   'projects': [],
-  'routeTag': 'ai',
+  'routeTag': 'token-costs',
   'related': [],
   'sourceRefs':
     [
