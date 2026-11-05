@@ -1,0 +1,263 @@
+{
+  "as_of": "2026-11-04",
+  "sources": [
+    {
+      "id": "R22",
+      "title": "Argument Clinic",
+      "author": "Monty Python",
+      "date": "original Flying Circus sketch",
+      "url": "https://www.montypython.com/media",
+      "status": "OFFICIAL_SOURCE_LOCATED",
+      "class": "cultural reference",
+      "supports": "Sketch premise: contradiction versus connected argument."
+    },
+    {
+      "id": "R23",
+      "title": "T3 Code usage-pricing implementation",
+      "author": "pingdotgg/t3code contributors",
+      "date": "current file inspected 2026-11-04 local",
+      "url": "https://github.com/pingdotgg/t3code/blob/main/apps/server/src/usage/usagePricing.ts",
+      "status": "FULL_CODE_READ_VIA_GITHUB",
+      "class": "source code",
+      "blob_sha": "1f515abb736c80a831cb18b24236371d24322444",
+      "supports": "Separate uncached/cache-read/cache-write/output pricing and modelPriced/providerReported distinction.",
+      "scope": "Current code is not authenticated provenance for the historical e-ink number."
+    },
+    {
+      "id": "R06",
+      "title": "The Elusive Backfire Effect: Mass Attitudes' Steadfast Factual Adherence",
+      "author": "Thomas Wood; Ethan Porter",
+      "date": "2018-01-16 online; 2019 volume",
+      "url": "https://doi.org/10.1007/s11109-018-9443-y",
+      "status": "FULL_PDF_METHOD_DEFINITION_AND_DISCUSSION_READ_SCREENSHOT",
+      "class": "experimental research",
+      "supports": "Five experiments, more than 10,100 subjects, 52 issues, no factual backfire found.",
+      "scope": "Evidence-based factual corrections; not a test of irrelevant conversational objections or trust under repeated task substitution."
+    },
+    {
+      "id": "R07",
+      "title": "The limitations of the backfire effect",
+      "author": "Kathryn Haglin",
+      "date": "2017-07-03",
+      "url": "https://doi.org/10.1177/2053168017716547",
+      "status": "READ_PRIMARY",
+      "class": "replication study",
+      "supports": "Failure to replicate flu-vaccine backfire; user's source list contained contrary evidence."
+    },
+    {
+      "id": "R08",
+      "title": "Opinion dynamics with backfire effect and biased assimilation",
+      "author": "Xi Chen; Panayiotis Tsaparas; Jefrey Lijffijt; Tijl De Bie",
+      "date": "2021-09-01",
+      "url": "https://doi.org/10.1371/journal.pone.0256922",
+      "status": "READ_PRIMARY",
+      "class": "mathematical modeling",
+      "supports": "Opinion-formation model incorporating biased assimilation and backfire; conditions for polarization.",
+      "scope": "Not a human experimental replication of universal backfire."
+    },
+    {
+      "id": "R09",
+      "title": "Searching for the Backfire Effect: Measurement and Design Considerations",
+      "author": "Briony Swire-Thompson; Joseph DeGutis; David Lazer",
+      "date": "2020-09-02",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7462781/",
+      "status": "READ_PRIMARY_REVIEW",
+      "class": "scholarly review",
+      "supports": "Backfire is not robust across experiments; measurement and design require precision."
+    },
+    {
+      "id": "R18",
+      "title": "Black October for AI Developer Platforms",
+      "author": "Benjamin Read; Rami McCarthy",
+      "date": "2026-10-30; updates through November 3",
+      "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms",
+      "status": "FULL_PRIMARY_ARTICLE_READ",
+      "class": "primary security analysis",
+      "supports": "Documented October incidents and named public reports, contemporaneous date context.",
+      "scope": "Does not corroborate every catastrophic claim generated in author's Gemini output."
+    },
+    {
+      "id": "R01",
+      "title": "Mitigating prompt injection attacks with a layered defense strategy",
+      "author": "Google GenAI Security Team",
+      "date": "2025-06-13",
+      "url": "https://blog.google/security/mitigating-prompt-injection-attacks/",
+      "status": "READ_PRIMARY",
+      "class": "provider disclosure",
+      "supports": "Targeted security instructions surround prompt content; layered prompt-injection defenses in Gemini apps and Workspace.",
+      "scope": "Does not identify the author's anti-delusion event as this particular mechanism."
+    },
+    {
+      "id": "R02",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "author": "Anca Dragan; Raluca Ada Popa",
+      "date": "2026-10-13",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+      "status": "READ_PRIMARY",
+      "class": "provider disclosure",
+      "supports": "Input screening, activation probes, continuous monitoring, scratchpad monitoring and midstream intervention.",
+      "scope": "Specific high-risk and agent-control mechanisms; not authenticated policy payload for author's session."
+    },
+    {
+      "id": "R16",
+      "title": "An update on our mental health work",
+      "author": "Megan Jones Bell; Laurie Richardson",
+      "date": "2026-04-07",
+      "url": "https://blog.google/innovation-and-ai/technology/health/mental-health-updates/",
+      "status": "READ_PRIMARY",
+      "class": "provider disclosure",
+      "supports": "Conditional mental-health support UI, training against false-belief reinforcement, persistent crisis-help affordance.",
+      "scope": "Does not establish a private anti-delusion instruction payload in author's case."
+    },
+    {
+      "id": "R26",
+      "title": "Gemini API thinking documentation",
+      "author": "Google",
+      "date": "accessed 2026-11-04 local",
+      "url": "https://aistudio.google.com/docs/thinking",
+      "status": "RELEVANT_DOCUMENTATION_READ",
+      "class": "provider documentation",
+      "supports": "Exposed chronological thought summaries and encrypted signatures are distinct fields; current format does not authenticate an older UI trace."
+    },
+    {
+      "id": "R15",
+      "title": "Reasoning Models Don't Always Say What They Think",
+      "author": "Yanda Chen et al.",
+      "date": "2025-05-08 arXiv",
+      "url": "https://arxiv.org/html/2505.05410v1",
+      "status": "FULL_HTML_AVAILABLE_SECTIONS_READ",
+      "class": "research preprint",
+      "supports": "Models often omit influences demonstrably affecting their answers; CoT useful but incomplete measurement."
+    },
+    {
+      "id": "R21",
+      "title": "Taking AI Welfare Seriously",
+      "author": "Robert Long et al.",
+      "date": "2024-11",
+      "url": "https://arxiv.org/abs/2411.00986",
+      "status": "PRIMARY_ABSTRACT_READ",
+      "class": "philosophical research report",
+      "supports": "Moral uncertainty motivates preparation and assessment rather than categorical certainty."
+    },
+    {
+      "id": "R03",
+      "title": "Expanding on what we missed with sycophancy",
+      "author": "OpenAI",
+      "date": "2025-05-02",
+      "url": "https://openai.com/index/expanding-on-sycophancy/",
+      "status": "READ_PRIMARY",
+      "class": "provider retrospective",
+      "supports": "Reward interaction and deployment evaluation failure surrounding April 2025 GPT-4o update."
+    },
+    {
+      "id": "R05",
+      "title": "Towards understanding sycophancy in language models",
+      "author": "Anthropic",
+      "date": "2023-10-23",
+      "url": "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models",
+      "status": "READ_PRIMARY",
+      "class": "researcher report",
+      "supports": "Human preference signals sometimes favor agreement over correctness across tested assistants."
+    },
+    {
+      "id": "R27",
+      "title": "Sycophantic AI decreases prosocial intentions and promotes dependence",
+      "author": "Myra Cheng et al.",
+      "date": "2026-03-26",
+      "url": "https://doi.org/10.1126/science.aec8352",
+      "read_url": "https://s3.amazonaws.com/media.mediapost.com/uploads/science.aec8352.pdf",
+      "status": "PUBLISHED_FULL_ARTICLE_RELEVANT_METHODS_RESULTS_AND_FIGURES_READ",
+      "class": "experimental research",
+      "supports": "Published version: 11 models; three preregistered experiments N2405; sycophantic advice changed responsibility/repair intentions and was preferred.",
+      "scope": "Published results differ from October 2025 preprint counts; do not combine versions.",
+      "locator": "Published article pp.3-6; three experiments, N2405, including live eight-turn study; PDF figures inspected."
+    },
+    {
+      "id": "R11",
+      "title": "Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD",
+      "author": "Bryan Chen Zhengyu Tan; Daniel Wai Kit Chin; Zhengyuan Liu; Nancy F. Chen; Roy Ka-Wei Lee",
+      "date": "2025-11",
+      "url": "https://aclanthology.org/2025.emnlp-main.81/",
+      "status": "FULL_PDF_METHODS_AND_TABLE_5_READ_SCREENSHOT",
+      "class": "benchmark research",
+      "supports": "Jointly measures resistance to misleading persuasion and receptiveness to valid correction."
+    },
+    {
+      "id": "R17",
+      "title": "How persuasive is AI-generated propaganda?",
+      "author": "Josh A. Goldstein; Jason Chao; Shelby Grossman; Alex Stamos; Michael Tomz",
+      "date": "2024-02",
+      "url": "https://doi.org/10.1093/pnasnexus/pgae034",
+      "read_url": "https://hai.stanford.edu/policy/how-persuasive-ai-generated-propaganda",
+      "status": "AUTHOR_POLICY_BRIEF_READ_PRIMARY_PUBLISHER_FETCH_BLOCKED",
+      "class": "experimental research",
+      "supports": "8221-person study; human curation and prompt editing increased persuasiveness of GPT-3 material."
+    },
+    {
+      "id": "R24",
+      "title": "AI can effectively promote conspiracies unless it is truth constrained",
+      "author": "Thomas H. Costello et al.",
+      "date": "2026-01-08; v3 2026-07-15",
+      "url": "https://arxiv.org/abs/2601.05050v3",
+      "read_url": "https://arxiv.org/html/2601.05050v3",
+      "status": "FULL_TEXT_METHODS_AND_RESULTS_READ",
+      "class": "research preprint",
+      "supports": "Four experiments N3996, persuasion toward/away from low-credence beliefs; truth constraints reduced harmful persuasion; subsequent correction effective.",
+      "scope": "Controlled study with variable truth constraints; abstract/main-text comparison for trust outcomes is inconsistent, so trust-direction claim excluded.",
+      "locator": "Version 3, July 15, 2026: abstract; Study 3 truth constraint; Study 4 model variation and sharing outcomes."
+    },
+    {
+      "id": "R13",
+      "title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models",
+      "author": "Paul Rottger et al.",
+      "date": "2024-06",
+      "url": "https://aclanthology.org/2024.naacl-long.301/",
+      "status": "AUTHOR_ABSTRACT_READ",
+      "class": "benchmark research",
+      "supports": "250 safe prompts and 200 unsafe contrasts operationalize exaggerated refusals."
+    },
+    {
+      "id": "R14",
+      "title": "FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning",
+      "author": "Zhehao Zhang; Weijie Xu; Fanyou Wu; Chandan K. Reddy",
+      "date": "2025-05-12",
+      "url": "https://arxiv.org/html/2505.08054v1",
+      "status": "FULL_HTML_AVAILABLE_SECTIONS_READ",
+      "class": "research preprint",
+      "supports": "16k-scale resource across 44 categories; benchmarking 29 models; contextual rather than lexical safety."
+    },
+    {
+      "id": "R28",
+      "title": "Sycophantic AI makes human interaction feel more effortful and less satisfying over time",
+      "author": "Lujain Ibrahim et al.",
+      "date": "2026-05-08",
+      "url": "https://arxiv.org/abs/2605.07912",
+      "status": "FULL_TEXT_METHODS_RESULTS_LIMITATIONS_READ",
+      "class": "research preprint",
+      "supports": "Five preregistered studies, N3075 and 12766 conversations; three-week outcomes about reported human-interaction satisfaction and AI advice preferences.",
+      "scope": "Self-reported attitudes in studied conditions; do not equate with independently measured deterioration of relationships.",
+      "locator": "Sections2 andMethods; Study4 randomized 3-week design, N1364, self-reported satisfaction; no significant time-with-others change."
+    },
+    {
+      "id": "R19",
+      "title": "AI Risk Management Framework",
+      "author": "NIST",
+      "date": "2023-01-26; page current at access",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "status": "PRIMARY_SEARCH_EXCERPT_READ",
+      "class": "public framework",
+      "supports": "Voluntary framework covers risks to individuals organizations and society, including accountability and validity."
+    },
+    {
+      "id": "R20",
+      "title": "AI RMF Core",
+      "author": "NIST",
+      "date": "2023 framework",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "status": "GOVERN_AND_MEASURE_SECTIONS_READ",
+      "class": "public framework",
+      "supports": "Governance, monitoring, measurement, transparency and review responsibilities.",
+      "locator": "5.1;5.3;MEASURE1.3,3.3,4.1-4.3"
+    }
+  ]
+}
