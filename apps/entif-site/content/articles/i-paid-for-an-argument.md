@@ -5,7 +5,7 @@
   "title": "I Paid for an Argument: The Dangers of Playing It Safe",
   "description": "A longform editorial on automatic gainsaying, safety-driven task substitution, sycophancy, and the demand for accountable epistemic integrity.",
   "kind": "essay",
-  "status": "draft",
+  "status": "published",
   "published": "2026-11-04",
   "authors": [
     "Crates McDade"
