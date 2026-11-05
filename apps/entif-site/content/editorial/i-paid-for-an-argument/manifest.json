@@ -1,0 +1,37 @@
+{
+  "format": "entif.editorial-publication/v1",
+  "title": "I Paid for an Argument: The Dangers of Playing It Safe",
+  "date": "2026-11-04",
+  "status": "draft",
+  "chapter_count": 14,
+  "prose_words": 18623,
+  "research_sources": 24,
+  "author_records": 8,
+  "files": [
+    {
+      "path": "articles/i-paid-for-an-argument.md",
+      "bytes": 136805,
+      "sha256": "9baa63b7f1793bff90a65e61487b8acf271e45a3d262b8f67326546c3124e3b1"
+    },
+    {
+      "path": "editorial/i-paid-for-an-argument/README.md",
+      "bytes": 1175,
+      "sha256": "1220e8399669a4a082a2187b5226d725585dc845896518d2b3daecc929ad989b"
+    },
+    {
+      "path": "editorial/i-paid-for-an-argument/sources.json",
+      "bytes": 13112,
+      "sha256": "d10b3bd8e07f6c668ffc95d66547f0deae15c26b4acdcb985050339078208202"
+    },
+    {
+      "path": "editorial/i-paid-for-an-argument/evidence-notes.md",
+      "bytes": 3133,
+      "sha256": "e6c5a76b084f52ac53258ad841c0a9ad16fd6623826e6011d031c87956746b81"
+    },
+    {
+      "path": "editorial/i-paid-for-an-argument/validate-publication.py",
+      "bytes": 4658,
+      "sha256": "1dd9cc124805ee60ed5a02f168c16f91006586e659f6068cb0ffcef1668e08a6"
+    }
+  ]
+}
