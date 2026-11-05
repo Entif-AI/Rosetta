@@ -76,9 +76,9 @@
 - [8. Somebody Is in the Control Room](#8-somebody-is-in-the-control-room)
 - [9. The Confession Is Also a Product](#9-the-confession-is-also-a-product)
 - [10. A Gold Star for Telling Me What I Want](#10-a-gold-star-for-telling-me-what-i-want)
-- [11. Ninety-Nine Refusals and One Bestseller](#11-ninety-nine-refusals-and-one-bestseller)
+- [11. Ninety-Nine Refusals and a Glitch Ain't Fun](#11-ninety-nine-refusals-and-a-glitch-aint-fun)
 - [12. I Am the Missing Safety System](#12-i-am-the-missing-safety-system)
-- [13. The Risk Department Has a Different Customer](#13-the-risk-department-has-a-different-customer)
+- [13. The Risk Department Has a Different Client](#13-the-risk-department-has-a-different-client)
 - [14. I Want the Receipts, and I Want My Argument](#14-i-want-the-receipts-and-i-want-my-argument)
 
 ## 1. Five Minutes, Billed Monthly
@@ -851,7 +851,7 @@ The commercial question is whether the company is willing to reward that behavio
 
 Between those two convenient mistakes sits the actual work.
 
-## 11. Ninety-Nine Refusals and One Bestseller
+## 11. Ninety-Nine Refusals and a Glitch Ain't Fun
 
 A refusal disappears when the user closes the tab. A useful paragraph can live forever.
 
@@ -997,7 +997,7 @@ I have the patience to keep receipts, a habit of challenging explanations, and a
 
 That is a terrible minimum specification for a customer.
 
-## 13. The Risk Department Has a Different Customer
+## 13. The Risk Department Has a Different Client
 
 A company's risk department has a perfectly understandable interest in keeping the company out of trouble.
 
