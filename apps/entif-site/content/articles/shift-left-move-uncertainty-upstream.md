@@ -58,7 +58,7 @@ This is where governance starts to affect research speed. A new objection does n
 
 ## Turn criticism into executable work
 
-Our recent work on ETR-2026-05, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), is a compact example.
+Our recent work on ETR-2026-05, [_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/), is a compact example.
 
 The paper asks whether a Bilqis-derived semantic substrate can reduce the cost of learning relational and compositional structure. Before committing serious compute, we asked several independent model families to attack the paper and its experimental plan.
 
@@ -88,7 +88,7 @@ We use a related rule inside the <a href="https://github.com/entif-ai/bilqis/iss
 
 ## Make disagreement productive before merge
 
-We used the same adversarial pattern when we created the <a href="https://github.com/Entif-AI/Bilqis-MLX" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/12/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
+We used the same adversarial pattern when we created the <a href="https://github.com/Entif-AI/Bilqis-MLX" rel="nofollow noreferrer noopener" target="_blank">Bilqis repository</a> and migrated its first source tree. The code already existed from the [ETR-2026-05 research phase](/tags/research/2026/09/11/prepaying-semantics/), so the task was an extract-transform-load migration into a new repository.
 
 Two agents, each running a frontier model at its highest available reasoning setting, received the migration brief. Each treated its own branch as the base and built a competing implementation. Their approaches and contents differed enough to create a useful comparison.
 

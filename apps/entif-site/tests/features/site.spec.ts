@@ -256,7 +256,7 @@ test('published manuscripts retain scientific status and working figures', async
 test('IndraNet publication shell owns the title and all figures render', async ({
   page,
 }) => {
-  await page.goto('/tags/research/2026/09/28/indranet-research/');
+  await page.goto('/tags/research/2026/10/04/indranet-research/');
   await expect(page.locator('h1')).toHaveCount(1);
   await expect(
     page.locator('[data-test-id="published-entry-heading"]')

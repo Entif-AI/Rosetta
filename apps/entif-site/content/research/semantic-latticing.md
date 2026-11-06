@@ -159,7 +159,7 @@ That is a terrible retirement plan.
 
 ## Prepaying semantics moves context below prose
 
-[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) changes the latticing question again.
+[_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/) changes the latticing question again.
 
 The original semantic-latticing work focused on concepts and relations outside the model. Bilqis asks whether the machine's developmental representation can expose useful semantic factors directly rather than repeatedly reconstructing them from natural-language surface forms.
 
@@ -379,7 +379,7 @@ Rosetta and application policy still need to preserve what the context means, wh
 
 ## The Tapestry and OMoC form two different compilers
 
-The newer [OMoC work](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/) makes the overall architecture cleaner by refusing to make one compiler do two jobs.
+The newer [OMoC work](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/) makes the overall architecture cleaner by refusing to make one compiler do two jobs.
 
 Semantic latticing asks:
 
@@ -411,7 +411,7 @@ That distinction stays in the article because the easiest way to corrupt a prove
 
 ## Context economics may be a first-class research problem
 
-[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) names a possible semantic reconstruction tax during learning.
+[_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/) names a possible semantic reconstruction tax during learning.
 
 Semantic latticing suggests another:
 
@@ -465,8 +465,8 @@ That is the larger bet:
 
 ## Research and development referenced
 
-- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), ETR-2026-05.
-- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/).
+- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/), ETR-2026-05.
+- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/).
 - Entif AI, [Agentic Memory Needs More Than Retrieval](/tags/rosetta/2026/08/28/agentic-memory/).
 - Entif AI, [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), ETR-2026-04.
 - LCM Team et al., [Large Concept Models: Language Modeling in a Sentence Representation Space](https://arxiv.org/abs/2412.08821), 2024.
