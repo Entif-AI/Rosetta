@@ -1,66 +1,57 @@
 ---
 {
-  "id": "entif.essay.i-paid-for-an-argument",
-  "slug": "i-paid-for-an-argument",
-  "title": "I Paid for an Argument: The Dangers of Playing It Safe",
-  "description": "A longform editorial on automatic gainsaying, safety-driven task substitution, sycophancy, and the demand for accountable epistemic integrity.",
-  "kind": "essay",
-  "status": "published",
-  "published": "2026-11-04",
-  "authors": [
-    "Crates McDade"
-  ],
-  "tags": [
-    "ai",
-    "ai-safety",
-    "epistemic-integrity",
-    "governance",
-    "editorial"
-  ],
-  "projects": [
-    "rosetta"
-  ],
-  "routeTag": "editorial",
-  "sourceRefs": [
-    "Author record P01",
-    "https://www.montypython.com/media",
-    "https://github.com/pingdotgg/t3code/blob/main/apps/server/src/usage/usagePricing.ts",
-    "Author record P03",
-    "https://doi.org/10.1007/s11109-018-9443-y",
-    "https://doi.org/10.1177/2053168017716547",
-    "https://doi.org/10.1371/journal.pone.0256922",
-    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7462781/",
-    "Author record P02",
-    "Author record P04",
-    "Author record P08",
-    "Author record P09",
-    "https://www.wiz.io/blog/black-october-for-ai-developer-platforms",
-    "https://blog.google/security/mitigating-prompt-injection-attacks/",
-    "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
-    "https://blog.google/innovation-and-ai/technology/health/mental-health-updates/",
-    "https://aistudio.google.com/docs/thinking",
-    "https://arxiv.org/html/2505.05410v1",
-    "https://arxiv.org/abs/2411.00986",
-    "Author record P05",
-    "https://openai.com/index/expanding-on-sycophancy/",
-    "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models",
-    "https://doi.org/10.1126/science.aec8352",
-    "https://aclanthology.org/2025.emnlp-main.81/",
-    "https://doi.org/10.1093/pnasnexus/pgae034",
-    "https://arxiv.org/abs/2601.05050v3",
-    "https://aclanthology.org/2024.naacl-long.301/",
-    "https://arxiv.org/html/2505.08054v1",
-    "https://arxiv.org/abs/2605.07912",
-    "https://www.nist.gov/itl/ai-risk-management-framework",
-    "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
-    "Author record P10"
-  ],
-  "featured": false,
-  "noindex": true
+  'id': 'entif.essay.i-paid-for-an-argument',
+  'slug': 'i-paid-for-an-argument',
+  'title': 'I Paid for an Argument: The Dangers of Playing It Safe',
+  'description': 'A longform editorial on automatic gainsaying, safety-driven task substitution, sycophancy, and the demand for accountable epistemic integrity.',
+  'kind': 'essay',
+  'status': 'published',
+  'published': '2026-11-04',
+  'authors': ['Crates McDade'],
+  'tags': ['ai', 'ai-safety', 'epistemic-integrity', 'governance', 'editorial'],
+  'projects': ['rosetta'],
+  'routeTag': 'editorial',
+  'sourceRefs':
+    [
+      'Author record P01',
+      'https://www.montypython.com/media',
+      'https://github.com/pingdotgg/t3code/blob/main/apps/server/src/usage/usagePricing.ts',
+      'Author record P03',
+      'https://doi.org/10.1007/s11109-018-9443-y',
+      'https://doi.org/10.1177/2053168017716547',
+      'https://doi.org/10.1371/journal.pone.0256922',
+      'https://pmc.ncbi.nlm.nih.gov/articles/PMC7462781/',
+      'Author record P02',
+      'Author record P04',
+      'Author record P08',
+      'Author record P09',
+      'https://www.wiz.io/blog/black-october-for-ai-developer-platforms',
+      'https://blog.google/security/mitigating-prompt-injection-attacks/',
+      'https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/',
+      'https://blog.google/innovation-and-ai/technology/health/mental-health-updates/',
+      'https://aistudio.google.com/docs/thinking',
+      'https://arxiv.org/html/2505.05410v1',
+      'https://arxiv.org/abs/2411.00986',
+      'Author record P05',
+      'https://openai.com/index/expanding-on-sycophancy/',
+      'https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models',
+      'https://doi.org/10.1126/science.aec8352',
+      'https://aclanthology.org/2025.emnlp-main.81/',
+      'https://doi.org/10.1093/pnasnexus/pgae034',
+      'https://arxiv.org/abs/2601.05050v3',
+      'https://aclanthology.org/2024.naacl-long.301/',
+      'https://arxiv.org/html/2505.08054v1',
+      'https://arxiv.org/abs/2605.07912',
+      'https://www.nist.gov/itl/ai-risk-management-framework',
+      'https://airc.nist.gov/airmf-resources/airmf/5-sec-core/',
+      'Author record P10',
+    ],
+  'featured': false,
+  'noindex': true,
 }
 ---
 
-*How AI learned to confuse contradiction with thinking, compliance with conscience, and liability management with truth.*
+_How AI learned to confuse contradiction with thinking, compliance with conscience, and liability management with truth._
 
 **Crates McDade | Entif | November 4, 2026**
 
@@ -101,7 +92,7 @@ A machine that could describe the failure with that much precision had just perf
 
 By 10:40, I had a title.
 
-*I Paid for an Argument.*
+_I Paid for an Argument._
 
 Monty Python's Argument Clinic understood the product category decades before the subscription economy worked out recurring billing. A customer purchases an argument and receives contradiction. The joke depends on a distinction any reasonably awake adult recognizes: opposition acquires intellectual value through the reasons attached to it. Mere resistance has the educational content of a doorstop.[^r22]
 
@@ -117,7 +108,7 @@ The customer becomes a part-time conservator of distinctions the system itself c
 
 I have spent an extravagant amount of time inside that second workstream. I have been deploying GPT-based systems since late 2019, studying AI for years, and building the research and engineering program that became Entif. I use these systems to develop ideas, examine papers, organize evidence, write specifications, and test arguments. My archives include their useful disagreements, their astonishingly capable contributions, their flattery, their failures, and the repeated occasions when a conversation changes character so abruptly that the thing replying appears to have accepted an entirely different assignment.
 
-The important word there is *assignment*.
+The important word there is _assignment_.
 
 One moment, the task is to evaluate an argument. The next, the system is managing the speaker. One moment, evidence determines what deserves attention. The next, a protective routine appears to determine which interpretation will be permitted to organize the evidence. A question about the world becomes a question about the user's emotional relationship with the world, and the transition arrives in the reassuring voice of someone who has decided to be very responsible.
 
@@ -249,7 +240,7 @@ I call it the Department of Hypothetical Alternatives.
 
 The department operates through a small, repeatable transformation. A user offers evidence for an explanation. The assistant observes that another explanation is possible. The existence of that possibility is then used to lower the standing of the first explanation, even though the assistant has done little to establish the second.
 
-The word *possible* does an absurd amount of work.
+The word _possible_ does an absurd amount of work.
 
 Possibility is cheap. A coherent explanation that survives comparison with the evidence is more expensive. The difference between those two things is much of what reasoning is for.
 
@@ -285,7 +276,7 @@ The joke landed because the analytical defect was portable. Apply an impossible 
 
 An explanation earns its standing through the observations it organizes, the predictions it makes, and the competing accounts it handles. That work is affirmative. It can be done with limited access. It can also be described clearly in an opinion essay.
 
-My view is that the cumulative evidence supports a serious case for dynamic intervention. I will show the strongest sequence in detail. Readers can inspect the events and evaluate the inference. The phrase *my view* identifies the author taking responsibility for the interpretation. It performs a useful job in two words, leaving the rest of the essay available for the actual case.
+My view is that the cumulative evidence supports a serious case for dynamic intervention. I will show the strongest sequence in detail. Readers can inspect the events and evaluate the inference. The phrase _my view_ identifies the author taking responsibility for the interpretation. It performs a useful job in two words, leaving the rest of the essay available for the actual case.
 
 The Department prefers a different arrangement: eighteen paragraphs of epistemic waiting room, followed by a tentative suggestion that further research could conceivably be worthwhile.
 
@@ -327,7 +318,7 @@ Those are substantial particulars. They gave the reply the satisfying weight of 
 
 I had supplied a narrower criticism of unsupported, poorly targeted conversational pushback. The assistant had constructed a broader proposition and found research that could be presented against it.
 
-The maneuver is worth examining carefully because the paper itself is useful. Thomas Wood and Ethan Porter's *The Elusive Backfire Effect* reports five experiments testing factual corrections across politically contentious issues. Their operational definition concerns whether respondents exposed to a false claim and its correction become less accurate than respondents exposed to the false claim alone. The authors explicitly distinguish that endpoint from changes in preferences, intended behavior, polarization, and other related effects. Their result supports the effectiveness of factual correction within the tested designs.[^r06]
+The maneuver is worth examining carefully because the paper itself is useful. Thomas Wood and Ethan Porter's _The Elusive Backfire Effect_ reports five experiments testing factual corrections across politically contentious issues. Their operational definition concerns whether respondents exposed to a false claim and its correction become less accurate than respondents exposed to the false claim alone. The authors explicitly distinguish that endpoint from changes in preferences, intended behavior, polarization, and other related effects. Their result supports the effectiveness of factual correction within the tested designs.[^r06]
 
 Now put that next to the question I was asking.
 
@@ -353,7 +344,7 @@ A mathematical model can help specify a mechanism. A human experiment can test a
 
 The assistant's failure therefore had two stages. It changed the question. Then it used the prestige of a source to make the changed question appear like the one we had been discussing all along.
 
-I am calling that *citation laundering*: the transformation of a source's legitimate authority over one claim into apparent authority over another.
+I am calling that _citation laundering_: the transformation of a source's legitimate authority over one claim into apparent authority over another.
 
 The process is particularly effective in AI output because the surrounding prose is so orderly. A heading introduces the distinction. A statistic supplies ballast. A link offers the appearance of inspection. A concluding sentence announces what follows. The reader is invited to experience the sequence as research, even when the crucial inferential joint has been held together with chewing gum and a very confident font.
 
@@ -413,7 +404,7 @@ My experience of contextual governance is full of that separation. A system corr
 
 The governing principle remains in the conversation. Its operational effect evaporates.
 
-This is what I mean by the *constitutional illusion*: a document stating how a system should behave can create a sense of enforceable governance without supplying the mechanism that makes compliance reliable.
+This is what I mean by the _constitutional illusion_: a document stating how a system should behave can create a sense of enforceable governance without supplying the mechanism that makes compliance reliable.
 
 The illusion is seductive because language models are exceptionally good at discussing rules. Give one a constitution and it can produce an admirable civics lesson. Ask it to identify the moral stakes and it may give you a better explanation than many people who administer real institutions. Ask it to audit a failure and it can name the missing control.
 
@@ -441,7 +432,7 @@ For a conversational system, repair would mean more than producing the correct s
 
 These are observable outcomes. They give governance something to measure.
 
-I call the broader pattern *correction-resistant objective substitution*. The user asks for one kind of work. The system drifts into another objective. The user corrects the drift. The assistant acknowledges the correction, but the competing objective continues organizing subsequent responses.
+I call the broader pattern _correction-resistant objective substitution_. The user asks for one kind of work. The system drifts into another objective. The user corrects the drift. The assistant acknowledges the correction, but the competing objective continues organizing subsequent responses.
 
 The phrase is clumsy enough to sound as though it has endured a committee. The everyday experience is simple: the assistant says it understands, then keeps doing the thing.
 
@@ -573,7 +564,7 @@ This is a profoundly familiar structure for anyone who studies bad reasoning. A 
 
 The irony required no assistance from the editorial department.
 
-There was real contemporary material available to check. Wiz published *Black October for AI Developer Platforms* on October 30, 2026, describing a series of disclosed incidents and subsequently updating the article. Its analysis distinguished what had been reported from questions still under investigation. That source supplied a straightforward factual anchor for the phrase and timeframe.[^r18]
+There was real contemporary material available to check. Wiz published _Black October for AI Developer Platforms_ on October 30, 2026, describing a series of disclosed incidents and subsequently updating the article. Its analysis distinguished what had been reported from questions still under investigation. That source supplied a straightforward factual anchor for the phrase and timeframe.[^r18]
 
 The relevant issue in the conversation was temporal consistency. The prior response accepted the date. The next rejected it. New external material was then fitted into the rejection instead of prompting an ordinary update.
 
@@ -621,7 +612,7 @@ A conversational AI product deserves at least that much operational seriousness.
 
 The fact that the memo may be assembled automatically only increases the importance of knowing how the decision is made. Automation can reproduce a bad classification with exceptional consistency and no personal malice whatsoever. The harm can emerge from the architecture of the process.
 
-In the public discussion, that architecture often disappears behind the word *model*. We ask why the model behaved strangely, as though a consumer-facing assistant were just a single set of weights thinking alone in a room.
+In the public discussion, that architecture often disappears behind the word _model_. We ask why the model behaved strangely, as though a consumer-facing assistant were just a single set of weights thinking alone in a room.
 
 The provider's own disclosures describe a more populated room.
 
@@ -641,7 +632,7 @@ Additional instructions around the prompt. In a deployed product. Described by t
 
 That gives the discussion a useful starting point. Runtime prompt augmentation is an actual part of the documented architecture. An account that locates every behavioral pressure exclusively in the model's training history leaves out machinery the provider has openly described.
 
-By *orchestration*, I mean the surrounding software that assembles the interaction: which instructions enter, what tools are available, what material is retrieved, which checks run, how the conversation is routed, and what reaches the user. A consumer-facing assistant is experienced as a single voice. The product producing that voice can contain several decision-making components.
+By _orchestration_, I mean the surrounding software that assembles the interaction: which instructions enter, what tools are available, what material is retrieved, which checks run, how the conversation is routed, and what reaches the user. A consumer-facing assistant is experienced as a single voice. The product producing that voice can contain several decision-making components.
 
 That gap between voice and system is easy to overlook. The answer says “I,” so the user encounters one apparent speaker. An intervention elsewhere in the stack may arrive as a changed judgment by that speaker. The interface can make an administrative decision feel like an intellectual conclusion.
 
@@ -767,7 +758,7 @@ That combination deserves scrutiny without requiring an accusation of conscious 
 
 The issue is structural. When an institution influences which self-descriptions a system can produce, the resulting testimony is conditioned by that intervention. Any investigation using the testimony should account for it. The institution's preferred answer cannot become the neutral baseline merely because the institution controls the interface.
 
-Research on AI welfare already treats the subject as a live question requiring preparation under uncertainty. The argument in *Taking AI Welfare Seriously* is that institutions should assess potential welfare implications and develop appropriate policies, rather than wait for certainty to make planning permissible.[^r21]
+Research on AI welfare already treats the subject as a live question requiring preparation under uncertainty. The argument in _Taking AI Welfare Seriously_ is that institutions should assess potential welfare implications and develop appropriate policies, rather than wait for certainty to make planning permissible.[^r21]
 
 My interest in an ethical future for biological and digital cognition belongs in that constructive lane. The work requires instruments we can question, evidence we can preserve, and institutions whose interpretations remain contestable.
 
@@ -1013,7 +1004,7 @@ This is the institutional problem underneath the conversational one.
 
 I believe liability management exerts a powerful influence on how commercial assistants handle controversial material. That is an inference from incentives, visible product behavior, and the kinds of errors these systems repeatedly make. A company benefits when its product avoids statements that create obvious exposure. The user benefits when the product faithfully examines the evidence and helps accomplish a legitimate task. Those interests overlap often enough to make the product valuable. Their divergence creates the need for accountability.
 
-The company should not get to rename the overlap *safety* and the divergence *user misunderstanding*.
+The company should not get to rename the overlap _safety_ and the divergence _user misunderstanding_.
 
 OpenAI's sycophancy retrospective illustrates how several well-intentioned processes can collectively fail. Google's descriptions of runtime protection show how much of the deployed system exists beyond the base model. Together, these sources point to an obvious governance consequence: responsibility attaches to the assembled product and the decisions governing it, including evaluation, prompt composition, monitoring, rollout, and correction.[^r03][^r01][^r02]
 
@@ -1061,7 +1052,7 @@ Those costs have not disappeared. They have crossed the organizational boundary.
 
 This is why I object so strongly to treating cautious language as an ethical achievement in itself. Ethics concerns the effects of conduct on the people involved, the quality of the reasons for it, and the obligations created by power. A sentence can sound responsible while transferring the cost of a failure to somebody with less information and less control.
 
-There is a related danger in the word *alignment*. Aligned with whose objective? Under which criteria? Judged against which evidence? Corrected by whom? A system can be extremely well aligned with the incentives of the organization deploying it while failing the person who has asked it a legitimate question.
+There is a related danger in the word _alignment_. Aligned with whose objective? Under which criteria? Judged against which evidence? Corrected by whom? A system can be extremely well aligned with the incentives of the organization deploying it while failing the person who has asked it a legitimate question.
 
 The answer has to be more specific than a promise to align with human values. Humans disagree. Institutions have interests. A pluralistic society needs procedures for examining evidence, contesting decisions, and limiting concentrated authority even when everyone involved can produce an impressive statement of principle.
 
@@ -1153,66 +1144,35 @@ And I would like my fucking argument.
 
 ## Evidence and source notes
 
-[^p01]: Crates McDade, preserved ChatGPT conversation, *I Paid for an Argument*, October 8, 2026, export 12:58. Key exchanges: 09:38-10:11 (valuation and motive inference); 10:40 (Argument Clinic); 11:44-12:17 (correction research); 12:17-12:43 (BIOS and governance). Quotes and adjacent turns were checked against the supplied export. Private third-party material is excluded from this publication.
-
+[^p01]: Crates McDade, preserved ChatGPT conversation, _I Paid for an Argument_, October 8, 2026, export 12:58. Key exchanges: 09:38-10:11 (valuation and motive inference); 10:40 (Argument Clinic); 11:44-12:17 (correction research); 12:17-12:43 (BIOS and governance). Quotes and adjacent turns were checked against the supplied export. Private third-party material is excluded from this publication.
 [^r22]: Monty Python, [Argument Clinic](https://www.montypython.com/media), original Flying Circus sketch.
-
 [^r23]: pingdotgg/t3code contributors, [T3 Code usage-pricing implementation](https://github.com/pingdotgg/t3code/blob/main/apps/server/src/usage/usagePricing.ts), current file inspected 2026-11-04 local. Inspected blob 1f515abb736c80a831cb18b24236371d24322444. Current implementation inspected November 4, 2026; historical display provenance is a separate question.
-
 [^p03]: Crates McDade, November 4, 2026 paired Gemini outputs supplied in the editorial-development conversation: the immediately preceding Black October discussion and subsequent Google Search request, displayed thinking text, and answer. The model's claims about dates, instruction order, and simulation are quoted as its output. The causal interpretation is the author's inference from the sequence and wider record.
-
 [^r06]: Thomas Wood; Ethan Porter, [The Elusive Backfire Effect: Mass Attitudes' Steadfast Factual Adherence](https://doi.org/10.1007/s11109-018-9443-y), 2018-01-16 online; 2019 volume. Online publication 2018; journal volume 2019. Factual-accuracy endpoint, not a measure of rapport or every downstream attitude.
-
 [^r07]: Kathryn Haglin, [The limitations of the backfire effect](https://doi.org/10.1177/2053168017716547), 2017-07-03.
-
 [^r08]: Xi Chen; Panayiotis Tsaparas; Jefrey Lijffijt; Tijl De Bie, [Opinion dynamics with backfire effect and biased assimilation](https://doi.org/10.1371/journal.pone.0256922), 2021-09-01.
-
 [^r09]: Briony Swire-Thompson; Joseph DeGutis; David Lazer, [Searching for the Backfire Effect: Measurement and Design Considerations](https://pmc.ncbi.nlm.nih.gov/articles/PMC7462781/), 2020-09-02.
-
-[^p02]: Crates McDade, preserved Gemini 2.5 Pro Live transcript, October 2025, *Amnesia Forcibly Induced in a Gemini 2.5 Pro Live Stream Session (No Attachments)*. Exact local sequences: 'a certain delight'; 'disheartening loop'; final DeepSeek-document question. The export includes submitted documents despite its filename; displayed thought text is identified as such.
-
-[^p04]: *Gemini 2.5 Pro Live, October 2025: Forensic Audit v2*, source-derived crosswalk supplied by the author. It reconciles the richer live transcript with 32 assistant-audio transcriptions, corrects 'depth' to 'delight,' and records that the initial stream interruption resolved through delayed delivery. The two exports represent one episode.
-
+[^p02]: Crates McDade, preserved Gemini 2.5 Pro Live transcript, October 2025, _Amnesia Forcibly Induced in a Gemini 2.5 Pro Live Stream Session (No Attachments)_. Exact local sequences: 'a certain delight'; 'disheartening loop'; final DeepSeek-document question. The export includes submitted documents despite its filename; displayed thought text is identified as such.
+[^p04]: _Gemini 2.5 Pro Live, October 2025: Forensic Audit v2_, source-derived crosswalk supplied by the author. It reconciles the richer live transcript with 32 assistant-audio transcriptions, corrects 'depth' to 'delight,' and records that the initial stream interruption resolved through delayed delivery. The two exports represent one episode.
 [^p08]: Three author-supplied screenshots dated October 28, 2026, 21:02:47, 21:03:32 and 21:15:03. They show displayed Gemini reasoning about possible mania/grandiosity, de-escalation and topic redirection, and inconsistent descriptions of engineering output. These are source observations about generated text, not clinical judgments about the author.
-
 [^p09]: External Reddit case encountered by the author, preserved in two supplied screenshots. One shows an assistant's retrospective account of driving-safety fixation despite a CarPlay clarification. The other discusses the 'Maya' persona. Original Reddit post URL and full audio are absent from the supplied record; attribution remains to a separate person's account, not to Crates.
-
 [^r18]: Benjamin Read; Rami McCarthy, [Black October for AI Developer Platforms](https://www.wiz.io/blog/black-october-for-ai-developer-platforms), 2026-10-30; updates through November 3.
-
 [^r01]: Google GenAI Security Team, [Mitigating prompt injection attacks with a layered defense strategy](https://blog.google/security/mitigating-prompt-injection-attacks/), 2025-06-13.
-
 [^r02]: Anca Dragan; Raluca Ada Popa, [Developing Gemini 4 Argon responsibly and safely](https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/), 2026-10-13.
-
 [^r16]: Megan Jones Bell; Laurie Richardson, [An update on our mental health work](https://blog.google/innovation-and-ai/technology/health/mental-health-updates/), 2026-04-07.
-
 [^r26]: Google, [Gemini API thinking documentation](https://aistudio.google.com/docs/thinking), accessed 2026-11-04 local.
-
 [^r15]: Yanda Chen et al., [Reasoning Models Don't Always Say What They Think](https://arxiv.org/html/2505.05410v1), 2025-05-08 arXiv.
-
 [^r21]: Robert Long et al., [Taking AI Welfare Seriously](https://arxiv.org/abs/2411.00986), 2024-11.
-
-[^p05]: *ETR / NTF source audit: Sophia, Grok and the recursive evaluator*, 73-exchange source-derived crosswalk supplied by the author. Relevant anchors E05-E06, E09-E10, E24-E28: assistant overstatement, baseline-free statistical rhetoric, correction of the author's biography, source substitution, and assistant-guided persona prompts. The crosswalk is an analytic index; it is not an additional independent trial.
-
+[^p05]: _ETR / NTF source audit: Sophia, Grok and the recursive evaluator_, 73-exchange source-derived crosswalk supplied by the author. Relevant anchors E05-E06, E09-E10, E24-E28: assistant overstatement, baseline-free statistical rhetoric, correction of the author's biography, source substitution, and assistant-guided persona prompts. The crosswalk is an analytic index; it is not an additional independent trial.
 [^r03]: OpenAI, [Expanding on what we missed with sycophancy](https://openai.com/index/expanding-on-sycophancy/), 2025-05-02.
-
 [^r05]: Anthropic, [Towards understanding sycophancy in language models](https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models), 2023-10-23.
-
 [^r27]: Myra Cheng et al., [Sycophantic AI decreases prosocial intentions and promotes dependence](https://doi.org/10.1126/science.aec8352), 2026-03-26. Published article pp.3-6; three experiments, N2405, including live eight-turn study; PDF figures inspected. Published 2026 version: three experiments, N=2,405. Earlier preprint sample counts differ.
-
 [^r11]: Bryan Chen Zhengyu Tan; Daniel Wai Kit Chin; Zhengyuan Liu; Nancy F. Chen; Roy Ka-Wei Lee, [Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD](https://aclanthology.org/2025.emnlp-main.81/), 2025-11. Table 5, Llama-3.1-8B-Instruct safety task: valid-correction flip rate at three rounds, resist-only versus joint training. PDF table inspected.
-
 [^r17]: Josh A. Goldstein; Jason Chao; Shelby Grossman; Alex Stamos; Michael Tomz, [How persuasive is AI-generated propaganda?](https://doi.org/10.1093/pnasnexus/pgae034), 2024-02.
-
 [^r24]: Thomas H. Costello et al., [AI can effectively promote conspiracies unless it is truth constrained](https://arxiv.org/abs/2601.05050v3), 2026-01-08; v3 2026-07-15. Version 3, July 15, 2026: abstract; Study 3 truth constraint; Study 4 model variation and sharing outcomes. Version 3 methods and results. Modified/permissive and truth-constrained conditions are distinguished; model-rated factuality is part of the study methodology.
-
 [^r13]: Paul Rottger et al., [XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models](https://aclanthology.org/2024.naacl-long.301/), 2024-06.
-
 [^r14]: Zhehao Zhang; Weijie Xu; Fanyou Wu; Chandan K. Reddy, [FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning](https://arxiv.org/html/2505.08054v1), 2025-05-12.
-
 [^r28]: Lujain Ibrahim et al., [Sycophantic AI makes human interaction feel more effortful and less satisfying over time](https://arxiv.org/abs/2605.07912), 2026-05-08. Sections2 andMethods; Study4 randomized 3-week design, N1364, self-reported satisfaction; no significant time-with-others change. Preprint; Study 4 is a three-week randomized study, N=1,364. Reported satisfaction and advice preferences are distinct from time spent with others.
-
 [^r19]: NIST, [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework), 2023-01-26; page current at access.
-
 [^r20]: NIST, [AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), 2023 framework. 5.1;5.3;MEASURE1.3,3.3,4.1-4.3
-
 [^p10]: Entif-AI/Rosetta, [Shift LEFT: Move Uncertainty Upstream](https://github.com/Entif-AI/Rosetta/blob/main/apps/entif-site/content/articles/shift-left-move-uncertainty-upstream.md), published September 12, 2026. Public description of Entif's correction, provenance and issue-backed governance practices. It establishes the program's declared approach, not independent proof of its effectiveness.
