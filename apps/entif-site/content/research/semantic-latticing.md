@@ -6,8 +6,8 @@
   'description': 'Semantic latticing treats context as a compiled, provenance-bearing semantic working set rather than a flat pile of retrieved prose, with progressive disclosure and explicit context policy.',
   'kind': 'research',
   'status': 'published',
-  'published': '2026-08-28',
-  'updated': '2026-09-18',
+  'published': '2026-08-27',
+  'updated': '2026-09-17',
   'authors': ['Entif AI'],
   'tags':
     [

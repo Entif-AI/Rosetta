@@ -6,7 +6,7 @@
   'description': 'The 296-report record becomes a theory of trust: agency depends on meaning surviving movement between contexts, checkpoints, policies, tools, and people.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-23',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'autonomy-risk', 'responsibility-diffusion', 'human-sovereignty'],

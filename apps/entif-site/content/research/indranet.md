@@ -4,7 +4,7 @@ slug: indranet-research
 title: 'IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance'
 kind: research
 status: published
-published: 2026-09-28
+published: 2026-10-04
 authors:
   - Crates McDade
 description: A technical proposition for a shared physical-context exchange across spatial twins, embodied AI, XR, robotics, live performance, simulation, and receiver-side reconstruction.

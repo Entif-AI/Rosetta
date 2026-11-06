@@ -6,7 +6,7 @@
   'description': 'A question about KANs opens into a larger architecture: typed semantic state, parallel decisions, local learned functions, cognitive compilation, and governed persistent learning.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-18',
+  'published': '2026-09-16',
   'authors': ['Crates McDade'],
   'tags':
     [

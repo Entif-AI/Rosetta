@@ -6,7 +6,7 @@
   'description': 'Incentives, culture, metrics, and divided responsibility can produce harmful outcomes without one malicious actor. AI can accelerate those organizational dynamics.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-20',
   'authors': ['Crates McDade'],
   'tags':
     [

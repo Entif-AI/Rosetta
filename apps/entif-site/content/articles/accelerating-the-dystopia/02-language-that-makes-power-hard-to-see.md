@@ -6,7 +6,7 @@
   'description': 'Euphemism, metrics, fragmented disclosure, and administrative burden can make consequences harder to perceive or contest, while technical precision remains distinct from obscurity.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-18',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'institutional-language', 'transparency', 'administrative-burden'],

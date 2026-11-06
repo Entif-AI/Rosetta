@@ -6,7 +6,7 @@
   'description': 'The social-substrate thesis and loss-of-control risk are separate axes. Specification gaming, goal misgeneralization, and authorized harm show that control alone is no moral warranty.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-10-01',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'loss-of-control', 'specification-gaming', 'goal-misgeneralization'],

@@ -6,7 +6,7 @@
   'description': 'Loyalty penalties, switching costs, surveillance pricing, shrinkflation, and dark patterns turn consumer inertia into revenue. AI raises the question of whose interests an assistant serves.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-22',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'surveillance-pricing', 'dark-patterns', 'consumer-agency'],
   'projects': [],

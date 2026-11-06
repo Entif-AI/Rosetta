@@ -6,7 +6,7 @@
   'description': 'The series ends with improvement capture: institutions compound gains inside what they measure while displaced burdens stay outside the accounting. Changing the destination means expanding agency and correctability.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-10-02',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'improvement-capture', 'correctability', 'human-outcomes'],
   'projects': [],

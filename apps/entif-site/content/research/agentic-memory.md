@@ -7,7 +7,7 @@
   'kind': 'research',
   'status': 'published',
   'published': '2026-08-28',
-  'updated': '2026-09-18',
+  'updated': '2026-09-08',
   'authors': ['Entif AI'],
   'tags':
     [

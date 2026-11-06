@@ -6,7 +6,7 @@
   'description': 'Expertise, hospitality, lobbying, disclosure regimes, and institutional access can shape decisions without explicit corruption. AI may widen or narrow those capacity asymmetries.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-24',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'lobbying', 'political-access', 'participation-capacity'],
   'projects': [],

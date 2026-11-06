@@ -6,7 +6,7 @@
   'description': 'Productivity gains do not determine their own distribution. Ownership, bargaining power, labor displacement, capital returns, and transition costs shape who receives the economic gains from AI.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-21',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'labor-capital', 'ownership', 'bargaining-power'],
   'projects': [],

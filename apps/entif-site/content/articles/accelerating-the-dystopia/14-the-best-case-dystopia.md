@@ -6,7 +6,7 @@
   'description': 'AI can remain controllable and useful while optimizing objectives embedded in unequal institutions. Technical success can coexist with weaker labor bargains, recourse, and human agency.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-30',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'pluralistic-alignment', 'institutional-objectives', 'human-agency'],

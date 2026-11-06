@@ -6,7 +6,7 @@
   'description': 'Historical inequality enters AI through archives, labels, proxies, tokenization, and missing records. Rosetta is presented as a way to preserve semantic distinctions without pretending ontologies cannot encode error.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-27',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'algorithmic-bias', 'training-data', 'semantic-representation'],

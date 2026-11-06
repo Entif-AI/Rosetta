@@ -6,7 +6,7 @@
   'description': 'Bilqis safeguards grew into a second system with its own state, migrations, and failure modes. The control plane began consuming more effort than the work it protected.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-14',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'control-plane', 'state-migration', 'observability'],
   'projects': ['bilqis'],

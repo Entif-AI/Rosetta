@@ -6,7 +6,7 @@
   'description': 'Latent multi-agent communication can be efficient while creating audit and accountability gaps when humans cannot inspect what information caused an action.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-28',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'latent-communication', 'multi-agent-systems', 'causal-auditing'],

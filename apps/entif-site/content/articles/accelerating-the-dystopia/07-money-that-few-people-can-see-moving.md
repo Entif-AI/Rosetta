@@ -6,7 +6,7 @@
   'description': 'Treasury buybacks, QE, duration risk, and debt service show how financial plumbing can hide distributional effects. The chapter argues for following balance sheets.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-23',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'monetary-policy', 'balance-sheets', 'democratic-legibility'],
   'projects': [],

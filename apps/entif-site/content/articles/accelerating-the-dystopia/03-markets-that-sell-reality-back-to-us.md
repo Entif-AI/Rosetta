@@ -6,7 +6,7 @@
   'description': 'Authoritative market categories and advisory institutions can shape the markets they describe, create prestige loops, and turn repeated sources into apparent consensus.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-19',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'market-categories', 'institutional-authority', 'source-provenance'],

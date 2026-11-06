@@ -6,7 +6,7 @@
   'description': 'Across 296 Bilqis and Entif reports, the same fractures recur: intent loses authority, evidence changes identity, controls miss decisions, and state drifts.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-09',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'incident-taxonomy', 'semantic-drift', 'control-effectiveness'],

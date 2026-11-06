@@ -6,7 +6,7 @@
   'description': 'Each reliability fix adds another representation and lifecycle. Safeguards, audits, baselines, and rollback systems can become a distributed failure surface themselves.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-16',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'safety-controls', 'reliability-debt', 'guardrail-failure'],
   'projects': ['bilqis'],

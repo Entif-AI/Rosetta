@@ -6,7 +6,7 @@
   'description': 'OMoC treats reasoning as a semantically routed computation graph: task-local concept signatures select heterogeneous cognitive operators instead of static agent roles.',
   'kind': 'research',
   'status': 'published',
-  'published': '2026-08-28',
+  'published': '2026-08-29',
   'updated': '2026-09-18',
   'authors': ['Entif AI'],
   'tags':

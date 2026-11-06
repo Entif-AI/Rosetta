@@ -6,7 +6,7 @@
   'description': 'Capability makes failure harder to see. Intermittent, plausible mistakes become more dangerous as systems gain credentials, persistence, and authority.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-20',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'plausible-failure', 'blast-radius', 'false-confidence'],
   'projects': ['bilqis'],

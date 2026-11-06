@@ -6,7 +6,7 @@
   'description': 'Dashboards, validators, and ledgers can agree because they share one bad premise. Correlated evidence can create confidence without adding an independent witness.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-15',
   'authors': ['Crates McDade'],
   'tags':
     [
