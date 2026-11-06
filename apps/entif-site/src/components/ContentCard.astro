@@ -59,6 +59,7 @@ const actionLabel =
     <Heading>
       <a href={card.href} data-test-id={linkTestId}>{card.title}</a>
     </Heading>
+    {card.published && card.kind !== 'project' && <h3 class="lede">{card.published.toDateString()}</h3>}
     <p class="content-card-description">{card.description}</p>
     {
       card.tags.length > 0 && (

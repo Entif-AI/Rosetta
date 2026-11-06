@@ -31,6 +31,7 @@ export interface ContentCardData {
   readonly href: string;
   readonly title: string;
   readonly description: string;
+  readonly published?: Date | undefined;
   readonly kind: ContentKind;
   readonly tags: readonly string[];
   readonly projects: readonly string[];
@@ -101,6 +102,7 @@ export const toContentCard = (
   kind: item.kind,
   tags: item.tags,
   projects: item.projects,
+  published: isPublished(item) ? item.published : undefined,
 });
 
 export const rankRelatedContent = (
