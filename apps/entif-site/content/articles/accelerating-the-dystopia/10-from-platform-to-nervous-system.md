@@ -6,7 +6,7 @@
   'description': 'Generative AI is becoming cognitive infrastructure that mediates interpretation, judgment, and action. Provider concentration and switching costs turn useful assistants into governance-relevant dependencies.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-26',
   'authors': ['Crates McDade'],
   'tags':
     [

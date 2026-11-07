@@ -6,7 +6,7 @@
   'description': 'A falsifiable research program testing whether an explicit Bilqis-derived semantic substrate can reduce the data, parameter, and compute cost of relational and compositional learning.',
   'kind': 'research',
   'status': 'published',
-  'published': '2026-09-12',
+  'published': '2026-09-11',
   'authors': ['Crates McDade'],
   'tags':
     [

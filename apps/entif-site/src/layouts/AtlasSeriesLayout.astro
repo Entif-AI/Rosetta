@@ -53,6 +53,7 @@ const href = (item: SiteEntry) =>
               href={href(item)}
               aria-current={isCurrent ? 'page' : undefined}
               aria-label={`Chapter ${order}: ${item.data.title}`}
+              data-test-id={`atlas-chapter-link-${order}`}
             >
               <span class="atlas-rail-label">
                 {order}. {item.data.title}
@@ -98,15 +99,22 @@ const href = (item: SiteEntry) =>
       set:html={chapter.html}
     />
 
-    <nav class="atlas-ending" aria-label="Chapter pagination">
+    <nav
+      class="atlas-ending"
+      aria-label="Chapter pagination"
+      data-test-id="atlas-ending"
+    >
       {
         previous ? (
-          <a href={href(previous)}>
+          <a href={href(previous)} data-test-id="atlas-ending-previous">
             <span>{metadata.previous}</span>
             {previous.data.title}
           </a>
         ) : (
-          <a href={joinBasePath(base, 'articles/')}>
+          <a
+            href={joinBasePath(base, 'articles/')}
+            data-test-id="atlas-ending-back"
+          >
             <span>Back to</span>
             Articles
           </a>
@@ -114,7 +122,7 @@ const href = (item: SiteEntry) =>
       }
       {
         next ? (
-          <a href={href(next)}>
+          <a href={href(next)} data-test-id="atlas-ending-next">
             <span>{metadata.next}</span>
             {next.data.title}
           </a>
@@ -125,6 +133,7 @@ const href = (item: SiteEntry) =>
     <nav
       class="atlas-scene-jumper"
       data-atlas-scene-jumper
+      data-test-id="atlas-scene-jumper"
       aria-label="Illustrated scene navigation"
       hidden
     >

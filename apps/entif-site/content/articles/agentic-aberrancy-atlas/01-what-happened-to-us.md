@@ -6,7 +6,7 @@
   'description': 'How capable agents turn the user into the continuity layer: restoring intent, authority, and state while the system still claims progress.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-08',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'project-continuity', 'failure-analysis', 'developmental-learning'],

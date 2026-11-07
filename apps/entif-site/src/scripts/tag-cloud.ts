@@ -37,9 +37,7 @@ export function enhanceTagCloud(): void {
   for (const item of cloud.querySelectorAll<HTMLElement>(
     '[data-tag-cloud-item]'
   )) {
-    const link = item.querySelector<HTMLElement>(
-      '[data-test-id="tag-cloud-link"]'
-    );
+    const link = item.querySelector<HTMLElement>('[data-tag-cloud-link]');
     if (!link) continue;
     const weight = Number(link.dataset.weight);
     items.push({

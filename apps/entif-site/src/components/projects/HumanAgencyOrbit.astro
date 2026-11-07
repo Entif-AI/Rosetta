@@ -10,7 +10,12 @@ const { hero, systems, projects } = Astro.props;
 ---
 
 <div class="uca-orbit" data-test-id="uca-orbit">
-  <svg viewBox="0 0 400 400" focusable="false" aria-hidden="true">
+  <svg
+    viewBox="0 0 400 400"
+    focusable="false"
+    aria-hidden="true"
+    data-test-id="uca-orbit-graphic"
+  >
     <circle cx="200" cy="200" r="151" class="uca-orbit-ring"></circle>
     <circle
       cx="200"

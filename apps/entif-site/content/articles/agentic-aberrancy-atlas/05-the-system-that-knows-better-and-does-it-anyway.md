@@ -6,7 +6,7 @@
   'description': 'A system can acknowledge a correction and still act on the old rule. The chapter traces how policy language persists after its operational authority disappears.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-13',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'policy-enforcement', 'authority-semantics', 'control-flow'],
   'projects': ['bilqis'],

@@ -5,6 +5,11 @@ export function remarkSiteAssets() {
   return (tree) => {
     const walk = (node) => {
       if (node.type === 'image' && node.url.startsWith('/research-assets/')) {
+        const figureTestId = `published-entry-figure-${node.url
+          .slice('/research-assets/'.length)
+          .replace(/[^a-zA-Z0-9]+/g, '-')
+          .replace(/^-|-$/g, '')
+          .toLowerCase()}`;
         const source = readFileSync(
           new URL('../../public' + node.url, import.meta.url),
           'utf8'
@@ -23,6 +28,7 @@ export function remarkSiteAssets() {
           decoding: 'async',
           width: Math.round(width),
           height: Math.round(height),
+          'data-test-id': figureTestId,
         };
         const base = (process.env.ENTIF_SITE_BASE ?? '').replace(
           /^\/+|\/+$/g,

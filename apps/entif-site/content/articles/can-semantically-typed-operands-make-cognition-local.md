@@ -6,7 +6,7 @@
   'description': 'A question about KANs opens into a larger architecture: typed semantic state, parallel decisions, local learned functions, cognitive compilation, and governed persistent learning.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-18',
+  'published': '2026-09-16',
   'authors': ['Crates McDade'],
   'tags':
     [
@@ -65,7 +65,7 @@ I am increasingly interested in how often we can avoid using the whole damn brai
 
 ## The expensive part may be finding the operands
 
-[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) starts one layer upstream of model architecture. Its central hypothesis is that natural-language training may impose a **semantic reconstruction tax**: a bounded learner receives the information it needs, but receives it in a representation that makes reusable factors harder to discover, isolate, and recombine.
+[_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/) starts one layer upstream of model architecture. Its central hypothesis is that natural-language training may impose a **semantic reconstruction tax**: a bounded learner receives the information it needs, but receives it in a representation that makes reusable factors harder to discover, isolate, and recombine.
 
 That claim is deliberately weaker than "natural language is bad for AI." Natural language is absurdly effective at the job humans evolved and engineered it to do. It is expressive, lossy when shared context can carry the difference, redundant when people need reinforcement, irregular because history happened, and ambiguous because humans routinely survive ambiguity by dragging half the surrounding world into interpretation.
 
@@ -228,7 +228,7 @@ The right phrase is closer to **bulk-synchronous semantic dataflow**: parallel w
 
 ## OMoC stops looking like a fancier MoE
 
-Our existing [Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/) work began with a routing question. Instead of assigning work to fixed agent costumes like "researcher," "critic," and "architect," represent the problem by its local concept signature, ambiguity, evidence density, constraints, and stakes, then activate cognitive operators because they apply to that shape.
+Our existing [Ontological Mixture of Concepts](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/) work began with a routing question. Instead of assigning work to fixed agent costumes like "researcher," "critic," and "architect," represent the problem by its local concept signature, ambiguity, evidence density, constraints, and stakes, then activate cognitive operators because they apply to that shape.
 
 I used to think of this primarily as smarter orchestration.
 
@@ -420,7 +420,7 @@ The problem was never confidence.
 
 ## Context itself becomes compiled cognition
 
-Our earlier [semantic latticing](/tags/rosetta/2026/08/28/semantic-latticing/) work treated context as a structured composition rather than a pile of retrieved prose. Forget Me Not pushes the idea further.
+Our earlier [semantic latticing](/tags/rosetta/2026/08/27/semantic-latticing/) work treated context as a structured composition rather than a pile of retrieved prose. Forget Me Not pushes the idea further.
 
 Retrieval does not feed the prompt directly.
 
@@ -714,9 +714,9 @@ And if that last sentence survives the experiments, I suspect it will matter mor
 
 ## Research and development referenced
 
-- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), ETR-2026-05.
-- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/).
-- Entif AI, [Cognitive tapestries via semantic latticing](/tags/rosetta/2026/08/28/semantic-latticing/).
+- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/), ETR-2026-05.
+- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/).
+- Entif AI, [Cognitive tapestries via semantic latticing](/tags/rosetta/2026/08/27/semantic-latticing/).
 - Entif AI, [Agentic memory needs more than retrieval](/tags/rosetta/2026/08/28/agentic-memory/).
 - TypeSafe AI, [Introducing System One Models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), September 14, 2026.
 - Nandakishor M., [Laya](https://github.com/NandhaKishorM/laya), open-source System One decision engine; [model card and checkpoint](https://huggingface.co/convaiinnovations/laya).

@@ -144,6 +144,7 @@ const isProject = entry.data.kind === 'project';
               class="text-link"
               href={joinBasePath(baseUrl, entry.data.manuscript)}
               download
+              data-test-id="published-entry-download"
             >
               {copy.download}
             </a>

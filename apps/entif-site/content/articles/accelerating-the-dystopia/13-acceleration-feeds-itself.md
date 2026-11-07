@@ -6,7 +6,7 @@
   'description': 'Models generate material that becomes future evidence while helping build successors. Synthetic-data feedback and AI-assisted research can accelerate capability and error faster than evaluation.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-29',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'recursive-feedback', 'model-collapse', 'governance-latency'],
   'projects': [],

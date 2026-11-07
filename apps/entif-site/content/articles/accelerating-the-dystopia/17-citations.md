@@ -6,7 +6,7 @@
   'description': 'Sources and references for the sixteen substantive chapters, including the research, data, and historical material cited throughout the series.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-10-03',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'bibliography', 'source-notes', 'references'],
   'projects': [],

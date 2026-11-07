@@ -1,9 +1,7 @@
 export function enhanceCitations(): void {
-  const series = document.querySelector<HTMLElement>(
-    '[data-test-id="editorial-series"]'
-  );
+  const series = document.querySelector<HTMLElement>('[data-editorial-series]');
   const nav = document.querySelector<HTMLElement>(
-    '[data-test-id="editorial-navigation"]'
+    '[data-editorial-navigation]'
   );
   if (series && nav) {
     new ResizeObserver(() => {
@@ -15,22 +13,20 @@ export function enhanceCitations(): void {
   }
   if (!('showPopover' in HTMLElement.prototype)) return;
   for (const citation of document.querySelectorAll<HTMLElement>(
-    '[data-test-id="editorial-citation"]'
+    '[data-citation-root]'
   )) {
     const trigger = citation.querySelector<HTMLButtonElement>(
-      '[data-test-id="citation-trigger"]'
+      '[data-citation-trigger]'
     );
-    const panel = citation.querySelector<HTMLElement>(
-      '[data-test-id="citation-panel"]'
-    );
+    const panel = citation.querySelector<HTMLElement>('[data-citation-panel]');
     const close = citation.querySelector<HTMLButtonElement>(
-      '[data-test-id="citation-close"]'
+      '[data-citation-close]'
     );
     if (!trigger || !panel || !close) continue;
     trigger.hidden = false;
     trigger.setAttribute('popovertarget', panel.id);
     for (const fallback of citation.querySelectorAll<HTMLElement>(
-      '[data-test-id="citation-fallback"]'
+      '[data-citation-fallback]'
     ))
       fallback.hidden = true;
     let restoringFocus = false;

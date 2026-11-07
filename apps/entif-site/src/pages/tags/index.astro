@@ -80,11 +80,16 @@ const tagCloud = topics.map(([term, count]) => {
           fontWeight,
           color,
         }) => (
-          <li class="tag-cloud-item" data-tag-cloud-item>
+          <li
+            class="tag-cloud-item"
+            data-tag-cloud-item
+            data-test-id={`tag-cloud-item-${term}`}
+          >
             <a
               class="tag-cloud-link"
+              data-tag-cloud-link
               href={joinBasePath(baseUrl, `tags/${term}/`)}
-              data-test-id="tag-cloud-link"
+              data-test-id={`tag-cloud-link-${term}`}
               data-tag={term}
               data-count={count}
               data-weight={weight.toFixed(4)}

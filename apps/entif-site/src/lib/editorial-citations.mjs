@@ -64,13 +64,14 @@ export function rehypeEditorial() {
           if (match.index > end)
             result.push(text(child.value.slice(end, match.index)));
           const resolved = resolveSources(citationKeys(match[0]));
-          const id = `citation-${series.order}-${++sequence}`;
+          const id = `editorial-citation-${series.order}-${++sequence}`;
           result.push(
             element(
               'span',
               {
                 className: ['editorial-citation'],
-                'data-test-id': 'editorial-citation',
+                'data-citation-root': '',
+                'data-test-id': id,
               },
               [
                 ...resolved.map((source) =>
@@ -78,7 +79,8 @@ export function rehypeEditorial() {
                     'a',
                     {
                       href: reference + '#source-' + source.Source_ID,
-                      'data-test-id': 'citation-fallback',
+                      'data-citation-fallback': '',
+                      'data-test-id': `${id}-fallback-${source.Source_ID}`,
                     },
                     [text(`[${source.Source_ID}]`)]
                   )
@@ -88,7 +90,8 @@ export function rehypeEditorial() {
                   {
                     type: 'button',
                     hidden: true,
-                    'data-test-id': 'citation-trigger',
+                    'data-citation-trigger': '',
+                    'data-test-id': `${id}-trigger`,
                     'aria-label': `Sources ${resolved
                       .map((s) => s.Source_ID)
                       .join(', ')}`,
@@ -103,7 +106,8 @@ export function rehypeEditorial() {
                     id,
                     popover: 'auto',
                     className: ['editorial-citation-panel'],
-                    'data-test-id': 'citation-panel',
+                    'data-citation-panel': '',
+                    'data-test-id': `${id}-panel`,
                     role: 'group',
                     'aria-label': 'Citation sources',
                   },
@@ -117,7 +121,7 @@ export function rehypeEditorial() {
                             'a',
                             {
                               href: reference + '#source-' + source.Source_ID,
-                              'data-test-id': 'citation-reference',
+                              'data-test-id': `${id}-reference-${source.Source_ID}`,
                             },
                             [text(`${source.Source_ID} · ${source.Title}`)]
                           ),
@@ -138,7 +142,8 @@ export function rehypeEditorial() {
                       'button',
                       {
                         type: 'button',
-                        'data-test-id': 'citation-close',
+                        'data-citation-close': '',
+                        'data-test-id': `${id}-close`,
                         'aria-label': 'Close citation',
                       },
                       [text('Close')]
@@ -171,7 +176,7 @@ export function rehypeEditorial() {
         'section',
         {
           className: ['editorial-beat'],
-          'data-test-id': 'editorial-beat',
+          'data-test-id': `editorial-beat-${series.order}-${index + 1}`,
           'data-beat': index + 1,
         },
         children

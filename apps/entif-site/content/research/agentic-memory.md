@@ -7,7 +7,7 @@
   'kind': 'research',
   'status': 'published',
   'published': '2026-08-28',
-  'updated': '2026-09-18',
+  'updated': '2026-09-08',
   'authors': ['Entif AI'],
   'tags':
     [
@@ -439,7 +439,7 @@ An allegation may be combined with an observation and emerge as "known fact."
 
 Two separately accessible records may reveal protected information only when joined.
 
-This is why [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/28/semantic-latticing/) treats context construction as a governed transformation rather than a retrieval dump.
+This is why [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/27/semantic-latticing/) treats context construction as a governed transformation rather than a retrieval dump.
 
 The context compiler needs to ask not only:
 
@@ -681,7 +681,7 @@ Receipts, of all projects, should understand that.
 
 ## Where OMoC enters the memory story
 
-[Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/) asks what cognitive machinery should activate for a task.
+[Ontological Mixture of Concepts](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/) asks what cognitive machinery should activate for a task.
 
 Persistent memory changes the inputs to that decision.
 
@@ -791,9 +791,9 @@ On purpose.
 
 ## Research and development referenced
 
-- Entif AI, [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/28/semantic-latticing/).
-- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/28/ontological-mixture-of-concepts/).
-- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), ETR-2026-05.
+- Entif AI, [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/27/semantic-latticing/).
+- Entif AI, [Ontological Mixture of Concepts](/tags/rosetta/2026/08/29/ontological-mixture-of-concepts/).
+- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/), ETR-2026-05.
 - Entif AI, [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), ETR-2026-04.
 - Entif AI, [_After the Inflection_](/tags/research/2026/09/07/after-the-inflection/), ETR-2026-03.
 - IETF Internet-Draft, [PAMSPEC: Persistent Agent Memory](https://datatracker.ietf.org/doc/draft-infantado-agent-memory-architecture/).

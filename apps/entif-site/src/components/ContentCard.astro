@@ -20,7 +20,9 @@ const {
   linkTestId,
 } = Astro.props;
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
-const testId = `content-card-${encodeURIComponent(card.id)}`;
+const encodedId = encodeURIComponent(card.id);
+const testId = `content-card-${encodedId}`;
+const linkId = linkTestId ? `${linkTestId}-${encodedId}` : `${testId}-link`;
 const artwork = getContentCardArtwork(artworkIndex);
 const actionLabel =
   card.kind === 'project'
@@ -49,6 +51,7 @@ const actionLabel =
       quality={78}
       loading="lazy"
       class="content-card-image"
+      data-test-id={`${testId}-image`}
     />
   </div>
   <div class="content-card-copy">
@@ -56,25 +59,37 @@ const actionLabel =
       <span class="eyebrow">{card.kind}</span>
       {card.projects.length > 0 && <span>{card.projects.join(' · ')}</span>}
     </div>
-    <Heading>
-      <a href={card.href} data-test-id={linkTestId}>{card.title}</a>
+    <Heading data-test-id={`${testId}-heading`}>
+      <a href={card.href} data-test-id={linkId}>{card.title}</a>
     </Heading>
     {
       card.published && card.kind !== 'project' && (
-        <h3 class="lede">{card.published.toDateString()}</h3>
+        <h3 class="lede" data-test-id={`${testId}-date`}>
+          {card.published.toDateString()}
+        </h3>
       )
     }
-    <p class="content-card-description">{card.description}</p>
+    <p class="content-card-description" data-test-id={`${testId}-description`}>
+      {card.description}
+    </p>
     {
       card.tags.length > 0 && (
-        <ul class="tag-list" aria-label={copy.topics}>
+        <ul
+          class="tag-list"
+          aria-label={copy.topics}
+          data-test-id={`${testId}-tags`}
+        >
           {card.tags.slice(0, 4).map((tag) => (
             <li>{tag}</li>
           ))}
         </ul>
       )
     }
-    <span class="content-card-action" aria-hidden="true">
+    <span
+      class="content-card-action"
+      aria-hidden="true"
+      data-test-id={`${testId}-action`}
+    >
       {actionLabel}<span>→</span>
     </span>
   </div>

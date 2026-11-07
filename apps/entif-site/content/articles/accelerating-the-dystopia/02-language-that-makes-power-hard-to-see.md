@@ -6,7 +6,7 @@
   'description': 'Euphemism, metrics, fragmented disclosure, and administrative burden can make consequences harder to perceive or contest, while technical precision remains distinct from obscurity.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-18',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'institutional-language', 'transparency', 'administrative-burden'],
@@ -41,10 +41,10 @@ None of those phrases has to be false.
 
 That is why they work.
 
-<figure class="story-scene language-scene" data-test-id="editorial-scene">
+<figure class="story-scene language-scene">
 <div class="scene-overline"><span>The vocabulary changes the frame</span><span>Invented formulations from the chapter</span></div>
 <h2>Same event. Different field of view.</h2>
-<fieldset class="scene-choice"><legend>Read the announcement through a different lens</legend><label><input type="radio" name="language-lens" value="institution" checked data-test-id="language-lens"> Institutional language</label><label><input type="radio" name="language-lens" value="person" data-test-id="language-lens"> Lived consequence</label></fieldset>
+<fieldset class="scene-choice"><legend>Read the announcement through a different lens</legend><label><input type="radio" name="language-lens" value="institution" checked> Institutional language</label><label><input type="radio" name="language-lens" value="person"> Lived consequence</label></fieldset>
 <div class="language-paper"><span class="memo-label">INTERNAL COMMUNICATION</span><p class="institution-wording">Workforce <em>optimization.</em></p><p class="person-wording">People lose <em>their jobs.</em></p><div class="language-foot"><span class="institution-wording">Attention goes to the organization’s objective.</span><span class="person-wording">Attention goes to the people affected.</span><span aria-hidden="true">↗</span></div></div>
 <figcaption>The institutional wording need not be false to change what the reader notices. This is a conceptual comparison, not a quotation from a named employer.</figcaption>
 </figure>
@@ -135,7 +135,7 @@ A disclosure can exist without becoming usable knowledge. That is the difference
 
 Imagine that a service discloses its introductory price on one screen, its later price in a linked document, its equipment charge in a separate table, and its cancellation procedure in an account menu available only after purchase. Every piece might be accurate. The person still has to assemble a working model of the transaction. The seller has one integrated model. The buyer receives fragments. One side gets a database. The other gets a scavenger hunt.
 
-<figure class="story-scene disclosure-scene" data-test-id="editorial-scene">
+<figure class="story-scene disclosure-scene">
 <div class="scene-overline"><span>The information exists</span><span>Illustrative offer anatomy</span></div>
 <h2>Present in the paperwork. Absent from the decision.</h2>
 <div class="disclosure-folders"><details open><summary><span>01</span>The offer</summary><p>The introductory price is prominent at the moment of choice.</p></details><details><summary><span>02</span>The later price</summary><p>The renewal terms live in another document.</p></details><details><summary><span>03</span>The equipment</summary><p>A separate table contains an additional charge.</p></details><details><summary><span>04</span>The way out</summary><p>The cancellation process is found inside account management.</p></details></div>

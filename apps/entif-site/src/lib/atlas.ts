@@ -230,7 +230,9 @@ const injectReferenceAnchors = (html: string): string => {
         (source) =>
           `<span id="${
             source.anchor
-          }" class="atlas-reference-anchor" data-test-id="atlas-reference-anchor" data-source-key="${escapeHtml(
+          }" class="atlas-reference-anchor" data-test-id="atlas-reference-anchor-${
+            source.anchor
+          }" data-source-key="${escapeHtml(
             source.key
           )}" aria-hidden="true"></span>`
       )
@@ -243,7 +245,7 @@ const injectReferenceAnchors = (html: string): string => {
 const promoteHeroSubtitle = (html: string): string =>
   html.replace(
     /<p class="subtitle">([\s\S]*?)<\/p>/,
-    '<h2 class="subtitle">$1</h2>'
+    '<h2 class="subtitle" data-test-id="atlas-hero-subtitle">$1</h2>'
   );
 
 const enhanceCitations = (
@@ -269,7 +271,9 @@ const enhanceCitations = (
         (source) =>
           `<a href="${escapeHtml(referencePath)}#${
             source.anchor
-          }" data-test-id="citation-fallback">[${escapeHtml(source.key)}]</a>`
+          }" data-citation-fallback data-test-id="${panelId}-fallback-${encodeURIComponent(
+            source.key
+          )}">[${escapeHtml(source.key)}]</a>`
       )
       .join('');
     const cards = sources
@@ -277,18 +281,22 @@ const enhanceCitations = (
         (source) =>
           `<span class="editorial-citation-source"><a href="${escapeHtml(
             referencePath
-          )}#${source.anchor}" data-test-id="citation-reference">${escapeHtml(
+          )}#${
+            source.anchor
+          }" data-test-id="${panelId}-reference-${encodeURIComponent(
             source.key
-          )} · ${escapeHtml(source.title)}</a><span>${escapeHtml(
-            source.family
-          )}</span><span>${escapeHtml(source.detail)}</span></span>`
+          )}">${escapeHtml(source.key)} · ${escapeHtml(
+            source.title
+          )}</a><span>${escapeHtml(source.family)}</span><span>${escapeHtml(
+            source.detail
+          )}</span></span>`
       )
       .join('');
     const citationKeys = escapeHtml(keys.join(','));
 
-    return `<span class="citation editorial-citation atlas-citation" data-test-id="editorial-citation" data-citation-keys="${citationKeys}">${fallback}<button type="button" hidden data-test-id="citation-trigger" data-citation-keys="${citationKeys}" aria-label="Sources ${escapeHtml(
+    return `<span class="citation editorial-citation atlas-citation" data-citation-root data-test-id="${panelId}" data-citation-keys="${citationKeys}">${fallback}<button type="button" hidden data-citation-trigger data-test-id="${panelId}-trigger" data-citation-keys="${citationKeys}" aria-label="Sources ${escapeHtml(
       keys.join(', ')
-    )}" aria-expanded="false" aria-controls="${panelId}">${marker}</button><span id="${panelId}" popover="auto" class="editorial-citation-panel atlas-citation-panel" data-test-id="citation-panel" role="group" aria-label="Citation sources">${cards}<button type="button" data-test-id="citation-close" aria-label="Close citation">Close</button></span></span>`;
+    )}" aria-expanded="false" aria-controls="${panelId}">${marker}</button><span id="${panelId}" popover="auto" class="editorial-citation-panel atlas-citation-panel" data-citation-panel data-test-id="${panelId}-panel" role="group" aria-label="Citation sources">${cards}<button type="button" data-citation-close data-test-id="${panelId}-close" aria-label="Close citation">Close</button></span></span>`;
   });
 };
 

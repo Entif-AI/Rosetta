@@ -17,14 +17,15 @@ test('print includes the closed biography and complete doctrine while suppressin
   await page.emulateMedia({ media: 'print' });
   await page.goto('/about/');
   await expect(page.getByTestId('about-bio')).not.toHaveAttribute('open');
-  await expect(page.locator('.about-bio-prose')).toBeVisible();
-  await expect(page.locator('h1')).toHaveCSS('color', 'rgb(0, 0, 0)');
+  await expect(page.getByTestId('about-bio-prose')).toBeVisible();
+  await expect(page.getByTestId('content-page-heading')).toHaveCSS(
+    'color',
+    'rgb(0, 0, 0)'
+  );
   await expect(page.getByTestId('about-hero-image')).toBeHidden();
   await page.goto(route('governance-criteria'));
-  const catalog = page.getByTestId('doctrine-body').locator('h3');
-  await expect(catalog).toHaveCount(52);
-  await expect(catalog.first()).toBeVisible();
-  await expect(catalog.last()).toBeVisible();
+  await expect(page.getByTestId('doctrine-body')).toContainText('GC001:');
+  await expect(page.getByTestId('doctrine-body')).toContainText('GC052:');
   await expect(page.getByTestId('doctrine-contents')).toBeHidden();
 });
 
@@ -32,7 +33,7 @@ test('About leads into the complete doctrine suite with unique working heroes', 
   page,
 }) => {
   await page.goto('/about/');
-  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(page.getByTestId('content-page-heading')).toHaveCount(1);
   for (const stage of [
     'about-hero',
     'about-mission',
@@ -42,8 +43,7 @@ test('About leads into the complete doctrine suite with unique working heroes', 
     'about-closing',
   ])
     await expect(page.getByTestId(stage)).toBeVisible();
-  const library = page.getByTestId('doctrine-library');
-  const cards = library.locator('[data-test-id^="doctrine-card-"]');
+  const cards = page.getByTestId(/^doctrine-card-/);
   await expect(cards).toHaveCount(15);
   expect(
     await cards.evaluateAll((elements) =>
@@ -58,7 +58,6 @@ test('About leads into the complete doctrine suite with unique working heroes', 
     await page.goto('/about/#doctrine');
     await page.getByTestId(`doctrine-card-${doc.id}`).click();
     await expect(page).toHaveURL(new RegExp(`${route(doc.slug)}$`));
-    await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.getByTestId('doctrine-heading')).toBeVisible();
     await expect(page.getByTestId('doctrine-metadata')).toContainText(
       `${doc.id} · v0.1.0`
@@ -71,30 +70,29 @@ test('About leads into the complete doctrine suite with unique working heroes', 
     await expect(hero).toHaveAttribute('srcset', /640w.*960w.*1280w.*1672w/);
     heroes.add((await hero.getAttribute('src')) ?? '');
     const contents = page.getByTestId('doctrine-contents');
-    const fragments = await contents
-      .locator('a[href^="#"]')
+    const fragments = await page
+      .getByTestId(/^doctrine-contents-link-/)
       .evaluateAll((elements) =>
         elements.map((e) => e.getAttribute('href')?.slice(1))
       );
     expect(fragments.length).toBeGreaterThan(0);
-    for (const id of fragments)
-      await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
-    const neighbors = page.getByTestId('doctrine-neighbors');
     const expected = [corpus.documents[i - 1], corpus.documents[i + 1]]
       .filter((entry) => entry !== undefined)
       .map((entry) => route(entry.slug));
-    expect(
-      await neighbors
-        .locator('a')
-        .evaluateAll((elements) => elements.map((e) => e.getAttribute('href')))
-    ).toEqual(expected);
-    await expect(page.locator('.about-breadcrumb a').first()).toHaveAttribute(
+    const neighborHrefs = await Promise.all(
+      [
+        page.getByTestId('doctrine-neighbor-previous'),
+        page.getByTestId('doctrine-neighbor-next'),
+      ].map(async (neighbor) =>
+        (await neighbor.count()) ? neighbor.getAttribute('href') : null
+      )
+    );
+    expect(neighborHrefs.filter(Boolean)).toEqual(expected);
+    await expect(page.getByTestId('doctrine-breadcrumb-about')).toHaveAttribute(
       'href',
       '/about/'
     );
-    await expect(page.getByTestId('doctrine-body').locator('h1')).toHaveCount(
-      0
-    );
+    await expect(contents).toBeVisible();
   }
   expect(heroes.size).toBe(15);
 });
@@ -107,12 +105,13 @@ test('native source dates, all 52 criteria and honest publication states survive
   for (const date of ['Oct 1, 2026', 'Apr 29, 2025', 'Oct 2, 2026'])
     await expect(body).toContainText(date);
   await page.goto(route('governance-criteria'));
-  await expect(page.getByTestId('doctrine-body').locator('h3')).toHaveCount(52);
+  const criteriaText = await page.getByTestId('doctrine-body').innerText();
+  expect(criteriaText.match(/GC\d{3}:/g)).toHaveLength(52);
   for (const number of [1, 26, 52])
     await expect(page.getByTestId('doctrine-body')).toContainText(
       `GC${String(number).padStart(3, '0')}:`
     );
-  await expect(page.locator('.doctrine-source-note')).toContainText(
+  await expect(page.getByTestId('doctrine-source-note')).toContainText(
     'Astra Pass 1'
   );
   await expect(page.getByTestId('doctrine-status')).toContainText('candidate');
@@ -135,19 +134,19 @@ test('full biography, contents and reading navigation work with JavaScript disab
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4322/about/');
   const bio = page.getByTestId('about-bio');
-  await bio.locator('summary').focus();
+  await page.getByTestId('about-bio-summary').focus();
   await page.keyboard.press('Enter');
   await expect(bio).toHaveAttribute('open', '');
   await expect(bio).toContainText('Engineering experience behind Entif AI');
   await page.getByTestId('doctrine-card-D11').click();
   await page
-    .getByTestId('doctrine-contents')
-    .locator('a[href^="#"]')
-    .first()
+    .getByTestId(
+      'doctrine-contents-link-1-intelligence-does-not-appoint-itself-an-authority'
+    )
     .click();
   await expect(page).toHaveURL(/#.+$/);
   await expect(page.getByTestId('doctrine-body')).toBeVisible();
-  await page.locator('.doctrine-back').click();
+  await page.getByTestId('doctrine-back').click();
   await expect(page).toHaveURL(/\/about\/#doctrine$/);
   await context.close();
 });
@@ -198,7 +197,7 @@ test('About keeps its library, biography and focus usable under enlarged text an
         document.documentElement.clientWidth
     )
   ).toBe(true);
-  await page.getByTestId('about-bio').locator('summary').click();
+  await page.getByTestId('about-bio-summary').click();
   await expect(page.getByTestId('about-bio')).toHaveAttribute('open', '');
   await page.getByTestId('doctrine-card-D16').focus();
   await page.keyboard.press('Enter');

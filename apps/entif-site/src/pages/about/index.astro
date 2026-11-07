@@ -155,10 +155,12 @@ const projectPath = joinBasePath(import.meta.env.BASE_URL, 'projects/');
         </div>
       </div>
       <details id="full-bio" class="about-bio-details" data-test-id="about-bio">
-        <summary class="about-action"
+        <summary class="about-action" data-test-id="about-bio-summary"
           >{content.founder.bioLabel}<span aria-hidden="true">＋</span></summary
         >
-        <div class="about-bio-prose"><Content /></div>
+        <div class="about-bio-prose" data-test-id="about-bio-prose">
+          <Content />
+        </div>
       </details>
     </div>
   </section>

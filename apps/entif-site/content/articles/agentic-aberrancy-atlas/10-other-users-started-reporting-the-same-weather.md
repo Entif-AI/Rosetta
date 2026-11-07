@@ -6,7 +6,7 @@
   'description': 'Reports from unrelated users echo the same failures seen in Bilqis: lost decisions, shallow execution, context collapse, missing authority, and inconsistent rollouts.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-18',
   'authors': ['Crates McDade'],
   'tags':
     ['ai', 'community-reports', 'context-retention', 'product-regression'],

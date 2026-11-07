@@ -6,7 +6,7 @@
   'description': 'The working hypothesis is a hidden runtime around the model: context assembly, memory retrieval, reasoning allocation, tool access, and routing all shape what users experience.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-19',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'context-compaction', 'model-routing', 'resource-allocation'],
   'projects': ['bilqis'],

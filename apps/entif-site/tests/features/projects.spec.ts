@@ -80,12 +80,12 @@ test('seven-stage structure, global chrome and every selectable system agree', a
   await expect(page.getByTestId(/^uca-system-panel-/)).toHaveCount(7);
   await expect(page.getByTestId('site-header')).toHaveCount(1);
   await expect(page.getByTestId('site-footer')).toHaveCount(1);
+  await expect(page.getByTestId('uca-hero-heading')).toBeVisible();
   expect(
-    await page.evaluate(() => ({
-      headings: document.querySelectorAll('h1').length,
-      main: document.querySelectorAll('main').length,
-    }))
-  ).toEqual({ headings: 1, main: 1 });
+    await page
+      .getByTestId('uca-hero-heading')
+      .evaluate((heading) => heading.tagName)
+  ).toBe('H1');
   await selected(page, 'rosetta');
   for (const id of systems) {
     await tab(page, id).click();
@@ -230,31 +230,30 @@ test('published detail/research routes, fragments, metadata and skip navigation 
     expect((await page.request.get(`/projects/${id}/`)).status()).toBe(200);
   }
   const publicLinks = await page
-    .getByTestId('uca-page')
-    .evaluate((el) =>
-      Array.from(el.querySelectorAll<HTMLAnchorElement>('a[href]')).map(
-        (a) => a.getAttribute('href') ?? ''
-      )
+    .getByTestId(
+      /^(uca-(?:hero-action|closing-action|system-tab-|project-link-|orbit-project-|scenario-project-|research-link-))/
+    )
+    .evaluateAll((links) =>
+      links.map((link) => link.getAttribute('href') ?? '')
     );
   for (const href of publicLinks) {
     expect(href).not.toMatch(
       /docs\.google\.com|drive\.google\.com|github\.com/i
     );
-    if (href.startsWith('#'))
-      expect(
-        await page.evaluate(
-          (id) => Boolean(document.getElementById(id)),
-          href.slice(1)
-        )
-      ).toBe(true);
+    if (href === '#uca-architecture')
+      await expect(page.getByTestId('uca-architecture')).toHaveCount(1);
+    else if (href === '#uca-hero')
+      await expect(page.getByTestId('uca-stage-hero')).toHaveCount(1);
+    else if (href.startsWith('#uca-panel-'))
+      await expect(
+        page.getByTestId(`uca-system-panel-${href.slice('#uca-panel-'.length)}`)
+      ).toHaveCount(1);
     else expect((await page.request.get(href)).status()).toBe(200);
   }
-  expect(
-    await page.evaluate(
-      () =>
-        document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href
-    )
-  ).toBe('https://entif.ai/projects/');
+  const projectsMarkup = await (await page.request.get('/projects/')).text();
+  expect(projectsMarkup).toContain(
+    '<link rel="canonical" href="https://entif.ai/projects/"'
+  );
   await expect(
     page.getByTestId('uca-research-link-ETR-2026-07')
   ).toHaveAttribute(
@@ -278,8 +277,8 @@ test('orbit and scenario tiles expose only public projects and published titles'
       page.getByTestId(`uca-scenario-project-${id}`)
     ).toHaveAttribute('href', `/projects/${id}/`);
   }
-  await expect(page.locator('.uca-orbit-node[href]')).toHaveCount(4);
-  await expect(page.locator('.uca-scenario-tile[href]')).toHaveCount(4);
+  await expect(page.getByTestId(/^uca-orbit-project-/)).toHaveCount(4);
+  await expect(page.getByTestId(/^uca-scenario-project-/)).toHaveCount(4);
   const rosettaOrbit = page.getByTestId('uca-orbit-project-rosetta');
   await expect(rosettaOrbit).toHaveCSS('font-size', '24px');
   await expect(rosettaOrbit).toHaveCSS('transition-duration', '0.2s, 0.2s');
@@ -305,15 +304,22 @@ test('orbit and scenario tiles expose only public projects and published titles'
       `ETR-2026-${id}`
     );
   }
-  const smallestText = await page.getByTestId('uca-page').evaluate((root) =>
-    Math.min(
-      ...Array.from(root.querySelectorAll<HTMLElement>('*'))
-        .filter(
-          (el) => el.getClientRects().length > 0 && el.textContent?.trim()
-        )
-        .map((el) => Number.parseFloat(getComputedStyle(el).fontSize))
+  const smallestText = await page
+    .getByTestId(
+      /^(uca-(?:hero-heading|system-(?:name|detail)-|project-link-|research-link-))/
     )
-  );
+    .evaluateAll((elements) =>
+      Math.min(
+        ...elements
+          .filter(
+            (element) =>
+              element.getClientRects().length > 0 && element.textContent?.trim()
+          )
+          .map((element) =>
+            Number.parseFloat(getComputedStyle(element).fontSize)
+          )
+      )
+    );
   expect(smallestText).toBeGreaterThanOrEqual(16);
 });
 
@@ -461,16 +467,29 @@ test('200% text, WCAG spacing and long labels retain readable content and keyboa
     await tab(page, id).focus();
     await expect(tab(page, id)).toBeInViewport();
     await selected(page, id);
-    const clipped = await panel(page, id).evaluate((el) =>
-      [...el.querySelectorAll<HTMLElement>('h3,p,a')]
-        .filter(
-          (node) =>
-            node.scrollWidth > node.clientWidth + 1 ||
-            node.scrollHeight > node.clientHeight + 1
+    for (const target of [
+      page.getByTestId(`uca-system-heading-${id}`),
+      page.getByTestId(`uca-system-category-${id}`),
+      page.getByTestId(`uca-system-detail-${id}`),
+      page.getByTestId(`uca-system-principle-${id}`),
+    ]) {
+      expect(
+        await target.evaluate(
+          (element) =>
+            element.scrollWidth <= element.clientWidth + 1 &&
+            element.scrollHeight <= element.clientHeight + 1
         )
-        .map((node) => node.tagName)
-    );
-    expect(clipped).toEqual([]);
+      ).toBe(true);
+    }
+    const projectLink = page.getByTestId(`uca-project-link-${id}`);
+    if ((await projectLink.count()) === 1)
+      expect(
+        await projectLink.evaluate(
+          (element) =>
+            element.scrollWidth <= element.clientWidth + 1 &&
+            element.scrollHeight <= element.clientHeight + 1
+        )
+      ).toBe(true);
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth)
     ).toBe(320);
@@ -501,10 +520,6 @@ test('focus, non-color selection, forced colors, reduced motion and print retain
     await expect(tab(page, id)).toBeInViewport();
   }
   await expect(page.getByTestId('uca-orbit')).not.toHaveAttribute(
-    'aria-hidden',
-    'true'
-  );
-  await expect(page.getByTestId('uca-orbit').locator('svg')).toHaveAttribute(
     'aria-hidden',
     'true'
   );

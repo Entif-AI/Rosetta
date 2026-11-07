@@ -95,25 +95,31 @@ const artworkIndexById = new Map(
       archiveMonths.map(({ month, label, dates }) => (
         <section
           class="archive-month"
-          data-test-id="archive-month"
+          data-test-id={`archive-month-${month}`}
           data-month={month}
         >
-          <h2 data-test-id="archive-month-heading">{label}</h2>
+          <h2 data-test-id={`archive-month-heading-${month}`}>{label}</h2>
           <ol class="archive-list">
             {dates.map(({ date, label: dateLabel, entries }) => (
               <li
                 class="archive-date"
-                data-test-id="archive-date"
+                data-test-id={`archive-date-${date}`}
                 data-date={date}
               >
                 <a
                   class="archive-date-link"
+                  data-test-id={`archive-date-link-${date}`}
                   href={joinBasePath(
                     import.meta.env.BASE_URL,
                     `archive/${date.replaceAll('-', '/')}/`
                   )}
                 >
-                  <time datetime={date}>{dateLabel}</time>
+                  <time
+                    datetime={date}
+                    data-test-id={`archive-date-time-${date}`}
+                  >
+                    {dateLabel}
+                  </time>
                 </a>
                 <ul class="archive-entry-list">
                   {entries.map((entry) => (

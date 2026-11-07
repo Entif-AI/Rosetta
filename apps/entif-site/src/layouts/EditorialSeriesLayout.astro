@@ -47,6 +47,7 @@ const href = (item: SiteEntry) =>
   {chapterStyle && <link slot="head" rel="stylesheet" href={chapterStyle} />}
   <article
     class="shell article-shell editorial-series"
+    data-editorial-series
     data-test-id="editorial-series"
     data-chapter={current}
   >
@@ -76,7 +77,7 @@ const href = (item: SiteEntry) =>
               <li
                 id={`source-${source.Source_ID}`}
                 tabindex="-1"
-                data-test-id="editorial-source"
+                data-test-id={`editorial-source-${source.Source_ID}`}
                 data-source={source.Source_ID}
               >
                 <span class="editorial-source-id">{source.Source_ID}</span>
@@ -98,7 +99,10 @@ const href = (item: SiteEntry) =>
                   </dl>
                   <p>{source.Notes}</p>
                   {isWebUrl(source.URL) && (
-                    <a href={source.URL} data-test-id="editorial-source-url">
+                    <a
+                      href={source.URL}
+                      data-test-id={`editorial-source-url-${source.Source_ID}`}
+                    >
                       {metadata.sourceLink}: {source.Title} ↗
                     </a>
                   )}

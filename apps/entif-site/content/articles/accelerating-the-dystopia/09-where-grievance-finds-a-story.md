@@ -6,7 +6,7 @@
   'description': 'Economic pain can be redirected into simpler identity narratives when structural causes are hard to see. Engagement systems amplify what travels rather than what is representative.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-25',
   'authors': ['Crates McDade'],
   'tags':
     [

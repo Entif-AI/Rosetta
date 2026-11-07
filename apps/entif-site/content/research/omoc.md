@@ -6,7 +6,7 @@
   'description': 'OMoC treats reasoning as a semantically routed computation graph: task-local concept signatures select heterogeneous cognitive operators instead of static agent roles.',
   'kind': 'research',
   'status': 'published',
-  'published': '2026-08-28',
+  'published': '2026-08-29',
   'updated': '2026-09-18',
   'authors': ['Entif AI'],
   'tags':
@@ -85,7 +85,7 @@ The public Rosetta surface should make the resulting route intelligible enough t
 
 OMoC becomes much more interesting if the task state is not merely a paragraph of prose.
 
-[_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/) asks whether a Bilqis-derived semantic intermediate representation can reduce the cost of learning reusable relational and compositional structure. The proposal exposes semantic factors directly: identity, relation, scope, evidence status, temporal order, causality, intended purpose, actual application, quantity, uncertainty, and other distinctions that natural language often distributes across syntax, vocabulary, context, and pragmatics.
+[_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/) asks whether a Bilqis-derived semantic intermediate representation can reduce the cost of learning reusable relational and compositional structure. The proposal exposes semantic factors directly: identity, relation, scope, evidence status, temporal order, causality, intended purpose, actual application, quantity, uncertainty, and other distinctions that natural language often distributes across syntax, vocabulary, context, and pragmatics.
 
 That research must come first.
 
@@ -249,7 +249,7 @@ Confidence can inform a gate. Confidence does not become the gate merely because
 
 ## The first compiler chooses context; the second chooses cognition
 
-Our [semantic-latticing work](/tags/rosetta/2026/08/28/semantic-latticing/) now makes the OMoC boundary cleaner.
+Our [semantic-latticing work](/tags/rosetta/2026/08/27/semantic-latticing/) now makes the OMoC boundary cleaner.
 
 Retrieval first produces candidates from a larger knowledge substrate. A context compiler then decides what the current consumer is allowed and needs to receive, at which resolution, under which scope, authority, confidentiality, and resource constraints.
 
@@ -338,8 +338,8 @@ A system that knows when not to wake one up.
 
 ## Research and development referenced
 
-- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/12/prepaying-semantics/), ETR-2026-05.
-- Entif AI, [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/28/semantic-latticing/).
+- Entif AI, [_Prepaying Semantics_](/tags/research/2026/09/11/prepaying-semantics/), ETR-2026-05.
+- Entif AI, [Cognitive Tapestries via Semantic Latticing](/tags/rosetta/2026/08/27/semantic-latticing/).
 - Entif AI, [Agentic Memory Needs More Than Retrieval](/tags/rosetta/2026/08/28/agentic-memory/).
 - Entif AI, [_Meaning That Survives Change_](/tags/research/2026/09/09/rosetta-pasigraphy-protocol/), ETR-2026-04.
 - Entif AI, [_We Had the Seeds of a Babel Fish for an AGI "Alien Mind" 48 Years Ago_](/tags/research/2026/09/10/babel-fish-alien-mind/), ETR-2026-01.

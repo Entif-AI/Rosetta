@@ -28,8 +28,16 @@ const logoPath = joinBasePath(
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#071d49" />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="canonical" href={canonical} />
+    {
+      noindex && (
+        <meta
+          name="robots"
+          content="noindex, nofollow"
+          data-test-id="site-robots"
+        />
+      )
+    }
+    <link rel="canonical" href={canonical} data-test-id="site-canonical" />
     <link rel="icon" href={logoPath} type="image/webp" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
@@ -62,7 +70,7 @@ const logoPath = joinBasePath(
 
   <body>
     <SiteHeader />
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" tabindex="-1" data-test-id="site-main">
       <slot />
     </main>
     <SiteFooter />

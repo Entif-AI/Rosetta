@@ -6,7 +6,7 @@
   'description': 'Loyalty penalties, switching costs, surveillance pricing, shrinkflation, and dark patterns turn consumer inertia into revenue. AI raises the question of whose interests an assistant serves.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-09-17',
+  'published': '2026-09-22',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'surveillance-pricing', 'dark-patterns', 'consumer-agency'],
   'projects': [],
@@ -40,7 +40,7 @@ Your failure to call becomes revenue. The calendar is now part of the pricing mo
 
 Your reluctance to spend Saturday moving phone numbers, returning equipment, scheduling an installer, and arguing with retention can support revenue. Your inconvenience has economic value to the seller.
 
-<figure class="story-scene switching-scene" data-test-id="editorial-scene">
+<figure class="story-scene switching-scene">
 <div class="scene-overline"><span>The price beyond the price</span><span>The work hidden behind switching</span></div>
 <h2>The bill ends. The work of leaving begins.</h2>
 <div class="switching-route"><div class="switching-bill"><span>ACCOUNT</span><b>Monthly service</b><i></i><i></i><i></i><strong>Renewal</strong></div><ol><li><span>01</span>Move the phone numbers.</li><li><span>02</span>Return the equipment.</li><li><span>03</span>Schedule the installer.</li><li><span>04</span>Navigate retention.</li></ol><div class="switching-end"><span aria-hidden="true">↳</span><p>Your Saturday is part of the bargain.</p></div></div>
@@ -173,10 +173,10 @@ AI could help correct that asymmetry. A buyer's assistant could compare unit pri
 
 A seller's assistant could perform the opposite work: find the framing that makes a change least likely to interrupt a purchase. The tools may share much of their technical foundation. Their purposes differ. Same class of capability. Different principal. The presence of an intelligent intermediary does not tell us which side of the exchange has gained leverage.
 
-<figure class="story-scene adviser-scene" data-test-id="editorial-scene">
+<figure class="story-scene adviser-scene">
 <div class="scene-overline"><span>The interface sounds helpful</span><span>Hypothetical assistant designs</span></div>
 <h2>Whose side is the assistant on?</h2>
-<fieldset class="scene-choice"><legend>Change the objective behind the advice</legend><label><input type="radio" name="adviser-objective" value="compare" checked data-test-id="adviser-objective"> Help me compare</label><label><input type="radio" name="adviser-objective" value="convert" data-test-id="adviser-objective"> Keep me buying</label></fieldset>
+<fieldset class="scene-choice"><legend>Change the objective behind the advice</legend><label><input type="radio" name="adviser-objective" value="compare" checked> Help me compare</label><label><input type="radio" name="adviser-objective" value="convert"> Keep me buying</label></fieldset>
 <div class="adviser-window"><div class="adviser-window-top"><span aria-hidden="true">● ● ●</span><span>THE SAME CAPABILITY</span></div><p class="adviser-request">Help me understand my options.</p><div class="adviser-reply compare-reply"><span class="machine-label">Agency expands</span><h3>Unit prices. Renewal terms. Alternatives.</h3><p>The recommendation can include leaving the supplier.</p></div><div class="adviser-reply convert-reply"><span class="machine-label">The funnel narrows</span><h3>Selected products. Favorable framing. Fewer visible exits.</h3><p>The advice can be accurate about the options it chooses to mention.</p></div></div>
 <figcaption>The chapter contrasts possible objectives, not measured behavior of a named assistant. Politeness and controllability do not establish whose interests an intermediary serves.</figcaption>
 </figure>

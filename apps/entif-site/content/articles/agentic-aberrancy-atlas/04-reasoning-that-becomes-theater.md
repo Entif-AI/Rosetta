@@ -6,7 +6,7 @@
   'description': 'Fluent explanations and perfect scores can coexist with broken execution. Reasoning becomes theater when the account sounds right but fails to govern the next action.',
   'kind': 'essay',
   'status': 'published',
-  'published': '2026-10-24',
+  'published': '2026-10-12',
   'authors': ['Crates McDade'],
   'tags': ['ai', 'reasoning-theater', 'evaluation-design', 'proxy-metrics'],
   'projects': ['bilqis'],
