@@ -86,7 +86,7 @@ We have built a financial vocabulary in which a person can be materially affecte
 
 The fiscal baseline can be stated more directly. CBO projects federal debt held by the public rising from 101% of GDP in 2026 to 120% in 2036. It projects net interest outlays increasing from about $1.0 trillion and 3.3% of GDP to about $2.1 trillion and 4.6% of GDP. These are conditional baseline projections, not outcomes already observed. [S136]
 
-<figure class="story-scene fiscal-scene" data-test-id="editorial-scene">
+<figure class="story-scene fiscal-scene">
 <div class="scene-overline"><span>Room for future choices</span><span>CBO conditional baseline / not observed outcomes</span></div>
 <h2>Interest competes with everything else.</h2>
 <div class="fiscal-table"><div class="fiscal-years"><span>Projected measure</span><strong>2026</strong><strong>2036</strong></div><div><span>Debt held by the public <small>Percent of GDP</small></span><strong>101%</strong><strong>120%</strong></div><div><span>Net interest outlays <small>Percent of GDP</small></span><strong>3.3%</strong><strong>4.6%</strong></div><div><span>Net interest outlays <small>Nominal dollars</small></span><strong>≈$1.0T</strong><strong>≈$2.1T</strong></div></div>
@@ -125,7 +125,7 @@ If the transaction is paired with an equal amount of short-term issuance, the pr
 
 These are simplified cases, but they expose the structure. Gross purchases are not net debt retirement. A maturity bucket is not a complete measure of interest-rate risk. A scheduled maximum is not the amount actually accepted in an operation.
 
-<figure class="story-scene balance-sheet-scene" data-test-id="editorial-scene">
+<figure class="story-scene balance-sheet-scene">
 <div class="scene-overline"><span>Follow the balance sheets</span><span>Simplified operations / not identical policies</span></div>
 <h2>Similar channel. Different machinery.</h2>
 <div class="balance-lanes"><div class="balance-lane"><span class="machine-label">Treasury buyback</span><div class="balance-transfer"><strong>Outstanding Treasury bond</strong><span aria-hidden="true">→</span><strong>Treasury</strong></div><p>The seller receives payment. Treasury finances its overall cash needs through available cash and financing operations.</p><details><summary>What accompanies the purchase?</summary><p>Short-term issuance can reduce private-sector duration exposure. Comparable long-term issuance can put duration back. Gross purchases alone do not establish net debt retirement.</p></details></div><div class="balance-lane"><span class="machine-label">Federal Reserve purchase</span><div class="balance-transfer"><strong>Security</strong><span aria-hidden="true">→</span><strong>Central-bank balance sheet</strong></div><p>Settlement involves bank reserves; when a nonbank sells, its bank deposit is also part of the chain.</p><details><summary>Is the purchase price a gift?</summary><p>No. The seller exchanges an asset for another claim. Any gain in wealth requires a separate account of price, risk or other financial effects.</p></details></div></div>

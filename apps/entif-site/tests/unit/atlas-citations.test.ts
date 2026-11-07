@@ -33,17 +33,17 @@ describe('Atlas citation registry', () => {
 
   it('enhances raw Atlas citation markers while preserving no-JavaScript fallback links', () => {
     const chapter = getAtlasChapter(3, ATLAS_REFERENCE_PATH).html;
-    expect(chapter).toContain('data-test-id="editorial-citation"');
-    expect(chapter).toContain('data-test-id="citation-trigger"');
-    expect(chapter).toContain('data-test-id="citation-panel"');
-    expect(chapter).toContain('data-test-id="citation-fallback"');
+    expect(chapter).toContain('data-test-id="atlas-citation-3-1"');
+    expect(chapter).toContain('data-test-id="atlas-citation-3-1-trigger"');
+    expect(chapter).toContain('data-test-id="atlas-citation-3-1-panel"');
+    expect(chapter).toMatch(/data-test-id="atlas-citation-3-1-fallback-[^"]+"/);
     expect(chapter).toContain(`${ATLAS_REFERENCE_PATH}#atlas-source-b-m045`);
   });
 
   it('promotes the chapter hero subtitle to a semantic second-level heading', () => {
     const chapter = getAtlasChapter(3, ATLAS_REFERENCE_PATH).html;
     expect(chapter).toContain(
-      '<h2 class="subtitle">An Agentic Aberrancy Atlas Shrugged</h2>'
+      '<h2 class="subtitle" data-test-id="atlas-hero-subtitle">An Agentic Aberrancy Atlas Shrugged</h2>'
     );
     expect(chapter).not.toContain('<p class="subtitle">');
   });

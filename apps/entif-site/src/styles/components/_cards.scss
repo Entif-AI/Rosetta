@@ -122,6 +122,10 @@
     line-height: 1.45;
   }
 
+  .content-card .lede {
+    color: var(--card-muted);
+  }
+
   .empty-state {
     padding: 2rem;
     background: white;

@@ -8,11 +8,14 @@ import { copy } from '../lib/copy';
   description={copy.notFoundDescription}
   noindex
 >
-  <section class="section shell not-found">
-    <p class="eyebrow">{copy.notFoundEyebrow}</p><h1>
+  <section class="section shell not-found" data-test-id="not-found">
+    <p class="eyebrow">{copy.notFoundEyebrow}</p><h1
+      data-test-id="not-found-heading"
+    >
       {copy.notFoundHeading}
     </h1><p class="lede">{copy.notFoundBody}</p><a
       class="button primary"
+      data-test-id="not-found-home"
       href={import.meta.env.BASE_URL}>{copy.returnHome}</a
     >
   </section>

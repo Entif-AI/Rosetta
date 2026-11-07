@@ -132,7 +132,7 @@ Nobody explicitly ordered me to treat every spare hour as company property. I ca
 
 A time sheet can record the hours. It cannot fully record the bargain a person thinks those hours represent. The formal bargain might be wages for work. The experienced bargain can include loyalty, recognition, security, status, belonging, and an expectation of reciprocity. When those two bargains diverge, a person can discover that years of commitment purchased less security than they thought.
 
-<figure class="story-scene belonging-scene" data-test-id="editorial-scene">
+<figure class="story-scene belonging-scene">
 <div class="scene-overline"><span>Two accounts of the same relationship</span><span>Conceptual comparison</span></div>
 <div class="belonging-ledgers"><div><span class="machine-label">The formal bargain</span><h2>Wages for work.</h2><div class="ledger-rule"></div><p>Hours, duties, compensation.</p></div><div><span class="machine-label">The experienced bargain</span><h2>A place to belong.</h2><div class="ledger-rule"></div><p>Loyalty, recognition, security, status, reciprocity.</p></div></div>
 <figcaption>The benefit can be real and the relationship unequal. These overlapping bargains help explain why control need not arrive as an explicit order. <a href="etr-source:S107">Normative control · S107</a> · <a href="etr-source:S108">Peer-enforced norms · S108</a></figcaption>
@@ -148,7 +148,7 @@ Consider a hypothetical chain of work. A leadership team sets a margin target. A
 
 The point is not that dividing work is wrong. Complex organizations could not function without division. The problem appears when responsibility is divided more completely than consequences. The customer receives one outcome. The institution offers five explanations, each pointing to another part of the chain. One person gets the consequence. The org chart gets five alibis.
 
-<figure class="story-scene handoff-scene" data-test-id="editorial-scene">
+<figure class="story-scene handoff-scene">
 <div class="scene-overline"><span>Responsibility has to survive the handoff</span><span>The chapter’s hypothetical chain</span></div>
 <h2>Five reasonable tasks. One lived outcome.</h2>
 <div class="handoff-chain"><details><summary><span>01</span>Leadership</summary><p>Sets a margin target.</p></details><details><summary><span>02</span>Finance</summary><p>Translates the target into a budget.</p></details><details><summary><span>03</span>Management</summary><p>Translates the budget into staffing.</p></details><details><summary><span>04</span>Product</summary><p>Translates staffing into a service design.</p></details><details><summary><span>05</span>Support</summary><p>Delivers the result to the customer.</p></details></div>

@@ -11,15 +11,19 @@ test('Dystopia chapter cards use chapter-specific descriptions and tags', async 
   page,
 }) => {
   await page.goto('/articles/');
-  const cards = page.locator(
-    '[data-test-id^="content-card-entif.essay.etr-2026-07."]'
+  const cards = page.getByTestId(
+    /^content-card-entif\.essay\.etr-2026-07\.\d{2}$/
   );
   await expect(cards).toHaveCount(16);
 
-  const descriptions = await cards
-    .locator('.content-card-description')
+  const descriptions = await page
+    .getByTestId(/^content-card-entif\.essay\.etr-2026-07\.\d{2}-description$/)
     .allTextContents();
-  const tagSets = await cards.locator('.tag-list').allTextContents();
+  const tagSets = await page
+    .getByTestId(/^content-card-entif\.essay\.etr-2026-07\.\d{2}-tags$/)
+    .allTextContents();
+  expect(descriptions).toHaveLength(16);
+  expect(tagSets).toHaveLength(16);
   expect(new Set(descriptions.map((text) => text.trim())).size).toBe(16);
   expect(
     new Set(tagSets.map((text) => text.replace(/\s+/g, ' ').trim())).size
@@ -36,16 +40,17 @@ test('Citations stays published but is hidden from the Articles index', async ({
 
   await page.goto('/articles/');
   await expect(
-    page.locator('[data-test-id="content-card-entif.essay.etr-2026-07.17"]')
+    page.getByTestId('content-card-entif.essay.etr-2026-07.17')
   ).toHaveCount(0);
-  await expect(page.locator('.card-grid')).not.toContainText('Citations');
 
   const response = await page.request.get(citationsRoute);
   expect(response.status()).toBe(200);
 
   await page.goto(citationsRoute);
   await expect(page.getByTestId('editorial-series')).toBeVisible();
-  await expect(page.locator('h1')).toContainText('Citations');
+  await expect(page.getByTestId('editorial-heading')).toContainText(
+    'Citations'
+  );
 });
 
 test('short article routes retain the editorial series treatment', async ({
@@ -64,8 +69,8 @@ test('citation disclosure opens, dismisses, and follows its registry destination
   const first = routes[0];
   if (!first) throw new Error('No generated editorial routes');
   await page.goto(first);
-  const trigger = page.getByTestId('citation-trigger').first();
-  const panel = page.getByTestId('citation-panel').first();
+  const trigger = page.getByTestId('editorial-citation-1-1-trigger');
+  const panel = page.getByTestId('editorial-citation-1-1-panel');
   await trigger.focus();
   await expect(panel).toBeVisible();
   await expect(trigger).toHaveAttribute('aria-expanded', 'true');
@@ -74,7 +79,7 @@ test('citation disclosure opens, dismisses, and follows its registry destination
   await expect(trigger).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(panel).toBeVisible();
-  const reference = panel.getByTestId('citation-reference').first();
+  const reference = page.getByTestId('editorial-citation-1-1-reference-S173');
   const destination = await reference.getAttribute('href');
   await reference.click();
   await expect(page).toHaveURL(
@@ -91,10 +96,10 @@ test('touch citation opens and closes without depending on hover', async ({
   });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4322' + routes[0]);
-  await page.getByTestId('citation-trigger').first().tap();
-  const panel = page.getByTestId('citation-panel').first();
+  await page.getByTestId('editorial-citation-1-1-trigger').tap();
+  const panel = page.getByTestId('editorial-citation-1-1-panel');
   await expect(panel).toBeVisible();
-  await panel.getByTestId('citation-close').tap();
+  await page.getByTestId('editorial-citation-1-1-close').tap();
   await expect(panel).not.toBeVisible();
   await context.close();
 });

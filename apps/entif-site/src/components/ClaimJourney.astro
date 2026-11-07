@@ -15,6 +15,7 @@ const stages = await Promise.all(
   id="claim-journey"
   role="group"
   aria-label={copy.demoLabel}
+  data-test-id="claim-journey"
 >
   <ol class="journey-track">
     {
@@ -22,9 +23,12 @@ const stages = await Promise.all(
         (entry, index) =>
           entry && (
             <li>
-              <details class="claim-card">
+              <details
+                class="claim-card"
+                data-test-id={`claim-card-${keys[index]}`}
+              >
                 <>
-                  <summary>
+                  <summary data-test-id={`claim-summary-${keys[index]}`}>
                     <span class="info-icon">
                       <Icon name="info" />
                     </span>
@@ -43,8 +47,14 @@ const stages = await Promise.all(
                     tabindex={0}
                     role="region"
                     aria-label={entry.data.title}
+                    data-test-id={`claim-receipt-${keys[index]}`}
                   >
-                    <p class="claim-text">{entry.data.title}</p>
+                    <p
+                      class="claim-text"
+                      data-test-id={`claim-text-${keys[index]}`}
+                    >
+                      {entry.data.title}
+                    </p>
                     <p>{entry.data.description}</p>
                     <>
                       <p class="eyebrow">{copy.selected}</p>

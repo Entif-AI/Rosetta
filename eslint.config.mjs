@@ -94,6 +94,10 @@ export default tseslint.config(
           'getByTitle',
           'queryByTitle',
           'findByTitle',
+          'locator',
+          'querySelector',
+          'querySelectorAll',
+          'getElementById',
         ].map((property) => ({
           property,
           message:

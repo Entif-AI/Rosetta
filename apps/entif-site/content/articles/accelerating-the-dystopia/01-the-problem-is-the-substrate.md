@@ -36,7 +36,7 @@ What if we build increasingly capable intelligence, solve enough of the technica
 
 What if it works?
 
-<figure class="story-scene optimizer-scene" data-test-id="editorial-scene">
+<figure class="story-scene optimizer-scene">
   <div class="scene-overline"><span>01 / The objective comes first</span><span>Conceptual illustration</span></div>
   <div class="optimizer-heading"><p class="scene-kicker">No rebellion required.</p><h2>A machine can do exactly what we ask.</h2></div>
   <div class="optimizer-drawing">
@@ -90,7 +90,7 @@ Before AI enters the picture, the United States already presents an uncomfortabl
 
 Those facts belong together.
 
-<figure class="story-scene substrate-scene" data-test-id="editorial-scene">
+<figure class="story-scene substrate-scene">
   <div class="scene-overline"><span>Before the new intelligence</span><span>Three different measures</span></div>
   <h2>The world it inherits.</h2>
   <div class="substrate-measures">
@@ -129,10 +129,10 @@ Imagine a customer-service system that resolves a billing mistake in seconds. Th
 
 To be explicit, these are hypothetical designs, not allegations about a named product. Neither requires a rebellious machine. Each could obey its instructions perfectly. One measures a repaired bill. The other measures a closed case. The word “resolution” can sit on both dashboards without changing spelling.
 
-<figure class="story-scene resolution-scene" data-test-id="editorial-scene">
+<figure class="story-scene resolution-scene">
   <div class="scene-overline"><span>Inside the customer-service dashboard</span><span>Hypothetical designs</span></div>
   <h2>“Resolved.” By whose measure?</h2>
-  <fieldset class="scene-choice"><legend>Choose what the system is rewarded for</legend><label><input type="radio" name="resolution-objective" value="closure" checked data-test-id="resolution-choice"> Close the case</label><label><input type="radio" name="resolution-objective" value="repair" data-test-id="resolution-choice"> Repair the bill</label></fieldset>
+  <fieldset class="scene-choice"><legend>Choose what the system is rewarded for</legend><label><input type="radio" name="resolution-objective" value="closure" checked> Close the case</label><label><input type="radio" name="resolution-objective" value="repair"> Repair the bill</label></fieldset>
   <div class="resolution-view">
     <div class="resolution-ticket"><span class="machine-label">The institutional view</span><div class="ticket-stamp" aria-hidden="true">✓</div><strong>Case resolved</strong><p class="resolution-closure">The conversation ended. The ticket left the queue.</p><p class="resolution-repair">The billing error was corrected. The case can close.</p></div>
     <div class="resolution-join" aria-hidden="true"><span></span><b>≠</b><span></span></div>
@@ -157,11 +157,11 @@ That does not mean gains and losses always cancel. It means one favorable number
 
 Consider a simple example. Two workers each gain a tool that lets them finish the same task in half the time. One keeps the same pay and goes home earlier. The other receives twice as much work. A third workplace eliminates one of their roles and transfers the remaining work to the other. Same technical miracle. Three different bargains.
 
-<figure class="story-scene bargain-scene" data-test-id="editorial-scene">
+<figure class="story-scene bargain-scene">
   <div class="scene-overline"><span>Same capability / different bargain</span><span>Illustrative possibilities, not forecasts</span></div>
   <h2>The tool saves time. Who gets it?</h2>
   <div class="bargain-baseline"><span>The same task</span><div class="task-baseline" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span>With the tool</span><div class="task-improved" aria-hidden="true"><i></i><i></i><i></i><i></i></div><strong>Half the time. One technical improvement.</strong></div>
-  <fieldset class="scene-choice"><legend>Change the workplace arrangement</legend><label><input type="radio" name="productivity-bargain" value="time" checked data-test-id="bargain-choice"> Return the time</label><label><input type="radio" name="productivity-bargain" value="work" data-test-id="bargain-choice"> Raise the workload</label><label><input type="radio" name="productivity-bargain" value="roles" data-test-id="bargain-choice"> Consolidate the roles</label></fieldset>
+  <fieldset class="scene-choice"><legend>Change the workplace arrangement</legend><label><input type="radio" name="productivity-bargain" value="time" checked> Return the time</label><label><input type="radio" name="productivity-bargain" value="work"> Raise the workload</label><label><input type="radio" name="productivity-bargain" value="roles"> Consolidate the roles</label></fieldset>
   <div class="bargain-outcomes">
     <div class="bargain-outcome bargain-time"><div class="bargain-art time-art" aria-hidden="true"><span class="task-block">WORK</span><span class="returned-time">TIME RETURNED ↗</span></div><div><span class="machine-label">The human bargain</span><h3>Same pay. Earlier finish.</h3><p>The worker keeps the gain as time outside work.</p></div></div>
     <div class="bargain-outcome bargain-work"><div class="bargain-art work-art" aria-hidden="true"><span class="task-block">WORK</span><span class="task-block">MORE WORK</span></div><div><span class="machine-label">The human bargain</span><h3>Same day. Twice the work.</h3><p>The workplace converts the saving into a higher output expectation.</p></div></div>

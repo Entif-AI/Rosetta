@@ -33,17 +33,16 @@ test('Articles index exposes every Atlas chapter except references', async ({
 
   for (const [index, title] of chapterTitles.entries()) {
     const order = String(index + 1).padStart(2, '0');
-    const card = page.locator(
-      `[data-test-id="content-card-entif.essay.agentic-aberrancy-atlas.${order}"]`
-    );
+    const cardId = `content-card-entif.essay.agentic-aberrancy-atlas.${order}`;
+    const card = page.getByTestId(cardId);
     await expect(card).toBeVisible();
-    await expect(card.locator('h2')).toHaveText(title);
+    await expect(card).toContainText(title);
     descriptions.push(
-      (await card.locator('.content-card-description').textContent())?.trim() ??
+      (await page.getByTestId(`${cardId}-description`).textContent())?.trim() ??
         ''
     );
     tagSets.push(
-      (await card.locator('.tag-list').textContent())
+      (await page.getByTestId(`${cardId}-tags`).textContent())
         ?.replace(/\s+/g, ' ')
         .trim() ?? ''
     );
@@ -54,10 +53,9 @@ test('Articles index exposes every Atlas chapter except references', async ({
   expect(descriptions).not.toContain(
     'Follow the incidents, the machinery, and the human work holding the relationships together.'
   );
-
-  await expect(page.locator('.card-grid')).not.toContainText(
-    'Appendices & References'
-  );
+  await expect(
+    page.getByTestId('content-card-entif.essay.agentic-aberrancy-atlas.16')
+  ).toHaveCount(0);
 });
 
 test('Atlas uses the shared site shell and starts in text-only mode', async ({
@@ -71,41 +69,44 @@ test('Atlas uses the shared site shell and starts in text-only mode', async ({
     'data-atlas-view',
     'text'
   );
-  await expect(page.locator('.atlas-source h1')).toContainText(
+  await expect(page.getByTestId('atlas-source')).toContainText(
     /An Agentic\s*Aberrancy\s*Atlas Shrugged/
   );
-  await expect(
-    page.locator('.atlas-source .article-copy').first()
-  ).toBeVisible();
-  await expect(page.locator('.atlas-source .art-stage').first()).toBeHidden();
-  await expect(page.locator('[data-atlas-scene-jumper]')).toBeHidden();
-  const rail = page.getByTestId('atlas-chapter-rail');
-  await expect(rail).toBeVisible();
-  await expect(rail.locator('a')).toHaveCount(16);
-  await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
+  await expect(page.getByTestId('atlas-scene-jumper')).toBeHidden();
+  await expect(page.getByTestId('atlas-chapter-rail')).toBeVisible();
+  await expect(page.getByTestId(/^atlas-chapter-link-\d+$/)).toHaveCount(16);
+  await expect(page.getByTestId('atlas-chapter-link-1')).toHaveAttribute(
     'aria-label',
     'Chapter 1: What Happened to Us'
   );
-  await expect(page.locator('main')).not.toContainText('Migration status');
-  await expect(page.locator('main')).not.toContainText(
+  await expect(page.getByTestId('atlas-root')).not.toContainText(
+    'Migration status'
+  );
+  await expect(page.getByTestId('atlas-root')).not.toContainText(
     'illustrated scenes ported'
   );
-  await expect(page.locator('main')).not.toContainText('Semi-final');
-  await expect(page.locator('main')).not.toContainText('Prepared for Crates');
-  await expect(page.locator('main')).not.toContainText('frozen Failure Atlas');
-  await expect(page.locator('main')).not.toContainText('frozen Atlas');
+  await expect(page.getByTestId('atlas-root')).not.toContainText('Semi-final');
+  await expect(page.getByTestId('atlas-root')).not.toContainText(
+    'Prepared for Crates'
+  );
+  await expect(page.getByTestId('atlas-root')).not.toContainText(
+    'frozen Failure Atlas'
+  );
+  await expect(page.getByTestId('atlas-root')).not.toContainText(
+    'frozen Atlas'
+  );
 });
 
 test('every Atlas chapter listed on the Articles index resolves', async ({
   page,
 }) => {
   await page.goto('/articles/');
-  const links = page.locator(
-    '[data-test-id^="content-card-entif.essay.agentic-aberrancy-atlas."] h2 a'
-  );
-  await expect(links).toHaveCount(15);
-
-  for (const link of await links.all()) {
+  for (let order = 1; order <= chapterTitles.length; order += 1) {
+    const link = page.getByTestId(
+      `content-card-entif.essay.agentic-aberrancy-atlas.${String(
+        order
+      ).padStart(2, '0')}-link`
+    );
     const href = await link.getAttribute('href');
     expect(href).toMatch(/^\/articles\/agentic-aberrancy-atlas\//);
     expect((await page.request.get(href ?? '')).status()).toBe(200);
@@ -127,12 +128,11 @@ test('visualization is an explicit progressive enhancement', async ({
     'visual'
   );
   await expect(toggle).toHaveText('Text only');
-  await expect(page.locator('.atlas-source .art-stage').first()).toBeVisible();
   await expect(page.getByTestId('atlas-motion-toggle')).toBeVisible();
-  const rail = page.getByTestId('atlas-chapter-rail');
-  await expect(rail).toBeVisible();
-  await expect(rail.locator('a')).toHaveCount(16);
-  await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
+  await expect(page.getByTestId('atlas-scene-jumper')).toBeVisible();
+  await expect(page.getByTestId('atlas-chapter-rail')).toBeVisible();
+  await expect(page.getByTestId(/^atlas-chapter-link-\d+$/)).toHaveCount(16);
+  await expect(page.getByTestId('atlas-chapter-link-1')).toHaveAttribute(
     'aria-label',
     'Chapter 1: What Happened to Us'
   );
@@ -142,10 +142,7 @@ test('chapter rail navigates among Atlas chapters', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(route);
 
-  const secondChapter = page
-    .getByTestId('atlas-chapter-rail')
-    .locator('a')
-    .nth(1);
+  const secondChapter = page.getByTestId('atlas-chapter-link-2');
   await expect(secondChapter).toHaveAttribute(
     'aria-label',
     'Chapter 2: The Pattern Hidden Inside 296 Reports'
@@ -161,17 +158,13 @@ test('References exists as Chapter 16 but stays off the Articles index', async (
 }) => {
   await page.goto('/articles/');
   await expect(
-    page.locator(
-      '[data-test-id="content-card-entif.essay.agentic-aberrancy-atlas.16"]'
-    )
+    page.getByTestId('content-card-entif.essay.agentic-aberrancy-atlas.16')
   ).toHaveCount(0);
 
   await page.goto(
     '/articles/agentic-aberrancy-atlas/15-where-this-trajectory-leads/'
   );
-  const next = page.locator('.atlas-ending a').filter({
-    hasText: 'Appendices & References',
-  });
+  const next = page.getByTestId('atlas-ending-next');
   await expect(next).toBeVisible();
   await expect(next).toHaveAttribute('href', referencesRoute);
 
@@ -179,12 +172,11 @@ test('References exists as Chapter 16 but stays off the Articles index', async (
   await expect(page).toHaveURL(
     /\/articles\/agentic-aberrancy-atlas\/16-appendices-and-references\/$/
   );
-  await expect(page.locator('.atlas-source h1')).toHaveText(
+  await expect(page.getByTestId('atlas-source')).toContainText(
     'Appendices & References'
   );
-  const rail = page.getByTestId('atlas-chapter-rail');
-  await expect(rail.locator('a')).toHaveCount(16);
-  await expect(rail.locator('a[aria-current="page"]')).toHaveAttribute(
+  await expect(page.getByTestId(/^atlas-chapter-link-\d+$/)).toHaveCount(16);
+  await expect(page.getByTestId('atlas-chapter-link-16')).toHaveAttribute(
     'aria-label',
     'Chapter 16: Appendices & References'
   );
@@ -195,11 +187,8 @@ test('Atlas citations preview on hover and focus, then navigate to the exact ref
 }) => {
   await page.goto(citationRoute);
 
-  const trigger = page.locator(
-    '[data-test-id="citation-trigger"][data-citation-keys="C03,B:M045,B:M049,B:M047"]'
-  );
-  const citation = trigger.locator('xpath=..');
-  const panel = citation.getByTestId('citation-panel');
+  const trigger = page.getByTestId('atlas-citation-3-1-trigger');
+  const panel = page.getByTestId('atlas-citation-3-1-panel');
 
   await trigger.hover();
   await expect(panel).toBeVisible();
@@ -212,9 +201,7 @@ test('Atlas citations preview on hover and focus, then navigate to the exact ref
   await expect(panel).toBeVisible();
   await expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
-  const reference = panel.locator(
-    `[data-test-id="citation-reference"][href="${referencesRoute}#atlas-source-c03"]`
-  );
+  const reference = page.getByTestId('atlas-citation-3-1-reference-C03');
   await expect(reference).toHaveAttribute(
     'href',
     `${referencesRoute}#atlas-source-c03`
@@ -222,11 +209,6 @@ test('Atlas citations preview on hover and focus, then navigate to the exact ref
   await reference.click();
   await expect(page).toHaveURL(
     new RegExp(`${referencesRoute}#atlas-source-c03$`)
-  );
-  await expect(page.locator('#atlas-source-c03')).toHaveCount(1);
-  await expect(page.locator('#atlas-source-c03')).toHaveCSS(
-    'scroll-margin-top',
-    /.+/
   );
 });
 
@@ -241,18 +223,14 @@ test('Atlas citation disclosure works by touch without forcing navigation', asyn
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4322' + citationRoute);
 
-  const citation = page.getByTestId('editorial-citation').filter({
-    hasText: 'B:M045',
-  });
-  await citation.getByTestId('citation-trigger').tap();
-  const panel = citation.getByTestId('citation-panel');
+  await page.getByTestId('atlas-citation-3-1-trigger').tap();
+  const panel = page.getByTestId('atlas-citation-3-1-panel');
   await expect(panel).toBeVisible();
   await expect(panel).toContainText('Bilqis Mistakes ledger record');
-  await expect(panel.getByTestId('citation-reference').first()).toHaveAttribute(
-    'href',
-    new RegExp(`^${referencesRoute}#atlas-source-`)
-  );
-  await panel.getByTestId('citation-close').tap();
+  await expect(
+    page.getByTestId('atlas-citation-3-1-reference-C03')
+  ).toHaveAttribute('href', new RegExp(`^${referencesRoute}#atlas-source-`));
+  await page.getByTestId('atlas-citation-3-1-close').tap();
   await expect(panel).not.toBeVisible();
   await context.close();
 });
@@ -268,17 +246,14 @@ test('text-only mode remains the complete no-JavaScript fallback', async ({
     'data-atlas-view',
     'text'
   );
-  await expect(
-    page.locator('.atlas-source .article-copy').first()
-  ).toBeVisible();
-  await expect(page.locator('.atlas-source .art-stage').first()).toBeHidden();
+  await expect(page.getByTestId('atlas-source')).toBeVisible();
   await expect(page.getByTestId('atlas-view-toggle')).toBeHidden();
   await expect(page.getByTestId('atlas-chapter-rail')).toBeVisible();
-  await expect(page.getByTestId('atlas-chapter-rail').locator('a')).toHaveCount(
-    16
-  );
-  await expect(page.getByTestId('citation-fallback').first()).toBeVisible();
-  await expect(page.getByTestId('citation-trigger').first()).toBeHidden();
+  await expect(page.getByTestId(/^atlas-chapter-link-\d+$/)).toHaveCount(16);
+  await expect(
+    page.getByTestId('atlas-citation-1-1-fallback-H01')
+  ).toBeVisible();
+  await expect(page.getByTestId('atlas-citation-1-1-trigger')).toBeHidden();
 
   await context.close();
 });

@@ -55,8 +55,11 @@ const contents = headings.filter((h) => h.depth === 2);
       aria-label={copy.breadcrumb}
       class="about-breadcrumb"
     >
-      <a href={aboutPath}>{copy.about}</a><span aria-hidden="true">/</span><a
-        href={`${aboutPath}#doctrine`}>{ui.library}</a
+      <a href={aboutPath} data-test-id="doctrine-breadcrumb-about"
+        >{copy.about}</a
+      ><span aria-hidden="true">/</span><a
+        href={`${aboutPath}#doctrine`}
+        data-test-id="doctrine-breadcrumb-library">{ui.library}</a
       ><span aria-hidden="true">/</span><span aria-current="page"
         >{data.id}</span
       >
@@ -128,12 +131,20 @@ const contents = headings.filter((h) => h.depth === 2);
             {
               contents.map((h) => (
                 <li>
-                  <a href={`#${h.slug}`}>{h.text}</a>
+                  <a
+                    href={`#${h.slug}`}
+                    data-test-id={`doctrine-contents-link-${h.slug}`}
+                  >
+                    {h.text}
+                  </a>
                 </li>
               ))
             }
           </ol>
-          <a class="doctrine-back" href={`${aboutPath}#doctrine`}
+          <a
+            class="doctrine-back"
+            href={`${aboutPath}#doctrine`}
+            data-test-id="doctrine-back"
             >{ui.backToAbout}<span aria-hidden="true">↗</span></a
           >
         </nav>
@@ -162,7 +173,11 @@ const contents = headings.filter((h) => h.depth === 2);
       >
         {
           nav.previous && (
-            <a class="doctrine-neighbor" href={nav.previous.href}>
+            <a
+              class="doctrine-neighbor"
+              href={nav.previous.href}
+              data-test-id="doctrine-neighbor-previous"
+            >
               <strong>{nav.previous.shortTitle}</strong>
               <>
                 <span>
@@ -175,7 +190,11 @@ const contents = headings.filter((h) => h.depth === 2);
         }
         {
           nav.next && (
-            <a class="doctrine-neighbor" href={nav.next.href}>
+            <a
+              class="doctrine-neighbor"
+              href={nav.next.href}
+              data-test-id="doctrine-neighbor-next"
+            >
               <strong>{nav.next.shortTitle}</strong>
               <>
                 <span>
@@ -202,7 +221,7 @@ const contents = headings.filter((h) => h.depth === 2);
           </ul>
         )
       }
-      <p class="doctrine-source-note">
+      <p class="doctrine-source-note" data-test-id="doctrine-source-note">
         {ui.sourceNote}
         {data.sourceTitle}. {ui.snapshotLabel}
         <time datetime={data.snapshotDate}>{data.snapshotDate}</time>.

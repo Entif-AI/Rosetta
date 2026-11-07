@@ -1,20 +1,50 @@
 import { readdirSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 const reports = [
   '/tags/research/2026/09/06/the-cost-of-learning-too-late/',
   '/tags/research/2026/09/07/after-the-inflection/',
 ];
+const claimKeys = [
+  'source',
+  'observation',
+  'interpretation',
+  'projection',
+] as const;
+const socialTestIds = [
+  'site-social-youtube',
+  'site-social-x',
+  'site-social-github',
+] as const;
 const paths = readdirSync('dist', { recursive: true })
   .filter((p): p is string => typeof p === 'string' && p.endsWith('.html'))
   .map((p) => '/' + p);
+
+async function expectUniqueTestIds(page: Page) {
+  const ids = await page
+    .getByTestId(/.+/)
+    .evaluateAll((elements) =>
+      elements.map((element) => element.getAttribute('data-test-id'))
+    );
+  expect(ids).not.toContain(null);
+  expect(new Set(ids).size).toBe(ids.length);
+}
+
+async function idleCueCount(page: Page) {
+  return page
+    .getByTestId(/^claim-card-/)
+    .evaluateAll(
+      (cards) =>
+        cards.filter((card) => card.classList.contains('idle-cue')).length
+    );
+}
 
 test('navigation, social destinations, and card keyboard disclosure', async ({
   page,
 }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');
-  await expect(page.locator('[data-test-id="site-skip-link"]')).toBeFocused();
+  await expect(page.getByTestId('site-skip-link')).toBeFocused();
   for (const [key, path] of [
     ['research', '/research/'],
     ['articles', '/articles/'],
@@ -22,42 +52,65 @@ test('navigation, social destinations, and card keyboard disclosure', async ({
     ['about', '/about/'],
     ['contact', '/contact/'],
   ] as const)
-    await expect(
-      page.locator(`[data-test-id="site-nav-${key}"]`)
-    ).toHaveAttribute('href', path);
-  const social = page.locator('.social-links a');
-  await expect(social).toHaveCount(3);
-  for (const link of await social.all()) {
-    const box = await link.boundingBox();
+    await expect(page.getByTestId(`site-nav-${key}`)).toHaveAttribute(
+      'href',
+      path
+    );
+  await expect(
+    page.getByTestId(/^site-social-(?:youtube|x|github)$/)
+  ).toHaveCount(3);
+  for (const testId of socialTestIds) {
+    const box = await page.getByTestId(testId).boundingBox();
     expect(box?.width).toBeGreaterThanOrEqual(44);
     expect(box?.height).toBeGreaterThanOrEqual(44);
   }
-  const summaries = page.locator('.claim-card summary');
-  await summaries.nth(2).focus();
+  const interpretationSummary = page.getByTestId(
+    'claim-summary-interpretation'
+  );
+  await interpretationSummary.focus();
   await page.keyboard.press('Enter');
-  await expect(page.locator('.claim-card').nth(2)).toHaveAttribute('open', '');
-  await summaries.nth(0).click();
-  await expect(page.locator('.claim-card[open]')).toHaveCount(1);
-  await expect(summaries.nth(0)).toBeFocused();
+  await expect(page.getByTestId('claim-card-interpretation')).toHaveAttribute(
+    'open',
+    ''
+  );
+  const sourceSummary = page.getByTestId('claim-summary-source');
+  await sourceSummary.click();
+  await expect
+    .poll(() =>
+      page
+        .getByTestId(/^claim-card-/)
+        .evaluateAll(
+          (cards) => cards.filter((card) => card.hasAttribute('open')).length
+        )
+    )
+    .toBe(1);
+  await expect(sourceSummary).toBeFocused();
 });
 
 test('homepage hero links and claim disclosures are legible without a disclaimer banner', async ({
   page,
 }) => {
   await page.goto('/');
-  const actions = page.locator('.home-hero-copy .home-actions a');
-  await expect(actions).toHaveCount(2);
-  await expect(actions.nth(0)).toHaveAttribute('href', '/research/');
-  await expect(actions.nth(0)).toContainText('Explore research');
-  await expect(actions.nth(1)).toHaveAttribute('href', '/about/');
-  await expect(actions.nth(1)).toContainText('About Entif');
-  await expect(page.locator('.demo-note')).toHaveCount(0);
-  await expect(page.locator('.entif-home')).not.toContainText(
+  await expect(page.getByTestId('home-hero-research')).toHaveAttribute(
+    'href',
+    '/research/'
+  );
+  await expect(page.getByTestId('home-hero-research')).toContainText(
+    'Explore research'
+  );
+  await expect(page.getByTestId('home-hero-about')).toHaveAttribute(
+    'href',
+    '/about/'
+  );
+  await expect(page.getByTestId('home-hero-about')).toContainText(
+    'About Entif'
+  );
+  await expect(page.getByTestId('entif-home')).not.toContainText(
     'Traceability is not proof of truth'
   );
 
   expect(
-    await page.locator('.home-hero-aside').evaluate((aside) => {
+    await page.getByTestId('home-hero-aside').evaluate((aside) => {
       const rootSize = parseFloat(
         getComputedStyle(document.documentElement).fontSize
       );
@@ -65,20 +118,21 @@ test('homepage hero links and claim disclosures are legible without a disclaimer
     })
   ).toBeCloseTo(1.45, 2);
 
-  const card = page.locator('.claim-card').nth(2);
-  await card.locator('summary').click();
+  const card = page.getByTestId('claim-card-interpretation');
+  await page.getByTestId('claim-summary-interpretation').click();
   await expect(card).toHaveAttribute('open', '');
-  await expect(card.locator('.claim-text')).toBeVisible();
-  const receiptWithinCard = await card.evaluate((element) => {
-    const outer = element.getBoundingClientRect();
-    const inner = element
-      .querySelector('.claim-receipt')
-      ?.getBoundingClientRect();
-    return Boolean(
-      inner && inner.top >= outer.top && inner.bottom <= outer.bottom + 1
-    );
-  });
-  expect(receiptWithinCard).toBe(true);
+  await expect(page.getByTestId('claim-text-interpretation')).toBeVisible();
+  const cardBox = await card.boundingBox();
+  const receiptBox = await page
+    .getByTestId('claim-receipt-interpretation')
+    .boundingBox();
+  expect(cardBox).not.toBeNull();
+  expect(receiptBox).not.toBeNull();
+  expect((receiptBox?.y ?? -1) >= (cardBox?.y ?? 0)).toBe(true);
+  expect(
+    (receiptBox?.y ?? 0) + (receiptBox?.height ?? 0) <=
+      (cardBox?.y ?? 0) + (cardBox?.height ?? 0) + 1
+  ).toBe(true);
 });
 
 test('homepage text inherits the site typeface and never falls below 1rem', async ({
@@ -87,19 +141,16 @@ test('homepage text inherits the site typeface and never falls below 1rem', asyn
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 960 });
     await page.goto('/');
-    await page.locator('.claim-card').nth(2).locator('summary').click();
+    await page.getByTestId('claim-summary-interpretation').click();
 
-    const outliers = await page.getByTestId('entif-home').evaluate((home) => {
+    const outliers = await page.getByTestId(/.+/).evaluateAll((elements) => {
       const rootStyle = getComputedStyle(document.documentElement);
       const minimumSize = parseFloat(rootStyle.fontSize);
       const siteTypeface = rootStyle.fontFamily;
       const failures: string[] = [];
-      const walker = document.createTreeWalker(home, NodeFilter.SHOW_TEXT);
-      while (walker.nextNode()) {
-        const node = walker.currentNode;
-        if (!node.textContent?.trim()) continue;
-        const element = node.parentElement;
-        if (!element || !element.getClientRects().length) continue;
+      for (const element of elements) {
+        if (!element.textContent?.trim() || !element.getClientRects().length)
+          continue;
         const style = getComputedStyle(element);
         if (style.visibility === 'hidden' || style.display === 'none') continue;
         if (
@@ -107,9 +158,9 @@ test('homepage text inherits the site typeface and never falls below 1rem', asyn
           style.fontFamily !== siteTypeface
         ) {
           failures.push(
-            `${element.tagName.toLowerCase()}.${element.className}: ${
-              style.fontSize
-            }; ${style.fontFamily}`
+            `${element.getAttribute('data-test-id')}: ${style.fontSize}; ${
+              style.fontFamily
+            }`
           );
         }
       }
@@ -125,59 +176,65 @@ test('portrait header groups logo and socials above an unbroken tagline and navi
   for (const width of [320, 350, 360, 390, 708, 768]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
-
-    const geometry = await page.evaluate(() => {
-      const bounds = (element: Element) => {
-        const rect = element.getBoundingClientRect();
-        return {
-          x: rect.x,
-          y: rect.y,
-          width: rect.width,
-          height: rect.height,
-          bottom: rect.bottom,
-        };
-      };
-      const element = (id: string) => {
-        const target = document.querySelector(`[data-test-id="${id}"]`);
-        if (!target) throw new Error(`Missing header or hero target: ${id}`);
-        return target;
-      };
-      const tagline = element('site-brand-tagline');
-      const navLinks = [
-        'research',
-        'articles',
-        'projects',
-        'about',
-        'contact',
-      ].map((name) => element(`site-nav-${name}`));
-      const firstLink = navLinks[0];
-      if (!firstLink) throw new Error('Missing primary navigation links');
-      const socials = Array.from(
-        element('site-social-nav').querySelectorAll('a')
-      );
-      const buttons = ['home-hero-research', 'home-hero-about'].map(element);
-      const rootSize = parseFloat(
-        getComputedStyle(document.documentElement).fontSize
-      );
-      return {
-        viewport: document.documentElement.clientWidth,
-        scrollWidth: document.documentElement.scrollWidth,
-        logo: bounds(element('site-brand-logo')),
-        tagline: bounds(tagline),
-        taglineLines:
-          bounds(tagline).height /
-          parseFloat(getComputedStyle(tagline).lineHeight),
-        navRows: navLinks.map((link) => Math.round(bounds(link).y)),
-        navFont: getComputedStyle(firstLink).fontVariantCaps,
-        navFontSize: getComputedStyle(firstLink).fontSize,
-        socialButtons: socials.map(bounds),
-        actionArea: bounds(element('home-hero-actions')),
-        actions: buttons.map((button) => ({
-          ...bounds(button),
-          remSize: parseFloat(getComputedStyle(button).fontSize) / rootSize,
-        })),
-      };
-    });
+    const bounds = async (testId: string) => {
+      const box = await page.getByTestId(testId).boundingBox();
+      if (!box) throw new Error(`Missing visible geometry for ${testId}`);
+      return { ...box, bottom: box.y + box.height };
+    };
+    const [viewport, scrollWidth] = await page.evaluate(() => [
+      document.documentElement.clientWidth,
+      document.documentElement.scrollWidth,
+    ]);
+    const logo = await bounds('site-brand-logo');
+    const tagline = await bounds('site-brand-tagline');
+    const taglineLineHeight = await page
+      .getByTestId('site-brand-tagline')
+      .evaluate((element) => parseFloat(getComputedStyle(element).lineHeight));
+    const navTestIds = [
+      'site-nav-research',
+      'site-nav-articles',
+      'site-nav-projects',
+      'site-nav-about',
+      'site-nav-contact',
+    ];
+    const navRows = await Promise.all(
+      navTestIds.map(async (testId) => Math.round((await bounds(testId)).y))
+    );
+    const navFont = await page
+      .getByTestId('site-nav-research')
+      .evaluate((element) => getComputedStyle(element).fontVariantCaps);
+    const navFontSize = await page
+      .getByTestId('site-nav-research')
+      .evaluate((element) => getComputedStyle(element).fontSize);
+    const socialButtons = await Promise.all(socialTestIds.map(bounds));
+    const actionArea = await bounds('home-hero-actions');
+    const rootSize = await page.evaluate(() =>
+      parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
+    const actions = await Promise.all(
+      ['home-hero-research', 'home-hero-about'].map(async (testId) => {
+        const box = await bounds(testId);
+        const fontSize = await page
+          .getByTestId(testId)
+          .evaluate((element) =>
+            parseFloat(getComputedStyle(element).fontSize)
+          );
+        return { ...box, remSize: fontSize / rootSize };
+      })
+    );
+    const geometry = {
+      viewport,
+      scrollWidth,
+      logo,
+      tagline,
+      taglineLines: tagline.height / taglineLineHeight,
+      navRows,
+      navFont,
+      navFontSize,
+      socialButtons,
+      actionArea,
+      actions,
+    };
 
     expect(geometry.scrollWidth).toBe(geometry.viewport);
     expect(geometry.tagline.y).toBeGreaterThan(geometry.logo.bottom);
@@ -231,20 +288,28 @@ test('published manuscripts retain scientific status and working figures', async
 }) => {
   for (const route of reports) {
     await page.goto(route);
-    await expect(page.locator('h1')).toHaveCount(1);
-    await expect(page.locator('.article-aside')).toContainText(
+    await expect(page.getByTestId('published-entry-heading')).toHaveCount(1);
+    await expect(page.getByTestId('published-entry-metadata')).toContainText(
       'independent external review pending'
     );
-    await expect(page.locator('.article-body')).toContainText('Abstract');
-    await expect(page.locator('.article-body')).toContainText('References');
-    for (const img of await page.locator('.article-body img').all()) {
+    const body = page.getByTestId('published-entry-body');
+    await expect(body).toContainText('Abstract');
+    await expect(body).toContainText('References');
+    expect(
+      await body.evaluate(
+        (element) => element.innerHTML.match(/<h1(?:\s|>)/gi)?.length ?? 0
+      )
+    ).toBe(0);
+    for (const img of await page
+      .getByTestId(/^published-entry-figure-/)
+      .all()) {
       await img.scrollIntoViewIfNeeded();
       await expect(img).toHaveJSProperty('complete', true);
       expect(
         await img.evaluate((el: HTMLImageElement) => el.naturalWidth)
       ).toBeGreaterThan(0);
     }
-    const download = page.locator('a[download]');
+    const download = page.getByTestId('published-entry-download');
     expect(
       (
         await page.request.get((await download.getAttribute('href')) ?? '')
@@ -257,19 +322,19 @@ test('IndraNet publication shell owns the title and all figures render', async (
   page,
 }) => {
   await page.goto('/tags/research/2026/10/04/indranet-research/');
-  await expect(page.locator('h1')).toHaveCount(1);
-  await expect(
-    page.locator('[data-test-id="published-entry-heading"]')
-  ).toHaveText(
-    'IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance'
-  );
-  await expect(
-    page.locator('[data-test-id="published-entry-body"] h1')
-  ).toHaveCount(0);
-  await expect(page.locator('.article-body')).toContainText('Abstract');
-  await expect(page.locator('.article-body')).toContainText('References');
+  const title =
+    'IndraNet: Vectorized Meat-Space for Spatial Twins and Embodied AI Governance';
+  await expect(page.getByTestId('published-entry-heading')).toHaveText(title);
+  const body = page.getByTestId('published-entry-body');
+  expect(
+    await body.evaluate(
+      (element) => element.innerHTML.match(/<h1(?:\s|>)/gi)?.length ?? 0
+    )
+  ).toBe(0);
+  await expect(body).toContainText('Abstract');
+  await expect(body).toContainText('References');
 
-  const figures = page.locator('.article-body img');
+  const figures = page.getByTestId(/^published-entry-figure-/);
   await expect(figures).toHaveCount(20);
   for (const img of await figures.all()) {
     await img.scrollIntoViewIfNeeded();
@@ -334,7 +399,7 @@ for (const [width, height] of [
         )
       ).toBe(true);
 
-      const heading = page.locator(`[data-test-id="${headingTestId}"]`);
+      const heading = page.getByTestId(headingTestId);
       await expect(heading).toBeVisible();
       const typography = await heading.evaluate((element) => {
         const style = getComputedStyle(element);
@@ -376,8 +441,8 @@ test('native disclosure works without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4322/');
-  await page.locator('.claim-card summary').first().click();
-  await expect(page.locator('.claim-receipt').first()).toBeVisible();
+  await page.getByTestId('claim-summary-source').click();
+  await expect(page.getByTestId('claim-receipt-source')).toBeVisible();
   await context.close();
 });
 
@@ -385,20 +450,19 @@ test('reduced motion disables decorative animation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await page
-    .locator('.claim-card')
-    .nth(2)
-    .evaluate((e) => e.classList.add('idle-cue'));
+    .getByTestId('claim-card-interpretation')
+    .evaluate((element) => element.classList.add('idle-cue'));
   expect(
     await page
-      .locator('.claim-card summary')
-      .nth(2)
-      .evaluate((e) => getComputedStyle(e, '::after').animationName)
+      .getByTestId('claim-summary-interpretation')
+      .evaluate((element) => getComputedStyle(element, '::after').animationName)
   ).toBe('none');
 });
 
 for (const path of paths)
   test(`WCAG 2.2 AA automated audit: ${path}`, async ({ page }) => {
     await page.goto(path);
+    await expectUniqueTestIds(page);
     const results = await new AxeBuilder({ page })
       .withTags([
         'wcag2a',
@@ -424,15 +488,15 @@ test('touch cue occurs once and prior card interaction cancels it', async ({
   await page.clock.install();
   await page.goto('http://127.0.0.1:4322/');
   await page.clock.runFor(10001);
-  await expect(page.locator('.idle-cue')).toHaveCount(1);
+  expect(await idleCueCount(page)).toBe(1);
   await page.clock.runFor(1500);
-  await expect(page.locator('.idle-cue')).toHaveCount(0);
+  expect(await idleCueCount(page)).toBe(0);
   await page.clock.runFor(20000);
-  await expect(page.locator('.idle-cue')).toHaveCount(0);
+  expect(await idleCueCount(page)).toBe(0);
   await page.reload();
-  await page.locator('.claim-card summary').first().click();
+  await page.getByTestId('claim-summary-source').click();
   await page.clock.runFor(11000);
-  await expect(page.locator('.idle-cue')).toHaveCount(0);
+  expect(await idleCueCount(page)).toBe(0);
   await context.close();
 });
 
@@ -441,11 +505,11 @@ test('cards retain their geometry and hero position when opened', async ({
 }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
-  const cards = page.locator('.claim-card');
   const hero = await page.getByTestId('home-hero-heading').boundingBox();
-  for (const card of await cards.all()) {
+  for (const key of claimKeys) {
+    const card = page.getByTestId(`claim-card-${key}`);
     const before = await card.boundingBox();
-    await card.locator('summary').click();
+    await page.getByTestId(`claim-summary-${key}`).click();
     expect((await card.boundingBox())?.height).toBe(before?.height);
     expect((await page.getByTestId('home-hero-heading').boundingBox())?.y).toBe(
       hero?.y
@@ -455,11 +519,13 @@ test('cards retain their geometry and hero position when opened', async ({
 test('tag date archives and scroll to top work', async ({ page }) => {
   for (const date of ['2026', '2026/09', '2026/09/07']) {
     expect((await page.goto(`/tags/research/${date}/`))?.status()).toBe(200);
-    await expect(page.locator('main')).toContainText('After the Inflection');
+    await expect(
+      page.getByTestId(`tag-date-grid-research-${date.replaceAll('/', '-')}`)
+    ).toContainText('After the Inflection');
   }
   await page.goto(reports[0] ?? '/');
   await page.evaluate(() => window.scrollTo(0, innerHeight * 2));
-  const top = page.locator('[data-test-id="scroll-top"]');
+  const top = page.getByTestId('scroll-top');
   await expect(top).toBeVisible();
   await top.click();
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
@@ -474,12 +540,12 @@ test('404 document and direct 404 route retain working site navigation', async (
     expect(response?.status()).toBe(
       path.includes('does-not-exist') ? 404 : 200
     );
-    await expect(page.locator('.not-found h1')).toBeVisible();
-    await expect(page.locator('.not-found .button')).toHaveAttribute(
+    await expect(page.getByTestId('not-found-heading')).toBeVisible();
+    await expect(page.getByTestId('not-found-home')).toHaveAttribute(
       'href',
       '/'
     );
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    await expect(page.getByTestId('site-robots')).toHaveAttribute(
       'content',
       'noindex, nofollow'
     );

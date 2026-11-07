@@ -16,6 +16,7 @@ const next = chapters[current];
 <nav
   class="editorial-nav"
   aria-label={metadata.navigation}
+  data-editorial-navigation
   data-test-id="editorial-navigation"
 >
   <div class="editorial-numbers">
@@ -30,7 +31,7 @@ const next = chapters[current];
             entry.data.title
           }`}
           title={entry.data.title}
-          data-test-id="editorial-chapter-link"
+          data-test-id={`editorial-chapter-link-${entry.data.series!.order}`}
         >
           {entry.data.series!.order}
         </a>

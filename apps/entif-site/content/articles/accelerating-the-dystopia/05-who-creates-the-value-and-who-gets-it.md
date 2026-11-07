@@ -112,7 +112,7 @@ These are possible arrangements, not forecasts. They show why a task-level speed
 
 The published study _Generative AI at Work_ offers a concrete example of a real gain. Brynjolfsson, Li, and Raymond examine a staggered rollout among 5,172 customer-support agents and report an average increase of about 15% in issues resolved per hour, with larger benefits for less experienced and lower-skilled workers. The rollout provides evidence about that workplace and task. It is not a randomized measurement of the whole economy, and it does not establish that every minute saved became additional pay or leisure. [S201]
 
-<figure class="story-scene productivity-evidence-scene" data-test-id="editorial-scene">
+<figure class="story-scene productivity-evidence-scene">
 <div class="scene-overline"><span>A real gain, within its actual scope</span><span>Workplace evidence</span></div>
 <div class="productivity-evidence"><div><p class="evidence-number">≈15<span>%</span></p><h2>More issues resolved per hour.</h2></div><div class="evidence-boundary"><span class="machine-label">The study boundary</span><p><strong>5,172</strong> customer-support agents.</p><p>A staggered rollout in the studied workplace and task; larger benefits for less experienced and lower-skilled workers.</p><div class="evidence-open-question">The result does not tell us who kept every minute saved.</div></div></div>
 <figcaption>Not a randomized measurement of the whole economy, a universal wage effect, or proof of extra leisure. <a href="etr-source:S201">Generative AI at Work · S201 ↗</a></figcaption>

@@ -60,12 +60,20 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
           data-uca-panel
           data-test-id={`uca-system-panel-${system.id}`}
         >
-          <p class="uca-eyebrow">{system.category}</p>
+          <p
+            class="uca-eyebrow"
+            data-test-id={`uca-system-category-${system.id}`}
+          >
+            {system.category}
+          </p>
           <span class="uca-emblem" aria-hidden="true">
             {emblems[index]}
           </span>
           <div>
-            <h3 id={`uca-heading-${system.id}`}>
+            <h3
+              id={`uca-heading-${system.id}`}
+              data-test-id={`uca-system-heading-${system.id}`}
+            >
               <span class="uca-panel-name">{system.name}</span>
               {system.headline}
             </h3>
@@ -75,7 +83,12 @@ const emblems = ['◇', '✧', '◎', '∞', '✦', '∴', '⊕'];
             >
               {system.detail}
             </p>
-            <p class="uca-system-principle">{system.principle}</p>
+            <p
+              class="uca-system-principle"
+              data-test-id={`uca-system-principle-${system.id}`}
+            >
+              {system.principle}
+            </p>
             {projects.has(system.id) && (
               <a
                 class="uca-source-link"
