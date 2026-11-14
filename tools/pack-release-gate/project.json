@@ -1,0 +1,55 @@
+{
+  "name": "pack-release-gate",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "tools/pack-release-gate",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": ".",
+        "command": "vitest run tools/pack-release-gate/release-gate.spec.mjs tools/pack-release-gate/rock-obligations.spec.mjs"
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/tools/pack-conformance/validate-packs.mjs",
+        "{workspaceRoot}/packs/_schemas/pack-manifest.schema.json",
+        "{workspaceRoot}/docs/RFCs/ROCK-3111-C-RRP-Pack-Filesystem-Contract-v0.2.0.md",
+        "{workspaceRoot}/vitest.config.ts",
+        {
+          "externalDependencies": ["vitest"]
+        }
+      ],
+      "outputs": []
+    },
+    "report": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": ".",
+        "command": "node tools/pack-release-gate/release-gate.mjs"
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{workspaceRoot}/tools/pack-conformance/**/*",
+        "{workspaceRoot}/packs/**/*",
+        "{workspaceRoot}/packages/rosetta-schemas/src/lib/workspace-contract.spec.ts",
+        "{workspaceRoot}/docs/RFCs/ROCK-3111-C-RRP-Pack-Filesystem-Contract-v0.2.0.md",
+        "{workspaceRoot}/docs/governance/AUTHORITY_STACK.md",
+        "{workspaceRoot}/docs/governance/REPO_SHAPE_AND_CONSTRAINTS.md",
+        "{workspaceRoot}/docs/governance/DONOR_FIT_MAP.md",
+        "{workspaceRoot}/docs/governance/SERVICE_INVENTORY.md",
+        "{workspaceRoot}/docs/governance/UPSTREAM_AND_BACKUP_PLAN.md",
+        "{workspaceRoot}/docs/governance/PUBLIC_COMMONS_AND_PRIVATE_OPERATION_BOUNDARY.md",
+        "{workspaceRoot}/docs/governance/AUTHORITY_CLOSURE_AND_REQUIREMENTS_TRACEABILITY.md",
+        "{workspaceRoot}/docs/packs/PACK_SUITE_INDEX.md",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/pnpm-lock.yaml",
+        "{workspaceRoot}/vitest.config.ts"
+      ],
+      "outputs": ["{workspaceRoot}/dist/pack-release-gate/report.json"]
+    }
+  },
+  "tags": ["tooling", "packs", "governance"]
+}

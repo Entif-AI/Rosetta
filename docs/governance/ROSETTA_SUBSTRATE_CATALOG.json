@@ -358,6 +358,19 @@
       }
     },
     {
+      "id": "entif:pack-release-gate-report",
+      "kind": "plan",
+      "title": "Compose the Pack release-gate report",
+      "status": "in-progress",
+      "task": "T7904",
+      "issues": [790],
+      "pr": 1827,
+      "source": {
+        "path": "plans/pack-release-gate-report.md",
+        "sha256": "3966284363fbec4869e31743424caae03b8d690f01c8f85ed85ce90c843e3b29"
+      }
+    },
+    {
       "id": "entif:pack-schema-entrypoint-conformance",
       "kind": "plan",
       "title": "Validate declared Pack JSON Schema entrypoints",
@@ -836,6 +849,16 @@
       "from": "entif:pack-path-confinement",
       "kind": "depends-on",
       "to": "entif:pack-schema-entrypoint-conformance"
+    },
+    {
+      "from": "entif:pack-release-gate-report",
+      "kind": "implements",
+      "to": "entif:development-substrate"
+    },
+    {
+      "from": "entif:pack-release-gate-report",
+      "kind": "depends-on",
+      "to": "entif:pack-path-confinement"
     },
     {
       "from": "entif:pack-schema-entrypoint-conformance",

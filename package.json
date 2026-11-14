@@ -17,6 +17,7 @@
     "lint": "pnpm run affected:lint",
     "lint:full": "pnpm exec nx run-many -t lint --all --parallel=3",
     "packs:conformance": "pnpm exec nx run packs-rrp:conformance",
+    "packs:release-gate": "NX_DAEMON=false pnpm exec nx run pack-release-gate:report",
     "prettier:check": "pnpm exec prettier --check \"apps/entif-site/**/*.{astro,css,json,md,ts,tsx,mjs}\" apps/entif-site/Design.MD",
     "prettier:write": "pnpm exec prettier --write \"apps/entif-site/**/*.{astro,css,json,md,ts,tsx,mjs}\" apps/entif-site/Design.MD",
     "sync": "NX_DAEMON=false pnpm exec nx sync",
