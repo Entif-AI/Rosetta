@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:entif:experiment:ver-rosetta:interop-trace-fixture:0.1.0",
+  "title": "VER-Rosetta Interop Trace Fixture Exchange Schema",
+  "description": "Non-normative experiment/transport schema for exchanging current Rosetta TileEnvelope fixtures. It is not a Rosetta Core schema and does not define VER scientific semantics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "formatVersion",
+    "fixtureId",
+    "sourceCommit",
+    "maturity",
+    "purpose",
+    "integrity",
+    "roleIndex",
+    "tiles",
+    "receiptBundle",
+    "signedReceipt",
+    "expectedTraversal"
+  ],
+  "properties": {
+    "format": {
+      "const": "entif-rosetta-interop-fixture"
+    },
+    "formatVersion": {
+      "const": "0.1.0"
+    },
+    "fixtureId": {
+      "type": "string"
+    },
+    "sourceCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "maturity": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "cidAlgorithm",
+        "hashedTileBodyFields",
+        "excludedFromCid"
+      ],
+      "properties": {
+        "canonicalization": {
+          "type": "string"
+        },
+        "cidAlgorithm": {
+          "type": "string"
+        },
+        "hashedTileBodyFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludedFromCid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "roleIndex": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^cidv1-sha256-[0-9a-f]{64}$"
+      }
+    },
+    "tiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/tileEnvelope"
+      }
+    },
+    "receiptBundle": {
+      "$ref": "#/$defs/receiptBundle"
+    },
+    "signedReceipt": {
+      "$ref": "#/$defs/signedReceipt"
+    },
+    "expectedTraversal": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^cidv1-sha256-[0-9a-f]{64}$"
+      }
+    }
+  },
+  "$defs": {
+    "tileEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "pack",
+        "parents",
+        "payload",
+        "version",
+        "canonical",
+        "cid",
+        "createdAt"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "pack": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^cidv1-sha256-[0-9a-f]{64}$"
+          }
+        },
+        "payload": {
+          "type": "object"
+        },
+        "version": {
+          "type": "string"
+        },
+        "canonical": {
+          "type": "string"
+        },
+        "cid": {
+          "type": "string",
+          "pattern": "^cidv1-sha256-[0-9a-f]{64}$"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "receiptBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bundleId",
+        "closureCids",
+        "evidenceCids",
+        "policyCids",
+        "receiptCid",
+        "subjectCids"
+      ],
+      "properties": {
+        "bundleId": {
+          "type": "string"
+        },
+        "closureCids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidenceCids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "policyCids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "receiptCid": {
+          "type": "string"
+        },
+        "subjectCids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "signedReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receipt",
+        "signature"
+      ],
+      "properties": {
+        "receipt": {
+          "$ref": "#/$defs/tileEnvelope"
+        },
+        "signature": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "algorithm",
+            "keyId",
+            "publicKeyPem",
+            "signatureBase64",
+            "signedCid"
+          ],
+          "properties": {
+            "algorithm": {
+              "const": "ed25519"
+            },
+            "keyId": {
+              "type": "string"
+            },
+            "publicKeyPem": {
+              "type": "string"
+            },
+            "signatureBase64": {
+              "type": "string"
+            },
+            "signedCid": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

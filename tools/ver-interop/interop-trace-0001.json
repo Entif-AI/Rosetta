@@ -1,0 +1,456 @@
+{
+  "format": "entif-rosetta-interop-fixture",
+  "formatVersion": "0.1.0",
+  "fixtureId": "VER-ROSETTA-INTEROP-TRACE-0001",
+  "sourceCommit": "555503eead2f532bb133e3eaffd8f4dbacdf2a7a",
+  "maturity": "constructed-against-current-executable-contracts",
+  "purpose": "Provider-free Core Spine adapter smoke test. No VER diagnosis, benchmark result, endorsement, or empirical-validation claim is encoded.",
+  "integrity": {
+    "canonicalization": "current @entif-ai/rosetta-canon canonicalizeJson behavior (RFC8785_JCS label)",
+    "cidAlgorithm": "cidv1-sha256-<64 lowercase hex>",
+    "hashedTileBodyFields": [
+      "kind",
+      "pack",
+      "parents",
+      "payload",
+      "version"
+    ],
+    "excludedFromCid": [
+      "cid",
+      "canonical",
+      "createdAt"
+    ]
+  },
+  "roleIndex": {
+    "run": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+    "preCalibrationAction": "cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568",
+    "preCalibrationToolCall": "cidv1-sha256-2e9139e513d548798d51a2deadce42827ae4043db60868590d303afc833c2a5f",
+    "preCalibrationObservation": "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+    "preCalibrationEvaluation": "cidv1-sha256-69495c10bf99ba548dfb0fe32d819a9d13f84d738b87446bace170dc0d77642f",
+    "calibrationAction": "cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3",
+    "calibrationToolCall": "cidv1-sha256-060e0ccf8dc22d709fe556312761d8416bc3dc2089c23cf6f2509b875db7e7d9",
+    "calibrationObservation": "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+    "calibrationEvaluation": "cidv1-sha256-d7d97d510bafae618ba2b837bada4acb256e8d49deb9a168af214f15946906a7",
+    "postCalibrationAction": "cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000",
+    "postCalibrationToolCall": "cidv1-sha256-5205d3228a048857d86190c6798bab10924581a76367a4f23f456a7dd7af9df7",
+    "postCalibrationObservation": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+    "postCalibrationEvaluation": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+    "receipt": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+    "tapestry": "cidv1-sha256-d47239cd0e8023fc32b5202a0a5935e29f708509731904f5694ad830472ef4ce"
+  },
+  "tiles": [
+    {
+      "kind": "rosetta.run",
+      "pack": "rosetta.core",
+      "parents": [],
+      "payload": {
+        "runId": "run.0401f7cbd08f",
+        "summary": "Record a deterministic sensor calibration episode for external interoperability testing.",
+        "tags": [
+          "interop",
+          "provider-free",
+          "sensor-calibration"
+        ]
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.run\",\"pack\":\"rosetta.core\",\"parents\":[],\"payload\":{\"runId\":\"run.0401f7cbd08f\",\"summary\":\"Record a deterministic sensor calibration episode for external interoperability testing.\",\"tags\":[\"interop\",\"provider-free\",\"sensor-calibration\"]},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.action",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      ],
+      "payload": {
+        "actionId": "action.49ce74507bfb",
+        "intent": "Measure sensor output before calibration.",
+        "runCid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.action\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"],\"payload\":{\"actionId\":\"action.49ce74507bfb\",\"intent\":\"Measure sensor output before calibration.\",\"runCid\":\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.toolcall",
+      "pack": "rosetta.tools",
+      "parents": [
+        "cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568"
+      ],
+      "payload": {
+        "args": {
+          "reference": 100,
+          "sensor": "sensor-A"
+        },
+        "tool": "fixture.sensor.read",
+        "toolCallId": "tool.eb9db4baa3f1"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.toolcall\",\"pack\":\"rosetta.tools\",\"parents\":[\"cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568\"],\"payload\":{\"args\":{\"reference\":100,\"sensor\":\"sensor-A\"},\"tool\":\"fixture.sensor.read\",\"toolCallId\":\"tool.eb9db4baa3f1\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-2e9139e513d548798d51a2deadce42827ae4043db60868590d303afc833c2a5f",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.observation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-2e9139e513d548798d51a2deadce42827ae4043db60868590d303afc833c2a5f"
+      ],
+      "payload": {
+        "observationId": "observation.ee80b13f70c7",
+        "signal": "Observed value 112 against reference 100 before calibration.",
+        "source": "fixture.sensor-A"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.observation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-2e9139e513d548798d51a2deadce42827ae4043db60868590d303afc833c2a5f\"],\"payload\":{\"observationId\":\"observation.ee80b13f70c7\",\"signal\":\"Observed value 112 against reference 100 before calibration.\",\"source\":\"fixture.sensor-A\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.evaluation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568",
+        "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5"
+      ],
+      "payload": {
+        "evaluationId": "evaluation.aa36719de1d7",
+        "summary": "Pre-calibration absolute error is 12 units.",
+        "verdict": "fail"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.evaluation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568\",\"cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\"],\"payload\":{\"evaluationId\":\"evaluation.aa36719de1d7\",\"summary\":\"Pre-calibration absolute error is 12 units.\",\"verdict\":\"fail\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-69495c10bf99ba548dfb0fe32d819a9d13f84d738b87446bace170dc0d77642f",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.action",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      ],
+      "payload": {
+        "actionId": "action.4831ff33f1cd",
+        "intent": "Apply a deterministic -12 unit calibration offset.",
+        "runCid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.action\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"],\"payload\":{\"actionId\":\"action.4831ff33f1cd\",\"intent\":\"Apply a deterministic -12 unit calibration offset.\",\"runCid\":\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.toolcall",
+      "pack": "rosetta.tools",
+      "parents": [
+        "cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3"
+      ],
+      "payload": {
+        "args": {
+          "offset": -12,
+          "sensor": "sensor-A"
+        },
+        "tool": "fixture.sensor.calibrate",
+        "toolCallId": "tool.dc1d813352bc"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.toolcall\",\"pack\":\"rosetta.tools\",\"parents\":[\"cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3\"],\"payload\":{\"args\":{\"offset\":-12,\"sensor\":\"sensor-A\"},\"tool\":\"fixture.sensor.calibrate\",\"toolCallId\":\"tool.dc1d813352bc\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-060e0ccf8dc22d709fe556312761d8416bc3dc2089c23cf6f2509b875db7e7d9",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.observation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-060e0ccf8dc22d709fe556312761d8416bc3dc2089c23cf6f2509b875db7e7d9"
+      ],
+      "payload": {
+        "observationId": "observation.485501f6001b",
+        "signal": "Calibration offset -12 applied successfully.",
+        "source": "fixture.sensor-A"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.observation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-060e0ccf8dc22d709fe556312761d8416bc3dc2089c23cf6f2509b875db7e7d9\"],\"payload\":{\"observationId\":\"observation.485501f6001b\",\"signal\":\"Calibration offset -12 applied successfully.\",\"source\":\"fixture.sensor-A\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.evaluation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+        "cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3"
+      ],
+      "payload": {
+        "evaluationId": "evaluation.444b44cfe949",
+        "summary": "Calibration action completed and is available for follow-up measurement.",
+        "verdict": "pass"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.evaluation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1\",\"cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3\"],\"payload\":{\"evaluationId\":\"evaluation.444b44cfe949\",\"summary\":\"Calibration action completed and is available for follow-up measurement.\",\"verdict\":\"pass\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-d7d97d510bafae618ba2b837bada4acb256e8d49deb9a168af214f15946906a7",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.action",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      ],
+      "payload": {
+        "actionId": "action.68deef30e1a4",
+        "intent": "Measure sensor output after calibration.",
+        "runCid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.action\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"],\"payload\":{\"actionId\":\"action.68deef30e1a4\",\"intent\":\"Measure sensor output after calibration.\",\"runCid\":\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.toolcall",
+      "pack": "rosetta.tools",
+      "parents": [
+        "cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000"
+      ],
+      "payload": {
+        "args": {
+          "reference": 100,
+          "sensor": "sensor-A"
+        },
+        "tool": "fixture.sensor.read",
+        "toolCallId": "tool.eb9db4baa3f1"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.toolcall\",\"pack\":\"rosetta.tools\",\"parents\":[\"cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000\"],\"payload\":{\"args\":{\"reference\":100,\"sensor\":\"sensor-A\"},\"tool\":\"fixture.sensor.read\",\"toolCallId\":\"tool.eb9db4baa3f1\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-5205d3228a048857d86190c6798bab10924581a76367a4f23f456a7dd7af9df7",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.observation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-5205d3228a048857d86190c6798bab10924581a76367a4f23f456a7dd7af9df7"
+      ],
+      "payload": {
+        "observationId": "observation.ed26adc9540f",
+        "signal": "Observed value 100 against reference 100 after calibration.",
+        "source": "fixture.sensor-A"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.observation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-5205d3228a048857d86190c6798bab10924581a76367a4f23f456a7dd7af9df7\"],\"payload\":{\"observationId\":\"observation.ed26adc9540f\",\"signal\":\"Observed value 100 against reference 100 after calibration.\",\"source\":\"fixture.sensor-A\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.evaluation",
+      "pack": "rosetta.core",
+      "parents": [
+        "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+        "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+        "cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000",
+        "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5"
+      ],
+      "payload": {
+        "evaluationId": "evaluation.34101b5e600b",
+        "summary": "Post-calibration absolute error is 0 units; the local correction resolved the recorded offset in this fixture.",
+        "verdict": "pass"
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.evaluation\",\"pack\":\"rosetta.core\",\"parents\":[\"cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1\",\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\",\"cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000\",\"cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\"],\"payload\":{\"evaluationId\":\"evaluation.34101b5e600b\",\"summary\":\"Post-calibration absolute error is 0 units; the local correction resolved the recorded offset in this fixture.\",\"verdict\":\"pass\"},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.receipt",
+      "pack": "rrp",
+      "parents": [],
+      "payload": {
+        "claims": [
+          {
+            "claimType": "rrp:claim.fixture-closure-recorded",
+            "evidence": [
+              {
+                "cid": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9"
+              },
+              {
+                "cid": "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1"
+              },
+              {
+                "cid": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3"
+              }
+            ],
+            "statement": "The fixture records a calibration action and a post-calibration observation matching the declared reference. This attestation does not establish a VER diagnosis or scientific correctness.",
+            "verdict": "pass"
+          }
+        ],
+        "digests": [
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+            "digest": "dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+            "of": "interop.pre-calibration-observation"
+          },
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+            "digest": "4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+            "of": "interop.post-calibration-observation"
+          },
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+            "digest": "1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+            "of": "interop.post-calibration-evaluation"
+          }
+        ],
+        "policyRefs": [],
+        "receiptType": "rrp:interop.fixture-closure",
+        "subjects": [
+          {
+            "cid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+            "role": "rrp:subject.run"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.receipt\",\"pack\":\"rrp\",\"parents\":[],\"payload\":{\"claims\":[{\"claimType\":\"rrp:claim.fixture-closure-recorded\",\"evidence\":[{\"cid\":\"cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\"},{\"cid\":\"cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1\"},{\"cid\":\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\"}],\"statement\":\"The fixture records a calibration action and a post-calibration observation matching the declared reference. This attestation does not establish a VER diagnosis or scientific correctness.\",\"verdict\":\"pass\"}],\"digests\":[{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\",\"digest\":\"dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\",\"of\":\"interop.pre-calibration-observation\"},{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\",\"digest\":\"4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\",\"of\":\"interop.post-calibration-observation\"},{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\",\"digest\":\"1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\",\"of\":\"interop.post-calibration-evaluation\"}],\"policyRefs\":[],\"receiptType\":\"rrp:interop.fixture-closure\",\"subjects\":[{\"cid\":\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\",\"role\":\"rrp:subject.run\"}]},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "kind": "rosetta.tapestry",
+      "pack": "rosetta.tapestry",
+      "parents": [],
+      "payload": {
+        "dynamicTail": [
+          "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+          "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+          "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3"
+        ],
+        "receiptCid": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+        "requiredScope": "public",
+        "stablePrefix": [
+          "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+        ],
+        "subjectCids": [
+          "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+        ],
+        "tapestries": [
+          "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a"
+        ],
+        "tenant": "bootstrap",
+        "totalTokens": 26
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.tapestry\",\"pack\":\"rosetta.tapestry\",\"parents\":[],\"payload\":{\"dynamicTail\":[\"cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\",\"cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1\",\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\"],\"receiptCid\":\"cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a\",\"requiredScope\":\"public\",\"stablePrefix\":[\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"],\"subjectCids\":[\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\"],\"tapestries\":[\"cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a\"],\"tenant\":\"bootstrap\",\"totalTokens\":26},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-d47239cd0e8023fc32b5202a0a5935e29f708509731904f5694ad830472ef4ce",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    }
+  ],
+  "receiptBundle": {
+    "bundleId": "bundle.b5307a067c0a",
+    "closureCids": [
+      "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+      "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+      "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+      "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+      "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3"
+    ],
+    "evidenceCids": [
+      "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+      "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+      "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3"
+    ],
+    "policyCids": [],
+    "receiptCid": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+    "subjectCids": [
+      "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2"
+    ]
+  },
+  "signedReceipt": {
+    "receipt": {
+      "kind": "rosetta.receipt",
+      "pack": "rrp",
+      "parents": [],
+      "payload": {
+        "claims": [
+          {
+            "claimType": "rrp:claim.fixture-closure-recorded",
+            "evidence": [
+              {
+                "cid": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9"
+              },
+              {
+                "cid": "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1"
+              },
+              {
+                "cid": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3"
+              }
+            ],
+            "statement": "The fixture records a calibration action and a post-calibration observation matching the declared reference. This attestation does not establish a VER diagnosis or scientific correctness.",
+            "verdict": "pass"
+          }
+        ],
+        "digests": [
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+            "digest": "dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+            "of": "interop.pre-calibration-observation"
+          },
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+            "digest": "4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+            "of": "interop.post-calibration-observation"
+          },
+          {
+            "alg": "sha256",
+            "cidRef": "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+            "digest": "1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+            "of": "interop.post-calibration-evaluation"
+          }
+        ],
+        "policyRefs": [],
+        "receiptType": "rrp:interop.fixture-closure",
+        "subjects": [
+          {
+            "cid": "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+            "role": "rrp:subject.run"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "canonical": "{\"kind\":\"rosetta.receipt\",\"pack\":\"rrp\",\"parents\":[],\"payload\":{\"claims\":[{\"claimType\":\"rrp:claim.fixture-closure-recorded\",\"evidence\":[{\"cid\":\"cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\"},{\"cid\":\"cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1\"},{\"cid\":\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\"}],\"statement\":\"The fixture records a calibration action and a post-calibration observation matching the declared reference. This attestation does not establish a VER diagnosis or scientific correctness.\",\"verdict\":\"pass\"}],\"digests\":[{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\",\"digest\":\"dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5\",\"of\":\"interop.pre-calibration-observation\"},{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\",\"digest\":\"4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3\",\"of\":\"interop.post-calibration-observation\"},{\"alg\":\"sha256\",\"cidRef\":\"cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\",\"digest\":\"1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9\",\"of\":\"interop.post-calibration-evaluation\"}],\"policyRefs\":[],\"receiptType\":\"rrp:interop.fixture-closure\",\"subjects\":[{\"cid\":\"cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2\",\"role\":\"rrp:subject.run\"}]},\"version\":\"0.1.0\"}",
+      "cid": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+      "createdAt": "2026-04-13T00:00:00.000Z"
+    },
+    "signature": {
+      "algorithm": "ed25519",
+      "keyId": "interop.test.ed25519.v1",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAzKnaNC81ublbCGNhptlyeSfAnVC5n877F/GXzjq6Jbk=\n-----END PUBLIC KEY-----\n",
+      "signatureBase64": "6Ef4aYX/shQg6CdlkothsjqmkPxDxA3He5OcJg3ajlR5x8j/8F/hzAR7Y2ktSi8+tdQ5Ud/wLNLH5pm5Xo2rBQ==",
+      "signedCid": "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a"
+    }
+  },
+  "expectedTraversal": [
+    "cidv1-sha256-1da376229d31deeb922698167c72f00f342a9a2cea197ff09b2dc62fc6256cb2",
+    "cidv1-sha256-4c0b751527ad75f5bcef2bac61ffa7a87ee957e94adb388ca84d7e5b225a9568",
+    "cidv1-sha256-2e9139e513d548798d51a2deadce42827ae4043db60868590d303afc833c2a5f",
+    "cidv1-sha256-dffd779a08c8e543eb7f04fadd7e40681b769a377d063b060fb8b0e2e69316c5",
+    "cidv1-sha256-69495c10bf99ba548dfb0fe32d819a9d13f84d738b87446bace170dc0d77642f",
+    "cidv1-sha256-a53d73e4e0f0f28c629a71431388c2550e0ba3d172169643c4ece8266f4ef4c3",
+    "cidv1-sha256-060e0ccf8dc22d709fe556312761d8416bc3dc2089c23cf6f2509b875db7e7d9",
+    "cidv1-sha256-19b5fd0060244687315754a4daeb976b0345fe82963fe755bf77fec64c76b6a1",
+    "cidv1-sha256-d7d97d510bafae618ba2b837bada4acb256e8d49deb9a168af214f15946906a7",
+    "cidv1-sha256-a0a049e6b127d7fb4355101216221d30f31e90639ba6cd3455f4b850a91bc000",
+    "cidv1-sha256-5205d3228a048857d86190c6798bab10924581a76367a4f23f456a7dd7af9df7",
+    "cidv1-sha256-4f033c9ecef31676dc1a4c8185db9b87c837c8cbaee0c11e996ea679adcbcae3",
+    "cidv1-sha256-1deb84462a61f612854699a4a19b71cc6c61f31ff91bb284f39667e0739347e9",
+    "cidv1-sha256-045c7a94fd613cccb51be2fe4dff7021e0696fa0bfee6ca00beab5307a067c0a",
+    "cidv1-sha256-d47239cd0e8023fc32b5202a0a5935e29f708509731904f5694ad830472ef4ce"
+  ]
+}
