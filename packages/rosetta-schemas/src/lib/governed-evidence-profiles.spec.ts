@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { createDecisionRecord, parseDecisionRecord, resolveDecisionState, type DecisionRecord, type DecisionResolutionContext } from './decision-record.js';
-import { createGovernanceModule, parseGovernanceModule, resolveGovernanceModule, verifyGovernanceModuleArtifact, type GovernanceModule, type GovernanceRegistryObservation } from './governance-module.js';
-import { createBoundedQueryResult, parseBoundedQueryResult, queryAbsenceEvidence, unavailableQueryResponse, type BoundedQueryResult } from './bounded-query-result.js';
+import { readFileSync } from 'node:fs';
+import { DECISION_RECORD_SCHEMA, createDecisionRecord, parseDecisionRecord, resolveDecisionState, type DecisionRecord, type DecisionResolutionContext } from './decision-record.js';
+import { GOVERNANCE_MODULE_SCHEMA, createGovernanceModule, parseGovernanceModule, resolveGovernanceModule, verifyGovernanceModuleArtifact, type GovernanceModule, type GovernanceRegistryObservation } from './governance-module.js';
+import { BOUNDED_QUERY_RESULT_SCHEMA, createBoundedQueryResult, parseBoundedQueryResult, queryAbsenceEvidence, unavailableQueryResponse, type BoundedQueryResult } from './bounded-query-result.js';
 import { traceHash } from './trace-normalization.js';
 
 const t1 = '2026-01-01T00:00:00.000Z', t2 = '2026-02-01T00:00:00.000Z', t3 = '2026-03-01T00:00:00.000Z';
@@ -142,7 +143,9 @@ describe('candidate governance registry #1876', () => {
   it('keeps metadata-only registry and one artifact shared by consumers', () => {
     const a = moduleRecord('1');
     expect(() => createGovernanceModule({ ...Object.fromEntries(Object.entries(a).filter(([k])=>k!=='recordId')), body:'duplicate rules' })).toThrow();
-    for (const _consumer of ['consumer-a','consumer-b']) expect(verifyGovernanceModuleArtifact([a],registry(a),'rules',loaded(a,'body:1'))).toBe(true);
+    const consumers = [{ consumerRef: 'consumer-a', artifactRef: a.artifact.ref }, { consumerRef: 'consumer-b', artifactRef: a.artifact.ref }];
+    expect(new Set(consumers.map(c => c.artifactRef)).size).toBe(1);
+    expect(consumers.map(c => c.artifactRef === a.artifact.ref && verifyGovernanceModuleArtifact([a], registry(a), 'rules', loaded(a, 'body:1')))).toEqual([true, true]);
   });
 });
 function result(overrides: Partial<Omit<BoundedQueryResult,'recordId'>> = {}) {
@@ -185,4 +188,15 @@ describe('candidate bounded query results #1877', () => {
     expect(() => result({source:{identity:{ref:'s',version:null,cid:null},materializationRef:null,frontierRef:null}})).toThrow(/frontier/);
     expect(() => parseBoundedQueryResult({...result(),queryRef:'other'})).toThrow(/digest/);
   });
+});
+
+it('keeps published JSON schemas identical to the executable owner schemas', () => {
+  for (const [name, schema] of [
+    ['decision-record-v1', DECISION_RECORD_SCHEMA],
+    ['governance-module-v1', GOVERNANCE_MODULE_SCHEMA],
+    ['bounded-query-result-v1', BOUNDED_QUERY_RESULT_SCHEMA]
+  ] as const) {
+    const path = new URL('../../docs/' + name + '.schema.json', import.meta.url);
+    expect(JSON.parse(readFileSync(path, 'utf8'))).toEqual(schema);
+  }
 });
