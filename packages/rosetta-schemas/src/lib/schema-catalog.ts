@@ -314,6 +314,14 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     tests: ['packages/projection-adapters/src/lib/engineering-lifecycle.spec.ts'], validator: 'parseEngineeringLifecycleSource'
   },
   {
+    authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/project-context-v1.md', 'packages/rosetta-schemas/docs/project-context-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'project-context',
+    knownGaps: ['Proposed Profile; accepted hierarchy vocabulary/topology, external reference resolution, authenticated closure, atomic publication and current rights remain owner gates.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'project.context.v1', sourceIssues: ['#1786', '#1784', '#1785', '#1509', '#506', '#158'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/project-context.spec.ts'], validator: 'parseProjectContextRecord'
+  },
+  {
     authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/work-lifecycle-v1.md', 'packages/rosetta-schemas/docs/work-lifecycle-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'work-lifecycle', knownGaps: ['Structural attribution and bounded history closure do not authenticate evidence, establish real-world verifier independence or grant operational authority.'],

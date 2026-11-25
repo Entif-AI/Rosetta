@@ -1,0 +1,977 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:rosetta:project.context.v1",
+  "title": "Proposed durable project-context records v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "profile",
+        "subjectRef",
+        "supersedesRef",
+        "observedAt",
+        "revisionKind",
+        "correctsRef",
+        "validTime",
+        "provenanceRefs",
+        "receiptRefs",
+        "correctionRefs",
+        "kind",
+        "projectClass",
+        "title",
+        "description",
+        "status",
+        "startAt",
+        "endAt",
+        "objectiveRefs",
+        "partyRefs",
+        "roleAssignmentRefs",
+        "phaseRefs",
+        "milestoneRefs",
+        "policyRefs",
+        "workRefs",
+        "interactionRefs",
+        "feedbackRefs"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "project.context.v1"
+            },
+            "version": {
+              "const": "1.0.0"
+            }
+          }
+        },
+        "subjectRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "supersedesRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revisionKind": {
+          "enum": [
+            "initial",
+            "effective-change",
+            "correction"
+          ]
+        },
+        "correctsRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validTime": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "known"
+                },
+                "from": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "until": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "unknown"
+                },
+                "from": {
+                  "const": null
+                },
+                "until": {
+                  "const": null
+                }
+              }
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "receiptRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "correctionRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "kind": {
+          "const": "project"
+        },
+        "projectClass": {
+          "anyOf": [
+            {
+              "enum": [
+                "research-project",
+                "software-project",
+                "publication",
+                "campaign",
+                "collaboration",
+                "operational-program",
+                "experiment-series"
+              ]
+            },
+            {
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^urn:[a-z][a-z0-9-]*:.+$"
+            }
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 8192
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "active",
+            "paused",
+            "ended",
+            "cancelled",
+            "unknown"
+          ]
+        },
+        "startAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "endAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "objectiveRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "partyRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "roleAssignmentRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "phaseRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "milestoneRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "policyRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "workRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "interactionRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "feedbackRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "profile",
+        "subjectRef",
+        "supersedesRef",
+        "observedAt",
+        "revisionKind",
+        "correctsRef",
+        "validTime",
+        "provenanceRefs",
+        "receiptRefs",
+        "correctionRefs",
+        "kind",
+        "productKind",
+        "artifact",
+        "status",
+        "createdAt",
+        "publishedAt",
+        "producerRefs",
+        "workRefs",
+        "sourceRefs",
+        "dependencyRefs",
+        "rightsRefs",
+        "licensingRefs",
+        "disclosureRefs"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "project.context.v1"
+            },
+            "version": {
+              "const": "1.0.0"
+            }
+          }
+        },
+        "subjectRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "supersedesRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revisionKind": {
+          "enum": [
+            "initial",
+            "effective-change",
+            "correction"
+          ]
+        },
+        "correctsRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validTime": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "known"
+                },
+                "from": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "until": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "unknown"
+                },
+                "from": {
+                  "const": null
+                },
+                "until": {
+                  "const": null
+                }
+              }
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "receiptRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "correctionRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "kind": {
+          "const": "product"
+        },
+        "productKind": {
+          "anyOf": [
+            {
+              "enum": [
+                "document",
+                "dataset",
+                "software",
+                "specification",
+                "experiment",
+                "model",
+                "design",
+                "media",
+                "analysis",
+                "research-note",
+                "communication-package",
+                "decision-record",
+                "prototype",
+                "artifact",
+                "idea",
+                "capability",
+                "issue",
+                "contact"
+              ]
+            },
+            {
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^urn:[a-z][a-z0-9-]*:.+$"
+            }
+          ]
+        },
+        "artifact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ref",
+            "version",
+            "cid"
+          ],
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "cid": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "available",
+            "withdrawn",
+            "unknown"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "publishedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "producerRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "workRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "sourceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "dependencyRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "rightsRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "licensingRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "disclosureRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "profile",
+        "subjectRef",
+        "supersedesRef",
+        "observedAt",
+        "revisionKind",
+        "correctsRef",
+        "validTime",
+        "provenanceRefs",
+        "receiptRefs",
+        "correctionRefs",
+        "kind",
+        "relation",
+        "sourceRef",
+        "targetRef",
+        "role",
+        "originWorkRef",
+        "rationaleRefs",
+        "disposition"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "project.context.v1"
+            },
+            "version": {
+              "const": "1.0.0"
+            }
+          }
+        },
+        "subjectRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "supersedesRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revisionKind": {
+          "enum": [
+            "initial",
+            "effective-change",
+            "correction"
+          ]
+        },
+        "correctsRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validTime": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "known"
+                },
+                "from": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "until": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "from",
+                "until"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "unknown"
+                },
+                "from": {
+                  "const": null
+                },
+                "until": {
+                  "const": null
+                }
+              }
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "receiptRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "correctionRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "kind": {
+          "const": "relation"
+        },
+        "relation": {
+          "enum": [
+            "membership",
+            "related_to",
+            "depends_on",
+            "contains_work",
+            "has_phase",
+            "produces",
+            "derived_from",
+            "supports",
+            "used_by",
+            "by_product",
+            "spawned",
+            "seeded",
+            "participates_in",
+            "applies_within",
+            "supersedes"
+          ]
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "targetRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "enum": [
+                "deliverable",
+                "intermediate",
+                "evidence",
+                "input",
+                "output",
+                "reference",
+                "derivative"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "originWorkRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationaleRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "disposition": {
+          "enum": [
+            "asserted",
+            "withdrawn"
+          ]
+        }
+      }
+    }
+  ]
+}
