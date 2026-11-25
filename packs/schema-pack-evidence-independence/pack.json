@@ -1,7 +1,7 @@
 {
   "$schema": "../_schemas/pack-manifest.schema.json",
   "id": "schema-pack-evidence-independence",
-  "pack_id": "cidv1-sha256-f9fff4db5f73e6dda8666fab80b991bf6de6c2b19a4e65ab56bd3489e882393d",
+  "pack_id": "cidv1-sha256-2c86452efc0c87dc0c4d3e65c018191e1252fdc93a47f5aa88c27a5cbfd39ac4",
   "kind": "schema-pack",
   "category": "SchemaPack",
   "namespace": "evidence-independence",

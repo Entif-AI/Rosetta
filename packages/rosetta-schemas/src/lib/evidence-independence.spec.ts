@@ -79,6 +79,30 @@ describe('bounded evidence independence #1597', () => {
     expect(() => appendEvidenceIndependence([], corrected)).toThrow(/succession/);
     expect(() => createEvidenceIndependence({ ...independent(), supersedesRef: prior.recordId })).toThrow(/revalidation/);
   });
+  it('known ancestry cannot disappear behind another manifestation of the same stable record', () => {
+    const a = subject('a'), alias = subject('a-alternate', 'derived'), b = subject('b', 'derived');
+    alias.record = { ...a.record! };
+    const input = body([a, alias, b, subject('primary')], pair(), [
+      edge(alias.id, 'primary', 'translation'), edge('b', 'primary', 'summary')
+    ]);
+    expect(createEvidenceIndependence(input).outcome).toBe('COMMON_SOURCE');
+    expect(() => createEvidenceIndependence({ ...input, declarations: [declared('a', 'b', 'independent-origins')] })).toThrow(/shared lineage/);
+    const copied = { ...input, edges: [edge(alias.id, 'primary', 'translation'), edge('b', alias.id, 'mirror')] };
+    expect(createEvidenceIndependence(copied).outcome).toBe('DERIVED_COPY');
+  });
+  it('export and re-ingest remain self-echo across exact artifact aliases without inferring events from stable identity alone', () => {
+    const exported = subject('published', 'derived'), alternate = subject('alternate');
+    alternate.record = { ...exported.record! };
+    const differentManifestation = { ...alternate.manifestation! };
+    alternate.manifestation = { ...exported.manifestation! };
+    const input = body([subject('a', 'rosetta'), exported, alternate, subject('b', 'derived')], pair(), [
+      edge('published', 'a', 'export'), edge('b', 'alternate', 're-ingest')
+    ]);
+    expect(createEvidenceIndependence(input).outcome).toBe('SELF_REFERENTIAL_LINEAGE');
+    expect(createEvidenceIndependence({ ...input, edges: [edge('published', 'a', 'summary'), edge('b', 'alternate', 're-ingest')] }).outcome).toBe('DERIVED_COPY');
+    alternate.manifestation = differentManifestation;
+    expect(createEvidenceIndependence(input).outcome).toBe('COMMON_SOURCE');
+  });
   it('two signatures over a copied payload cannot establish independence', () => {
     const a = subject('a'), b = subject('b', 'derived');
     b.manifestation = { ...b.manifestation!, cid: a.manifestation!.cid };

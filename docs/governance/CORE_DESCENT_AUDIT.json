@@ -479,7 +479,7 @@
       "coreDescent": "governed-extension",
       "authority": {
         "path": "packs/schema-pack-evidence-independence/README.md",
-        "sha256": "894c9e67e6a12d87d726d6bc4619efd68386a69469a1d5195cf0db1e9b62a567"
+        "sha256": "adec1c916c33856147bea3286ff09c776623cf4e106fb5a45d39b076c459c933"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",

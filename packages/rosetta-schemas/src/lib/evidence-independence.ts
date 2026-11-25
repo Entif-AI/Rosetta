@@ -152,6 +152,50 @@ function inspect(value: EvidenceIndependenceAssessment): IndependenceOutcome {
     // that its source ancestry is empty.
     if (node.origin === 'original' && parents.has(node.id)) throw new Error('An original origin cannot also be a lineage descendant.');
   }
+  // Assessment-local IDs are not source identities. Walk stable-record
+  // aliases as well as explicit lineage so a known ancestor of another
+  // manifestation of the same record cannot disappear from a comparison.
+  // This is conservative for independence: a shared record never proves
+  // independent origin merely because its manifestations have separate IDs.
+  const byRecord = new Map<string, string[]>();
+  const byExactArtifact = new Map<string, string[]>();
+  const exactArtifactKey = (node: IndependenceSubject): string | null =>
+    exactIdentity(node.record) && exactIdentity(node.manifestation)
+      ? canonicalTraceJson([node.record, node.manifestation]) : null;
+  for (const node of value.subjects) {
+    if (!node.record) continue;
+    const aliases = byRecord.get(node.record.ref) ?? [];
+    aliases.push(node.id);
+    byRecord.set(node.record.ref, aliases);
+    const exact = exactArtifactKey(node);
+    if (exact !== null) {
+      const occurrences = byExactArtifact.get(exact) ?? [];
+      occurrences.push(node.id);
+      byExactArtifact.set(exact, occurrences);
+    }
+  }
+  const aliasesOf = (id: string): readonly string[] => {
+    const record = subject(id).record;
+    return record ? byRecord.get(record.ref) ?? [] : [];
+  };
+  const exactAliasesOf = (id: string): readonly string[] => {
+    const exact = exactArtifactKey(subject(id));
+    return exact === null ? [] : byExactArtifact.get(exact) ?? [];
+  };
+  const walkLineage = (id: string, includeDataset: boolean, aliases: (id: string) => readonly string[]): Set<string> => {
+    const visited = new Set<string>(), pending = [id];
+    while (pending.length) {
+      const current = pending.pop();
+      if (current === undefined || visited.has(current)) continue;
+      visited.add(current);
+      pending.push(...aliases(current));
+      for (const edge of parents.get(current) ?? [])
+        if (includeDataset || edge.kind !== 'dataset-use') pending.push(edge.ancestor);
+    }
+    return visited;
+  };
+  const recordClosure = new Map<string, Set<string>>();
+  for (const node of value.subjects) recordClosure.set(node.id, walkLineage(node.id, true, aliasesOf));
   if (value.frontier.coverage === 'complete' &&
       (!value.frontier.evidenceRefs.length || value.frontier.unresolvedRefs.length ||
        value.subjects.some(n => n.ancestry !== 'complete'))) throw new Error('Incomplete evidence frontier.');
@@ -166,27 +210,34 @@ function inspect(value: EvidenceIndependenceAssessment): IndependenceOutcome {
   const echoMemo = new Map<string, Set<string>>();
   function echoOrigins(id: string): Set<string> {
     // Require a directed re-ingest -> export -> Rosetta-origin path.
-    function walk(current: string, state: 0 | 1 | 2): Set<string> {
-      const id = JSON.stringify([current, state]);
-      const cached = echoMemo.get(id);
-      if (cached) return cached;
-      const found = new Set<string>();
+    const cached = echoMemo.get(id);
+    if (cached) return cached;
+    const found = new Set<string>(), visited = new Set<string>();
+    const pending: { current: string; state: 0 | 1 | 2 }[] = [{ current: id, state: 0 }];
+    while (pending.length) {
+      const item = pending.pop();
+      if (!item) continue;
+      const { current, state } = item;
+      const coordinate = JSON.stringify([current, state]);
+      if (visited.has(coordinate)) continue;
+      visited.add(coordinate);
       if (state === 2 && subject(current).origin === 'rosetta') found.add(current);
-      for (const edge of parents.get(current) ?? [])
-        for (const origin of walk(edge.ancestor, state === 0 && edge.kind === 're-ingest' ? 1 :
-          state === 1 && edge.kind === 'export' ? 2 : state)) found.add(origin);
-      echoMemo.set(id, found);
-      return found;
+      // Only exact artifact aliases can bridge the directed event path.
+      // Stable record identity alone cannot prove an export/re-ingest event.
+      for (const alias of exactAliasesOf(current)) pending.push({ current: alias, state });
+      for (const edge of parents.get(current) ?? []) pending.push({
+        current: edge.ancestor,
+        state: state === 0 && edge.kind === 're-ingest' ? 1 : state === 1 && edge.kind === 'export' ? 2 : state
+      });
     }
-    return walk(id, 0);
+    echoMemo.set(id, found);
+    return found;
   }
   const copyAncestors = new Map<string, Set<string>>();
   function copies(id: string): Set<string> {
     const cached = copyAncestors.get(id);
     if (cached) return cached;
-    const result = new Set([id]);
-    for (const edge of parents.get(id) ?? [])
-      if (edge.kind !== 'dataset-use') for (const ancestor of copies(edge.ancestor)) result.add(ancestor);
+    const result = walkLineage(id, false, exactAliasesOf);
     copyAncestors.set(id, result);
     return result;
   }
@@ -194,13 +245,16 @@ function inspect(value: EvidenceIndependenceAssessment): IndependenceOutcome {
     [...A].some(x => B.has(x) || [...B].some(y => sameRecord(subject(x), subject(y))));
   function compare(a: string, b: string): IndependenceOutcome {
     const left = subject(a), right = subject(b);
-    const A = closure(a), B = closure(b);
+    const A = recordClosure.get(a) ?? walkLineage(a, true, aliasesOf);
+    const B = recordClosure.get(b) ?? walkLineage(b, true, aliasesOf);
     // Stable record identity, not byte or publisher equality, is the source anchor.
     const shared = shares(A, B);
     const declaration = declarations.get(key(a, b));
+    const exactA = new Set([a, ...exactAliasesOf(a)]), exactB = new Set([b, ...exactAliasesOf(b)]);
     const direct = value.edges.filter(e =>
-      (e.descendant === a && e.ancestor === b) || (e.descendant === b && e.ancestor === a));
-    const dependent = copies(a).has(b) || copies(b).has(a) || sameRecord(left, right);
+      (exactA.has(e.descendant) && exactB.has(e.ancestor)) ||
+      (exactB.has(e.descendant) && exactA.has(e.ancestor)));
+    const dependent = shares(copies(a), new Set([b])) || shares(copies(b), new Set([a])) || sameRecord(left, right);
     const echo = shares(echoOrigins(a), B) || shares(echoOrigins(b), A);
     if (declaration?.kind === 'independent-origins' && shared) throw new Error('Independence contradicts shared lineage.');
     if (declaration?.kind === 'independent-analyses' && (!shared || dependent || echo)) throw new Error('Independent analysis declaration contradicts lineage.');

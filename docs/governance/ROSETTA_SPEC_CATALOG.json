@@ -814,7 +814,7 @@
     },
     {
       "id": "schema-pack-evidence-independence",
-      "packId": "cidv1-sha256-f9fff4db5f73e6dda8666fab80b991bf6de6c2b19a4e65ab56bd3489e882393d",
+      "packId": "cidv1-sha256-2c86452efc0c87dc0c4d3e65c018191e1252fdc93a47f5aa88c27a5cbfd39ac4",
       "docId": "ROCK-EVIDENCE-INDEPENDENCE-PROPOSAL",
       "namespace": "evidence-independence",
       "title": "Evidence Independence Assessment",
@@ -843,7 +843,7 @@
       "scope": "Proposed bounded lineage and independence assessment. No weighting or authority grant.",
       "source": {
         "path": "packs/schema-pack-evidence-independence/pack.json",
-        "sha256": "ec067510424ab33575afbb09f6a88f2f41173e0621ee8ffefe2f23cd6700fcdc",
+        "sha256": "60863ad2babb2c85e9275dd429dcd795666ebc77a6e841a56371a91a969e16c0",
         "availability": "checked-in"
       },
       "profiles": [],
@@ -3239,7 +3239,7 @@
         },
         {
           "path": "packs/schema-pack-evidence-independence/README.md",
-          "sha256": "894c9e67e6a12d87d726d6bc4619efd68386a69469a1d5195cf0db1e9b62a567",
+          "sha256": "adec1c916c33856147bea3286ff09c776623cf4e106fb5a45d39b076c459c933",
           "availability": "checked-in"
         }
       ],
@@ -3251,7 +3251,7 @@
         },
         {
           "path": "packs/schema-pack-evidence-independence/README.md",
-          "sha256": "894c9e67e6a12d87d726d6bc4619efd68386a69469a1d5195cf0db1e9b62a567",
+          "sha256": "adec1c916c33856147bea3286ff09c776623cf4e106fb5a45d39b076c459c933",
           "availability": "checked-in"
         },
         {
@@ -3268,7 +3268,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/evidence-independence.spec.ts",
-          "sha256": "ddded1871be7628468a4d938f29da83fd3c0e0465823afee151dfb9acceac2d4",
+          "sha256": "eb4b516f09793f2c9ddd8d3e496e470e34aa0f20d9bd19cb2648791149bdbc4c",
           "availability": "checked-in"
         }
       ]
