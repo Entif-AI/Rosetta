@@ -284,6 +284,22 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     tests: ['packages/rosetta-schemas/src/lib/graph-view.spec.ts'], validator: 'parseGraphView'
   },
   {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/state-custody-v1.md', 'packages/rosetta-schemas/docs/state-custody-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'state-custody',
+    knownGaps: ['Proposed Profile; semantic acceptance, reference resolution, trusted signature verification, physical recovery and current rights enforcement remain independent owner gates.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'state.custody.v1', sourceIssues: ['#1879'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/state-custody.spec.ts'], validator: 'parseStateCustody'
+  },
+  {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/state-custody-v1.md', 'packages/rosetta-schemas/docs/state-recovery-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'state-custody',
+    knownGaps: ['Proposed Profile; semantic acceptance, reference resolution, trusted signature verification, physical recovery and current rights enforcement remain independent owner gates.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'state.recovery.v1', sourceIssues: ['#1879'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/state-custody.spec.ts'], validator: 'parseStateRecovery'
+  },
+  {
     authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/materialized-view-v1.md', 'packages/rosetta-schemas/docs/materialized-view-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'view-integrity',

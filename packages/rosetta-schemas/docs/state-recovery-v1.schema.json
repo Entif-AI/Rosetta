@@ -1,0 +1,433 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:rosetta:state.recovery.v1",
+  "title": "Proposed state recovery evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordId",
+    "profile",
+    "custodyRecordRef",
+    "actionRef",
+    "authority",
+    "stateDisposition",
+    "dependencies",
+    "result",
+    "predecessorRef",
+    "provenanceRefs",
+    "receiptRefs"
+  ],
+  "properties": {
+    "recordId": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "const": "state.recovery.v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "custodyRecordRef": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "actionRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ownerRef",
+        "actorRef",
+        "writerAssignmentRef",
+        "policyRef",
+        "tenantRef",
+        "rightsDecisionRef",
+        "retentionDecisionRef",
+        "frontierRef"
+      ],
+      "properties": {
+        "ownerRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "actorRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "writerAssignmentRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "policyRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "tenantRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rightsDecisionRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "retentionDecisionRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "frontierRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "stateDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["disposition", "evidenceRefs"],
+      "properties": {
+        "disposition": {
+          "enum": [
+            "AVAILABLE",
+            "SOURCE_DELETED",
+            "ACCESS_LOST",
+            "RETENTION_EXPIRED",
+            "RIGHTS_REVOKED",
+            "SOURCE_OFFLINE_OR_UNAVAILABLE",
+            "RECOVERY_CLOSURE_UNKNOWN"
+          ]
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["dependencyRef", "disposition", "evidenceRefs"],
+        "properties": {
+          "dependencyRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "disposition": {
+            "enum": [
+              "AVAILABLE",
+              "SOURCE_DELETED",
+              "ACCESS_LOST",
+              "RETENTION_EXPIRED",
+              "RIGHTS_REVOKED",
+              "SOURCE_OFFLINE_OR_UNAVAILABLE",
+              "RECOVERY_CLOSURE_UNKNOWN"
+            ]
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "maxItems": 256,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "result": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "readback", "rebuildReceiptRefs"],
+          "properties": {
+            "kind": {
+              "const": "REBUILT"
+            },
+            "readback": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["artifact", "observationRef", "receiptRefs"],
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["ref", "sha256"],
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                },
+                "observationRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "receiptRefs": {
+                  "type": "array",
+                  "maxItems": 256,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "\\S"
+                  },
+                  "minItems": 1
+                }
+              }
+            },
+            "rebuildReceiptRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "readback", "payload"],
+          "properties": {
+            "kind": {
+              "const": "RESTORED"
+            },
+            "readback": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["artifact", "observationRef", "receiptRefs"],
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["ref", "sha256"],
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                },
+                "observationRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "receiptRefs": {
+                  "type": "array",
+                  "maxItems": 256,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "\\S"
+                  },
+                  "minItems": 1
+                }
+              }
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "artifact",
+                "custodyRef",
+                "custodianRef",
+                "reconstructionEvaluationRef",
+                "verificationReceiptRefs"
+              ],
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["ref", "sha256"],
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  }
+                },
+                "custodyRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "custodianRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "reconstructionEvaluationRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "verificationReceiptRefs": {
+                  "type": "array",
+                  "maxItems": 256,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "\\S"
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "evidenceRefs"],
+          "properties": {
+            "kind": {
+              "enum": [
+                "PARTIAL",
+                "UNKNOWN",
+                "SOURCE_UNAVAILABLE",
+                "RIGHTS_RESTRICTED"
+              ]
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "predecessorRef": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "provenanceRefs": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      },
+      "minItems": 1
+    },
+    "receiptRefs": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2048,
+        "pattern": "\\S"
+      }
+    }
+  }
+}

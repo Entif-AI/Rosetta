@@ -18,3 +18,4 @@ export * from './lib/authority-envelope.js';
 export * from './lib/authz-compatibility.js';
 export { isProfileTimestamp } from './lib/evaluation-profile-validation.js';
 export type { JsonValue } from '@entif-ai/rosetta-canon';
+export * from './lib/state-custody.js';

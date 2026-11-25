@@ -259,3 +259,7 @@ with #803, #1211 and #240; the audit does not reopen those owners.
 The #1667 `trace.projection.v1` exchange Profile is a derived projection of normalized trace/source evidence. Neo4j runtime storage and indexes are adapter mechanics; no Core/store authority is replaced. Five lifecycle dispositions and shared explicit request IDs remain source mechanics, without inferred causal edges.
 
 The #1669 `trace-kin-v1` observable metrics Profile is a derived projection. Candidate labels are bounded to client-visible representation dynamics, with a required serialized caveat and explicit reset/run/window criteria; no protected scoring, causal ordering or provider-memory authority is created.
+
+### Proposed state authority and custody classification (#1879)
+
+`state.custody.v1` and `state.recovery.v1` are provisional governed extensions, not Core kinds. They declare custody and recovery evidence over exact artifact identities and existing Policy, Observation, Action, Evaluation and Receipt references. They do not create source authority, grant rights, or equate recovery with revalidation. The fixture-only catalog and [Profile documentation](../../../packages/rosetta-schemas/docs/state-custody-v1.md) record their outstanding semantic acceptance and external enforcement requirements.
