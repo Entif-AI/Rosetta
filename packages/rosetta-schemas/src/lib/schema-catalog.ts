@@ -300,6 +300,22 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     tests: ['packages/rosetta-schemas/src/lib/impact-revalidation.spec.ts'], validator: 'parseImpactRevalidation'
   },
   {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/correction-amendment-v1.md', 'packages/rosetta-schemas/docs/correction-amendment-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'view-integrity',
+    knownGaps: ['Proposed bounded representation only; authentication, independent evidence, disclosure rights, local adoption, and promotion require the respective governing authorities.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'correction.amendment.v1', sourceIssues: ['#1625', '#1560', '#1558', '#141', '#1501', '#980', '#1597'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/correction-amendment.spec.ts'], validator: 'parseCorrectionAmendment'
+  },
+  {
+    authorityTier: 'source-ingest', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packs/schema-pack-evidence-independence/README.md', 'packs/schema-pack-evidence-independence/schema/evidence-independence.schema.json'],
+    exposureStatus: 'fixture-only', family: 'evidence-independence',
+    knownGaps: ['Proposed bounded assessment only; source identity, rights, ancestry completeness, evidence authentication, receipt issuance and downstream adoption remain with their owners. No trust weighting or production authority.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'evidence.independence.v1', sourceIssues: ['#1597', '#1562', '#506', '#158', '#1056', '#1560', '#1563'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/evidence-independence.spec.ts'], validator: 'parseEvidenceIndependence'
+  },
+  {
     authorityTier: 'projection-product-ops', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/engineering-completion-v1.md', 'packages/rosetta-schemas/docs/engineering-completion-v1.schema.json'], exposureStatus: 'downstream-contract', family: 'engineering-evidence',
     knownGaps: ['Source-linked observations and structural conformance only; no hidden telemetry reconstruction, evidence authentication, routing score or production promotion.'],

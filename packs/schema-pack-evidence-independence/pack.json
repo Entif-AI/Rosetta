@@ -1,0 +1,53 @@
+{
+  "$schema": "../_schemas/pack-manifest.schema.json",
+  "id": "schema-pack-evidence-independence",
+  "pack_id": "cidv1-sha256-f9fff4db5f73e6dda8666fab80b991bf6de6c2b19a4e65ab56bd3489e882393d",
+  "kind": "schema-pack",
+  "category": "SchemaPack",
+  "namespace": "evidence-independence",
+  "doc_id": "ROCK-EVIDENCE-INDEPENDENCE-PROPOSAL",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Evidence Independence Assessment",
+  "summary": "Proposed bounded lineage and independence assessment. No weighting or authority grant.",
+  "compatible_core": {
+    "min": "3.0.0",
+    "max_exclusive": "4.0.0"
+  },
+  "depends_on": [
+    {
+      "doc_id": "PACK-SOURCE-SUBSTRATE",
+      "version_range": "^0.1.0"
+    }
+  ],
+  "owners": [
+    {
+      "name": "Entif/Rosetta maintainers",
+      "role": "editor"
+    }
+  ],
+  "entrypoints": {
+    "schema": [
+      "schema/evidence-independence.schema.json"
+    ],
+    "examples": [
+      "examples/independent-measurements.json"
+    ],
+    "tests": [
+      "tests/README.md"
+    ]
+  },
+  "exports": [
+    {
+      "kind": "json-schema",
+      "id": "evidence.independence.v1",
+      "path": "schema/evidence-independence.schema.json",
+      "version": "1.0.0"
+    }
+  ],
+  "profiles": [],
+  "source_of_truth": {
+    "doctrine": "Rosetta v3.0.0 Core Spine and proposed public issue #1597",
+    "traceability_required": true
+  }
+}

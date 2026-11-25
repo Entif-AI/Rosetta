@@ -127,6 +127,19 @@
       ]
     },
     {
+      "schemaId": "correction.amendment.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/correction-amendment-v1.md",
+        "sha256": "11465b87b47b1e5ad71b03dd4321a2e20b1f5132b72e90ee6a250279797ae640"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed bounded representation only; authentication, independent evidence, disclosure rights, local adoption, and promotion require the respective governing authorities."
+      ]
+    },
+    {
       "schemaId": "counterfactual.evaluation.v1",
       "coreDescent": "core-tile-profile",
       "authority": {
@@ -472,6 +485,19 @@
       "review": "Classification reviewed against owning contract.",
       "knownGaps": [
         "Structural validation only; full SHACL/RDF execution is not implemented."
+      ]
+    },
+    {
+      "schemaId": "evidence.independence.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packs/schema-pack-evidence-independence/README.md",
+        "sha256": "894c9e67e6a12d87d726d6bc4619efd68386a69469a1d5195cf0db1e9b62a567"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed bounded assessment only; source identity, rights, ancestry completeness, evidence authentication, receipt issuance and downstream adoption remain with their owners. No trust weighting or production authority."
       ]
     },
     {
