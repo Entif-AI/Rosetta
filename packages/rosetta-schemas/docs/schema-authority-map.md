@@ -112,3 +112,7 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 `trace-kin-v1` owns public observable metric/result semantics for #1669, independently re-proven on FalkorDB by #1736. See [trace-kinematics-v1.md](trace-kinematics-v1.md). It has derived-projection descent and does not authorize hidden-memory interpretations or protected scoring.
 
 `trace.graphiti-selection.v1` and `trace.graphiti-projection.v1` retain the #1668 admission/support/rights boundary. #1737 proves the unchanged first-party Graphiti/Falkor successor as experimental derived interpretation. The accepted V0 compatibility split uses operational FalkorDB 6.0.1 and semantic FalkorDB 4.20.7; neither database nor donor becomes semantic authority. G15/#361/#1222 promotion and SSPL public-service review remain separate.
+
+## Proposed tenancy boundary Profile
+
+`tenancy.boundary.v1` (#1883) is a fixture-only governed extension for separating a hard isolation identity from scope, rights and disclosure references. See [tenancy-boundary-v1.md](tenancy-boundary-v1.md). Scope-binding composition with #1786 remains proposed. Neither the record nor its validation constitutes authorization, semantic acceptance or proof of runtime noninterference.

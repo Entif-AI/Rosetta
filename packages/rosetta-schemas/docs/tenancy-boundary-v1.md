@@ -1,0 +1,17 @@
+# Proposed tenancy boundary Profile v1
+
+**Status:** Fixture-only proposal for #1883; not accepted protocol authority. #1786 remains open. No storage partitioning or authorization algorithm is specified.
+
+| Coordinate                                                      | Meaning and owner                                                                                                                                                                           |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isolation.domainRef`, `versionRef`, `ownerRef`, `authorityRef` | Stable hard isolation domain, exact version and owning authority. Identity resolution belongs to that authority.                                                                            |
+| `scopeBindingRefs`                                              | Distinct scope-binding references. The owning project/context contract, including #1786 when accepted, must resolve the actual binding; hierarchy does not imply a grant.                   |
+| `rights`                                                        | References to the policy, rights, decision and currentness/revocation frontiers for the declared boundary. Policy and decision owners remain responsible for actual authority and currency. |
+| `disclosure`                                                    | Hidden existence posture, optional soft-sharing and opaque handle references. These do not grant permission, encode a partition key or guarantee opacity.                                   |
+| Provenance, receipt, audit and supersession references          | Evidence and revision lineage, not a signature, authority or proof of physical enforcement.                                                                                                 |
+
+The metadata record ID commits the canonical record body. A valid record can be stale, untrusted, or unauthorized. Structural parsing is for already admitted inspection, not an outward-facing domain lookup. The schema deliberately has no `authorized` field.
+
+`matchesAuthorizedTenancyFixture` demonstrates exact identity, binding, decision and frontier compatibility against **independently supplied, already authenticated, request-specific fixture context**. Its booleans are not public authorization tokens. They must not come from the candidate record or an untrusted caller. A scope or sharing grant never substitutes for hard isolation or current rights. The two fixture consumers demonstrate the same neutral denial before graph traversal and compiled-context candidate generation. They do not implement either consumer's authorization system.
+
+Conforming real consumers must perform independent hard-isolation admission before sensitive candidate generation, counts, traversal, index or embedding candidates, cache influence and disclosure. Unauthorized and nonexistent domains must not expose distinct status, metadata or existence. The fixture proves only its return-value and invocation behavior, not timing, physical storage isolation, cache noninterference or atomic release. Real reference resolution, non-enumeration and release enforcement remain owner obligations. No accepted project/context binding semantics or production rights mechanism is implied by the reference names.
