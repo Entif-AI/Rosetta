@@ -3498,7 +3498,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/projection-provenance-v1.md",
-          "sha256": "0a2f8814d969ed02a6d8df5f19f96ee2ef2a31de6986055cac27f540d077056a",
+          "sha256": "f2aeaa0400f9fef55fb95c1277f4414811212a69a6c82d4cc2a3b5e724c9b445",
           "availability": "checked-in"
         }
       ],
@@ -3510,7 +3510,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/projection-provenance-v1.md",
-          "sha256": "0a2f8814d969ed02a6d8df5f19f96ee2ef2a31de6986055cac27f540d077056a",
+          "sha256": "f2aeaa0400f9fef55fb95c1277f4414811212a69a6c82d4cc2a3b5e724c9b445",
           "availability": "checked-in"
         },
         {
@@ -3527,7 +3527,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/projection-provenance.spec.ts",
-          "sha256": "2364d67f2d5af890a1cf3f7d27e0a49ebaad2f295a14ddfe667dcbc8c3b73179",
+          "sha256": "42b025d4e4b92d40d582974121310215e7e4d65100094902a07bc55dde139161",
           "availability": "checked-in"
         }
       ]

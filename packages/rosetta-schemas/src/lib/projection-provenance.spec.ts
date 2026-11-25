@@ -72,6 +72,14 @@ describe('projection provenance fixture contract',()=>{
     expect(inspectProjectionProvenance(createProjectionProvenance({...body,support:[{...h,spans:[]}]}),f.bytes,{...f.authority,verifyReceipt:()=>true})).toEqual(deny);
     expect(f.rawReads()).toBe(0);
   });
+  it('requires semantic receipt suitability for the exact projection, not merely a valid signature or subject',()=>{
+    const f=fixture(),r=createProjectionProvenance(f.body);
+    const result=inspectProjectionProvenance(r,f.bytes,{...f.authority,verifyReceipt:(_receipt,_handle,record)=>record.plane==='non-authoritative-recall'&&record.recordId===r.recordId});
+    expect(result).toMatchObject({status:'RESOLVED',plane:'non-authoritative-recall'});
+    const truth=createProjectionProvenance({...f.body,kind:'tag-summary',plane:'truth-support'});
+    expect(inspectProjectionProvenance(truth,f.bytes,{...f.authority,verifyReceipt:(_receipt,_handle,record)=>record.plane==='non-authoritative-recall'&&record.recordId===r.recordId})).toEqual({status:'UNAVAILABLE',support:null});
+    expect(f.rawReads()).toBe(1);
+  });
   it('bounds all lookup work before hydration and passes an exact remaining budget to owners',()=>{
     const f=fixture(),r=createProjectionProvenance(f.body);
     expect(inspectProjectionProvenance(r,f.bytes,{...f.authority,maxSupportTiles:4})).toEqual({status:'UNAVAILABLE',support:null});

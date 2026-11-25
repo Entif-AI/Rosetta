@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import { buildTile, verifyTileIntegrity, type TileEnvelope } from '@entif-ai/rosetta-core';
-import { createProjectionProvenance, classifyProjectionRevision, traceHash, validatePayload, type ProjectionProvenance, type ProvenanceAuthority } from '@entif-ai/rosetta-schemas';
-import { createProjectionProvenanceReceipt } from './projection-provenance-receipt.js';
+import { canonicalTraceJson, createProjectionProvenance, classifyProjectionRevision, traceHash, validatePayload, type ProjectionProvenance, type ProvenanceAuthority } from '@entif-ai/rosetta-schemas';
+import { createProjectionProvenanceReceipt, type ProjectionActionBinding, type ProjectionTraceOperation } from './projection-provenance-receipt.js';
 import { InMemoryTileStore } from '@entif-ai/rosetta-store';
 
 import {
@@ -45,11 +45,20 @@ describe('native projection provenance inspection receipts',()=>{
       authorize:()=>true,identityAuthorized:()=>true,current:()=>'current',policyCurrent:()=>true,resolveTile:cid=>tiles.get(cid),
       readArtifactText:()=>{reads++;return raw;},verifyReceipt:(r,h)=>r.cid===receipt.cid&&h.artifactCid===artifact.cid,matchesProjection:()=>true,hold:'inactive'};
     const record=createProjectionProvenance(body);
-    return {body,record,action,bytes,artifact,receipt,authority,reads:()=>reads};
+    const binding=(operation:ProjectionTraceOperation,submitted:unknown=record,previous?:unknown):ProjectionActionBinding=>({
+      actionCid:action.cid,operation,submittedRecordSha256:traceHash(canonicalTraceJson(submitted)),
+      submittedPredecessorSha256:previous===undefined?null:traceHash(canonicalTraceJson(previous)),
+      projectionSha256:traceHash(bytes.toString())
+    });
+    const verifier=(operation:ProjectionTraceOperation,submitted:unknown=record,previous?:unknown)=>{
+      const expected=binding(operation,submitted,previous);
+      return (actual:ProjectionActionBinding)=>canonicalTraceJson(actual)===canonicalTraceJson(expected);
+    };
+    return {body,record,action,bytes,artifact,receipt,authority,binding,verifier,reads:()=>reads};
   }
   it('emits an actual native receipt for resolved creation support without claiming effect authority',()=>{
     const f=fixture();
-    const result=createProjectionProvenanceReceipt({operation:'create',action:f.action,record:f.record,projectionBytes:f.bytes,authority:f.authority});
+    const result=createProjectionProvenanceReceipt({operation:'create',action:f.action,record:f.record,projectionBytes:f.bytes,authority:f.authority,verifyActionBinding:f.verifier('create')});
     expect(result.kind).toBe('rosetta.receipt');
     expect(verifyTileIntegrity(result).ok).toBe(true);
     expect(validatePayload(result.kind,result.payload).ok).toBe(true);
@@ -61,27 +70,44 @@ describe('native projection provenance inspection receipts',()=>{
     const f=fixture(),next=createProjectionProvenance({...f.body,revisionRef:'revision:2',predecessorRef:f.record.recordId,policyVersion:'2',observedAt:'2026-01-02T00:00:00Z'});
     expect(classifyProjectionRevision(f.record,f.record)).toBe('EXACT_REPLAY');
     expect(classifyProjectionRevision(f.record,next)).toBe('REVALIDATION_REQUIRED');
-    const receipt=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:f.record,projectionBytes:f.bytes,authority:f.authority});
+    const receipt=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:f.record,projectionBytes:f.bytes,authority:f.authority,verifyActionBinding:f.verifier('rebuild',next,f.record)});
     expect(receipt.payload.claims[0].claimType).toBe('rrp:projection.provenance.rebuild');
     expect(receipt.payload.claims[0].verdict).toBe('pass');
     expect(receipt.payload.digests.find(d=>d.of==='projection.predecessor.body')).toEqual({alg:'sha256',digest:f.record.recordId,of:'projection.predecessor.body'});
-    const rejected=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:next,projectionBytes:f.bytes,authority:f.authority});
+    const rejected=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:next,projectionBytes:f.bytes,authority:f.authority,verifyActionBinding:f.verifier('rebuild',next,next)});
     expect(rejected.payload.claims[0].claimType).toBe('rrp:projection.provenance.rejection');
     expect(rejected.payload.claims[0].evidence).toEqual([]);
   });
   it('records denied inspection and required invalidation without source metadata; safe hold only admits read-only inspection',()=>{
     const f=fixture(),base={action:f.action,record:f.record,projectionBytes:f.bytes};
-    const denied=createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,authorize:()=>false}});
+    const denied=createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,authorize:()=>false},verifyActionBinding:f.verifier('create')});
     expect(denied.payload.claims[0]).toEqual({claimType:'rrp:projection.provenance.rejection',evidence:[],statement:'Projection candidate unavailable; no write performed.',verdict:'deny'});
     expect(JSON.stringify(denied)).not.toContain(f.artifact.cid);
     expect(f.reads()).toBe(0);
-    const invalidation=createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,current:()=>'retracted'}});
+    const invalidation=createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,current:()=>'retracted'},verifyActionBinding:f.verifier('inspect-current')});
     expect(invalidation.payload.claims[0].claimType).toBe('rrp:projection.provenance.invalidation');
     expect(invalidation.payload.claims[0].evidence).toEqual([]);
-    const malformed=createProjectionProvenanceReceipt({...base,record:{...f.record,recordId:'0'.repeat(64)},operation:'inspect-current',authority:f.authority});
+    const malformedRecord={...f.record,recordId:'0'.repeat(64)};
+    const malformed=createProjectionProvenanceReceipt({...base,record:malformedRecord,operation:'inspect-current',authority:f.authority,verifyActionBinding:f.verifier('inspect-current',malformedRecord)});
     expect(malformed.payload.claims[0].claimType).toBe('rrp:projection.provenance.rejection');
-    expect(createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,hold:'active'}}).payload.claims[0].verdict).toBe('deny');
-    expect(createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,hold:'active'}}).payload.claims[0].claimType).toBe('rrp:projection.provenance.inspection');
+    expect(createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,hold:'active'},verifyActionBinding:f.verifier('create')}).payload.claims[0].verdict).toBe('deny');
+    expect(createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,hold:'active'},verifyActionBinding:f.verifier('inspect-current')}).payload.claims[0].claimType).toBe('rrp:projection.provenance.inspection');
+  });
+  it('refuses an unrelated valid action, changed operation or changed exact submission before support hydration',()=>{
+    const f=fixture(),unrelated=buildTile('rosetta.action',{actionId:'different',intent:'Other work',runCid:'fixture.run'});
+    const request={operation:'create' as const,action:f.action,record:f.record,projectionBytes:f.bytes,authority:f.authority,verifyActionBinding:f.verifier('create')};
+    for(const changed of [
+      {...request,action:unrelated},
+      {...request,operation:'inspect-current' as const},
+      {...request,record:createProjectionProvenance({...f.body,policyVersion:'other'})},
+      {...request,projectionBytes:Buffer.from('different')}
+    ])expect(()=>createProjectionProvenanceReceipt(changed)).toThrow('Projection action binding unverified.');
+    expect(f.reads()).toBe(0);
+    const result=createProjectionProvenanceReceipt(request);
+    expect(result.payload.claims[0].verdict).toBe('pass');
+    expect(result.payload.digests.find(d=>d.of==='projection.action.binding')).toEqual({alg:'sha256',digest:traceHash(canonicalTraceJson(f.binding('create'))),of:'projection.action.binding'});
+    let checks=0;
+    expect(()=>createProjectionProvenanceReceipt({...request,verifyActionBinding:b=>f.verifier('create')(b)&&++checks===1})).toThrow('Projection action binding unverified.');
   });
 });
 

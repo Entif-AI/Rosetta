@@ -81,7 +81,10 @@ export interface ProvenanceAuthority {
   // bytes. Post-return checks are defensive, not a remote I/O guarantee.
   resolveTile:(cid:string,remainingBytes:number)=>TileEnvelope|undefined;
   readArtifactText:(cid:string,remainingBytes:number)=>string|undefined;
-  verifyReceipt:(receipt:TileEnvelope,handle:SupportHandle)=>boolean;
+  // Verify issuer and substantive suitability for this exact handle and
+  // projection plane. A receipt of a denial may support an observed denial,
+  // but its existence cannot substantiate a positive claim.
+  verifyReceipt:(receipt:TileEnvelope,handle:SupportHandle,record:ProjectionProvenance)=>boolean;
   matchesProjection:(record:ProjectionProvenance,projectionBytes:Uint8Array)=>boolean;
   hold:'active'|'inactive'|'unknown';
 }
@@ -145,7 +148,7 @@ export function inspectProjectionProvenance(input:unknown,projectionBytes:Uint8A
       }
       for(const cid of h.receiptRefs) {
         const receipt=tile(cid,'rosetta.receipt');
-        if(!receiptBindsArtifact(receipt,h.artifactCid)||authority.verifyReceipt(receipt,structuredClone(h))!==true)throw new Error('Conflicting receipt support.');
+        if(!receiptBindsArtifact(receipt,h.artifactCid)||authority.verifyReceipt(structuredClone(receipt),structuredClone(h),structuredClone(record))!==true)throw new Error('Conflicting receipt support.');
       }
       return {h,byteHash:a.byteHash};
     });
