@@ -475,6 +475,19 @@
       ]
     },
     {
+      "schemaId": "evidence.independence.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packs/schema-pack-evidence-independence/README.md",
+        "sha256": "894c9e67e6a12d87d726d6bc4619efd68386a69469a1d5195cf0db1e9b62a567"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed bounded assessment only; source identity, rights, ancestry completeness, evidence authentication, receipt issuance and downstream adoption remain with their owners. No trust weighting or production authority."
+      ]
+    },
+    {
       "schemaId": "graph.view.v1",
       "coreDescent": "derived-projection",
       "authority": {
