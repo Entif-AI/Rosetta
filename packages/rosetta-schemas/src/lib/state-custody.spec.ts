@@ -5,6 +5,7 @@ import {
   parseStateCustody,
   createStateRecovery,
   parseStateRecovery,
+  admitRecoveredMaterializedViewReuse,
   STATE_CUSTODY_SCHEMA,
   STATE_RECOVERY_SCHEMA,
   RECOVERY_DISPOSITIONS,
@@ -12,10 +13,7 @@ import {
   type StateRecovery,
 } from './state-custody.js';
 import { traceHash } from './trace-normalization.js';
-import {
-  createMaterializedView,
-  admitMaterializedViewReuse,
-} from './materialized-view.js';
+import { createMaterializedView } from './materialized-view.js';
 
 const artifact = {
   ref: 'urn:example:artifact:1',
@@ -422,12 +420,20 @@ describe('proposed state recovery evidence #1879', () => {
       receiptRefs: [],
       provenanceRefs: ['source'],
     });
-    const state = declaration({
+    const classification: StateCustody['classification'] = {
       kind: 'DERIVED',
       materializedViewRef: view.recordId,
       recipe: { ref: 'recipe', version: '1' },
-    });
-    expect(recovery(state, rebuilt).result).toEqual(rebuilt);
+    };
+    const scope = {
+      policyRef: 'policy:1',
+      rightsRef: 'rights:1',
+      tenantRef: null,
+      frontierRef: 'frontier:1',
+    };
+    const state = declaration(classification, { scope });
+    const recovered = recovery(state, rebuilt);
+    expect(recovered.result).toEqual(rebuilt);
     const context = {
       rightsAllowed: true,
       rightsDecisionRef: 'decision:1',
@@ -435,18 +441,52 @@ describe('proposed state recovery evidence #1879', () => {
       frontierRef: 'frontier:1',
       environment: view.environment,
     };
-    expect(admitMaterializedViewReuse(view, context).recordId).toBe(
+    const request = { declaration: state, recovery: recovered, view, context };
+    expect(admitRecoveredMaterializedViewReuse(request).recordId).toBe(
       view.recordId
     );
     expect(() =>
-      admitMaterializedViewReuse(view, { ...context, rightsAllowed: false })
+      admitRecoveredMaterializedViewReuse({
+        ...request,
+        context: { ...context, rightsAllowed: false },
+      })
     ).toThrow(/rights/);
     expect(() =>
-      admitMaterializedViewReuse(view, {
-        ...context,
-        environment: { ...view.environment, rightsRef: 'rights:2' },
+      admitRecoveredMaterializedViewReuse({
+        ...request,
+        context: {
+          ...context,
+          environment: { ...view.environment, rightsRef: 'rights:2' },
+        },
       })
     ).toThrow(/policy|rights/);
+    const otherView = createMaterializedView({
+      ...Object.fromEntries(
+        Object.entries(view).filter(([key]) => key !== 'recordId')
+      ),
+      familyRef: 'other-family',
+    });
+    expect(() =>
+      admitRecoveredMaterializedViewReuse({ ...request, view: otherView })
+    ).toThrow(/exact materialized view/);
+    const invalidated = declaration(classification, {
+      scope,
+      invalidationRefs: ['invalidation:1'],
+      revalidationRefs: ['unresolved-reference:1'],
+    });
+    expect(() =>
+      admitRecoveredMaterializedViewReuse({
+        ...request,
+        declaration: invalidated,
+        recovery: recovery(invalidated, rebuilt),
+      })
+    ).toThrow(/independent revalidation/);
+    expect(() =>
+      admitRecoveredMaterializedViewReuse({
+        ...request,
+        context: { ...context, requireCurrent: false },
+      })
+    ).toThrow(/explicit current admission/);
   });
 });
 it('keeps documented JSON schemas identical to the executable proposed schemas', () => {

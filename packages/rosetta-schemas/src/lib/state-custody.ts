@@ -1,5 +1,10 @@
 import { canonicalTraceJson, traceHash } from './trace-normalization.js';
 import {
+  admitMaterializedViewReuse,
+  parseMaterializedView,
+  type MaterializedView,
+} from './materialized-view.js';
+import {
   compileEvidenceContract,
   evidenceRefSchema as ref,
   evidenceRefsSchema as refs,
@@ -384,3 +389,52 @@ export const createStateRecovery = (
   declaration: unknown
 ): StateRecovery =>
   createRecord(body, (input) => parseStateRecovery(input, declaration));
+
+/**
+ * Bounded conformance composition for an exact rebuilt view. Recovery evidence
+ * does not authenticate the referenced records or authorize current use. The
+ * consumer must supply its independently established current admission context.
+ * Unresolved custody invalidation requires the separate revalidation contract.
+ */
+export function admitRecoveredMaterializedViewReuse(input: {
+  declaration: unknown;
+  recovery: unknown;
+  view: unknown;
+  context: Parameters<typeof admitMaterializedViewReuse>[1];
+}): MaterializedView {
+  const state = parseStateCustody(input.declaration);
+  const recovery = parseStateRecovery(input.recovery, state);
+  const view = parseMaterializedView(input.view);
+  if (
+    state.classification.kind !== 'DERIVED' ||
+    recovery.result.kind !== 'REBUILT'
+  )
+    throw new Error('Current view reuse requires a declared rebuilt view.');
+  const recipe = view.environment.transformation.identity;
+  if (
+    state.classification.materializedViewRef !== view.recordId ||
+    state.artifact === null ||
+    state.artifact.ref !== view.artifact.ref ||
+    state.artifact.sha256 !== view.artifact.sha256 ||
+    state.classification.recipe.ref !== recipe.ref ||
+    state.classification.recipe.version !== recipe.version ||
+    state.scope.policyRef !== view.environment.policyRef ||
+    state.scope.rightsRef !== view.environment.rightsRef ||
+    state.scope.tenantRef !== view.environment.tenantRef ||
+    ![
+      view.source.frontier.frontierRef,
+      view.source.frontier.cursorRef,
+      view.source.frontier.snapshotRef,
+    ].includes(state.scope.frontierRef)
+  )
+    throw new Error(
+      'Recovered custody does not bind the exact materialized view.'
+    );
+  if (state.invalidationRefs.length)
+    throw new Error('Custody invalidation requires independent revalidation.');
+  if (input.context.requireCurrent !== true)
+    throw new Error(
+      'Recovered current view requires explicit current admission.'
+    );
+  return admitMaterializedViewReuse(view, input.context);
+}
