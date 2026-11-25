@@ -112,3 +112,13 @@ Observation. `CORE_DESCENT_AUDIT.json` contains the generated risk/remediation r
 `trace-kin-v1` owns public observable metric/result semantics for #1669, independently re-proven on FalkorDB by #1736. See [trace-kinematics-v1.md](trace-kinematics-v1.md). It has derived-projection descent and does not authorize hidden-memory interpretations or protected scoring.
 
 `trace.graphiti-selection.v1` and `trace.graphiti-projection.v1` retain the #1668 admission/support/rights boundary. #1737 proves the unchanged first-party Graphiti/Falkor successor as experimental derived interpretation. The accepted V0 compatibility split uses operational FalkorDB 6.0.1 and semantic FalkorDB 4.20.7; neither database nor donor becomes semantic authority. G15/#361/#1222 promotion and SSPL public-service review remain separate.
+
+## Candidate governed evidence Profiles
+
+The following are **proposed, fixture-only** contracts. The catalog is their discoverability and validation owner, not an admission or ratification record.
+
+- [Decision record v1](decision-record-v1.md) (#1875): governed extension; attributed immutable decision evidence and effective-state projection.
+- [Governance module v1](governance-module-v1.md) (#1876): governed extension; exact module metadata and owner-observed registry resolution.
+- [Bounded query result v1](bounded-query-result-v1.md) (#1877): derived projection; bounds, coverage, source/currentness evidence and continuation.
+
+All reuse Core identity and receipt references without creating new Core tile kinds or a new authority spine. Owner authentication, authorization and human semantic acceptance remain distinct from successful parsing.
