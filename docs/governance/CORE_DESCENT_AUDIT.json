@@ -539,6 +539,19 @@
       ]
     },
     {
+      "schemaId": "project.context.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/project-context-v1.md",
+        "sha256": "ddb4ab0a7613b7aed945badb48b31f5aaa7af3c2c9b495a38e430cb60c76bb61"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed Profile; accepted hierarchy vocabulary/topology, external reference resolution, authenticated closure, atomic publication and current rights remain owner gates."
+      ]
+    },
+    {
       "schemaId": "rosetta.action",
       "coreDescent": "core-primitive",
       "authority": {
