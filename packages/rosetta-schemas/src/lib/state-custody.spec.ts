@@ -398,7 +398,7 @@ describe('proposed state recovery evidence #1879', () => {
         frontier: {
           status: 'known',
           frontierRef: 'frontier:1',
-          cursorRef: null,
+          cursorRef: 'cursor:1',
           snapshotRef: null,
         },
       },
@@ -445,6 +445,12 @@ describe('proposed state recovery evidence #1879', () => {
     expect(admitRecoveredMaterializedViewReuse(request).recordId).toBe(
       view.recordId
     );
+    expect(() =>
+      admitRecoveredMaterializedViewReuse({
+        ...request,
+        context: { ...context, frontierRef: 'cursor:1' },
+      })
+    ).toThrow(/exact custody frontier/);
     expect(() =>
       admitRecoveredMaterializedViewReuse({
         ...request,

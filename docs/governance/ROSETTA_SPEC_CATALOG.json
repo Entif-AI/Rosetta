@@ -5668,7 +5668,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-          "sha256": "4672655640f465191fa0fde3750685e25e9108633a9217f4f7625b304806af08",
+          "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64",
           "availability": "checked-in"
         }
       ],
@@ -5680,7 +5680,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-          "sha256": "4672655640f465191fa0fde3750685e25e9108633a9217f4f7625b304806af08",
+          "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64",
           "availability": "checked-in"
         },
         {
@@ -5697,7 +5697,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/state-custody.spec.ts",
-          "sha256": "2df7c9be211d524a18f3d55264da88d857a753750efc7da8773109fe902e6ef4",
+          "sha256": "44a74d4cef29d7358084d7dfe88aa29c6ce1e5f21ddd1b40ea61039a6616225b",
           "availability": "checked-in"
         }
       ]
@@ -5746,7 +5746,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-          "sha256": "4672655640f465191fa0fde3750685e25e9108633a9217f4f7625b304806af08",
+          "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64",
           "availability": "checked-in"
         }
       ],
@@ -5758,7 +5758,7 @@
         },
         {
           "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-          "sha256": "4672655640f465191fa0fde3750685e25e9108633a9217f4f7625b304806af08",
+          "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64",
           "availability": "checked-in"
         },
         {
@@ -5775,7 +5775,7 @@
       "conformanceRefs": [
         {
           "path": "packages/rosetta-schemas/src/lib/state-custody.spec.ts",
-          "sha256": "2df7c9be211d524a18f3d55264da88d857a753750efc7da8773109fe902e6ef4",
+          "sha256": "44a74d4cef29d7358084d7dfe88aa29c6ce1e5f21ddd1b40ea61039a6616225b",
           "availability": "checked-in"
         }
       ]

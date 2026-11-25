@@ -436,5 +436,9 @@ export function admitRecoveredMaterializedViewReuse(input: {
     throw new Error(
       'Recovered current view requires explicit current admission.'
     );
+  // Distinct frontier, cursor and snapshot references are not interchangeable
+  // custody coordinates without an independently established equivalence.
+  if (input.context.frontierRef !== state.scope.frontierRef)
+    throw new Error('Consumer does not name the exact custody frontier.');
   return admitMaterializedViewReuse(view, input.context);
 }
