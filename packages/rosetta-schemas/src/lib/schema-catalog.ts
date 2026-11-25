@@ -276,6 +276,14 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     tests: ['packages/rosetta-schemas/src/lib/compiled-context.spec.ts'], validator: schemaId === 'compiled.context.v1' ? 'parseCompiledContext' : 'parseCompiledContextBlock'
   })),
   {
+    authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/projection-provenance-v1.md', 'packages/rosetta-schemas/docs/projection-provenance-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'view-integrity',
+    knownGaps: ['Proposed bounded support resolution; independently authenticated source, receipt, policy and identity owners and atomic release remain external.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'projection.provenance.v1', sourceIssues: ['#1221', '#1219', '#807', '#994', '#1295', '#1296', '#158', '#1056'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/projection-provenance.spec.ts'], validator: 'parseProjectionProvenance'
+  },
+  {
     authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/graph-view-v1.md', 'packages/rosetta-schemas/docs/graph-view-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'view-integrity',
