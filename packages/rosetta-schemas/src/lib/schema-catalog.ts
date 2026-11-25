@@ -284,6 +284,14 @@ const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
     tests: ['packages/rosetta-schemas/src/lib/graph-view.spec.ts'], validator: 'parseGraphView'
   },
   {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: [],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/tenancy-boundary-v1.md', 'packages/rosetta-schemas/docs/tenancy-boundary-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'tenancy-boundary',
+    knownGaps: ['Proposed Profile; accepted project/context scope bindings (#1786), reference resolution, independent current rights decisions, and actual consumer admission/non-enumeration enforcement remain owner gates.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'tenancy.boundary.v1', sourceIssues: ['#1883', '#1786'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/tenancy-boundary.spec.ts'], validator: 'parseTenancyBoundary'
+  },
+  {
     authorityTier: 'memory-context-cache', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/projection-adapters'],
     docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/materialized-view-v1.md', 'packages/rosetta-schemas/docs/materialized-view-v1.schema.json'],
     exposureStatus: 'downstream-contract', family: 'view-integrity',

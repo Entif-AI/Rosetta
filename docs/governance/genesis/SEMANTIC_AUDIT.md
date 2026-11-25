@@ -259,3 +259,7 @@ with #803, #1211 and #240; the audit does not reopen those owners.
 The #1667 `trace.projection.v1` exchange Profile is a derived projection of normalized trace/source evidence. Neo4j runtime storage and indexes are adapter mechanics; no Core/store authority is replaced. Five lifecycle dispositions and shared explicit request IDs remain source mechanics, without inferred causal edges.
 
 The #1669 `trace-kin-v1` observable metrics Profile is a derived projection. Candidate labels are bounded to client-visible representation dynamics, with a required serialized caveat and explicit reset/run/window criteria; no protected scoring, causal ordering or provider-memory authority is created.
+
+### Proposed hard isolation reference Profile (#1883)
+
+`tenancy.boundary.v1` is a fixture-only governed extension, not a Core kind or authorization engine. It composes Policy, Observation and Receipt references with an explicit isolation identity distinct from project context. The proposed [Profile](../../../packages/rosetta-schemas/docs/tenancy-boundary-v1.md) records outstanding #1786 composition, reference resolution and consumer enforcement gates.
