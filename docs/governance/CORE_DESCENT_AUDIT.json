@@ -1081,7 +1081,7 @@
       "coreDescent": "governed-extension",
       "authority": {
         "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-        "sha256": "ee4692d43e1824571c814b93c2d1a9e3ebdcc3dfb69a89f241335570ee385c0b"
+        "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -1094,7 +1094,7 @@
       "coreDescent": "governed-extension",
       "authority": {
         "path": "packages/rosetta-schemas/docs/state-custody-v1.md",
-        "sha256": "ee4692d43e1824571c814b93c2d1a9e3ebdcc3dfb69a89f241335570ee385c0b"
+        "sha256": "f4c251a242dd74c8353673c0601f5247c41bd4d28212c6988cc2fdf0f1c1fd64"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
