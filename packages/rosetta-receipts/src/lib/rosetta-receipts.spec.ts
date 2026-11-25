@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildTile } from '@entif-ai/rosetta-core';
+import { buildTile, verifyTileIntegrity, type TileEnvelope } from '@entif-ai/rosetta-core';
+import { createProjectionProvenance, classifyProjectionRevision, traceHash, validatePayload, type ProjectionProvenance, type ProvenanceAuthority } from '@entif-ai/rosetta-schemas';
+import { createProjectionProvenanceReceipt } from './projection-provenance-receipt.js';
 import { InMemoryTileStore } from '@entif-ai/rosetta-store';
 
 import {
@@ -22,6 +24,66 @@ import {
   type PromotionState,
   type PromotionTransitionKind
 } from './rosetta-receipts.js';
+
+describe('native projection provenance inspection receipts',()=>{
+  function fixture(){
+    const raw='source bytes',bytes=Buffer.from('projection bytes');
+    const source=buildTile('source.record',{metadataBlob:{},publicationStatus:'published',recordLocalId:'record',recordType:'text',sourceSystemId:'fixture',stableLocators:['urn:fixture:record']});
+    const manifestation=buildTile('source.manifestation',{accessRequirements:['scope'],byteHashes:{sha256:traceHash(raw)},manifestationId:'manifestation',manifestationKind:'text',mediaType:'text/plain',sourceRecordCid:source.cid,structureProfile:'text'});
+    const artifact=buildTile('source.canonical_artifact',{artifactId:'artifact',byteHash:traceHash(raw),contentFingerprint:'fingerprint',dedupe:{},normalizedText:raw,normalizedTextHash:traceHash(raw),pidFamily:[],provenanceRefs:{evaluationReceiptCid:'eval',fetchReceiptCid:'fetch',normalizationReceiptCid:'normalize'},revisionFingerprint:'rev',rightsScopes:['scope'],sourceManifestationCid:manifestation.cid,sourceRecordCid:source.cid});
+    const receipt=createReceipt({claims:[],digests:[],policyRefs:[],receiptType:'fixture.support',subjects:[{cid:artifact.cid}]});
+    const tiles=new Map<string,TileEnvelope>([source,manifestation,artifact,receipt].map(t=>[t.cid,t]));
+    const action=buildTile('rosetta.action',{actionId:'fixture.projection-inspection',intent:'Inspect bounded projection support',runCid:'fixture.run'});
+    const body:Omit<ProjectionProvenance,'recordId'>={
+      profile:{id:'projection.provenance.v1',version:'1.0.0'},projectionRef:'projection:1',revisionRef:'revision:1',materializedViewRef:'view:1',
+      kind:'vector-chunk',plane:'non-authoritative-recall',projectionSha256:traceHash(bytes.toString()),doctrineRef:'doctrine:1',policyRef:'policy',policyVersion:'1',transformRef:'transform',
+      support:[{sourceRecordCid:source.cid,sourceManifestationCid:manifestation.cid,artifactCid:artifact.cid,lineageRef:'lineage',scopeRef:'scope',policyRef:'policy',rightsRef:'rights',spans:[],receiptRefs:[receipt.cid]}],
+      replay:{kind:'rebuildable',sourceClosureRefs:[artifact.cid],operationalClosureRefs:[],reasonRefs:[]},identitySensitive:{classification:'ordinary',policyRef:null,authorizationRef:null},observedAt:'2026-01-01T00:00:00Z',predecessorRef:null,effectAuthority:'none'
+    };
+    let reads=0;
+    const authority:ProvenanceAuthority={maxProjectionBytes:100,maxArtifactBytes:100,maxSupportTiles:8,maxSupportTileBytes:32768,
+      authorize:()=>true,identityAuthorized:()=>true,current:()=>'current',policyCurrent:()=>true,resolveTile:cid=>tiles.get(cid),
+      readArtifactText:()=>{reads++;return raw;},verifyReceipt:(r,h)=>r.cid===receipt.cid&&h.artifactCid===artifact.cid,matchesProjection:()=>true,hold:'inactive'};
+    const record=createProjectionProvenance(body);
+    return {body,record,action,bytes,artifact,receipt,authority,reads:()=>reads};
+  }
+  it('emits an actual native receipt for resolved creation support without claiming effect authority',()=>{
+    const f=fixture();
+    const result=createProjectionProvenanceReceipt({operation:'create',action:f.action,record:f.record,projectionBytes:f.bytes,authority:f.authority});
+    expect(result.kind).toBe('rosetta.receipt');
+    expect(verifyTileIntegrity(result).ok).toBe(true);
+    expect(validatePayload(result.kind,result.payload).ok).toBe(true);
+    expect(result.payload.claims).toEqual([{claimType:'rrp:projection.provenance.creation',evidence:[f.artifact.cid,f.receipt.cid].sort().map(cid=>({cid})),statement:'Creation candidate has verified bounded support; no write performed.',verdict:'pass'}]);
+    expect(result.payload.subjects).toEqual([{cid:f.action.cid,role:'rrp:subject.step'}]);
+    expect(result.payload.digests.find(d=>d.of==='projection.provenance.body')).toEqual({alg:'sha256',digest:f.record.recordId,of:'projection.provenance.body'});
+  });
+  it('preserves exact predecessor and revalidation evidence when policy changes without byte changes',()=>{
+    const f=fixture(),next=createProjectionProvenance({...f.body,revisionRef:'revision:2',predecessorRef:f.record.recordId,policyVersion:'2',observedAt:'2026-01-02T00:00:00Z'});
+    expect(classifyProjectionRevision(f.record,f.record)).toBe('EXACT_REPLAY');
+    expect(classifyProjectionRevision(f.record,next)).toBe('REVALIDATION_REQUIRED');
+    const receipt=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:f.record,projectionBytes:f.bytes,authority:f.authority});
+    expect(receipt.payload.claims[0].claimType).toBe('rrp:projection.provenance.rebuild');
+    expect(receipt.payload.claims[0].verdict).toBe('pass');
+    expect(receipt.payload.digests.find(d=>d.of==='projection.predecessor.body')).toEqual({alg:'sha256',digest:f.record.recordId,of:'projection.predecessor.body'});
+    const rejected=createProjectionProvenanceReceipt({operation:'rebuild',action:f.action,record:next,previous:next,projectionBytes:f.bytes,authority:f.authority});
+    expect(rejected.payload.claims[0].claimType).toBe('rrp:projection.provenance.rejection');
+    expect(rejected.payload.claims[0].evidence).toEqual([]);
+  });
+  it('records denied inspection and required invalidation without source metadata; safe hold only admits read-only inspection',()=>{
+    const f=fixture(),base={action:f.action,record:f.record,projectionBytes:f.bytes};
+    const denied=createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,authorize:()=>false}});
+    expect(denied.payload.claims[0]).toEqual({claimType:'rrp:projection.provenance.rejection',evidence:[],statement:'Projection candidate unavailable; no write performed.',verdict:'deny'});
+    expect(JSON.stringify(denied)).not.toContain(f.artifact.cid);
+    expect(f.reads()).toBe(0);
+    const invalidation=createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,current:()=>'retracted'}});
+    expect(invalidation.payload.claims[0].claimType).toBe('rrp:projection.provenance.invalidation');
+    expect(invalidation.payload.claims[0].evidence).toEqual([]);
+    const malformed=createProjectionProvenanceReceipt({...base,record:{...f.record,recordId:'0'.repeat(64)},operation:'inspect-current',authority:f.authority});
+    expect(malformed.payload.claims[0].claimType).toBe('rrp:projection.provenance.rejection');
+    expect(createProjectionProvenanceReceipt({...base,operation:'create',authority:{...f.authority,hold:'active'}}).payload.claims[0].verdict).toBe('deny');
+    expect(createProjectionProvenanceReceipt({...base,operation:'inspect-current',authority:{...f.authority,hold:'active'}}).payload.claims[0].claimType).toBe('rrp:projection.provenance.inspection');
+  });
+});
 
 describe('minimum receipt lifecycle contract', () => {
   function fixture(outcome: 'pass' | 'fail' | 'partial' | 'deny' | 'blocked-precondition' | 'unknown') {

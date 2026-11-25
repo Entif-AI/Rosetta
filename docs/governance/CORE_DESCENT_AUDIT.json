@@ -539,6 +539,19 @@
       ]
     },
     {
+      "schemaId": "projection.provenance.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/projection-provenance-v1.md",
+        "sha256": "0a2f8814d969ed02a6d8df5f19f96ee2ef2a31de6986055cac27f540d077056a"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed bounded support resolution; independently authenticated source, receipt, policy and identity owners and atomic release remain external."
+      ]
+    },
+    {
       "schemaId": "rosetta.action",
       "coreDescent": "core-primitive",
       "authority": {
