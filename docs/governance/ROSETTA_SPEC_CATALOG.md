@@ -2,7 +2,7 @@
 
 Projection only. Regenerate with `pnpm exec nx sync`; validate with `pnpm exec nx sync:check`.
 
-9 suite documents, 4 checked-in Packs, 69 schema contracts.
+9 suite documents, 5 checked-in Packs, 70 schema contracts.
 
 - ROCK-3001: [Standards Track (Normative)](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) (3.0.0-suite-draft)
 - ROCK-3002: [Standards Track (Normative)](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) (3.0.0-suite-draft)
@@ -15,6 +15,7 @@ Projection only. Regenerate with `pnpm exec nx sync`; validate with `pnpm exec n
 - ROCK-3099: [Informative (process)](../../docs/RFCs/Rosetta%20v3.0.0%20Core%20Spine%20Specification.md) (3.0.0-suite-draft)
 - ROCK-3111-C: [SchemaPack](../../packs/rrp/pack.json) (draft 0.1.0)
 - ROCK-3010-SALIENCE-EVALUATION: [SchemaPack](../../packs/schema-pack-evaluation-profiles/pack.json) (draft 0.1.0)
+- ROCK-EVIDENCE-INDEPENDENCE-PROPOSAL: [SchemaPack](../../packs/schema-pack-evidence-independence/pack.json) (draft 0.1.0)
 - PACK-SOURCE-SUBSTRATE: [StdPack](../../packs/stdpack-source-substrate/pack.json) (draft 0.1.0)
 - PACK-SOURCE-TAXONOMY: [VocabPack](../../packs/vocabpack-source-taxonomy/pack.json) (draft 0.1.0)
 - rrp.promotion-state.v1: [Profile](../../packs/rrp/schema/promotion-state.schema.json) (1.0.0)

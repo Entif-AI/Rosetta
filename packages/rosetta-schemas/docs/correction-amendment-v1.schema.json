@@ -1,120 +1,89 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "urn:rosetta:correction.amendment.v1",
-  "title": "Bounded correction amendment and failure abstraction v1",
-  "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "profile",
-    "amendmentRef",
-    "recordId",
-    "predecessorRef",
-    "observedAt",
-    "failureSubject",
-    "correctedArtifact",
-    "mechanism",
-    "affectedClasses",
-    "applicability",
-    "uncertainty",
-    "disclosure",
-    "authentication",
-    "evaluation",
-    "supportingSources",
-    "provenanceRefs",
-    "receiptRefs",
-    "impactRefs",
-    "revalidationRefs"
-  ],
-  "properties": {
-    "profile": {
+  "title": "Separate correction amendment, local assessment and local adoption records v1",
+  "oneOf": [
+    {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "id",
-        "version"
+        "profile",
+        "recordId",
+        "predecessorRef",
+        "observedAt",
+        "kind",
+        "amendmentRef",
+        "revisionKind",
+        "failureSubject",
+        "correctedArtifact",
+        "mechanism",
+        "affectedClasses",
+        "applicability",
+        "uncertainty",
+        "disclosure",
+        "authentication",
+        "supportingSources",
+        "provenanceRefs",
+        "receiptRefs",
+        "impactRefs",
+        "revalidationRefs",
+        "replacementRefs"
       ],
       "properties": {
-        "id": {
-          "const": "correction.amendment.v1"
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "correction.amendment.v1"
+            },
+            "version": {
+              "const": "1.0.0"
+            }
+          }
         },
-        "version": {
-          "const": "1.0.0"
-        }
-      }
-    },
-    "amendmentRef": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 2048,
-      "pattern": "\\S"
-    },
-    "recordId": {
-      "type": "string",
-      "pattern": "^[a-f0-9]{64}$"
-    },
-    "predecessorRef": {
-      "anyOf": [
-        {
+        "recordId": {
           "type": "string",
-          "minLength": 1,
-          "maxLength": 2048,
-          "pattern": "\\S"
+          "pattern": "^[a-f0-9]{64}$"
         },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "observedAt": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "failureSubject": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "ref",
-        "version",
-        "cid"
-      ],
-      "properties": {
-        "ref": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 2048,
-          "pattern": "\\S"
-        },
-        "version": {
+        "predecessorRef": {
           "anyOf": [
             {
               "type": "string",
-              "minLength": 1,
-              "maxLength": 2048,
-              "pattern": "\\S"
+              "pattern": "^[a-f0-9]{64}$"
             },
             {
               "type": "null"
             }
           ]
         },
-        "cid": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 2048,
-              "pattern": "\\S"
-            },
-            {
-              "type": "null"
-            }
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "const": "amendment"
+        },
+        "amendmentRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "revisionKind": {
+          "enum": [
+            "initial",
+            "refinement",
+            "scope-narrowed",
+            "retraction",
+            "supersession"
           ]
-        }
-      }
-    },
-    "correctedArtifact": {
-      "anyOf": [
-        {
+        },
+        "failureSubject": {
           "type": "object",
           "additionalProperties": false,
           "required": [
@@ -157,76 +126,100 @@
             }
           }
         },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "mechanism": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "ref",
-        "version",
-        "cid"
-      ],
-      "properties": {
-        "ref": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 2048,
-          "pattern": "\\S"
-        },
-        "version": {
+        "correctedArtifact": {
           "anyOf": [
             {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 2048,
-              "pattern": "\\S"
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ref",
+                "version",
+                "cid"
+              ],
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "version": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "cid": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048,
+                      "pattern": "\\S"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
             },
             {
               "type": "null"
             }
           ]
         },
-        "cid": {
-          "anyOf": [
-            {
+        "mechanism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ref",
+            "version",
+            "cid"
+          ],
+          "properties": {
+            "ref": {
               "type": "string",
               "minLength": 1,
               "maxLength": 2048,
               "pattern": "\\S"
             },
-            {
-              "type": "null"
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "cid": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
-          ]
-        }
-      }
-    },
-    "affectedClasses": {
-      "type": "array",
-      "maxItems": 256,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 2048,
-        "pattern": "\\S"
-      },
-      "minItems": 1
-    },
-    "applicability": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "scopeRefs",
-        "constraintRefs",
-        "contextRefs"
-      ],
-      "properties": {
-        "scopeRefs": {
+          }
+        },
+        "affectedClasses": {
           "type": "array",
           "maxItems": 256,
           "uniqueItems": true,
@@ -238,86 +231,212 @@
           },
           "minItems": 1
         },
-        "constraintRefs": {
-          "type": "array",
-          "maxItems": 256,
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 2048,
-            "pattern": "\\S"
-          }
-        },
-        "contextRefs": {
-          "type": "array",
-          "maxItems": 256,
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 2048,
-            "pattern": "\\S"
-          }
-        }
-      }
-    },
-    "uncertainty": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "assessmentRef",
-        "unresolvedRefs"
-      ],
-      "properties": {
-        "assessmentRef": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 2048,
-              "pattern": "\\S"
+        "applicability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "scopeRefs",
+            "constraintRefs",
+            "contextRefs"
+          ],
+          "properties": {
+            "scopeRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              "minItems": 1
             },
-            {
-              "type": "null"
+            "constraintRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            },
+            "contextRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
             }
-          ]
+          }
         },
-        "unresolvedRefs": {
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assessmentRef",
+            "unresolvedRefs"
+          ],
+          "properties": {
+            "assessmentRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unresolvedRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            }
+          }
+        },
+        "disclosure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "audience",
+            "supportPosture",
+            "policyRefs"
+          ],
+          "properties": {
+            "audience": {
+              "enum": [
+                "local",
+                "exchange"
+              ]
+            },
+            "supportPosture": {
+              "enum": [
+                "reference-disclosed",
+                "receipt-only"
+              ]
+            },
+            "policyRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              },
+              "minItems": 1
+            }
+          }
+        },
+        "authentication": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state",
+            "receiptRefs"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "verified",
+                "unverified",
+                "unknown"
+              ]
+            },
+            "receiptRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            }
+          }
+        },
+        "supportingSources": {
           "type": "array",
           "maxItems": 256,
-          "uniqueItems": true,
           "items": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 2048,
-            "pattern": "\\S"
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "lineageRef"
+            ],
+            "properties": {
+              "source": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "ref",
+                  "version",
+                  "cid"
+                ],
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "\\S"
+                  },
+                  "version": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cid": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineageRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            }
           }
-        }
-      }
-    },
-    "disclosure": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "audience",
-        "supportPosture",
-        "policyRefs"
-      ],
-      "properties": {
-        "audience": {
-          "enum": [
-            "local",
-            "exchange"
-          ]
         },
-        "supportPosture": {
-          "enum": [
-            "reference-disclosed",
-            "receipt-only"
-          ]
-        },
-        "policyRefs": {
+        "provenanceRefs": {
           "type": "array",
           "maxItems": 256,
           "uniqueItems": true,
@@ -328,23 +447,6 @@
             "pattern": "\\S"
           },
           "minItems": 1
-        }
-      }
-    },
-    "authentication": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "state",
-        "receiptRefs"
-      ],
-      "properties": {
-        "state": {
-          "enum": [
-            "verified",
-            "unverified",
-            "unknown"
-          ]
         },
         "receiptRefs": {
           "type": "array",
@@ -356,28 +458,163 @@
             "maxLength": 2048,
             "pattern": "\\S"
           }
+        },
+        "impactRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "revalidationRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
+        },
+        "replacementRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          }
         }
       }
     },
-    "evaluation": {
+    {
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "profile",
+        "recordId",
+        "predecessorRef",
+        "observedAt",
+        "kind",
+        "assessmentRef",
+        "amendmentRecordId",
         "actorRef",
+        "method",
         "contextRef",
-        "disposition",
+        "applicability",
         "evidenceRefs",
+        "supportingSources",
         "independenceAssessmentRefs",
         "challengeRefs",
         "refinementRefs",
-        "replacementRefs"
+        "uncertainty",
+        "reasonRefs",
+        "receiptRefs"
       ],
       "properties": {
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "correction.amendment.v1"
+            },
+            "version": {
+              "const": "1.0.0"
+            }
+          }
+        },
+        "recordId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "predecessorRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "const": "assessment"
+        },
+        "assessmentRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "amendmentRecordId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
         "actorRef": {
           "type": "string",
           "minLength": 1,
           "maxLength": 2048,
           "pattern": "\\S"
+        },
+        "method": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ref",
+            "version",
+            "cid"
+          ],
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "cid": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
         },
         "contextRef": {
           "type": "string",
@@ -385,20 +622,11 @@
           "maxLength": 2048,
           "pattern": "\\S"
         },
-        "disposition": {
+        "applicability": {
           "enum": [
-            "RECEIVED_UNEVALUATED",
-            "LOCALLY_CORROBORATED",
-            "LOCALLY_REFUTED",
-            "REFINED",
-            "SCOPE_NARROWED",
-            "DISPUTED",
-            "SUPERSEDED",
-            "RETRACTED",
-            "INAPPLICABLE_LOCAL_CONTEXT",
-            "INSUFFICIENT_INDEPENDENT_EVIDENCE",
-            "QUARANTINED",
-            "UNKNOWN"
+            "applicable",
+            "inapplicable",
+            "unknown"
           ]
         },
         "evidenceRefs": {
@@ -410,6 +638,69 @@
             "minLength": 1,
             "maxLength": 2048,
             "pattern": "\\S"
+          }
+        },
+        "supportingSources": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "lineageRef"
+            ],
+            "properties": {
+              "source": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "ref",
+                  "version",
+                  "cid"
+                ],
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2048,
+                    "pattern": "\\S"
+                  },
+                  "version": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cid": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2048,
+                        "pattern": "\\S"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineageRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            }
           }
         },
         "independenceAssessmentRefs": {
@@ -445,7 +736,53 @@
             "pattern": "\\S"
           }
         },
-        "replacementRefs": {
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assessmentRef",
+            "unresolvedRefs"
+          ],
+          "properties": {
+            "assessmentRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unresolvedRefs": {
+              "type": "array",
+              "maxItems": 256,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "pattern": "\\S"
+              }
+            }
+          }
+        },
+        "reasonRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "receiptRefs": {
           "type": "array",
           "maxItems": 256,
           "uniqueItems": true,
@@ -458,61 +795,148 @@
         }
       }
     },
-    "supportingSources": {
-      "type": "array",
-      "maxItems": 256,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "source",
-          "lineageRef"
-        ],
-        "properties": {
-          "source": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "ref",
-              "version",
-              "cid"
-            ],
-            "properties": {
-              "ref": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 2048,
-                "pattern": "\\S"
-              },
-              "version": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 2048,
-                    "pattern": "\\S"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "cid": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 2048,
-                    "pattern": "\\S"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "recordId",
+        "predecessorRef",
+        "observedAt",
+        "kind",
+        "adoptionRef",
+        "amendmentRecordId",
+        "assessmentRecordId",
+        "contextRef",
+        "disposition",
+        "policyRefs",
+        "authorityRefs",
+        "reasonRefs",
+        "receiptRefs"
+      ],
+      "properties": {
+        "profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "const": "correction.amendment.v1"
+            },
+            "version": {
+              "const": "1.0.0"
             }
+          }
+        },
+        "recordId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "predecessorRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "const": "adoption"
+        },
+        "adoptionRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "amendmentRecordId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "assessmentRecordId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contextRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "disposition": {
+          "enum": [
+            "RECEIVED_UNEVALUATED",
+            "LOCALLY_CORROBORATED",
+            "LOCALLY_REFUTED",
+            "REFINED",
+            "SCOPE_NARROWED",
+            "DISPUTED",
+            "SUPERSEDED",
+            "RETRACTED",
+            "INAPPLICABLE_LOCAL_CONTEXT",
+            "INSUFFICIENT_INDEPENDENT_EVIDENCE",
+            "QUARANTINED",
+            "UNKNOWN"
+          ]
+        },
+        "policyRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
           },
-          "lineageRef": {
+          "minItems": 1
+        },
+        "authorityRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "reasonRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "receiptRefs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
             "type": "string",
             "minLength": 1,
             "maxLength": 2048,
@@ -520,51 +944,6 @@
           }
         }
       }
-    },
-    "provenanceRefs": {
-      "type": "array",
-      "maxItems": 256,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 2048,
-        "pattern": "\\S"
-      },
-      "minItems": 1
-    },
-    "receiptRefs": {
-      "type": "array",
-      "maxItems": 256,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 2048,
-        "pattern": "\\S"
-      }
-    },
-    "impactRefs": {
-      "type": "array",
-      "maxItems": 256,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 2048,
-        "pattern": "\\S"
-      }
-    },
-    "revalidationRefs": {
-      "type": "array",
-      "maxItems": 256,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 2048,
-        "pattern": "\\S"
-      }
     }
-  }
+  ]
 }

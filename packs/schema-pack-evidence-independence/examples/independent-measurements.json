@@ -1,0 +1,86 @@
+{
+  "profile": {
+    "id": "evidence.independence.v1",
+    "version": "1.0.0"
+  },
+  "assessmentRef": "assessment:measurements",
+  "supersedesRef": null,
+  "observedAt": "2026-01-01T00:00:00Z",
+  "methodRef": "method:declared-lineage-v1",
+  "scope": {
+    "kind": "pair",
+    "members": [
+      "a",
+      "b"
+    ]
+  },
+  "subjects": [
+    {
+      "id": "a",
+      "record": {
+        "ref": "record:a",
+        "version": "1",
+        "cid": null
+      },
+      "manifestation": {
+        "ref": "manifestation:a",
+        "version": "1",
+        "cid": "digest:a"
+      },
+      "ancestry": "complete",
+      "origin": "original",
+      "evidenceRefs": [
+        "evidence:a"
+      ]
+    },
+    {
+      "id": "b",
+      "record": {
+        "ref": "record:b",
+        "version": "1",
+        "cid": null
+      },
+      "manifestation": {
+        "ref": "manifestation:b",
+        "version": "1",
+        "cid": "digest:b"
+      },
+      "ancestry": "complete",
+      "origin": "original",
+      "evidenceRefs": [
+        "evidence:b"
+      ]
+    }
+  ],
+  "edges": [],
+  "declarations": [
+    {
+      "members": [
+        "a",
+        "b"
+      ],
+      "kind": "independent-origins",
+      "evidenceRefs": [
+        "evidence:independent-measurements"
+      ]
+    }
+  ],
+  "frontier": {
+    "ref": "frontier:1",
+    "coverage": "complete",
+    "unresolvedRefs": [],
+    "evidenceRefs": [
+      "receipt:ancestry"
+    ]
+  },
+  "explanationRefs": [
+    "evidence:explanation"
+  ],
+  "correctionRefs": [],
+  "revalidationRefs": [],
+  "receiptRefs": [
+    "receipt:assessment"
+  ],
+  "outcome": "INDEPENDENT",
+  "recordId": "6485d72f3cda7be5e34f70cde7cfcb5dcff9fec102dc3a5468715f7535a1d6a3"
+}
