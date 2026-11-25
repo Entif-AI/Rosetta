@@ -127,6 +127,19 @@
       ]
     },
     {
+      "schemaId": "correction.amendment.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/correction-amendment-v1.md",
+        "sha256": "9bb1bb91a648b64c28d20a8091867057d2f791c2e5a0d38452c465be9a452f6a"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed bounded representation only; authentication, independent evidence, disclosure rights, local adoption, and promotion require the respective governing authorities."
+      ]
+    },
+    {
       "schemaId": "counterfactual.evaluation.v1",
       "coreDescent": "core-tile-profile",
       "authority": {
