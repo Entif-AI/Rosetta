@@ -140,6 +140,19 @@
       ]
     },
     {
+      "schemaId": "decision.record.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/decision-record-v1.md",
+        "sha256": "ba1e982525e916603eead026d6ee05879690f9c668b8701d01aa21a68ba80e25"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects."
+      ]
+    },
+    {
       "schemaId": "engineering.lifecycle-source.v1",
       "coreDescent": "implementation-local",
       "authority": {
@@ -475,6 +488,19 @@
       ]
     },
     {
+      "schemaId": "governance.module.v1",
+      "coreDescent": "governed-extension",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/governance-module-v1.md",
+        "sha256": "fb71574ced549cd6739eb1b3afdd5e594bda200bd7633d9cc7f522f0059f9210"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects."
+      ]
+    },
+    {
       "schemaId": "graph.view.v1",
       "coreDescent": "derived-projection",
       "authority": {
@@ -536,6 +562,19 @@
       "review": "Classification reviewed against owning contract.",
       "knownGaps": [
         "Metadata identity and explicit currency admission do not authenticate artifacts, resolve current rights or implement cache/query/refresh policy."
+      ]
+    },
+    {
+      "schemaId": "query.result.v1",
+      "coreDescent": "derived-projection",
+      "authority": {
+        "path": "packages/rosetta-schemas/docs/bounded-query-result-v1.md",
+        "sha256": "793fecbb5268737d9d627a1bd8a7b6e043851971c737a2be8063085f847b8ac0"
+      },
+      "findings": [],
+      "review": "Classification reviewed against owning contract.",
+      "knownGaps": [
+        "Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects."
       ]
     },
     {

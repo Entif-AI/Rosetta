@@ -251,6 +251,30 @@ const AGENTIC_MESSAGE_CATALOG_ENTRIES = Object.entries(AGENTIC_MESSAGE_TYPE_PROF
 );
 
 const BOUNDARY_CATALOG_ENTRIES: SchemaCatalogSourceEntry[] = [
+  {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/rosetta-schemas'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/decision-record-v1.md', 'packages/rosetta-schemas/docs/decision-record-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'decision-evidence',
+    knownGaps: ['Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'decision.record.v1', sourceIssues: ['#1875'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/governed-evidence-profiles.spec.ts'], validator: 'parseDecisionRecord'
+  },
+  {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/rosetta-schemas'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/governance-module-v1.md', 'packages/rosetta-schemas/docs/governance-module-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'governance-registry',
+    knownGaps: ['Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'governance.module.v1', sourceIssues: ['#1876'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/governed-evidence-profiles.spec.ts'], validator: 'parseGovernanceModule'
+  },
+  {
+    authorityTier: 'governance-admission', boundaryKind: 'owned-schema', consumerPackages: ['@entif-ai/rosetta-schemas'],
+    docs: [AUTHORITY_MAP, 'packages/rosetta-schemas/docs/bounded-query-result-v1.md', 'packages/rosetta-schemas/docs/bounded-query-result-v1.schema.json'],
+    exposureStatus: 'fixture-only', family: 'query-result',
+    knownGaps: ['Proposed pending human ratification; structural conformance and declared owner observations do not authenticate authority, confer rights, or authorize effects.'],
+    ownerPackage: '@entif-ai/rosetta-schemas', rfcPrdAnchors: [ROSETTA_CORE_SPEC], schemaId: 'query.result.v1', sourceIssues: ['#1877'], sourcePrs: [],
+    tests: ['packages/rosetta-schemas/src/lib/governed-evidence-profiles.spec.ts'], validator: 'parseBoundedQueryResult'
+  },
   ...(['behavioral.requirement.v1', 'behavioral.capability.v1', 'behavioral.comparison.v1'] as const).map(schemaId => ({
     authorityTier: 'governance-admission' as const,
     boundaryKind: 'owned-schema' as const,
