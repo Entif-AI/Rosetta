@@ -9,10 +9,12 @@
     "profile",
     "queryRef",
     "domainProfileRef",
+    "admittedUniverseRef",
     "authority",
     "source",
     "bounds",
     "observed",
+    "ordering",
     "coverage",
     "termination",
     "candidates",
@@ -32,10 +34,7 @@
     "profile": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "version"
-      ],
+      "required": ["id", "version"],
       "properties": {
         "id": {
           "const": "query.result.v1"
@@ -52,6 +51,12 @@
       "pattern": "\\S"
     },
     "domainProfileRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048,
+      "pattern": "\\S"
+    },
+    "admittedUniverseRef": {
       "type": "string",
       "minLength": 1,
       "maxLength": 2048,
@@ -103,20 +108,12 @@
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "identity",
-        "materializationRef",
-        "frontierRef"
-      ],
+      "required": ["identity", "materializationRef", "frontierRef"],
       "properties": {
         "identity": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "ref",
-            "version",
-            "cid"
-          ],
+          "required": ["ref", "version", "cid"],
           "properties": {
             "ref": {
               "type": "string",
@@ -183,12 +180,7 @@
     "bounds": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "results",
-        "bytes",
-        "tokens",
-        "traversals"
-      ],
+      "required": ["results", "bytes", "tokens", "traversals"],
       "properties": {
         "results": {
           "anyOf": [
@@ -243,12 +235,7 @@
     "observed": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "results",
-        "bytes",
-        "tokens",
-        "traversals"
-      ],
+      "required": ["results", "bytes", "tokens", "traversals"],
       "properties": {
         "results": {
           "anyOf": [
@@ -300,13 +287,27 @@
         }
       }
     },
+    "ordering": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basisRef", "direction", "tieBreak"],
+      "properties": {
+        "basisRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "\\S"
+        },
+        "direction": {
+          "enum": ["ASC", "DESC"]
+        },
+        "tieBreak": {
+          "enum": ["CANDIDATE_REF_LEXICAL_ASC"]
+        }
+      }
+    },
     "coverage": {
-      "enum": [
-        "COMPLETE",
-        "PARTIAL",
-        "UNKNOWN",
-        "UNAVAILABLE"
-      ]
+      "enum": ["COMPLETE", "PARTIAL", "UNKNOWN", "UNAVAILABLE"]
     },
     "termination": {
       "enum": [
@@ -330,7 +331,8 @@
           "sourceRef",
           "locatorRefs",
           "matchBasisRef",
-          "evaluationRefs"
+          "evaluationRefs",
+          "orderKeyRef"
         ],
         "properties": {
           "candidateRef": {
@@ -372,6 +374,12 @@
               "maxLength": 2048,
               "pattern": "\\S"
             }
+          },
+          "orderKeyRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048,
+            "pattern": "\\S"
           }
         }
       },
@@ -393,9 +401,12 @@
             "purposeRef",
             "domainProfileRef",
             "admissionRef",
+            "admittedUniverseRef",
             "sourceIdentity",
             "materializationRef",
-            "bounds"
+            "bounds",
+            "ordering",
+            "exclusiveAfter"
           ],
           "properties": {
             "cursorRef": {
@@ -452,14 +463,16 @@
               "maxLength": 2048,
               "pattern": "\\S"
             },
+            "admittedUniverseRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048,
+              "pattern": "\\S"
+            },
             "sourceIdentity": {
               "type": "object",
               "additionalProperties": false,
-              "required": [
-                "ref",
-                "version",
-                "cid"
-              ],
+              "required": ["ref", "version", "cid"],
               "properties": {
                 "ref": {
                   "type": "string",
@@ -511,12 +524,7 @@
             "bounds": {
               "type": "object",
               "additionalProperties": false,
-              "required": [
-                "results",
-                "bytes",
-                "tokens",
-                "traversals"
-              ],
+              "required": ["results", "bytes", "tokens", "traversals"],
               "properties": {
                 "results": {
                   "anyOf": [
@@ -567,6 +575,44 @@
                   ]
                 }
               }
+            },
+            "ordering": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["basisRef", "direction", "tieBreak"],
+              "properties": {
+                "basisRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "direction": {
+                  "enum": ["ASC", "DESC"]
+                },
+                "tieBreak": {
+                  "enum": ["CANDIDATE_REF_LEXICAL_ASC"]
+                }
+              }
+            },
+            "exclusiveAfter": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["orderKeyRef", "candidateRef"],
+              "properties": {
+                "orderKeyRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                },
+                "candidateRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048,
+                  "pattern": "\\S"
+                }
+              }
             }
           }
         },
@@ -576,11 +622,7 @@
       ]
     },
     "currentness": {
-      "enum": [
-        "CURRENT_FOR_DECLARED_FRONTIER",
-        "STALE",
-        "UNKNOWN"
-      ]
+      "enum": ["CURRENT_FOR_DECLARED_FRONTIER", "STALE", "UNKNOWN"]
     },
     "replayRef": {
       "anyOf": [

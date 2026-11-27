@@ -144,7 +144,7 @@
       "coreDescent": "governed-extension",
       "authority": {
         "path": "packages/rosetta-schemas/docs/decision-record-v1.md",
-        "sha256": "16df821feaefda1b5f7de4389aec0274d83c067fc84648127d2c60f0989360b7"
+        "sha256": "ba1e982525e916603eead026d6ee05879690f9c668b8701d01aa21a68ba80e25"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -492,7 +492,7 @@
       "coreDescent": "governed-extension",
       "authority": {
         "path": "packages/rosetta-schemas/docs/governance-module-v1.md",
-        "sha256": "d13f4bb4108c1ec7a5caa41216f65abe7e55ef6d89b54c53aa4eabc7f4845cf0"
+        "sha256": "fb71574ced549cd6739eb1b3afdd5e594bda200bd7633d9cc7f522f0059f9210"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
@@ -569,7 +569,7 @@
       "coreDescent": "derived-projection",
       "authority": {
         "path": "packages/rosetta-schemas/docs/bounded-query-result-v1.md",
-        "sha256": "2cab2b8bf2d5e8f5cc2cfb48be06fc7eb0dab308875880309b26654e75b02751"
+        "sha256": "793fecbb5268737d9d627a1bd8a7b6e043851971c737a2be8063085f847b8ac0"
       },
       "findings": [],
       "review": "Classification reviewed against owning contract.",
